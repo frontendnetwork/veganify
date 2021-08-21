@@ -16,7 +16,7 @@
      <script>
       function onScanSuccess(decodedText, decodedResult) {
     console.log(`Code scanned = ${decodedText}`, decodedResult);
-    window.location.replace(`https://cldsi.de/test/script.php?barcode=${decodedText}`);
+    window.location.replace(`https://cldsi.de/test/script.php?barcode=${decodedText});
 }
 var html5QrcodeScanner = new Html5QrcodeScanner(
   "qr-reader", { fps: 10, qrbox: 250 });
