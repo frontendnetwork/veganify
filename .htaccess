@@ -1,0 +1,28 @@
+RewriteBase /
+<ifModule mod_headers.c>
+    Header set Access-Control-Allow-Origin: https://analytics.vegancheck.me
+</ifModule>
+
+# Dateiendungen ausblenden
+RewriteEngine on
+
+# Redirect all to index
+FallbackResource /index.php
+
+# Redirect "datenschutz" to "privacy-policy"
+RewriteRule datenschutz privacy-policy [L,R=301]
+
+# UTF-8 Endcoding
+AddDefaultCharset UTF-8
+
+# Remove .php/.html-filename
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
+ErrorDocument 404 /404.html
