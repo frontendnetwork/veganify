@@ -1,0 +1,63 @@
+// Selection color
+::-moz-selection {
+    background-color: #222;
+    color: #fff
+}
+
+::selection {
+    background-color: #222;
+    color: #fff
+}
+
+// Define main body
+body {
+    font-family: var(--body-font);
+    font-weight: var(--body-fontweight);
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-size: var(--body-fontsize);
+    text-align: center;
+    word-wrap:break-word
+}
+
+.non-vegan {
+    color: var(--non-vegan);
+}
+
+.vegan {
+    color: var(--vegan);
+}
+
+.unknown {
+    color: var(--unknown);
+}
+
+a {
+    text-decoration: none;
+    color: #1dd1a1;
+    font-weight: var(--semibold-fontweight);
+}
+
+input[type=text]{
+    width: 65%;
+    background: #576574;
+    color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+input[type=submit]{
+    width: 25%;
+    background: #1dd1a1;
+    color: #fff;
+    padding: 1rem;
+    border-radius: .5rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: var(--semibold-fontweight)
+}

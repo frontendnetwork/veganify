@@ -1,0 +1,17 @@
+.container {
+    padding-top: 150px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.container img {
+    width: 3rem;
+    height: 3rem;
+}
+
+#result {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: var(--body-h2-fontsize);
+    font-weight: var(--semibold-fontweight);
+}

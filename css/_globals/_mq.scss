@@ -1,0 +1,19 @@
+@media only screen and (max-width:48rem) {
+    .container {
+        padding-top: 100px;
+        width: 90%;
+    }
+
+    input[type=text]{
+        width: 90%;
+    }
+
+    input[type=submit]{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,8 @@
+// Import scss structure
+@import '_globals/normalize', '_globals/fonts', '_globals/roots', '_globals/body';
+
+// Import scss pages
+@import '_front/animate', '_front/frontpage';
+
+// Import mqs
+@import '_globals/mq';
