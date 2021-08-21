@@ -4,23 +4,19 @@
     <title>Is it Vegan?</title>
     <meta charset="UTF-8">
     <style></style>
+    <script src='js/jquery.min.js'></script>
   </head>
 
   <body>
     <div id="container">
       <h1>VeganCheck.me</h1>
 
-     <div id="qr-reader" style="width: 600px"></div>
+    <form action="script.php">
+  <input type="text" id="barcode" name="barcode" placeholder="Enter Barcode">
+  <input type="submit" name="submit" value="Check if it is Vegan">
+</form>
 
-     <script src="js/html5-qrcode.min.js"></script>
-     <script>
-      function onScanSuccess(decodedText, decodedResult) {
-    console.log(`Code scanned = ${decodedText}`, decodedResult);
-    window.location.replace(`https://cldsi.de/test/script.php?barcode=${decodedText});
-}
-var html5QrcodeScanner = new Html5QrcodeScanner(
-  "qr-reader", { fps: 10, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);
-     </script>
+<div id="result"></div>
+<script src="js/submit.js"></script>
   </body>
 </html>
