@@ -1,2 +1,6 @@
 
 .DS_Store
+privacy-policy.php
+impressum.php
+*.config
+css/prepros.config
