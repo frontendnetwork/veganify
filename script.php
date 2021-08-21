@@ -15,13 +15,13 @@ else {
 	$array = $product->product->ingredients_analysis_tags;
 	$name = $product->product->product_name;
 	if (in_array("en:non-vegan", $array)) {
-	    echo '"'.$name.'" is most likely not Vegan';
+	    echo '<span class="non-vegan">"'.$name.'" is most likely not Vegan.</span>';
 	}
 	elseif (in_array("en:vegan-status-unknown", $array)) {
-	    echo  'We are not sure if "'.$name.'" is vegan or not.';
+	    echo  '<span class="unknown">We are not sure if "'.$name.'" is vegan or not.</span>';
 	}
 	elseif (in_array("en:vegan", $array)) {
-		echo  '"'.$name.'" is Vegan!';
+		echo  '<span class="vegan">'.$name.'" is Vegan!</span>';
 	}
 	else {
 		echo "This product is not in our database yet.";

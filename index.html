@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Is it Vegan?</title>
+    <title>Is it Vegan? - VeganCheck.me</title>
     <meta charset="UTF-8">
-    <style></style>
-    <script src='js/jquery.min.js'></script>
+
+    <meta name="description" content="Check if a product is Vegan or not with VeganCheck.me">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Is it Vegan? - VeganCheck.me">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="https://vegancheck.me">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <link href="css/style.min.css" rel="stylesheet">
   </head>
 
   <body>
-    <div id="container">
-      <h1>VeganCheck.me</h1>
+    <div class="container">
+      <div id="main">
+        <img src="VeganCheck.svg" alt="Logo">
+        <h1>VeganCheck.me</h1>
 
-    <form action="script.php">
-  <input type="text" id="barcode" name="barcode" placeholder="Enter Barcode">
-  <input type="submit" name="submit" value="Check if it is Vegan">
-</form>
+        <form action="script.php">
+          <input type="text" id="barcode" name="barcode" placeholder="Enter Barcode of the product you'd like to check">
+          <input type="submit" name="submit" value="Check it">
+        </form>
 
-<div id="result"></div>
-<script src="js/submit.js"></script>
+        <div id="result">&nbsp;</div>
+
+        <p>Made with <i class="love"></i> by <a href="https://philipbrembeck.com">Philip Brembeck</a>.<br>Hosted Green on Asteroids by <a href="https://uberspace.de">Uberspace</a>.</p>
+      </div>
+    </div>
+
+  <script src='js/jquery.min.js'></script>
+  <script src="js/submit.js"></script>
   </body>
 </html>
