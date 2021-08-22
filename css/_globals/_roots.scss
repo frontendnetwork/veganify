@@ -1,7 +1,7 @@
 /* Document variables */
 :root {
     font-size: 16px;
-    --bg-color: #222f3e;
+    --bg-color: #000;
     --fg-color: #fff;
     --body-font: 'Montserrat', Fallback, sans-serif;
     --body-fontweight: 400;
@@ -13,4 +13,6 @@
     --non-vegan: #ee5253;
     --vegan: #10ac84;
     --unknown: #576574;
+    --link-color: #10ac84;
+    --link-transition-color: #0abde3;
 }
