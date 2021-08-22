@@ -1,3 +1,11 @@
+h1 {
+    background: rgb(46,134,222);
+    background: linear-gradient(266deg, rgba(46,134,222,1) 0%, rgba(0,255,184,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    outline: 0;
+}
+
 .container {
     padding-top: 150px;
     padding-bottom: 50px;
@@ -17,6 +25,12 @@
 #result {
     padding-top: 2rem;
     padding-bottom: 2rem;
+    height: 3rem;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 2;
     font-size: var(--body-h2-fontsize);
     font-weight: var(--semibold-fontweight);
 }
