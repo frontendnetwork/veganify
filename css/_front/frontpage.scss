@@ -1,5 +1,6 @@
 .container {
     padding-top: 150px;
+    padding-bottom: 50px;
     width: 50%;
     margin: 0 auto;
 }
@@ -9,9 +10,25 @@
     height: 3rem;
 }
 
+.longpage {
+    padding-top: 50px!important;
+}
+
 #result {
     padding-top: 2rem;
     padding-bottom: 2rem;
     font-size: var(--body-h2-fontsize);
     font-weight: var(--semibold-fontweight);
+}
+
+p.unknown, p.missing {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.5rem;
+}
+
+footer {
+    font-size: .8rem;
 }
