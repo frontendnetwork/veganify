@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- VeganCheck.me is Open Source
+Check the project out on GitHub: 
+https://github.com/philipbrembeck/vegancheck.me
+-->
 <html>
   <head>
     <title>Is it Vegan? - VeganCheck.me</title>
@@ -19,14 +23,14 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container animated zoomIn">
       <div id="main">
         <img src="VeganCheck.svg" alt="Logo">
         <h1>VeganCheck.me</h1>
 
         <form action="script.php">
           <input type="text" id="barcode" name="barcode" placeholder="Enter Barcode of the product you'd like to check">
-          <input type="submit" name="submit" value="Check it">
+          <button name="submit"><i class="icon-right-open"></i></button>
         </form>
 
         <div id="result">&nbsp;</div>
