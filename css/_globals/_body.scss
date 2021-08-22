@@ -1,11 +1,11 @@
 // Selection color
 ::-moz-selection {
-    background-color: #222;
+    background-color: #10ac84;
     color: #fff
 }
 
 ::selection {
-    background-color: #222;
+    background-color: #10ac84;
     color: #fff
 }
 
@@ -17,7 +17,7 @@ body {
     color: var(--fg-color);
     font-size: var(--body-fontsize);
     text-align: center;
-    word-wrap:break-word
+    word-wrap:break-word;
 }
 
 .non-vegan {
@@ -34,8 +34,14 @@ body {
 
 a {
     text-decoration: none;
-    color: #1dd1a1;
     font-weight: var(--semibold-fontweight);
+    color: var(--link-color);
+    outline: 0;
+    transition: .8s;
+}
+
+a:hover {
+    color: var(--link-transition-color);
 }
 
 input[type=text]{
@@ -48,16 +54,28 @@ input[type=text]{
     outline: none;
     border: none;
     text-align: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
-input[type=submit]{
-    width: 25%;
-    background: #1dd1a1;
+button{
+    width: 10%;
+    background: var(--link-transition-color);
     color: #fff;
     padding: 1rem;
+    padding-top: 1.1rem;
+    padding-bottom: .9688rem;
     border-radius: .5rem;
     outline: none;
     border: none;
     cursor: pointer;
-    font-weight: var(--semibold-fontweight)
+    font-weight: var(--body-fontweight);
+    margin-left: -0.3rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: .8s;
+}
+
+button:hover{
+    background: var(--link-color);
 }
