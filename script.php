@@ -6,7 +6,7 @@
 $barcode = $_POST['barcode'];
 
 if (empty($barcode)){
-	echo "Please enter a valid barcode.";
+	echo "Barcode-field cannot be empty.";
 }
 
 else {
@@ -15,16 +15,16 @@ else {
 	$array = $product->product->ingredients_analysis_tags;
 	$name = $product->product->product_name;
 	if (in_array("en:non-vegan", $array)) {
-	    echo '<span class="non-vegan">"'.$name.'" is most likely not Vegan.</span>';
+	    echo '<span class="non-vegan">"'.$name.'" is not Vegan.</span>';
 	}
 	elseif (in_array("en:vegan-status-unknown", $array)) {
-	    echo  '<span class="unknown">We are not sure if "'.$name.'" is vegan or not.</span>';
+	    echo  '<span class="unknown">We are not sure if "'.$name.'" is vegan or not.</span><br><p class="unknown">Do you know? <a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'">Edit this product at OpenFoodFacts</a>.</p>';
 	}
 	elseif (in_array("en:vegan", $array)) {
 		echo  '<span class="vegan">'.$name.'" is Vegan!</span>';
 	}
 	else {
-		echo "This product is not in our database yet.";
+		echo '<span>This product is not in our database yet.</span><p class="missing">Do you want to add it? <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">Add this product at OpenFoodFacts</a>.</p>';
 	}
 }
 ?>
