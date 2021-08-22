@@ -3,7 +3,7 @@
  * @version 0.0.1
  */
  
-$('input[name="submit"]').on('click', function(e) {
+$('button[name="submit"]').on('click', function(e) {
     e.preventDefault();
 
     $.ajax({
