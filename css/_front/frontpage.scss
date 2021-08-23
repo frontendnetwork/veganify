@@ -2,7 +2,9 @@ h1 {
     background: rgb(46,134,222);
     background: linear-gradient(266deg, rgba(46,134,222,1) 0%, rgba(0,255,184,1) 100%);
     -webkit-background-clip: text;
+            background-clip: text;
     -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
     outline: 0;
 }
 
