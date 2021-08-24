@@ -17,7 +17,7 @@ VeganCheck.me is meant as an useful tool for vegans and vegetarians - Developed 
 
 [See it in action](https://vegancheck.me)
 
-## Overview
+## 👨🏼‍💻 Overview
 
 ![VeganCheck.me Screenshot](Hero.svg)
 
@@ -33,17 +33,17 @@ VeganCheck.me is meant as an useful tool for vegans and vegetarians - Developed 
     ├── index.php
     └── script.php
 
-## ToDo
+## ☑️ ToDo 
 
 Integrate: 
 
-* Open-source JavaScript-based scanner
-* Text search
-* Options for vegetarians
-* Sustainability assessment
-* Nutri-Score integration
+* [ ] Open-source JavaScript-based scanner
+* [ ] Text search
+* [ ] Options for vegetarians
+* [ ] Sustainability assessment
+* [x] Nutri-Score integration (Currently testing)
 
-## Credits 
+## 🤝 Credits 
 
 This repo will be further maintained by [@jokenetwork](https://github.com/jokenetwork) ([JokeNetwork.de](https://jokenetwork.de))
 
@@ -52,6 +52,6 @@ This repo uses:
 * [JQuery](https://jquery.com)
 * [OpenFoodFacts API](https://openfoodfacts.org)
 
-## License
+## 👩‍⚖️ License
 
 All text and code in this repository is licensed under [MIT](https://github.com/philipbrembeck/VeganCheck.me/blob/main/LICENSE).
