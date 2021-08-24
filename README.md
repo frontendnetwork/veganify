@@ -1,19 +1,21 @@
 <p align="center">
  <img width="100px" src="VeganCheck.svg" align="center" alt="VeganCheck Logo">
  <h1 align="center">VeganCheck.me</h1>
- <p align="center">Check if a product is vegan or not with VeganCheck.me</p>
+ <p align="center">Check if a product is vegan or not with <a href="https://vegancheck.me">VeganCheck.me</a></p>
 </p>
   <p align="center">
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FJokeNetwork%2Fjokenetwork.de?ref=badge_small" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FJokeNetwork%2Fjokenetwork.de.svg?type=small"></a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FJokeNetwork%2Fjokenetwork.de?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FJokeNetwork%2Fjokenetwork.de.svg?type=shield"/></a>
-	<a href="https://www.codacy.com/gh/JokeNetwork/jokenetwork.de/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JokeNetwork/jokenetwork.de&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/00c432ffdc73456992dc61b11187b1f5"></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me?ref=badge_small" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me.svg?type=small"></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me.svg?type=shield"></a>
+	<a href="https://www.codacy.com/gh/philipbrembeck/vegancheck.me/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philipbrembeck/vegancheck.me&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/181208ec1e6644e0bdc7a8b3271e3708"/></a>
 	<a href="https://github.com/sponsors/philipbrembeck"><img src="https://img.shields.io/badge/Sponsor-white.svg?logo=githubsponsors" alt="Consider Sponsoring"></a>
 	<a href="https://www.paypal.com/donate?hosted_button_id=N4F7DAQH7ET2G"><img src="https://img.shields.io/badge/Donate-blue.svg?logo=paypal" alt="Donate"></a>
   </p>
 
-VeganCheck.me checks if a product is vegan or not by its EAN or UPC-number. 
+VeganCheck.me checks the EAN or UPC-Code of a product and simply tells you if it's vegan or not.
 
-VeganCheck.me is meant as an useful tool for vegans and vegetarians.
+VeganCheck.me is meant as an useful tool for vegans and vegetarians - Developed with usability in mind. 
+
+[See it in action](https://vegancheck.me)
 
 ## Overview
 
