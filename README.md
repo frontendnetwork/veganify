@@ -49,8 +49,8 @@ This repo will be further maintained by @jokenetwork ([JokeNetwork.de](https://j
 
 This repo uses:
 
-- [JQuery](https://jquery.com)
-- [OpenFoodFacts API](https://openfoodfacts.org)
+* [JQuery](https://jquery.com)
+* [OpenFoodFacts API](https://openfoodfacts.org)
 
 ## License
 
