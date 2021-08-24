@@ -1,5 +1,5 @@
 <p align="center">
- <img width="100px" src="assets/img/VeganCheck.svg" align="center" alt="VeganCheck Logo">
+ <img width="100px" src="VeganCheck.svg" align="center" alt="VeganCheck Logo">
  <h1 align="center">VeganCheck.me</h1>
  <p align="center">Check if a product is vegan or not with VeganCheck.me</p>
 </p>
