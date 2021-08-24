@@ -45,7 +45,7 @@ Integrate:
 
 ## Credits 
 
-This repo will be further maintained by @jokenetwork ([JokeNetwork.de](https://jokenetwork.de))
+This repo will be further maintained by [@jokenetwork](https://github.com/jokenetwork) ([JokeNetwork.de](https://jokenetwork.de))
 
 This repo uses:
 
