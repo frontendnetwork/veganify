@@ -66,6 +66,33 @@ input[type=text] {
     flex: 1;
 }
 
+.btn_scan {
+    width: 5%;
+    background: #c8d6e5;
+    margin-right: -3rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 1rem;
+    padding-right: 1.5rem;
+    padding-top: 1.2rem;
+    outline: none;
+    border: none;
+    text-align: center;
+    color: #000;
+    font-weight: var(--body-fontweight);
+    transition: .8s;
+    z-index: 9999;
+    display:none;
+}
+
+.btn_scan:hover {
+    background: var(--link-color);
+    color: #FFF;
+}
+
 button {
     width: 10%;
     background: var(--link-transition-color);
