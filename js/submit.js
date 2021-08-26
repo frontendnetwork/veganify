@@ -10,7 +10,8 @@ $('button[name="submit"]').on('click', function(e) {
         url: 'script.php',
         type: 'POST',
         data: {
-            barcode: $('input[name="barcode"]').val()
+            barcode: $('input[name="barcode"]').val(),
+            lang: $('input[name="lang"]').val()
         },
         success: function(result) {
             $('#result').html(result);

@@ -1,10 +1,4 @@
 <?php
-// Vegan: https://world.openfoodfacts.org/api/v0/product/4251105509585.json
-// Vegan uknown: https://world.openfoodfacts.org/api/v0/product/4008638170726.json
-// Not vegan: 5000159404259
-
-$barcode = $_POST['barcode'];
-
 if (empty($barcode)){
 	echo '<span class="animated fadeIn">Das Barcode-Feld darf nicht leer sein.</span>';
 }
