@@ -20,7 +20,10 @@ VeganCheck.me is meant as an useful tool for vegans and vegetarians - Developed 
 ## 👨🏼‍💻 Overview
 
 ![VeganCheck.me Screenshot](img/Hero.svg)
-<img src="img/demo.gif" alt="VeganCheck.me Demo" height="300" style="border-radius: 10px;">
+
+<p align="center">
+<img src="img/demo.gif" alt="VeganCheck.me Demo" align="center" height="500">
+</p>
 
 ## ☑️ ToDo 
 
