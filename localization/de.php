@@ -15,8 +15,9 @@ https://github.com/jokenetwork/vegancheck.me
     <meta property="og:type" content="">
     <meta property="og:url" content="https://vegancheck.me">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="apple-touch-icon" href="img/icon.png">
 
     <link href="css/style.min.css?v=3" rel="stylesheet">
   </head>
@@ -38,8 +39,8 @@ https://github.com/jokenetwork/vegancheck.me
         <footer>
           <p>Erstellt mit <i class="icon-love"></i> von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>
             <br><a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor werden</a></p>
-            <a href="https://github.com/philipbrembeck/vegancheck.me"><img src="opensource.svg" alt="Open Source" class="labels"></a>
-            <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="greenhosted.svg" alt="Hosted Green" class="labels"></a>
+            <a href="https://github.com/philipbrembeck/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
+            <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
         </footer>
       </div>
     </div>

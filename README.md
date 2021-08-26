@@ -1,5 +1,5 @@
 <p align="center">
- <img width="100px" src="VeganCheck.svg" align="center" alt="VeganCheck Logo">
+ <img width="100px" src="img/VeganCheck.svg" align="center" alt="VeganCheck Logo">
  <h1 align="center">VeganCheck.me</h1>
  <p align="center">Check if a product is vegan or not with <a href="https://vegancheck.me">VeganCheck.me</a></p>
 </p>
@@ -19,19 +19,8 @@ VeganCheck.me is meant as an useful tool for vegans and vegetarians - Developed 
 
 ## 👨🏼‍💻 Overview
 
-![VeganCheck.me Screenshot](Hero.svg)
-
-    vegancheck.me/
-    ├── css/
-    │   ├── _front/
-    │   ├── _globals/
-    │   ├── animations/
-    │   └── font/
-    ├── js/
-    │   ├── submit.js
-    │   └── jquery.min.css
-    ├── index.php
-    └── script.php
+![VeganCheck.me Screenshot](img/Hero.svg)
+![VeganCheck.me Demo](img/demo.gif)
 
 ## ☑️ ToDo 
 

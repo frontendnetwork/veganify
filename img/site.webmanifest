@@ -2,7 +2,7 @@
   "short_name": "",
   "name": "",
   "icons": [{
-    "src": "icon.png",
+    "src": "img/icon.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
