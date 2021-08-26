@@ -21,7 +21,7 @@ else {
 	    echo  '<div class="animated fadeIn"><span class="unknown">We are not sure if "'.$name.'" is vegan or not.</span><br><p class="unknown">Do you know? <a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'">Edit this product at OpenFoodFacts</a>.</p></div>';
 	}
 	elseif (in_array("en:vegan", $array)) {
-		echo  '<span class="vegan animated fadeIn">'.$name.'" is Vegan!</span>';
+		echo  '<span class="vegan animated fadeIn">"'.$name.'" is Vegan!</span>';
 	}
 	else {
 		echo '<div class="animated fadeIn"><span>This product is not in our database yet.</span><p class="missing">Do you want to add it? <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">Add this product at OpenFoodFacts</a>.</p></div>';
