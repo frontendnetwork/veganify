@@ -32,7 +32,6 @@ function setupLiveReader(resultElement) {
 
       BarcodeScanner.init()
       BarcodeScanner.streamCallback = function(result) {
-        console.log('barcode detected, stream will stop')
         document.getElementById('barcode').value = result[0].Value
         BarcodeScanner.StopStreamDecode()
         video.pause()
@@ -79,7 +78,6 @@ function setupLiveReader(resultElement) {
       }
     })
     .catch(function(err) {
-      console.log(err)
     })
 }
 
