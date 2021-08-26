@@ -31,14 +31,15 @@ https://github.com/jokenetwork/vegancheck.me
 
         <form action="script.php">
           <fieldset>
-            <input type="text" id="barcode" name="barcode" placeholder="Barcode von dem zu überprüfenden Produkt"> 
+            <span class="btn_scan" onclick="setupLiveReader()"><i class="icon-barcode"></i></span>
+            <input type="text" id="barcode" name="barcode" placeholder="Barcode eingeben"> 
             <input type="hidden" id="lang" name="lang" value="de">
             <button name="submit"><i class="icon-right-open"></i></button>
           </fieldset>
         </form>
         <div id="result">&nbsp;</div>
         <footer>
-          <p>Erstellt mit <i class="icon-love"></i> von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>
+          <p>Mit <i class="icon-love"></i> erstellt von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>
             <br><a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor werden</a></p>
             <a href="https://github.com/philipbrembeck/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
@@ -54,7 +55,6 @@ https://github.com/jokenetwork/vegancheck.me
   $(function() {      
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     if (isMobile) {
-      setupLiveReader(resultElement)
       var resultElement = document.getElementById('code')
       }
    });

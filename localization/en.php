@@ -31,7 +31,8 @@ https://github.com/jokenetwork/vegancheck.me
 
         <form action="script.php">
           <fieldset>
-            <input type="text" id="barcode" name="barcode" placeholder="Enter Barcode of the product you'd like to check"> 
+            <span class="btn_scan" onclick="setupLiveReader()"><i class="icon-barcode"></i></span>
+            <input type="text" id="barcode" name="barcode" placeholder="Enter product barcode"> 
             <input type="hidden" id="lang" name="lang" value="en">
             <button name="submit"><i class="icon-right-open"></i></button>
           </fieldset>
