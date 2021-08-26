@@ -37,7 +37,7 @@ VeganCheck.me is meant as an useful tool for vegans and vegetarians - Developed 
 
 Integrate: 
 
-* [ ] Open-source JavaScript-based scanner
+* [x] Open-source JavaScript-based scanner (Works on mobile only)
 * [ ] Text search
 * [ ] Options for vegetarians
 * [ ] Sustainability assessment
@@ -51,6 +51,7 @@ This repo uses:
 
 * [JQuery](https://jquery.com)
 * [OpenFoodFacts API](https://openfoodfacts.org)
+* [BarCode-reader](https://github.com/iemadk/BarCode-reader) by [Emad Kamal](https://github.com/iemadk)
 
 ## 👩‍⚖️ License
 
