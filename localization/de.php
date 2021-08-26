@@ -25,7 +25,7 @@ https://github.com/jokenetwork/vegancheck.me
   <body>
     <div class="container animated zoomIn">
       <div id="main">
-        <img src="VeganCheck.svg" alt="Logo">
+        <img src="img/VeganCheck.svg" alt="Logo">
         <h1>VeganCheck.me</h1>
         <p id="code"></p>
 
