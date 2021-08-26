@@ -55,7 +55,6 @@ https://github.com/jokenetwork/vegancheck.me
   $(function() {      
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     if (isMobile) {
-      setupLiveReader(resultElement)
       var resultElement = document.getElementById('code')
       }
    });
