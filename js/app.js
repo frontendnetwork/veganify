@@ -38,6 +38,7 @@ function setupLiveReader(resultElement) {
         video.pause()
         stream.getTracks()[0].stop()
         container.style.display = 'none'
+        document.getElementsByTagName('button')[0].click();
       }
 
       video.setAttribute('autoplay', '')
