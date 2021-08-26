@@ -31,7 +31,7 @@ https://github.com/jokenetwork/vegancheck.me
 
         <form action="script.php">
           <fieldset>
-            <input type="text" id="barcode" name="barcode" placeholder="Barcode von dem Produkt"> 
+            <input type="text" id="barcode" name="barcode" placeholder="Barcode von dem zu überprüfenden Produkt"> 
             <button name="submit"><i class="icon-right-open"></i></button>
           </fieldset>
         </form>
