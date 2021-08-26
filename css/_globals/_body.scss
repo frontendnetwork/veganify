@@ -44,35 +44,43 @@ a:hover {
     color: var(--link-transition-color);
 }
 
+fieldset {
+    display: flex;
+    outline: none;
+    border: none;
+}
+
 input[type=text] {
     width: 65%;
     background: #576574;
-    color: #fff;
-    padding: 1rem;
     margin-bottom: 1rem;
     border-radius: .5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 1rem;
     outline: none;
     border: none;
     text-align: center;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    color: #fff;
+    font-weight: var(--body-fontweight);
+    flex: 1;
 }
 
 button {
     width: 10%;
     background: var(--link-transition-color);
-    color: #fff;
-    padding: 1rem;
-    padding-top: 1.1rem;
-    padding-bottom: .9688rem;
-    border-radius: .5rem;
-    outline: none;
-    border: none;
+    margin-left: -1rem;
     cursor: pointer;
-    font-weight: var(--body-fontweight);
-    margin-left: -0.3rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    text-align: center;
+    color: #fff;
+    font-weight: var(--body-fontweight);
     transition: .8s;
 }
 
