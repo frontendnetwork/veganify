@@ -8,6 +8,7 @@
 	<a href="https://jokenetwork.de/badges"><img alt="JKN Status: Community based" src="https://jokenetwork.de/assets/img/gitstatus/communitybased.svg"></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me.svg?type=shield"></a>
 	<a href="https://www.codacy.com/gh/philipbrembeck/vegancheck.me/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philipbrembeck/vegancheck.me&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/181208ec1e6644e0bdc7a8b3271e3708"/></a>
+	<a href="https://codeclimate.com/github/JokeNetwork/vegancheck.me/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e4c87c9f6b92b9e13b5/maintainability" /></a>
 	<a href="https://github.com/sponsors/philipbrembeck"><img src="https://img.shields.io/badge/Sponsor-white.svg?logo=githubsponsors" alt="Consider Sponsoring"></a>
 	<a href="https://www.paypal.com/donate?hosted_button_id=N4F7DAQH7ET2G"><img src="https://img.shields.io/badge/Donate-blue.svg?logo=paypal" alt="Donate"></a>
   </p>
