@@ -4,10 +4,12 @@ if (empty($barcode)){
 }
 
 else {
-	$data = file_get_contents('https://world.openfoodfacts.org/api/v0/product/'.$barcode.'.json');
+	$data = file_get_contents('https://world.openfoodfacts.org/api/v0/product/'.$barcode);
 	$product = json_decode($data);
 	$array = $product->product->ingredients_analysis_tags;
 	$name = $product->product->product_name;
+	$response = $product->status_verbose;
+
 	if (in_array("en:non-vegan", $array)) {
 	    echo "<span class=\"non-vegan animated fadeIn\">".$name." n'est pas végétalien.</span>";
 	}
@@ -16,6 +18,9 @@ else {
 	}
 	elseif (in_array("en:vegan", $array)) {
 		echo  '<span class="vegan animated fadeIn">"'.$name.'" est végétalien !</span>';
+	}
+	elseif ($response == "no code or invalid code"){
+		echo '<div class="animated fadeIn"><span class="missing">Ce code-barres est incorrect.</span></div>';
 	}
 	else {
 		echo "<div class=\"animated fadeIn\"><span>Ce produit n'est pas dans notre base de données.</span></div>";
