@@ -51,12 +51,9 @@ fieldset {
 }
 
 input[type=text] {
-    width: 65%;
+    width: 45%;
     background: #576574;
     margin-bottom: 1rem;
-    border-radius: .5rem;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
     padding: 1rem;
     outline: none;
     border: none;
@@ -69,14 +66,12 @@ input[type=text] {
 .btn_scan {
     width: 5%;
     background: #c8d6e5;
-    margin-right: -3rem;
     cursor: pointer;
     margin-bottom: 1rem;
     border-radius: .5rem;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     padding: 1rem;
-    padding-right: 1.5rem;
     padding-top: 1.2rem;
     outline: none;
     border: none;
@@ -85,7 +80,6 @@ input[type=text] {
     font-weight: var(--body-fontweight);
     transition: .8s;
     z-index: 9999;
-    display:none;
 }
 
 .btn_scan:hover {
@@ -96,7 +90,6 @@ input[type=text] {
 button {
     width: 10%;
     background: var(--link-transition-color);
-    margin-left: -1rem;
     cursor: pointer;
     margin-bottom: 1rem;
     border-radius: .5rem;
