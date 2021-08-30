@@ -5,6 +5,7 @@
 </p>
   <p align="center">
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me?ref=badge_small" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me.svg?type=small"></a>
+  <a href="https://opensource.box.com/badges/"><img src="https://opensource.box.com/badges/active.svg" alt="Status: Active"></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fphilipbrembeck%2Fvegancheck.me.svg?type=shield"></a>
 	<a href="https://www.codacy.com/gh/philipbrembeck/vegancheck.me/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philipbrembeck/vegancheck.me&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/181208ec1e6644e0bdc7a8b3271e3708"/></a>
 	<a href="https://github.com/sponsors/philipbrembeck"><img src="https://img.shields.io/badge/Sponsor-white.svg?logo=githubsponsors" alt="Consider Sponsoring"></a>
