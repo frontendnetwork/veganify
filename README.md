@@ -16,7 +16,7 @@ VeganCheck.me checks the EAN or UPC-Code of a product and simply tells you if it
 
 VeganCheck.me is meant as an useful tool for vegans and vegetarians - Developed with usability in mind. 
 
-[See it in action](https://vegancheck.me)
+[See it in action](https://vegancheck.me) | [Product page on JokeNetwork.de](https://jokenetwork.de/#projects)
 
 ## 👨🏼‍💻 Overview
 
