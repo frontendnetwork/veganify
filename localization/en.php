@@ -25,7 +25,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="msapplication-starturl" content="/">
     <meta name="theme-color" content="#000">
 
-    <link href="css/style.min.css?v=3" rel="stylesheet">
+    <link href="css/style.min.css?v=3.1" rel="stylesheet">
   </head>
 
   <body>
@@ -38,7 +38,7 @@ https://github.com/jokenetwork/vegancheck.me
         <form action="script.php">
           <fieldset>
             <span class="btn_scan" onclick="setupLiveReader()" aria-label="Scan Barcode" role="button"><i class="icon-barcode"></i></span>
-            <input type="text" id="barcode" name="barcode" placeholder="Enter product barcode"> 
+            <input type="number" id="barcode" name="barcode" placeholder="Enter product barcode" autofocus> 
             <input type="hidden" id="lang" name="lang" value="en">
             <button name="submit" aria-label="Submit" role="button"><i class="icon-right-open"></i></button>
           </fieldset>
