@@ -1,0 +1,31 @@
+dictionaries:
+  - en
+  - en_GB
+  - de
+  - fr
+
+# Any files/folders we should ignore?
+excluded_files:
+  - "vendor/**/*"
+  - "node_modules/**/*"
+  - "*.key"
+  - "*.enc"
+  - "*.min.css"
+  - "*.css.map"
+  - "*.css"
+  - "*.js"
+  - "*.min.js"
+  - "*.js.map"
+  - "*.mk"
+  - "package-lock.json"
+  - "yarn.lock"
+  - "Gemfile.lock"
+  - ".typo-ci.yml"
+  - ".github/.typo-ci.yml"
+
+# Any words we should ignore?
+excluded_words:
+  - typoci
+
+# Would you like filenames to also be spellchecked?
+spellcheck_filenames: true
