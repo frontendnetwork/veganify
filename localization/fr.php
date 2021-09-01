@@ -19,6 +19,12 @@ https://github.com/jokenetwork/vegancheck.me
     <link rel="manifest" href="img/site.webmanifest">
     <link rel="apple-touch-icon" href="img/icon.png">
 
+    <link rel="manifest" href="img/manifest.webmanifest">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="theme-color" content="#000">
+
     <link href="css/style.min.css?v=3" rel="stylesheet">
   </head>
 
@@ -31,10 +37,10 @@ https://github.com/jokenetwork/vegancheck.me
 
         <form action="script.php">
           <fieldset>
-            <span class="btn_scan" onclick="setupLiveReader()"><i class="icon-barcode"></i></span>
+            <span class="btn_scan" onclick="setupLiveReader()" aria-label="Scannez le code-barres" role="button"><i class="icon-barcode"></i></span>
             <input type="text" id="barcode" name="barcode" placeholder="Entrez le code à barres des produits"> 
             <input type="hidden" id="lang" name="lang" value="fr">
-            <button name="submit"><i class="icon-right-open"></i></button>
+            <button name="submit" aria-label="Soumettre" role="button"><i class="icon-right-open"></i></button>
           </fieldset>
         </form>
         <div id="result">&nbsp;</div>
