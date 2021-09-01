@@ -1,6 +1,6 @@
 <?php
 if (empty($barcode)){
-	echo '<span class="animated fadeIn">Barcode-field cannot be empty.</span>';
+	echo '<span class="animated fadeIn">Barcode-field cannot be empty or include special characters.</span>';
 }
 
 else {

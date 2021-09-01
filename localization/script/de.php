@@ -1,6 +1,6 @@
 <?php
 if (empty($barcode)){
-	echo '<span class="animated fadeIn">Das Barcode-Feld darf nicht leer sein.</span>';
+	echo '<span class="animated fadeIn">Das Barcode-Feld darf nicht leer sein und keine Sonderzeichen enthalten.</span>';
 }
 
 else {
