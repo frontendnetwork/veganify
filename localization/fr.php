@@ -48,9 +48,7 @@ https://github.com/jokenetwork/vegancheck.me
     </div>
 
  
-  <script src="js/jquery.min.js"></script>
-  <script src="js/BarcodeScanner.js"></script>
-  <script src="js/app.js"></script>
+ <script src="js/main.bundle.min.js"></script>
   <script>
   $(function() {      
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
@@ -59,12 +57,11 @@ https://github.com/jokenetwork/vegancheck.me
       }
    });
   </script>
-  <script src="js/submit.js"></script>
 <?php 
         header('Access-Control-Allow-Origin: https://analytics.vegancheck.me'); 
-        if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){echo '<script async src="https://analytics.vegancheck.me/tracker.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';}  
-        elseif (isset($_COOKIE['log']) && $_COOKIE['log'] == "No"){echo '<script async src="https://analytics.vegancheck.me/tracker.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>';}  
-        else{echo '<script async src="https://analytics.vegancheck.me/tracker.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';} 
+        if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';}  
+        elseif (isset($_COOKIE['log']) && $_COOKIE['log'] == "No"){echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>';}  
+        else{echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';} 
 ?>
   </body>
 </html>
