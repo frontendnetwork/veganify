@@ -50,7 +50,13 @@ fieldset {
     border: none;
 }
 
-input[type=text] {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
     width: 45%;
     background: #576574;
     margin-bottom: 1rem;
@@ -69,7 +75,7 @@ input[type=text] {
 
 .btn_scan {
     width: 5%;
-    background: #c8d6e5;
+    background: #222f3e;
     cursor: pointer;
     margin-bottom: 1rem;
     border-radius: .5rem;
@@ -80,20 +86,19 @@ input[type=text] {
     outline: none;
     border: none;
     text-align: center;
-    color: #000;
+    color: #fff;
     font-weight: var(--body-fontweight);
-    transition: .8s;
+    transition: .5s;
     z-index: 9999;
 }
 
 .btn_scan:hover {
-    background: var(--link-color);
-    color: #FFF;
+    background: #8395a7;
 }
 
 button {
     width: 10%;
-    background: var(--link-transition-color);
+    background: #0abde3;
     cursor: pointer;
     margin-bottom: 1rem;
     border-radius: .5rem;
@@ -105,11 +110,11 @@ button {
     text-align: center;
     color: #fff;
     font-weight: var(--body-fontweight);
-    transition: .8s;
+    transition: .5s;
 }
 
 button:hover {
-    background: var(--link-color);
+    background: #8395a7;
 }
 
 .btn-dark {
