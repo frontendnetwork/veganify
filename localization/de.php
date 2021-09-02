@@ -40,13 +40,13 @@ https://github.com/jokenetwork/vegancheck.me
 
         <form action="script.php">
           <fieldset>
-            <span class="btn_scan" onclick="setupLiveReader()" aria-label="Barcode scannen" role="button"><i class="icon-barcode"></i></span>
+            <span class="btn_scan" onclick="setupLiveReader()" aria-label="Barcode scannen" role="button" tabindex="0"><i class="icon-barcode"></i></span>
             <input type="number" id="barcode" name="barcode" placeholder="Barcode eingeben" autofocus> 
             <input type="hidden" id="lang" name="lang" value="de">
             <button name="submit" aria-label="Absenden" role="button"><i class="icon-right-open"></i></button>
           </fieldset>
         </form>
-        <div id="result">&nbsp;</div>
+        <div id="result">&nbsp;</div> 
         <footer>
           <p>Mit <i class="icon-love"></i> erstellt von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>
             <br><a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor werden</a></p>
