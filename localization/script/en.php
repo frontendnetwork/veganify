@@ -11,13 +11,13 @@ else {
 	$response = $product->status_verbose;
 
 	if (in_array("en:non-vegan", $array)) {
-	    echo '<span class="non-vegan animated fadeIn">"'.$name.'" is not Vegan.</span>';
+	    echo '<div class="animated fadeIn"><span class="non-vegan">"'.$name.'" is not vegan.</span><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20is%20not%20vegan!%20-%Checked%with%20" class="btn-dark">Tweet</a></div>';
 	}
 	elseif (in_array("en:vegan-status-unknown", $array)) {
 	    echo  '<div class="animated fadeIn"><span class="unknown">We are not sure if "'.$name.'" is vegan or not.</span><br><p class="unknown">Do you know? <a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'">Edit this product at OpenFoodFacts</a>.</p></div>';
 	}
 	elseif (in_array("en:vegan", $array)) {
-		echo '<span class="vegan animated fadeIn">"'.$name.'" is Vegan!</span>';
+		echo '<div class="animated fadeIn"><span class="vegan">"'.$name.'" is vegan!</span><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20is%20vegan!%20-%Checked%20with%20" class="btn-dark">Tweet</a></div>';
 	}
 	elseif ($response == "no code or invalid code"){
 		echo '<div class="animated fadeIn"><span class="missing">This barcode is invalid.</span></div>';
