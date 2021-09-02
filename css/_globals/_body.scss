@@ -118,6 +118,7 @@ button:hover {
 }
 
 .btn-dark {
+    margin-top: .8rem!important;
     display: block;
     width: 6rem;
     margin: 0 auto;
@@ -126,18 +127,18 @@ button:hover {
     text-align: center;
     text-decoration: none;
     border: 1px solid #424242;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     cursor: pointer;
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     border-radius: 0.2rem;
     color: #fff;
     background-color: #212529;
+    transition: .5s;
 }
 
 .btn-dark:hover {
     color: #fff;
-    background-color: #222f3e;
+    border: 1px solid #6b6b6b;
 }
 
 .btn-dark:active {
