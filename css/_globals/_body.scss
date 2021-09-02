@@ -40,7 +40,8 @@ a {
     transition: .8s;
 }
 
-a:hover {
+a:hover,
+a:focus {
     color: var(--link-transition-color);
 }
 
@@ -92,7 +93,8 @@ input[type=number] {
     z-index: 9999;
 }
 
-.btn_scan:hover {
+.btn_scan:hover,
+.btn_scan:focus {
     background: #8395a7;
 }
 
@@ -113,7 +115,8 @@ button {
     transition: .5s;
 }
 
-button:hover {
+button:hover,
+button:focus {
     background: #8395a7;
 }
 
@@ -136,7 +139,8 @@ button:hover {
     transition: .5s;
 }
 
-.btn-dark:hover {
+.btn-dark:hover,
+.btn-dark:focus {
     color: #fff;
     border: 1px solid #6b6b6b;
 }
