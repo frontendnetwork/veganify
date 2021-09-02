@@ -56,16 +56,8 @@ https://github.com/jokenetwork/vegancheck.me
       </div>
     </div>
 
- 
+  <span id="close" style="display:none;">&times; Close scanner</span>
   <script src="js/main.bundle.min.js"></script>
-  <script>
-  $(function() {      
-    let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-    if (isMobile) {
-      var resultElement = document.getElementById('code')
-      }
-   });
-  </script>
 <?php 
         header('Access-Control-Allow-Origin: https://analytics.vegancheck.me'); 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';}  
