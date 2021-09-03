@@ -43,10 +43,11 @@ This repo will be further maintained by [@jokenetwork](https://github.com/jokene
 
 This repo uses:
 
-* [JQuery](https://jquery.com)
-* [OpenFoodFacts API](https://openfoodfacts.org)
-* [BarCode-reader](https://github.com/iemadk/BarCode-reader) by [Emad Kamal](https://github.com/iemadk)
+* [JQuery](https://jquery.com) @jQuery
+* [BarCode-reader](https://github.com/iemadk/BarCode-reader) @iemadk
+* [pwa-install-prompt](https://github.com/JacobDB/pwa-install-prompt) @JacobDB 
+* [OpenFoodFacts API](https://openfoodfacts.org/) @openfoodfacts
 
 ## 👩‍⚖️ License
 
-All text and code in this repository is licensed under [MIT](https://github.com/philipbrembeck/VeganCheck.me/blob/main/LICENSE).
+All text and code in this repository is licensed under [MIT](https://github.com/jokenetwork/VeganCheck.me/blob/main/LICENSE).
