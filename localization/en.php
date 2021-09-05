@@ -8,11 +8,11 @@ https://github.com/jokenetwork/vegancheck.me
     <title>Is it Vegan? - VeganCheck.me</title>
     <meta charset="UTF-8">
 
-    <meta name="description" content="Check if a product is Vegan or not with VeganCheck.me">
+    <meta name="description" content="Are you unsure whether a product is vegan or not? With VeganCheck.me you can scan the bar code of an item while shopping and check whether it is vegan or not and that without a lot of other unnecessary information! Try it out now!">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="Is it Vegan? - VeganCheck.me">
-    <meta property="og:type" content="">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://vegancheck.me">
 
     <meta name="twitter:card" content="summary_large_image">
@@ -52,6 +52,7 @@ https://github.com/jokenetwork/vegancheck.me
             <br><a href="privacy-policy">Privacy Policy</a> / <a href="impressum">Imprint</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor</a></p>
             <a href="https://github.com/philipbrembeck/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
+            <a href="https://philip.media"><img src="img/pml.svg" alt="philip.media" class="labels"></a>
         </footer>
       </div>
     </div>
