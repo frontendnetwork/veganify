@@ -1,0 +1,7 @@
+Contact: mailto:philip@brembeck.me
+Contact: mailto:security@jokenetwork.de
+Expires: 2028-09-06T19:35:00.000Z
+Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/1F50CDFCE50D42C277FD9D1E9AE6AC7B1A0F826A
+Acknowledgments: https://github.com/jokenetwork
+Preferred-Languages: English, German
+Canonical: https://jokenetwork.de/.well-known/security.txt
