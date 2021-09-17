@@ -28,7 +28,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="msapplication-starturl" content="/">
     <meta name="theme-color" content="#000">
 
-    <link href="css/style.min.css?v=3.2" rel="stylesheet">
+    <link href="css/style.min.css?v=3.3" rel="stylesheet">
   </head>
 
   <body>
@@ -48,7 +48,7 @@ https://github.com/jokenetwork/vegancheck.me
         </form>
         <div id="result">&nbsp;</div> 
         <footer>
-          <p>Mit <i class="icon-love"></i> erstellt von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>
+          <p>Mit <i class="icon-vegancheck"></i> erstellt von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>
             <br><a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor werden</a></p>
             <a href="https://github.com/philipbrembeck/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
