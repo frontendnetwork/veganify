@@ -50,7 +50,7 @@ https://github.com/jokenetwork/vegancheck.me
         <footer>
           <p>Made with <i class="icon-vegancheck"></i> by <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>
             <br><a href="privacy-policy">Privacy Policy</a> / <a href="impressum">Imprint</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor</a></p>
-            <a href="https://github.com/philipbrembeck/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
+            <a href="https://github.com/jokenetwork/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
             <a href="https://philip.media"><img src="img/pml.svg" alt="philip.media" class="labels"></a>
         </footer>
