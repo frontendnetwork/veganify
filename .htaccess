@@ -7,7 +7,7 @@ RewriteBase /
 RewriteEngine on
 
 # Redirect all to index
-FallbackResource /
+FallbackResource /index.php
 
 # Redirect "datenschutz" to "privacy-policy"
 RewriteRule datenschutz privacy-policy [L,R=301]
