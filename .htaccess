@@ -4,11 +4,10 @@ RewriteBase /
     Header set Access-Control-Allow-Origin: https://analytics.vegancheck.me
 </ifModule>
 
-# Dateiendungen ausblenden
 RewriteEngine on
 
 # Redirect all to index
-FallbackResource /index.php
+FallbackResource /
 
 # Redirect "datenschutz" to "privacy-policy"
 RewriteRule datenschutz privacy-policy [L,R=301]
