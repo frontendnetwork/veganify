@@ -19,16 +19,16 @@ else {
 			if($nutriscore == "a"){
 				$nutriscore = '<span class="vegan">Nutriscore A<span class="icon-ok"></span> </span>';
 			}
-			if($nutriscore == "b"){
+			elseif($nutriscore == "b"){
 				$nutriscore = '<span class="vegan">Nutriscore B<span class="icon-ok"></span> </span>';
 			}
-			if($nutriscore == "c"){
+			elseif($nutriscore == "c"){
 				$nutriscore = '<span class="vegan">Nutriscore C<span class="icon-ok"></span> </span>';
 			}
-			if($nutriscore == "d"){
+			elseif($nutriscore == "d"){
 				$nutriscore = '<span class="non-vegan">Nutriscore D<span class="icon-cancel"></span> </span>';
 			}
-			if($nutriscore == "e"){
+			elseif($nutriscore == "e"){
 				$nutriscore = '<span class="non-vegan">Nutriscore E<span class="icon-cancel"></span> </span>';
 			}
 			else {
