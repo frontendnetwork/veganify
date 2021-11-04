@@ -32,15 +32,17 @@ else {
 				$nutriscore = '<span class="non-vegan">Nutriscore E<span class="icon-cancel"></span> </span>';
 			}
 			else {
-				$nutriscore = '<span class="unknown">Nutriscore unbekannt </span>';
+				$nutriscore = '<span class="unknown">Nutriscore unbekannt<span class="icon-cancel"></span> </span>';
 			}
 
 			if (in_array("en:palm-oil", $array)) {
 				$palmoil = '<span class="non-vegan"> Enthält Palmöl<span class="icon-cancel"></span> </span>';
 			}
-
-			else {
+			elseif (in_array("en:palm-oil-free", $array)) {
 				$palmoil = '<span class="vegan"> Kein Palmöl<span class="icon-ok"></span> </span>';
+			}
+			else {
+				$palmoil = '<span class="unknown"> Palmöl-Inhalt unbekannt<span class="icon-cancel"></span> </span>';
 			}
 
 				if (in_array("en:non-vegan", $array)) {
