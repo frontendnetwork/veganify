@@ -62,7 +62,7 @@ else {
 				}
 		}
 		else {
-			echo '<div class="animated fadeIn"><span class="missing">Mit diesem Barcode/Produkt stimmt etwas nicht.</span></div>'; 
+			echo '<div class="animated fadeIn"><span>Zu diesem Produkt haben wir noch zu wenige Infos.</span><p class="missing">Willst du Infos hinzufügen? <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">Dieses Produkt bearbeiten bei OpenFoodFacts</a>.</p></span></div>'; 
 		}
 
 	}
