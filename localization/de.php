@@ -28,7 +28,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="msapplication-starturl" content="/">
     <meta name="theme-color" content="#000">
 
-    <link href="css/style.min.css?v=3.5" rel="stylesheet">
+    <link href="css/style.min.css?v=3.6" rel="stylesheet">
   </head>
 
   <body>
