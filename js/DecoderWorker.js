@@ -231,9 +231,9 @@ function CreateImageData() {
             Image.data[Converter + x * 4 + 1] = Image.table[x][y][1];
             Image.data[Converter + x * 4 + 2] = Image.table[x][y][2];
             Image.data[Converter + x * 4 + 3] = Image.table[x][y][3];
-        };
-    };
-};
+        }
+    }
+}
 
 function CreateScanImageData() {
     ScanImage.data = new Uint8ClampedArray(ScanImage.width * ScanImage.height * 4);
@@ -245,9 +245,9 @@ function CreateScanImageData() {
             ScanImage.data[Converter + x * 4 + 1] = ScanImage.table[x][y][1];
             ScanImage.data[Converter + x * 4 + 2] = ScanImage.table[x][y][2];
             ScanImage.data[Converter + x * 4 + 3] = ScanImage.table[x][y][3];
-        };
-    };
-};
+        }
+    }
+}
 
 function CreateTable() {
     Image.table = [];
@@ -256,10 +256,10 @@ function CreateTable() {
         tempArray = [];
         for (var j = i; j < Image.data.length; j += Image.width * 4) {
             tempArray.push([Image.data[j], Image.data[j + 1], Image.data[j + 2], Image.data[j + 3]]);
-        };
+        }
         Image.table.push(tempArray);
-    };
-};
+    }
+}
 
 function CreateScanTable() {
     ScanImage.table = [];
@@ -268,9 +268,9 @@ function CreateScanTable() {
         tempArray = [];
         for (var j = i; j < ScanImage.data.length; j += ScanImage.width * 4) {
             tempArray.push([ScanImage.data[j], ScanImage.data[j + 1], ScanImage.data[j + 2], ScanImage.data[j + 3]]);
-        };
+        }
         ScanImage.table.push(tempArray);
-    };
+    }
 }
 
 function EnlargeTable(h, w) {
@@ -441,7 +441,7 @@ function ImgProcessing() {
     var hist = [];
     for (var i = 0; i <= max; i++) {
         hist[i] = 0;
-    };
+    }
     for (var i = 0; i < newData.length; i++) {
         hist[newData[i]] = hist[newData[i]] + 1;
     }
@@ -1339,7 +1339,7 @@ function Distribution(totalBinArray, type) {
             }
             for (var j = 0; j < tempBin.length; j++) {
                 testData += Math.abs(tempBin[j] - (BinArray[j] / sum) * total);
-            };
+            }
             continue;
         }
         counter = 0;
@@ -1374,7 +1374,7 @@ function Distribution(totalBinArray, type) {
         if (type == 3) {
             for (var i = 0; i < tempBin.length; i++) {
                 testData += Math.abs(tempBin[i] - (BinArray[i] / sum) * total);
-            };
+            }
         }
         result.push(tempBin);
     }
