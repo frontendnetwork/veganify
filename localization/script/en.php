@@ -46,13 +46,13 @@ else {
 			}
 
 			if (in_array("en:non-vegan", $array)) {
-			    echo '<div class="animated fadeIn"><span class="non-vegan">"'.$name.'":<br>Not vegan<span class="icon-cancel"></span> </span>'.$palmoil.$nutriscore.'<a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20is%20not%20vegan!%20-%Checked%with%20" class="btn-dark"><span class="icon-twitter"></span> Tweet</a></div>';
+			    echo '<div class="animated fadeIn"><span class="non-vegan">"'.$name.'":<br>Not vegan<span class="icon-cancel"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20is%20not%20vegan!%20-%Checked%with%20" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> Edit</a></div>';
 			}
 			elseif (in_array("en:vegan-status-unknown", $array) or in_array("en:maybe-vegan", $array)) {
-			    echo  '<div class="animated fadeIn"><span class="unknown">"'.$name.'":<br>Vegan<span class="icon-help"></span></span>'.$palmoil.$nutriscore.'<br><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark">Edit product</a></div>';
+			    echo  '<div class="animated fadeIn"><span class="unknown">"'.$name.'":<br>Vegan<span class="icon-help"></span></span>'.$palmoil.$nutriscore.'<br><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> Edit</a></div>';
 			}
 			elseif (in_array("en:vegan", $array)) {
-				echo '<div class="animated fadeIn"><span class="vegan">"'.$name.'":<br>Vegan<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20is%20vegan!%20-%Checked%20with%20" class="btn-dark"><span class="icon-twitter"></span> Tweet</a></div>';
+				echo '<div class="animated fadeIn"><span class="vegan">"'.$name.'":<br>Vegan<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20is%20vegan!%20-%Checked%20with%20" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> Edit</a></div>';
 			}
 			elseif ($response == "no code or invalid code"){
 				echo '<div class="animated fadeIn"><span class="missing">This barcode is invalid.</span></div>';
