@@ -48,8 +48,8 @@ else {
 				if (in_array("en:non-vegan", $array)) {
 				    echo '<div class="animated fadeIn"><span class="non-vegan">"<span class="name">'.$name.'</span>":<br> Nicht vegan<span class="icon-cancel"></span> </span>'.$palmoil.$nutriscore.'<a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20ist%20nicht%20vegan!%20-%20Geprüft%20mit%20" class="btn-dark"><span class="icon-twitter"></span> Tweet</a></div>';
 				}
-				elseif (in_array("en:vegan-status-unknown", $array)) {
-				    echo  '<div class="animated fadeIn"><span class="unknown">"<span class="name">'.$name.'</span>":<br>Keine Informationen über Vegan-Status<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark">Produkt ändern</a></div>';
+				elseif (in_array("en:vegan-status-unknown", $array) or in_array("en:maybe-vegan", $array)) {
+				    echo  '<div class="animated fadeIn"><span class="unknown">"<span class="name">'.$name.'</span>":<br>Vegan<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark">Produkt ändern</a></div>';
 				}
 				elseif (in_array("en:vegan", $array)) {
 					echo '<div class="animated fadeIn"><span class="vegan">"<span class="name">'.$name.'</span>":<br> ist Vegan<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.'%20ist%20vegan!%20-%20Geprüft%20mit%20" class="btn-dark"><span class="icon-twitter"></span> Tweet</a></div>';
