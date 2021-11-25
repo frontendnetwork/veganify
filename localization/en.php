@@ -30,7 +30,7 @@ https://github.com/jokenetwork/vegancheck.me
 
     <link rel="apple-touch-startup-image" href="img/iossplash.png">
 
-    <link href="css/style.min.css?v=3.9" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.1" rel="stylesheet">
   </head>
 
   <body>
