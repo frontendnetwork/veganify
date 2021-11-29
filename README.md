@@ -27,7 +27,7 @@ VeganCheck.me checks the EAN or UPC code of a product and tells you if it is veg
 ![VeganCheck.me Screenshot](img/Hero.svg)
 
 <p align="center">
-<img src="img/demo.gif" alt="VeganCheck.me Demo" align="center" height="500">
+<img src="img/demo_new.gif" alt="VeganCheck.me Demo" align="center" height="500">
 </p>
 
 ## ☑️ ToDo 
