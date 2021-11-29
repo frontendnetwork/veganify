@@ -36,7 +36,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="msapplication-starturl" content="/">
-    <meta name="theme-color" content="#000">
+    <meta name="theme-color" content="#121212">
 
     <link rel="apple-touch-startup-image" href="img/iossplash.png">
 
