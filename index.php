@@ -40,7 +40,7 @@ https://github.com/jokenetwork/vegancheck.me
 
     <link rel="apple-touch-startup-image" href="img/iossplash.png">
 
-    <link href="css/style.min.css?v=3.9.1" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.2" rel="stylesheet">
   </head>
 
   <body>
@@ -52,10 +52,11 @@ https://github.com/jokenetwork/vegancheck.me
 
         <form action="script.php">
           <fieldset>
-            <span class="btn_scan" onclick="setupLiveReader()" aria-label="<?php echo $scanbarcode; ?>" role="button" tabindex="0"><i class="icon-barcode"></i></span>
+            <legend><?php echo $enterbarcode; ?></legend>
+            <span class="btn_scan" onclick="setupLiveReader()" aria-label="<?php echo $scanbarcode; ?>" role="button" tabindex="0"><span class="icon-barcode"></span></span>
             <input type="number" id="barcode" name="barcode" placeholder="<?php echo $enterbarcode; ?>" autofocus> 
             <input type="hidden" id="lang" name="lang" value="<?php echo $lang; ?>">
-            <button name="submit" aria-label="<?php echo $submit; ?>" role="button"><i class="icon-right-open"></i></button>
+            <button name="submit" aria-label="<?php echo $submit; ?>" role="button"><span class="icon-right-open"></span></button>
           </fieldset>
         </form>
         <div id="result">&nbsp;</div> 
