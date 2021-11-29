@@ -5,7 +5,7 @@
 
 $barcode = $_POST['barcode'];
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-$supportedLanguages=['en','de', 'fr'];
+$supportedLanguages=['en','de', 'fr', 'es', 'nl'];
   if(!in_array($lang,$supportedLanguages)){
      $lang='en';
 }
@@ -66,7 +66,7 @@ else {
             echo  '<div class="animated fadeIn"><span class="unknown">"<span class="name">'.$name.'</span>":<br>Vegan<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
         }
         elseif (in_array("en:vegan", $array)) {
-          echo '<div class="animated fadeIn"><span class="vegan">"<span class="name">'.$name.'</span>":<br>Vegan<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.$tweettextvegan.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
+          echo '<div class="animated fadeIn"><span class="vegan">"<span class="name">'.$name.'</span>":<br>'.$vegan.'<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.$name.$tweettextvegan.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
         }
         elseif ($response == "no code or invalid code"){
           echo '<div class="animated fadeIn"><span class="missing">'.$invalidscan.'</span></div>';
