@@ -8,6 +8,7 @@ $missinginfo = 'We do not have enough info on this product yet.';
 $addinfo = 'Want to add info?';
 $editonoff = 'Edit this product at OpenFoodFacts';
 
+$vegan = 'Vegan';
 $unknown = 'unknown';
 $containspalmoil = 'Contains Palmoil';
 $nopalmoil = 'No Palmoil';
