@@ -157,6 +157,10 @@ button:focus {
     background-color: #fff;
 }
 
+.eanscanner {
+    z-index: 999999!important;
+}
+
 #close {
     cursor: pointer;
     color: #ee5253;
