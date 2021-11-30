@@ -38,6 +38,8 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="msapplication-starturl" content="/">
     <meta name="theme-color" content="#121212">
 
+    <meta name="application-name" content="VeganCheck">
+    <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
     <link href="css/style.min.css?v=3.9.4" rel="stylesheet">
