@@ -26,11 +26,11 @@ https://github.com/jokenetwork/vegancheck.me
     <meta property="og:url" content="https://vegancheck.me">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png">
+    <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png?v=2.0.0">
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="manifest" href="img/site.webmanifest?v=1.0.1">
-    <link rel="apple-touch-icon" href="img/icon.png">
+    <link rel="manifest" href="img/site.webmanifest?v=1.0.2">
+    <link rel="apple-touch-icon" href="img/icon.png?v=2.0.0">
 
     <link rel="manifest" href="img/manifest.webmanifest">
     <meta name="mobile-web-app-capable" content="yes">
@@ -38,7 +38,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="msapplication-starturl" content="/">
     <meta name="theme-color" content="#121212">
 
-    <link rel="apple-touch-startup-image" href="img/iossplash.png">
+    <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
     <link href="css/style.min.css?v=3.9.4" rel="stylesheet">
   </head>
