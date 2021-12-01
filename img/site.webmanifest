@@ -28,6 +28,12 @@
             "src": "icon-512x512.png?v=2.0.0",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "maskable_icon.png?v=2.0.0",
+            "sizes": "640x640",
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ]
 }
