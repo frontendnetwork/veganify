@@ -29,10 +29,10 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png?v=2.0.0">
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="manifest" href="img/site.webmanifest?v=1.0.2">
     <link rel="apple-touch-icon" href="img/icon.png?v=2.0.0">
 
-    <link rel="manifest" href="img/manifest.webmanifest">
+    <link rel="manifest" href="img/site.webmanifest">
+
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="msapplication-starturl" content="/">
