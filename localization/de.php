@@ -12,8 +12,6 @@ $submit = 'Absenden';
 // Footer
 $footercredits = 'Mit <i class="icon-vegancheck"></i> gemacht von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>';
 $footerlegal = '<a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor werden</a>';
-$alreadyplanted = "Wir haben bereits";
-$trees = "Bäume geplanzt, um unseren CO<sub>2</sub>-Ausstoß zu kompensieren!";
 
 // PWA Prompt 
 $pwaclose = 'Schließen';
