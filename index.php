@@ -63,7 +63,8 @@ https://github.com/jokenetwork/vegancheck.me
         </form>
         <div id="result">&nbsp;</div> 
         <footer>
-          <p><?php echo $footercredits; ?>
+          <p><?php echo $footercredits; ?><br>
+            <a href="https://iplantatree.org/user/vegancheck"><?php echo $alreadyplanted; ?> 5 <?php echo $trees; ?></a>
             <br><?php echo $footerlegal; ?></p>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
