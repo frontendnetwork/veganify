@@ -21,4 +21,8 @@ $pwainfo = 'Tik <svg class="pwa-install-prompt__guide__icon" viewBox="0 0 128 12
 
 // Scanner Layover
 $closescanner = 'Scanner sluiten';
+
+// Othee
+$offline = 'U bent momenteel offline. VeganCheck.me werkt alleen met een functionerende internetverbinding.';
+$reload = 'Probeer opnieuw';
 ?>

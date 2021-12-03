@@ -21,4 +21,8 @@ $pwainfo = 'Just tap <svg class="pwa-install-prompt__guide__icon" viewBox="0 0 1
 
 // Scanner Layover
 $closescanner = 'Close scanner';
+
+// Other
+$offline = 'You are currently offline. VeganCheck.me only works with a functioning internet-connection.';
+$reload = 'Try again';
 ?>

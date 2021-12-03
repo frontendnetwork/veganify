@@ -21,4 +21,8 @@ $pwainfo = 'Sólo tienes que tocar <svg class="pwa-install-prompt__guide__icon" 
 
 // Scanner Layover
 $closescanner = 'Cerrar escáner';
+
+// Other
+$offline = 'Actualmente estás desconectado. VeganCheck.me sólo funciona con una conexión a Internet en funcionamiento.';
+$reload = 'Intenta de nuevo';
 ?>
