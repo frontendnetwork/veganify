@@ -6,7 +6,7 @@ $addit = "Wilt u het toevoegen?";
 $addonoff = "Voeg dit product toe aan OpenFoodFacts";
 $missinginfo = "We hebben nog niet genoeg info over dit product.";
 $addinfo = "Wilt u info toevoegen?";
-$editonoff = "Bewerk dit product bij OpenFoodFacts";
+$editonoff = "Verander het product op OpenFoodFacts";
 
 $vegan = 'Veganistisch';
 $unknown = 'onbekend';
@@ -16,5 +16,5 @@ $palmoilunknown = "Palmoliegehalte onbekend";
 $notvegan = 'Niet veganistisch';
 $tweettext = '%20is%20niet%20veganistisch%20-%Getest%20met%20';
 $tweettextvegan = '%20is%20veganistisch!%20-%20Getest%20met%20';
-$edit = 'Bewerken';
+$edit = 'Bewerking';
 ?>
