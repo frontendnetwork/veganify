@@ -31,7 +31,7 @@ https://github.com/jokenetwork/vegancheck.me
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="img/icon.png?v=2.0.0">
 
-    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="manifest" href="img/site.webmanifest?v=1.0.1">
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
