@@ -28,11 +28,32 @@
         margin-bottom: 2rem;
         font-size: 1rem!important;
     }
+
+    footer {
+        font-size: .7rem;
+    }
+}
+
+/* Older, smaller phones */
+@media only screen and (max-width:21.5rem) {
+    .labels {
+        padding: .5rem!important;
+        width: 2.5rem !important;
+     }
+
+    .btn-dark {
+        width: 6.5rem;
+        font-size: .9rem;
+    }
+
+    footer {
+        font-size: .6rem;
+    }
 }
 
 /* Smaller screens & tablets */
 @media only screen and (max-width:60rem) {
-    button{
+    button {
         width: 15%;
         padding-left: 0;
         padding-right: 0;
