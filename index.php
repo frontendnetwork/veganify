@@ -42,7 +42,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.13" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.15" rel="stylesheet">
   </head>
 
   <body>
@@ -67,7 +67,7 @@ https://github.com/jokenetwork/vegancheck.me
             <br><?php echo $footerlegal; ?></p>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
-            <a href="https://iplantatree.org/user/vegancheck"><img src="img/treelabel.svg" alt="We plant trees. We're carbon neutral." class="labels"></a>
+            <a href="https://iplantatree.org/user/VeganCheck.me"><img src="img/treelabel.svg" alt="We plant trees. We're carbon neutral." class="labels"></a>
             <a href="https://philip.media"><img src="img/pml.svg" alt="philip.media" class="labels"></a>
         </footer>
       </div>
