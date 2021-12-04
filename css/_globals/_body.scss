@@ -166,7 +166,7 @@ button:focus {
     color: #ee5253;
     font-weight: bold;
     position: absolute;
-    z-index: 9999;  
+    z-index: 99999999999; 
     top: 5%;
     left: 50%;
     -webkit-transform: translateX(-50%);
