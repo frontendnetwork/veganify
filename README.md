@@ -26,7 +26,7 @@
 
 ## 👨🏼‍💻 Overview
 
-VeganCheck.me checks the EAN or UPC code of a product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
+VeganCheck.me checks the EAN or UPC code of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
 
 <img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center">
 <p align="center">
@@ -59,7 +59,7 @@ This repo uses:
 * [JQuery](https://jquery.com) @jQuery
 * [BarCode-reader](https://github.com/iemadk/BarCode-reader) [@iemadk](https://github.com/iemadk)
 * [pwa-install-prompt](https://github.com/JacobDB/pwa-install-prompt) [@JacobDB](https://github.com/JacobDB)
-* [OpenFoodFacts API](https://openfoodfacts.org/) [@openfoodfacts](https://github.com/openfoodfacts)
+* [OpenFoodFacts API](https://openfoodfacts.org/) & [OpenBeautyFacts API](https://openbeautyfacts.org/) [@openfoodfacts](https://github.com/openfoodfacts)
 
 ## 👩‍⚖️ License
 
