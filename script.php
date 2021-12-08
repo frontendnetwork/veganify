@@ -4,6 +4,8 @@
 // Not vegan: 5000159404259
 
 $barcode = $_POST['barcode'];
+
+// Language detection 
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 $supportedLanguages=['en','de', 'fr', 'es', 'nl'];
   if(!in_array($lang,$supportedLanguages)){
@@ -14,16 +16,19 @@ if (!empty($lang)){
   require("localization/script/".$lang.".php");
 }
 
+// Barcode is empty
 if (empty($barcode)){
   echo '<span class="animated fadeIn">'.$invalidrequest.'</span>';
 }
 
+// Barcode is not empty
 else {
   $data = file_get_contents('https://world.openfoodfacts.org/api/v0/product/'.$barcode);
   $product = json_decode($data);
   $beautydata = file_get_contents('https://world.openbeautyfacts.org/api/v0/product/'.$barcode);
   $beautyproduct = json_decode($beautydata);
 
+  // When to use OpenBeautyFacts & when to use OpenFoodFacts
   if(empty($product->product) && !empty($beautyproduct->product)) {
     $api = 'https://world.openbeautyfacts.org/api/v0/product/';
     $baseuri = "https://world.openbeautyfacts.org";
@@ -33,34 +38,45 @@ else {
     $baseuri = "https://world.openfoodfacts.org";
   }
   else {
-    echo '<div class="animated fadeIn"><span>'.$notindb.'</span><p class="missing">'.$addit.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$addonoff.'</a>.</p></div>';
+    $api = 'https://world.openfoodfacts.org/api/v0/product/';
+    $baseuri = "https://world.openfoodfacts.org";
   }
 
   $data = file_get_contents($api.$barcode);
   $product = json_decode($data);
 
+  // Start JSON array request
   if (!empty($product->product)) {
     $array = $product->product->ingredients_analysis_tags;
     $name = $product->product->product_name;
+    $genericname = $product->product->generic_name; 
     $response = $product->status_verbose;
     $nutriscore = $product->product->nutriscore_grade;
+
+    // Check if $name is given or $genericname is given
+    if(empty($name) && !empty($genericname)){
+      $name = $genericname;
+    }
+    elseif(empty($genericname) && empty($name)){
+      $name = $unknown;
+    }
 
     if(isset($array)){
 
       if($nutriscore == "a"){
-        $nutriscore = '<span class="vegan">Nutriscore A<span class="icon-ok"></span> </span>';
+        $nutriscore = '<span class="nutri_a">Nutriscore A<span class="icon-ok"></span> </span>';
       }
       elseif($nutriscore == "b"){
-        $nutriscore = '<span class="vegan">Nutriscore B<span class="icon-ok"></span> </span>';
+        $nutriscore = '<span class="nutri_b">Nutriscore B<span class="icon-ok"></span> </span>';
       }
       elseif($nutriscore == "c"){
-        $nutriscore = '<span class="vegan">Nutriscore C<span class="icon-ok"></span> </span>';
+        $nutriscore = '<span class="nutri_c">Nutriscore C<span class="icon-ok"></span> </span>';
       }
       elseif($nutriscore == "d"){
-        $nutriscore = '<span class="non-vegan">Nutriscore D<span class="icon-cancel"></span> </span>';
+        $nutriscore = '<span class="nutri_d">Nutriscore D<span class="icon-cancel"></span> </span>';
       }
       elseif($nutriscore == "e"){
-        $nutriscore = '<span class="non-vegan">Nutriscore E<span class="icon-cancel"></span> </span>';
+        $nutriscore = '<span class="nutri_e">Nutriscore E<span class="icon-cancel"></span> </span>';
       }
       elseif(empty($nutriscore)){
         $nutriscore = null;
@@ -68,7 +84,7 @@ else {
       else {
         $nutriscore = '<span class="unknown">Nutriscore '.$unknown.'<span class="icon-help"></span> </span>';
       }
-
+ 
       if (in_array("en:palm-oil", $array)) {
         $palmoil = '<span class="non-vegan"> '.$containspalmoil.'<span class="icon-cancel"></span> </span>';
       }
