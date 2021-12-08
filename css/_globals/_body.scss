@@ -32,6 +32,26 @@ body {
     color: var(--unknown);
 }
 
+.nutri_a {
+    color: #00BF00;
+}
+
+.nutri_b {
+    color: #73FF00;
+}
+
+.nutri_c {
+    color: #FFCC00;
+}
+
+.nutri_d {
+    color: #FF6600;
+}
+
+.nutri_e {
+    color: #FF1900;
+}
+
 a {
     text-decoration: none;
     font-weight: var(--semibold-fontweight);
@@ -61,7 +81,7 @@ input::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
     width: 45%;
     background: #576574;
     margin-bottom: 1rem;
@@ -125,7 +145,7 @@ button:focus {
 }
 
 .btn-dark {
-    margin-top: .8rem!important;
+    margin-top: .8rem !important;
     display: inline-block;
     width: 8rem;
     font-weight: 400;
@@ -158,7 +178,7 @@ button:focus {
 }
 
 .eanscanner {
-    z-index: 999999!important;
+    z-index: 999999 !important;
 }
 
 #close {
@@ -166,7 +186,7 @@ button:focus {
     color: #ee5253;
     font-weight: bold;
     position: absolute;
-    z-index: 99999999999; 
+    z-index: 99999999999;
     top: 5%;
     left: 50%;
     -webkit-transform: translateX(-50%);
