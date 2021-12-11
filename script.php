@@ -123,4 +123,7 @@ else {
     echo '<div class="animated fadeIn"><span>'.$notindb.'</span><p class="missing">'.$addit.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$addonoff.'</a>.</p></div>';
   }
 }
+
+// Remove before using on your own site
+include("stats.php");
 ?>
