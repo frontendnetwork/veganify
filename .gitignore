@@ -4,3 +4,5 @@ impressum.php
 prepros.config
 css/prepros.config
 stats.json
+.intern/.stats.json
+stats.php
