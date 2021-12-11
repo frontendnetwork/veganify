@@ -4,8 +4,6 @@ Thank you for helping translating VeganCheck.me!
 After translating, please delete this comment. 
 Feel free to add your name/GitHub URI to "Translated by:".
 
-Please don't forget to also translate the script which can be found at localization/script/template.php
-
 -->
 
 <?php 
@@ -34,4 +32,28 @@ $pwainfo = 'Just tap <svg class="pwa-install-prompt__guide__icon" viewBox="0 0 1
 
 // Scanner Layover
 $closescanner = 'Close scanner';
+
+// Other
+$offline = 'You are currently offline. VeganCheck.me only works with a functioning internet-connection.';
+$reload = 'Try again';
+
+// Results
+$invalidrequest = 'Barcode cannot be empty or include special characters.';
+$invalidscan = 'This barcode is invalid.';
+$notindb = 'This product is not in our database yet.';
+$addit = 'Do you want to add it?';
+$addonoff = 'Add this product at OpenFoodFacts';
+$missinginfo = 'We do not have enough info on this product yet.';
+$addinfo = 'Want to add info?';
+$editonoff = 'Edit this product at OpenFoodFacts';
+
+$vegan = 'Vegan';
+$unknown = 'unknown';
+$containspalmoil = 'Contains Palmoil';
+$nopalmoil = 'No Palmoil';
+$palmoilunknown = 'Palmoil unknown';
+$notvegan = 'Not vegan';
+$tweettext = '%20is%20not%20vegan!%20-%Checked%with%20';
+$tweettextvegan = '%20is%20vegan!%20-%Checked%20with%20';
+$edit = 'Edit';
 ?>
