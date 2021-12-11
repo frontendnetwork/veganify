@@ -13,7 +13,7 @@ $supportedLanguages=['en','de', 'fr', 'es', 'nl'];
 }
 
 if (!empty($lang)){
-  require("localization/script/".$lang.".php");
+  require("localization/".$lang.".php");
 }
 
 // Barcode is empty
@@ -32,14 +32,17 @@ else {
   if(empty($product->product) && !empty($beautyproduct->product)) {
     $api = 'https://world.openbeautyfacts.org/api/v0/product/';
     $baseuri = "https://world.openbeautyfacts.org";
+    $apiname = 'OBF';
   }
   elseif(!empty($product->product) && empty($beautyproduct->product)) {
     $api = 'https://world.openfoodfacts.org/api/v0/product/';
     $baseuri = "https://world.openfoodfacts.org";
+    $apiname = 'OFF';
   }
   else {
     $api = 'https://world.openfoodfacts.org/api/v0/product/';
     $baseuri = "https://world.openfoodfacts.org";
+    $apiname = 'OFF';
   }
 
   $data = file_get_contents($api.$barcode);
