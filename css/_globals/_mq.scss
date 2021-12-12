@@ -5,11 +5,11 @@
         width: 90%;
     }
 
-    input[type=text]{
+    input[type=text] {
         width: 60%;
     }
 
-    button{
+    button {
         width: 20%;
         padding-left: 0;
         padding-right: 0;
@@ -17,7 +17,7 @@
 
     .btn_scan {
         width: 10%;
-        display:inline-block;
+        display: inline-block;
     }
 
     h1 {
@@ -26,7 +26,7 @@
 
     #result {
         margin-bottom: 2rem;
-        font-size: 1rem!important;
+        font-size: 1rem !important;
     }
 
     footer {
@@ -34,16 +34,16 @@
     }
 
     .labels {
-        width: 3rem!important;
+        width: 3rem !important;
     }
 }
 
 /* Older, smaller phones */
 @media only screen and (max-width:21.5rem) {
     .labels {
-        padding: .5rem!important;
+        padding: .5rem !important;
         width: 2.5rem !important;
-     }
+    }
 
     .btn-dark {
         width: 6.5rem;
@@ -61,5 +61,18 @@
         width: 15%;
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+/* Prevent landscape orientation */
+@media screen and (min-width: 20rem) and (max-width: 48rem) and (orientation: landscape) {
+    html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
 }
