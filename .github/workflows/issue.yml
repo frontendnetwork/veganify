@@ -12,4 +12,3 @@ jobs:
           labels-synonyms: '{"enhancement":["upgrade"],"question":["help"]}'
           labels-not-allowed: '["good first issue"]'
           default-labels: '["needs priority"]'
-
