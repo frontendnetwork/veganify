@@ -44,13 +44,11 @@ VeganCheck.me continues to develop permanently - This happens slowly but steadil
 This repo is mainly maintained by the team of [@jokenetwork](https://github.com/jokenetwork) ([JokeNetwork.de](https://jokenetwork.de)), but you can also help, if you want to!
 
 **What we currently need help with:**
-* [ ] Check the french translation (Ideally native speaker)
-* [ ] Check the spanish translation (Ideally native speaker)
-* [ ] Check the dutch translation (Ideally native speaker)
-* [ ] Localize to russian (Ideally native speaker)
-* [ ] Localize to arabic (Ideally native speaker)
-* [ ] Localize to hindi (Ideally native speaker)
-* [ ] Localize to mandarin (Ideally native speaker)
+
+Please refer to our issue trackers to see where you could help: 
+- [ ] [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
+- [x] [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
+- [ ] [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
 
 ## 🤝 Dependencies & Credits 
 
