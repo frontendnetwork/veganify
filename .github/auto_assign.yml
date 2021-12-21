@@ -8,7 +8,6 @@ addAssignees: true
 reviewers:
   - philipbrembeck
   - gitgauner
-  - fastrcloud
 
 # A number of reviewers added to the pull request
 # Set 0 to add all the reviewers (default: 0)
@@ -19,7 +18,6 @@ assignees:
    - philipbrembeck
    - gitgauner
    - fastrcloud
-   - jokenetwork-bot
 
 # A number of assignees to add to the pull request
 # Set to 0 to add all of the assignees.
