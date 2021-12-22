@@ -47,7 +47,7 @@ https://github.com/jokenetwork/vegancheck.me
 
   <body>
     <div class="rotate">
-      <img src="img/rotatedevice.svg">
+      <img src="img/rotatedevice.svg" alt="<?php echo $rotatedevice; ?>">
       <h1><?php echo $rotatedevice; ?></h1>
     </div>
     <div class="container">
