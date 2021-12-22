@@ -181,6 +181,7 @@ button:focus {
     z-index: 999999 !important;
 }
 
+// Scanner close
 #close {
     cursor: pointer;
     color: #ee5253;
@@ -191,4 +192,22 @@ button:focus {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%)
+}
+
+.rotate {
+    z-index: 999999999999999999999;
+    background: #000;
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    img {
+        padding-top: 5rem;
+        height: 8rem;
+    }
 }

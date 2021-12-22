@@ -65,14 +65,8 @@
 }
 
 /* Prevent landscape orientation */
-@media screen and (min-width: 20rem) and (max-width: 48rem) and (orientation: landscape) {
-    html {
-        transform: rotate(-90deg);
-        transform-origin: left top;
-        width: 100vh;
-        overflow-x: hidden;
-        position: absolute;
-        top: 100%;
-        left: 0;
+@media screen and (min-width: 20rem) and (max-width: 56rem) and (orientation: landscape) {
+    .rotate {
+        display: block;
     }
 }
