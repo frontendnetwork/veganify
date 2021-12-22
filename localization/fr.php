@@ -24,7 +24,8 @@ $closescanner = 'Fermer le scanner' ;
 
 // Other
 $offline = "Vous êtes actuellement hors ligne. VeganCheck.me ne fonctionne qu'avec une connexion internet en état de marche." ;
-$reload = 'Réessayer' ;
+$reload = 'Réessayer';
+$rotatedevice = 'Veuillez tourner votre appareil.';
 
 // Resluts
 $invalidrequest = "Le champ du code-barres ne doit pas être vide et ne doit pas contenir de caractères spéciaux";

@@ -25,6 +25,7 @@ $closescanner = 'Scanner sluiten';
 // Other
 $offline = 'U bent momenteel offline. VeganCheck.me werkt alleen met een functionerende internetverbinding.';
 $reload = 'Probeer opnieuw';
+$rotatedevice = 'Draai uw apparaat.';
 
 // Results
 $invalidrequest = "Het barcodeveld mag niet leeg zijn en mag geen speciale tekens bevatten.";

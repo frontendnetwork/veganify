@@ -25,6 +25,7 @@ $closescanner = 'Scanner schließen';
 // Other
 $offline = 'Du bist offline. VeganCheck.me funktioniert nur mit einer aktiven Internet-Verbindung.';
 $reload = 'Erneut versuchen';
+$rotatedevice = 'Bitte drehe dein Gerät.';
 
 // Results
 $invalidrequest = 'Das Barcode-Feld darf nicht leer sein und keine Sonderzeichen enthalten.';
