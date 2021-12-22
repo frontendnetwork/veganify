@@ -42,10 +42,14 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.17" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.31" rel="stylesheet">
   </head>
 
   <body>
+    <div class="rotate">
+      <img src="img/rotatedevice.svg">
+      <h1><?php echo $rotatedevice; ?></h1>
+    </div>
     <div class="container">
       <div id="main">
         <img src="img/VeganCheck.svg" alt="Logo">
