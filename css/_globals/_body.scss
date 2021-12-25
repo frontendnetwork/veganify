@@ -152,7 +152,7 @@ button:focus {
     line-height: 1.5;
     text-align: center;
     text-decoration: none;
-    border: 1px solid #424242;
+    border: .063rem solid #424242;
     cursor: pointer;
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
@@ -169,7 +169,7 @@ button:focus {
 .btn-dark:hover,
 .btn-dark:focus {
     color: #fff;
-    border: 1px solid #6b6b6b;
+    border: .063rem solid #6b6b6b;
 }
 
 .btn-dark:active {
