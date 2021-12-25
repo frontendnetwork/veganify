@@ -99,13 +99,13 @@ else {
       }
 
         if (in_array("en:non-vegan", $array)) {
-            echo '<div class="animated fadeIn"><span class="non-vegan">"<span class="name">'.$name.'</span>":<br>'.$notvegan.'<span class="icon-cancel"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettext.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
+            echo '<div class="animated fadeIn"><span class="non-vegan"><span class="name">"'.$name.'":</span></span><span class="non-vegan">'.$notvegan.'<span class="icon-cancel"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettext.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
         }
         elseif (in_array("en:vegan-status-unknown", $array) || in_array("en:maybe-vegan", $array)) {
-            echo  '<div class="animated fadeIn"><span class="unknown">"<span class="name">'.$name.'</span>":<br>Vegan<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br><a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
+            echo  '<div class="animated fadeIn"><span class="unknown"><span class="name">"'.$name.'":</span></span><span class="unknown">Vegan<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br><a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
         }
         elseif (in_array("en:vegan", $array)) {
-          echo '<div class="animated fadeIn"><span class="vegan">"<span class="name">'.$name.'</span>":<br>'.$vegan.'<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettextvegan.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
+          echo '<div class="animated fadeIn"><span class="vegan"><span class="name">"'.$name.'":</span></span><span class="vegan">'.$vegan.'<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<br><a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettextvegan.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a><a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a></div>';
         }
         elseif ($response == "no code or invalid code"){
           echo '<div class="animated fadeIn"><span class="missing">'.$invalidscan.'</span></div>';

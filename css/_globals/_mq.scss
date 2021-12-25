@@ -36,6 +36,21 @@
     .labels {
         width: 3rem !important;
     }
+
+    .name {
+        display: inline-block;
+    }
+
+    .non-vegan,
+    .unknown,
+    .vegan,
+    .nutri_a,
+    .nutri_b,
+    .nutri_c,
+    .nutri_d,
+    .nutri_e {
+        display: block !important;
+    }
 }
 
 /* Older, smaller phones */
@@ -52,6 +67,21 @@
 
     footer {
         font-size: .6rem;
+    }
+
+    .name {
+        display: inline-block;
+    }
+
+    .non-vegan,
+    .unknown,
+    .vegan,
+    .nutri_a,
+    .nutri_b,
+    .nutri_c,
+    .nutri_d,
+    .nutri_e {
+        display: block !important;
     }
 }
 
