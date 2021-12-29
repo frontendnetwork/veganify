@@ -46,4 +46,5 @@ $notvegan = 'Not vegan';
 $tweettext = '%20is%20not%20vegan!%20-%Checked%with%20';
 $tweettextvegan = '%20is%20vegan!%20-%Checked%20with%20';
 $edit = 'Edit';
+$reporterror = "Report an issue";
 ?>

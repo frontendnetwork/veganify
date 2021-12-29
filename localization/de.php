@@ -46,4 +46,5 @@ $notvegan = 'Nicht vegan';
 $tweettext = '%20ist%20nicht%20vegan!%20-%20Geprüft%20mit%20';
 $tweettextvegan = '%20ist%20vegan!%20-%20Geprüft%20mit%20';
 $edit = 'Ändern';
+$reporterror = "Fehler melden";
 ?>
