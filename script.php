@@ -65,7 +65,6 @@ else {
     }
 
     if(isset($array)){
-
       if($nutriscore == "a"){
         $nutriscore = '<span class="nutri_a">Nutriscore A<span class="icon-ok"></span> </span>';
       }
@@ -117,7 +116,6 @@ else {
     else {
       echo '<div class="animated fadeIn"><span>'.$missinginfo.'</span><p class="missing">'.$addinfo.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$editonoff.'</a>.</p></span></div>'; 
     }
-
   }
   else {
     echo '<div class="animated fadeIn"><span>'.$notindb.'</span><p class="missing">'.$addit.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$addonoff.'</a>.</p></div>';
