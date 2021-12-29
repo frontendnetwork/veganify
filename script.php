@@ -42,7 +42,7 @@ else {
   else {
     $api = 'https://world.openfoodfacts.org/api/v0/product/';
     $baseuri = "https://world.openfoodfacts.org";
-    $apiname = 'OFF';
+    $apiname = 'OFF-else';
   }
 
   $data = file_get_contents($api.$barcode);
