@@ -1,10 +1,10 @@
 h1 {
-    background: rgb(46,134,222);
-    background: linear-gradient(266deg, rgba(46,134,222,1) 0%, rgba(0,255,184,1) 100%);
+    background: rgb(46, 134, 222);
+    background: linear-gradient(266deg, rgba(46, 134, 222, 1) 0%, rgba(0, 255, 184, 1) 100%);
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
+    text-fill-color: transparent;
     outline: 0;
 }
 
@@ -21,11 +21,10 @@ h1 {
 }
 
 .longpage {
-    padding-top: 50px!important;
+    padding-top: 50px !important;
 }
 
 #result {
-    padding-top: 2rem;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
     height: auto;
@@ -36,9 +35,18 @@ h1 {
     -webkit-line-clamp: 2;
     font-size: var(--body-h2-fontsize);
     font-weight: var(--semibold-fontweight);
+
+    .resultborder {
+        border: 0.063rem solid #424242;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
 
-p.unknown, p.missing {
+p.unknown,
+p.missing {
     margin-top: 0;
 }
 
@@ -51,6 +59,6 @@ footer {
 }
 
 .labels {
-    padding: .5rem!important;
-    width: 4rem!important;
+    padding: .5rem !important;
+    width: 4rem !important;
 }
