@@ -1,13 +1,12 @@
 <?php
+  header('Access-Control-Allow-Origin: https://analytics.vegancheck.me'); 
   $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
   $supportedLanguages=['en','de', 'fr', 'es', 'nl'];
   if(!in_array($lang,$supportedLanguages)){
      $lang='en';
   }
     require("localization/".$lang.".php");
-
 ?>
-
 <!DOCTYPE html>
 <!-- VeganCheck.me is Open Source
 Check the project out on GitHub: 
@@ -42,7 +41,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.31" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.41" rel="stylesheet">
   </head>
 
   <body>
@@ -94,7 +93,6 @@ https://github.com/jokenetwork/vegancheck.me
   <span id="close" style="display:none;">&times; <?php echo $closescanner; ?></span>
   <script src="js/main.bundle.min.js"></script>
 <?php 
-        header('Access-Control-Allow-Origin: https://analytics.vegancheck.me'); 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';}  
         elseif (isset($_COOKIE['log']) && $_COOKIE['log'] == "No"){echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>';}  
         else{echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';} 
