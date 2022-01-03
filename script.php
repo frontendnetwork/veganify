@@ -149,7 +149,7 @@ else {
         }
     }
     else {
-      echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$missinginfo.'</span><p class="missing">'.$addinfo.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$editonoff.'</a>.</p></span>
+      echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$missinginfo.'</span><p class="missing">'.$addinfo.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$editonoff.'</a>.</p>
       '.$openissue.'
       </div></div>'; 
     }
