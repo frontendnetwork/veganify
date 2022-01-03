@@ -33,22 +33,17 @@ VeganCheck.me checks the EAN or UPC code of a food- or non-food-product and tell
 	<img src="img/demo_new.gif" alt="VeganCheck.me Demo" align="center" height="500">
 </p>
 
-## ☑️ ToDo 
-
-VeganCheck.me continues to develop permanently - This happens slowly but steadily to ensure that all functions work properly and are positively received by users. 
-
-* [ ] Options for vegetarians
-* [ ] Sustainability assessment
-
 ## 🧩 Contribute
 This repo is mainly maintained by the team of [@jokenetwork](https://github.com/jokenetwork) ([JokeNetwork.de](https://jokenetwork.de)), but you can also help, if you want to!
 
 **What we currently need help with:**
 
 Please refer to our issue trackers to see where you could help: 
-- [ ] [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
-- [ ] [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
-- [ ] [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
+- [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
+- [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
+- [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
+- [ToDo until v1.5](https://github.com/JokeNetwork/vegancheck.me/milestone/1)
+- [ToDo until v2.x](https://github.com/JokeNetwork/vegancheck.me/milestone/2)
 
 ## 🤝 Dependencies & Credits 
 
