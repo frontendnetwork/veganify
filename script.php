@@ -68,6 +68,9 @@ else {
       $name = $unknown;
     }
 
+      // Set palmoil as unknown before checking it
+      $palmoil = '<span class="unknown"> '.$palmoilunknown.'<span class="icon-help"></span> </span>';
+
       // Checks for the nutriscore
       if($nutriscore == "a"){
         $nutriscore = '<span class="nutri_a">Nutriscore A<span class="icon-ok"></span> </span>';
@@ -83,6 +86,9 @@ else {
       }
       elseif($nutriscore == "e"){
         $nutriscore = '<span class="nutri_e">Nutriscore E<span class="icon-cancel"></span> </span>';
+      }
+      elseif(empty($nutriscore)){
+        $nutriscore = '<span class="unknown">Nutriscore '.$unknown.'<span class="icon-help"></span> </span>';
       }
       else {
         $nutriscore = '<span class="unknown">Nutriscore '.$unknown.'<span class="icon-help"></span> </span>';
