@@ -47,7 +47,7 @@ This repo is mainly maintained by the team of [@jokenetwork](https://github.com/
 
 Please refer to our issue trackers to see where you could help: 
 - [ ] [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
-- [x] [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
+- [ ] [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
 - [ ] [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
 
 ## 🤝 Dependencies & Credits 
