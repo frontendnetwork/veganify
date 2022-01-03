@@ -68,7 +68,6 @@ else {
       $name = $unknown;
     }
 
-    if(isset($array)){
       // Checks for the nutriscore
       if($nutriscore == "a"){
         $nutriscore = '<span class="nutri_a">Nutriscore A<span class="icon-ok"></span> </span>';
@@ -85,14 +84,14 @@ else {
       elseif($nutriscore == "e"){
         $nutriscore = '<span class="nutri_e">Nutriscore E<span class="icon-cancel"></span> </span>';
       }
-      elseif(empty($nutriscore)){
-        $nutriscore = null;
-      }
       else {
         $nutriscore = '<span class="unknown">Nutriscore '.$unknown.'<span class="icon-help"></span> </span>';
       }
+
+    if(isset($array)){
       
       // Checks for the palm-oil status
+      // Needs to be after isset($array) because it checks within the array 
       if (in_array("en:palm-oil", $array)) {
         $palmoil = '<span class="non-vegan"> '.$containspalmoil.'<span class="icon-cancel"></span> </span>';
       }
@@ -102,6 +101,7 @@ else {
       else {
         $palmoil = '<span class="unknown"> '.$palmoilunknown.'<span class="icon-help"></span> </span>';
       }
+
         // if not vegan
         if (in_array("en:non-vegan", $array)) {
             echo '<div class="animated fadeIn">
@@ -148,10 +148,17 @@ else {
           '.$openissue.'</div></div>';
         }
     }
+    // Fomer: $missinginfo, now: Name-output & nutriscore if available 
     else {
-      echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$missinginfo.'</span><p class="missing">'.$addinfo.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$editonoff.'</a>.</p>
-      '.$openissue.'
-      </div></div>'; 
+      echo '<div class="animated fadeIn">
+                    <div class="resultborder">
+                      <span class="unknown">
+                        <span class="name">"'.$name.'":</span>
+                      </span>
+                      <span class="unknown">Vegan<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br>
+                      <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a> '.$openissue.'
+                    </div>
+                  </div>'; 
     }
   }
   else {
