@@ -52,6 +52,17 @@ body {
     color: #FF1900;
 }
 
+non-vegan,
+.nutri_a,
+.nutri_b,
+.nutri_c,
+.nutri_d,
+.nutri_e,
+.unknown,
+.vegan {
+    display: block !important;
+}
+
 a {
     text-decoration: none;
     font-weight: var(--semibold-fontweight);
