@@ -18,11 +18,11 @@ if (!empty($lang)){
 }
 
 // Open Issue on GitHub when error occurs
-$openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body='.urlencode('Error ticket #'.$ticket.' (Please always include this number!) - Please describe your issue:').'" target="_blank" class="btn-dark">'.$reporterror.'</a>';
+$openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body='.urlencode('Error ticket #'.$ticket.' (Please always include this number!) - Please describe your issue:').'" target="_blank" class="btn-dark">'.$langArray['results']['reporterror'].'</a>';
 
 // Barcode is empty
 if (empty($barcode)){
-  echo '<span class="animated fadeIn"><div class="resultborder">'.$invalidrequest.'<br>'.$openissue.'</div></span>';
+  echo '<span class="animated fadeIn"><div class="resultborder">'.$langArray['results']['invalid'].'<br>'.$openissue.'</div></span>';
 }
 
 // Barcode is not empty
@@ -65,14 +65,14 @@ else {
       $name = $genericname;
     }
     elseif(empty($genericname) && empty($name)){
-      $name = $unknown;
+      $name = $langArray['results']['unknown'];
     }
 
       // Set palmoil as unknown before checking it
-      $palmoil = '<span class="unknown"> '.$palmoilunknown.'<span class="icon-help"></span> </span>';
+      $palmoil = '<span class="unknown"> '.$langArray['results']['palmoilunknown'].'<span class="icon-help"></span> </span>';
 
       // Set vegetarian as unknown before checking it
-      $vegetarian = '<span class="unknown">'.$lang_vegetarian.'<span class="icon-help"></span> </span>';
+      $vegetarian = '<span class="unknown">'.$langArray['results']['vegetarian'].'<span class="icon-help"></span> </span>';
 
       // Checks for the nutriscore
       if($nutriscore == "a"){
@@ -91,35 +91,34 @@ else {
         $nutriscore = '<span class="nutri_e">Nutriscore E<span class="icon-cancel"></span> </span>';
       }
       elseif(empty($nutriscore)){
-        $nutriscore = '<span class="unknown">Nutriscore '.$unknown.'<span class="icon-help"></span> </span>';
+        $nutriscore = '<span class="unknown">Nutriscore '.$langArray['results']['unknown'].'<span class="icon-help"></span> </span>';
       }
       else {
-        $nutriscore = '<span class="unknown">Nutriscore '.$unknown.'<span class="icon-help"></span> </span>';
+        $nutriscore = '<span class="unknown">Nutriscore '.$langArray['results']['unknown'].'<span class="icon-help"></span> </span>';
       }
 
     if(isset($array)){
-      
       // Checks for the palm-oil status
       // Needs to be after isset($array) because it checks within the array 
       if (in_array("en:palm-oil", $array)) {
-        $palmoil = '<span class="non-vegan"> '.$containspalmoil.'<span class="icon-cancel"></span> </span>';
+        $palmoil = '<span class="non-vegan"> '.$langArray['results']['containspalmoil'].'<span class="icon-cancel"></span> </span>';
       }
       elseif (in_array("en:palm-oil-free", $array)) {
-        $palmoil = '<span class="vegan"> '.$nopalmoil.'<span class="icon-ok"></span> </span>';
+        $palmoil = '<span class="vegan"> '.$langArray['results']['nopalmoil'].'<span class="icon-ok"></span> </span>';
       }
       else {
-        $palmoil = '<span class="unknown"> '.$palmoilunknown.'<span class="icon-help"></span> </span>';
+        $palmoil = '<span class="unknown"> '.$langArray['results']['palmoilunknown'].'<span class="icon-help"></span> </span>';
       }
 
       // Checks for the vegetarian status  
       if (in_array("en:non-vegetarian", $array)) {
-        $vegetarian = '<span class="non-vegan">'.$lang_notvegetarian.'<span class="icon-help"></span> </span>';
+        $vegetarian = '<span class="non-vegan">'.$langArray['results']['notvegetarian'].'<span class="icon-help"></span> </span>';
       }
       elseif (in_array("en:vegetarian", $array)) {
-        $vegetarian = '<span class="vegan">'.$lang_vegetarian.'<span class="icon-ok"></span> </span>';
+        $vegetarian = '<span class="vegan">'.$langArray['results']['vegetarian'].'<span class="icon-ok"></span> </span>';
       }
       else {
-        $vegetarian = '<span class="unknown">'.$lang_vegetarian.'<span class="icon-help"></span> </span>';
+        $vegetarian = '<span class="unknown">'.$langArray['results']['vegetarian'].'<span class="icon-help"></span> </span>';
       }
 
         // if not vegan
@@ -129,9 +128,9 @@ else {
                       <span class="non-vegan">  
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="non-vegan">'.$notvegan.'<span class="icon-cancel"></span></span>'.$vegetarian.$palmoil.$nutriscore.'
-                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettext.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
-                      <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a>
+                      <span class="non-vegan">'.$langArray['results']['notvegan'].'<span class="icon-cancel"></span></span>'.$vegetarian.$palmoil.$nutriscore.'
+                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettext'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
+                      <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>';
         }
@@ -142,8 +141,8 @@ else {
                       <span class="unknown">
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="unknown">Vegan<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
-                      <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a>
+                      <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
+                      <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>';
         }
@@ -154,17 +153,17 @@ else {
                     <span class="vegan">
                       <span class="name">"'.$name.'":</span>
                     </span>
-                    <span class="vegan">'.$vegan.'<span class="icon-ok"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
-                    <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettextvegan.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
-                    <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a>
+                    <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
+                    <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
+                    <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                   </div>
                 </div>';
         }
         elseif ($response == "no code or invalid code"){
-          echo '<div class="animated fadeIn"><div class="resultborder"><span class="missing">'.$invalidscan.'</span><br>'.$openissue.'</div></div>';
+          echo '<div class="animated fadeIn"><div class="resultborder"><span class="missing">'.$langArray['results']['invalidscan'].'</span><br>'.$openissue.'</div></div>';
         }
         else {
-          echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$notindb.'</span><p class="missing">'.$addit.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$addonoff.'</a>.</p>
+          echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
           '.$openissue.'</div></div>';
         }
     }
@@ -175,14 +174,14 @@ else {
                       <span class="unknown">
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="unknown">Vegan<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
-                      <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a> '.$openissue.'
+                      <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
+                      <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a> '.$openissue.'
                     </div>
                   </div>'; 
     }
   }
   else {
-    echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$notindb.'</span><p class="missing">'.$addit.' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$addonoff.'</a>.</p>
+    echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
     '.$openissue.'
     </div></div>';
   }
