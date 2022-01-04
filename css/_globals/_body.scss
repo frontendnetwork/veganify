@@ -1,4 +1,4 @@
-// Selection color
+/* Selection color */
 ::-moz-selection {
     background-color: #10ac84;
     color: #fff
@@ -9,7 +9,7 @@
     color: #fff
 }
 
-// Define main body
+/* Define main body */
 body {
     font-family: var(--body-font);
     font-weight: var(--body-fontweight);
@@ -41,11 +41,11 @@ body {
 }
 
 .nutri_c {
-    color: #FFCC00;
+    color: #FC0;
 }
 
 .nutri_d {
-    color: #FF6600;
+    color: #F60;
 }
 
 .nutri_e {
@@ -192,7 +192,7 @@ button:focus {
     z-index: 999999 !important;
 }
 
-// Scanner close
+/* Scanner close */
 #close {
     cursor: pointer;
     color: #ee5253;
