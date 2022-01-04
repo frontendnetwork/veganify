@@ -4,7 +4,7 @@
   if(!in_array($lang,$supportedLanguages)){
      $lang='en';
   }
-    require("localization/".$lang.".php");
+    require_once("localization/".$lang.".php");
 ?>
 <!DOCTYPE html>
 <!-- VeganCheck.me is Open Source
@@ -40,7 +40,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.45" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.46" rel="stylesheet">
   </head>
 
   <body>

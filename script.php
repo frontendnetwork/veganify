@@ -14,7 +14,7 @@ $supportedLanguages=['en','de', 'fr', 'es', 'nl'];
 }
 
 if (!empty($lang)){
-  require("localization/".$lang.".php");
+  require_once("localization/".$lang.".php");
 }
 
 // Open Issue on GitHub when error occurs
@@ -188,5 +188,5 @@ else {
 }
 
 // Remove before using on your own site
-include("stats.php");
+include_once("stats.php");
 ?>

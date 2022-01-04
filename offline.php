@@ -4,7 +4,7 @@
   if(!in_array($lang,$supportedLanguages)){
      $lang='en';
   }
-    require("localization/".$lang.".php");
+    require_once("localization/".$lang.".php");
 
 ?>
 <!DOCTYPE html>
