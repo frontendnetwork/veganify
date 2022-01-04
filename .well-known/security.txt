@@ -1,6 +1,15 @@
+# Our security address
 Contact: mailto:security@cldsi.de
-Expires: 2031-10-31T23:00:00.000Z
+
+# Our OpenPGP key
 Encryption: https://cldsi.de/pgp.txt
+
 Preferred-Languages: en, de
-Acknowledgments: https://github.com/jokenetwork
+
+# Our seurity policy
+Policy: https://philip-media.github.io/security-policy/en.html
+Acknowledgments: https://philip-media.github.io/security-policy/Acknowledgments.html
+
+Expires: 2031-10-31T23:00:00.000Z
+
 Canonical: https://vegancheck.me/.well-known/security.txt
