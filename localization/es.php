@@ -38,6 +38,8 @@ $addinfo = '¿Quieres añadir información?';
 $editonoff = 'Editar este producto en OpenFoodFacts';
 
 $vegan = 'Vegano';
+$lang_notvegetarian = 'No vegetariano';
+$lang_vegetarian = 'Vegetariano';
 $unknown = 'Desconocido';
 $containspalmoil = 'Contiene Palmoil';
 $nopalmoil = 'No contiene Palmoil';

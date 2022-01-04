@@ -38,6 +38,8 @@ $addinfo = "Wilt u info toevoegen?";
 $editonoff = "Verander het product op OpenFoodFacts";
 
 $vegan = 'Veganistisch';
+$lang_notvegetarian = 'Niet vegetarisch';
+$lang_vegetarian = 'Vegetarisch';
 $unknown = 'onbekend';
 $containspalmoil = "Bevat palmolie";
 $nopalmoil = 'Geen palmolie';

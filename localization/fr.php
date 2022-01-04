@@ -39,6 +39,8 @@ $editonoff = 'Modifier ce produit sur OpenFoodFacts';
 
 $vegan = 'Vegan';
 $unknown = 'inconnu' ;
+$lang_notvegetarian = 'Non végétarien';
+$lang_vegetarian = 'Végétarien';
 $containspalmoil = "Contient de l'huile de palme";
 $nopalmoil = "Pas d'huile de palme";
 $palmoilunknown = "Contenu d'huile de palme inconnu";
