@@ -71,6 +71,9 @@ else {
       // Set palmoil as unknown before checking it
       $palmoil = '<span class="unknown"> '.$palmoilunknown.'<span class="icon-help"></span> </span>';
 
+      // Set vegetarian as unknown before checking it
+      $vegetarian = '<span class="unknown">'.$lang_vegetarian.'<span class="icon-help"></span> </span>';
+
       // Checks for the nutriscore
       if($nutriscore == "a"){
         $nutriscore = '<span class="nutri_a">Nutriscore A<span class="icon-ok"></span> </span>';
@@ -108,6 +111,17 @@ else {
         $palmoil = '<span class="unknown"> '.$palmoilunknown.'<span class="icon-help"></span> </span>';
       }
 
+      // Checks for the vegetarian status  
+      if (in_array("en:non-vegetarian", $array)) {
+        $vegetarian = '<span class="non-vegan">'.$lang_notvegetarian.'<span class="icon-help"></span> </span>';
+      }
+      elseif (in_array("en:vegetarian", $array)) {
+        $vegetarian = '<span class="vegan">'.$lang_vegetarian.'<span class="icon-ok"></span> </span>';
+      }
+      else {
+        $vegetarian = '<span class="unknown">'.$lang_vegetarian.'<span class="icon-help"></span> </span>';
+      }
+
         // if not vegan
         if (in_array("en:non-vegan", $array)) {
             echo '<div class="animated fadeIn">
@@ -115,7 +129,7 @@ else {
                       <span class="non-vegan">  
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="non-vegan">'.$notvegan.'<span class="icon-cancel"></span></span>'.$palmoil.$nutriscore.'<br>
+                      <span class="non-vegan">'.$notvegan.'<span class="icon-cancel"></span></span>'.$vegetarian.$palmoil.$nutriscore.'
                       <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettext.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a>
                     </div>
@@ -128,7 +142,7 @@ else {
                       <span class="unknown">
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="unknown">Vegan<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br>
+                      <span class="unknown">Vegan<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a>
                     </div>
                   </div>';
@@ -140,7 +154,7 @@ else {
                     <span class="vegan">
                       <span class="name">"'.$name.'":</span>
                     </span>
-                    <span class="vegan">'.$vegan.'<span class="icon-ok"></span> </span>'.$palmoil.$nutriscore.'<br>
+                    <span class="vegan">'.$vegan.'<span class="icon-ok"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
                     <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$tweettextvegan.'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                     <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a>
                   </div>
@@ -161,7 +175,7 @@ else {
                       <span class="unknown">
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="unknown">Vegan<span class="icon-help"></span> </span>'.$palmoil.$nutriscore.'<br>
+                      <span class="unknown">Vegan<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$edit.'</a> '.$openissue.'
                     </div>
                   </div>'; 
