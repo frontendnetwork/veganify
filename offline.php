@@ -50,8 +50,8 @@ https://github.com/jokenetwork/vegancheck.me
         <h1>VeganCheck.me</h1>
         <p id="code"></p>
 
-        <h3><?php echo $offline; ?></h3>
-        <h3><a href="/"><?php echo $reload; ?></a></h3>
+        <h3><?php echo $langArray['other']['offline']; ?></h3>
+        <h3><a href="/"><?php echo $langArray['other']['reload']; ?></a></h3>
         <footer>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
