@@ -90,8 +90,8 @@ else {
       elseif($nutriscore == "e"){
         $nutriscore = '<span class="nutri_e">Nutriscore E<span class="icon-cancel"></span> </span>';
       }
-      elseif(empty($nutriscore)){
-        $nutriscore = '<span class="unknown">Nutriscore '.$langArray['results']['unknown'].'<span class="icon-help"></span> </span>';
+      elseif($apiname == "OBF"){
+        $nutriscore = null;
       }
       else {
         $nutriscore = '<span class="unknown">Nutriscore '.$langArray['results']['unknown'].'<span class="icon-help"></span> </span>';
