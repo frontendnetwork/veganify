@@ -68,7 +68,7 @@ else {
       $name = $langArray['results']['unknown'];
     }
 
-      // Set palmoil as unknown before checking it
+      // Set palmoil as unknown before checking it, to display "unknown" in case of no API response
       $palmoil = '<span class="unknown"> '.$langArray['results']['palmoilunknown'].'<span class="icon-help"></span> </span>';
 
       // Set vegetarian as unknown before checking it
