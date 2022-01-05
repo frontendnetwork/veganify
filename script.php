@@ -60,6 +60,24 @@ else {
     $response = $product->status_verbose;
     $nutriscore = $product->product->nutriscore_grade;
 
+    // Check for non-animal-tested products
+    if($apiname == "OBF"){
+      if(isset($product->product->labels_tags)){
+        if(in_array("en:not-tested-on-animals", $product->product->labels_tags) || in_array("de:ohne-tierversuche", $product->product->labels_tags)){
+          $animaltestfree = '<span class="vegan"> '.$langArray['results']['animaltestfree'].'<span class="icon-ok"></span> </span>';
+        }
+        else {
+          $animaltestfree = null;
+        }
+      }
+      else {
+        $animaltestfree = null;
+      }
+    }
+    else {
+      $animaltestfree = null;
+    }
+
     // Check if $name is given or $genericname is given
     if(empty($name) && !empty($genericname)){
       $name = $genericname;
@@ -128,7 +146,7 @@ else {
                       <span class="non-vegan">  
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="non-vegan">'.$langArray['results']['notvegan'].'<span class="icon-cancel"></span></span>'.$vegetarian.$palmoil.$nutriscore.'
+                      <span class="non-vegan">'.$langArray['results']['notvegan'].'<span class="icon-cancel"></span></span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                       <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettext'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
@@ -141,7 +159,7 @@ else {
                       <span class="unknown">
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
+                      <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>';
@@ -153,7 +171,7 @@ else {
                     <span class="vegan">
                       <span class="name">"'.$name.'":</span>
                     </span>
-                    <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
+                    <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                     <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                     <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                   </div>
@@ -174,7 +192,7 @@ else {
                       <span class="unknown">
                         <span class="name">"'.$name.'":</span>
                       </span>
-                      <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$palmoil.$nutriscore.'
+                      <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a> '.$openissue.'
                     </div>
                   </div>'; 
