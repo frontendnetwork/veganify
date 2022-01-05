@@ -48,7 +48,8 @@ $langArray = array(
         	"tweettext" => "%20no%20es%20vegano!%20-%20Comprobado%20con%20",
         	"tweettextvegan" => "%20es%20vegano!%20-%20Comprobado%20con%20",
         	"edit" => "Editar",
-        	"reporterror" => "Informar de un problema"
+        	"reporterror" => "Informar de un problema",
+                "animaltestfree" => "No probado en animales"
         )
     );
 ?>
