@@ -42,6 +42,7 @@ Please refer to our issue trackers to see where you could help:
 - [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
 - [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
 - [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
+- [ToDo until v1.6](https://github.com/JokeNetwork/vegancheck.me/milestone/3)
 - [ToDo until v2.x](https://github.com/JokeNetwork/vegancheck.me/milestone/2)
 
 ## 🤝 Dependencies & Credits 
