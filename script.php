@@ -63,7 +63,7 @@ else {
     // Check for non-animal-tested products
     if($apiname == "OBF"){
       if(isset($product->product->labels_tags)){
-        if(in_array("en:not-tested-on-animals", $product->product->labels_tags) || in_array("de:ohne-tierversuche", $product->product->labels_tags)){
+        if(in_array("en:not-tested-on-animals", $product->product->labels_tags) || in_array("de:ohne-tierversuche", $product->product->labels_tags) || in_array("en:cruelty-free", $product->product->labels_tags) || in_array("fr:cruelty-free", $product->product->labels_tags) || in_array("en:cruelty-free-international", $product->product->labels_tags)){
           $animaltestfree = '<span class="vegan"> '.$langArray['results']['animaltestfree'].'<span class="icon-ok"></span> </span>';
         }
         else {
