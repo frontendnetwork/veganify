@@ -49,7 +49,8 @@ $langArray = array(
         	"tweettextvegan" => "%20es%20vegano!%20-%20Comprobado%20con%20",
         	"edit" => "Editar",
         	"reporterror" => "Informar de un problema",
-                "animaltestfree" => "No probado en animales"
+                "animaltestfree" => "No probado en animales",
+                "checkingredients" => "Los ingredientes del producto se han procesado y comprobado automáticamente. Compruebe usted mismo los ingredientes para estar seguro."
         )
     );
 ?>
