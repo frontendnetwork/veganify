@@ -30,6 +30,11 @@
         line-height: 1.5rem;
     }
 
+    .warning {
+        font-size: .6rem!important;
+        line-height: 1rem!important;
+    }
+
     footer {
         font-size: .7rem;
     }
@@ -40,17 +45,6 @@
 
     .name {
         display: inline-block;
-    }
-
-    .non-vegan,
-    .unknown,
-    .vegan,
-    .nutri_a,
-    .nutri_b,
-    .nutri_c,
-    .nutri_d,
-    .nutri_e {
-        display: block !important;
     }
 }
 
@@ -72,17 +66,6 @@
 
     .name {
         display: inline-block;
-    }
-
-    .non-vegan,
-    .unknown,
-    .vegan,
-    .nutri_a,
-    .nutri_b,
-    .nutri_c,
-    .nutri_d,
-    .nutri_e {
-        display: block !important;
     }
 }
 
