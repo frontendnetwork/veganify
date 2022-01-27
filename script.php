@@ -1,8 +1,4 @@
 <?php
-// Vegan: https://world.openfoodfacts.org/api/v0/product/4251105509585.json
-// Vegan uknown: https://world.openfoodfacts.org/api/v0/product/4008638170726.json
-// Not vegan: 5000159404259
-
 $barcode = $_POST['barcode'];
 $ticket = uniqid();
 
@@ -199,6 +195,7 @@ else {
                   </div>'; 
     }
   }
+  // Use brocade API if item is not in OFF and use OEDBAPI if item is not in brocade
   else {
     $brocade = file_get_contents('https://www.brocade.io/api/items/'.$barcode);
     $product = json_decode($brocade);
@@ -231,6 +228,7 @@ else {
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>';
+                  $apiname = 'brocade-nameonly';
                 }
                }
                else{
@@ -241,9 +239,21 @@ else {
                }
            }
            else {
-            echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
+            $OEDBAPI = file('https://opengtindb.org/?ean='.$barcode.'&cmd=query&queryid=400000000');
+            $status = $OEDBAPI[1];
+            if (str_contains($status, "error=0")){
+              parse_str($OEDBAPI[5], $output);
+              $productname = substr($output['detailname'], 0, -1);;
+              echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
+        '.$openissue.'
+        </div></div>';
+        $apiname = 'OEDB';
+            }
+            else {
+              echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
     '.$openissue.'
     </div></div>';
+            }
            }
   }
 }
