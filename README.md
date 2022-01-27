@@ -42,7 +42,6 @@ Please refer to our issue trackers to see where you could help:
 - [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
 - [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
 - [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
-- [ToDo until v1.6](https://github.com/JokeNetwork/vegancheck.me/milestone/3)
 - [ToDo until v2.x](https://github.com/JokeNetwork/vegancheck.me/milestone/2)
 
 ## 🤝 Dependencies & Credits 
@@ -53,6 +52,8 @@ This repo uses:
 * [BarCode-reader](https://github.com/iemadk/BarCode-reader) [@iemadk](https://github.com/iemadk)
 * [pwa-install-prompt](https://github.com/JacobDB/pwa-install-prompt) [@JacobDB](https://github.com/JacobDB)
 * [OpenFoodFacts API](https://openfoodfacts.org/) & [OpenBeautyFacts API](https://openbeautyfacts.org/) [@openfoodfacts](https://github.com/openfoodfacts)
+* [Brocade.io API](https://brocade.io) [@ferrisoxide](https://github.com/ferrisoxide)
+* [is-vegan API](https://github.com/hmontazeri/is-vegan) [@hmontazeri](https://github.com/hmontazeri)
 
 ## 👩‍⚖️ License
 
