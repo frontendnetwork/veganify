@@ -126,7 +126,7 @@ else {
 
       // Checks for the vegetarian status  
       if (in_array("en:non-vegetarian", $array)) {
-        $vegetarian = '<span class="non-vegan">'.$langArray['results']['notvegetarian'].'<span class="icon-help"></span> </span>';
+        $vegetarian = '<span class="non-vegan">'.$langArray['results']['notvegetarian'].'<span class="icon-cancel"></span> </span>';
       }
       elseif (in_array("en:vegetarian", $array)) {
         $vegetarian = '<span class="vegan">'.$langArray['results']['vegetarian'].'<span class="icon-ok"></span> </span>';
