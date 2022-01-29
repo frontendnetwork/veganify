@@ -243,7 +243,7 @@ else {
             $status = $OEDBAPI[1];
             if (str_contains($status, "error=0")){
               parse_str($OEDBAPI[5], $output);
-              $productname = substr($output['detailname'], 0, -1);;
+              $productname = substr($output['detailname'], 0, -1);
               echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
         '.$openissue.'
         </div></div>';
