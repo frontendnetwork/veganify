@@ -12,7 +12,7 @@ $langArray = array(
         ),
         "footer" => array(
         	"credits" => 'Mit <i class="icon-vegancheck"></i> gemacht von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>',
-        	"legal" => '<a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/sponsors/philipbrembeck/">Sponsor werden</a>'
+        	"legal" => '<a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
         ),
         "pwa" => array(
         	"close" => "Schließen",
