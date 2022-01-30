@@ -32,17 +32,17 @@ else {
   if(empty($product->product) && !empty($beautyproduct->product)) {
     $api = 'https://world.openbeautyfacts.org/api/v0/product/';
     $baseuri = "https://world.openbeautyfacts.org";
-    $apiname = 'OBF';
+    $apiname = 'OpenBeautyFacts';
   }
   elseif(!empty($product->product) && empty($beautyproduct->product)) {
     $api = 'https://world.openfoodfacts.org/api/v0/product/';
     $baseuri = "https://world.openfoodfacts.org";
-    $apiname = 'OFF';
+    $apiname = 'OpenFoodFacts';
   }
   else {
     $api = 'https://world.openfoodfacts.org/api/v0/product/';
     $baseuri = "https://world.openfoodfacts.org";
-    $apiname = 'OFF-else';
+    $apiname = 'OpenFoodFacts II';
   }
 
   $data = file_get_contents($api.$barcode);
@@ -57,9 +57,9 @@ else {
     $nutriscore = $product->product->nutriscore_grade;
 
     // Check for non-animal-tested products
-    if($apiname == "OBF"){
+    if($apiname == "OpenBeautyFacts"){
       if(isset($product->product->labels_tags)){
-        if(in_array("en:not-tested-on-animals", $product->product->labels_tags) || in_array("de:ohne-tierversuche", $product->product->labels_tags) || in_array("en:cruelty-free", $product->product->labels_tags) || in_array("fr:cruelty-free", $product->product->labels_tags) || in_array("en:cruelty-free-international", $product->product->labels_tags)){
+        if(in_array("en:not-tested-on-animals", $product->product->labels_tags) || in_array("de:ohne-tierversuche", $product->product->labels_tags) || in_array("en:cruelty-free", $product->product->labels_tags) || in_array("fr:cruelty-free", $product->product->labels_tags) || in_array("en:cruelty-free-international", $product->product->labels_tags) || in_array("en:vegan-society", $product->product->labels_tags)){
           $animaltestfree = '<span class="vegan"> '.$langArray['results']['animaltestfree'].'<span class="icon-ok"></span> </span>';
         }
         else {
@@ -104,7 +104,7 @@ else {
       elseif($nutriscore == "e"){
         $nutriscore = '<span class="nutri_e">Nutriscore E<span class="icon-cancel"></span> </span>';
       }
-      elseif($apiname == "OBF"){
+      elseif($apiname == "OpenBeautyFacts"){
         $nutriscore = null;
       }
       else {
@@ -232,7 +232,7 @@ else {
                 }
                }
                else{
-                echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
+                echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
         '.$openissue.'
         </div></div>';
         $apiname = 'brocade-nameonly';
@@ -244,13 +244,13 @@ else {
             if (str_contains($status, "error=0")){
               parse_str($OEDBAPI[5], $output);
               $productname = substr($output['detailname'], 0, -1);
-              echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
+              echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
         '.$openissue.'
         </div></div>';
         $apiname = 'OEDB';
             }
             else {
-              echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a>.</p>
+              echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
     '.$openissue.'
     </div></div>';
             }
