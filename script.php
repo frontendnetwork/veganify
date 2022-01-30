@@ -42,9 +42,8 @@ else {
   else {
     $api = 'https://world.openfoodfacts.org/api/v0/product/';
     $baseuri = "https://world.openfoodfacts.org";
-    $apiname = 'OpenFoodFacts II';
+    $apiname = 'OpenFoodFacts';
   }
-
   $data = file_get_contents($api.$barcode);
   $product = json_decode($data);
 
@@ -143,6 +142,7 @@ else {
                         <span class="name">"'.$name.'":</span>
                       </span>
                       <span class="non-vegan">'.$langArray['results']['notvegan'].'<span class="icon-cancel"></span></span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
+                      <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
                       <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettext'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
@@ -156,6 +156,7 @@ else {
                         <span class="name">"'.$name.'":</span>
                       </span>
                       <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
+                      <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>';
@@ -168,6 +169,7 @@ else {
                       <span class="name">"'.$name.'":</span>
                     </span>
                     <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
+                    <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
                     <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                     <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                   </div>
@@ -190,6 +192,7 @@ else {
                         <span class="name">"'.$name.'":</span>
                       </span>
                       <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
+                      <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a> '.$openissue.'
                     </div>
                   </div>'; 
@@ -203,7 +206,8 @@ else {
              $productname = $product->name;
              $ingredients = $product->ingredients;
                if(!empty($productname) && !empty($ingredients)) {
-                $apiname = 'brocade-analysis';
+                $apiname = 'Brocade.io';
+                $baseuri = "https://brocade.io";
                 $isveganapi = file_get_contents('https://is-vegan.netlify.app/.netlify/functions/api?ingredients='.rawurlencode($ingredients));
                 $isvegancheck = json_decode($isveganapi);
                 if ($isvegancheck->isVeganSafe == "true"){
@@ -213,41 +217,50 @@ else {
                       <span class="name">"'.$productname.'":</span>
                     </span>
                     <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>
+                    <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
                     <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($productname).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                     <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                   </div>
                 </div>';
                 }
                 else {
+                  $apiname = 'Brocade.io';
+                  $baseuri = "https://brocade.io";
                   echo  '<div class="animated fadeIn">
                     <div class="resultborder">
                       <span class="unknown">
                         <span class="name">"'.$productname.'":</span>
                       </span>
                       <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>
+                      '.$source.'
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>';
-                  $apiname = 'brocade-nameonly';
                 }
                }
                else{
+                $apiname = 'Brocade.io';
+                $baseuri = "https://brocade.io";
                 echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
+                <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
         '.$openissue.'
         </div></div>';
-        $apiname = 'brocade-nameonly';
+        
                }
            }
            else {
             $OEDBAPI = file('https://opengtindb.org/?ean='.$barcode.'&cmd=query&queryid=400000000');
             $status = $OEDBAPI[1];
             if (str_contains($status, "error=0")){
+              $apiname = 'Open EAN Database';
+              $baseuri = "https://opengtindb.org";
               parse_str($OEDBAPI[5], $output);
               $productname = substr($output['detailname'], 0, -1);
               echo '<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
+              <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
         '.$openissue.'
         </div></div>';
-        $apiname = 'OEDB';
+
             }
             else {
               echo '<div class="animated fadeIn"><div class="resultborder"><span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
