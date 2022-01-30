@@ -32,11 +32,16 @@ body {
     color: var(--unknown);
 }
 
-.warning {
+.source {
     font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.4rem;
+    font-size: .8rem;
     padding-top: 1rem;
+    line-height: 1.4rem;
+    display: block;
+
+    a {
+        font-weight: 400;
+    }
 }
 
 .nutri_a {
