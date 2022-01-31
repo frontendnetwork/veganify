@@ -18,7 +18,7 @@ function setupLiveReader(resultElement) {
     navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
         video.width = 320
         BarcodeScanner.init()
-        var closer = document.getElementById('close')
+        var closer = document.getElementById('controls')
         closer.style.display = 'inline-block'
         BarcodeScanner.streamCallback = function(result) {
             document.getElementById('barcode').value = result[0].Value
@@ -44,18 +44,6 @@ function setupLiveReader(resultElement) {
         video.srcObject = stream
         container.appendChild(video)
         video.onloadedmetadata = function(e) {
-            var canvasSetting = { x: 50, y: 20, width: 200, height: 80 }
-            var rect = video.getBoundingClientRect()
-            canvas.style.height = rect.height + 'px'
-            canvas.style.width = rect.width + 'px'
-            canvas.style.top = rect.top + 'px'
-            canvas.style.left = rect.left + 'px'
-            const overlayColor = 'rgba(0,0,0,0.9)'
-            context.fillStyle = overlayColor
-            context.fillRect(0, 0, rect.width, rect.height)
-            context.clearRect(canvasSetting.x, canvasSetting.y, canvasSetting.width, canvasSetting.height)
-            context.strokeStyle = '#FFF'
-            context.strokeRect(canvasSetting.x, canvasSetting.y, canvasSetting.width, canvasSetting.height)
             video.play()
             BarcodeScanner.DecodeStream(video)
         }
