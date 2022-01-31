@@ -171,7 +171,7 @@ button:focus {
 .btn-dark {
     margin-top: .8rem !important;
     display: inline-block;
-    width: 8rem;
+    min-width: 8rem;
     font-weight: 400;
     line-height: 1.5;
     text-align: center;
