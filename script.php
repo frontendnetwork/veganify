@@ -161,7 +161,7 @@ else {
                         <span class="name">"'.$productname.'":</span>
                       </span>
                       <span class="non-vegan">'.$langArray['results']['notvegan'].'<span class="icon-cancel"></span></span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
-                      <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
+                      <span class="source">'.$langArray['results']['datasource'].' <a href="'.$baseuri.'">'.$apiname.'</a></span>
                       <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($productname).$langArray['results']['tweettext'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
@@ -175,7 +175,7 @@ else {
                         <span class="name">"'.$productname.'":</span>
                       </span>
                       <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
-                      <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
+                      <span class="source">'.$langArray['results']['datasource'].' <a href="'.$baseuri.'">'.$apiname.'</a></span>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>');
@@ -188,7 +188,7 @@ else {
                       <span class="name">"'.$productname.'":</span>
                     </span>
                     <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
-                    <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
+                    <span class="source">'.$langArray['results']['datasource'].' <a href="'.$baseuri.'">'.$apiname.'</a></span>
                     <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($productname).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                     <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                   </div>
@@ -211,7 +211,7 @@ else {
                         <span class="name">"'.$productname.'":</span>
                       </span>
                       <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
-                      <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
+                      <span class="source">'.$langArray['results']['datasource'].' <a href="'.$baseuri.'">'.$apiname.'</a></span>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a> '.$openissue.'
                     </div>
                   </div>'); 
@@ -246,7 +246,7 @@ else {
                       <span class="name">"'.$productname.'":</span>
                     </span>
                     <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>
-                    <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
+                    <span class="source">'.$langArray['results']['datasource'].' <a href="'.$baseuri.'">'.$apiname.'</a></span>
                     <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($productname).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                     <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                   </div>
@@ -271,7 +271,7 @@ else {
                 $apiname = 'Brocade.io';
                 $baseuri = "https://brocade.io";
                 print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
-                <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
+                <span class="source">'.$langArray['results']['datasource'].' <a href="'.$baseuri.'">'.$apiname.'</a></span>
         '.$openissue.'
         </div></div>');
         
@@ -291,7 +291,7 @@ else {
               $baseuri = "https://opengtindb.org";
               $productname = utf8_encode($array['name'].' '.$array['detailname']);
               print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
-              <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
+              <span class="source">'.$langArray['results']['datasource'].' <a href="'.$baseuri.'">'.$apiname.'</a></span>
         '.$openissue.'
         </div></div>');
 

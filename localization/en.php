@@ -46,7 +46,8 @@ $langArray = array(
         	"edit" => "Edit",
         	"reporterror" => "Report an issue",
                 "animaltestfree" => "Not tested on animals",
-                "checkingredients" => "The products ingredients were processed and checked automatically. Please check the ingredients yourself to be sure."
+                "checkingredients" => "The products ingredients were processed and checked automatically. Please check the ingredients yourself to be sure.",
+                "datasource" => "Data source:"
         )
     );
 ?>
