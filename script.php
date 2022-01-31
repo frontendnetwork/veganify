@@ -26,9 +26,20 @@ if (empty($barcode) || $barcode == null){
 
 // Barcode is not empty
 else {
-  $data = file_get_contents('https://world.openfoodfacts.org/api/v0/product/'.$barcode);
+  $url = 'https://world.openfoodfacts.org/api/v0/product/'.$barcode;
+  $curl = curl_init($url);
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  $data = curl_exec($curl);
+  curl_close($curl);
   $product = json_decode($data);
-  $beautydata = file_get_contents('https://world.openbeautyfacts.org/api/v0/product/'.$barcode);
+
+  $beautyurl = 'https://world.openbeautyfacts.org/api/v0/product/'.$barcode;
+  $curl = curl_init($beautyurl);
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  $beautydata = curl_exec($curl);
+  curl_close($curl);
   $beautyproduct = json_decode($beautydata);
 
   // When to use OpenBeautyFacts & when to use OpenFoodFacts
@@ -47,7 +58,12 @@ else {
     $baseuri = "https://world.openfoodfacts.org";
     $apiname = 'OpenFoodFacts';
   }
-  $data = file_get_contents($api.$barcode);
+  $url = $api.$barcode;
+  $curl = curl_init($url);
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  $data = curl_exec($curl);
+  curl_close($curl);
   $product = json_decode($data);
 
   // Start JSON array request
@@ -203,15 +219,25 @@ else {
   }
   // Use brocade API if item is not in OFF and use OEDBAPI if item is not in brocade
   else {
-    $brocade = file_get_contents('https://www.brocade.io/api/items/'.$barcode);
+    $url = 'https://www.brocade.io/api/items/'.$barcode;
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $brocade = curl_exec($curl);
+    curl_close($curl);
     $product = json_decode($brocade);
-           if($brocade !== false){
+           if(!empty($product->name)){
              $productname = $product->name;
              $ingredients = $product->ingredients;
                if(!empty($productname) && !empty($ingredients)) {
                 $apiname = 'Brocade.io';
                 $baseuri = "https://brocade.io";
-                $isveganapi = file_get_contents('https://is-vegan.netlify.app/.netlify/functions/api?ingredients='.rawurlencode($ingredients));
+                $url = 'https://is-vegan.netlify.app/.netlify/functions/api?ingredients='.rawurlencode($ingredients);
+                $curl = curl_init($url);
+                curl_setopt($curl, CURLOPT_URL, $url);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                $isveganapi = curl_exec($curl);
+                curl_close($curl);
                 $isvegancheck = json_decode($isveganapi);
                 if ($isvegancheck->isVeganSafe == "true"){
                   print_r('<div class="animated fadeIn">
