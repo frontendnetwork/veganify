@@ -19,7 +19,7 @@ function setupLiveReader(resultElement) {
         video.width = 320
         BarcodeScanner.init()
         var closer = document.getElementById('close')
-    closer.style.display = 'inline-block'
+        closer.style.display = 'inline-block'
         BarcodeScanner.streamCallback = function(result) {
             document.getElementById('barcode').value = result[0].Value
             BarcodeScanner.StopStreamDecode()
@@ -61,5 +61,20 @@ function setupLiveReader(resultElement) {
         }
     }).catch(function(err) {})
 }
-$('button[name="submit"]').on('click', function(e) { e.preventDefault();
-    $.ajax({ url: 'script.php', type: 'POST', data: { barcode: $('input[name="barcode"]').val(), lang: $('input[name="lang"]').val() }, success: function(result) { $('#result').html(result); } }); });
+
+// submit.js
+$('button[name="submit"]').on('click', function(e) {
+    e.preventDefault();
+    $.ajax({ url: 'script.php', type: 'POST', data: { barcode: $('input[name="barcode"]').val(), lang: $('input[name="lang"]').val() }, success: function(result) { $('#result').html(result); } });
+});
+
+// Initialize SW
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+var $loading = $('#spinner').hide();
+$(document)
+    .ajaxStart(function() {
+        $('.logo').addClass('spinner');
+    })
+    .ajaxStop(function() {
+        $('.logo').removeClass('spinner');
+    });
