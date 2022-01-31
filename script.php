@@ -69,7 +69,7 @@ else {
   // Start JSON array request
   if (!empty($product->product)) {
     $array = $product->product->ingredients_analysis_tags;
-    $name = $product->product->product_name;
+    $productname = $product->product->product_name;
     $genericname = $product->product->generic_name; 
     $response = $product->status_verbose;
     $nutriscore = $product->product->nutriscore_grade;
@@ -92,12 +92,12 @@ else {
       $animaltestfree = null;
     }
 
-    // Check if $name is given or $genericname is given
-    if(empty($name) && !empty($genericname)){
-      $name = $genericname;
+    // Check if $productname is given or $genericname is given
+    if(empty($productname) && !empty($genericname)){
+      $productname = $genericname;
     }
-    elseif(empty($genericname) && empty($name)){
-      $name = $langArray['results']['unknown'];
+    elseif(empty($genericname) && empty($productname)){
+      $productname = $langArray['results']['unknown'];
     }
 
       // Set palmoil as unknown before checking it, to display "unknown" in case of no API response
@@ -158,11 +158,11 @@ else {
              print_r('<div class="animated fadeIn">
                     <div class="resultborder">
                       <span class="non-vegan">  
-                        <span class="name">"'.$name.'":</span>
+                        <span class="name">"'.$productname.'":</span>
                       </span>
                       <span class="non-vegan">'.$langArray['results']['notvegan'].'<span class="icon-cancel"></span></span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                       <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
-                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettext'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
+                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($productname).$langArray['results']['tweettext'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                       <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                     </div>
                   </div>');
@@ -172,7 +172,7 @@ else {
             print_r('<div class="animated fadeIn">
                     <div class="resultborder">
                       <span class="unknown">
-                        <span class="name">"'.$name.'":</span>
+                        <span class="name">"'.$productname.'":</span>
                       </span>
                       <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                       <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
@@ -185,11 +185,11 @@ else {
           print_r('<div class="animated fadeIn">
                   <div class="resultborder">
                     <span class="vegan">
-                      <span class="name">"'.$name.'":</span>
+                      <span class="name">"'.$productname.'":</span>
                     </span>
                     <span class="vegan">'.$langArray['results']['vegan'].'<span class="icon-ok"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                     <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
-                    <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($name).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
+                    <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text='.urlencode($productname).$langArray['results']['tweettextvegan'].'" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                     <a href="'.$baseuri.'/cgi/product.pl?type=edit&code='.$barcode.'" class="btn-dark"><span class="icon-pencil"></span> '.$langArray['results']['edit'].'</a>
                   </div>
                 </div>');
@@ -208,7 +208,7 @@ else {
       print_r('<div class="animated fadeIn">
                     <div class="resultborder">
                       <span class="unknown">
-                        <span class="name">"'.$name.'":</span>
+                        <span class="name">"'.$productname.'":</span>
                       </span>
                       <span class="unknown">'.$langArray['results']['vegan'].'<span class="icon-help"></span> </span>'.$vegetarian.$animaltestfree.$palmoil.$nutriscore.'
                       <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
