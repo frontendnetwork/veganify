@@ -1,26 +1,30 @@
 <?php
+if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
   $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
   $supportedLanguages=['en','de', 'fr', 'es', 'nl'];
-  if(!in_array($lang,$supportedLanguages)){
-     $lang='en';
+    if(!in_array($lang,$supportedLanguages)){
+       $lang = "en";
   }
-    require_once("localization/".$lang.".php");
-
+}
+else {
+  $lang = "en";
+}
+require_once("localization/".$lang.".php");
 ?>
 <!DOCTYPE html>
 <!-- VeganCheck.me is Open Source
 Check the project out on GitHub: 
 https://github.com/jokenetwork/vegancheck.me
 -->
-<html lang="<?php echo $langArray['meta']['lang']; ?>">
+<html lang="<?php  print_r($langArray['meta']['lang']); ?>">
   <head>
-    <title><?php echo $langArray['meta']['title']; ?></title>
+    <title><?php print_r($langArray['meta']['title']); ?></title>
     <meta charset="UTF-8">
 
-    <meta name="description" content="<?php echo $langArray['meta']['description']; ?>">
+    <meta name="description" content="<?php print_r($langArray['meta']['description']); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:title" content="<?php echo $langArray['meta']['title']; ?>">
+    <meta property="og:title" content="<?php print_r($langArray['meta']['title']); ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vegancheck.me">
 
@@ -50,8 +54,8 @@ https://github.com/jokenetwork/vegancheck.me
         <h1>VeganCheck.me</h1>
         <p id="code"></p>
 
-        <h3><?php echo $langArray['other']['offline']; ?></h3>
-        <h3><a href="/"><?php echo $langArray['other']['reload']; ?></a></h3>
+        <h3><?php print_r($langArray['other']['offline']); ?></h3>
+        <h3><a href="/"><?php print_r($langArray['other']['reload']); ?></a></h3>
         <footer>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
@@ -62,13 +66,13 @@ https://github.com/jokenetwork/vegancheck.me
     </div>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
-          echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';
+          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
         }  
         elseif (isset($_COOKIE['log']) && $_COOKIE['log'] == "No"){
-          echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>';
+          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>');
         }  
         else{
-          echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';
+          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
         } 
 ?>
   </body>
