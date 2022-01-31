@@ -278,13 +278,18 @@ else {
                }
            }
            else {
-            $OEDBAPI = file('https://opengtindb.org/?ean='.$barcode.'&cmd=query&queryid=400000000');
-            $status = $OEDBAPI[1];
-            if (str_contains($status, "error=0")){
+            $url = 'https://opengtindb.org/?ean='.$barcode.'&cmd=query&queryid=400000000';
+            $curl = curl_init($url);
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            $oedb = curl_exec($curl);
+            curl_close($curl);
+            $array = parse_ini_string($oedb);
+            $status = $array['error'];
+            if ($status == "0"){
               $apiname = 'Open EAN Database';
               $baseuri = "https://opengtindb.org";
-              parse_str($OEDBAPI[5], $output);
-              $productname = substr($output['detailname'], 0, -1);
+              $productname = utf8_encode($array['name'].' '.$array['detailname']);
               print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"'.$productname.'":</span>'.$langArray['results']['notindb'].'</span><p class="missing">'.$langArray['results']['add'].' <a href="https://world.openfoodfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonoff'].'</a> '.$langArray['results']['or'].' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code='.$barcode.'">'.$langArray['results']['addonobf'].'</a>.</p>
               <span class="source">Data source: <a href="'.$baseuri.'">'.$apiname.'</a></span>
         '.$openissue.'
