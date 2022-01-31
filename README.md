@@ -51,9 +51,9 @@ This repo uses:
 
 * [JQuery](https://jquery.com) @jQuery
 * [BarCode-reader](https://github.com/iemadk/BarCode-reader) [@iemadk](https://github.com/iemadk)
-* [pwa-install-prompt](https://github.com/JacobDB/pwa-install-prompt) [@JacobDB](https://github.com/JacobDB)
 * [OpenFoodFacts API](https://openfoodfacts.org/) & [OpenBeautyFacts API](https://openbeautyfacts.org/) [@openfoodfacts](https://github.com/openfoodfacts)
 * [Brocade.io API](https://brocade.io) [@ferrisoxide](https://github.com/ferrisoxide)
+* [Open EAN Database](https://opengtindb.org)
 * [is-vegan API](https://github.com/hmontazeri/is-vegan) [@hmontazeri](https://github.com/hmontazeri)
 
 ## 👩‍⚖️ License
