@@ -69,7 +69,6 @@ https://github.com/jokenetwork/vegancheck.me
           </fieldset>
         </form>
         <noscript><h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3></noscript>
-        <div id="spinner">...</div>
         <div id="result">&nbsp;</div> 
         <footer>
           <p><?php print_r($langArray['footer']['credits']); ?>
