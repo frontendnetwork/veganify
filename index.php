@@ -45,7 +45,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.48" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.49" rel="stylesheet">
   </head>
 
   <body>
@@ -55,7 +55,7 @@ https://github.com/jokenetwork/vegancheck.me
     </div>
     <div class="container">
       <div id="main">
-        <img src="img/VeganCheck.svg" alt="Logo">
+        <img src="img/VeganCheck.svg" alt="Logo" class="logo">
         <h1>VeganCheck.me</h1>
         <p id="code"></p>
 
@@ -68,6 +68,8 @@ https://github.com/jokenetwork/vegancheck.me
             <button name="submit" aria-label="<?php print_r($langArray['form']['submit']); ?>" role="button"><span class="icon-right-open"></span></button>
           </fieldset>
         </form>
+        <noscript><h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3></noscript>
+        <div id="spinner">...</div>
         <div id="result">&nbsp;</div> 
         <footer>
           <p><?php print_r($langArray['footer']['credits']); ?>
@@ -79,23 +81,12 @@ https://github.com/jokenetwork/vegancheck.me
         </footer>
       </div>
     </div>
-
-     <div class="pwa-install-prompt__container">
-            <button class="pwa-install-prompt__overlay"><?php print_r($langArray['pwa']['close']); ?></button>
-            <div class="pwa-install-prompt">
-                <div class="pwa-install-prompt__icon__container">
-                    <img class="pwa-install-prompt__icon" src="img/icon.png" alt="VeganCheck">
-                </div>
-                <div class="pwa-install-prompt__content">
-                    <h3 class="pwa-install-prompt__title"><?php print_r($langArray['pwa']['install']); ?></h3>
-                    <p class="pwa-install-prompt__text"><?php print_r($langArray['pwa']['description']); ?></p>
-                    <p class="pwa-install-prompt__guide"><?php print_r($langArray['pwa']['info']); ?></p>
-                </div>
-            </div>
-        </div>
  
   <span id="close" style="display:none;">&times; <?php print_r($langArray['layover']['close']); ?></span>
-  <script src="js/main.bundle.min.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/BarcodeScanner.js"></script>
+<script src="js/app.js"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
