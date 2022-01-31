@@ -1,25 +1,30 @@
 <?php
+if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
   $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
   $supportedLanguages=['en','de', 'fr', 'es', 'nl'];
-  if(!in_array($lang,$supportedLanguages)){
-     $lang='en';
+    if(!in_array($lang,$supportedLanguages)){
+       $lang = "en";
   }
-    require_once("localization/".$lang.".php");
+}
+else {
+  $lang = "en";
+}
+require_once("localization/".$lang.".php");
 ?>
 <!DOCTYPE html>
 <!-- VeganCheck.me is Open Source
 Check the project out on GitHub: 
 https://github.com/jokenetwork/vegancheck.me
 -->
-<html lang="<?php echo $langArray['meta']['lang']; ?>">
+<html lang="<?php print_r($langArray['meta']['lang']); ?>">
   <head>
-    <title><?php echo $langArray['meta']['title']; ?></title>
+    <title><?php print_r($langArray['meta']['title']); ?></title>
     <meta charset="UTF-8">
 
-    <meta name="description" content="<?php echo $langArray['meta']['description']; ?>">
+    <meta name="description" content="<?php print_r($langArray['meta']['description']); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:title" content="<?php echo $langArray['meta']['title']; ?>">
+    <meta property="og:title" content="<?php print_r($langArray['meta']['title']); ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vegancheck.me">
 
@@ -40,13 +45,13 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.46" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.48" rel="stylesheet">
   </head>
 
   <body>
     <div class="rotate">
-      <img src="img/rotatedevice.svg" alt="<?php echo $langArray['other']['rotate']; ?>">
-      <h1><?php echo $langArray['other']['rotate']; ?></h1>
+      <img src="img/rotatedevice.svg" alt="<?php print_r($langArray['other']['rotate']); ?>">
+      <h1><?php print_r($langArray['other']['rotate']); ?></h1>
     </div>
     <div class="container">
       <div id="main">
@@ -56,17 +61,17 @@ https://github.com/jokenetwork/vegancheck.me
 
         <form action="script.php">
           <fieldset>
-            <legend><?php echo $langArray['form']['enterbarcode']; ?></legend>
-            <span class="btn_scan" onclick="setupLiveReader()" aria-label="<?php echo $langArray['form']['scanbarcode']; ?>" role="button" tabindex="0"><span class="icon-barcode"></span></span>
-            <input type="number" id="barcode" name="barcode" placeholder="<?php echo $langArray['form']['enterbarcode']; ?>" autofocus> 
-            <input type="hidden" id="lang" name="lang" value="<?php echo $lang; ?>">
-            <button name="submit" aria-label="<?php echo $langArray['form']['submit']; ?>" role="button"><span class="icon-right-open"></span></button>
+            <legend><?php print_r($langArray['form']['enterbarcode']); ?></legend>
+            <span class="btn_scan" onclick="setupLiveReader()" aria-label="<?php print_r($langArray['form']['scanbarcode']); ?>" role="button" tabindex="0"><span class="icon-barcode"></span></span>
+            <input type="number" id="barcode" name="barcode" placeholder="<?php print_r($langArray['form']['enterbarcode']); ?>" autofocus> 
+            <input type="hidden" id="lang" name="lang" value="<?php print_r($lang); ?>">
+            <button name="submit" aria-label="<?php print_r($langArray['form']['submit']); ?>" role="button"><span class="icon-right-open"></span></button>
           </fieldset>
         </form>
         <div id="result">&nbsp;</div> 
         <footer>
-          <p><?php echo $langArray['footer']['credits']; ?>
-            <br><?php echo $langArray['footer']['legal']; ?></p>
+          <p><?php print_r($langArray['footer']['credits']); ?>
+            <br><?php print_r($langArray['footer']['legal']); ?></p>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
             <a href="https://iplantatree.org/user/VeganCheck.me"><img src="img/treelabel.svg" alt="We plant trees. We're carbon neutral." class="labels"></a>
@@ -76,30 +81,30 @@ https://github.com/jokenetwork/vegancheck.me
     </div>
 
      <div class="pwa-install-prompt__container">
-            <button class="pwa-install-prompt__overlay"><?php echo $langArray['pwa']['close']; ?></button>
+            <button class="pwa-install-prompt__overlay"><?php print_r($langArray['pwa']['close']); ?></button>
             <div class="pwa-install-prompt">
                 <div class="pwa-install-prompt__icon__container">
                     <img class="pwa-install-prompt__icon" src="img/icon.png" alt="VeganCheck">
                 </div>
                 <div class="pwa-install-prompt__content">
-                    <h3 class="pwa-install-prompt__title"><?php echo $langArray['pwa']['install'] ?></h3>
-                    <p class="pwa-install-prompt__text"><?php echo $langArray['pwa']['description'] ; ?></p>
-                    <p class="pwa-install-prompt__guide"><?php echo $langArray['pwa']['info'] ; ?></p>
+                    <h3 class="pwa-install-prompt__title"><?php print_r($langArray['pwa']['install']); ?></h3>
+                    <p class="pwa-install-prompt__text"><?php print_r($langArray['pwa']['description']); ?></p>
+                    <p class="pwa-install-prompt__guide"><?php print_r($langArray['pwa']['info']); ?></p>
                 </div>
             </div>
         </div>
  
-  <span id="close" style="display:none;">&times; <?php echo $langArray['layover']['close'] ; ?></span>
+  <span id="close" style="display:none;">&times; <?php print_r($langArray['layover']['close']); ?></span>
   <script src="js/main.bundle.min.js"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
-          echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';
+          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
         }  
         elseif (isset($_COOKIE['log']) && $_COOKIE['log'] == "No"){
-          echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>';
+          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>');
         }  
         else{
-          echo '<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>';
+          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
         } 
 ?>
   </body>
