@@ -1,10 +1,5 @@
 <?php
-if(isset($_POST['barcode'])){
-  $barcode = $_POST['barcode'];
-}
-else {
-  $barcode = null;
-}
+$barcode = filter_input(INPUT_POST, 'barcode');
 $ticket = uniqid();
 
 // Language detection 
