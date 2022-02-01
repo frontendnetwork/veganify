@@ -29,12 +29,12 @@ https://github.com/jokenetwork/vegancheck.me
     <meta property="og:url" content="https://vegancheck.me">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png?v=2.0.0">
+    <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png">
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="img/icon.png?v=2.0.0">
+    <link rel="apple-touch-icon" href="img/icon.png">
 
-    <link rel="manifest" href="img/site.webmanifest?v=1.0.1">
+    <link rel="manifest" href="img/site.webmanifest">
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -43,9 +43,9 @@ https://github.com/jokenetwork/vegancheck.me
 
     <meta name="application-name" content="VeganCheck">
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
-    <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
+    <link rel="apple-touch-startup-image" href="img/iossplash.png">
 
-    <link href="css/style.min.css?v=3.9.49" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -56,24 +56,7 @@ https://github.com/jokenetwork/vegancheck.me
 
         <h3><?php print_r($langArray['other']['offline']); ?></h3>
         <h3><a href="/"><?php print_r($langArray['other']['reload']); ?></a></h3>
-        <footer>
-            <a href="https://github.com/jokenetwork/vegancheck.me"><img src="img/opensource.svg" alt="Open Source" class="labels"></a>
-            <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
-            <a href="https://iplantatree.org/user/vegancheck"><img src="img/treelabel.svg" alt="We plant trees. We're carbon neutral." class="labels"></a>
-            <a href="https://philip.media"><img src="img/pml.svg" alt="philip.media" class="labels"></a>
-        </footer>
       </div>
     </div>
-<?php 
-        if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
-          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
-        }  
-        elseif (isset($_COOKIE['log']) && $_COOKIE['log'] == "No"){
-          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>');
-        }  
-        else{
-          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
-        } 
-?>
   </body>
 </html>
