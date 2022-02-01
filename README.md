@@ -54,7 +54,7 @@ This repo uses:
 * [OpenFoodFacts API](https://openfoodfacts.org/) & [OpenBeautyFacts API](https://openbeautyfacts.org/) [@openfoodfacts](https://github.com/openfoodfacts)
 * [Brocade.io API](https://brocade.io) [@ferrisoxide](https://github.com/ferrisoxide)
 * [Open EAN Database](https://opengtindb.org)
-* [is-vegan API](https://github.com/hmontazeri/is-vegan) [@hmontazeri](https://github.com/hmontazeri)
+* [is-vegan](https://github.com/hmontazeri/is-vegan) [@hmontazeri](https://github.com/hmontazeri)
 
 ## 👩‍⚖️ License
 
