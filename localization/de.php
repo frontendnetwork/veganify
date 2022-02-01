@@ -47,7 +47,8 @@ $langArray = array(
         	"reporterror" => "Fehler melden",
                 "animaltestfree" => "Tierversuchsfrei",
                 "checkingredients" => "Die Inhaltsstoffe des Produktes wurden automatisch verarbeitet und geprüft. Bitte überprüfen Sie die Inhaltsstoffe selbst, um sicher zu gehen.",
-                "datasource" => "Datenquelle:"
+                "datasource" => "Datenquelle:",
+                "processed" => "Automatisch verarbeitet"
         )
     );
 ?>
