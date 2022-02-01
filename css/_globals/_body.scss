@@ -212,10 +212,19 @@ button:focus {
     font-weight: bold;
     position: absolute;
     z-index: 99999999999;
-    top: 2%;
+    top: 0%;
     left: 50%;
     -webkit-transform: translateX(-50%);
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    background: #121212;
+    width: 100%;
+    border-bottom: solid grey .01rem;
+    padding-bottom: 1rem;
+    text-align: left;
+
+    .btn-dark {
+        margin-left: 1rem;
+    }
 }
 
 /* Scanner Overlay */
@@ -233,7 +242,7 @@ button:focus {
 
 /* Scanner Underlay */
 #background {
-    background-color: #000;
+    background-color: #121212;
     z-index: 999;
     position: fixed;
     padding: 0;
@@ -249,8 +258,8 @@ button:focus {
 }
 
 .rotate {
-    z-index: 999999999999999999999;
-    background: #000;
+    z-index: 99999999999999999999;
+    background: #121212;
     position: fixed;
     padding: 0;
     margin: 0;
