@@ -318,7 +318,6 @@ else
                 <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>
         ' . $openissue . '
         </div></div>');
-
             }
         }
         else
@@ -380,10 +379,8 @@ else
     </div></div>');
             }
         }
-
     }
 }
-
 // Remove before using on your own site
 include_once ("stats.php");
 ?>
