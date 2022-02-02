@@ -1,0 +1,6 @@
+{
+    "require": {
+        "rmccue/requests": "^2.0",
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
