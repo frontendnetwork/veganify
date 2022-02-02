@@ -1,1 +1,3 @@
+# Change file name to .env 
+# Change to your own userid unless you want to use the publicly available key
 USER_ID_OEANDB="400000000"
