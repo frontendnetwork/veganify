@@ -1,4 +1,13 @@
 <?php
+require('vendor/autoload.php');
+include('vendor/rmccue/requests/library/Requests.php');
+Requests::register_autoloader();
+
+require('vendor/vlucas/phpdotenv/src/Dotenv.php');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+$userid = $_ENV['USER_ID_OEANDB'];
+
 $barcode = filter_input(INPUT_POST, 'barcode');
 $ticket = uniqid();
 
@@ -31,21 +40,11 @@ if (empty($barcode) || $barcode == null)
 // Barcode is not empty
 else
 {
-    $url = 'https://world.openfoodfacts.org/api/v0/product/' . $barcode;
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $data = curl_exec($curl);
-    curl_close($curl);
-    $product = json_decode($data);
+    $data = Requests::get('https://world.openfoodfacts.org/api/v0/product/' . $barcode);
+    $product = json_decode($data->body);
 
-    $beautyurl = 'https://world.openbeautyfacts.org/api/v0/product/' . $barcode;
-    $curl = curl_init($beautyurl);
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $beautydata = curl_exec($curl);
-    curl_close($curl);
-    $beautyproduct = json_decode($beautydata);
+    $beautydata = Requests::get('https://world.openbeautyfacts.org/api/v0/product/' . $barcode);
+    $beautyproduct = json_decode($beautydata->body);
 
     // When to use OpenBeautyFacts & when to use OpenFoodFacts
     if (empty($product->product) && !empty($beautyproduct->product))
@@ -66,13 +65,8 @@ else
         $baseuri = "https://world.openfoodfacts.org";
         $apiname = 'OpenFoodFacts';
     }
-    $url = $api . $barcode;
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $data = curl_exec($curl);
-    curl_close($curl);
-    $product = json_decode($data);
+    $data = Requests::get($api . $barcode);
+    $product = json_decode($data->body);
 
     // Start JSON array request
     if (!empty($product->product))
@@ -275,13 +269,8 @@ else
     // Use brocade API if item is not in OFF and use OEDBAPI if item is not in brocade
     else
     {
-        $url = 'https://www.brocade.io/api/items/' . $barcode;
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $brocade = curl_exec($curl);
-        curl_close($curl);
-        $product = json_decode($brocade);
+        $brocade = Requests::get('https://www.brocade.io/api/items/' . $barcode);
+        $product = json_decode($brocade->body);
         if (!empty($product->name))
         {
             $productname = $product->name;
@@ -334,13 +323,8 @@ else
         }
         else
         {
-            $url = 'https://opengtindb.org/?ean=' . $barcode . '&cmd=query&queryid=400000000';
-            $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            $oedb = curl_exec($curl);
-            curl_close($curl);
-            $array = parse_ini_string($oedb, false, INI_SCANNER_RAW);
+            $oedb = Requests::get('https://opengtindb.org/?ean=' . $barcode . '&cmd=query&queryid=' . $userid );
+            $array = parse_ini_string($oedb->body, false, INI_SCANNER_RAW);
             $status = $array['error'];
             $desc = utf8_encode($array['descr']);
             if ($status == "0")
