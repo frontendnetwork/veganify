@@ -7,3 +7,4 @@ css/prepros.config
 stats.php
 api/
 api
+.env
