@@ -20,28 +20,46 @@ function setupLiveReader(resultElement) {
         BarcodeScanner.init()
         var closer = document.getElementById('controls')
         closer.style.display = 'inline-block'
+
+        // When barcode is detected
         BarcodeScanner.streamCallback = function(result) {
             document.getElementById('barcode').value = result[0].Value
-            BarcodeScanner.StopStreamDecode()
-            video.pause()
             stream.getTracks()[0].stop()
-            container.style.display = 'none'
-            closer.style.display = 'none';
+            container.classList.add('fadeOut')
+            closer.classList.add('fadeOut')
+            setTimeout(function() {
+                container.classList.remove('fadeOut')
+                closer.classList.remove('fadeOut')
+                container.style.display = 'none'
+                closer.style.display = 'none'
+                BarcodeScanner.StopStreamDecode()
+                video.pause()
+            }, 1000);
+
+            // Auto submit barcode
             document.getElementsByTagName('button')[0].click();
         }
 
+        // Close stream when button is clicked
         closer.onclick = function(close) {
-            BarcodeScanner.StopStreamDecode()
-            video.pause()
             stream.getTracks()[0].stop()
-            container.style.display = 'none'
-            closer.style.display = 'none';
+            container.classList.add('fadeOut')
+            closer.classList.add('fadeOut')
+            setTimeout(function() {
+                container.classList.remove('fadeOut')
+                closer.classList.remove('fadeOut')
+                container.style.display = 'none'
+                closer.style.display = 'none'
+                BarcodeScanner.StopStreamDecode()
+                video.pause()
+            }, 1000);
         }
 
         video.setAttribute('autoplay', '')
         video.setAttribute('playsinline', '')
         video.setAttribute('style', 'width: 100%; height: 100%;')
         video.srcObject = stream
+
         container.appendChild(video)
         video.onloadedmetadata = function(e) {
             video.play()
