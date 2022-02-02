@@ -25,14 +25,17 @@
 [Open PWA in browser](https://vegancheck.me) - [Product page on JokeNetwork.de](https://jokenetwork.de/#projects) - [API](https://github.com/JokeNetwork/vegancheck.me/wiki)
 
 ## 👨🏼‍💻 Overview
-<strong>Are you looking for our free API? [Read our Wiki](https://github.com/JokeNetwork/vegancheck.me/wiki).</strong>
+<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="left" height="300">
+	
+**Are you looking for our free API? [Read our Wiki](https://github.com/JokeNetwork/vegancheck.me/wiki).**
 
-VeganCheck.me checks the EAN or UPC code of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
+VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
+	
+VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.io and Open EAN Database in one tool. 
+	
+The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredients-api), a fork of is-vegan, checks the products ingredients against a list of thousands of non-vegan items.
 
-<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center">
-<p align="center">
-	<img src="img/demo_new.gif" alt="VeganCheck.me Demo" align="center" height="500">
-</p>
+<img src="img/demo_new.gif" alt="VeganCheck.me Demo" align="right" height="500">
 
 ## 🧩 Contribute
 This repo is mainly maintained by the team of [@jokenetwork](https://github.com/jokenetwork) ([JokeNetwork.de](https://jokenetwork.de)), but you can also help, if you want to!
@@ -58,4 +61,4 @@ This repo uses:
 
 ## 👩‍⚖️ License
 
-All text and code in this repository is licensed under [MIT](https://github.com/jokenetwork/VeganCheck.me/blob/main/LICENSE), © 2021 Philip Brembeck, © 2021 JokeNetwork.
+All text and code in this repository is licensed under [MIT](https://github.com/jokenetwork/VeganCheck.me/blob/main/LICENSE), © 2022 Philip Brembeck, © 2022 JokeNetwork.
