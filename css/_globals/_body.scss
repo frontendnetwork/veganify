@@ -138,7 +138,6 @@ input[type=number] {
     color: #fff;
     font-weight: var(--body-fontweight);
     transition: .5s;
-    z-index: 9999;
 }
 
 .btn_scan:hover,
@@ -242,7 +241,8 @@ button:focus {
 
 /* Scanner Underlay */
 #background {
-    background-color: #121212;
+    -webkit-backdrop-filter: blur(3rem);
+    backdrop-filter: blur(3rem);
     z-index: 999;
     position: fixed;
     padding: 0;

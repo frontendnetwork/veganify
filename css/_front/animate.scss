@@ -33,6 +33,44 @@
   animation-name: fadeIn;
 }
 
+.fadeInAn {
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
 @-webkit-keyframes zoomIn {
   from {
     opacity: 0;
@@ -55,6 +93,55 @@
   50% {
     opacity: 1;
   }
+}
+
+@-webkit-keyframes backOutDown {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1
+    }
+
+    20% {
+        -webkit-transform: translateY(0) scale(.7);
+        transform: translateY(0) scale(.7);
+        opacity: .7
+    }
+
+    to {
+        -webkit-transform: translateY(700px) scale(.7);
+        transform: translateY(700px) scale(.7);
+        opacity: .7
+    }
+}
+
+@keyframes backOutDown {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1
+    }
+
+    20% {
+        -webkit-transform: translateY(0) scale(.7);
+        transform: translateY(0) scale(.7);
+        opacity: .7
+    }
+
+    to {
+        -webkit-transform: translateY(700px) scale(.7);
+        transform: translateY(700px) scale(.7);
+        opacity: .7
+    }
+}
+
+.animate__backOutDown {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: backOutDown;
+    animation-name: backOutDown;
 }
 
 .zoomIn {
