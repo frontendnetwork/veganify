@@ -9,3 +9,5 @@ api/
 api
 .env
 vendor/*
+vendor/
+vendor
