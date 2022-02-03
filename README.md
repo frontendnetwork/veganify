@@ -34,8 +34,22 @@ VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and
 VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.io and Open EAN Database in one tool. 
 	
 The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredients-api), a fork of is-vegan, checks the products ingredients against a list of thousands of non-vegan items.
+	
+### Requirements: 
+- PHP >=7.4 is installed
+- Composer is installed 
+  ````bash
+  $ composer require rmccue/requests
+  ````
+  ````bash
+  $ composer require vlucas/phpdotenv
+  ````
+  ````bash
+  $ composer require openfoodfacts/openfoodfacts-php
+  ````
+- Optional: Get an API-Key for Open EAN Database by donating to Coast against plastic (Küsten gegen Plastik) - [Learn more here](https://opengtindb-org.translate.goog/userid.php?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp).
 
-<img src="img/demo_new.gif" alt="VeganCheck.me Demo" align="right" height="500">
+Get the [latest release](https://github.com/JokeNetwork/vegancheck.me/releases) or fork this repositiory and make the changes you want!
 
 ## 🧩 Contribute
 This repo is mainly maintained by the team of [@jokenetwork](https://github.com/jokenetwork) ([JokeNetwork.de](https://jokenetwork.de)), but you can also help, if you want to!
