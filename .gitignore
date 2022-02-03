@@ -8,3 +8,4 @@ stats.php
 api/
 api
 .env
+vendor/
