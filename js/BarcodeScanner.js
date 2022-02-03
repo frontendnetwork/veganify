@@ -50,10 +50,6 @@ BarcodeScanner = {
 		BarcodeScanner.ScanCanvas.width = 640;
 		BarcodeScanner.ScanCanvas.height = 480;
 		BarcodeScanner.ScanContext = BarcodeScanner.ScanCanvas.getContext("2d");
-		var script  = document.createElement('script');
-  		script.src  = "exif.js";
- 		script.type = 'text/javascript';
-		document.getElementsByTagName('head').item(0).appendChild(script);
 	},
 	
 	// Value should be true or false.
