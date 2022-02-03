@@ -1,7 +1,7 @@
 <?php
 require('vendor/autoload.php');
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable('/var/www/virtual/jake/');
 $dotenv->load();
 $userid = $_ENV['USER_ID_OEANDB'];
 
