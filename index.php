@@ -45,7 +45,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.53" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.54" rel="stylesheet">
   </head>
 
   <body>
@@ -73,6 +73,7 @@ https://github.com/jokenetwork/vegancheck.me
             <button name="submit" aria-label="<?php print_r($langArray['form']['submit']); ?>" role="button"><span class="icon-right-open"></span></button>
           </fieldset>
         </form>
+        <div class="timeout animated fadeIn" style="display:none;"><?php print_r($langArray['other']['timeout']); ?><span>.</span><span>.</span><span>.</span></div>
         <div id="result">&nbsp;</div> 
         <footer>
           <p><?php print_r($langArray['footer']['credits']); ?>
@@ -93,7 +94,7 @@ https://github.com/jokenetwork/vegancheck.me
 
 <script src="js/jquery.min.js"></script>
 <script src="js/BarcodeScanner.min.js"></script>
-<script src="js/app.js?v=1.0.5"></script>
+<script src="js/app.js?v=1.0.6"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');

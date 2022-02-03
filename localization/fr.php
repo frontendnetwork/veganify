@@ -20,7 +20,8 @@ $langArray = array(
         "other" => array(
         	"offline" => "Vous êtes actuellement hors ligne. VeganCheck.me ne fonctionne qu'avec une connexion internet en état de marche.",
         	"reload" => "Réessayer",
-        	"rotate" => "Veuillez tourner votre appareil."
+        	"rotate" => "Veuillez tourner votre appareil.",
+                "timeout" => "Cela prend plus de temps que d'habitude"
         ),
         "results" => array(
         	"invalid" => "Le champ du code-barres ne doit pas être vide et ne doit pas contenir de caractères spéciaux",

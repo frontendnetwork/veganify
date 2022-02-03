@@ -20,7 +20,8 @@ $langArray = array(
         "other" => array(
         	"offline" => "Du bist offline. VeganCheck.me funktioniert nur mit einer aktiven Internet-Verbindung.",
         	"reload" => "Erneut versuchen",
-        	"rotate" => "Bitte drehe dein Gerät."
+        	"rotate" => "Bitte drehe dein Gerät.",
+                "timeout" => "Die Abfrage dauert länger als gewöhnlich"
         ),
         "results" => array(
         	"invalid" => "Das Barcode-Feld darf nicht leer sein und keine Sonderzeichen enthalten.",
