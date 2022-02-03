@@ -47,19 +47,58 @@ h1 {
 }
 
 .spinner {
-    animation: pulse .5s infinite ease-out; 
+    animation: pulse .5s infinite ease-out;
 }
+
+
 
 @keyframes pulse {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.4);
     }
+
     100% {
         transform: scale(1);
     }
+}
+
+.timeout {
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.timeout span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.timeout span:nth-child(2) {
+
+    animation-delay: .2s;
+}
+
+.timeout span:nth-child(3) {
+    animation-delay: .4s;
 }
 
 p.unknown,
