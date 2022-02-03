@@ -71,11 +71,23 @@ function setupLiveReader(resultElement) {
 // submit.js
 $('button[name="submit"]').on('click', function(e) {
     e.preventDefault();
-    $.ajax({ url: 'script.php', type: 'POST', data: { barcode: $('input[name="barcode"]').val(), lang: $('input[name="lang"]').val() }, success: function(result) { $('#result').html(result); } });
+    $.ajax({
+        url: 'script.php',
+        type: 'POST',
+        data: {
+            barcode: $('input[name="barcode"]').val(),
+            lang: $('input[name="lang"]').val()
+        },
+        success: function(result) {
+            $('#result').html(result);
+        }
+    });
 });
 
 // Initialize SW
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+
+// Spinner while AJAX request
 var $loading = $('#spinner').hide();
 $(document)
     .ajaxStart(function() {
@@ -84,3 +96,15 @@ $(document)
     .ajaxStop(function() {
         $('.logo').removeClass('spinner');
     });
+
+// Timeout 
+var ajaxLoadTimeout;
+$(document).ajaxStart(function() {
+    ajaxLoadTimeout = setTimeout(function() { 
+        $(".timeout").css("display","block");
+    }, 1000);
+
+}).ajaxSuccess(function() {
+    clearTimeout(ajaxLoadTimeout);
+    $(".timeout").css("display","none");
+});
