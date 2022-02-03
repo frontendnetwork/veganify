@@ -25,7 +25,9 @@
 [Open PWA in browser](https://vegancheck.me) - [Product page on JokeNetwork.de](https://jokenetwork.de/#projects) - [API](https://github.com/JokeNetwork/vegancheck.me/wiki)
 
 ## 👨🏼‍💻 Overview
-<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="left" height="300">
+<p align="center">
+<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500">
+</p>
 	
 **Are you looking for our free API? [Read our Wiki](https://github.com/JokeNetwork/vegancheck.me/wiki).**
 
@@ -34,10 +36,12 @@ VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and
 VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.io and Open EAN Database in one tool. 
 	
 The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredients-api), a fork of is-vegan, checks the products ingredients against a list of thousands of non-vegan items.
+
+<img src="img/demo_new.gif" alt="VeganCheck.me Demo" align="right" height="500">
 	
 ### Requirements: 
-- PHP >=7.4 is installed
-- Composer is installed 
+- PHP >=7.4 installed
+- Composer installed with the following components: 
   ````bash
   $ composer require rmccue/requests
   ````
@@ -47,7 +51,11 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
   ````bash
   $ composer require openfoodfacts/openfoodfacts-php
   ````
-- Optional: Get an API-Key for Open EAN Database by donating to Coast against plastic (Küsten gegen Plastik) - [Learn more here](https://opengtindb-org.translate.goog/userid.php?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp).
+- Optional: Get an API-Key for Open EAN Database by donating to Coast against plastic (Küsten gegen Plastik) - [Learn more here](https://opengtindb-org.translate.goog/userid.php?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp), insert it in the `.env.example` and rename it to `.env`. 
+Also change the path to the .env-file in `script.php`. Then you should be good to go!
+  ```php
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  ````
 
 Get the [latest release](https://github.com/JokeNetwork/vegancheck.me/releases) or fork this repositiory and make the changes you want!
 
