@@ -21,7 +21,8 @@ $langArray = array(
         	"offline" => "You are currently offline. VeganCheck.me only works with a functioning internet-connection.",
         	"reload" => "Reload",
         	"rotate" => "Please turn your device",
-                "timeout" => "This takes longer than usual"
+                "timeout" => "This takes longer than usual",
+                "timeoutfinal" => "The request took too long. Please try again."
         ),
         "results" => array(
         	"invalid" => "Barcode cannot be empty or include special characters.",
