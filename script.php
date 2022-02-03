@@ -1,9 +1,6 @@
 <?php
 require('vendor/autoload.php');
-include('vendor/rmccue/requests/library/Requests.php');
-Requests::register_autoloader();
 
-require('vendor/vlucas/phpdotenv/src/Dotenv.php');
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 $userid = $_ENV['USER_ID_OEANDB'];
