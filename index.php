@@ -94,7 +94,7 @@ https://github.com/jokenetwork/vegancheck.me
 
 <script src="js/jquery.min.js"></script>
 <script src="js/BarcodeScanner.min.js"></script>
-<script src="js/app.js?v=1.0.6"></script>
+<script src="js/app.js?v=1.0.7"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
