@@ -71,12 +71,18 @@ function setupLiveReader(resultElement) {
 // submit.js
 $('button[name="submit"]').on('click', function(e) {
     e.preventDefault();
+    $(".timeout-final").css("display","none");
     $.ajax({
         url: 'script.php',
         type: 'POST',
+        timeout: 4000,
         data: {
             barcode: $('input[name="barcode"]').val(),
             lang: $('input[name="lang"]').val()
+        },
+        error: function(){
+          $(".timeout").css("display","none");
+          $(".timeout-final").css("display","block");
         },
         success: function(result) {
             $('#result').html(result);

@@ -1,6 +1,6 @@
 addEventListener('install', (event) => {
   event.waitUntil(async function() {
-    const cache = await caches.open('static-v1');
+    const cache = await caches.open('static-v1.1');
     await cache.addAll(["js/jquery.min.js","js/BarcodeScanner.min.js","offline.php","css/style.min.css","img/VeganCheck.svg"]);
   }());
 });
