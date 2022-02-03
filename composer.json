@@ -1,6 +1,7 @@
 {
     "require": {
         "rmccue/requests": "^2.0",
-        "vlucas/phpdotenv": "^5.4"
+        "vlucas/phpdotenv": "^5.4",
+        "openfoodfacts/openfoodfacts-php": "^0.2.4"
     }
 }
