@@ -60,7 +60,7 @@ https://github.com/jokenetwork/vegancheck.me
     </noscript>
     <div class="container">
       <div id="main">
-        <img src="img/VeganCheck.svg" alt="Logo" class="logo">
+        <img src="img/VeganCheck.svg" alt="Logo" class="logo" id="resscroll">
         <h1>VeganCheck.me</h1>
         <p id="code"></p>
 

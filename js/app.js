@@ -80,6 +80,9 @@ $('button[name="submit"]').on('click', function(e) {
         },
         success: function(result) {
             $('#result').html(result);
+            $('html, body').animate({
+                scrollTop: $('#resscroll').offset().top
+            }, 900, 'swing');
         }
     });
 });
