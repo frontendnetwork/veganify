@@ -117,6 +117,12 @@ footer {
     width: 4rem !important;
 }
 
+#nutri_modal, #palm_modal {
+    font-weight: var(--semibold-fontweight);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .modal_view {
     background: #FFF;
     color: var(--bg-color);
@@ -141,4 +147,8 @@ footer {
             max-width: 1rem;
         }
     }
+}
+
+.modalIsOpen {
+    opacity: .1;
 }
