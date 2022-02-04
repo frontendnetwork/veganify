@@ -8,6 +8,13 @@ $userid = $_ENV['USER_ID_OEANDB'];
 $barcode = filter_input(INPUT_POST, 'barcode');
 $ticket = uniqid();
 
+// Set all variables
+$vegan = null;
+$vegetarian = null;
+$animaltestfree = null;
+$palmoil = null;
+$nutriscore = null;
+
 // Language detection
 if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
 {
@@ -48,18 +55,21 @@ else
     {
         $api = 'https://world.openbeautyfacts.org/api/v0/product/';
         $baseuri = "https://world.openbeautyfacts.org";
+        $edituri = 'https://world.openbeautyfacts.org/cgi/product.pl?type=edit&code='.$barcode;
         $apiname = 'OpenBeautyFacts';
     }
     elseif (!empty($product->product) && empty($beautyproduct->product))
     {
         $api = 'https://world.openfoodfacts.org/api/v0/product/';
         $baseuri = "https://world.openfoodfacts.org";
+        $edituri = 'https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode;
         $apiname = 'OpenFoodFacts';
     }
     else
     {
         $api = 'https://world.openfoodfacts.org/api/v0/product/';
         $baseuri = "https://world.openfoodfacts.org";
+        $edituri = 'https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode;
         $apiname = 'OpenFoodFacts';
     }
     $data = Requests::get($api . $barcode);
@@ -196,73 +206,35 @@ else
             // if not vegan
             if (in_array("en:non-vegan", $array))
             {
-                print_r('<div class="animated fadeIn">
-                    <div class="resultborder">
-                      <span class="non-vegan">  
-                        <span class="name">"' . $productname . '":</span>
-                      </span>
-                      <span class="non-vegan">' . $langArray['results']['notvegan'] . '<span class="icon-cancel"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>
-                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text=' . urlencode($productname) . $langArray['results']['tweettext'] . '" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
-                      <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
-                    </div>
-                  </div>');
+                $vegan = "false";
             }
             // if vegan status unknown
             elseif (in_array("en:vegan-status-unknown", $array) || in_array("en:maybe-vegan", $array))
             {
-                print_r('<div class="animated fadeIn">
-                    <div class="resultborder">
-                      <span class="unknown">
-                        <span class="name">"' . $productname . '":</span>
-                      </span>
-                      <span class="unknown">' . $langArray['results']['vegan'] . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>
-                      <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
-                    </div>
-                  </div>');
+                $vegan = "unknown";
             }
             // if vegan
             elseif (in_array("en:vegan", $array))
             {
-                print_r('<div class="animated fadeIn">
-                  <div class="resultborder">
-                    <span class="vegan">
-                      <span class="name">"' . $productname . '":</span>
-                    </span>
-                    <span class="vegan">' . $langArray['results']['vegan'] . '<span class="icon-ok"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                    <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>
-                    <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text=' . urlencode($productname) . $langArray['results']['tweettextvegan'] . '" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
-                    <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
-                  </div>
-                </div>');
+                $vegan = "true";
             }
             elseif ($response == "no code or invalid code")
             {
-                print_r('<div class="animated fadeIn"><div class="resultborder"><span class="missing">' . $langArray['results']['invalidscan'] . '</span><br>' . $openissue . '</div></div>');
+                $endrepsone = "invalid";
             }
             // Product is not in OFF/OBF db
             else
             {
-                print_r('<div class="animated fadeIn"><div class="resultborder"><span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '">' . $langArray['results']['addonoff'] . '</a>.</p>
-            ' . $openissue . '</div></div>');
+                $endrepsone = "notindb";
             }
         }
         // Fomer: $missinginfo, now: Name-output & nutriscore if available
         else
         {
-            print_r('<div class="animated fadeIn">
-                    <div class="resultborder">
-                      <span class="unknown">
-                        <span class="name">"' . $productname . '":</span>
-                      </span>
-                      <span class="unknown">' . $langArray['results']['vegan'] . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>
-                      <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a> ' . $openissue . '
-                    </div>
-                  </div>');
+            $vegan = "unknown";
         }
     }
+
     // Use brocade API if item is not in OFF and use OEDBAPI if item is not in brocade
     else
     {
@@ -276,45 +248,25 @@ else
             {
                 $apiname = 'Brocade.io';
                 $baseuri = "https://brocade.io";
+                $edituri = 'https://www.brocade.io/products/'.$barcode;
                 include_once ('includes/isvegan.php');
                 $response = explode(', ', $ingredients);
                 $result = array_uintersect($isvegan, $response, fn($a, $b) => strcasecmp($a, $b));
                 if (empty($result))
                 {
-                    print_r('<div class="animated fadeIn">
-                    <div class="resultborder">
-                      <span class="vegan">
-                        <span class="name">"' . $productname . '":</span>
-                      </span>
-                      <span class="vegan">' . $langArray['results']['vegan'] . '<span class="icon-ok"></span> </span>
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a> &middot; ' . $langArray['results']['processed'] . '</span>
-                      <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a> ' . $openissue . '
-                    </div>
-                  </div>');
+                    $vegan = "true";
                 }
                 else
                 {
-                    print_r('<div class="animated fadeIn">
-                    <div class="resultborder">
-                      <span class="non-vegan">  
-                        <span class="name">"' . $productname . '":</span>
-                      </span>
-                      <span class="non-vegan">' . $langArray['results']['notvegan'] . '<span class="icon-cancel"></span></span>
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a> &middot; ' . $langArray['results']['processed'] . '</span>
-                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text=' . urlencode($productname) . $langArray['results']['tweettext'] . '" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
-                      <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
-                    </div>
-                  </div>');
+                    $vegan = "false";
                 }
             }
             else
             {
+                $endrepsone = "notindb";
                 $apiname = 'Brocade.io';
                 $baseuri = "https://brocade.io";
-                print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"' . $productname . '":</span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '">' . $langArray['results']['addonobf'] . '</a>.</p>
-                <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>
-        ' . $openissue . '
-        </div></div>');
+
             }
         }
         else
@@ -327,6 +279,7 @@ else
             {
                 $apiname = 'Open EAN Database';
                 $baseuri = "https://opengtindb.org";
+                $edituri = 'https://opengtindb.org/index.php?cmd=ean1&ean='.$barcode;
                 $productname = utf8_encode($array['name'] . ' ' . $array['detailname']);
 
                 if (!empty($desc))
@@ -337,47 +290,95 @@ else
 
                     if (empty($result))
                     {
-                        print_r('<div class="animated fadeIn">
-                    <div class="resultborder">
-                      <span class="unknown">
-                        <span class="name">"' . $productname . '":</span>
-                      </span>
-                      <span class="unknown">' . $langArray['results']['vegan'] . '<span class="icon-help"></span> </span>
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>
-                      <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a> ' . $openissue . '
-                    </div>
-                  </div>');
+                        $vegan = "unknown";
                     }
                     else
                     {
-                        print_r('<div class="animated fadeIn">
-                    <div class="resultborder">
-                      <span class="non-vegan">  
-                        <span class="name">"' . $productname . '":</span>
-                      </span>
-                      <span class="non-vegan">' . $langArray['results']['notvegan'] . '<span class="icon-cancel"></span></span>
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a> &middot; ' . $langArray['results']['processed'] . '</span>
-                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text=' . urlencode($productname) . $langArray['results']['tweettext'] . '" class="btn-dark" id="tweet"><span class="icon-twitter"></span> Tweet</a>
-                      <a href="' . $baseuri . '/cgi/product.pl?type=edit&code=' . $barcode . '" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
-                    </div>
-                  </div>');
+                        $vegan = "false";
                     }
                 }
                 else
                 {
-                    print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"' . $productname . '":</span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '">' . $langArray['results']['addonobf'] . '</a>.</p>
-                  <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '">' . $apiname . '</a></span>' . $openissue . '</div></div>');
+                    $endrepsone = "notindb";
                 }
             }
             else
             {
-                print_r('<div class="animated fadeIn"><div class="resultborder"><span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '">' . $langArray['results']['addonobf'] . '</a>.</p>
-    ' . $openissue . '
-    </div></div>');
+                $endrepsone = "notindb";
             }
         }
     }
 }
+
+// Return results
+if($vegan == "false")
+{
+    if($apiname == "Brocade.io" || $apiname == "Open EAN Database"){
+        $processed = ' &middot; ' . $langArray['results']['processed'];
+    }
+    else{
+        $processed = null;
+    }
+    print_r('<div class="animated fadeIn">
+                    <div class="resultborder">
+                      <span class="non-vegan">  
+                        <span class="name">"' . $productname . '":</span>
+                      </span>
+                      <span class="non-vegan">' . $langArray['results']['notvegan'] . '<span class="icon-cancel"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a>'. $processed .'</span>
+                      <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text=' . urlencode($productname) . $langArray['results']['tweettext'] . '" class="btn-dark" target="_blank" id="tweet"><span class="icon-twitter"></span> Tweet</a>
+                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
+                    </div>
+                  </div>');
+}
+elseif($vegan == "true")
+{
+    if($apiname == "Brocade.io"){
+        $processed = ' &middot; ' . $langArray['results']['processed'];
+    }
+    else{
+        $processed = null;
+    }
+    print_r('<div class="animated fadeIn">
+                    <div class="resultborder">
+                      <span class="vegan">
+                        <span class="name">"' . $productname . '":</span>
+                      </span>
+                      <span class="vegan">' . $langArray['results']['vegan'] . '<span class="icon-ok"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a>'. $processed .'</span>
+                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a> ' . $openissue . '
+                    </div>
+                  </div>');
+}
+elseif($vegan == "unknown")
+{
+    print_r('<div class="animated fadeIn">
+                    <div class="resultborder">
+                      <span class="unknown">
+                        <span class="name">"' . $productname . '":</span>
+                      </span>
+                      <span class="unknown">' . $langArray['results']['vegan'] . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a></span>
+                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
+                    </div>
+                  </div>');
+}
+elseif($endrepsone == "invalid")
+{
+    print_r('<div class="animated fadeIn"><div class="resultborder"><span class="missing">' . $langArray['results']['invalidscan'] . '</span><br>' . $openissue . '</div></div>');
+}
+elseif($endrepsone == "notindb" && !empty($productname))
+{
+    print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"' . $productname . '":</span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonobf'] . '</a>.</p>
+                  <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a></span>' . $openissue . '</div></div>');
+}
+elseif($endrepsone == "notindb")
+{
+    print_r('<div class="animated fadeIn"><div class="resultborder"><span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonobf'] . '</a>.</p>
+    ' . $openissue . '
+    </div></div>');
+}
+
 // Remove before using on your own site
 include_once ("stats.php");
 ?>
