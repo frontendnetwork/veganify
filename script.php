@@ -145,23 +145,23 @@ else
         // Checks for the nutriscore
         if ($nutriscore == "a")
         {
-            $nutriscore = '<span class="nutri_a">Nutriscore A<span class="icon-ok"></span> </span>';
+            $nutriscore = '<span class="nutri_a">Nutriscore A<sup id="nutri_modal">?</sup><span class="icon-ok"></span></span>';
         }
         elseif ($nutriscore == "b")
         {
-            $nutriscore = '<span class="nutri_b">Nutriscore B<span class="icon-ok"></span> </span>';
+            $nutriscore = '<span class="nutri_b">Nutriscore B<sup id="nutri_modal">?</sup><span class="icon-ok"></span></span>';
         }
         elseif ($nutriscore == "c")
         {
-            $nutriscore = '<span class="nutri_c">Nutriscore C<span class="icon-ok"></span> </span>';
+            $nutriscore = '<span class="nutri_c">Nutriscore C<sup id="nutri_modal">?</sup><span class="icon-ok"></span></span>';
         }
         elseif ($nutriscore == "d")
         {
-            $nutriscore = '<span class="nutri_d">Nutriscore D<span class="icon-cancel"></span> </span>';
+            $nutriscore = '<span class="nutri_d">Nutriscore D<sup id="nutri_modal">?</sup><span class="icon-cancel"></span></span>';
         }
         elseif ($nutriscore == "e")
         {
-            $nutriscore = '<span class="nutri_e">Nutriscore E<span class="icon-cancel"></span> </span>';
+            $nutriscore = '<span class="nutri_e">Nutriscore E<sup id="nutri_modal">?</sup><span class="icon-cancel"></span></span>';
         }
         elseif ($apiname == "OpenBeautyFacts")
         {
@@ -169,7 +169,7 @@ else
         }
         else
         {
-            $nutriscore = '<span class="unknown">Nutriscore ' . $langArray['results']['unknown'] . '<span class="icon-help"></span> </span>';
+            $nutriscore = '<span class="unknown">Nutriscore<sup id="nutri_modal">?</sup> ' . $langArray['results']['unknown'] . '<span class="icon-help"></span></span>';
         }
 
         if (isset($array))

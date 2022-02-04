@@ -24,6 +24,8 @@ function setupLiveReader(resultElement) {
         // When barcode is detected
         BarcodeScanner.streamCallback = function(result) {
             document.getElementById('barcode').value = result[0].Value
+            BarcodeScanner.StopStreamDecode()
+            video.pause()
             stream.getTracks()[0].stop()
             container.classList.add('fadeOut')
             closer.classList.add('fadeOut')
@@ -32,8 +34,6 @@ function setupLiveReader(resultElement) {
                 closer.classList.remove('fadeOut')
                 container.style.display = 'none'
                 closer.style.display = 'none'
-                BarcodeScanner.StopStreamDecode()
-                video.pause()
             }, 1000);
 
             // Auto submit barcode
@@ -42,6 +42,8 @@ function setupLiveReader(resultElement) {
 
         // Close stream when button is clicked
         closer.onclick = function(close) {
+            BarcodeScanner.StopStreamDecode()
+            video.pause()
             stream.getTracks()[0].stop()
             container.classList.add('fadeOut')
             closer.classList.add('fadeOut')
@@ -50,8 +52,6 @@ function setupLiveReader(resultElement) {
                 closer.classList.remove('fadeOut')
                 container.style.display = 'none'
                 closer.style.display = 'none'
-                BarcodeScanner.StopStreamDecode()
-                video.pause()
             }, 1000);
         }
 
@@ -75,7 +75,7 @@ $('button[name="submit"]').on('click', function(e) {
     $.ajax({
         url: 'script.php',
         type: 'POST',
-        timeout: 4000,
+        timeout: 5000,
         data: {
             barcode: $('input[name="barcode"]').val(),
             lang: $('input[name="lang"]').val()
@@ -89,6 +89,16 @@ $('button[name="submit"]').on('click', function(e) {
             $('html, body').animate({
                 scrollTop: $('#resscroll').offset().top
             }, 900, 'swing');
+            $('#nutri_modal').click(function(){
+                $("#nutriscore").css("display","block")
+            });
+            $('.modal_close').click(function(){
+                $("#nutriscore").addClass('fadeIn')
+                $("#nutriscore").addClass('fadeOut')
+                setTimeout(function() {
+                    $("#nutriscore").css("display","none")
+                }, 500);
+            });
         }
     });
 });

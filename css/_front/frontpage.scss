@@ -50,8 +50,6 @@ h1 {
     animation: pulse .5s infinite ease-out;
 }
 
-
-
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -117,4 +115,30 @@ footer {
 .labels {
     padding: .5rem !important;
     width: 4rem !important;
+}
+
+.modal_view {
+    background: #FFF;
+    color: var(--bg-color);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+
+    h2 {
+        margin-top: -2rem;
+    }
+
+    .modal_close {
+        text-align: left;
+
+        .btn-dark {
+            min-width: 0;
+            max-width: 1rem;
+        }
+    }
 }
