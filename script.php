@@ -287,11 +287,7 @@ else
                     $vegan = "false";
                     $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
                 }
-                elseif(!empty($contents) && $contents >= "256" && $contents < "384"){
-                    $vegan = "true";
-                    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
-                }
-                elseif(!empty($contents) && $contents >= "384" && $contents < "512"){
+                elseif(!empty($contents) && $contents >= "256" && $contents < "384" || $contents >= "384" && $contents < "512"){
                     $vegan = "true";
                     $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
                 }
