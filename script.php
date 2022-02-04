@@ -178,15 +178,15 @@ else
             // Needs to be after isset($array) because it checks within the array
             if (in_array("en:palm-oil", $array))
             {
-                $palmoil = '<span class="non-vegan"> ' . $langArray['results']['containspalmoil'] . '<span class="icon-cancel"></span> </span>';
+                $palmoil = '<span class="non-vegan"> ' . $langArray['results']['containspalmoil'] . '<sup id="palm_modal">?</sup> <span class="icon-cancel"></span> </span>';
             }
             elseif (in_array("en:palm-oil-free", $array))
             {
-                $palmoil = '<span class="vegan"> ' . $langArray['results']['nopalmoil'] . '<span class="icon-ok"></span> </span>';
+                $palmoil = '<span class="vegan"> ' . $langArray['results']['nopalmoil'] . '<sup id="palm_modal">?</sup> <span class="icon-ok"></span> </span>';
             }
             else
             {
-                $palmoil = '<span class="unknown"> ' . $langArray['results']['palmoilunknown'] . '<span class="icon-help"></span> </span>';
+                $palmoil = '<span class="unknown"> ' . $langArray['results']['palmoilunknown'] . '<sup id="palm_modal">?</sup> <span class="icon-help"></span> </span>';
             }
 
             // Checks for the vegetarian status

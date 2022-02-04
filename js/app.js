@@ -91,12 +91,29 @@ $('button[name="submit"]').on('click', function(e) {
             }, 900, 'swing');
             $('#nutri_modal').click(function(){
                 $("#nutriscore").css("display","block")
+                $(".container").addClass('modalIsOpen')
             });
             $('.modal_close').click(function(){
-                $("#nutriscore").addClass('fadeIn')
                 $("#nutriscore").addClass('fadeOut')
+                $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
                     $("#nutriscore").css("display","none")
+                    $("#nutriscore").removeClass('fadeOut')
+                    $("#nutriscore").addClass('fadeIn')
+                }, 500);
+            });
+            $('#palm_modal').click(function(){
+                $("#palmoil").css("display","block")
+                $(".container").addClass('modalIsOpen')
+            });
+            $('.modal_close').click(function(){
+                $("#palmoil").addClass('fadeOut')
+                $(".container").removeClass('modalIsOpen')
+                setTimeout(function() {
+                    $("#palmoil").removeClass('fadeOut')
+                    $("#palmoil").addClass('fadeIn')
+                    $("#palmoil").css("display","none")
+
                 }, 500);
             });
         }
