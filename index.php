@@ -70,7 +70,7 @@ https://github.com/jokenetwork/vegancheck.me
         <h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3>
       </div>
     </noscript>
-    <div class="container">
+    <div class="container" id="top">
       <div id="main">
         <img src="img/VeganCheck.svg" alt="Logo" class="logo" id="resscroll">
         <h1>VeganCheck.me</h1>
@@ -105,7 +105,7 @@ https://github.com/jokenetwork/vegancheck.me
 
 <script src="js/jquery.min.js"></script>
 <script src="js/BarcodeScanner.min.js"></script>
-<script src="js/app.js?v=1.0.10"></script>
+<script src="js/app.js?v=1.0.11"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
