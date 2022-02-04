@@ -51,6 +51,11 @@ $langArray = array(
                 "checkingredients" => "Les ingrédients du produit ont été traités et contrôlés automatiquement. Veuillez vérifier vous-même les ingrédients pour vous en assurer.",
                 "datasource" => "Source des données:",
                 "processed" => "Traitement automatique"
+        ),
+        "modal" => array(
+                "palmoil" => "Huile de palme",
+                "palmoil_desc" => "L'huile de palme a un impact extrêmement néfaste sur la planète. Elle est le principal moteur de la déforestation de certaines des forêts les plus riches en biodiversité, détruisant les habitats naturels d'animaux déjà menacés. C'est pourquoi nous vous recommandons de ne pas acheter de produits contenant de l'huile de palme. Malheureusement, il existe encore de nombreux produits qui contiennent de l'huile de palme.",
+                "nutriscore_desc" => "Le Nutriscore indique le profil nutritionnel d'un produit sous forme de feux tricolores. Cependant, le Nutriscore n'est pas considéré comme précis et ne doit pas être utilisé comme une référence."
         )
     );
 ?>

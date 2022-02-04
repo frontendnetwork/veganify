@@ -51,6 +51,11 @@ $langArray = array(
                 "checkingredients" => "Los ingredientes del producto se han procesado y comprobado automáticamente. Compruebe usted mismo los ingredientes para estar seguro.",
                 "datasource" => "Fuente de datos:",
                 "processed" => "Procesado automáticamente"
+        ),
+        "modal" => array(
+                "palmoil" => "Aceite de palma",
+                "palmoil_desc" => "El aceite de palma tiene un impacto extremadamente perjudicial para el planeta. Es el principal impulsor de la deforestación de algunos de los bosques más biodiversos, destruyendo los hábitats naturales de animales ya amenazados. Por ello, recomendamos no comprar ningún producto que contenga aceite de palma. Lamentablemente, todavía hay muchos productos que incluyen aceite de palma.",
+                "nutriscore_desc" => "El Nutriscore indica el perfil nutricional de un producto en forma de semáforo. Sin embargo, el Nutriscore no se considera exacto y no debe utilizarse como referencia."
         )
     );
 ?>

@@ -51,6 +51,11 @@ $langArray = array(
                 "checkingredients" => "Die Inhaltsstoffe des Produktes wurden automatisch verarbeitet und geprüft. Bitte überprüfen Sie die Inhaltsstoffe selbst, um sicher zu gehen.",
                 "datasource" => "Datenquelle:",
                 "processed" => "Automatisch verarbeitet"
+        ),
+        "modal" => array(
+                "palmoil" => "Palmöl",
+                "palmoil_desc" => "Palmöl hat extrem schädliche Auswirkungen auf den Planeten. Es ist die Hauptursache für die Abholzung einiger der artenreichsten Wälder und zerstört die natürlichen Lebensräume von bereits gefährdeten Tieren. Aus diesem Grund empfehlen wir, keine Produkte zu kaufen, die Palmöl enthalten. Leider gibt es immer noch viele Produkte, die Palmöl enthalten.",
+                "nutriscore_desc" => "Der Nutriscore zeigt das Nährwertprofil eines Produktes in Ampelform an. Der Nutriscore gilt jedoch nicht als genau und sollte nicht als Referenz verwendet werden."
         )
     );
 ?>

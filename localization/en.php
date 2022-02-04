@@ -51,6 +51,11 @@ $langArray = array(
                 "checkingredients" => "The products ingredients were processed and checked automatically. Please check the ingredients yourself to be sure.",
                 "datasource" => "Data source:",
                 "processed" => "Processed automatically"
+        ),
+        "modal" => array(
+                "palmoil" => "Palm-oil",
+                "palmoil_desc" => "Palm-oil has an extremly harmful impact on the planet. It is the major driver of deforestation of some of the most biodiverse forests, destroying the natural habitats of already endangered animals. Because of this, we'd recommend to not buy any products that contain palm-oil. Sadly, there are still many products out there which include palm oil.",
+                "nutriscore_desc" => "The Nutriscore indicates the nutritional profile of a product in traffic light form. However, the Nutriscore is not considered accurate and should not be used as a reference."
         )
     );
 ?>

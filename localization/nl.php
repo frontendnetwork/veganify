@@ -51,6 +51,11 @@ $langArray = array(
                 "checkingredients" => "De ingrediënten van het product zijn automatisch verwerkt en gecontroleerd. Controleer voor de zekerheid zelf de ingrediënten.",
                 "datasource" => "Gegevensbron:",
                 "processed" => "Automatisch verwerkt"
+        ),
+        "modal" => array(
+                "palmoil" => "Palmolie",
+                "palmoil_desc" => "Palmolie heeft een zeer schadelijke invloed op de planeet. Het is de drijvende kracht achter de ontbossing van enkele van de meest biodiverse bossen, en vernietigt de natuurlijke habitat van reeds bedreigde dieren. Daarom raden we je aan geen producten te kopen die palmolie bevatten. Helaas zijn er nog steeds veel producten op de markt die palmolie bevatten.",
+                "nutriscore_desc" => "De Nutriscore geeft het voedingsprofiel van een product aan in stoplichtvorm. De Nutriscore wordt echter niet als nauwkeurig beschouwd en mag niet als referentie worden gebruikt."
         )
     );
 ?>
