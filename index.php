@@ -45,7 +45,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="img/iossplash.png?v=1.0.0">
 
-    <link href="css/style.min.css?v=3.9.55" rel="stylesheet">
+    <link href="css/style.min.css?v=3.9.60" rel="stylesheet">
   </head>
 
   <body>
@@ -53,11 +53,17 @@ https://github.com/jokenetwork/vegancheck.me
       <img src="img/rotatedevice.svg" alt="<?php print_r($langArray['other']['rotate']); ?>">
       <h1><?php print_r($langArray['other']['rotate']); ?></h1>
     </div>
+
     <div class="modal_view animated faster fadeIn" id="nutriscore" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2>Nutriscore</h2>
-          <p>The Nutriscore indicates the nutritional profile of a product in traffic light form.
-However, the Nutriscore is not considered accurate and should not be used as a reference.</p>
+          <p><?php print_r($langArray['modal']['nutriscore_desc']); ?></p>
+    </div>
+
+    <div class="modal_view animated faster fadeIn" id="palmoil" style="display:none;">
+      <div class="modal_close"><a class="btn-dark">&times;</a></div>
+          <h2><?php print_r($langArray['modal']['palmoil']); ?></h2>
+          <p><?php print_r($langArray['modal']['palmoil_desc']); ?></p>
     </div>
     <noscript>
       <div class="noscript">
@@ -99,7 +105,7 @@ However, the Nutriscore is not considered accurate and should not be used as a r
 
 <script src="js/jquery.min.js"></script>
 <script src="js/BarcodeScanner.min.js"></script>
-<script src="js/app.js?v=1.0.8"></script>
+<script src="js/app.js?v=1.0.10"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
