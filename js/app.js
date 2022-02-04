@@ -1,4 +1,5 @@
 function setupLiveReader(resultElement) {
+    self.location.href = '#top';
     var container = document.createElement('div')
     container.className = 'eanscanner'
     container.style.position = 'absolute'
@@ -19,22 +20,29 @@ function setupLiveReader(resultElement) {
         video.width = 320
         BarcodeScanner.init()
         var closer = document.getElementById('controls')
+        var barcodeicon = document.getElementById('barcodeicon')
         closer.style.display = 'inline-block'
 
         // When barcode is detected
         BarcodeScanner.streamCallback = function(result) {
             document.getElementById('barcode').value = result[0].Value
-            BarcodeScanner.StopStreamDecode()
-            video.pause()
-            stream.getTracks()[0].stop()
-            container.classList.add('fadeOut')
-            closer.classList.add('fadeOut')
+            barcodeicon.style.color = "#10ac84";
+            barcodeicon.style.opacity = "1";
+            setTimeout(function() {
+                BarcodeScanner.StopStreamDecode()
+                video.pause()
+                stream.getTracks()[0].stop()
+                container.classList.add('fadeOut')
+                closer.classList.add('fadeOut')
+                barcodeicon.style.color = "#fff";
+                barcodeicon.style.opacity = "0.4";
+                }, 300);
             setTimeout(function() {
                 container.classList.remove('fadeOut')
                 closer.classList.remove('fadeOut')
                 container.style.display = 'none'
                 closer.style.display = 'none'
-            }, 1000);
+            }, 500);
 
             // Auto submit barcode
             document.getElementsByTagName('button')[0].click();
