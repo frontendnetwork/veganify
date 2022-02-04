@@ -281,8 +281,21 @@ else
                 $baseuri = "https://opengtindb.org";
                 $edituri = 'https://opengtindb.org/index.php?cmd=ean1&ean='.$barcode;
                 $productname = utf8_encode($array['name'] . ' ' . $array['detailname']);
+                $contents = $array['contents'];
 
-                if (!empty($desc))
+                if(!empty($contents) && $contents >= "128" && $contents < "256"){
+                    $vegan = "false";
+                    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+                }
+                elseif(!empty($contents) && $contents >= "256" && $contents < "384"){
+                    $vegan = "true";
+                    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+                }
+                elseif(!empty($contents) && $contents >= "384" && $contents < "512"){
+                    $vegan = "true";
+                    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+                }
+                elseif (!empty($desc))
                 {
                     include_once ('includes/isvegan.php');
                     $response = explode(', ', $desc);
@@ -333,6 +346,9 @@ if($vegan == "false")
 }
 elseif($vegan == "true")
 {
+    // Vegetarian is always true when vegan is true
+    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+
     if($apiname == "Brocade.io"){
         $processed = ' &middot; ' . $langArray['results']['processed'];
     }
