@@ -53,6 +53,12 @@ https://github.com/jokenetwork/vegancheck.me
       <img src="img/rotatedevice.svg" alt="<?php print_r($langArray['other']['rotate']); ?>">
       <h1><?php print_r($langArray['other']['rotate']); ?></h1>
     </div>
+    <div class="modal_view animated faster fadeIn" id="nutriscore" style="display:none;">
+      <div class="modal_close"><a class="btn-dark">&times;</a></div>
+          <h2>Nutriscore</h2>
+          <p>The Nutriscore indicates the nutritional profile of a product in traffic light form.
+However, the Nutriscore is not considered accurate and should not be used as a reference.</p>
+    </div>
     <noscript>
       <div class="noscript">
         <h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3>
@@ -62,8 +68,6 @@ https://github.com/jokenetwork/vegancheck.me
       <div id="main">
         <img src="img/VeganCheck.svg" alt="Logo" class="logo" id="resscroll">
         <h1>VeganCheck.me</h1>
-        <p id="code"></p>
-
         <form action="script.php">
           <fieldset>
             <legend><?php print_r($langArray['form']['enterbarcode']); ?></legend>
