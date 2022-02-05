@@ -81,7 +81,7 @@ $('button[name="submit"]').on('click', function(e) {
     e.preventDefault();
     $(".timeout-final").css("display","none");
     $.ajax({
-        url: 'script.php',
+        url: '../script.php',
         type: 'POST',
         timeout: 5000,
         data: {
@@ -129,7 +129,7 @@ $('button[name="submit"]').on('click', function(e) {
 });
 
 // Initialize SW
-if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }
 
 // Spinner while AJAX request
 var $loading = $('#spinner').hide();

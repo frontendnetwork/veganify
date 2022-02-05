@@ -2,7 +2,7 @@
 $langArray = array(
         "meta" =>  array(
         	"lang" => "es",
-        	"title" => "¿Es vegano? - VeganCheck",
+        	"title" => "¿Es vegano? - Vegan Check",
         	"description" => "¿No estás seguro de si un producto es vegano o no? Con VeganCheck.me puedes escanear el código de barras de un artículo mientras compras y comprobar si es vegano o no, ¡y eso sin mucha otra información innecesaria! Pruébalo ahora!"
         ),
         "form" => array(
