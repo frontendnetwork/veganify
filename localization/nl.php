@@ -2,7 +2,7 @@
 $langArray = array(
         "meta" =>  array(
         	"lang" => "nl",
-        	"title" => "Is het veganistisch? - VeganCheck",
+        	"title" => "Is het veganistisch? - Vegan Check",
         	"description" => "U weet niet zeker of een product veganistisch is of niet? Met VeganCheck.me kun je tijdens het winkelen direct de streepjescode van een artikel scannen en controleren of het veganistisch is of niet en dat zonder een heleboel andere overbodige informatie! Probeer het nu uit!"
         ),
         "form" => array(

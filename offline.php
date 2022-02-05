@@ -31,10 +31,10 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png">
 
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="img/icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../img/icon.png">
 
-    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="manifest" href="../img/site.webmanifest">
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -43,14 +43,14 @@ https://github.com/jokenetwork/vegancheck.me
 
     <meta name="application-name" content="VeganCheck">
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
-    <link rel="apple-touch-startup-image" href="img/iossplash.png">
+    <link rel="apple-touch-startup-image" href="../img/iossplash.png">
 
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="../css/style.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <div id="main">
-        <img src="img/VeganCheck.svg" alt="Logo">
+        <img src="../img/VeganCheck.svg" alt="Logo">
         <h1>VeganCheck.me</h1>
         <p id="code"></p>
 

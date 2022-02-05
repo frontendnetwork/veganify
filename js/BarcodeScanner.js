@@ -42,7 +42,7 @@ BarcodeScanner = {
 	Stream : null, // The actual video.
 	DecodeStreamActive : false, // Will be set to false when StopStreamDecode() is called.
 	Decoded : [], // Used to enfore the ForceUnique property.
-	DecoderWorker : new Worker("js/DecoderWorker.js"),
+	DecoderWorker : new Worker("../js/DecoderWorker.js"),
 	OrientationCallback : null,
 	// Always call the Init().
 	init : function() {
