@@ -1,4 +1,14 @@
 <?php
+/**
+ * is-vegan PHP adapation
+ * @author Hamed Montazeri
+ * @author Philip Brembec
+ * @author JokeNetwork 
+ * @license MIT License
+ * @copyright (C) 2018 Hamed Montazeri 
+ * @copyright (C) 2021 Philip Brembeck
+ * @link https://github.com/JokeNetwork/vegancheck.me/blob/main/includes/isvegan.php
+ **/
 $isvegan = array(
     "acetate",
     "acetylated hydrogenated lard glyceride",
