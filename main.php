@@ -52,6 +52,12 @@ https://github.com/jokenetwork/vegancheck.me
           <h2><?php print_r($langArray['modal']['palmoil']); ?></h2>
           <p><?php print_r($langArray['modal']['palmoil_desc']); ?></p>
     </div>
+
+    <div class="modal_view animated faster fadeIn" id="processed" style="display:none;">
+      <div class="modal_close"><a class="btn-dark">&times;</a></div>
+          <h2><?php print_r($langArray['modal']['processed']); ?></h2>
+          <p><?php print_r($langArray['modal']['processed_desc']); ?></p>
+    </div>
     <noscript>
       <div class="noscript">
         <h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3>
