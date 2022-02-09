@@ -132,9 +132,9 @@ $('button[name="submit"]').on('click', function(e) {
                 $("#processed").addClass('fadeOut')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
-                    $("#palmoil").removeClass('fadeOut')
-                    $("#palmoil").addClass('fadeIn')
-                    $("#palmoil").css("display","none")
+                    $("#processed").removeClass('fadeOut')
+                    $("#processed").addClass('fadeIn')
+                    $("#processed").css("display","none")
 
                 }, 500);
             });
