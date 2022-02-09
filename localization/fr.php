@@ -12,7 +12,7 @@ $langArray = array(
         ),
         "footer" => array(
         	"credits" => 'Réalisé avec <i class="icon-vegancheck"></i> par <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>',
-        	"legal" => '<a href="privacy-policy">Déclaration de confidentialité</a> / <a href="impressum">Mentions légales</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
+        	"legal" => '<a href="../privacy-policy">Déclaration de confidentialité</a> / <a href="../impressum">Mentions légales</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
         ),
         "layover" => array(
         	"close" => "Fermer le scanner"
@@ -55,7 +55,13 @@ $langArray = array(
         "modal" => array(
                 "palmoil" => "Huile de palme",
                 "palmoil_desc" => "L'huile de palme a un impact extrêmement néfaste sur la planète. Elle est le principal moteur de la déforestation de certaines des forêts les plus riches en biodiversité, détruisant les habitats naturels d'animaux déjà menacés. C'est pourquoi nous vous recommandons de ne pas acheter de produits contenant de l'huile de palme. Malheureusement, il existe encore de nombreux produits qui contiennent de l'huile de palme.",
-                "nutriscore_desc" => "Le Nutriscore indique le profil nutritionnel d'un produit sous forme de feux tricolores. Cependant, le Nutriscore n'est pas considéré comme précis et ne doit pas être utilisé comme une référence."
+                "nutriscore_desc" => "Le Nutriscore indique le profil nutritionnel d'un produit sous forme de feux tricolores. Cependant, le Nutriscore n'est pas considéré comme précis et ne doit pas être utilisé comme une référence.",
+                "processed" => "Traitement automatique",
+                "processed_desc" => "Ce message signifie que les ingrédients du produit ont été vérifiés par <a href=\"https://github.com/JokeNetwork/vegan-ingredients-api\">VeganCheck.me Ingredients API</a> et ont été automatiquement classés comme végétalien ou non végétalien.<br>
+Les ingrédients sont fournis dans chaque cas par la source indiquée.<br>
+Nous ne faisons aucune déclaration quant à l'exactitude ou à l'actualité des ingrédients ou des critères d'examen.<br>
+Parfois, les fabricants modifient les ingrédients de leur produit pour qu'il ne soit plus végétalien, par exemple en ajoutant du lait en poudre.<br>
+Veuillez vérifier les ingrédients du produit pour être sûr."
         )
     );
 ?>

@@ -12,7 +12,7 @@ $langArray = array(
         ),
         "footer" => array(
         	"credits" => 'Made with <i class="icon-vegancheck"></i> by <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>',
-        	"legal" => '<a href="privacy-policy">Privacy Policy</a> / <a href="impressum">Imprint</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
+        	"legal" => '<a href="../privacy-policy">Privacy Policy</a> / <a href="../impressum">Imprint</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
         ),
         "layover" => array(
         	"close" => "Close scanner"
@@ -55,7 +55,13 @@ $langArray = array(
         "modal" => array(
                 "palmoil" => "Palm-oil",
                 "palmoil_desc" => "Palm-oil has an extremly harmful impact on the planet. It is the major driver of deforestation of some of the most biodiverse forests, destroying the natural habitats of already endangered animals. Because of this, we'd recommend to not buy any products that contain palm-oil. Sadly, there are still many products out there which include palm oil.",
-                "nutriscore_desc" => "The Nutriscore indicates the nutritional profile of a product in traffic light form. However, the Nutriscore is not considered accurate and should not be used as a reference."
+                "nutriscore_desc" => "The Nutriscore indicates the nutritional profile of a product in traffic light form. However, the Nutriscore is not considered accurate and should not be used as a reference.",
+                "processed" => "Processed automatically",
+                "processed_desc" => 'This message means that the ingredients of the product have been checked by the <a href="https://github.com/JokeNetwork/vegan-ingredients-api">VeganCheck.me Ingredients API</a> and have been automatically classified as vegan or non-vegan.<br> 
+The ingredients are provided in each case by the indicated source.<br>
+We do not make any claims about the accuracy or timeliness of the ingredients or the review criteria.<br>
+Sometimes manufacturers change the ingredients of their product so that it is no longer vegan, for example by adding milk powder.<br>
+Please double check the ingredients of the product to be sure.'
         )
     );
 ?>

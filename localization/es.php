@@ -12,7 +12,7 @@ $langArray = array(
         ),
         "footer" => array(
         	"credits" => 'Hecho con <i class="icon-vegancheck"></i> por <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>',
-        	"legal" => '<a href="privacy-policy">Política de privacidad</a> / <a href="impressum">aviso legal</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
+        	"legal" => '<a href="../privacy-policy">Política de privacidad</a> / <a href="../impressum">aviso legal</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
         ),
         "layover" => array(
         	"close" => "Cerrar escáner"
@@ -55,7 +55,13 @@ $langArray = array(
         "modal" => array(
                 "palmoil" => "Aceite de palma",
                 "palmoil_desc" => "El aceite de palma tiene un impacto extremadamente perjudicial para el planeta. Es el principal impulsor de la deforestación de algunos de los bosques más biodiversos, destruyendo los hábitats naturales de animales ya amenazados. Por ello, recomendamos no comprar ningún producto que contenga aceite de palma. Lamentablemente, todavía hay muchos productos que incluyen aceite de palma.",
-                "nutriscore_desc" => "El Nutriscore indica el perfil nutricional de un producto en forma de semáforo. Sin embargo, el Nutriscore no se considera exacto y no debe utilizarse como referencia."
+                "nutriscore_desc" => "El Nutriscore indica el perfil nutricional de un producto en forma de semáforo. Sin embargo, el Nutriscore no se considera exacto y no debe utilizarse como referencia.",
+                "processed" => "Procesado automáticamente",
+                "processed_desc" => 'Este mensaje significa que los ingredientes del producto han sido verificados por la <a href="https://github.com/JokeNetwork/vegan-ingredients-api">VeganCheck.me Ingredients API</a> y se han clasificado automáticamente como vegano o no vegano.<br>
+Los ingredientes son proporcionados en cada caso por la fuente indicada.<br>
+No hacemos ninguna afirmación sobre la precisión o la puntualidad de los ingredientes o los criterios de revisión.<br>
+A veces, los fabricantes cambian los ingredientes de su producto para que ya no sea vegano, por ejemplo, añadiendo leche en polvo.<br>
+Verifique dos veces los ingredientes del producto para estar seguro.'
         )
     );
 ?>

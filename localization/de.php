@@ -12,7 +12,7 @@ $langArray = array(
         ),
         "footer" => array(
         	"credits" => 'Mit <i class="icon-vegancheck"></i> gemacht von <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>',
-        	"legal" => '<a href="privacy-policy">Datenschutzerklärung</a> / <a href="impressum">Impressum</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
+        	"legal" => '<a href="../privacy-policy">Datenschutzerklärung</a> / <a href="../impressum">Impressum</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
         ),
         "layover" => array(
         	"close" => "Scanner schließen"
@@ -55,7 +55,13 @@ $langArray = array(
         "modal" => array(
                 "palmoil" => "Palmöl",
                 "palmoil_desc" => "Palmöl hat extrem schädliche Auswirkungen auf den Planeten. Es ist die Hauptursache für die Abholzung einiger der artenreichsten Wälder und zerstört die natürlichen Lebensräume von bereits gefährdeten Tieren. Aus diesem Grund empfehlen wir, keine Produkte zu kaufen, die Palmöl enthalten. Leider gibt es immer noch viele Produkte, die Palmöl enthalten.",
-                "nutriscore_desc" => "Der Nutriscore zeigt das Nährwertprofil eines Produktes in Ampelform an. Der Nutriscore gilt jedoch nicht als genau und sollte nicht als Referenz verwendet werden."
+                "nutriscore_desc" => "Der Nutriscore zeigt das Nährwertprofil eines Produktes in Ampelform an. Der Nutriscore gilt jedoch nicht als genau und sollte nicht als Referenz verwendet werden.",
+                "processed" => "Automatisch verarbeitet",
+                "processed_desc" => 'Diese Meldung bedeutet, dass die Inhaltsstoffe des Produkts von der <a href="https://github.com/JokeNetwork/vegan-ingredients-api">VeganCheck.me Ingredients API</a> geprüft und automatisch  als vegan oder nicht-vegan klassifiziert wurden.<br>
+Die Zutaten stammen jeweils von der angegebenen Quelle.<br>
+Wir erheben keinerlei Anspruch auf Richtigkeit oder Aktualität der Inhaltsstoffe oder der Bewertungskriterien.<br>
+Manchmal verändern Hersteller die Inhaltsstoffe ihres Produktes so, dass es nicht mehr vegan ist, zum Beispiel durch Zugabe von Milchpulver.<br>
+Bitte überprüfen Sie die Inhaltsstoffe des Produkts, um sicherzugehen.'
         )
     );
 ?>
