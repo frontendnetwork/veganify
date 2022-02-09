@@ -1,11 +1,21 @@
 <?php
+/**
+ * VeganCheck.me Script
+ * @author Philip Brembeck
+ * @license MIT License
+ * @copyright (C) 2022 Philip Brembeck
+ * @copyright (C) 2022 JokeNetwork
+ * @copyright (C) 2022 VeganCheck.me Contributors
+ * @link https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE
+ **/
+
 require('vendor/autoload.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable('/var/www/virtual/jake/');
 $dotenv->load();
 $userid = $_ENV['USER_ID_OEANDB'];
 
-$barcode = filter_input(INPUT_POST, 'barcode');
+$sent_barcode = filter_input(INPUT_POST, 'barcode');
 $ticket = uniqid();
 
 // Set all variables
@@ -36,7 +46,7 @@ require_once ("localization/" . $lang . ".php");
 $openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body=' . urlencode('Error ticket #' . $ticket . ' (Please always include this number!) - Please describe your issue:') . '" target="_blank" class="btn-dark">' . $langArray['results']['reporterror'] . '</a>';
 
 // Barcode is empty
-if (empty($barcode) || $barcode == null)
+if (empty($sent_barcode) || $sent_barcode == null)
 {
     print_r('<span class="animated fadeIn"><div class="resultborder">' . $langArray['results']['invalid'] . '<br>' . $openissue . '</div></span>');
 }
@@ -44,6 +54,7 @@ if (empty($barcode) || $barcode == null)
 // Barcode is not empty
 else
 {
+    $barcode = $sent_barcode;
     $data = Requests::get('https://world.openfoodfacts.org/api/v0/product/' . $barcode);
     $product = json_decode($data->body);
 
@@ -137,7 +148,7 @@ else
         }
 
         // Set palmoil as unknown before checking it, to display "unknown" in case of no API response
-        $palmoil = '<span class="unknown"> ' . $langArray['results']['palmoilunknown'] . '<sup id="nutri_modal">?</sup><span class="icon-help"></span> </span>';
+        $palmoil = '<span class="unknown"> ' . $langArray['results']['palmoilunknown'] . '<sup id="palm_modal">?</sup><span class="icon-help"></span> </span>';
 
         // Set vegetarian as unknown before checking it
         $vegetarian = '<span class="unknown">' . $langArray['results']['vegetarian'] . '<span class="icon-help"></span> </span>';
@@ -317,13 +328,15 @@ else
             }
         }
     }
+    // Remove before using on your own site
+    include_once ("stats.php");
 }
 
 // Return results
 if($vegan == "false")
 {
     if($apiname == "Brocade.io" || $apiname == "Open EAN Database"){
-        $processed = ' &middot; ' . $langArray['results']['processed'];
+        $processed = ' &middot; ' . $langArray['results']['processed'] . '<sup id="processed_modal">?</sup>';
     }
     else{
         $processed = null;
@@ -346,7 +359,7 @@ elseif($vegan == "true")
     $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
 
     if($apiname == "Brocade.io"){
-        $processed = ' &middot; ' . $langArray['results']['processed'];
+        $processed = ' &middot; ' . $langArray['results']['processed'] . '<sup id="processed_modal">?</sup>';
     }
     else{
         $processed = null;
@@ -379,7 +392,7 @@ elseif($endrepsone == "invalid")
 {
     print_r('<div class="animated fadeIn"><div class="resultborder"><span class="missing">' . $langArray['results']['invalidscan'] . '</span><br>' . $openissue . '</div></div>');
 }
-elseif($endrepsone == "notindb" && !empty($productname))
+elseif($endrepsone == "notindb" && !empty($productname) && $productname !== "n/a")
 {
     print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"' . $productname . '":</span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonobf'] . '</a>.</p>
                   <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a></span>' . $openissue . '</div></div>');
@@ -390,7 +403,4 @@ elseif($endrepsone == "notindb")
     ' . $openissue . '
     </div></div>');
 }
-
-// Remove before using on your own site
-include_once ("stats.php");
 ?>
