@@ -124,6 +124,20 @@ $('button[name="submit"]').on('click', function(e) {
 
                 }, 500);
             });
+            $('#processed_modal').click(function(){
+                $("#processed").css("display","block")
+                $(".container").addClass('modalIsOpen')
+            });
+            $('.modal_close').click(function(){
+                $("#processed").addClass('fadeOut')
+                $(".container").removeClass('modalIsOpen')
+                setTimeout(function() {
+                    $("#palmoil").removeClass('fadeOut')
+                    $("#palmoil").addClass('fadeIn')
+                    $("#palmoil").css("display","none")
+
+                }, 500);
+            });
         }
     });
 });
