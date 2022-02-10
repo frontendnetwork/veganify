@@ -50,13 +50,13 @@ $langArray = array(
                 "animaltestfree" => "Tierversuchsfrei",
                 "checkingredients" => "Die Inhaltsstoffe des Produktes wurden automatisch verarbeitet und geprüft. Bitte überprüfen Sie die Inhaltsstoffe selbst, um sicher zu gehen.",
                 "datasource" => "Datenquelle:",
-                "processed" => "Automatisch verarbeitet"
+                "processed" => "Automatisch berechnet"
         ),
         "modal" => array(
                 "palmoil" => "Palmöl",
                 "palmoil_desc" => "Palmöl hat extrem schädliche Auswirkungen auf den Planeten. Es ist die Hauptursache für die Abholzung einiger der artenreichsten Wälder und zerstört die natürlichen Lebensräume von bereits gefährdeten Tieren. Aus diesem Grund empfehlen wir, keine Produkte zu kaufen, die Palmöl enthalten. Leider gibt es immer noch viele Produkte, die Palmöl enthalten.",
                 "nutriscore_desc" => "Der Nutriscore zeigt das Nährwertprofil eines Produktes in Ampelform an. Der Nutriscore gilt jedoch nicht als genau und sollte nicht als Referenz verwendet werden.",
-                "processed" => "Automatisch verarbeitet",
+                "processed" => "Automatisch berechnet",
                 "processed_desc" => 'Diese Meldung bedeutet, dass die Inhaltsstoffe des Produkts von der <a href="https://github.com/JokeNetwork/vegan-ingredients-api">VeganCheck.me Ingredients API</a> geprüft und automatisch  als vegan oder nicht-vegan klassifiziert wurden.<br>
 Die Zutaten stammen jeweils von der angegebenen Quelle.<br>
 Wir erheben keinerlei Anspruch auf Richtigkeit oder Aktualität der Inhaltsstoffe oder der Bewertungskriterien.<br>

@@ -50,13 +50,13 @@ $langArray = array(
                 "animaltestfree" => "Niet getest op dieren",
                 "checkingredients" => "De ingrediënten van het product zijn automatisch verwerkt en gecontroleerd. Controleer voor de zekerheid zelf de ingrediënten.",
                 "datasource" => "Gegevensbron:",
-                "processed" => "Automatisch verwerkt"
+                "processed" => "Automatisch berekend"
         ),
         "modal" => array(
                 "palmoil" => "Palmolie",
                 "palmoil_desc" => "Palmolie heeft een zeer schadelijke invloed op de planeet. Het is de drijvende kracht achter de ontbossing van enkele van de meest biodiverse bossen, en vernietigt de natuurlijke habitat van reeds bedreigde dieren. Daarom raden we je aan geen producten te kopen die palmolie bevatten. Helaas zijn er nog steeds veel producten op de markt die palmolie bevatten.",
                 "nutriscore_desc" => "De Nutriscore geeft het voedingsprofiel van een product aan in stoplichtvorm. De Nutriscore wordt echter niet als nauwkeurig beschouwd en mag niet als referentie worden gebruikt.",
-                "processed" => "Automatisch verwerkt",
+                "processed" => "Automatisch berekend",
                 "processed_desc" => "Dit bericht betekent dat de ingrediënten van het product zijn gecontroleerd door de <a href=\"https://github.com/JokeNetwork/vegan-ingredients-api\">VeganCheck.me Ingredients API</a> en automatisch zijn geclassificeerd als veganistisch of niet-veganistisch.<br>
 De ingrediënten worden telkens geleverd door de aangegeven bron.<br>
 We doen geen uitspraken over de nauwkeurigheid of tijdigheid van de ingrediënten of de beoordelingscriteria.<br>
