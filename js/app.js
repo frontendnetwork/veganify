@@ -1,5 +1,8 @@
 function setupLiveReader(resultElement) {
+    // Scroll to top
     self.location.href = '#top';
+
+    // Create scanner-container
     var container = document.createElement('div')
     container.className = 'eanscanner'
     container.style.position = 'absolute'
@@ -14,14 +17,31 @@ function setupLiveReader(resultElement) {
     canvas.style.position = 'absolute'
     container.appendChild(canvas)
     document.body.insertBefore(container, resultElement)
-    const constraints = { audio: false, video: { facingMode: 'environment' } }
+    var camera = 'environment'
+
+    var constraints = {
+        audio: false,
+        video: {
+         facingMode: camera
+        } 
+    }
 
     navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
         video.width = 320
         BarcodeScanner.init()
         var closer = document.getElementById('controls')
+        var btnclose = document.getElementById('closebtn')
         var barcodeicon = document.getElementById('barcodeicon')
         closer.style.display = 'inline-block'
+
+        const track = stream.getVideoTracks()[0];
+
+        const btn = document.getElementById('torch');
+        btn.addEventListener('click', function(){
+          track.applyConstraints({
+            advanced: [{torch: true}]
+          });
+      })
 
         // When barcode is detected
         BarcodeScanner.streamCallback = function(result) {
@@ -49,7 +69,7 @@ function setupLiveReader(resultElement) {
         }
 
         // Close stream when button is clicked
-        closer.onclick = function(close) {
+        btnclose.onclick = function(close) {
             BarcodeScanner.StopStreamDecode()
             video.pause()
             stream.getTracks()[0].stop()
@@ -97,9 +117,24 @@ $('button[name="submit"]').on('click', function(e) {
             $('html, body').animate({
                 scrollTop: $('#resscroll').offset().top
             }, 900, 'swing');
+
+            $(document).on('click', function(){
+                $(".container").removeClass('modalIsOpen')
+                $(".modal_view").addClass('fadeOut')
+                setTimeout(function() {
+                    $(".modal_view").css("display","none")
+                    $(".modal_view").removeClass('fadeOut')
+                    $(".modal_view").addClass('fadeIn')
+                }, 500);
+            });
+            $(".modal_view").on('click', function(event){
+                event.stopPropagation();
+            });
+
             $('#nutri_modal').click(function(){
                 $("#nutriscore").css("display","block")
                 $(".container").addClass('modalIsOpen')
+                event.stopPropagation();
             });
             $('.modal_close').click(function(){
                 $("#nutriscore").addClass('fadeOut')
@@ -113,6 +148,7 @@ $('button[name="submit"]').on('click', function(e) {
             $('#palm_modal').click(function(){
                 $("#palmoil").css("display","block")
                 $(".container").addClass('modalIsOpen')
+                event.stopPropagation();
             });
             $('.modal_close').click(function(){
                 $("#palmoil").addClass('fadeOut')
@@ -127,6 +163,7 @@ $('button[name="submit"]').on('click', function(e) {
             $('#processed_modal').click(function(){
                 $("#processed").css("display","block")
                 $(".container").addClass('modalIsOpen')
+                event.stopPropagation();
             });
             $('.modal_close').click(function(){
                 $("#processed").addClass('fadeOut')
@@ -141,6 +178,7 @@ $('button[name="submit"]').on('click', function(e) {
             $('#license_modal').click(function(){
                 $("#license").css("display","block")
                 $(".container").addClass('modalIsOpen')
+                event.stopPropagation();
             });
             $('.modal_close').click(function(){
                 $("#license").addClass('fadeOut')
@@ -155,6 +193,7 @@ $('button[name="submit"]').on('click', function(e) {
         }
     });
 });
+
 
 // Initialize SW
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }
