@@ -26,16 +26,14 @@ function setupLiveReader(resultElement) {
         } 
     }
 
-    navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+    navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+        const track = stream.getVideoTracks()[0];
         video.width = 320
         BarcodeScanner.init()
         var closer = document.getElementById('controls')
         var btnclose = document.getElementById('closebtn')
         var barcodeicon = document.getElementById('barcodeicon')
         closer.style.display = 'inline-block'
-
-        const track = stream.getVideoTracks()[0];
-
         const btn = document.getElementById('torch');
         btn.addEventListener('click', function(){
           track.applyConstraints({
