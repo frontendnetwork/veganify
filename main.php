@@ -58,6 +58,16 @@ https://github.com/jokenetwork/vegancheck.me
           <h2><?php print_r($langArray['modal']['processed']); ?></h2>
           <p><?php print_r($langArray['modal']['processed_desc']); ?></p>
     </div>
+    <div class="modal_view animated faster fadeIn" id="license" style="display:none;">
+      <div class="modal_close"><a class="btn-dark">&times;</a></div>
+          <h2>Licenses</h2>
+          <p>VeganCheck.me uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:</p>
+          <p>
+            &copy; OpenFoodFacts Contributors, licensed under <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> and <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.<br>
+            Brocade.io Contributors, licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative-Commons Zero</a>.<br>
+            &copy; Open EAN/GTIN Database Contributors, licensed under <a href="https://www.gnu.org/licenses/fdl-1.3.html">GNU FDL</a>.
+        </p>
+    </div>
     <noscript>
       <div class="noscript">
         <h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3>

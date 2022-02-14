@@ -138,6 +138,20 @@ $('button[name="submit"]').on('click', function(e) {
 
                 }, 500);
             });
+            $('#license_modal').click(function(){
+                $("#license").css("display","block")
+                $(".container").addClass('modalIsOpen')
+            });
+            $('.modal_close').click(function(){
+                $("#license").addClass('fadeOut')
+                $(".container").removeClass('modalIsOpen')
+                setTimeout(function() {
+                    $("#license").removeClass('fadeOut')
+                    $("#license").addClass('fadeIn')
+                    $("#license").css("display","none")
+
+                }, 500);
+            });
         }
     });
 });
