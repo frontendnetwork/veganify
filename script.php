@@ -258,7 +258,7 @@ else
             if (!empty($productname) && !empty($ingredients))
             {
                 $apiname = 'Brocade.io';
-                $baseuri = "https://brocade.io";
+                $baseuri = "https://www.brocade.io";
                 $edituri = 'https://www.brocade.io/products/'.$barcode;
                 include_once ('includes/isvegan.php');
                 $response = explode(', ', $ingredients);
@@ -347,7 +347,7 @@ if($vegan == "false")
                         <span class="name">"' . $productname . '":</span>
                       </span>
                       <span class="non-vegan">' . $langArray['results']['notvegan'] . '<span class="icon-cancel"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a>'. $processed .'</span>
+                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
                       <a href="https://twitter.com/intent/tweet?url=https://vegancheck.me&text=' . urlencode($productname) . $langArray['results']['tweettext'] . '" class="btn-dark" target="_blank" id="tweet"><span class="icon-twitter"></span> Tweet</a>
                       <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
                     </div>
@@ -370,7 +370,7 @@ elseif($vegan == "true")
                         <span class="name">"' . $productname . '":</span>
                       </span>
                       <span class="vegan">' . $langArray['results']['vegan'] . '<span class="icon-ok"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a>'. $processed .'</span>
+                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
                       <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a> ' . $openissue . '
                     </div>
                   </div>');
@@ -383,7 +383,7 @@ elseif($vegan == "unknown")
                         <span class="name">"' . $productname . '":</span>
                       </span>
                       <span class="unknown">' . $langArray['results']['vegan'] . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a></span>
+                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
                       <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
                     </div>
                   </div>');
@@ -395,7 +395,7 @@ elseif($endrepsone == "invalid")
 elseif($endrepsone == "notindb" && !empty($productname) && $productname !== "n/a")
 {
     print_r('<div class="animated fadeIn"><div class="resultborder"><span><span class="name">"' . $productname . '":</span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonobf'] . '</a>.</p>
-                  <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a></span>' . $openissue . '</div></div>');
+                  <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a><sup id="license_modal">?</sup></span>' . $openissue . '</div></div>');
 }
 elseif($endrepsone == "notindb")
 {
