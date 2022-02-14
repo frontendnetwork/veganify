@@ -37,7 +37,7 @@ https://github.com/jokenetwork/vegancheck.me
 
   <body>
     <div class="rotate">
-      <img src="img/rotatedevice.svg" alt="<?php print_r($langArray['other']['rotate']); ?>">
+      <img src="../img/rotatedevice.svg" alt="<?php print_r($langArray['other']['rotate']); ?>">
       <h1><?php print_r($langArray['other']['rotate']); ?></h1>
     </div>
 
@@ -101,7 +101,7 @@ https://github.com/jokenetwork/vegancheck.me
     </div>
 
  <div id="controls" style="display:none;">
-  <span id="close"><span class="btn-dark">&times; <?php print_r($langArray['layover']['close']); ?></span></span>
+  <span id="close"><span class="btn-dark" id="closebtn">&times; <?php print_r($langArray['layover']['close']); ?></span><span class="btn-dark" id="torch">Flash</span></span>
   <span id="barcodeicon"><span class="icon-barcode"></span></span>
   <div id="background"></div>
 </div>
