@@ -42,21 +42,25 @@ function setupLiveReader(resultElement) {
     startStream();
 
 function startStream(){
+    document.getElementById('result').style.display = 'none';
+
     // Scroll to top
     window.location.hash = '#top';
 
     // Check for the facingMode
      if (camera == 'environment' || camera == 'user'){
-        var constraints = { audio: false, video: { facingMode: camera } };
+        var constraints = { audio: false, video: { width: window.innerWidth * window.devicePixelRatio,
+    height: window.innerHeight * window.devicePixelRatio, aspectRatio: { ideal: (window.innerHeight) / window.innerWidth }, focusMode: 'continuous', facingMode: camera } };
     }
     else {
         camera = 'environment'
-        var constraints = { audio: false, video: { facingMode: camera } };
+        var constraints = { audio: false, video: { width: window.innerWidth * window.devicePixelRatio,
+    height: window.innerHeight * window.devicePixelRatio, aspectRatio: { ideal: (window.innerHeight) / window.innerWidth }, focusMode: 'continuous', facingMode: camera } };
     }
 
     navigator.mediaDevices.getUserMedia(constraints).then(stream => {
         const track = stream.getVideoTracks()[0];
-        video.width = 320
+        //video.width = 320
         BarcodeScanner.init()
         var closer = document.getElementById('controls')
         var btnclose = document.getElementById('closebtn')
@@ -129,6 +133,7 @@ function startStream(){
         }
         }).catch(function(err) {})
     }
+document.getElementById('result').style.display = 'block';
 }
 
 // submit.js
