@@ -170,7 +170,7 @@ button:focus {
 .btn-dark {
     margin-top: .8rem !important;
     display: inline-block;
-    min-width: 8rem;
+    min-width: auto;
     font-weight: 400;
     line-height: 1.5;
     text-align: center;
@@ -227,6 +227,7 @@ video {
 
     .btn-dark {
         margin-left: 1rem;
+        font-size: 1rem;
     }
 }
 

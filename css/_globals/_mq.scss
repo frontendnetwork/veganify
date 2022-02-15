@@ -1,5 +1,14 @@
+/* Make sure mobile functions are not displayed on desktop*/
+#torch, #flipbutton {
+    display: none;
+}
+
 /* Smartphone */
 @media only screen and (max-width:48rem) {
+    #torch, #flipbutton {
+        display: inline-block;
+    }
+
     .container {
         padding-top: 100px;
         width: 90%;
