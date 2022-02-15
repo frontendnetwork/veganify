@@ -32,10 +32,10 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="../img/iossplash.png?v=1.0.0">
 
-    <link href="../css/style.min.css?v=3.9.60" rel="stylesheet">
+    <link href="../css/style.min.css?v=3.9.62" rel="stylesheet">
   </head>
 
-  <body>
+  <body id="top">
     <div class="rotate">
       <img src="../img/rotatedevice.svg" alt="<?php print_r($langArray['other']['rotate']); ?>">
       <h1><?php print_r($langArray['other']['rotate']); ?></h1>
@@ -73,7 +73,7 @@ https://github.com/jokenetwork/vegancheck.me
         <h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3>
       </div>
     </noscript>
-    <div class="container" id="top">
+    <div class="container">
       <div id="main">
         <img src="../img/VeganCheck.svg" alt="Logo" class="logo" id="resscroll">
         <h1>VeganCheck.me</h1>
@@ -101,14 +101,14 @@ https://github.com/jokenetwork/vegancheck.me
     </div>
 
  <div id="controls" style="display:none;">
-  <span id="close"><span class="btn-dark" id="closebtn">&times; <?php print_r($langArray['layover']['close']); ?></span><span class="btn-dark" id="torch">Flash</span></span>
+  <span id="close"><span class="btn-dark" id="closebtn">&times; <?php print_r($langArray['layover']['close']); ?></span><span class="btn-dark" id="torch"><span class="icon-flash"></span></span><span class="btn-dark" id="flipbutton"><span class="icon-flipcamera"></span></span></span>
   <span id="barcodeicon"><span class="icon-barcode"></span></span>
   <div id="background"></div>
 </div>
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/BarcodeScanner.min.js"></script>
-<script src="../js/app.js?v=1.0.11"></script>
+<script src="../js/app.js?v=1.0.15"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');

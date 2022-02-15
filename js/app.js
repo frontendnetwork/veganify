@@ -1,6 +1,6 @@
 function setupLiveReader(resultElement) {
     // Scroll to top
-    self.location.href = '#top';
+    window.location.hash = '#top';
 
     // Create scanner-container
     var container = document.createElement('div')
@@ -17,13 +17,41 @@ function setupLiveReader(resultElement) {
     canvas.style.position = 'absolute'
     container.appendChild(canvas)
     document.body.insertBefore(container, resultElement)
-    var camera = 'environment'
 
-    var constraints = {
-        audio: false,
-        video: {
-         facingMode: camera
-        } 
+    // Define camera facingMode once
+    camera = 'environment'
+    
+    // Flip camera button
+    document.getElementById('flipbutton').onclick = function() {
+        if (camera == 'environment'){
+            camera = 'user'
+        }
+        else if(camera == 'user'){
+            camera = 'environment'
+        }
+        else{
+            camera = 'environment'
+        }
+
+        // End stream and restart
+        initendStream();
+        startStream();
+    };
+
+    // Start the stream
+    startStream();
+
+function startStream(){
+    // Scroll to top
+    window.location.hash = '#top';
+
+    // Check for the facingMode
+     if (camera == 'environment' || camera == 'user'){
+        var constraints = { audio: false, video: { facingMode: camera } };
+    }
+    else {
+        camera = 'environment'
+        var constraints = { audio: false, video: { facingMode: camera } };
     }
 
     navigator.mediaDevices.getUserMedia(constraints).then(stream => {
@@ -34,12 +62,20 @@ function setupLiveReader(resultElement) {
         var btnclose = document.getElementById('closebtn')
         var barcodeicon = document.getElementById('barcodeicon')
         closer.style.display = 'inline-block'
+
+        // Torch/Flash on Android
         const btn = document.getElementById('torch');
         btn.addEventListener('click', function(){
           track.applyConstraints({
             advanced: [{torch: true}]
           });
       })
+
+        function endStream(){
+            track.stop();
+        }
+        initendStream = endStream;
+
 
         // When barcode is detected
         BarcodeScanner.streamCallback = function(result) {
@@ -91,7 +127,8 @@ function setupLiveReader(resultElement) {
             video.play()
             BarcodeScanner.DecodeStream(video)
         }
-    }).catch(function(err) {})
+        }).catch(function(err) {})
+    }
 }
 
 // submit.js
@@ -115,6 +152,9 @@ $('button[name="submit"]').on('click', function(e) {
             $('html, body').animate({
                 scrollTop: $('#resscroll').offset().top
             }, 900, 'swing');
+
+            // Scroll to result
+            self.location.href = '#resscroll';
 
             $(document).on('click', function(){
                 $(".container").removeClass('modalIsOpen')
@@ -191,7 +231,6 @@ $('button[name="submit"]').on('click', function(e) {
         }
     });
 });
-
 
 // Initialize SW
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }
