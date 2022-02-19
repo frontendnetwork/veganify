@@ -339,4 +339,3 @@ BarcodeScanner = {
     	return canvas;
 	}
 };
-
