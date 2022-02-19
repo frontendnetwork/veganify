@@ -58,5 +58,8 @@ https://github.com/jokenetwork/vegancheck.me
         <h3><a href="/"><?php print_r($langArray['other']['reload']); ?></a></h3>
       </div>
     </div>
+    <script>
+      window.addEventListener('online', function(e) { window.location.href = "/"; });
+    </script>
   </body>
 </html>
