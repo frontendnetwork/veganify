@@ -15,8 +15,9 @@ https://github.com/jokenetwork/vegancheck.me
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vegancheck.me">
 
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png?v=2.0.0">
+    <meta name="twitter:image:alt" content="VeganCheck.me">
 
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../img/icon.png?v=2.0.0">
