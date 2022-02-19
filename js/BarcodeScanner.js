@@ -323,7 +323,7 @@ BarcodeScanner = {
     	ctx.drawImage = function(img, sx, sy, sw, sh, dx, dy, dw, dh)
     	{
         	var vertSquashRatio = 1;
-        	if (!!img && img.nodeName == 'IMG')
+        	if (Boolean(img) && img.nodeName == 'IMG')
         	{
             	vertSquashRatio = BarcodeScanner.DetectVerticalSquash(img);
             	sw || (sw = img.naturalWidth);
