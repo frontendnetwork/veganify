@@ -143,7 +143,7 @@ $('button[name="submit"]').on('click', function(e) {
     $.ajax({
         url: '../script.php',
         type: 'POST',
-        timeout: 5000,
+        timeout: 8000,
         data: {
             barcode: $('input[name="barcode"]').val(),
             lang: $('input[name="lang"]').val()
@@ -250,14 +250,37 @@ $(document)
         $('.logo').removeClass('spinner');
     });
 
-// Timeout 
+// "Timeout"-Warning
 var ajaxLoadTimeout;
 $(document).ajaxStart(function() {
     ajaxLoadTimeout = setTimeout(function() { 
         $(".timeout").css("display","block");
-    }, 1000);
+    }, 1500);
 
 }).ajaxSuccess(function() {
     clearTimeout(ajaxLoadTimeout);
     $(".timeout").css("display","none");
 });
+
+// Check if user is offline
+window.addEventListener('offline', function(e) { window.location.href = "/offline"; });
+
+// Share button init
+function sharebutton()
+{
+    const title = document.title;
+    const text = document.getElementById('name_sh').innerHTML + " " + document.getElementById('result_sh').innerHTML + " - Checked using VeganCheck";
+    const url = "https://vegancheck.me"
+
+    if (navigator.share !== undefined) {
+            navigator.share({
+                title,
+                text,
+                url
+            })
+            .catch(err => "");
+    } else {
+      window.location = `mailto:?subject=${title}&body=${text}%0A${url}`;
+    }
+};
+  
