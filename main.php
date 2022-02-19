@@ -32,7 +32,7 @@ https://github.com/jokenetwork/vegancheck.me
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="../img/iossplash.png?v=1.0.0">
 
-    <link href="../css/style.min.css?v=3.9.62" rel="stylesheet">
+    <link href="../css/style.min.css?v=3.9.65" rel="stylesheet">
   </head>
 
   <body id="top">
@@ -41,24 +41,24 @@ https://github.com/jokenetwork/vegancheck.me
       <h1><?php print_r($langArray['other']['rotate']); ?></h1>
     </div>
 
-    <div class="modal_view animated faster fadeIn" id="nutriscore" style="display:none;">
+    <div class="modal_view animatedfaster fadeIn" id="nutriscore" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2>Nutriscore</h2>
           <p><?php print_r($langArray['modal']['nutriscore_desc']); ?></p>
     </div>
 
-    <div class="modal_view animated faster fadeIn" id="palmoil" style="display:none;">
+    <div class="modal_view animatedfaster fadeIn" id="palmoil" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2><?php print_r($langArray['modal']['palmoil']); ?></h2>
           <p><?php print_r($langArray['modal']['palmoil_desc']); ?></p>
     </div>
 
-    <div class="modal_view animated faster fadeIn" id="processed" style="display:none;">
+    <div class="modal_view animatedfaster fadeIn" id="processed" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2><?php print_r($langArray['modal']['processed']); ?></h2>
           <p><?php print_r($langArray['modal']['processed_desc']); ?></p>
     </div>
-    <div class="modal_view animated faster fadeIn" id="license" style="display:none;">
+    <div class="modal_view animatedfaster fadeIn" id="license" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2>Licenses</h2>
           <p>VeganCheck.me uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:</p>
@@ -90,7 +90,7 @@ https://github.com/jokenetwork/vegancheck.me
          <div class="timeout-final animated fadeIn" style="display:none;"><?php print_r($langArray['other']['timeoutfinal']); ?></div>
         <div id="result">&nbsp;</div> 
         <footer>
-          <p><?php print_r($langArray['footer']['credits']); ?>
+            <p><?php print_r($langArray['footer']['credits']); ?>
             <br><?php print_r($langArray['footer']['legal']); ?></p>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="../img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="../img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
@@ -108,7 +108,7 @@ https://github.com/jokenetwork/vegancheck.me
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/BarcodeScanner.min.js"></script>
-<script src="../js/app.js?v=1.0.15"></script>
+<script src="../js/app.js?v=1.0.16"></script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');

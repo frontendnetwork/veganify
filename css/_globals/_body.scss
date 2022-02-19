@@ -20,16 +20,20 @@ body {
     word-wrap: break-word;
 }
 
-.non-vegan {
+.non-vegan, .icon-cancle {
     color: var(--non-vegan);
 }
 
-.vegan {
+.vegan, .icon-ok {
     color: var(--vegan);
 }
 
 .unknown {
     color: var(--unknown);
+}
+
+.icon-cancle, .icon-ok {
+    display: inline-block;
 }
 
 .source {
