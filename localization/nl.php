@@ -11,6 +11,8 @@ $langArray = array(
         	"submit" => "Verzenden"
         ),
         "footer" => array(
+                "share_text" => "Vind je VeganCheck leuk?",
+                "share" => "Delen",
         	"credits" => 'Gemaakt met <i class="icon-vegancheck"></i> door <a href="https://philipbrembeck.com">Philip Brembeck</a> &amp; <a href="https://jokenetwork.de">JokeNetwork</a>',
         	"legal" => '<a href="../privacy-policy">Privacy</a> / <a href="../impressum">Imprint</a> / <a href="//github.com/JokeNetwork/vegancheck.me/wiki">API</a>'
         ),
