@@ -280,7 +280,7 @@ function sharebutton()
             })
             .catch(err => "");
     } else {
-      window.location = `mailto:?subject=${title}&body=${text}%0A${url}`;
+      window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me&text=${encodeURI(text)}`;
     }
-};
-  
+
+} 
