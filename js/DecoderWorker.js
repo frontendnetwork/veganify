@@ -583,11 +583,7 @@ function Main(){
 						tempString = key;
 					}
 				}
-				if(minPoints < 11) {
-					Selection = tempString;
-				} else {
-					Selection = false;
-				}
+				Selection = minPoints < 11 ? tempString : false;
 			}
 			if(Selection) allResults.push({Format : format, Value : Selection});
 		}
@@ -655,11 +651,7 @@ function TwoOfFiveStartEnd(values, start) {
 			TwoOfFiveMax[1] = u;
 		}
 	}
-	if(start) {
-		return TwoOfFiveMax[0] + TwoOfFiveMax[1] == 2;
-	}else {
-		return TwoOfFiveMax[0] + TwoOfFiveMax[1] == 2;
-	}
+	return start ? TwoOfFiveMax[0] + TwoOfFiveMax[1] == 2 : TwoOfFiveMax[0] + TwoOfFiveMax[1] == 2;
 }
 
 function CheckInterleaved(values, start) {
@@ -914,18 +906,10 @@ function BinaryString(img,type){
 		if(success) break;
 	}
 	if(format == "Code128") {
-		if(typeof binaryString.string  === 'string') {
-			return binaryString;
-		} else {
-			return {string: false};
-		}
+		return typeof binaryString.string  === 'string' ? binaryString : {string: false};
 	}
 	if(typeof binaryString  === 'string'){
-		if(format == "EAN-13") {
-			return {string: binaryString, format: format, correction: corrections};
-		} else {
-			return {string: binaryString, format: format};
-		}
+		return format == "EAN-13" ? {string: binaryString, format: format, correction: corrections} : {string: binaryString, format: format};
 	}else{
 		return {string: false};
 	}
@@ -1351,11 +1335,7 @@ function Distribution(totalBinArray,type){
 		}
 		result.push(tempBin);
 	}
-	if(type == 3) {
-		return {data: result,correction:testData};
-	} else {
-		return result;
-	}
+	return type == 3 ? {data: result,correction:testData} : result;
 }
 
 function CheckCode128(string){
@@ -1451,18 +1431,10 @@ function DecodeEAN13(string) {
 	var sum = 0;
 	for(var i = resultArray.length-2; i >= 0; i--) {
 		sum += resultArray[i]*weight;
-		if(weight == 3) {
-			weight = 1;
-		} else {
-			weight = 3;
-		}
+		weight = weight == 3 ? 1 : 3;
 	}
 	sum = (10 - sum%10)%10;
-	if(resultArray[resultArray.length-1] == sum) {
-		return resultArray.join("");
-	}else {
-		return false;
-	}
+	return resultArray[resultArray.length-1] == sum ? resultArray.join("") : false;
 }
 function CheckCode93(string) {
 	var checkOne = string[string.length-3].join("");
