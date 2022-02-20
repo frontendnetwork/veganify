@@ -2,7 +2,7 @@
 name: Feature request
 about: Request a new feature
 title: 
-labels: low priority, enhancements
+labels: low priority, enhancement
 assignees: philipbrembeck
 
 ---
