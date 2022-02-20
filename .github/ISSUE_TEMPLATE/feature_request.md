@@ -7,12 +7,12 @@ assignees: philipbrembeck
 
 ---
 
-### Proposed changes
+## Proposed changes
 
 Describe your proposed changes/features here.
 
-## Can you work on this?
+### Can you work on this?
 
-- [] Yes, I can work on this
+- [ ] Yes, I can work on this
 
-### Tasks
+## Tasks
