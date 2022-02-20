@@ -11,8 +11,4 @@ assignees: philipbrembeck
 
 Describe your proposed changes/features here.
 
-### Can you work on this?
-
-- [ ] Yes, I can work on this
-
 ## Tasks
