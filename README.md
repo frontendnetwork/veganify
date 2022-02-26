@@ -23,7 +23,7 @@
 [<img src="https://jokenetwork.de/assets/img/PWA.svg" alt="Open PWA in browser" width="150" align="right">](https://vegancheck.me) 
 ## 🌱 Progressive Web App
 
-[Open PWA in browser](https://vegancheck.me) - [Product page on JokeNetwork.de](https://jokenetwork.de/#projects) - [API](https://github.com/JokeNetwork/vegancheck.me/wiki) - [Python tool](https://github.com/JokeNetwork/VeganCheck-Python)
+[Open PWA in browser](https://vegancheck.me) - [Product page on JokeNetwork.de](https://jokenetwork.de/#projects) - [API](https://github.com/JokeNetwork/vegancheck.me/wiki) - [Python tool](https://github.com/JokeNetwork/VeganCheck-Python) - [Cloduflare-cached: isitvegan.io](https://isitvegan.io)
 
 ## 👨🏼‍💻 Overview
 <p align="center">
