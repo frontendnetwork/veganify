@@ -9,7 +9,7 @@ if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
 else {
   $lang = "en";
 }
-require_once("localization/".$lang.".php");
+require_once("l10n/".$lang.".php");
 ?>
 <!DOCTYPE html>
 <!-- VeganCheck.me is Open Source

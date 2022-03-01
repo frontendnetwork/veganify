@@ -40,7 +40,7 @@ else
     $lang = "en";
 }
 
-require_once ("localization/" . $lang . ".php");
+require_once ("l10n/" . $lang . ".php");
 
 // Open Issue on GitHub when error occurs
 $openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body=' . urlencode('Error ticket #' . $ticket . ' (Please always include this number!) - Please describe your issue:') . '" target="_blank" class="btn-dark">' . $langArray['results']['reporterror'] . '</a>';
