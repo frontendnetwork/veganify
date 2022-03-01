@@ -328,8 +328,6 @@ else
             }
         }
     }
-    // Remove before using on your own site
-    include_once ("stats.php");
 }
 
 // Return results
@@ -404,4 +402,7 @@ elseif($endrepsone == "notindb")
     ' . $openissue . '
     </div></div>');
 }
+
+// Remove before using on your own site
+include_once ("stats.php");
 ?>

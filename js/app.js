@@ -60,7 +60,6 @@ function startStream(){
 
     navigator.mediaDevices.getUserMedia(constraints).then(stream => {
         const track = stream.getVideoTracks()[0];
-        //video.width = 320
         BarcodeScanner.init()
         var closer = document.getElementById('controls')
         var btnclose = document.getElementById('closebtn')
