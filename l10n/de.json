@@ -1,0 +1,70 @@
+{
+    "meta":
+    {
+        "lang": "de",
+        "title": "Ist es Vegan? - Vegan Check",
+        "description": "Du bist dir unsicher, ob ein Produkt vegan ist oder nicht? Mit VeganCheck.me kannst du direkt beim Einkaufen den Barcode von einem Artikel scannen und \u00fcberpr\u00fcfen, ob es vegan ist oder nicht und das ohne viele andere unn\u00f6tige Informationen! Probiere es jetzt aus!"
+    },
+    "form":
+    {
+        "scanbarcode": "Barcode scannen",
+        "enterbarcode": "Barcode eingeben",
+        "submit": "Absenden"
+    },
+    "footer":
+    {
+        "share_text": "Gef\u00e4llt dir VeganCheck?",
+        "share": "Teilen",
+        "credits": "Mit <i class=\"icon-vegancheck\"><\/i> gemacht von <a href=\"https:\/\/philipbrembeck.com\">Philip Brembeck<\/a> &amp; <a href=\"https:\/\/jokenetwork.de\">JokeNetwork<\/a>",
+        "legal": "<a href=\"..\/privacy-policy\">Datenschutzerkl\u00e4rung<\/a> \/ <a href=\"..\/impressum\">Impressum<\/a> \/ <a href=\"\/\/github.com\/JokeNetwork\/vegancheck.me\/wiki\">API<\/a>"
+    },
+    "layover":
+    {
+        "close": "Scanner schlie\u00dfen"
+    },
+    "other":
+    {
+        "offline": "Du bist offline. VeganCheck.me funktioniert nur mit einer aktiven Internet-Verbindung.",
+        "reload": "Erneut versuchen",
+        "rotate": "Bitte drehe dein Ger\u00e4t.",
+        "timeout": "Die Abfrage dauert l\u00e4nger als gew\u00f6hnlich",
+        "timeoutfinal": "Die Abfrage hat zu lange gedauert. Bitte versuche es erneut."
+    },
+    "results":
+    {
+        "invalid": "Das Barcode-Feld darf nicht leer sein und keine Sonderzeichen enthalten.",
+        "invalidscan": "Mit diesem Barcode stimmt etwas nicht.",
+        "notindb": "Dieses Produkt haben wir noch nicht in unserer Datenbank.",
+        "add": "Willst du es hinzuf\u00fcgen?",
+        "addonoff": "Lebensmittel hinzuf\u00fcgen",
+        "addonobf": "Kosemtika hinzuf\u00fcgen",
+        "or": "oder",
+        "missinginfo": "Zu diesem Produkt haben wir noch zu wenige Infos.",
+        "addinfo": "Willst du Infos hinzuf\u00fcgen?",
+        "editonoff": "Dieses Produkt bearbeiten bei OpenFoodFacts",
+        "vegan": "Vegan",
+        "notvegetarian": "Nicht vegetarisch",
+        "vegetarian": "Vegetarisch",
+        "unknown": "unbekannt",
+        "containspalmoil": "Enth\u00e4lt Palm\u00f6l",
+        "nopalmoil": "Kein Palm\u00f6l",
+        "palmoilunknown": "Palm\u00f6l-Inhalt unbekannt",
+        "notvegan": "Nicht vegan",
+        "tweettext": "%20ist%20nicht%20vegan!%20-%20Gepr\u00fcft%20mit%20",
+        "tweettextvegan": "%20ist%20vegan!%20-%20Gepr\u00fcft%20mit%20",
+        "edit": "\u00c4ndern",
+        "reporterror": "Fehler melden",
+        "animaltestfree": "Tierversuchsfrei",
+        "checkingredients": "Die Inhaltsstoffe des Produktes wurden automatisch verarbeitet und gepr\u00fcft. Bitte \u00fcberpr\u00fcfen Sie die Inhaltsstoffe selbst, um sicher zu gehen.",
+        "datasource": "Datenquelle:",
+        "processed": "Automatisch berechnet"
+    },
+    "modal":
+    {
+        "palmoil": "Palm\u00f6l",
+        "palmoil_desc": "Palm\u00f6l hat extrem sch\u00e4dliche Auswirkungen auf den Planeten. Es ist die Hauptursache f\u00fcr die Abholzung einiger der artenreichsten W\u00e4lder und zerst\u00f6rt die nat\u00fcrlichen Lebensr\u00e4ume von bereits gef\u00e4hrdeten Tieren. Aus diesem Grund empfehlen wir, keine Produkte zu kaufen, die Palm\u00f6l enthalten. Leider gibt es immer noch viele Produkte, die Palm\u00f6l enthalten.",
+        "nutriscore_desc": "Der Nutriscore zeigt das N\u00e4hrwertprofil eines Produktes in Ampelform an. Der Nutriscore gilt jedoch nicht als genau und sollte nicht als Referenz verwendet werden.",
+        "processed": "Automatisch berechnet",
+        "processed_desc": "Diese Meldung bedeutet, dass die Inhaltsstoffe des Produkts von der <a href=\"https:\/\/github.com\/JokeNetwork\/vegan-ingredients-api\">VeganCheck.me Ingredients API<\/a> gepr\u00fcft und automatisch  als vegan oder nicht-vegan klassifiziert wurden.<br>\nDie Zutaten stammen jeweils von der angegebenen Quelle.<br>\nWir erheben keinerlei Anspruch auf Richtigkeit oder Aktualit\u00e4t der Inhaltsstoffe oder der Bewertungskriterien.<br>\nManchmal ver\u00e4ndern Hersteller die Inhaltsstoffe ihres Produktes so, dass es nicht mehr vegan ist, zum Beispiel durch Zugabe von Milchpulver.<br>\nBitte \u00fcberpr\u00fcfen Sie die Inhaltsstoffe des Produkts, um sicherzugehen."
+    }
+}

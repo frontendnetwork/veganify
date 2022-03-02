@@ -1,0 +1,70 @@
+{
+    "meta":
+    {
+        "lang": "es",
+        "title": "\u00bfEs vegano? - Vegan Check",
+        "description": "\u00bfNo est\u00e1s seguro de si un producto es vegano o no? Con VeganCheck.me puedes escanear el c\u00f3digo de barras de un art\u00edculo mientras compras y comprobar si es vegano o no, \u00a1y eso sin mucha otra informaci\u00f3n innecesaria! Pru\u00e9balo ahora!"
+    },
+    "form":
+    {
+        "scanbarcode": "Escanear c\u00f3digo de barras",
+        "enterbarcode": "Introduzca el c\u00f3digo de barras del producto",
+        "submit": "Enviar"
+    },
+    "footer":
+    {
+        "share_text": "\u00bfTe gusta VeganCheck?",
+        "share": "Compartir",
+        "credits": "Hecho con <i class=\"icon-vegancheck\"><\/i> por <a href=\"https:\/\/philipbrembeck.com\">Philip Brembeck<\/a> &amp; <a href=\"https:\/\/jokenetwork.de\">JokeNetwork<\/a>",
+        "legal": "<a href=\"..\/privacy-policy\">Pol\u00edtica de privacidad<\/a> \/ <a href=\"..\/impressum\">aviso legal<\/a> \/ <a href=\"\/\/github.com\/JokeNetwork\/vegancheck.me\/wiki\">API<\/a>"
+    },
+    "layover":
+    {
+        "close": "Cerrar esc\u00e1ner"
+    },
+    "other":
+    {
+        "offline": "Actualmente est\u00e1s desconectado. VeganCheck.me s\u00f3lo funciona con una conexi\u00f3n a Internet en funcionamiento.",
+        "reload": "Intenta de nuevo",
+        "rotate": "Por favor, gire su dispositivo",
+        "timeout": "Esto tarda m\u00e1s de lo normal",
+        "timeoutfinal": "La consulta ha tardado demasiado. Por favor, int\u00e9ntalo de nuevo."
+    },
+    "results":
+    {
+        "invalid": "El c\u00f3digo de barras no puede estar vac\u00edo ni incluir caracteres especiales.",
+        "invalidscan": "Este c\u00f3digo de barras no es v\u00e1lido.",
+        "notindb": "Este producto a\u00fan no est\u00e1 en nuestra base de datos",
+        "add": "\u00bfQuiere a\u00f1adirlo?",
+        "addonoff": "A\u00f1adir comida",
+        "addonobf": "add cosemtics",
+        "or": "o",
+        "missinginfo": "Todav\u00eda no tenemos suficiente informaci\u00f3n sobre este producto.",
+        "addinfo": "\u00bfQuieres a\u00f1adir informaci\u00f3n?",
+        "editonoff": "Editar este producto en OpenFoodFacts",
+        "vegan": "Vegano",
+        "notvegetarian": "Non vegetariano",
+        "vegetarian": "Vegetariano",
+        "unknown": "Desconocido",
+        "containspalmoil": "Contiene Palmoil",
+        "nopalmoil": "No contiene Palmoil",
+        "palmoilunknown": "Palmoil desconocido",
+        "notvegan": "No es vegano",
+        "tweettext": "%20no%20es%20vegano!%20-%20Comprobado%20con%20",
+        "tweettextvegan": "%20es%20vegano!%20-%20Comprobado%20con%20",
+        "edit": "Editar",
+        "reporterror": "Informar de un problema",
+        "animaltestfree": "No probado en animales",
+        "checkingredients": "Los ingredientes del producto se han procesado y comprobado autom\u00e1ticamente. Compruebe usted mismo los ingredientes para estar seguro.",
+        "datasource": "Fuente de datos:",
+        "processed": "Calculado autom\u00e1ticamente"
+    },
+    "modal":
+    {
+        "palmoil": "Aceite de palma",
+        "palmoil_desc": "El aceite de palma tiene un impacto extremadamente perjudicial para el planeta. Es el principal impulsor de la deforestaci\u00f3n de algunos de los bosques m\u00e1s biodiversos, destruyendo los h\u00e1bitats naturales de animales ya amenazados. Por ello, recomendamos no comprar ning\u00fan producto que contenga aceite de palma. Lamentablemente, todav\u00eda hay muchos productos que incluyen aceite de palma.",
+        "nutriscore_desc": "El Nutriscore indica el perfil nutricional de un producto en forma de sem\u00e1foro. Sin embargo, el Nutriscore no se considera exacto y no debe utilizarse como referencia.",
+        "processed": "Calculado autom\u00e1ticamente",
+        "processed_desc": "Este mensaje significa que los ingredientes del producto han sido verificados por la <a href=\"https:\/\/github.com\/JokeNetwork\/vegan-ingredients-api\">VeganCheck.me Ingredients API<\/a> y se han clasificado autom\u00e1ticamente como vegano o no vegano.<br>\nLos ingredientes son proporcionados en cada caso por la fuente indicada.<br>\nNo hacemos ninguna afirmaci\u00f3n sobre la precisi\u00f3n o la puntualidad de los ingredientes o los criterios de revisi\u00f3n.<br>\nA veces, los fabricantes cambian los ingredientes de su producto para que ya no sea vegano, por ejemplo, a\u00f1adiendo leche en polvo.<br>\nVerifique dos veces los ingredientes del producto para estar seguro."
+    }
+}

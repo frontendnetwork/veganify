@@ -1,0 +1,70 @@
+{
+    "meta":
+    {
+        "lang": "fr",
+        "title": "Est-ce que c'est v\u00e9g\u00e9talien ? - Vegan Check",
+        "description": "Tu n'es pas s\u00fbr qu'un produit soit v\u00e9gane ou non ? Avec VeganCheck.me, tu peux scanner le code-barres d'un article directement lors de tes achats et v\u00e9rifier s'il est v\u00e9g\u00e9talien ou non, et ce sans avoir \u00e0 fournir beaucoup d'autres informations inutiles ! Essaye-le maintenant!"
+    },
+    "form":
+    {
+        "scanbarcode": "Scanner le code-barres",
+        "enterbarcode": "Saisir le code-barres",
+        "submit": "Envoyer"
+    },
+    "footer":
+    {
+        "share_text": "Aimez-vous VeganCheck ?",
+        "share": "Share",
+        "credits": "R\u00e9alis\u00e9 avec <i class=\"icon-vegancheck\"><\/i> par <a href=\"https:\/\/philipbrembeck.com\">Philip Brembeck<\/a> &amp; <a href=\"https:\/\/jokenetwork.de\">JokeNetwork<\/a>",
+        "legal": "<a href=\"..\/privacy-policy\">D\u00e9claration de confidentialit\u00e9<\/a> \/ <a href=\"..\/impressum\">Mentions l\u00e9gales<\/a> \/ <a href=\"\/\/github.com\/JokeNetwork\/vegancheck.me\/wiki\">API<\/a>"
+    },
+    "layover":
+    {
+        "close": "Fermer le scanner"
+    },
+    "other":
+    {
+        "offline": "Vous \u00eates actuellement hors ligne. VeganCheck.me ne fonctionne qu'avec une connexion internet en \u00e9tat de marche.",
+        "reload": "R\u00e9essayer",
+        "rotate": "Veuillez tourner votre appareil.",
+        "timeout": "Cela prend plus de temps que d'habitude",
+        "timeoutfinal": "La requ\u00eate a dur\u00e9 trop longtemps. Veuillez r\u00e9essayer."
+    },
+    "results":
+    {
+        "invalid": "Le champ du code-barres ne doit pas \u00eatre vide et ne doit pas contenir de caract\u00e8res sp\u00e9ciaux",
+        "invalidscan": "Il y a un probl\u00e8me avec ce code-barres",
+        "notindb": "Nous n'avons pas encore ce produit dans notre base de donn\u00e9es",
+        "add": "Voulez-vous l'ajouter ?",
+        "addonoff": "Ajouter des aliments",
+        "addonobf": "ajouter des cosm\u00e9tiques",
+        "or": "ou",
+        "missinginfo": "Nous n'avons pas encore assez d'informations sur ce produit",
+        "addinfo": "Voulez-vous ajouter des infos ?",
+        "editonoff": "Modifier ce produit sur OpenFoodFacts'",
+        "vegan": "Vegan",
+        "notvegetarian": "Non v\u00e9g\u00e9tarien",
+        "vegetarian": "V\u00e9g\u00e9tarien",
+        "unknown": "inconnu",
+        "containspalmoil": "Contient de l'huile de palme",
+        "nopalmoil": "Pas d'huile de palme",
+        "palmoilunknown": "Contenu d'huile de palme inconnu",
+        "notvegan": "Non v\u00e9g\u00e9talien",
+        "tweettext": "%20n'est%20pas%20v\u00e9g\u00e9talien%20!%20-%20Contr\u00f4l\u00e9%avec%20",
+        "tweettextvegan": "%20est%20vegan!%20-%20Contr\u00f4l\u00e9%20avec%20",
+        "edit": "\u00c9diter",
+        "reporterror": "Signaler un probl\u00e8me",
+        "animaltestfree": "Non test\u00e9 sur les animaux",
+        "checkingredients": "Les ingr\u00e9dients du produit ont \u00e9t\u00e9 trait\u00e9s et contr\u00f4l\u00e9s automatiquement. Veuillez v\u00e9rifier vous-m\u00eame les ingr\u00e9dients pour vous en assurer.",
+        "datasource": "Source des donn\u00e9es:",
+        "processed": "Calcul\u00e9 automatiquement"
+    },
+    "modal":
+    {
+        "palmoil": "Huile de palme",
+        "palmoil_desc": "L'huile de palme a un impact extr\u00eamement n\u00e9faste sur la plan\u00e8te. Elle est le principal moteur de la d\u00e9forestation de certaines des for\u00eats les plus riches en biodiversit\u00e9, d\u00e9truisant les habitats naturels d'animaux d\u00e9j\u00e0 menac\u00e9s. C'est pourquoi nous vous recommandons de ne pas acheter de produits contenant de l'huile de palme. Malheureusement, il existe encore de nombreux produits qui contiennent de l'huile de palme.",
+        "nutriscore_desc": "Le Nutriscore indique le profil nutritionnel d'un produit sous forme de feux tricolores. Cependant, le Nutriscore n'est pas consid\u00e9r\u00e9 comme pr\u00e9cis et ne doit pas \u00eatre utilis\u00e9 comme une r\u00e9f\u00e9rence.",
+        "processed": "Calcul\u00e9 automatiquement",
+        "processed_desc": "Ce message signifie que les ingr\u00e9dients du produit ont \u00e9t\u00e9 v\u00e9rifi\u00e9s par <a href=\"https:\/\/github.com\/JokeNetwork\/vegan-ingredients-api\">VeganCheck.me Ingredients API<\/a> et ont \u00e9t\u00e9 automatiquement class\u00e9s comme v\u00e9g\u00e9talien ou non v\u00e9g\u00e9talien.<br>\nLes ingr\u00e9dients sont fournis dans chaque cas par la source indiqu\u00e9e.<br>\nNous ne faisons aucune d\u00e9claration quant \u00e0 l'exactitude ou \u00e0 l'actualit\u00e9 des ingr\u00e9dients ou des crit\u00e8res d'examen.<br>\nParfois, les fabricants modifient les ingr\u00e9dients de leur produit pour qu'il ne soit plus v\u00e9g\u00e9talien, par exemple en ajoutant du lait en poudre.<br>\nVeuillez v\u00e9rifier les ingr\u00e9dients du produit pour \u00eatre s\u00fbr."
+    }
+}
