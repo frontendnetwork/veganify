@@ -1,18 +1,16 @@
 <?php
-if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
-  $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-  $supportedLanguages=['en','de', 'fr', 'es', 'nl'];
-    if(!in_array($lang,$supportedLanguages)){
-       header("Location: https://vegancheck.me/en");
-       die();
-  }
-  else {
-    header("Location: https://vegancheck.me/$lang");
-    die();
-  }
+require('vendor/autoload.php');
+$i18n = new i18n('/var/www/virtual/jake/vegancheck.me/l10n/{LANGUAGE}.json', '/var/www/virtual/jake/vegancheck.me/langcache/', 'en');
+$i18n->init();
+$supportedLanguages=['en','de', 'fr', 'es', 'nl'];
+$lang = $i18n->getAppliedLang();
+
+if(!in_array($lang,$supportedLanguages)){
+  header("Location: https://vegancheck.me/en");
+  die();
 }
 else {
-  header("Location: https://vegancheck.me/en");
+  header("Location: https://vegancheck.me/$lang");
   die();
 }
 ?>
