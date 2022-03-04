@@ -15,6 +15,9 @@ $dotenv = Dotenv\Dotenv::createImmutable('/var/www/virtual/jake/');
 $dotenv->load();
 $userid = $_ENV['USER_ID_OEANDB'];
 
+$i18n = new i18n('/var/www/virtual/jake/vegancheck.me/l10n/{LANGUAGE}.json', '/var/www/virtual/jake/vegancheck.me/langcache/', 'en');
+$i18n->init();
+
 $sent_barcode = filter_input(INPUT_POST, 'barcode');
 $ticket = uniqid();
 
@@ -25,30 +28,13 @@ $animaltestfree = null;
 $palmoil = null;
 $nutriscore = null;
 
-// Language detection
-if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
-{
-    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-    $supportedLanguages = ['en', 'de', 'fr', 'es', 'nl'];
-    if (!in_array($lang, $supportedLanguages))
-    {
-        $lang = "en";
-    }
-}
-else
-{
-    $lang = "en";
-}
-
-require_once ("l10n/" . $lang . ".php");
-
 // Open Issue on GitHub when error occurs
-$openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body=' . urlencode('Error ticket #' . $ticket . ' (Please always include this number!) - Please describe your issue:') . '" target="_blank" class="btn-dark">' . $langArray['results']['reporterror'] . '</a>';
+$openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body=' . urlencode('Error ticket #' . $ticket . ' (Please always include this number!) - Please describe your issue:') . '" target="_blank" class="btn-dark">' . L::results_reporterror . '</a>';
 
 // Barcode is empty
 if (empty($sent_barcode) || $sent_barcode == null)
 {
-    print_r('<span class="animated fadeIn"><div class="resultborder">' . $langArray['results']['invalid'] . '<br>' . $openissue . '</div></span>');
+    print_r('<span class="animated fadeIn"><div class="resultborder">' . L::results_invalid . '<br>' . $openissue . '</div></span>');
 }
 
 // Barcode is not empty
@@ -120,7 +106,7 @@ else
                     ->product
                     ->labels_tags))
                 {
-                    $animaltestfree = '<span class="vegan"> ' . $langArray['results']['animaltestfree'] . '<span class="icon-ok"></span> </span>';
+                    $animaltestfree = '<span class="vegan"> ' . L::results_anumaltestfree . '<span class="icon-ok"></span> </span>';
                 }
                 else
                 {
@@ -144,14 +130,14 @@ else
         }
         elseif (empty($genericname) && empty($productname))
         {
-            $productname = $langArray['results']['unknown'];
+            $productname = L::results_unknown;
         }
 
         // Set palmoil as unknown before checking it, to display "unknown" in case of no API response
-        $palmoil = '<span class="unknown"> ' . $langArray['results']['palmoilunknown'] . '<sup id="palm_modal">?</sup><span class="icon-help"></span> </span>';
+        $palmoil = '<span class="unknown"> ' . L::results_palmoilunknown . '<sup id="palm_modal">?</sup><span class="icon-help"></span> </span>';
 
         // Set vegetarian as unknown before checking it
-        $vegetarian = '<span class="unknown">' . $langArray['results']['vegetarian'] . '<span class="icon-help"></span> </span>';
+        $vegetarian = '<span class="unknown">' . L::results_vegetarian . '<span class="icon-help"></span> </span>';
 
         // Checks for the nutriscore
         if ($nutriscore == "a")
@@ -180,7 +166,7 @@ else
         }
         else
         {
-            $nutriscore = '<span class="unknown">Nutriscore<sup id="nutri_modal">?</sup> ' . $langArray['results']['unknown'] . '<span class="icon-help"></span></span>';
+            $nutriscore = '<span class="unknown">Nutriscore<sup id="nutri_modal">?</sup> ' . L::results_unknown . '<span class="icon-help"></span></span>';
         }
 
         if (isset($array))
@@ -189,29 +175,29 @@ else
             // Needs to be after isset($array) because it checks within the array
             if (in_array("en:palm-oil", $array))
             {
-                $palmoil = '<span class="non-vegan"> ' . $langArray['results']['containspalmoil'] . '<sup id="palm_modal">?</sup> <span class="icon-cancel"></span> </span>';
+                $palmoil = '<span class="non-vegan"> ' . L::results_containspalmoil . '<sup id="palm_modal">?</sup> <span class="icon-cancel"></span> </span>';
             }
             elseif (in_array("en:palm-oil-free", $array))
             {
-                $palmoil = '<span class="vegan"> ' . $langArray['results']['nopalmoil'] . '<sup id="palm_modal">?</sup> <span class="icon-ok"></span> </span>';
+                $palmoil = '<span class="vegan"> ' . L::results_nopalmoil . '<sup id="palm_modal">?</sup> <span class="icon-ok"></span> </span>';
             }
             else
             {
-                $palmoil = '<span class="unknown"> ' . $langArray['results']['palmoilunknown'] . '<sup id="palm_modal">?</sup> <span class="icon-help"></span> </span>';
+                $palmoil = '<span class="unknown"> ' . L::results_palmoilunknown . '<sup id="palm_modal">?</sup> <span class="icon-help"></span> </span>';
             }
 
             // Checks for the vegetarian status
             if (in_array("en:non-vegetarian", $array))
             {
-                $vegetarian = '<span class="non-vegan">' . $langArray['results']['notvegetarian'] . '<span class="icon-cancel"></span> </span>';
+                $vegetarian = '<span class="non-vegan">' . L::results_notvegetarian . '<span class="icon-cancel"></span> </span>';
             }
             elseif (in_array("en:vegetarian", $array))
             {
-                $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+                $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
             }
             else
             {
-                $vegetarian = '<span class="unknown">' . $langArray['results']['vegetarian'] . '<span class="icon-help"></span> </span>';
+                $vegetarian = '<span class="unknown">' . L::results_vegetarian . '<span class="icon-help"></span> </span>';
             }
 
             // if not vegan
@@ -296,11 +282,11 @@ else
 
                 if(!empty($contents) && $contents >= "128" && $contents < "256"){
                     $vegan = "false";
-                    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+                    $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
                 }
                 elseif(!empty($contents) && $contents >= "256" && $contents < "384" || $contents >= "384" && $contents < "512"){
                     $vegan = "true";
-                    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+                    $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
                 }
                 elseif (!empty($desc))
                 {
@@ -334,7 +320,7 @@ else
 if($vegan == "false")
 {
     if($apiname == "Brocade.io" || $apiname == "Open EAN Database"){
-        $processed = ' &middot; ' . $langArray['results']['processed'] . '<sup id="processed_modal">?</sup>';
+        $processed = ' &middot; ' . L::results_processed . '<sup id="processed_modal">?</sup>';
     }
     else{
         $processed = null;
@@ -344,20 +330,20 @@ if($vegan == "false")
                       <span class="non-vegan">  
                         <span class="name" id="name_sh">"' . $productname . '":</span>
                       </span>
-                      <span class="non-vegan"><span id="result_sh">' . $langArray['results']['notvegan'] . '</span><span class="icon-cancel"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
-                      <span class="btn-dark" id="share" onClick="sharebutton()">'.$langArray['footer']['share'].'</span>
-                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
+                      <span class="non-vegan"><span id="result_sh">' . L::results_notvegan . '</span><span class="icon-cancel"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
+                      <span class="btn-dark" id="share" onClick="sharebutton()">'.L::footer_share.'</span>
+                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
 elseif($vegan == "true")
 {
     // Vegetarian is always true when vegan is true
-    $vegetarian = '<span class="vegan">' . $langArray['results']['vegetarian'] . '<span class="icon-ok"></span> </span>';
+    $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
 
     if($apiname == "Brocade.io"){
-        $processed = ' &middot; ' . $langArray['results']['processed'] . '<sup id="processed_modal">?</sup>';
+        $processed = ' &middot; ' . L::results_processed . '<sup id="processed_modal">?</sup>';
     }
     else{
         $processed = null;
@@ -367,10 +353,10 @@ elseif($vegan == "true")
                       <span class="vegan">
                         <span class="name" id="name_sh">"' . $productname . '":</span>
                       </span>
-                      <span class="vegan"><span id="result_sh">' . $langArray['results']['vegan'] . '</span><span class="icon-ok"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
-                      <span class="btn-dark" id="share" onClick="sharebutton()">'.$langArray['footer']['share'].'</span>
-                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
+                      <span class="vegan"><span id="result_sh">' . L::results_vegan . '</span><span class="icon-ok"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
+                      <span class="btn-dark" id="share" onClick="sharebutton()">'.L::footer_share.'</span>
+                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
@@ -381,24 +367,24 @@ elseif($vegan == "unknown")
                       <span class="unknown">
                         <span class="name">"' . $productname . '":</span>
                       </span>
-                      <span class="unknown">' . $langArray['results']['vegan'] . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
-                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . $langArray['results']['edit'] . '</a>
+                      <span class="unknown">' . L::results_vegan . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
+                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
 elseif($endrepsone == "invalid")
 {
-    print_r('<div class="animated fadeIn"><div class="resultborder"><span class="missing">' . $langArray['results']['invalidscan'] . '</span><br>' . $openissue . '</div></div>');
+    print_r('<div class="animated fadeIn"><div class="resultborder"><span class="missing">' . L::results_invalidscan . '</span><br>' . $openissue . '</div></div>');
 }
 elseif($endrepsone == "notindb" && !empty($productname) && $productname !== "n/a")
 {
-    print_r('<div class="animated fadeIn"><div class="resultborder"><span class="name">"' . $productname . '":</span><p class="missing">' . $langArray['results']['notindb'] . '</p><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonobf'] . '</a>.</p>
-                  <span class="source">' . $langArray['results']['datasource'] . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a><sup id="license_modal">?</sup></span>' . $openissue . '</div></div>');
+    print_r('<div class="animated fadeIn"><div class="resultborder"><span class="name">"' . $productname . '":</span><p class="missing">' . L::results_notindb . '</p><p class="missing">' . L::results_add . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonoff . '</a> ' . L::results_or . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonobf . '</a>.</p>
+                  <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a><sup id="license_modal">?</sup></span>' . $openissue . '</div></div>');
 }
 elseif($endrepsone == "notindb")
 {
-    print_r('<div class="animated fadeIn"><div class="resultborder"><span>' . $langArray['results']['notindb'] . '</span><p class="missing">' . $langArray['results']['add'] . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonoff'] . '</a> ' . $langArray['results']['or'] . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . $langArray['results']['addonobf'] . '</a>.</p>
+    print_r('<div class="animated fadeIn"><div class="resultborder"><span>' . L::results_notindb . '</span><p class="missing">' . L::results_add . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonoff . '</a> ' . L::results_or . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonobf . '</a>.</p>
     ' . $openissue . '
     </div></div>');
 }

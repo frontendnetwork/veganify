@@ -1,17 +1,22 @@
+<?php
+  require('vendor/autoload.php');
+  $i18n = new i18n('/var/www/virtual/jake/vegancheck.me/l10n/{LANGUAGE}.json', '/var/www/virtual/jake/vegancheck.me/langcache/', 'en');
+  $i18n->init();
+?>
 <!DOCTYPE html>
 <!-- VeganCheck.me is Open Source
 Check the project out on GitHub: 
 https://github.com/jokenetwork/vegancheck.me
 -->
-<html lang="<?php print_r($langArray['meta']['lang']); ?>">
+<html lang="<?php echo L::meta_lang; ?>">
   <head>
-    <title><?php print_r($langArray['meta']['title']); ?></title>
+    <title><?php echo L::meta_title; ?></title>
     <meta charset="UTF-8">
 
-    <meta name="description" content="<?php print_r($langArray['meta']['description']); ?>">
+    <meta name="description" content="<?php echo L::meta_description; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:title" content="<?php print_r($langArray['meta']['title']); ?>">
+    <meta property="og:title" content="<?php echo L::meta_title;  ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vegancheck.me">
 
@@ -38,26 +43,26 @@ https://github.com/jokenetwork/vegancheck.me
 
   <body id="top">
     <div class="rotate">
-      <img src="../img/rotatedevice.svg" alt="<?php print_r($langArray['other']['rotate']); ?>">
-      <h1><?php print_r($langArray['other']['rotate']); ?></h1>
+      <img src="../img/rotatedevice.svg" alt="<?php echo L::other_rotate; ?>">
+      <h1><?php echo L::other_rotate; ?></h1>
     </div>
 
     <div class="modal_view animatedfaster fadeIn" id="nutriscore" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2>Nutriscore</h2>
-          <p><?php print_r($langArray['modal']['nutriscore_desc']); ?></p>
+          <p><?php echo L::modal_nutriscore_desc; ?></p>
     </div>
 
     <div class="modal_view animatedfaster fadeIn" id="palmoil" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
-          <h2><?php print_r($langArray['modal']['palmoil']); ?></h2>
-          <p><?php print_r($langArray['modal']['palmoil_desc']); ?></p>
+          <h2><?php echo L::modal_palmoil; ?></h2>
+          <p><?php echo L::modal_palmoil_desc; ?></p>
     </div>
 
     <div class="modal_view animatedfaster fadeIn" id="processed" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
-          <h2><?php print_r($langArray['modal']['processed']); ?></h2>
-          <p><?php print_r($langArray['modal']['processed_desc']); ?></p>
+          <h2><?php echo L::modal_processed; ?></h2>
+          <p><?php echo L::modal_processed_desc; ?></p>
     </div>
     <div class="modal_view animatedfaster fadeIn" id="license" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
@@ -80,19 +85,18 @@ https://github.com/jokenetwork/vegancheck.me
         <h1>VeganCheck.me</h1>
         <form action="../script.php">
           <fieldset>
-            <legend><?php print_r($langArray['form']['enterbarcode']); ?></legend>
-            <span class="btn_scan" onclick="setupLiveReader()" aria-label="<?php print_r($langArray['form']['scanbarcode']); ?>" role="button" tabindex="0"><span class="icon-barcode"></span></span>
-            <input type="number" id="barcode" name="barcode" placeholder="<?php print_r($langArray['form']['enterbarcode']); ?>" autofocus> 
-            <input type="hidden" id="lang" name="lang" value="<?php print_r($lang); ?>">
-            <button name="submit" aria-label="<?php print_r($langArray['form']['submit']); ?>" role="button"><span class="icon-right-open"></span></button>
+            <legend><?php echo L::form_enterbarcode; ?></legend>
+            <span class="btn_scan" onclick="setupLiveReader()" aria-label="<?php echo L::form_scanbarcode; ?>" role="button" tabindex="0"><span class="icon-barcode"></span></span>
+            <input type="number" id="barcode" name="barcode" placeholder="<?php echo L::form_enterbarcode; ?>" autofocus>
+            <button name="submit" aria-label="<?php echo L::form_submit; ?>" role="button"><span class="icon-right-open"></span></button>
           </fieldset>
         </form>
-        <div class="timeout animated fadeIn" style="display:none;"><?php print_r($langArray['other']['timeout']); ?><span>.</span><span>.</span><span>.</span></div>
-         <div class="timeout-final animated fadeIn" style="display:none;"><?php print_r($langArray['other']['timeoutfinal']); ?></div>
+        <div class="timeout animated fadeIn" style="display:none;"><?php echo L::other_timeout; ?><span>.</span><span>.</span><span>.</span></div>
+         <div class="timeout-final animated fadeIn" style="display:none;"><?php echo L::other_timeoutfinal; ?></div>
         <div id="result">&nbsp;</div> 
         <footer>
-            <p><?php print_r($langArray['footer']['credits']); ?>
-            <br><?php print_r($langArray['footer']['legal']); ?></p>
+            <p><?php echo L::footer_credits; ?>
+            <br><?php echo L::footer_legal; ?></p>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="../img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="../img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
             <a href="https://iplantatree.org/user/VeganCheck.me"><img src="../img/treelabel.svg" alt="We plant trees. We're carbon neutral." class="labels"></a>
@@ -102,7 +106,7 @@ https://github.com/jokenetwork/vegancheck.me
     </div>
 
  <div id="controls" style="display:none;">
-  <span id="close"><span class="btn-dark" id="closebtn">&times; <?php print_r($langArray['layover']['close']); ?></span><span class="btn-dark" id="torch"><span class="icon-flash"></span></span><span class="btn-dark" id="flipbutton"><span class="icon-flipcamera"></span></span></span>
+  <span id="close"><span class="btn-dark" id="closebtn">&times; <?php echo L::layover_close; ?></span><span class="btn-dark" id="torch"><span class="icon-flash"></span></span><span class="btn-dark" id="flipbutton"><span class="icon-flipcamera"></span></span></span>
   <span id="barcodeicon"><span class="icon-barcode"></span></span>
   <div id="background"></div>
 </div>
