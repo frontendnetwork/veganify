@@ -5,12 +5,14 @@ $headers = array(
     'Content-Type' => 'application/json'
 );
 $data = '{"food":{"rows": 10000}}';
-$response = Requests::post('https://lebensmittelwarnung.api.proxy.bund.dev/verbraucherschutz/baystmuv-verbraucherinfo/rest/api/warnings/merged', $headers, $data);
+$response = Requests::post('https://lebensmittelwarnung.api.proxy.bund.dev/verbraucherschutz/baystmuv-verbraucherinfo/rest/api/warnings/merged',
+                           $headers, $data);
 
 $warnings = $response->body;
 
 $jsonData = $warnings;
-file_put_contents('warnings.json', $jsonData); 
+file_put_contents('warnings.json', $jsonData);
 
 echo "Success";
+
 ?>
