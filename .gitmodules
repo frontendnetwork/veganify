@@ -1,0 +1,9 @@
+[submodule "vegancheck-stats"]
+	path = vegancheck-stats
+	url = https://github.com/JokeNetwork/vegancheck-stats
+[submodule "VeganCheck-Python"]
+	path = VeganCheck-Python
+	url = https://github.com/JokeNetwork/VeganCheck-Python
+[submodule "vegan-ingredients-api"]
+	path = vegan-ingredients-api
+	url = https://github.com/JokeNetwork/vegan-ingredients-api
