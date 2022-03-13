@@ -135,6 +135,12 @@ function startStream(){
 document.getElementById('result').style.display = 'block';
 }
 
+// Close modal on escape-key press
+$(document).on('keyup', function(e) {
+    if (e.key == "Escape") $('.modal_close').click();
+    if (e.key == "Escape") $('#closebtn').click();
+});
+
 // submit.js
 $('button[name="submit"]').on('click', function(e) {
     e.preventDefault();
