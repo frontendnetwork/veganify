@@ -1,3 +1,18 @@
+/*!
+ * VeganCheck.me app.js
+ * https://vegancheck.me
+ * https://isitvegan.io
+ * Git-Repo: https://vegc.net/repo
+ *
+ * Includes JavaScript Only Barcode_Reader (JOB) by Eddie Larsson
+ * https://github.com/EddieLa/BarcodeReader
+ *
+ * Copyright JokeNetwork and contributors
+ * Released under the MIT license
+ * https://vegc.net/license
+ *
+ */
+
 function setupLiveReader(resultElement) {
     // Scroll to top
     window.location.hash = '#top';
