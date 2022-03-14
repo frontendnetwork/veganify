@@ -39,7 +39,7 @@ VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.
 	
 The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredients-api), a fork of is-vegan, checks the products ingredients against a list of thousands of non-vegan items.
 
-<img src="img/demo_new.gif" alt="VeganCheck.me Demo" align="right" height="500">
+<img src="https://user-images.githubusercontent.com/4144601/158241170-6d9bbbaf-cfc2-49f7-9d2d-fe6544be102b.mp4" alt="VeganCheck.me Demo" align="right" height="500">
 	
 ### Requirements: 
 - PHP >=7.4 installed
