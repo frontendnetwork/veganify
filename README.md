@@ -27,7 +27,8 @@
 
 ## 👨🏼‍💻 Overview
 <p align="center">
-<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500">
+<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500"><br>
+	<sup>MacBook Pro® and iPhone® are trademarks of Apple Inc., registered in the U.S. and other countries.</sup>
 </p>
 	
 **Are you looking for our free API? [Read our Wiki](https://github.com/JokeNetwork/vegancheck.me/wiki).**
@@ -56,6 +57,10 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
 Also change the path to the .env-file in `script.php`. Then you should be good to go!
   ```php
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  ````
+- Or just use: 
+  ````bash
+  $ composer install
   ````
 
 Get the [latest release](https://github.com/JokeNetwork/vegancheck.me/releases) or fork this repositiory and make the changes you want!
