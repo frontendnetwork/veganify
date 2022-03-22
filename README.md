@@ -61,6 +61,7 @@ Also change the path to the .env-file in `script.php`. Then you should be good t
 - Or just use: 
   ````bash
   $ composer install
+  $ npm install
   ````
 
 Get the [latest release](https://github.com/JokeNetwork/vegancheck.me/releases) or fork this repositiory and make the changes you want!
