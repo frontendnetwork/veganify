@@ -237,16 +237,16 @@
         },
         {
             "name": "rmccue/requests",
-            "version": "v2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/Requests.git",
-                "reference": "294ec523096241433ffea3fcf3127d16b1b7af4c"
+                "reference": "b01ce7c91657d604f298751686d7f5eec87b9493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/Requests/zipball/294ec523096241433ffea3fcf3127d16b1b7af4c",
-                "reference": "294ec523096241433ffea3fcf3127d16b1b7af4c",
+                "url": "https://api.github.com/repos/WordPress/Requests/zipball/b01ce7c91657d604f298751686d7f5eec87b9493",
+                "reference": "b01ce7c91657d604f298751686d7f5eec87b9493",
                 "shasum": ""
             },
             "require": {
@@ -314,7 +314,7 @@
                 "issues": "https://github.com/WordPress/Requests/issues",
                 "source": "https://github.com/WordPress/Requests"
             },
-            "time": "2022-02-07T18:15:26+00:00"
+            "time": "2022-03-28T15:37:07+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
