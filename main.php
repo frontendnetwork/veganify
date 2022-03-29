@@ -126,7 +126,7 @@ https://github.com/jokenetwork/vegancheck.me
             </div>
         </div>
 
-<script src="../js/jquery.min.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/BarcodeScanner.min.js"></script>
 <script src="../js/app.js?v=1.0.16"></script>
 <script src="../node_modules/pwa-install-prompt/script.js"></script>
