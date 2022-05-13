@@ -6,19 +6,23 @@
  * @copyright (C) 2022 Philip Brembeck
  * @copyright (C) 2022 JokeNetwork
  * @copyright (C) 2022 VeganCheck.me Contributors
- * @link https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE
+ * @link https://vegc.net/license 
  **/
 
 require('vendor/autoload.php');
 
+// Require enviroment variables for the OpenEANDB-API-Key 
 $dotenv = Dotenv\Dotenv::createImmutable('/var/www/virtual/jake/');
 $dotenv->load();
 $userid = $_ENV['USER_ID_OEANDB'];
 
+// Initialize Localization
 $i18n = new i18n('/var/www/virtual/jake/vegancheck.me/l10n/{LANGUAGE}.json', '/var/www/virtual/jake/vegancheck.me/langcache/', 'en');
 $i18n->init();
 
 $sent_barcode = filter_input(INPUT_POST, 'barcode');
+
+// Create a uniqid for support (Delete this if you're not using VeganCheck.me-Tracker)
 $ticket = uniqid();
 
 // Set all variables
@@ -28,7 +32,7 @@ $animaltestfree = null;
 $palmoil = null;
 $nutriscore = null;
 
-// Open Issue on GitHub when error occurs
+// Open Issue on GitHub when error occurs (Delete if you're not using VeganCheck.me-Tracker)
 $openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body=' . urlencode('Error ticket #' . $ticket . ' (Please always include this number!) - Please describe your issue:') . '" target="_blank" class="btn-dark">' . L::results_reporterror . '</a>';
 
 // Barcode is empty
@@ -389,6 +393,6 @@ elseif($endrepsone == "notindb")
     </div></div>');
 }
 
-// Remove before using on your own site
+// Remove before using on your own site unless you're using VeganCheck.me-Tracker
 include_once ("stats.php");
 ?>

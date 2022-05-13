@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <!-- VeganCheck.me is Open Source
 Check the project out on GitHub: 
-https://github.com/jokenetwork/vegancheck.me
+https://vegc.net/repo
 -->
 <html lang="<?php echo L::meta_lang; ?>">
   <head>
