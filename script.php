@@ -110,7 +110,7 @@ else
                     ->product
                     ->labels_tags))
                 {
-                    $animaltestfree = '<span class="vegan"> ' . L::results_anumaltestfree . '<span class="icon-ok"></span> </span>';
+                    $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
                 }
                 else
                 {
