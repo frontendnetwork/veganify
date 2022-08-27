@@ -1,6 +1,6 @@
 # PHP CircleCI 2.0 configuration file
 # See: https://circleci.com/docs/2.0/language-php/
-version: 2
+version: 2.1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -10,7 +10,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       # Specify the version you desire here
-      - image: circleci/php:8.0.14-browsers
+      - image: cimg/php:8.0.14-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
