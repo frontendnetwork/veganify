@@ -24,6 +24,8 @@
 
 [Open PWA in browser](https://vegancheck.me) - [Product page on JokeNetwork.de](https://jokenetwork.de/#projects) - [API](https://github.com/JokeNetwork/vegancheck.me/wiki) - [Python tool](https://github.com/JokeNetwork/VeganCheck-Python) - [Cloduflare-cached: isitvegan.io](https://isitvegan.io)
 
+Follow us on [Twitter](https://twitter.com/vegancheckme) and [Instagram](https://instagram.com/vegancheck.me) for updates! 
+
 ## 👨🏼‍💻 Overview
 <p align="center">
 <img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500"><br>
