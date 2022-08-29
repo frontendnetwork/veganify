@@ -16,7 +16,8 @@
 <a href="https://www.codefactor.io/repository/github/jokenetwork/vegancheck.me"><img src="https://www.codefactor.io/repository/github/jokenetwork/vegancheck.me/badge" alt="CodeFactor" /></a> <a href="https://circleci.com/gh/JokeNetwork/vegancheck.me/tree/main"><img src="https://circleci.com/gh/JokeNetwork/vegancheck.me/tree/main.svg?style=svg" alt="CircleCI"></a>
 	<br>
 <a href="https://github.com/sponsors/philipbrembeck"><img src="https://img.shields.io/badge/Sponsor%20on%20GitHub-white.svg?logo=githubsponsors" alt="Consider Sponsoring"></a>
-<a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536"><img src="https://shields.io/badge/Donate%20with%20PayPal-blue?style=flat&logo=Paypal" alt="Donate"></a>
+<a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536"><img src="https://shields.io/badge/Donate%20with%20PayPal-blue?style=flat&logo=Paypal" alt="Donate"></a> <a href="https://twitter.com/vegancheckme"><img src="https://img.shields.io/twitter/follow/vegancheckme?label=%40vegancheck.me&logoColor=grey" alt="Twitter"></a> 
+<a href="https://instagram.com/vegancheck.me"><img src="https://img.shields.io/twitter/url?label=@vegancheck.me&logo=instagram&logoColor=grey&url=https%3A%2F%2Finstagram.com%2Fvegancheck.me" alt="Instagram"></a>
 	
   
 [<img src="https://jokenetwork.de/assets/img/PWA.svg" alt="Open PWA in browser" width="150" align="right">](https://vegancheck.me) 
