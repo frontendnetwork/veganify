@@ -112,9 +112,31 @@ else
                 {
                     $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
                 }
+
+                // Check for the manufacturer in PETA Cruelty Free brands
+                elseif (!empty($product->product->brands)){
+                    $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
+                    $peta = json_decode($petapi->body);
+
+                    if(in_array($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST)){
+                        $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
+                        $apiname = 'OpenBeautyFacts, PETA Beauty without Bunnies';
+                    }
+
+                }
+
                 else
                 {
                     $animaltestfree = null;
+                }
+            }
+            // Check for the manufacturer in PETA Cruelty Free brands
+            elseif (!empty($product->product->brands)){
+                $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
+                $peta = json_decode($petapi->body);
+                if(in_array($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST)){
+                    $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
+                    $apiname = 'OpenBeautyFacts, PETA Beauty without Bunnies';
                 }
             }
             else
@@ -212,7 +234,21 @@ else
             // if vegan status unknown
             elseif (in_array("en:vegan-status-unknown", $array) || in_array("en:maybe-vegan", $array))
             {
-                $vegan = "unknown";
+                if(in_array("brands", $array)){
+                    // Check the brand with the PETA Vegan Approved API
+                    $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=veganapproved&company='.$product->product->brands);
+                    $peta = json_decode($petapi->body);
+                    if(in_array($product->product->brands, $peta->PETA_VEGAN_APPROVED)){
+                        $vegan = "true";
+                        $apiname = 'OpenFoodFacts &amp; PETA Vegan Approved';
+                    }
+                    else{
+                        $vegan = "unknown";
+                    }
+                }
+                else{
+                    $vegan = "unknown";
+                }
             }
             // if vegan
             elseif (in_array("en:vegan", $array))
