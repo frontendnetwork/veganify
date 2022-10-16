@@ -6,12 +6,13 @@
  * @copyright (C) 2022 Philip Brembeck
  * @copyright (C) 2022 JokeNetwork
  * @copyright (C) 2022 VeganCheck.me Contributors
- * @link https://vegc.net/license 
- **/
+ * @link https://vegc.net/license
+ *
+ */
 
-require('vendor/autoload.php');
+require ('vendor/autoload.php');
 
-// Require enviroment variables for the OpenEANDB-API-Key 
+// Require enviroment variables for the OpenEANDB-API-Key
 $dotenv = Dotenv\Dotenv::createImmutable('/var/www/virtual/jake/');
 $dotenv->load();
 $userid = $_ENV['USER_ID_OEANDB'];
@@ -56,21 +57,21 @@ else
     {
         $api = 'https://world.openbeautyfacts.org/api/v0/product/';
         $baseuri = "https://world.openbeautyfacts.org";
-        $edituri = 'https://world.openbeautyfacts.org/cgi/product.pl?type=edit&code='.$barcode;
+        $edituri = 'https://world.openbeautyfacts.org/cgi/product.pl?type=edit&code=' . $barcode;
         $apiname = 'OpenBeautyFacts';
     }
     elseif (!empty($product->product) && empty($beautyproduct->product))
     {
         $api = 'https://world.openfoodfacts.org/api/v0/product/';
         $baseuri = "https://world.openfoodfacts.org";
-        $edituri = 'https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode;
+        $edituri = 'https://world.openfoodfacts.org/cgi/product.pl?type=edit&code=' . $barcode;
         $apiname = 'OpenFoodFacts';
     }
     else
     {
         $api = 'https://world.openfoodfacts.org/api/v0/product/';
         $baseuri = "https://world.openfoodfacts.org";
-        $edituri = 'https://world.openfoodfacts.org/cgi/product.pl?type=edit&code='.$barcode;
+        $edituri = 'https://world.openfoodfacts.org/cgi/product.pl?type=edit&code=' . $barcode;
         $apiname = 'OpenFoodFacts';
     }
     $data = Requests::get($api . $barcode);
@@ -114,11 +115,16 @@ else
                 }
 
                 // Check for the manufacturer in PETA Cruelty Free brands
-                elseif (!empty($product->product->brands)){
+                elseif (!empty($product
+                    ->product
+                    ->brands))
+                {
                     $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
                     $peta = json_decode($petapi->body);
 
-                    if(in_array($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST)){
+                    if (in_array($beautyproduct
+                        ->product->brands, $peta->PETA_DOES_NOT_TEST))
+                    {
                         $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
                         $apiname = 'OpenBeautyFacts, PETA Beauty without Bunnies';
                     }
@@ -131,10 +137,15 @@ else
                 }
             }
             // Check for the manufacturer in PETA Cruelty Free brands
-            elseif (!empty($product->product->brands)){
+            elseif (!empty($product
+                ->product
+                ->brands))
+            {
                 $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
                 $peta = json_decode($petapi->body);
-                if(in_array($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST)){
+                if (in_array($beautyproduct
+                    ->product->brands, $peta->PETA_DOES_NOT_TEST))
+                {
                     $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
                     $apiname = 'OpenBeautyFacts, PETA Beauty without Bunnies';
                 }
@@ -234,19 +245,26 @@ else
             // if vegan status unknown
             elseif (in_array("en:vegan-status-unknown", $array) || in_array("en:maybe-vegan", $array))
             {
-                if(in_array("brands", $array)){
+                if (in_array("brands", $array))
+                {
                     // Check the brand with the PETA Vegan Approved API
-                    $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=veganapproved&company='.$product->product->brands);
+                    $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=veganapproved&company=' . $product
+                        ->product
+                        ->brands);
                     $peta = json_decode($petapi->body);
-                    if(in_array($product->product->brands, $peta->PETA_VEGAN_APPROVED)){
+                    if (in_array($product
+                        ->product->brands, $peta->PETA_VEGAN_APPROVED))
+                    {
                         $vegan = "true";
                         $apiname = 'OpenFoodFacts &amp; PETA Vegan Approved';
                     }
-                    else{
+                    else
+                    {
                         $vegan = "unknown";
                     }
                 }
-                else{
+                else
+                {
                     $vegan = "unknown";
                 }
             }
@@ -285,7 +303,7 @@ else
             {
                 $apiname = 'Brocade.io';
                 $baseuri = "https://www.brocade.io";
-                $edituri = 'https://www.brocade.io/products/'.$barcode;
+                $edituri = 'https://www.brocade.io/products/' . $barcode;
                 include_once ('includes/isvegan.php');
                 $response = explode(', ', $ingredients);
                 $result = array_uintersect($isvegan, $response, fn($a, $b) => strcasecmp($a, $b));
@@ -308,7 +326,7 @@ else
         }
         else
         {
-            $oedb = Requests::get('https://opengtindb.org/?ean=' . $barcode . '&cmd=query&queryid=' . $userid );
+            $oedb = Requests::get('https://opengtindb.org/?ean=' . $barcode . '&cmd=query&queryid=' . $userid);
             $array = parse_ini_string($oedb->body, false, INI_SCANNER_RAW);
             $status = $array['error'];
             $desc = utf8_encode($array['descr']);
@@ -316,15 +334,17 @@ else
             {
                 $apiname = 'Open EAN Database';
                 $baseuri = "https://opengtindb.org";
-                $edituri = 'https://opengtindb.org/index.php?cmd=ean1&ean='.$barcode;
+                $edituri = 'https://opengtindb.org/index.php?cmd=ean1&ean=' . $barcode;
                 $productname = utf8_encode($array['name'] . ' ' . $array['detailname']);
                 $contents = $array['contents'];
 
-                if(!empty($contents) && $contents >= "128" && $contents < "256"){
+                if (!empty($contents) && $contents >= "128" && $contents < "256")
+                {
                     $vegan = "false";
                     $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
                 }
-                elseif(!empty($contents) && $contents >= "256" && $contents < "384" || $contents >= "384" && $contents < "512"){
+                elseif (!empty($contents) && $contents >= "256" && $contents < "384" || $contents >= "384" && $contents < "512")
+                {
                     $vegan = "true";
                     $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
                 }
@@ -357,12 +377,14 @@ else
 }
 
 // Return results
-if($vegan == "false")
+if ($vegan == "false")
 {
-    if($apiname == "Brocade.io" || $apiname == "Open EAN Database"){
+    if ($apiname == "Brocade.io" || $apiname == "Open EAN Database")
+    {
         $processed = ' &middot; ' . L::results_processed . '<sup id="processed_modal">?</sup>';
     }
-    else{
+    else
+    {
         $processed = null;
     }
     print_r('<div class="animated fadeIn">
@@ -371,21 +393,23 @@ if($vegan == "false")
                         <span class="name" id="name_sh">"' . $productname . '":</span>
                       </span>
                       <span class="non-vegan"><span id="result_sh">' . L::results_notvegan . '</span><span class="icon-cancel"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
-                      <span class="btn-dark" id="share" onClick="sharebutton()">'.L::footer_share.'</span>
-                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
+                      <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>' . $processed . '</span>
+                      <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
-elseif($vegan == "true")
+elseif ($vegan == "true")
 {
     // Vegetarian is always true when vegan is true
     $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
 
-    if($apiname == "Brocade.io"){
+    if ($apiname == "Brocade.io")
+    {
         $processed = ' &middot; ' . L::results_processed . '<sup id="processed_modal">?</sup>';
     }
-    else{
+    else
+    {
         $processed = null;
     }
     print_r('<div class="animated fadeIn">
@@ -394,13 +418,13 @@ elseif($vegan == "true")
                         <span class="name" id="name_sh">"' . $productname . '":</span>
                       </span>
                       <span class="vegan"><span id="result_sh">' . L::results_vegan . '</span><span class="icon-ok"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
-                      <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>'. $processed .'</span>
-                      <span class="btn-dark" id="share" onClick="sharebutton()">'.L::footer_share.'</span>
-                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
+                      <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>' . $processed . '</span>
+                      <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
-elseif($vegan == "unknown")
+elseif ($vegan == "unknown")
 {
     print_r('<div class="animated fadeIn">
                     <div class="resultborder">
@@ -409,20 +433,20 @@ elseif($vegan == "unknown")
                       </span>
                       <span class="unknown">' . L::results_vegan . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
-                      <a href="'.$edituri.'" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
+                      <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
-elseif($endrepsone == "invalid")
+elseif ($endrepsone == "invalid")
 {
     print_r('<div class="animated fadeIn"><div class="resultborder"><span class="missing">' . L::results_invalidscan . '</span><br>' . $openissue . '</div></div>');
 }
-elseif($endrepsone == "notindb" && !empty($productname) && $productname !== "n/a")
+elseif ($endrepsone == "notindb" && !empty($productname) && $productname !== "n/a")
 {
     print_r('<div class="animated fadeIn"><div class="resultborder"><span class="name">"' . $productname . '":</span><p class="missing">' . L::results_notindb . '</p><p class="missing">' . L::results_add . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonoff . '</a> ' . L::results_or . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonobf . '</a>.</p>
                   <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a><sup id="license_modal">?</sup></span>' . $openissue . '</div></div>');
 }
-elseif($endrepsone == "notindb")
+elseif ($endrepsone == "notindb")
 {
     print_r('<div class="animated fadeIn"><div class="resultborder"><span>' . L::results_notindb . '</span><p class="missing">' . L::results_add . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonoff . '</a> ' . L::results_or . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonobf . '</a>.</p>
     ' . $openissue . '
