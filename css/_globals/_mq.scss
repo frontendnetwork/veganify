@@ -58,6 +58,8 @@
 
     .modal_view {
         width: 70%;
+        max-height: 80%;
+        overflow: overlay;
     }
 }
 
