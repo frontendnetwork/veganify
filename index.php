@@ -2,7 +2,7 @@
 require('vendor/autoload.php');
 $i18n = new i18n('l10n/{LANGUAGE}.json', 'langcache/', 'en');
 $i18n->init();
-$supportedLanguages=['en','de', 'fr', 'es', 'nl'];
+$supportedLanguages=['en','de', 'fr', 'es', 'nl', 'zh'];
 $lang = $i18n->getAppliedLang();
 
 if(!in_array($lang,$supportedLanguages)){
