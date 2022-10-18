@@ -39,6 +39,8 @@ VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and
 VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.io and Open EAN Database in one tool. 
 	
 The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredients-api), a fork of is-vegan, checks the products ingredients against a list of thousands of non-vegan items.
+
+<img src="https://user-images.githubusercontent.com/4144601/196530680-227ab5d9-2c21-4592-8033-8fc6ff77ae51.gif" alt="VeganCheck.me Demo" width="300" align="right">
 	
 ### Requirements: 
 - PHP >=7.4 installed
