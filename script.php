@@ -111,7 +111,12 @@ else
                     ->product
                     ->labels_tags))
                 {
-                    $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
+                    $animaltestfree = '
+                    <div class="Grid">
+                        <div class="Grid-cell description">' . L::results_animaltestfree . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>
+                      ';
                 }
 
                 // Check for the manufacturer in PETA Cruelty Free brands
@@ -125,7 +130,10 @@ else
                     if (in_array($beautyproduct
                         ->product->brands, $peta->PETA_DOES_NOT_TEST))
                     {
-                        $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
+                        $animaltestfree = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_animaltestfree . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>';
                         $apiname = 'OpenBeautyFacts, PETA Beauty without Bunnies';
                     }
 
@@ -146,7 +154,10 @@ else
                 if (in_array($beautyproduct
                     ->product->brands, $peta->PETA_DOES_NOT_TEST))
                 {
-                    $animaltestfree = '<span class="vegan"> ' . L::results_animaltestfree . '<span class="icon-ok"></span> </span>';
+                    $animaltestfree = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_animaltestfree . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>';
                     $apiname = 'OpenBeautyFacts, PETA Beauty without Bunnies';
                 }
             }
@@ -171,31 +182,53 @@ else
         }
 
         // Set palmoil as unknown before checking it, to display "unknown" in case of no API response
-        $palmoil = '<span class="unknown"> ' . L::results_palmoilunknown . '<sup id="palm_modal">?</sup><span class="icon-help"></span> </span>';
+        $palmoil = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::modal_palmoil . '<sup id="palm_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
+                      </div>';
+
 
         // Set vegetarian as unknown before checking it
-        $vegetarian = '<span class="unknown">' . L::results_vegetarian . '<span class="icon-help"></span> </span>';
+        $vegetarian = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegetarian . '<sup id="palm_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
+                      </div>';
 
         // Checks for the nutriscore
         if ($nutriscore == "a")
         {
-            $nutriscore = '<span class="nutri_a">Nutriscore A<sup id="nutri_modal">?</sup><span class="icon-ok"></span></span>';
+            $nutriscore = '<div class="Grid">
+                        <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="nutri_a">A</span></div>
+                      </div>';
         }
         elseif ($nutriscore == "b")
         {
-            $nutriscore = '<span class="nutri_b">Nutriscore B<sup id="nutri_modal">?</sup><span class="icon-ok"></span></span>';
+            $nutriscore = '<div class="Grid">
+                        <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="nutri_b">B</span></div>
+                      </div>';
         }
         elseif ($nutriscore == "c")
         {
-            $nutriscore = '<span class="nutri_c">Nutriscore C<sup id="nutri_modal">?</sup><span class="icon-ok"></span></span>';
+            $nutriscore = '<div class="Grid">
+                        <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="nutri_c">C</span></div>
+                      </div>';
         }
         elseif ($nutriscore == "d")
         {
-            $nutriscore = '<span class="nutri_d">Nutriscore D<sup id="nutri_modal">?</sup><span class="icon-cancel"></span></span>';
+            $nutriscore = '<div class="Grid">
+                        <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="nutri_d">D</span></div>
+                      </div>';
         }
         elseif ($nutriscore == "e")
         {
-            $nutriscore = '<span class="nutri_e">Nutriscore E<sup id="nutri_modal">?</sup><span class="icon-cancel"></span></span>';
+            $nutriscore = '<div class="Grid">
+                        <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="nutri_e">E</span></div>
+                      </div>';
         }
         elseif ($apiname == "OpenBeautyFacts")
         {
@@ -203,7 +236,10 @@ else
         }
         else
         {
-            $nutriscore = '<span class="unknown">Nutriscore<sup id="nutri_modal">?</sup> ' . L::results_unknown . '<span class="icon-help"></span></span>';
+            $nutriscore = '<div class="Grid">
+                        <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
+                      </div>';
         }
 
         if (isset($array))
@@ -212,29 +248,47 @@ else
             // Needs to be after isset($array) because it checks within the array
             if (in_array("en:palm-oil", $array))
             {
-                $palmoil = '<span class="non-vegan"> ' . L::results_containspalmoil . '<sup id="palm_modal">?</sup> <span class="icon-cancel"></span> </span>';
+                $palmoil = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::modal_palmoil . '<sup id="palm_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="non-vegan icon-cancel"></span></div>
+                      </div>';
             }
             elseif (in_array("en:palm-oil-free", $array))
             {
-                $palmoil = '<span class="vegan"> ' . L::results_nopalmoil . '<sup id="palm_modal">?</sup> <span class="icon-ok"></span> </span>';
+                $palmoil = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::modal_palmoil . '<sup id="palm_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>';
             }
             else
             {
-                $palmoil = '<span class="unknown"> ' . L::results_palmoilunknown . '<sup id="palm_modal">?</sup> <span class="icon-help"></span> </span>';
+                $palmoil = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::modal_palmoil . '<sup id="palm_modal">?</sup></div>
+                        <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
+                      </div>';
             }
 
             // Checks for the vegetarian status
             if (in_array("en:non-vegetarian", $array))
             {
-                $vegetarian = '<span class="non-vegan">' . L::results_notvegetarian . '<span class="icon-cancel"></span> </span>';
+                $vegetarian = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegetarian . '</div>
+                        <div class="Grid-cell icons"><span class="non-vegan icon-cancel"></span></div>
+                      </div>';
             }
             elseif (in_array("en:vegetarian", $array))
             {
-                $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
+                $vegetarian = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegetarian . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>';
             }
             else
             {
-                $vegetarian = '<span class="unknown">' . L::results_vegetarian . '<span class="icon-help"></span> </span>';
+                $vegetarian = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegetarian . '</div>
+                        <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
+                      </div>';
             }
 
             // if not vegan
@@ -341,12 +395,18 @@ else
                 if (!empty($contents) && $contents >= "128" && $contents < "256")
                 {
                     $vegan = "false";
-                    $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
+                    $vegetarian = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegetarian . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>';
                 }
                 elseif (!empty($contents) && $contents >= "256" && $contents < "384" || $contents >= "384" && $contents < "512")
                 {
                     $vegan = "true";
-                    $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
+                    $vegetarian = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegetarian . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>';
                 }
                 elseif (!empty($desc))
                 {
@@ -389,10 +449,13 @@ if ($vegan == "false")
     }
     print_r('<div class="animated fadeIn">
                     <div class="resultborder">
-                      <span class="non-vegan">  
+                      <span class="unknown">  
                         <span class="name" id="name_sh">"' . $productname . '":</span>
                       </span>
-                      <span class="non-vegan"><span id="result_sh">' . L::results_notvegan . '</span><span class="icon-cancel"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span id="result_sh"><div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegan . '</div>
+                        <div class="Grid-cell icons"><span class="non-vegan icon-cancel"></span></div>
+                      </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>' . $processed . '</span>
                       <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
                       <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
@@ -402,7 +465,10 @@ if ($vegan == "false")
 elseif ($vegan == "true")
 {
     // Vegetarian is always true when vegan is true
-    $vegetarian = '<span class="vegan">' . L::results_vegetarian . '<span class="icon-ok"></span> </span>';
+    $vegetarian = '<div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegetarian . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div>';
 
     if ($apiname == "Brocade.io")
     {
@@ -414,10 +480,13 @@ elseif ($vegan == "true")
     }
     print_r('<div class="animated fadeIn">
                     <div class="resultborder">
-                      <span class="vegan">
+                      <span class="unknown">
                         <span class="name" id="name_sh">"' . $productname . '":</span>
                       </span>
-                      <span class="vegan"><span id="result_sh">' . L::results_vegan . '</span><span class="icon-ok"></span></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <span id="result_sh"><div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegan . '</div>
+                        <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
+                      </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>' . $processed . '</span>
                       <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
                       <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
@@ -431,7 +500,10 @@ elseif ($vegan == "unknown")
                       <span class="unknown">
                         <span class="name">"' . $productname . '":</span>
                       </span>
-                      <span class="unknown">' . L::results_vegan . '<span class="icon-help"></span> </span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      <div class="Grid">
+                        <div class="Grid-cell description">' . L::results_vegan . '</div>
+                        <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
+                      </div>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
                       <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>

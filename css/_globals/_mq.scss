@@ -9,9 +9,18 @@
         display: inline-block;
     }
 
+    .logo {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
     .container {
-        padding-top: 100px;
-        width: 90%;
+        padding-top: 4rem;
+        width: 100%;
+    }
+
+    .Grid {
+        width: 70%!important;
     }
 
     input[type=text] {
@@ -61,10 +70,19 @@
         max-height: 80%;
         overflow: overlay;
     }
+
+    .form {
+        max-width: 80%;
+        padding: 1rem;
+    }
 }
 
 /* Older, smaller phones */
 @media only screen and (max-width:21.5rem) {
+    .Grid {
+        width: 80%!important;
+    }
+
     .labels {
         padding: .5rem !important;
         width: 2.5rem !important;
