@@ -125,7 +125,7 @@ sup {
     border-radius: 0.5rem;
     padding: 2rem;
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     width: 30%;
     transform: translate(-50%, -50%);
@@ -168,6 +168,12 @@ sup {
         flex-wrap: wrap;
         width: 60%;
         margin: 0 auto;
+        border-top: .005rem solid #ccc;
+        padding: .5rem;
+
+        &:first-child{
+            border-top: none;
+        }
     }
 
     .Grid-cell {
@@ -177,13 +183,14 @@ sup {
     }
 
     .icons {
-        width: 20% !important;
+        width: 5% !important;
         flex: none !important;
         font-weight: var(--semibold-fontweight);
+        text-align: right;
     }
 
     .description {
-        width: 80% !important;
+        width: 95% !important;
         flex: none !important;
         text-align: left;
     }
@@ -398,6 +405,7 @@ button:focus {
 
 .name {
     display: block;
+    padding-bottom: 1rem;
 }
 
 /* Rotate device screen */
