@@ -190,7 +190,7 @@ else
 
         // Set vegetarian as unknown before checking it
         $vegetarian = '<div class="Grid">
-                        <div class="Grid-cell description">' . L::results_vegetarian . '<sup id="palm_modal">?</sup></div>
+                        <div class="Grid-cell description">' . L::results_vegetarian . '</div>
                         <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
                       </div>';
 
@@ -500,10 +500,10 @@ elseif ($vegan == "unknown")
                       <span class="unknown">
                         <span class="name">"' . $productname . '":</span>
                       </span>
-                      <div class="Grid">
+                      <span id="result_sh"><div class="Grid">
                         <div class="Grid-cell description">' . L::results_vegan . '</div>
                         <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
-                      </div>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
+                      </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
                       <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
