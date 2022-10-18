@@ -28,7 +28,7 @@
 
 ## 👨🏼‍💻 Overview
 <p align="center">
-<img src="img/Hero.png" alt="VeganCheck.me Hero" align="center" height="500"><br>
+<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500"><br>
 	<sup>MacBook Pro® and iPhone® are trademarks of Apple Inc., registered in the U.S. and other countries.</sup>
 </p>
 	
@@ -39,8 +39,6 @@ VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and
 VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.io and Open EAN Database in one tool. 
 	
 The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredients-api), a fork of is-vegan, checks the products ingredients against a list of thousands of non-vegan items.
-
-<img src="https://user-images.githubusercontent.com/4144601/158242454-413ec5dc-103d-450a-a0ed-ec6f463db14d.mp4" alt="VeganCheck.me Demo" align="right" height="500">
 	
 ### Requirements: 
 - PHP >=7.4 installed
