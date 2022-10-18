@@ -28,7 +28,7 @@
 
 ## 👨🏼‍💻 Overview
 <p align="center">
-<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500"><br>
+<img src="img/Hero.png" alt="VeganCheck.me Hero" align="center" height="500"><br>
 	<sup>MacBook Pro® and iPhone® are trademarks of Apple Inc., registered in the U.S. and other countries.</sup>
 </p>
 	
