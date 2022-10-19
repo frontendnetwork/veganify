@@ -38,7 +38,7 @@ https://vegc.net/repo
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="../img/iossplash.png?v=1.0.0">
 
-    <link href="../css/style.min.css?v=4.0.0" rel="stylesheet">
+    <link href="../css/style.min.css?v=4.0.1" rel="stylesheet">
     <link href="../node_modules/pwa-install-prompt/style.css" rel="stylesheet">
   </head>
 
@@ -83,8 +83,8 @@ https://vegc.net/repo
     </noscript>
     <div class="container">
       <div id="main">
-        <div class="form animated fadeIn">
-        <img src="../img/VeganCheck.svg" alt="Logo" class="logo" id="resscroll">
+        <div class="form animated fadeIn" id="resscroll">
+        <img src="../img/VeganCheck.svg" alt="Logo" class="logo">
         <form action="../script.php">
           <fieldset>
             <legend><?php echo L::form_enterbarcode; ?></legend>

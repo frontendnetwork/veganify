@@ -199,35 +199,35 @@ else
         {
             $nutriscore = '<div class="Grid">
                         <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
-                        <div class="Grid-cell icons"><span class="nutri_a">A</span></div>
+                        <div class="Grid-cell icons"><span class="nutri_a icon-a"></span></div>
                       </div>';
         }
         elseif ($nutriscore == "b")
         {
             $nutriscore = '<div class="Grid">
                         <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
-                        <div class="Grid-cell icons"><span class="nutri_b">B</span></div>
+                        <div class="Grid-cell icons"><span class="nutri_b icon-b"></span></div>
                       </div>';
         }
         elseif ($nutriscore == "c")
         {
             $nutriscore = '<div class="Grid">
                         <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
-                        <div class="Grid-cell icons"><span class="nutri_c">C</span></div>
+                        <div class="Grid-cell icons"><span class="nutri_c icon-c"></span></div>
                       </div>';
         }
         elseif ($nutriscore == "d")
         {
             $nutriscore = '<div class="Grid">
                         <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
-                        <div class="Grid-cell icons"><span class="nutri_d">D</span></div>
+                        <div class="Grid-cell icons"><span class="nutri_d icon-d"></span></div>
                       </div>';
         }
         elseif ($nutriscore == "e")
         {
             $nutriscore = '<div class="Grid">
                         <div class="Grid-cell description">Nutriscore<sup id="nutri_modal">?</sup></div>
-                        <div class="Grid-cell icons"><span class="nutri_e">E</span></div>
+                        <div class="Grid-cell icons"><span class="nutri_e icon-e"></span></div>
                       </div>';
         }
         elseif ($apiname == "OpenBeautyFacts")
