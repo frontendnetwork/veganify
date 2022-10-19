@@ -32,13 +32,13 @@ https://vegc.net/repo
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="msapplication-starturl" content="/">
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="#141414">
 
     <meta name="application-name" content="VeganCheck">
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" href="../img/iossplash.png?v=1.0.0">
 
-    <link href="../css/style.min.css?v=3.9.65" rel="stylesheet">
+    <link href="../css/style.min.css?v=4.0.1" rel="stylesheet">
   </head>
   <body>
     <div class="container">
