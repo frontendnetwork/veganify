@@ -1,3 +1,23 @@
+/* Color scheme light */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #7f8fa6;
+    }
+
+    p {
+        color: #fff;
+    }
+
+    footer {
+        a {
+            color: #fff;
+            &:hover, &:focus {
+                color: #ccc;
+            }
+        }
+    }
+}
+
 /* Make sure mobile functions are not displayed on desktop*/
 #torch, #flipbutton {
     display: none;
@@ -74,6 +94,7 @@
     .form {
         max-width: 80%;
         padding: 1rem;
+        margin-bottom: 0;
     }
 }
 
