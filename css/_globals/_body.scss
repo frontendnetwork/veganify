@@ -90,6 +90,11 @@ input[type=number] {
 /* Longpage for Privacy/Imprint */
 .longpage {
     padding-top: 3.125rem !important;
+    color: #000;
+
+    a, h1 {
+        color: #000;
+    }
 }
 
 /* Paragraphs */
@@ -161,6 +166,7 @@ sup {
     line-height: 1.875rem;
     -webkit-box-shadow: 0 1.5625rem 3.125rem -0.75rem rgba(0, 0, 0, 0.25);
     box-shadow: 0 1.5625rem 3.125rem -0.75rem rgba(0, 0, 0, 0.25);
+    overflow: hidden;
 
     .Grid {
         display: flex;
@@ -425,6 +431,16 @@ button:focus {
         padding-top: 5rem;
         height: 8rem;
     }
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+table tbody, thead {
+    text-align: left;
 }
 
 /* Noscript screen */
