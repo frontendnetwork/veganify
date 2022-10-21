@@ -83,7 +83,7 @@ https://vegc.net/repo
     </noscript>
     <div class="container">
       <div id="main">
-        <div class="form animated fadeIn" id="resscroll">
+        <div class="form" id="resscroll">
         <img src="../img/VeganCheck.svg" alt="Logo" class="logo">
         <form action="../script.php">
           <fieldset>
@@ -96,6 +96,7 @@ https://vegc.net/repo
         <div class="timeout animated fadeIn" style="display:none;"><?php echo L::other_timeout; ?><span>.</span><span>.</span><span>.</span></div>
          <div class="timeout-final animated fadeIn" style="display:none;"><?php echo L::other_timeoutfinal; ?></div>
         <div id="result">&nbsp;</div> 
+        <a href="/ingredients"><span class="icon-right-open"></span><?php echo L::ingredients_title; ?></a>
       </div>
         <footer>
             <p><?php echo L::footer_credits; ?>
