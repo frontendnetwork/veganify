@@ -70,6 +70,22 @@ input[type=number] {
     border-radius: 0;
 }
 
+textarea {
+    width: 45%;
+    padding: 1rem;
+    outline: none;
+    text-align: center;
+    color: #000;
+    font-weight: var(--body-fontweight);
+    flex: 1;
+    border-top: .01rem solid #ccc;
+    border-bottom: .01rem solid #ccc;
+    border-left: .01rem solid #ccc;
+    border-right: none;
+    border-radius: 0;
+    resize: vertical;
+}
+
 /* Container */
 .container {
     padding-top: 9.375rem;
@@ -152,6 +168,18 @@ sup {
     }
 }
 
+.ingredients {
+    h2 {
+        color: #000!important;
+    }
+}
+.icon-left-open {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1rem;
+    text-decoration: none;
+}
 /* Main container with border */
 .form {
     word-wrap: break-word;
@@ -167,6 +195,7 @@ sup {
     -webkit-box-shadow: 0 1.5625rem 3.125rem -0.75rem rgba(0, 0, 0, 0.25);
     box-shadow: 0 1.5625rem 3.125rem -0.75rem rgba(0, 0, 0, 0.25);
     overflow: hidden;
+    position: relative;
 
     .Grid {
         display: flex;
