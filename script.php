@@ -515,7 +515,7 @@ elseif ($endrepsone == "invalid")
 }
 elseif ($endrepsone == "notindb" && !empty($productname) && $productname !== "n/a")
 {
-    print_r('<div class="animated fadeIn"><div class="resultborder"><span class="name">"' . $productname . '":</span><p class="missing">' . L::results_notindb . '</p><p class="missing">' . L::results_add . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonoff . '</a> ' . L::results_or . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonobf . '</a>.</p>
+    print_r('<div class="animated fadeIn"><div class="resultborder"><span class="name">"' . $productname . '":</span><p class="missing">' . L::results_notindb . '</p><p class="missing">' . L::results_add . ' <a href="https://world.openfoodfacts.org/cgi/product.pl?type=edit&code=' . $barcode . '" target="_blank">' . L::results_addonoff . '</a> ' . L::results_or . ' <a href="https://world.openbeautyfacts.org/cgi/product.pl?code=' . $barcode . '" target="_blank">' . L::results_addonobf . '</a>.</p>
                   <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . ' target="_blank"">' . $apiname . '</a><sup id="license_modal">?</sup></span>' . $openissue . '</div></div>');
 }
 elseif ($endrepsone == "notindb")
