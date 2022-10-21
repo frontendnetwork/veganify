@@ -16,7 +16,7 @@
         "share_text": "Vind je VeganCheck leuk?",
         "share": "Delen",
         "credits": "Gemaakt met <i class=\"icon-vegancheck\"><\/i> door <a href=\"https:\/\/philipbrembeck.com\">Philip Brembeck<\/a> &amp; <a href=\"https:\/\/jokenetwork.de\">JokeNetwork<\/a>",
-        "legal": "<a href=\"..\/privacy-policy\">Privacy<\/a> \/ <a href=\"..\/impressum\">Imprint<\/a> \/ <a href=\"\/\/jokenetwork.de\/vegancheck-api\">API<\/a>"
+        "legal": "<a href=\"..\/privacy-policy\">Privacy<\/a> \/ <a href=\"..\/tos\">Gebruiksvoorwaarden<\/a> \/ <a href=\"..\/impressum\">Imprint<\/a> \/ <a href=\"\/\/jokenetwork.de\/vegancheck-api\">API<\/a>"
     },
     "layover":
     {
@@ -75,5 +75,14 @@
         "licenses": "Vergunningen",
         "licenses_desc": "VeganCheck.me gebruikt verschillende gegevensbronnen om informatie over een product te verzamelen. Deze informatie is beschikbaar onder de volgende licenties:",
         "licenses_copyrights": "&copy; OpenFoodFacts Contributors, licensed under <a href=\"https:\/\/opendatacommons.org\/licenses\/odbl\/1.0\/\">Open Database License<\/a> and <a href=\"https:\/\/opendatacommons.org\/licenses\/dbcl\/1.0\/\">Database Contents License<\/a>.<br>\r\n Brocade.io Contributors, licensed under <a href=\"https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/\">Creative-Commons Zero<\/a>.<br>\r\n &copy; Open EAN\/GTIN Database Contributors, licensed under <a href=\"https:\/\/www.gnu.org\/licenses\/fdl-1.3.html\">GNU FDL<\/a>."
+    },
+    "ingredients":
+    {
+        "title": "Vegan Ingredient Checker",
+        "subtitle": "Controleer of de Ingrediënten van een product veganistisch zijn!",
+        "placeholder": "Voer ingrediënten kommagescheiden in.",
+        "error": "Ingredients-list kan niet leeg zijn of speciale tekens bevatten en moet met komma's gescheiden zijn!",
+        "translated": "Vertaald met",
+        "and": "en"
     }
 }

@@ -16,7 +16,7 @@
         "share_text": "Aimez-vous VeganCheck ?",
         "share": "Share",
         "credits": "R\u00e9alis\u00e9 avec <i class=\"icon-vegancheck\"><\/i> par <a href=\"https:\/\/philipbrembeck.com\">Philip Brembeck<\/a> &amp; <a href=\"https:\/\/jokenetwork.de\">JokeNetwork<\/a>",
-        "legal": "<a href=\"..\/privacy-policy\">D\u00e9claration de confidentialit\u00e9<\/a> \/ <a href=\"..\/impressum\">Mentions l\u00e9gales<\/a> \/ <a href=\"\/\/jokenetwork.de\/vegancheck-api\">API<\/a>"
+        "legal": "<a href=\"..\/privacy-policy\">D\u00e9claration de confidentialit\u00e9<\/a> \/ <a href=\"..\/tos\">Conditions d'utilisation<\/a> \/ <a href=\"..\/impressum\">Mentions l\u00e9gales<\/a> \/ <a href=\"\/\/jokenetwork.de\/vegancheck-api\">API<\/a>"
     },
     "layover":
     {
@@ -75,5 +75,14 @@
         "licenses": "Licences",
         "licenses_desc": "VeganCheck.me utilise diff\u00E9rentes sources de donn\u00E9es pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
         "licenses_copyrights": "&copy; OpenFoodFacts Contributors, licensed under <a href=\"https:\/\/opendatacommons.org\/licenses\/odbl\/1.0\/\">Open Database License<\/a> and <a href=\"https:\/\/opendatacommons.org\/licenses\/dbcl\/1.0\/\">Database Contents License<\/a>.<br>\r\n Brocade.io Contributors, licensed under <a href=\"https:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/\">Creative-Commons Zero<\/a>.<br>\r\n &copy; Open EAN\/GTIN Database Contributors, licensed under <a href=\"https:\/\/www.gnu.org\/licenses\/fdl-1.3.html\">GNU FDL<\/a>."
+    },
+    "ingredients":
+    {
+        "title": "V\u00e9rificateur d'ingrédients v\u00e9g\u00e9taliens",
+        "subtitle": "V\u00e9rifiez si les ingr\u00e9dients d'un produit sont v\u00e9g\u00e9taliens !",
+        "placeholder": "Entrez les ingr\u00e9dients séparés par des virgules",
+        "error": "La liste des ingr\u00e9dients ne peut \u00eatre vide ou inclure des caract\u00e8res sp\u00e9ciaux et doit \u00eatre s\u00e9par\u00e9e par des virgules !",
+        "translated": "Traduit avec",
+        "and": "et"
     }
 }
