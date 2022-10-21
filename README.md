@@ -54,16 +54,19 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
   ````bash
   $ composer require philipp15b/php-i18n
   ````
-- Optional: Get an API-Key for Open EAN Database by donating to Coast against plastic (Küsten gegen Plastik) - [Learn more here](https://opengtindb-org.translate.goog/userid.php?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp), insert it in the `.env.example` and rename it to `.env`. 
-Also change the path to the .env-file in `script.php`. Then you should be good to go!
-  ```php
-  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-  ````
 - Or just use: 
   ````bash
   $ composer install
   $ npm install
   ````
+- Optional: Get an API-Key for Open EAN Database by donating to Coast against plastic (Küsten gegen Plastik) - [Learn more here](https://opengtindb-org.translate.goog/userid.php?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp), insert it in the `.env.example`.
+- Get an API Token on [DeepL.com](https://deepl.com) and insert it in the `.env.example`.
+- Rename `.env.example` to `.env`. 
+Also change the path to the .env-file in `script.php`. Then you should be good to go!
+  ```php
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  ````
+
 
 Get the [latest release](https://github.com/JokeNetwork/vegancheck.me/releases) or fork this repositiory and make the changes you want!
 
