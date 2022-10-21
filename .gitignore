@@ -18,3 +18,4 @@ vendor/composer/autoload_static.php
 langcache/
 includes/url.php
 node_modules/
+tos.php
