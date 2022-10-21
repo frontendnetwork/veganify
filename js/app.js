@@ -35,16 +35,14 @@ function setupLiveReader(resultElement) {
 
     // Define camera facingMode once
     camera = 'environment'
-    
+
     // Flip camera button
     document.getElementById('flipbutton').onclick = function() {
-        if (camera == 'environment'){
+        if (camera == 'environment') {
             camera = 'user'
-        }
-        else if(camera == 'user'){
+        } else if (camera == 'user') {
             camera = 'environment'
-        }
-        else{
+        } else {
             camera = 'environment'
         }
 
@@ -56,98 +54,113 @@ function setupLiveReader(resultElement) {
     // Start the stream
     startStream();
 
-function startStream(){
-    document.getElementById('result').style.display = 'none';
+    function startStream() {
+        document.getElementById('result').style.display = 'none';
 
-    // Scroll to top
-    window.location.hash = '#top';
+        // Scroll to top
+        window.location.hash = '#top';
 
-    // Check for the facingMode
-     if (camera == 'environment' || camera == 'user'){
-        var constraints = { audio: false, video: { width: window.innerWidth * window.devicePixelRatio,
-    height: window.innerHeight * window.devicePixelRatio, aspectRatio: { ideal: (window.innerHeight) / window.innerWidth }, focusMode: 'continuous', facingMode: camera } };
-    }
-    else {
-        camera = 'environment'
-        var constraints = { audio: false, video: { width: window.innerWidth * window.devicePixelRatio,
-    height: window.innerHeight * window.devicePixelRatio, aspectRatio: { ideal: (window.innerHeight) / window.innerWidth }, focusMode: 'continuous', facingMode: camera } };
-    }
-
-    navigator.mediaDevices.getUserMedia(constraints).then(stream => {
-        const track = stream.getVideoTracks()[0];
-        BarcodeScanner.init()
-        var closer = document.getElementById('controls')
-        var btnclose = document.getElementById('closebtn')
-        var barcodeicon = document.getElementById('barcodeicon')
-        closer.style.display = 'inline-block'
-
-        // Torch/Flash on Android
-        const btn = document.getElementById('torch');
-        btn.addEventListener('click', function(){
-          track.applyConstraints({
-            advanced: [{torch: true}]
-          });
-      })
-
-        function endStream(){
-            track.stop();
+        // Check for the facingMode
+        if (camera == 'environment' || camera == 'user') {
+            var constraints = {
+                audio: false,
+                video: {
+                    width: window.innerWidth * window.devicePixelRatio,
+                    height: window.innerHeight * window.devicePixelRatio,
+                    aspectRatio: { ideal: (window.innerHeight) / window.innerWidth },
+                    focusMode: 'continuous',
+                    facingMode: camera
+                }
+            };
+        } else {
+            camera = 'environment'
+            var constraints = {
+                audio: false,
+                video: {
+                    width: window.innerWidth * window.devicePixelRatio,
+                    height: window.innerHeight * window.devicePixelRatio,
+                    aspectRatio: { ideal: (window.innerHeight) / window.innerWidth },
+                    focusMode: 'continuous',
+                    facingMode: camera
+                }
+            };
         }
-        initendStream = endStream;
+
+        navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+            const track = stream.getVideoTracks()[0];
+            BarcodeScanner.init()
+            var closer = document.getElementById('controls')
+            var btnclose = document.getElementById('closebtn')
+            var barcodeicon = document.getElementById('barcodeicon')
+            closer.style.display = 'inline-block'
+
+            // Torch/Flash on Android
+            const btn = document.getElementById('torch');
+            btn.addEventListener('click', function() {
+                track.applyConstraints({
+                    advanced: [{ torch: true }]
+                });
+            })
+
+            function endStream() {
+                track.stop();
+            }
+            initendStream = endStream;
 
 
-        // When barcode is detected
-        BarcodeScanner.streamCallback = function(result) {
-            document.getElementById('barcode').value = result[0].Value
-            barcodeicon.style.color = "#10ac84";
-            barcodeicon.style.opacity = "1";
-            setTimeout(function() {
+            // When barcode is detected
+            BarcodeScanner.streamCallback = function(result) {
+                document.getElementById('barcode').value = result[0].Value
+                barcodeicon.style.color = "#10ac84";
+                barcodeicon.style.opacity = "1";
+                setTimeout(function() {
+                    BarcodeScanner.StopStreamDecode()
+                    video.pause()
+                    stream.getTracks()[0].stop()
+                    container.classList.add('fadeOut')
+                    closer.classList.add('fadeOut')
+                    barcodeicon.style.color = "#fff";
+                    barcodeicon.style.opacity = "0.4";
+                }, 300);
+                setTimeout(function() {
+                    container.classList.remove('fadeOut')
+                    closer.classList.remove('fadeOut')
+                    container.style.display = 'none'
+                    closer.style.display = 'none'
+                }, 500);
+
+                // Auto submit barcode
+                document.getElementsByTagName('button')[0].click();
+            }
+
+            // Close stream when button is clicked
+            btnclose.onclick = function(close) {
                 BarcodeScanner.StopStreamDecode()
                 video.pause()
                 stream.getTracks()[0].stop()
                 container.classList.add('fadeOut')
                 closer.classList.add('fadeOut')
-                barcodeicon.style.color = "#fff";
-                barcodeicon.style.opacity = "0.4";
-                }, 300);
-            setTimeout(function() {
-                container.classList.remove('fadeOut')
-                closer.classList.remove('fadeOut')
-                container.style.display = 'none'
-                closer.style.display = 'none'
-            }, 500);
+                setTimeout(function() {
+                    container.classList.remove('fadeOut')
+                    closer.classList.remove('fadeOut')
+                    container.style.display = 'none'
+                    closer.style.display = 'none'
+                }, 1000);
+            }
 
-            // Auto submit barcode
-            document.getElementsByTagName('button')[0].click();
-        }
+            video.setAttribute('autoplay', '')
+            video.setAttribute('playsinline', '')
+            video.setAttribute('style', 'width: 100%; height: 100%;')
+            video.srcObject = stream
 
-        // Close stream when button is clicked
-        btnclose.onclick = function(close) {
-            BarcodeScanner.StopStreamDecode()
-            video.pause()
-            stream.getTracks()[0].stop()
-            container.classList.add('fadeOut')
-            closer.classList.add('fadeOut')
-            setTimeout(function() {
-                container.classList.remove('fadeOut')
-                closer.classList.remove('fadeOut')
-                container.style.display = 'none'
-                closer.style.display = 'none'
-            }, 1000);
-        }
-
-        video.setAttribute('autoplay', '')
-        video.setAttribute('playsinline', '')
-        video.setAttribute('style', 'width: 100%; height: 100%;')
-        video.srcObject = stream
-
-        container.appendChild(video)
-        video.onloadedmetadata = function(e) {
-            video.play()
-            BarcodeScanner.DecodeStream(video)
-        }
+            container.appendChild(video)
+            video.onloadedmetadata = function(e) {
+                video.play()
+                BarcodeScanner.DecodeStream(video)
+            }
         }).catch(function(err) {})
     }
-document.getElementById('result').style.display = 'block';
+    document.getElementById('result').style.display = 'block';
 }
 
 // Close modal on escape-key press
@@ -159,7 +172,7 @@ $(document).on('keyup', function(e) {
 // submit.js
 $('button[name="submit"]').on('click', function(e) {
     e.preventDefault();
-    $(".timeout-final").css("display","none");
+    $(".timeout-final").css("display", "none");
     $.ajax({
         url: '../script.php',
         type: 'POST',
@@ -168,9 +181,9 @@ $('button[name="submit"]').on('click', function(e) {
             barcode: $('input[name="barcode"]').val(),
             lang: $('input[name="lang"]').val()
         },
-        error: function(){
-          $(".timeout").css("display","none");
-          $(".timeout-final").css("display","block");
+        error: function() {
+            $(".timeout").css("display", "none");
+            $(".timeout-final").css("display", "block");
         },
         success: function(result) {
             $('#result').html(result);
@@ -181,75 +194,75 @@ $('button[name="submit"]').on('click', function(e) {
             // Scroll to result
             self.location.href = '#resscroll';
 
-            $(document).on('click', function(){
+            $(document).on('click', function() {
                 $(".container").removeClass('modalIsOpen')
                 $(".modal_view").addClass('fadeOut')
                 setTimeout(function() {
-                    $(".modal_view").css("display","none")
+                    $(".modal_view").css("display", "none")
                     $(".modal_view").removeClass('fadeOut')
                     $(".modal_view").addClass('fadeIn')
                 }, 500);
             });
-            $(".modal_view").on('click', function(event){
+            $(".modal_view").on('click', function(event) {
                 event.stopPropagation();
             });
 
-            $('#nutri_modal').click(function(){
-                $("#nutriscore").css("display","block")
+            $('#nutri_modal').click(function() {
+                $("#nutriscore").css("display", "block")
                 $(".container").addClass('modalIsOpen')
                 event.stopPropagation();
             });
-            $('.modal_close').click(function(){
+            $('.modal_close').click(function() {
                 $("#nutriscore").addClass('fadeOut')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
-                    $("#nutriscore").css("display","none")
+                    $("#nutriscore").css("display", "none")
                     $("#nutriscore").removeClass('fadeOut')
                     $("#nutriscore").addClass('fadeIn')
                 }, 500);
             });
-            $('#palm_modal').click(function(){
-                $("#palmoil").css("display","block")
+            $('#palm_modal').click(function() {
+                $("#palmoil").css("display", "block")
                 $(".container").addClass('modalIsOpen')
                 event.stopPropagation();
             });
-            $('.modal_close').click(function(){
+            $('.modal_close').click(function() {
                 $("#palmoil").addClass('fadeOut')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
                     $("#palmoil").removeClass('fadeOut')
                     $("#palmoil").addClass('fadeIn')
-                    $("#palmoil").css("display","none")
+                    $("#palmoil").css("display", "none")
 
                 }, 500);
             });
-            $('#processed_modal').click(function(){
-                $("#processed").css("display","block")
+            $('#processed_modal').click(function() {
+                $("#processed").css("display", "block")
                 $(".container").addClass('modalIsOpen')
                 event.stopPropagation();
             });
-            $('.modal_close').click(function(){
+            $('.modal_close').click(function() {
                 $("#processed").addClass('fadeOut')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
                     $("#processed").removeClass('fadeOut')
                     $("#processed").addClass('fadeIn')
-                    $("#processed").css("display","none")
+                    $("#processed").css("display", "none")
 
                 }, 500);
             });
-            $('#license_modal').click(function(){
-                $("#license").css("display","block")
+            $('#license_modal').click(function() {
+                $("#license").css("display", "block")
                 $(".container").addClass('modalIsOpen')
                 event.stopPropagation();
             });
-            $('.modal_close').click(function(){
+            $('.modal_close').click(function() {
                 $("#license").addClass('fadeOut')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
                     $("#license").removeClass('fadeOut')
                     $("#license").addClass('fadeIn')
-                    $("#license").css("display","none")
+                    $("#license").css("display", "none")
 
                 }, 500);
             });
@@ -273,34 +286,105 @@ $(document)
 // "Timeout"-Warning
 var ajaxLoadTimeout;
 $(document).ajaxStart(function() {
-    ajaxLoadTimeout = setTimeout(function() { 
-        $(".timeout").css("display","block");
+    ajaxLoadTimeout = setTimeout(function() {
+        $(".timeout").css("display", "block");
     }, 1500);
 
 }).ajaxSuccess(function() {
     clearTimeout(ajaxLoadTimeout);
-    $(".timeout").css("display","none");
+    $(".timeout").css("display", "none");
 });
 
 // Check if user is offline
 window.addEventListener('offline', function(e) { window.location.href = "/offline"; });
 
 // Share button init
-function sharebutton()
-{
+function sharebutton() {
     const title = document.title;
-    const text = document.getElementById('name_sh').innerHTML + " " + document.getElementById('result_sh').innerHTML + " - Checked using VeganCheck";
+    const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
     const url = "https://vegancheck.me"
 
     if (navigator.share !== undefined) {
-            navigator.share({
+        navigator.share({
                 title,
                 text,
                 url
             })
             .catch(err => "");
     } else {
-      window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me&text=${encodeURI(text)}`;
+        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me&text=${encodeURI(text)}`;
     }
 
-} 
+}
+
+// Ingredient checker
+// submit.js
+$('button[name="checkingredients"]').on('click', function(e) {
+    e.preventDefault();
+    $(".timeout-final").css("display", "none");
+    $.ajax({
+        url: '../ingredients_script.php',
+        type: 'POST',
+        timeout: 8000,
+        data: {
+            ingredients: $('textarea[name="ingredients"]').val(),
+            lang: $('input[name="lang"]').val()
+        },
+        error: function() {
+            $(".timeout").css("display", "none");
+            $(".timeout-final").css("display", "block");
+        },
+        success: function(result) {
+            $('#result').html(result);
+            $('html, body').animate({
+                scrollTop: $('#resscroll').offset().top
+            }, 900, 'swing');
+
+            // Scroll to result
+            self.location.href = '#resscroll';
+
+            $(document).on('click', function() {
+                $(".container").removeClass('modalIsOpen')
+                $(".modal_view").addClass('fadeOut')
+                setTimeout(function() {
+                    $(".modal_view").css("display", "none")
+                    $(".modal_view").removeClass('fadeOut')
+                    $(".modal_view").addClass('fadeIn')
+                }, 500);
+            });
+            $(".modal_view").on('click', function(event) {
+                event.stopPropagation();
+            });
+            $('#processed_modal').click(function() {
+                $("#processed").css("display", "block")
+                $(".container").addClass('modalIsOpen')
+                event.stopPropagation();
+            });
+            $('.modal_close').click(function() {
+                $("#processed").addClass('fadeOut')
+                $(".container").removeClass('modalIsOpen')
+                setTimeout(function() {
+                    $("#processed").removeClass('fadeOut')
+                    $("#processed").addClass('fadeIn')
+                    $("#processed").css("display", "none")
+
+                }, 500);
+            });
+            $('#license_modal').click(function() {
+                $("#license").css("display", "block")
+                $(".container").addClass('modalIsOpen')
+                event.stopPropagation();
+            });
+            $('.modal_close').click(function() {
+                $("#license").addClass('fadeOut')
+                $(".container").removeClass('modalIsOpen')
+                setTimeout(function() {
+                    $("#license").removeClass('fadeOut')
+                    $("#license").addClass('fadeIn')
+                    $("#license").css("display", "none")
+
+                }, 500);
+            });
+        }
+    });
+});
