@@ -1,45 +1,6 @@
 <?php
-  require('vendor/autoload.php');
-  $i18n = new i18n('/var/www/virtual/jake/vegancheck.me/l10n/{LANGUAGE}.json', '/var/www/virtual/jake/vegancheck.me/langcache/', 'en');
-  $i18n->init();
+  include_once('includes/header.php');
 ?>
-<!DOCTYPE html>
-<!-- VeganCheck.me is Open Source
-Check the project out on GitHub: 
-https://vegc.net/repo
--->
-<html lang="<?php echo L::meta_lang; ?>">
-  <head>
-    <title><?php echo L::meta_title; ?></title>
-    <meta charset="UTF-8">
-
-    <meta name="description" content="<?php echo L::meta_description; ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:title" content="<?php echo L::meta_title;  ?>">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vegancheck.me">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png?v=2.0.0">
-    <meta name="twitter:image:alt" content="VeganCheck.me">
-
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../img/icon.png?v=2.0.0">
-
-    <link rel="manifest" href="../img/site.webmanifest?v=1.0.1">
-
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="msapplication-starturl" content="/">
-    <meta name="theme-color" content="#141414">
-
-    <meta name="application-name" content="VeganCheck">
-    <meta name="apple-mobile-web-app-title" content="VeganCheck">
-    <link rel="apple-touch-startup-image" href="../img/iossplash.png?v=1.0.0">
-
-    <link href="../css/style.min.css?v=4.0.1" rel="stylesheet">
-    <link href="../node_modules/pwa-install-prompt/style.css" rel="stylesheet">
   </head>
 
   <body id="top">
@@ -116,37 +77,8 @@ https://vegc.net/repo
   <div id="background"></div>
 </div>
 
-<div class="pwa-install-prompt__container">
-            <button class="pwa-install-prompt__overlay"><?php echo L::prompt_close; ?></button>
-            <div class="pwa-install-prompt">
-                <div class="pwa-install-prompt__icon__container">
-                    <img class="pwa-install-prompt__icon" src="../img/icon.png" alt="VeganCheck.me">
-                </div>
-                <div class="pwa-install-prompt__content">
-                    <h3 class="pwa-install-prompt__title"><?php echo L::prompt_install; ?></h3>
-                    <p class="pwa-install-prompt__text"><?php echo L::prompt_desc; ?></p>
-                    <p class="pwa-install-prompt__guide"><?php echo L::prompt_info; ?></p>
-                </div>
-            </div>
-        </div>
-
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../js/BarcodeScanner.min.js"></script>
-<script src="../js/app.js?v=1.0.16"></script>
-<script src="../node_modules/pwa-install-prompt/script.js"></script>
-<script>
-var prompt = new pwaInstallPrompt();
-</script>
-<?php 
-        if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
-          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
-        }  
-        elseif (isset($_COOKIE['log']) && $_COOKIE['log'] == "No"){
-          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5"></script>');
-        }  
-        else{
-          print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
-        } 
+<?php
+  include_once('includes/footer.php');
 ?>
   </body>
 </html>
