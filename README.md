@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<b><a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://jokenetwork.de/#projects">Product page on JokeNetwork.de</a> | <a href="https://jokenetwork.de/vegancheck-api">API</a></b>
+<a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://jokenetwork.de/#projects">Product page on JokeNetwork.de</a> | <a href="https://jokenetwork.de/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
 </p>
 	
   
