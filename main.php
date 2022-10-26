@@ -50,16 +50,17 @@
           <fieldset>
             <legend><?php echo L::form_enterbarcode; ?></legend>
             <span class="btn_scan" onclick="setupLiveReader()" aria-label="<?php echo L::form_scanbarcode; ?>" role="button" tabindex="0"><span class="icon-barcode"></span></span>
-            <input type="number" id="barcode" name="barcode" placeholder="<?php echo L::form_enterbarcode; ?>" autofocus>
+            <input type="number" id="barcode" name="barcode" placeholder="<?php echo L::form_enterbarcode.'"'; if(isset($_GET['ean'])){echo 'value="'.$_GET['ean'].'"';}?> autofocus>
             <button name="submit" aria-label="<?php echo L::form_submit; ?>" role="button"><span class="icon-right-open"></span></button>
           </fieldset>
         </form>
         <div class="timeout animated fadeIn" style="display:none;"><?php echo L::other_timeout; ?><span>.</span><span>.</span><span>.</span></div>
          <div class="timeout-final animated fadeIn" style="display:none;"><?php echo L::other_timeoutfinal; ?></div>
         <div id="result">&nbsp;</div> 
-        <a href="/ingredients"><span class="icon-right-open"></span><?php echo L::ingredients_title; ?></a>
+        <a href="/ingredients"><span class="icon-right-open"></span><?php echo L::ingredients_title; ?></a><br>
       </div>
         <footer>
+            <a href="https://shareshortcuts.com/download/2224-vegancheck.html" id="shortcut"><img src="../img/shortcuts.svg" alt="Add to Shortcuts" style="width: 7rem!important; padding-top: 2rem;"></a>
             <p><?php echo L::footer_credits; ?>
             <br><?php echo L::footer_legal; ?></p>
             <?php if(date('m')=="01"){echo '<a href="https://veganuary.com/try-vegan/"><img src="../img/veganuary.svg" alt="We are taking part in Veganuary" class="labels"></a>';} ?>

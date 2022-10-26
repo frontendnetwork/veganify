@@ -169,6 +169,13 @@ $(document).on('keyup', function(e) {
     if (e.key == "Escape") $('#closebtn').click();
 });
 
+// Submit if parameter EAN is filled
+$(document).ready(function() {
+    if (window.location.href.indexOf("ean") > -1) {
+      document.getElementsByTagName('button')[0].click();
+    }
+  });
+
 // submit.js
 $('button[name="submit"]').on('click', function(e) {
     e.preventDefault();
@@ -302,17 +309,19 @@ window.addEventListener('offline', function(e) { window.location.href = "/offlin
 function sharebutton() {
     const title = document.title;
     const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
-    const url = "https://vegancheck.me"
+    const ean = document.getElementById('barcode').value;
+    const url = "https://vegancheck.me?ean="+ean;
 
     if (navigator.share !== undefined) {
         navigator.share({
                 title,
                 text,
+                ean,
                 url
             })
             .catch(err => "");
     } else {
-        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me&text=${encodeURI(text)}`;
+        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/de/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
     }
 
 }
@@ -388,3 +397,19 @@ $('button[name="checkingredients"]').on('click', function(e) {
         }
     });
 });
+
+// Only show shortcut on iOS
+var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if (!isIOS) {
+    document.getElementById('shortcut').style.display = 'none';
+}
+
+// Only show shortcut if PWA is not installed
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.getElementById('shortcut').style.display = 'none';
+}
+
+// Don't show shortcut if the shortcut is already executed
+if (window.location.href.indexOf("shortcut") > -1) {
+    document.getElementById('shortcut').style.display = 'none';
+}
