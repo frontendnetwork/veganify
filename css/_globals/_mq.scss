@@ -8,6 +8,14 @@
         color: #fff;
     }
 
+    .pwa-install-prompt__text, .pwa-install-prompt__guide {
+        color: #000!important;
+
+        p {
+            color: #000!important;
+        }
+    }
+
     footer {
         a {
             color: #fff;
