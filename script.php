@@ -505,6 +505,7 @@ elseif ($vegan == "unknown")
                         <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
                       </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
+                      <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
                       <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
