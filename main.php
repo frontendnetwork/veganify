@@ -60,7 +60,6 @@
         <a href="/ingredients"><span class="icon-right-open"></span><?php echo L::ingredients_title; ?></a><br>
       </div>
         <footer>
-            <a href="https://shareshortcuts.com/download/2224-vegancheck.html" id="shortcut"><img src="../img/shortcuts.svg" alt="Add to Shortcuts" style="width: 7rem!important; padding-top: 2rem;"></a>
             <p><?php echo L::footer_credits; ?>
             <br><?php echo L::footer_legal; ?></p>
             <?php if(date('m')=="01"){echo '<a href="https://veganuary.com/try-vegan/"><img src="../img/veganuary.svg" alt="We are taking part in Veganuary" class="labels"></a>';} ?>
@@ -71,6 +70,21 @@
         </footer>
       </div>
     </div>
+
+  <div id="shortcut">
+    <div class="flex-container">
+      <div class="flex-item">
+    <img src="../img/shortcuts.png">
+  </div>
+  <div class="flex-item">
+    <span class="heading">Shortcuts</span>
+    <span class="subheading">Open in the shortcuts app</span>
+  </div>
+  <div class="flex-item">
+    <a href="https://shareshortcuts.com/download/2224-vegancheck.html"> <span class="button">Open</span></a>
+  </div>
+  </div>
+  </div>
 
  <div id="controls" style="display:none;">
   <span id="close"><span class="btn-dark" id="closebtn">&times; <?php echo L::layover_close; ?></span><span class="btn-dark" id="torch"><span class="icon-flash"></span></span><span class="btn-dark" id="flipbutton"><span class="icon-flipcamera"></span></span></span>

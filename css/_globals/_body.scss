@@ -108,7 +108,8 @@ textarea {
     padding-top: 3.125rem !important;
     color: #000;
 
-    a, h1 {
+    a,
+    h1 {
         color: #000;
     }
 }
@@ -170,9 +171,10 @@ sup {
 
 .ingredients {
     h2 {
-        color: #000!important;
+        color: #000 !important;
     }
 }
+
 .icon-left-open {
     position: absolute;
     left: 0;
@@ -180,6 +182,7 @@ sup {
     padding: 1rem;
     text-decoration: none;
 }
+
 /* Main container with border */
 .form {
     word-wrap: break-word;
@@ -206,7 +209,7 @@ sup {
         border-top: .005rem solid #ccc;
         padding: .5rem;
 
-        &:first-child{
+        &:first-child {
             border-top: none;
         }
     }
@@ -468,7 +471,8 @@ table {
     white-space: nowrap;
 }
 
-table tbody, thead {
+table tbody,
+thead {
     text-align: left;
 }
 
@@ -486,5 +490,85 @@ table tbody, thead {
 
     h3 {
         padding-top: 5rem;
+    }
+}
+
+/* Open Shortcuts */
+#shortcut {
+    cursor: pointer;
+    color: #0abde3;
+    font-weight: bold;
+    position: absolute;
+    z-index: 99999999999;
+    top: 0%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: #121212;
+    width: 100%;
+    border-bottom: solid grey .01rem;
+    text-align: left;
+    height: 2.8rem;
+
+    .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+        writing-mode: horizontal-tb;
+        padding: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin: 0;
+        list-style: none;
+    }
+
+    .flex-item {
+        height: 2.5rem;
+        margin: 0;
+        padding: 0;
+        padding-top: .2rem;
+
+        &:first-child {
+            width: 2.5rem;
+        }
+
+        &:last-child {
+            margin-top: .3rem;
+            margin-left: auto;
+            float: right;
+            justify-content: flex-end;
+        }
+    }
+
+    .heading {
+        font-size: .8rem;
+        font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #FFF;
+    }
+
+    .subheading {
+        font-size: .7rem;
+        font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+        display: block;
+        color: #ccc;
+        font-weight: 400;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .button {
+        font-size: .7rem;
+        color: #FFF;
+        text-transform: uppercase;
+        background: #007aff;
+        padding: .5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        border-radius: 3rem;
+    }
+
+    img {
+        width: 2rem;
     }
 }
