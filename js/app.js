@@ -310,7 +310,7 @@ function sharebutton() {
     const title = document.title;
     const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
     const ean = document.getElementById('barcode').value;
-    const url = "https://vegancheck.me?ean="+ean;
+    const url = "https://vegancheck.me/en/?ean="+ean;
 
     if (navigator.share !== undefined) {
         navigator.share({
@@ -321,7 +321,7 @@ function sharebutton() {
             })
             .catch(err => "");
     } else {
-        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/de/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
+        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
     }
 
 }
