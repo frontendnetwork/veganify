@@ -28,10 +28,9 @@
       </div>
     </noscript>
 
-    <div class="container">
+    <div class="container top">
       <div id="main">
         <div class="form ingredients" id="resscroll">
-          <a href="javascript:history.back();" class="icon-left-open"></a>
           <img src="../img/VeganCheck.svg" alt="Logo" class="logo">
           <h2><?php echo L::ingredients_title; ?></h2>
           <p><?php echo L::ingredients_subtitle; ?> - <?php echo L::ingredients_placeholder; ?></p>
@@ -47,8 +46,7 @@
           <div id="result">&nbsp;</div> 
       </div>
         <footer>
-            <p><?php echo L::footer_credits; ?>
-            <br><?php echo L::footer_legal; ?></p>
+            <p><?php echo L::footer_credits; ?></p>
             <?php if(date('m')=="01"){echo '<a href="https://veganuary.com/try-vegan/"><img src="../img/veganuary.svg" alt="We are taking part in Veganuary" class="labels"></a>';} ?>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="../img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="../img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
@@ -57,6 +55,27 @@
         </footer>
       </div>
     </div>
+
+      <nav class="nav">
+    <div class="flex-container">
+      <div class="flex-item">
+        <a href="/">
+          <span class="icon icon-vegancheck"></span>
+          <span class="menu-item">Home</span>
+      </a>
+      </div>
+  <div class="flex-item active">
+        <span class="icon icon-ingredients"></span>
+        <span class="menu-item"><?php echo L::ingredients_shorttitle; ?></span>
+  </div>
+  <div class="flex-item">
+    <a href="../more">
+      <span class="icon icon-ellipsis"></span>
+      <span class="menu-item"><?php echo L::more_more; ?></span>
+    </a>
+  </div>
+  </div>
+  </nav>
 
 <?php
   include_once('includes/footer.php');

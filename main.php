@@ -42,7 +42,7 @@
         <h3>VeganCheck.me only works properly with Javascript enabled. <a href="https://www.enable-javascript.com">Learn how to enable Javascript here</a>.</h3>
       </div>
     </noscript>
-    <div class="container">
+    <div class="container" id="mainpage">
       <div id="main">
         <div class="form" id="resscroll">
         <img src="../img/VeganCheck.svg" alt="Logo" class="logo">
@@ -56,12 +56,10 @@
         </form>
         <div class="timeout animated fadeIn" style="display:none;"><?php echo L::other_timeout; ?><span>.</span><span>.</span><span>.</span></div>
          <div class="timeout-final animated fadeIn" style="display:none;"><?php echo L::other_timeoutfinal; ?></div>
-        <div id="result">&nbsp;</div> 
-        <a href="/ingredients"><span class="icon-right-open"></span><?php echo L::ingredients_title; ?></a><br>
+        <div id="result">&nbsp;</div>
       </div>
         <footer>
-            <p><?php echo L::footer_credits; ?>
-            <br><?php echo L::footer_legal; ?></p>
+            <p><?php echo L::footer_credits; ?></p>
             <?php if(date('m')=="01"){echo '<a href="https://veganuary.com/try-vegan/"><img src="../img/veganuary.svg" alt="We are taking part in Veganuary" class="labels"></a>';} ?>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="../img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="../img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
@@ -85,6 +83,27 @@
   </div>
   </div>
   </div>
+
+   <nav class="nav">
+    <div class="flex-container">
+      <div class="flex-item active">
+        <span class="icon icon-vegancheck"></span>
+        <span class="menu-item">Home</span>
+      </div>
+  <div class="flex-item">
+    <a href="/ingredients">
+        <span class="icon icon-ingredients"></span>
+        <span class="menu-item"><?php echo L::ingredients_shorttitle; ?></span>
+    </a>
+  </div>
+  <div class="flex-item">
+    <a href="/more">
+      <span class="icon icon-ellipsis"></span>
+      <span class="menu-item"><?php echo L::more_more; ?></span>
+    </a>
+  </div>
+  </div>
+  </nav>
 
  <div id="controls" style="display:none;">
   <span id="close"><span class="btn-dark" id="closebtn">&times; <?php echo L::layover_close; ?></span><span class="btn-dark" id="torch"><span class="icon-flash"></span></span><span class="btn-dark" id="flipbutton"><span class="icon-flipcamera"></span></span></span>
