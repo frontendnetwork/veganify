@@ -398,18 +398,21 @@ $('button[name="checkingredients"]').on('click', function(e) {
     });
 });
 
+// Only show shortcut if PWA is not installed
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.getElementById('shortcut').style.display = 'none';
+    document.getElementById('mainpage').classList.add('top');
+}
+
 // Only show shortcut on iOS
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 if (!isIOS) {
     document.getElementById('shortcut').style.display = 'none';
-}
-
-// Only show shortcut if PWA is not installed
-if (window.matchMedia('(display-mode: standalone)').matches) {
-    document.getElementById('shortcut').style.display = 'none';
+    document.getElementById('mainpage').classList.add('top');
 }
 
 // Don't show shortcut if the shortcut is already executed
 if (window.location.href.indexOf("shortcut") > -1) {
     document.getElementById('shortcut').style.display = 'none';
+    document.getElementById('mainpage').classList.add('top');
 }
