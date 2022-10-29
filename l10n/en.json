@@ -78,11 +78,21 @@
     },
     "ingredients":
     {
+        "shorttitle": "Ingredient-check",
         "title": "Vegan Ingredient Checker",
         "subtitle": "Check if the Ingredients of a product are vegan!",
         "placeholder": "Enter ingredients comma seperated",
         "error": "Ingredients-list cannot be empty or include special characters and have to be comma seperated!",
         "translated": "Translated with",
         "and": "and"
+    },
+    "more": 
+    {
+        "more": "More",
+        "supportus": "Buy us a coffee",
+        "tos": "Terms of service",
+        "privacypolicy": "Privacy policy",
+        "api": "API documentation",
+        "imprint": "Imprint"
     }
 }

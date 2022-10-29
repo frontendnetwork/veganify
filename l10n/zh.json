@@ -78,11 +78,21 @@
     },
     "ingredients":
     {
+        "shorttitle": "成分检查",
         "title": "纯素食成分检查器",
         "subtitle": "检查一个产品的成分是否是素食者!",
         "placeholder": "输入以逗号隔开的成分",
         "error": "成分列表不能为空，也不能包括特殊字符，必须用逗号隔开。",
         "translated": "译文：用",
         "and": "和"
+    },
+    "more": 
+    {
+        "more": "更多",
+        "supportus": "请我们喝咖啡",
+        "tos": "服务条款",
+        "privacypolicy": "隐私政策",
+        "api": "API文件",
+        "imprint": "版本说明"
     }
 }

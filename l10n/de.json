@@ -78,11 +78,21 @@
     },
     "ingredients":
     {
+        "shorttitle": "Zutatencheck",
         "title": "Zutatenliste Vegan Check",
         "subtitle": "Prüfe, ob die Inhaltsstoffe eines Produkts vegan sind!",
         "placeholder": "Zutaten kommagetrennt eingeben",
         "error": "Die Zutatenliste darf nicht leer sein oder Sonderzeichen enthalten und muss durch Kommata getrennt sein!",
         "translated": "Übersetzt mit",
         "and": "und"
+    },
+    "more": 
+    {
+        "more": "Mehr",
+        "supportus": "Kauf uns einen Kaffee",
+        "tos": "Nutzungsbedingungen",
+        "privacypolicy": "Datenschutzerklärung",
+        "api": "API Dokumentation",
+        "imprint": "Impressum"
     }
 }

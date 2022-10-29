@@ -78,11 +78,21 @@
     },
     "ingredients":
     {
+        "shorttitle": "Ingrediënten Controle",
         "title": "Vegan Ingredient Checker",
         "subtitle": "Controleer of de Ingrediënten van een product veganistisch zijn!",
         "placeholder": "Voer ingrediënten kommagescheiden in.",
         "error": "Ingredients-list kan niet leeg zijn of speciale tekens bevatten en moet met komma's gescheiden zijn!",
         "translated": "Vertaald met",
         "and": "en"
+    },
+    "more": 
+    {
+        "more": "Meer",
+        "supportus": "Koop ons een koffie",
+        "tos": "Algemene voorwaarden",
+        "privacypolicy": "Privacybeleid",
+        "api": "API-documentatie",
+        "imprint": "Afdruk"
     }
 }

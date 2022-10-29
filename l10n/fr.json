@@ -78,11 +78,21 @@
     },
     "ingredients":
     {
+        "shorttitle": "Vérification des ingrédients",
         "title": "V\u00e9rificateur d'ingrédients v\u00e9g\u00e9taliens",
         "subtitle": "V\u00e9rifiez si les ingr\u00e9dients d'un produit sont v\u00e9g\u00e9taliens !",
         "placeholder": "Entrez les ingr\u00e9dients séparés par des virgules",
         "error": "La liste des ingr\u00e9dients ne peut \u00eatre vide ou inclure des caract\u00e8res sp\u00e9ciaux et doit \u00eatre s\u00e9par\u00e9e par des virgules !",
         "translated": "Traduit avec",
         "and": "et"
+    },
+    "more": 
+    {
+        "more": "Plus de",
+        "supportus": "Achetez-nous un café",
+        "tos": "Conditions d'utilisation",
+        "privacypolicy": "Politique de confidentialité",
+        "api": "Documentation de l'API",
+        "imprint": "Mentions légales"
     }
 }

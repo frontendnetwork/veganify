@@ -78,11 +78,21 @@
     },
     "ingredients":
     {
+        "shorttitle": "Ingredientes Comprobar",
         "title": "Verificador de ingredientes veganos",
         "subtitle": "Compruebe si los ingredientes de un producto son veganos.",
         "placeholder": "Introduzca los ingredientes separados por comas",
         "error": "La lista de ingredientes no puede estar vacía ni incluir caracteres especiales y tiene que estar separada por comas.",
         "translated": "Traducido con",
         "and": "y"
+    },
+    "more": 
+    {
+        "more": "Más",
+        "supportus": "Invítenos a un café",
+        "tos": "Condiciones de servicio",
+        "privacypolicy": "Política de privacidad",
+        "api": "Documentación de la API",
+        "imprint": "Aviso legal"
     }
 }
