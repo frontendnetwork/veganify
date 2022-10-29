@@ -35,7 +35,8 @@ https://vegc.net/repo
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="msapplication-starturl" content="/">
-    <meta name="theme-color" content="#141414">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#7f8fa6">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141414">
 
     <meta name="application-name" content="VeganCheck">
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
