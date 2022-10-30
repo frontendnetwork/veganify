@@ -26,7 +26,8 @@ VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and
 VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.io and Open EAN Database in one tool. 
 <details>
   <summary>See an example of how it works!</summary>
-  <img src="https://user-images.githubusercontent.com/4144601/196530680-227ab5d9-2c21-4592-8033-8fc6ff77ae51.gif" width="350">
+  <img src="https://user-images.githubusercontent.com/4144601/198900839-8dc58d58-fdb8-48b6-93e4-a4662ae64954.mov" width="300">
+  <img src="https://user-images.githubusercontent.com/4144601/198900861-49ef1a5f-0663-4d73-b72d-d147cddaabd3.MP4" width="300">
 </details>	
 
 	
