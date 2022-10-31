@@ -34,7 +34,7 @@ $palmoil = null;
 $nutriscore = null;
 
 // Open Issue on GitHub when error occurs (Delete if you're not using VeganCheck.me-Tracker)
-$openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body=' . urlencode('Error ticket #' . $ticket . ' (Please always include this number!) - Please describe your issue:') . '" target="_blank" class="btn-dark">' . L::results_reporterror . '</a>';
+$openissue = '<a href="https://github.com/JokeNetwork/vegancheck.me/issues/new?assignees=philipbrembeck&labels=bug&body=' . urlencode('Error ticket #' . $ticket . ' (Please always include this number!) - Please describe your issue:') . '" target="_blank" class="button">' . L::results_reporterror . '</a>';
 
 // Barcode is empty
 if (empty($sent_barcode) || $sent_barcode == null)
@@ -457,8 +457,8 @@ if ($vegan == "false")
                         <div class="Grid-cell icons"><span class="non-vegan icon-cancel"></span></div>
                       </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>' . $processed . '</span>
-                      <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
-                      <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
+                      <span class="button" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <a href="' . $edituri . '" target="_blank" class="button"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
@@ -488,8 +488,8 @@ elseif ($vegan == "true")
                         <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
                       </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup>' . $processed . '</span>
-                      <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
-                      <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
+                      <span class="button" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <a href="' . $edituri . '" target="_blank" class="button"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
@@ -498,15 +498,15 @@ elseif ($vegan == "unknown")
     print_r('<div class="animated fadeIn">
                     <div class="resultborder">
                       <span class="unknown">
-                        <span class="name">"' . $productname . '":</span>
+                        <span class="name" id="name_sh">"' . $productname . '":</span>
                       </span>
                       <span id="result_sh"><div class="Grid">
                         <div class="Grid-cell description">' . L::results_vegan . '</div>
                         <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
                       </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup id="license_modal">?</sup></span>
-                      <span class="btn-dark" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
-                      <a href="' . $edituri . '" target="_blank" class="btn-dark"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
+                      <span class="button" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <a href="' . $edituri . '" target="_blank" class="button"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
 }
