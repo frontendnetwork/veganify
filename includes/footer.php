@@ -1,24 +1,24 @@
-<div class="pwa-install-prompt__container">
-            <button class="pwa-install-prompt__overlay"><?php echo L::prompt_close; ?></button>
-            <div class="pwa-install-prompt">
-                <div class="pwa-install-prompt__icon__container">
-                    <img class="pwa-install-prompt__icon" src="../img/icon.png" alt="VeganCheck.me">
-                </div>
-                <div class="pwa-install-prompt__content">
-                    <h3 class="pwa-install-prompt__title"><?php echo L::prompt_install; ?></h3>
-                    <p class="pwa-install-prompt__text"><?php echo L::prompt_desc; ?></p>
-                    <p class="pwa-install-prompt__guide"><?php echo L::prompt_info; ?></p>
-                </div>
-            </div>
+<div id="pwainstall">
+    <div class="flex-container">
+        <div class="flex-item" id="pwaclose">
+            &times;
         </div>
+        <div class="flex-item">
+            <img src="../img/maskable_icon.png">
+        </div>
+        <div class="flex-item">
+            <span class="heading">VeganCheck.me</span>
+            <span class="subheading"><?php echo L::meta_title; ?></span>
+        </div>
+        <div class="flex-item">
+            <span class="button" id="getbtn"><?php echo L::prompt_get; ?></span>
+        </div>
+    </div>
+</div>
 
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/BarcodeScanner.min.js"></script>
 <script src="../js/app.js?v=<?php echo $versions->js; ?>"></script>
-<script src="../node_modules/pwa-install-prompt/script.js"></script>
-<script>
-var prompt = new pwaInstallPrompt();
-</script>
 <?php 
         if (isset($_COOKIE['log']) && $_COOKIE['log'] == "Yes"){
           print_r('<script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts=\'{ "detailed": true }\'></script>');
