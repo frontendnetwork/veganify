@@ -16,4 +16,21 @@
     --unknown: #576574;
     --link-color: #ccc;
     --link-transition-color: #000;
+    --button-bg: #007aff;
+    --button-fg: #fff;
+    --button-bg-re: #007aff;
+    --button-fg-re: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: #7f8fa6;
+        --fg-color: #fff;
+        --link-color: #fff;
+        --link-transition-color: #ccc;
+        --button-bg: #fff;
+        --button-fg: #7f8fa6;
+        --button-bg-re: #7f8fa6;
+        --button-fg-re: #fff;
+        }
 }
