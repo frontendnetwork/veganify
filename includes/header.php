@@ -43,4 +43,3 @@ https://vegc.net/repo
     <link rel="apple-touch-startup-image" href="../img/iossplash.png?v=<?php echo $versions->img; ?>">
 
     <link href="../css/style.min.css?v=<?php echo $versions->css; ?>" rel="stylesheet">
-    <link href="../node_modules/pwa-install-prompt/style.css" rel="stylesheet">
