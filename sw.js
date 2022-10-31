@@ -1,7 +1,7 @@
 addEventListener('install', (event) => {
   event.waitUntil(async function() {
-    const cache = await caches.open('static-v1.6');
-    await cache.addAll(["../offline.php","../css/style.min.css","../img/VeganCheck.svg"]);
+    const cache = await caches.open('static-v1.7');
+    await cache.addAll(["../offline.php","../css/style.min.css", "../css/font/Montserrat-Bold.ttf", "../css/font/Montserrat-Regular.ttf", "../css/font/Montserrat-SemiBold.ttf", "../img/VeganCheck.svg"]);
   }());
 });
 
