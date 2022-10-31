@@ -51,7 +51,6 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
   $ composer require rmccue/requests
   $ composer require vlucas/phpdotenv
   $ composer require philipp15b/php-i18n
-  $ npm i pwa-install-prompt
   $ npm i barcode-reader
   $ npm i jquery
   ````
