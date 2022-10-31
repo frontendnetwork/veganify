@@ -4,29 +4,50 @@
   </head>
 
   <body id="top">
+       <nav class="nav">
+    <div class="flex-container">
+      <div class="flex-item active">
+        <span class="icon icon-vegancheck"></span>
+        <span class="menu-item">Home</span>
+      </div>
+  <div class="flex-item">
+    <a href="/ingredients">
+        <span class="icon icon-ingredients"></span>
+        <span class="menu-item"><?php echo L::ingredients_shorttitle; ?></span>
+    </a>
+  </div>
+  <div class="flex-item">
+    <a href="/more">
+      <span class="icon icon-ellipsis"></span>
+      <span class="menu-item"><?php echo L::more_more; ?></span>
+    </a>
+  </div>
+  </div>
+  </nav>
+
     <div class="rotate">
       <img src="../img/rotatedevice.svg" alt="<?php echo L::other_rotate; ?>">
       <h1><?php echo L::other_rotate; ?></h1>
     </div>
 
-    <div class="modal_view animatedfaster fadeIn" id="nutriscore" style="display:none;">
+    <div class="modal_view animatedfaster fadeInUp" id="nutriscore" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2>Nutriscore</h2>
           <p><?php echo L::modal_nutriscore_desc; ?></p>
     </div>
 
-    <div class="modal_view animatedfaster fadeIn" id="palmoil" style="display:none;">
+    <div class="modal_view animatedfaster fadeInUp" id="palmoil" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2><?php echo L::modal_palmoil; ?></h2>
           <p><?php echo L::modal_palmoil_desc; ?></p>
     </div>
 
-    <div class="modal_view animatedfaster fadeIn" id="processed" style="display:none;">
+    <div class="modal_view animatedfaster fadeInUp" id="processed" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2><?php echo L::modal_processed; ?></h2>
           <p><?php echo L::modal_processed_desc; ?></p>
     </div>
-    <div class="modal_view animatedfaster fadeIn" id="license" style="display:none;">
+    <div class="modal_view animatedfaster fadeInUp" id="license" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2><?php echo L::modal_licenses; ?></h2>
           <p><?php echo L::modal_licenses_desc; ?></p>
@@ -36,6 +57,11 @@
             &copy; Open EAN/GTIN Database Contributors, licensed under <a href="https://www.gnu.org/licenses/fdl-1.3.html">GNU FDL</a>.<br>
             &copy; VeganCheck.me Contributors and Hamed Montazeri, licensed under <a href="https://github.com/JokeNetwork/vegan-ingredients-api/blob/master/LICENSE">MIT License</a>, sourced from <a href="https://www.veganpeace.com/ingredients/ingredients.htm">VeganPeace</a>, <a href="https://www.peta.org/living/food/animal-ingredients-list/">PETA</a> and <a href="http://www.veganwolf.com/animal_ingredients.htm">The VEGAN WOLF</a>.<br>
             &copy; VeganCheck.me Contributors, sourced from &copy; <a href="https://crueltyfree.peta.org">PETA (Beauty without Bunnies)</a>. 
+    </div>
+    <div class="modal_view animatedfaster fadeInUp" id="installation" style="display:none;">
+      <div class="modal_close" id="modal_close"><a class="btn-dark">&times;</a></div>
+          <h2><?php echo L::prompt_install; ?></h2>
+          <p><?php echo L::prompt_info; ?></p>
     </div>
     <noscript>
       <div class="noscript">
@@ -84,29 +110,13 @@
   </div>
   </div>
 
-   <nav class="nav">
-    <div class="flex-container">
-      <div class="flex-item active">
-        <span class="icon icon-vegancheck"></span>
-        <span class="menu-item">Home</span>
-      </div>
-  <div class="flex-item">
-    <a href="/ingredients">
-        <span class="icon icon-ingredients"></span>
-        <span class="menu-item"><?php echo L::ingredients_shorttitle; ?></span>
-    </a>
-  </div>
-  <div class="flex-item">
-    <a href="/more">
-      <span class="icon icon-ellipsis"></span>
-      <span class="menu-item"><?php echo L::more_more; ?></span>
-    </a>
-  </div>
-  </div>
-  </nav>
-
  <div id="controls" style="display:none;">
-  <span id="close"><span class="btn-dark" id="closebtn">&times; <?php echo L::layover_close; ?></span><span class="btn-dark" id="torch"><span class="icon-flash"></span></span><span class="btn-dark" id="flipbutton"><span class="icon-flipcamera"></span></span></span>
+  <span id="close">
+    <div class="flex-container">
+      <div class="flex-item"><span id="closebtn" class="icon-left-open"></span><span id="torch"></span></div>
+      <div class="flex-item"><span class="icon-flipcamera" id="flipbutton"></span></div>
+  </div>
+  </span>
   <span id="barcodeicon"><span class="icon-barcode"></span></span>
   <div id="background"></div>
 </div>
