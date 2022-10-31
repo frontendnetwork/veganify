@@ -203,12 +203,12 @@ $('button[name="submit"]').on('click', function(e) {
 
             $(document).on('click', function() {
                 $(".container").removeClass('modalIsOpen')
-                $(".modal_view").addClass('fadeOut')
+                $(".modal_view").addClass('fadeOutDown')
                 setTimeout(function() {
                     $(".modal_view").css("display", "none")
-                    $(".modal_view").removeClass('fadeOut')
-                    $(".modal_view").addClass('fadeIn')
-                }, 500);
+                    $(".modal_view").removeClass('fadeOutDown')
+                    $(".modal_view").addClass('fadeInUp')
+                }, 200);
             });
             $(".modal_view").on('click', function(event) {
                 event.stopPropagation();
@@ -220,13 +220,13 @@ $('button[name="submit"]').on('click', function(e) {
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
-                $("#nutriscore").addClass('fadeOut')
+                $("#nutriscore").addClass('fadeOutDown')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
                     $("#nutriscore").css("display", "none")
-                    $("#nutriscore").removeClass('fadeOut')
-                    $("#nutriscore").addClass('fadeIn')
-                }, 500);
+                    $("#nutriscore").removeClass('fadeOutDown')
+                    $("#nutriscore").addClass('fadeInUp')
+                }, 200);
             });
             $('#palm_modal').click(function() {
                 $("#palmoil").css("display", "block")
@@ -234,14 +234,14 @@ $('button[name="submit"]').on('click', function(e) {
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
-                $("#palmoil").addClass('fadeOut')
+                $("#palmoil").addClass('fadeOutDown')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
-                    $("#palmoil").removeClass('fadeOut')
-                    $("#palmoil").addClass('fadeIn')
+                    $("#palmoil").removeClass('fadeOutDown')
+                    $("#palmoil").addClass('fadeInUp')
                     $("#palmoil").css("display", "none")
 
-                }, 500);
+                }, 200);
             });
             $('#processed_modal').click(function() {
                 $("#processed").css("display", "block")
@@ -249,14 +249,14 @@ $('button[name="submit"]').on('click', function(e) {
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
-                $("#processed").addClass('fadeOut')
+                $("#processed").addClass('fadeOutDown')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
-                    $("#processed").removeClass('fadeOut')
-                    $("#processed").addClass('fadeIn')
+                    $("#processed").removeClass('fadeOutDown')
+                    $("#processed").addClass('fadeInUp')
                     $("#processed").css("display", "none")
 
-                }, 500);
+                }, 200);
             });
             $('#license_modal').click(function() {
                 $("#license").css("display", "block")
@@ -264,14 +264,14 @@ $('button[name="submit"]').on('click', function(e) {
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
-                $("#license").addClass('fadeOut')
+                $("#license").addClass('fadeOutDown')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
-                    $("#license").removeClass('fadeOut')
-                    $("#license").addClass('fadeIn')
+                    $("#license").removeClass('fadeOutDown')
+                    $("#license").addClass('fadeInUp')
                     $("#license").css("display", "none")
 
-                }, 500);
+                }, 200);
             });
         }
     });
@@ -354,12 +354,12 @@ $('button[name="checkingredients"]').on('click', function(e) {
 
             $(document).on('click', function() {
                 $(".container").removeClass('modalIsOpen')
-                $(".modal_view").addClass('fadeOut')
+                $(".modal_view").addClass('fadeOutDown')
                 setTimeout(function() {
                     $(".modal_view").css("display", "none")
-                    $(".modal_view").removeClass('fadeOut')
-                    $(".modal_view").addClass('fadeIn')
-                }, 500);
+                    $(".modal_view").removeClass('fadeOutDown')
+                    $(".modal_view").addClass('fadeInUp')
+                }, 200);
             });
             $(".modal_view").on('click', function(event) {
                 event.stopPropagation();
@@ -370,14 +370,14 @@ $('button[name="checkingredients"]').on('click', function(e) {
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
-                $("#processed").addClass('fadeOut')
+                $("#processed").addClass('fadeOutDown')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
-                    $("#processed").removeClass('fadeOut')
-                    $("#processed").addClass('fadeIn')
+                    $("#processed").removeClass('fadeOutDown')
+                    $("#processed").addClass('fadeInUp')
                     $("#processed").css("display", "none")
 
-                }, 500);
+                }, 200);
             });
             $('#license_modal').click(function() {
                 $("#license").css("display", "block")
@@ -385,14 +385,14 @@ $('button[name="checkingredients"]').on('click', function(e) {
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
-                $("#license").addClass('fadeOut')
+                $("#license").addClass('fadeOutDown')
                 $(".container").removeClass('modalIsOpen')
                 setTimeout(function() {
-                    $("#license").removeClass('fadeOut')
-                    $("#license").addClass('fadeIn')
+                    $("#license").removeClass('fadeOutDown')
+                    $("#license").addClass('fadeInUp')
                     $("#license").css("display", "none")
 
-                }, 500);
+                }, 200);
             });
         }
     });
@@ -415,4 +415,61 @@ if (!isIOS) {
 if (window.location.href.indexOf("shortcut") > -1) {
     document.getElementById('shortcut').style.display = 'none';
     document.getElementById('mainpage').classList.add('top');
+}
+
+
+// PWA Prompt
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+document.getElementById("pwaclose").onclick = function()
+{
+       setCookie('pwa_install','true',180);
+       document.getElementById("pwainstall").style.display = 'none';
+}
+
+if ((getCookie('pwa_install') == "true") || (window.matchMedia('(display-mode: standalone)').matches) || (!isIOS) || (window.location.href.indexOf("shortcut") > -1)) {
+    document.getElementById("pwainstall").style.display = 'none';
+}
+else if (isIOS) {
+    document.getElementById("pwainstall").style.display = 'block';
+}
+else {
+    document.getElementById("pwainstall").style.display = 'none';
+}
+
+// Installation instruction modal
+document.getElementById("getbtn").onclick = function()
+{
+       var imodal = document.getElementById("installation");
+       imodal.style.display = 'block';
+       imodal.classList.add("modalIsOpen");
+
+       document.getElementById("modal_close").onclick = function()
+       {
+        imodal.classList.add("fadeOutDown");
+        document.getElementsbyClass.classList.remove("modalIsOpen");
+        setTimeout(() => {
+            imodal.style.display = 'none';
+            imodal.classList.remove("fadeOutDown");
+            imodal.classList.add("fadeInUp");
+        }, 200);
+       }
 }
