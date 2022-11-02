@@ -29,12 +29,12 @@
 
 @font-face {
     font-family: 'nutriscore';
-    src: url('https://vegancheck.me/css/font/nutriscore.eot?478899590');
-  src: url('https://vegancheck.me/css/font/nutriscore.eot?478899590#iefix') format('embedded-opentype'),
-       url('https://vegancheck.me/css/font/nutriscore.woff2?478899590') format('woff2'),
-       url('https://vegancheck.me/css/font/nutriscore.woff?478899590') format('woff'),
-       url('https://vegancheck.me/css/font/nutriscore.ttf?478899590') format('truetype'),
-       url('https://vegancheck.me/css/font/nutriscore.svg?478899590#nutriscore') format('svg');
+    src: url('https://vegancheck.me/css/font/nutriscore.eot?4788995901');
+  src: url('https://vegancheck.me/css/font/nutriscore.eot?4788995901#iefix') format('embedded-opentype'),
+       url('https://vegancheck.me/css/font/nutriscore.woff2?4788995901') format('woff2'),
+       url('https://vegancheck.me/css/font/nutriscore.woff?4788995901') format('woff'),
+       url('https://vegancheck.me/css/font/nutriscore.ttf?4788995901') format('truetype'),
+       url('https://vegancheck.me/css/font/nutriscore.svg?4788995901#nutriscore') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -82,8 +82,10 @@
 .icon-c:before { content: '\e90c'; } /* '' */
 .icon-d:before { content: '\e90d'; } /* '' */
 .icon-e:before { content: '\e90e'; } /* '' */
+.icon-github-circled:before { content: '\f09b'; } /* '' */
 .icon-ellipsis:before { content: '\f141'; } /* '' */
 .icon-paypal:before { content: '\f1ed'; } /* '' */
+.icon-credit-card-alt:before { content: '\f283'; } /* '' */
 
 
 .icon-greenhosted:before {
