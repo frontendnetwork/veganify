@@ -10,8 +10,13 @@
 
     .form {
         color: #000;
-        
-        p, h1, h2, h3, h4, a  {
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        a {
             color: #000;
         }
     }
@@ -36,10 +41,8 @@
         }
     }
 
-    #shortcut, #pwainstall {
-        background: #7f8fa6;
-        border-bottom: solid #8d99af .01rem;
-
+    #shortcut,
+    #pwainstall {
         .heading {
             color: #fff;
         }
@@ -55,13 +58,10 @@
     }
 
     .nav {
-        background: rgba(255, 255, 255, 0.8);
-        border-bottom: solid grey .01rem;
 
         .flex-item {
             color: #000;
         }
-
 
         .active {
             color: #007aff !important;
@@ -74,10 +74,6 @@
         }
     }
 
-    #close {
-        background: var(--bg-color);
-        border-bottom: solid #8d99af .01rem;
-    }
 }
 
 /* Make sure mobile functions are not displayed on desktop*/
@@ -152,10 +148,6 @@
         display: inline-block;
     }
 
-    .modal_view {
-        max-height: 80%;
-    }
-
     .form {
         max-width: 80%;
         padding: 1rem;
@@ -164,6 +156,12 @@
 
     #close {
         width: 101%;
+    }
+
+    .modal_view {
+        .form-check-input {
+            transform: scale(2);
+        }
     }
 }
 
@@ -190,6 +188,37 @@
     .name {
         display: inline-block;
     }
+
+    .modal_view {
+        .form-check-input {
+            transform: scale(1.2);
+        }
+    }
+
+    #pwainstall {
+        height: 3.5rem;
+
+        .flex-container {
+            padding-left: .5rem;
+            padding-right: .5rem;
+        }
+
+        .heading {
+        font-size: .65rem;
+        }
+
+        .subheading {
+            font-size: .55rem;
+        }
+
+        .button {
+            font-size: .5rem
+        }
+
+        img {
+            width: 2.8rem;
+        }
+    }
 }
 
 /* Smaller screens & tablets */
@@ -203,14 +232,14 @@
     .nav {
         bottom: 0%;
         top: initial;
-        border-top: solid #1f1f1f .01rem;
+        border-top: var(--nav-border);
         border-bottom: none;
         height: 4.8rem;
     }
 
-    @media (prefers-color-scheme: light) {
-        .nav {
-            border-top: solid #ccc .01rem;
+    .modal_view {
+        .form-check-input {
+            transform: scale(1.5);
         }
     }
 

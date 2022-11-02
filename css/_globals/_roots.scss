@@ -20,6 +20,10 @@
     --button-fg: #fff;
     --button-bg-re: #007aff;
     --button-fg-re: #fff;
+    --nav-bg: rgba(0,0,0,0.8);
+    --nav-border: solid #1f1f1f 0.01rem;
+    --pwa-bg: #141414;
+    --pwa-border: solid #1f1f1f 0.01rem;
 }
 
 @media (prefers-color-scheme: light) {
@@ -32,5 +36,9 @@
         --button-fg: #7f8fa6;
         --button-bg-re: #7f8fa6;
         --button-fg-re: #fff;
+        --nav-bg: rgba(255,255,255,0.8);
+        --nav-border: solid grey 0.01rem;
+        --pwa-bg: #7f8fa6;
+        --pwa-border: solid #8d99af 0.01rem;
         }
 }

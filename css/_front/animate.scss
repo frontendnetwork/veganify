@@ -10,12 +10,10 @@
 
 @keyframes fadeInUp {
   0% {
-    opacity: 0;
     bottom: -100%;
   }
 
   100% {
-    opacity: 1;
     bottom: 0%;
   }
 }
@@ -32,8 +30,8 @@
   }
 
   100% {
-    opacity: 0;
-    bottom: -10%;
+    opacity: 1;
+    bottom: -100%;
   }
 }
 
