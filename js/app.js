@@ -202,7 +202,7 @@ $('button[name="submit"]').on('click', function(e) {
             self.location.href = '#resscroll';
 
             $(document).on('click', function() {
-                $(".container").removeClass('modalIsOpen')
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
                 $(".modal_view").addClass('fadeOutDown')
                 setTimeout(function() {
                     $(".modal_view").css("display", "none")
@@ -216,12 +216,12 @@ $('button[name="submit"]').on('click', function(e) {
 
             $('#nutri_modal').click(function() {
                 $("#nutriscore").css("display", "block")
-                $(".container").addClass('modalIsOpen')
+                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
                 $("#nutriscore").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen')
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
                 setTimeout(function() {
                     $("#nutriscore").css("display", "none")
                     $("#nutriscore").removeClass('fadeOutDown')
@@ -230,12 +230,12 @@ $('button[name="submit"]').on('click', function(e) {
             });
             $('#palm_modal').click(function() {
                 $("#palmoil").css("display", "block")
-                $(".container").addClass('modalIsOpen')
+                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
                 $("#palmoil").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen')
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
                 setTimeout(function() {
                     $("#palmoil").removeClass('fadeOutDown')
                     $("#palmoil").addClass('fadeInUp')
@@ -245,12 +245,12 @@ $('button[name="submit"]').on('click', function(e) {
             });
             $('#processed_modal').click(function() {
                 $("#processed").css("display", "block")
-                $(".container").addClass('modalIsOpen')
+                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
                 $("#processed").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen')
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
                 setTimeout(function() {
                     $("#processed").removeClass('fadeOutDown')
                     $("#processed").addClass('fadeInUp')
@@ -260,12 +260,12 @@ $('button[name="submit"]').on('click', function(e) {
             });
             $('#license_modal').click(function() {
                 $("#license").css("display", "block")
-                $(".container").addClass('modalIsOpen')
+                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
                 event.stopPropagation();
             });
             $('.modal_close').click(function() {
                 $("#license").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen')
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
                 setTimeout(function() {
                     $("#license").removeClass('fadeOutDown')
                     $("#license").addClass('fadeInUp')
@@ -276,6 +276,200 @@ $('button[name="submit"]').on('click', function(e) {
         }
     });
 });
+
+
+// Ingredient checker
+// submit.js
+$('button[name="checkingredients"]').on('click', function(e) {
+    e.preventDefault();
+    $(".timeout-final").css("display", "none");
+    $.ajax({
+        url: '../ingredients_script.php',
+        type: 'POST',
+        timeout: 8000,
+        data: {
+            ingredients: $('textarea[name="ingredients"]').val(),
+            lang: $('input[name="lang"]').val()
+        },
+        error: function() {
+            $(".timeout").css("display", "none");
+            $(".timeout-final").css("display", "block");
+        },
+        success: function(result) {
+            $('#result').html(result);
+            $('html, body').animate({
+                scrollTop: $('#resscroll').offset().top
+            }, 900, 'swing');
+
+            // Scroll to result
+            self.location.href = '#resscroll';
+        }
+    });
+});
+
+if (document.getElementById("shortcut")){
+    var shortcut = document.getElementById('shortcut');
+    var mainpage = document.getElementById('mainpage');
+
+    // Only show shortcut if PWA is not installed
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        shortcut.style.display = 'none';
+        mainpage.classList.add('top');
+    }
+
+    // Only show shortcut on iOS
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (!isIOS) {
+        shortcut.style.display = 'none';
+        mainpage.classList.add('top');
+    }
+
+    // Don't show shortcut if the shortcut is already executed
+    if (window.location.href.indexOf("shortcut") > -1) {
+        shortcut.style.display = 'none';
+        mainpage.classList.add('top');
+    }
+}
+
+// PWA Prompt Display
+if (document.getElementById("installation")){
+    function setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    document.getElementById("pwaclose").onclick = function()
+    {
+           setCookie('pwa_install','true',180);
+           document.getElementById("pwainstall").style.display = 'none';
+    }
+
+    if ((getCookie('pwa_install') == "true") || (window.matchMedia('(display-mode: standalone)').matches) || (!isIOS) || (window.location.href.indexOf("shortcut") > -1)) {
+        document.getElementById("pwainstall").style.display = 'none';
+    }
+    else if (isIOS) {
+        document.getElementById("pwainstall").style.display = 'block';
+    }
+    else {
+        document.getElementById("pwainstall").style.display = 'none';
+    }
+
+    // Installation instruction modal
+    document.getElementById("getbtn").onclick = function()
+    {
+           document.getElementById("mainpage").classList.remove("modalIsClosed");
+           var imodal = document.getElementById("installation");
+           imodal.style.display = 'block';
+           document.getElementById("mainpage").classList.add("modalIsOpen");
+
+           document.getElementById("modal_close").onclick = function()
+           {
+            imodal.classList.add("fadeOutDown");
+            document.getElementById("mainpage").classList.add("modalIsClosed");
+            setTimeout(() => {
+                document.getElementById("mainpage").classList.remove("modalIsOpen");
+                imodal.classList.remove("fadeOutDown");
+                imodal.classList.add("fadeInUp");
+                imodal.style.display = 'none';
+            }, 200);
+           }
+    }
+}
+
+// Donation Modal 
+if (document.getElementById("donationmodal")){
+    document.getElementById("option_monthly").onclick = function()
+    {
+           document.getElementById("option_once").classList.remove("active");
+           document.getElementById("option_gh").classList.remove("active");
+           document.getElementById("option_stripe").classList.remove("active");
+           document.getElementById("option_monthly").classList.add("active");
+           document.getElementById("once").checked = false;
+           document.getElementById("monthly").checked = true;
+           document.getElementById("gh").checked = false;
+           document.getElementById("stripe").checked = false;
+           document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
+           document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
+           document.getElementById('vendor').innerHTML = 'PayPal';
+    }
+    document.getElementById("option_once").onclick = function()
+    {
+           document.getElementById("option_monthly").classList.remove("active");
+           document.getElementById("option_gh").classList.remove("active");
+           document.getElementById("option_stripe").classList.remove("active");
+           document.getElementById("option_once").classList.add("active");
+           document.getElementById("once").checked = true;
+           document.getElementById("monthly").checked = false;
+           document.getElementById("gh").checked = false;
+           document.getElementById("stripe").checked = false;
+           document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
+           document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
+           document.getElementById('vendor').innerHTML = 'PayPal';
+    }
+    document.getElementById("option_gh").onclick = function()
+    {
+           document.getElementById("option_monthly").classList.remove("active");
+           document.getElementById("option_once").classList.remove("active");
+           document.getElementById("option_stripe").classList.remove("active");
+           document.getElementById("option_gh").classList.add("active");
+           document.getElementById("gh").checked = true;
+           document.getElementById("monthly").checked = false;
+           document.getElementById("once").checked = false;
+           document.getElementById("stripe").checked = false;
+           document.getElementById('supportbtn').setAttribute('href', 'https://github.com/sponsors/philipbrembeck');
+           document.getElementById('supportbtn').innerHTML = '<span class="icon-github-circled"></span> Sponsor on GitHub';
+           document.getElementById('vendor').innerHTML = 'GitHub';
+    }
+    document.getElementById("option_stripe").onclick = function()
+    {
+           document.getElementById("option_monthly").classList.remove("active");
+           document.getElementById("option_once").classList.remove("active");
+           document.getElementById("option_gh").classList.remove("active");
+           document.getElementById("option_stripe").classList.add("active");
+           document.getElementById("stripe").checked = true;
+           document.getElementById("monthly").checked = false;
+           document.getElementById("once").checked = false;
+           document.getElementById("gh").checked = false;
+           document.getElementById('supportbtn').setAttribute('href', 'https://donate.stripe.com/3cs5mzgy42jd2645kk');
+           document.getElementById('supportbtn').innerHTML = '<span class="icon-credit-card-alt"></span>&nbsp; Donate with Stripe';
+           document.getElementById('vendor').innerHTML = 'Stripe';
+    }
+
+    document.getElementById("donate").onclick = function()
+    {
+           var modal = document.getElementById("donationmodal");
+           modal.style.display = 'block';
+           document.getElementById("mainpage").classList.remove("modalIsClosed");
+           document.getElementById("mainpage").classList.add("modalIsOpen");
+
+           document.getElementById("modal_close").onclick = function()
+           {
+            modal.classList.add("fadeOutDown");
+            setTimeout(() => {
+                document.getElementById("mainpage").classList.remove("modalIsOpen");
+                document.getElementById("mainpage").classList.add("modalIsClosed");
+                modal.classList.remove("fadeOutDown");
+                modal.classList.add("fadeInUp");
+                modal.style.display = 'none';
+            }, 200);
+           }
+    }
+}
 
 // Initialize SW
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }
@@ -323,153 +517,4 @@ function sharebutton() {
     } else {
         window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
     }
-
-}
-
-// Ingredient checker
-// submit.js
-$('button[name="checkingredients"]').on('click', function(e) {
-    e.preventDefault();
-    $(".timeout-final").css("display", "none");
-    $.ajax({
-        url: '../ingredients_script.php',
-        type: 'POST',
-        timeout: 8000,
-        data: {
-            ingredients: $('textarea[name="ingredients"]').val(),
-            lang: $('input[name="lang"]').val()
-        },
-        error: function() {
-            $(".timeout").css("display", "none");
-            $(".timeout-final").css("display", "block");
-        },
-        success: function(result) {
-            $('#result').html(result);
-            $('html, body').animate({
-                scrollTop: $('#resscroll').offset().top
-            }, 900, 'swing');
-
-            // Scroll to result
-            self.location.href = '#resscroll';
-
-            $(document).on('click', function() {
-                $(".container").removeClass('modalIsOpen')
-                $(".modal_view").addClass('fadeOutDown')
-                setTimeout(function() {
-                    $(".modal_view").css("display", "none")
-                    $(".modal_view").removeClass('fadeOutDown')
-                    $(".modal_view").addClass('fadeInUp')
-                }, 200);
-            });
-            $(".modal_view").on('click', function(event) {
-                event.stopPropagation();
-            });
-            $('#processed_modal').click(function() {
-                $("#processed").css("display", "block")
-                $(".container").addClass('modalIsOpen')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#processed").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen')
-                setTimeout(function() {
-                    $("#processed").removeClass('fadeOutDown')
-                    $("#processed").addClass('fadeInUp')
-                    $("#processed").css("display", "none")
-
-                }, 200);
-            });
-            $('#license_modal').click(function() {
-                $("#license").css("display", "block")
-                $(".container").addClass('modalIsOpen')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#license").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen')
-                setTimeout(function() {
-                    $("#license").removeClass('fadeOutDown')
-                    $("#license").addClass('fadeInUp')
-                    $("#license").css("display", "none")
-
-                }, 200);
-            });
-        }
-    });
-});
-
-// Only show shortcut if PWA is not installed
-if (window.matchMedia('(display-mode: standalone)').matches) {
-    document.getElementById('shortcut').style.display = 'none';
-    document.getElementById('mainpage').classList.add('top');
-}
-
-// Only show shortcut on iOS
-var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-if (!isIOS) {
-    document.getElementById('shortcut').style.display = 'none';
-    document.getElementById('mainpage').classList.add('top');
-}
-
-// Don't show shortcut if the shortcut is already executed
-if (window.location.href.indexOf("shortcut") > -1) {
-    document.getElementById('shortcut').style.display = 'none';
-    document.getElementById('mainpage').classList.add('top');
-}
-
-
-// PWA Prompt
-function setCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
-
-document.getElementById("pwaclose").onclick = function()
-{
-       setCookie('pwa_install','true',180);
-       document.getElementById("pwainstall").style.display = 'none';
-}
-
-if ((getCookie('pwa_install') == "true") || (window.matchMedia('(display-mode: standalone)').matches) || (!isIOS) || (window.location.href.indexOf("shortcut") > -1)) {
-    document.getElementById("pwainstall").style.display = 'none';
-}
-else if (isIOS) {
-    document.getElementById("pwainstall").style.display = 'block';
-}
-else {
-    document.getElementById("pwainstall").style.display = 'none';
-}
-
-// Installation instruction modal
-document.getElementById("getbtn").onclick = function()
-{
-       var imodal = document.getElementById("installation");
-       imodal.style.display = 'block';
-       imodal.classList.add("modalIsOpen");
-
-       document.getElementById("modal_close").onclick = function()
-       {
-        imodal.classList.add("fadeOutDown");
-        document.getElementsbyClass.classList.remove("modalIsOpen");
-        setTimeout(() => {
-            imodal.style.display = 'none';
-            imodal.classList.remove("fadeOutDown");
-            imodal.classList.add("fadeInUp");
-        }, 200);
-       }
 }
