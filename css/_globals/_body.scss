@@ -481,7 +481,7 @@ sup {
 }
 
 /* Buttons */
-.btn_scan {
+.btn_scan, .btn_ocr {
     width: 5%;
     background: transparent;
     cursor: pointer;
@@ -498,8 +498,14 @@ sup {
 }
 
 .btn_scan:hover,
-.btn_scan:focus {
+.btn_scan:focus, 
+.btn_ocr:hover,
+.btn_ocr:focus {
     background: #f0f0f0;
+}
+
+.btn_ocr {
+    border-right: none;
 }
 
 button {
@@ -601,6 +607,11 @@ button:focus {
         }
     }
 
+    .middle {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
     .button {
         font-size: .7rem;
         color: var(--button-fg);
@@ -610,6 +621,28 @@ button:focus {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
         border-radius: 3rem;
+    }
+}
+
+.cam_btn {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    font-size: 1.2rem;
+    z-index:99999999999999999; 
+    color: var(--button-fg);
+    text-transform: uppercase;
+    background: var(--button-bg);
+    padding: .5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 3rem;
+    transition: .8s;
+
+    &:hover, &:active {
+        background: grey;
+
     }
 }
 
