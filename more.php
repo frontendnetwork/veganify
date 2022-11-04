@@ -65,7 +65,6 @@
     <div class="container top" id="mainpage">
       <div id="main">
         <div class="form">
-          <!--<a href="javascript:history.back();" class="icon-left-open"></a>-->
             <a href="#" id="donate" class="Grid links">
                   <div class="Grid-cell description"><?php echo L::more_supportus; ?></div>
                   <div class="Grid-cell icons"><span class="unknown icon-right-open"></span></div>
