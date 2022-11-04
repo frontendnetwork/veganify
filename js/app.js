@@ -578,40 +578,13 @@ click_button.addEventListener('click', function() {
         canvas.width = width;
         canvas.height = height;
         context.drawImage(video, 0, 0, width, height);
-        const data = canvas.toDataURL("image/png");
     }
 });
 
-$(document).ready(function() {
-    var inputs = document.querySelectorAll('.inputfile');
-    Array.prototype.forEach.call(inputs, function(input) {
-
-        input.addEventListener('change', function(e) {
-            var fileName = '';
-            if (this.files && this.files.length > 1)
-                fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-            else
-                fileName = e.target.value.split('\\').pop();
-
-            if (fileName) {
-
-                let reader = new FileReader();
-                reader.onload = function() {
-                    let dataURL = reader.result;
-                }
-                let file = this.files[0];
-                reader.readAsDataURL(file);
-                startRecognize(file);
-            } else {
-               document.getElementById('ingredients').value = "No text recognized";
-            }
-        });
-    });
-});
 
 $("#click-photo").click(function() {
     stopBothVideoAndAudio();
-    var img = canvas.toDataURL("image/png");
+    let img = canvas.toDataURL("image/png");
     startRecognize(img);
 });
 
