@@ -34,7 +34,7 @@ function setupLiveReader(resultElement) {
     document.body.insertBefore(container, resultElement)
 
     // Define camera facingMode once
-    camera = 'environment'
+    let camera = 'environment'
 
     // Flip camera button
     document.getElementById('flipbutton').onclick = function() {
@@ -89,9 +89,9 @@ function setupLiveReader(resultElement) {
         navigator.mediaDevices.getUserMedia(constraints).then(stream => {
             const track = stream.getVideoTracks()[0];
             BarcodeScanner.init()
-            var closer = document.getElementById('controls')
-            var btnclose = document.getElementById('closebtn')
-            var barcodeicon = document.getElementById('barcodeicon')
+            let closer = document.getElementById('controls')
+            let btnclose = document.getElementById('closebtn')
+            let barcodeicon = document.getElementById('barcodeicon')
             closer.style.display = 'inline-block'
 
             // Torch/Flash on Android
@@ -465,7 +465,7 @@ if (document.getElementById("donationmodal")) {
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }
 
 // Spinner while AJAX request
-var $loading = $('#spinner').hide();
+let $loading = $('#spinner').hide();
 $(document)
     .ajaxStart(function() {
         $('.logo').addClass('spinner');
@@ -475,7 +475,7 @@ $(document)
     });
 
 // "Timeout"-Warning
-var ajaxLoadTimeout;
+let ajaxLoadTimeout;
 $(document).ajaxStart(function() {
     ajaxLoadTimeout = setTimeout(function() {
         $(".timeout").css("display", "block");
@@ -521,112 +521,115 @@ let height = 0;
 let streaming = false;
 let tracks;
 
-camera_button.addEventListener('click', async function() {
-    const constraints = {
-        audio: false,
-        video: {
-            width: window.innerWidth * window.devicePixelRatio,
-            height: window.innerHeight * window.devicePixelRatio,
-            aspectRatio: { ideal: (window.innerHeight) / window.innerWidth },
-            focusMode: 'continuous',
-            facingMode: 'environment'
+if (document.getElementById("ocr")) {
+    camera_button.addEventListener('click', async function() {
+        const constraints = {
+            audio: false,
+            video: {
+                width: window.innerWidth * window.devicePixelRatio,
+                height: window.innerHeight * window.devicePixelRatio,
+                aspectRatio: { ideal: (window.innerHeight) / window.innerWidth },
+                focusMode: 'continuous',
+                facingMode: 'environment'
+            }
         }
-    }
-    let stream = await navigator.mediaDevices.getUserMedia(constraints);
-    video.srcObject = stream;
-    const mediaStream = video.srcObject;
-    tracks = mediaStream.getTracks();
-    document.getElementById("controls").style.display = "block";
-    video.style.display = "block";
-    click_button.style.display = "block";
-});
-
-function stopBothVideoAndAudio(stream) {
-    streaming = false;
-    tracks[0].stop();
-    click_button.innerHTML = "<span class='timeout' style='color:#FFF;'><span>.</span><span>.</span><span>.</span></span>";
-    setTimeout(() => {
-        document.getElementById("controls").style.display = "none";
-        video.style.display = "none";
-        click_button.style.display = "none";
-        click_button.innerHTML = '<span class="icon-camera" id="click-photo"></span>';
-    }, 500);
-}
-
-video.addEventListener(
-    "canplay",
-    (ev) => {
-        if (!streaming) {
-            height = (video.videoHeight / video.videoWidth) * width;
-            video.setAttribute("width", width);
-            video.setAttribute("height", height);
-            canvas.setAttribute("width", width);
-            canvas.setAttribute("height", height);
-            streaming = true;
-        }
-    },
-    false
-);
-
-close.addEventListener('click', function() {
-    stopBothVideoAndAudio();
-});
-
-click_button.addEventListener('click', function() {
-    const context = canvas.getContext("2d");
-    if (width && height) {
-        canvas.width = width;
-        canvas.height = height;
-        context.drawImage(video, 0, 0, width, height);
-    }
-});
-
-
-$("#click-photo").click(function() {
-    stopBothVideoAndAudio();
-    let img = canvas.toDataURL("image/png");
-    startRecognize(img);
-});
-
-// Start recognition
-function startRecognize(img) {
-    recognizeFile(img);
-}
-
-function progressUpdate(packet) {
-    if (packet.status == 'recognizing text') {
-        document.getElementById('wait').style.display = "block";
-        stopBothVideoAndAudio();
-    }
-
-
-    if (packet.status == 'done') {
-        document.getElementById('ingredients').value = packet.data.text.replace(/\n\s*\n/g, '')
-        document.getElementById('wait').style.display = "none"
-        stopBothVideoAndAudio();
-    }
-
-}
-
-function recognizeFile(file) {
-    $("#log").empty();
-    const corePath = window.navigator.userAgent.indexOf("Edge") > -1 ?
-        'js/tesseract-core.asm.js' :
-        'js/tesseract-core.wasm.js';
-
-
-    const worker = new Tesseract.TesseractWorker({
-        corePath,
+        let stream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = stream;
+        const mediaStream = video.srcObject;
+        tracks = mediaStream.getTracks();
+        document.getElementById("controls").style.display = "block";
+        video.style.display = "block";
+        click_button.style.display = "block";
     });
 
-    worker.recognize(file, "eng")
-        .progress(function(packet) {
-            console.info(packet)
-            progressUpdate(packet)
+    function stopBothVideoAndAudio(stream) {
+        streaming = false;
+        tracks[0].stop();
+        click_button.innerHTML = "<span class='timeout' style='color:#FFF;'><span>.</span><span>.</span><span>.</span></span>";
+        setTimeout(() => {
+            document.getElementById("controls").style.display = "none";
+            video.style.display = "none";
+            click_button.style.display = "none";
+            click_button.innerHTML = '<span class="icon-camera" id="click-photo"></span>';
+        }, 500);
+    }
 
-        })
-        .then(function(data) {
-            console.log(data)
-            progressUpdate({ status: 'done', data: data })
-        })
+    video.addEventListener(
+        "canplay",
+        (ev) => {
+            if (!streaming) {
+                height = (video.videoHeight / video.videoWidth) * width;
+                video.setAttribute("width", width);
+                video.setAttribute("height", height);
+                canvas.setAttribute("width", width);
+                canvas.setAttribute("height", height);
+                streaming = true;
+            }
+        },
+        false
+    );
+
+    close.addEventListener('click', function() {
+        stopBothVideoAndAudio();
+    });
+
+    click_button.addEventListener('click', function() {
+        const context = canvas.getContext("2d");
+        if (width && height) {
+            canvas.width = width;
+            canvas.height = height;
+            context.drawImage(video, 0, 0, width, height);
+        }
+    });
+
+
+    $("#click-photo").click(function() {
+        stopBothVideoAndAudio();
+        let img = canvas.toDataURL("image/png");
+        startRecognize(img);
+    });
+
+    // Start recognition
+    function startRecognize(img) {
+        recognizeFile(img);
+    }
+
+    function progressUpdate(packet) {
+        if (packet.status == 'recognizing text') {
+            document.getElementById('wait').style.display = "block";
+            stopBothVideoAndAudio();
+        }
+
+
+        if (packet.status == 'done') {
+            document.getElementById('ingredients').value = packet.data.text.replace(/\n\s*\n/g, '')
+            document.getElementById('wait').style.display = "none"
+            stopBothVideoAndAudio();
+        }
+
+    }
+
+    function recognizeFile(file) {
+        $("#log").empty();
+        const corePath = window.navigator.userAgent.indexOf("Edge") > -1 ?
+            'js/tesseract-core.asm.js' :
+            'js/tesseract-core.wasm.js';
+
+
+        const worker = new Tesseract.TesseractWorker({
+            corePath,
+        });
+
+        worker.recognize(file, "eng")
+            .progress(function(packet) {
+                console.info(packet)
+                progressUpdate(packet)
+
+            })
+            .then(function(data) {
+                console.log(data)
+                progressUpdate({ status: 'done', data: data })
+            })
+    }
+
 }
