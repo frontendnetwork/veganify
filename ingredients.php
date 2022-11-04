@@ -4,6 +4,27 @@
   </head>
 
   <body id="top">
+        <nav class="nav">
+    <div class="flex-container">
+      <div class="flex-item">
+        <a href="/">
+          <span class="icon icon-vegancheck"></span>
+          <span class="menu-item">Home</span>
+      </a>
+      </div>
+  <div class="flex-item active">
+        <span class="icon icon-ingredients"></span>
+        <span class="menu-item"><?php echo L::ingredients_shorttitle; ?></span>
+  </div>
+  <div class="flex-item">
+    <a href="../more">
+      <span class="icon icon-ellipsis"></span>
+      <span class="menu-item"><?php echo L::more_more; ?></span>
+    </a>
+  </div>
+  </div>
+  </nav>
+
     <div class="rotate">
       <img src="../img/rotatedevice.svg" alt="<?php echo L::other_rotate; ?>">
       <h1><?php echo L::other_rotate; ?></h1>
@@ -28,6 +49,21 @@
       </div>
     </noscript>
 
+    <video id="video" autoplay playsinline style="width: 100%; height: 100%; position: absolute; z-index:9999; left:0; top:0; display:none;" soda-loaded="true" ></video>
+     <div id="controls" style="display:none;">
+      <span id="close">
+        <div class="flex-container">
+          <div class="flex-item"><span id="close_ocr" class="icon-left-open"></span></div>
+          <div class="flex-item middle">(Experimental) Scan text</div>
+          <div class="flex-item"></div>
+      </div>
+      </span>
+      <canvas id="canvas" style="display: none;"></canvas>
+      <div id="background"></div>
+    </div>
+    <div class="cam_btn" id="click-photo" style="display:none;"><span class="icon-camera"></span></div>
+    
+
     <div class="container top">
       <div id="main">
         <div class="form ingredients" id="resscroll">
@@ -37,10 +73,12 @@
           <form action="../ingredients_script.php">
             <fieldset>
               <legend><?php echo L::ingredients_placeholder; ?></legend>
+              <span class="btn_ocr" id="ocr" role="button" tabindex="0"><span class="icon-camera"></span></span>
               <textarea id="ingredients" name="ingredients" placeholder="<?php echo L::ingredients_placeholder; ?>" autofocus></textarea>
               <button name="checkingredients" aria-label="<?php echo L::form_submit; ?>" role="button"><span class="icon-right-open"></span></button>
             </fieldset>
           </form>
+          <div class="animated fadeIn timeout" id="wait" style="display:none;"><span>.</span><span>.</span><span>.</span></div>
           <div class="timeout animated fadeIn" style="display:none;"><?php echo L::other_timeout; ?><span>.</span><span>.</span><span>.</span></div>
            <div class="timeout-final animated fadeIn" style="display:none;"><?php echo L::other_timeoutfinal; ?></div>
           <div id="result">&nbsp;</div> 
@@ -56,27 +94,7 @@
       </div>
     </div>
 
-      <nav class="nav">
-    <div class="flex-container">
-      <div class="flex-item">
-        <a href="/">
-          <span class="icon icon-vegancheck"></span>
-          <span class="menu-item">Home</span>
-      </a>
-      </div>
-  <div class="flex-item active">
-        <span class="icon icon-ingredients"></span>
-        <span class="menu-item"><?php echo L::ingredients_shorttitle; ?></span>
-  </div>
-  <div class="flex-item">
-    <a href="../more">
-      <span class="icon icon-ellipsis"></span>
-      <span class="menu-item"><?php echo L::more_more; ?></span>
-    </a>
-  </div>
-  </div>
-  </nav>
-
+<script src='js/tesseract.min.js'></script>
 <?php
   include_once('includes/footer.php');
 ?>

@@ -18,7 +18,8 @@ $i18n->init();
 $dotenv = Dotenv\Dotenv::createImmutable('/var/www/virtual/jake/');
 $dotenv->load();
 
-$input = str_replace(',', ', ', $_POST['ingredients']);
+$input1 = str_replace(',', ', ', $_POST['ingredients']);
+$input = preg_replace('~[\r\n]+~', '', $input1);
 
 function translate($targetlang, $text) {
   $deeplauth = $_ENV['DEEPL_AUTH'];
@@ -28,7 +29,7 @@ function translate($targetlang, $text) {
 }
 
 // Textfield is empty
-if (empty($input) || preg_match('/[^a-zA-Z0-9-:äöüÄÖÜéèêëėäàáâæãåāôòóõœōçćčñńßśšŚŠÉÈÊËĖÀÁÂÆÃÅĀÇĆČÛÙÚŪûùúū, ]+/', $input))
+if (empty($input) || preg_match('/[^a-zA-Z0-9-:äöüÄÖÜéèêëėäàáâæãåāôòóõœōçćčñńßśšŚŠÉÈÊËĖÀÁÂÆÃÅĀÇĆČÛÙÚŪûùúū., ]+/', $input))
 {
     print_r('<span class="animated fadeIn"><div class="resultborder">' . L::ingredients_error .'</div></span>');
 }
