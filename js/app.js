@@ -97,8 +97,8 @@ function setupLiveReader(resultElement) {
             // Torch/Flash on Android
             const btn = document.getElementById('torch');
             btn.addEventListener('click', function() {
-                track.applyConstraints({
-                    advanced: [{ torch: true }]
+                track.applyVideoConstraints({
+                    advanced: [{ torch: powerOn }]
                 });
             })
 
@@ -172,9 +172,9 @@ $(document).on('keyup', function(e) {
 // Submit if parameter EAN is filled
 $(document).ready(function() {
     if (window.location.href.indexOf("ean") > -1) {
-      document.getElementsByTagName('button')[0].click();
+        document.getElementsByTagName('button')[0].click();
     }
-  });
+});
 
 // submit.js
 $('button[name="submit"]').on('click', function(e) {
@@ -307,7 +307,7 @@ $('button[name="checkingredients"]').on('click', function(e) {
     });
 });
 
-if (document.getElementById("shortcut")){
+if (document.getElementById("shortcut")) {
     var shortcut = document.getElementById('shortcut');
     var mainpage = document.getElementById('mainpage');
 
@@ -332,53 +332,49 @@ if (document.getElementById("shortcut")){
 }
 
 // PWA Prompt Display
-if (document.getElementById("installation")){
-    function setCookie(name,value,days) {
+if (document.getElementById("installation")) {
+    function setCookie(name, value, days) {
         var expires = "";
         if (days) {
             var date = new Date();
-            date.setTime(date.getTime() + (days*24*60*60*1000));
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
         }
-        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
+
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
-        for(var i=0;i < ca.length;i++) {
+        for (var i = 0; i < ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
     }
 
-    document.getElementById("pwaclose").onclick = function()
-    {
-           setCookie('pwa_install','true',180);
-           document.getElementById("pwainstall").style.display = 'none';
+    document.getElementById("pwaclose").onclick = function() {
+        setCookie('pwa_install', 'true', 180);
+        document.getElementById("pwainstall").style.display = 'none';
     }
 
     if ((getCookie('pwa_install') == "true") || (window.matchMedia('(display-mode: standalone)').matches) || (!isIOS) || (window.location.href.indexOf("shortcut") > -1)) {
         document.getElementById("pwainstall").style.display = 'none';
-    }
-    else if (isIOS) {
+    } else if (isIOS) {
         document.getElementById("pwainstall").style.display = 'block';
-    }
-    else {
+    } else {
         document.getElementById("pwainstall").style.display = 'none';
     }
 
     // Installation instruction modal
-    document.getElementById("getbtn").onclick = function()
-    {
-           document.getElementById("mainpage").classList.remove("modalIsClosed");
-           var imodal = document.getElementById("installation");
-           imodal.style.display = 'block';
-           document.getElementById("mainpage").classList.add("modalIsOpen");
+    document.getElementById("getbtn").onclick = function() {
+        document.getElementById("mainpage").classList.remove("modalIsClosed");
+        var imodal = document.getElementById("installation");
+        imodal.style.display = 'block';
+        document.getElementById("mainpage").classList.add("modalIsOpen");
 
-           document.getElementById("modal_close").onclick = function()
-           {
+        document.getElementById("modal_close").onclick = function() {
             imodal.classList.add("fadeOutDown");
             document.getElementById("mainpage").classList.add("modalIsClosed");
             setTimeout(() => {
@@ -387,78 +383,72 @@ if (document.getElementById("installation")){
                 imodal.classList.add("fadeInUp");
                 imodal.style.display = 'none';
             }, 200);
-           }
+        }
     }
 }
 
 // Donation Modal 
-if (document.getElementById("donationmodal")){
-    document.getElementById("option_monthly").onclick = function()
-    {
-           document.getElementById("option_once").classList.remove("active");
-           document.getElementById("option_gh").classList.remove("active");
-           document.getElementById("option_stripe").classList.remove("active");
-           document.getElementById("option_monthly").classList.add("active");
-           document.getElementById("once").checked = false;
-           document.getElementById("monthly").checked = true;
-           document.getElementById("gh").checked = false;
-           document.getElementById("stripe").checked = false;
-           document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
-           document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
-           document.getElementById('vendor').innerHTML = 'PayPal';
+if (document.getElementById("donationmodal")) {
+    document.getElementById("option_monthly").onclick = function() {
+        document.getElementById("option_once").classList.remove("active");
+        document.getElementById("option_gh").classList.remove("active");
+        document.getElementById("option_stripe").classList.remove("active");
+        document.getElementById("option_monthly").classList.add("active");
+        document.getElementById("once").checked = false;
+        document.getElementById("monthly").checked = true;
+        document.getElementById("gh").checked = false;
+        document.getElementById("stripe").checked = false;
+        document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
+        document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
+        document.getElementById('vendor').innerHTML = 'PayPal';
     }
-    document.getElementById("option_once").onclick = function()
-    {
-           document.getElementById("option_monthly").classList.remove("active");
-           document.getElementById("option_gh").classList.remove("active");
-           document.getElementById("option_stripe").classList.remove("active");
-           document.getElementById("option_once").classList.add("active");
-           document.getElementById("once").checked = true;
-           document.getElementById("monthly").checked = false;
-           document.getElementById("gh").checked = false;
-           document.getElementById("stripe").checked = false;
-           document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
-           document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
-           document.getElementById('vendor').innerHTML = 'PayPal';
+    document.getElementById("option_once").onclick = function() {
+        document.getElementById("option_monthly").classList.remove("active");
+        document.getElementById("option_gh").classList.remove("active");
+        document.getElementById("option_stripe").classList.remove("active");
+        document.getElementById("option_once").classList.add("active");
+        document.getElementById("once").checked = true;
+        document.getElementById("monthly").checked = false;
+        document.getElementById("gh").checked = false;
+        document.getElementById("stripe").checked = false;
+        document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
+        document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
+        document.getElementById('vendor').innerHTML = 'PayPal';
     }
-    document.getElementById("option_gh").onclick = function()
-    {
-           document.getElementById("option_monthly").classList.remove("active");
-           document.getElementById("option_once").classList.remove("active");
-           document.getElementById("option_stripe").classList.remove("active");
-           document.getElementById("option_gh").classList.add("active");
-           document.getElementById("gh").checked = true;
-           document.getElementById("monthly").checked = false;
-           document.getElementById("once").checked = false;
-           document.getElementById("stripe").checked = false;
-           document.getElementById('supportbtn').setAttribute('href', 'https://github.com/sponsors/philipbrembeck');
-           document.getElementById('supportbtn').innerHTML = '<span class="icon-github-circled"></span> Sponsor on GitHub';
-           document.getElementById('vendor').innerHTML = 'GitHub';
+    document.getElementById("option_gh").onclick = function() {
+        document.getElementById("option_monthly").classList.remove("active");
+        document.getElementById("option_once").classList.remove("active");
+        document.getElementById("option_stripe").classList.remove("active");
+        document.getElementById("option_gh").classList.add("active");
+        document.getElementById("gh").checked = true;
+        document.getElementById("monthly").checked = false;
+        document.getElementById("once").checked = false;
+        document.getElementById("stripe").checked = false;
+        document.getElementById('supportbtn').setAttribute('href', 'https://github.com/sponsors/philipbrembeck');
+        document.getElementById('supportbtn').innerHTML = '<span class="icon-github-circled"></span> Sponsor on GitHub';
+        document.getElementById('vendor').innerHTML = 'GitHub';
     }
-    document.getElementById("option_stripe").onclick = function()
-    {
-           document.getElementById("option_monthly").classList.remove("active");
-           document.getElementById("option_once").classList.remove("active");
-           document.getElementById("option_gh").classList.remove("active");
-           document.getElementById("option_stripe").classList.add("active");
-           document.getElementById("stripe").checked = true;
-           document.getElementById("monthly").checked = false;
-           document.getElementById("once").checked = false;
-           document.getElementById("gh").checked = false;
-           document.getElementById('supportbtn').setAttribute('href', 'https://donate.stripe.com/3cs5mzgy42jd2645kk');
-           document.getElementById('supportbtn').innerHTML = '<span class="icon-credit-card-alt"></span>&nbsp; Donate with Stripe';
-           document.getElementById('vendor').innerHTML = 'Stripe';
+    document.getElementById("option_stripe").onclick = function() {
+        document.getElementById("option_monthly").classList.remove("active");
+        document.getElementById("option_once").classList.remove("active");
+        document.getElementById("option_gh").classList.remove("active");
+        document.getElementById("option_stripe").classList.add("active");
+        document.getElementById("stripe").checked = true;
+        document.getElementById("monthly").checked = false;
+        document.getElementById("once").checked = false;
+        document.getElementById("gh").checked = false;
+        document.getElementById('supportbtn').setAttribute('href', 'https://donate.stripe.com/3cs5mzgy42jd2645kk');
+        document.getElementById('supportbtn').innerHTML = '<span class="icon-credit-card-alt"></span>&nbsp; Donate with Stripe';
+        document.getElementById('vendor').innerHTML = 'Stripe';
     }
 
-    document.getElementById("donate").onclick = function()
-    {
-           var modal = document.getElementById("donationmodal");
-           modal.style.display = 'block';
-           document.getElementById("mainpage").classList.remove("modalIsClosed");
-           document.getElementById("mainpage").classList.add("modalIsOpen");
+    document.getElementById("donate").onclick = function() {
+        var modal = document.getElementById("donationmodal");
+        modal.style.display = 'block';
+        document.getElementById("mainpage").classList.remove("modalIsClosed");
+        document.getElementById("mainpage").classList.add("modalIsOpen");
 
-           document.getElementById("modal_close").onclick = function()
-           {
+        document.getElementById("modal_close").onclick = function() {
             modal.classList.add("fadeOutDown");
             setTimeout(() => {
                 document.getElementById("mainpage").classList.remove("modalIsOpen");
@@ -467,7 +457,7 @@ if (document.getElementById("donationmodal")){
                 modal.classList.add("fadeInUp");
                 modal.style.display = 'none';
             }, 200);
-           }
+        }
     }
 }
 
@@ -504,7 +494,7 @@ function sharebutton() {
     const title = document.title;
     const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
     const ean = document.getElementById('barcode').value;
-    const url = "https://vegancheck.me/en/?ean="+ean;
+    const url = "https://vegancheck.me/en/?ean=" + ean;
 
     if (navigator.share !== undefined) {
         navigator.share({
@@ -517,4 +507,153 @@ function sharebutton() {
     } else {
         window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
     }
+}
+
+// OCR Reader
+let camera_button = document.querySelector("#ocr");
+let video = document.querySelector("#video");
+let close = document.querySelector("#close_ocr");
+let click_button = document.querySelector("#click-photo");
+let canvas = document.querySelector("#canvas");
+
+const width = 500;
+let height = 0;
+let streaming = false;
+let tracks;
+
+camera_button.addEventListener('click', async function() {
+    const constraints = {
+        audio: false,
+        video: {
+            width: window.innerWidth * window.devicePixelRatio,
+            height: window.innerHeight * window.devicePixelRatio,
+            aspectRatio: { ideal: (window.innerHeight) / window.innerWidth },
+            focusMode: 'continuous',
+            facingMode: 'environment'
+        }
+    }
+    let stream = await navigator.mediaDevices.getUserMedia(constraints);
+    video.srcObject = stream;
+    const mediaStream = video.srcObject;
+    tracks = mediaStream.getTracks();
+    document.getElementById("controls").style.display = "block";
+    video.style.display = "block";
+    click_button.style.display = "block";
+});
+
+function stopBothVideoAndAudio(stream) {
+    streaming = false;
+    tracks[0].stop();
+    click_button.innerHTML = "<span class='timeout' style='color:#FFF;'><span>.</span><span>.</span><span>.</span></span>";
+    setTimeout(() => {
+        document.getElementById("controls").style.display = "none";
+        video.style.display = "none";
+        click_button.style.display = "none";
+        click_button.innerHTML = '<span class="icon-camera" id="click-photo"></span>';
+    }, 500);
+}
+
+video.addEventListener(
+    "canplay",
+    (ev) => {
+        if (!streaming) {
+            height = (video.videoHeight / video.videoWidth) * width;
+            video.setAttribute("width", width);
+            video.setAttribute("height", height);
+            canvas.setAttribute("width", width);
+            canvas.setAttribute("height", height);
+            streaming = true;
+        }
+    },
+    false
+);
+
+close.addEventListener('click', function() {
+    stopBothVideoAndAudio();
+});
+
+click_button.addEventListener('click', function() {
+    const context = canvas.getContext("2d");
+    if (width && height) {
+        canvas.width = width;
+        canvas.height = height;
+        context.drawImage(video, 0, 0, width, height);
+        const data = canvas.toDataURL("image/png");
+    }
+});
+
+$(document).ready(function() {
+    var inputs = document.querySelectorAll('.inputfile');
+    Array.prototype.forEach.call(inputs, function(input) {
+
+        input.addEventListener('change', function(e) {
+            var fileName = '';
+            if (this.files && this.files.length > 1)
+                fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+            else
+                fileName = e.target.value.split('\\').pop();
+
+            if (fileName) {
+
+                let reader = new FileReader();
+                reader.onload = function() {
+                    let dataURL = reader.result;
+                }
+                let file = this.files[0];
+                reader.readAsDataURL(file);
+                startRecognize(file);
+            } else {
+               document.getElementById('ingredients').value = "No text recognized";
+            }
+        });
+    });
+});
+
+$("#click-photo").click(function() {
+    stopBothVideoAndAudio();
+    var img = canvas.toDataURL("image/png");
+    startRecognize(img);
+});
+
+// Start recognition
+function startRecognize(img) {
+    recognizeFile(img);
+}
+
+function progressUpdate(packet) {
+    if (packet.status == 'recognizing text') {
+        document.getElementById('wait').style.display = "block";
+        stopBothVideoAndAudio();
+    }
+
+
+    if (packet.status == 'done') {
+        document.getElementById('ingredients').value = packet.data.text.replace(/\n\s*\n/g, '')
+        document.getElementById('wait').style.display = "none"
+        stopBothVideoAndAudio();
+    }
+
+}
+
+function recognizeFile(file) {
+    $("#log").empty();
+    const corePath = window.navigator.userAgent.indexOf("Edge") > -1 ?
+        'js/tesseract-core.asm.js' :
+        'js/tesseract-core.wasm.js';
+
+
+    const worker = new Tesseract.TesseractWorker({
+        corePath,
+    });
+
+    worker.recognize(file, "eng")
+        .progress(function(packet) {
+            console.info(packet)
+            progressUpdate(packet)
+
+        })
+        .then(function(data) {
+            console.log(data)
+            progressUpdate({ status: 'done', data: data })
+        })
 }
