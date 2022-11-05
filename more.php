@@ -38,27 +38,27 @@
           <h2><?php echo L::more_supportus; ?></h2>
           <div class="option active" id="option_once">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="once" checked>
-            <span class="muted">Just support us once</span>
+            <span class="muted"><?php echo L::more_donate_once; ?></span>
             <span class="price">1-15€</span>
           </div>
           <div class="option" id="option_monthly">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="monthly">
-            <span class="muted">Monthly</span>
-            <span class="price">1-15€/month</span>
+            <span class="muted"><?php echo L::more_donate_monthly; ?></span>
+            <span class="price">1-15€/<?php echo L::more_donate_month; ?></span>
           </div>
           <div class="option" id="option_stripe">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="stripe">
-            <span class="muted">Once via Stripe</span>
+            <span class="muted"><?php echo L::more_donate_once; ?> <?php echo L::more_donate_via; ?> Stripe</span>
             <span class="price">1-100€</span>
           </div>
           <div class="option" id="option_gh">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="gh">
-            <span class="muted">Monthly via GitHub</span>
-            <span class="price">1-100$/month</span>
+            <span class="muted"><?php echo L::more_donate_monthly; ?> <?php echo L::more_donate_via; ?> GitHub</span>
+            <span class="price">1-100$/<?php echo L::more_donate_month; ?></span>
           </div>
           <div class="center">
             <a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536" class="button" id="supportbtn"><span class="icon-paypal"></span> Donate with PayPal</a>
-            <span class="info">The payment process will be completed on <span id="vendor">PayPal</span>.</span>
+            <span class="info"><?php echo L::more_donate_vendor; ?></span>
         </div>
   </div>
 
@@ -85,8 +85,18 @@
                   <div class="Grid-cell description"><?php echo L::more_imprint; ?></div>
                   <div class="Grid-cell icons"><span class="unknown icon-right-open"></span></div>
             </a>
+            <span class="Grid switcher">
+              <div class="Grid-cell description">
+              OLED-Mode
+              <span class="info" id="cookieinfo"><?php echo L::more_oled_cookiewarning; ?></span>
+              <span class="info" id="oledinfo"><?php echo L::more_oled_error; ?></span>
+            </div>
+            <div class="Grid-cell icons"><input class="switch" id="oled-switch" type="checkbox"></div>
+          </span>
+        </div>
       </div>
     </div>
+
 <?php
   include_once('includes/footer.php');
 ?>
