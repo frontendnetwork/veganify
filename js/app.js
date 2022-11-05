@@ -633,3 +633,49 @@ if (document.getElementById("ocr")) {
     }
 
 }
+
+// OLED function
+if (localStorage.getItem("oled") === "true") {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute("data-theme", "oled");
+        if (document.getElementById("oled-switch")) {
+            document.getElementById('oled-switch').checked = true;
+        }
+    }
+}
+
+if (document.getElementById("oled-switch")) {
+    let oled = document.getElementById('oled-switch');
+    let info = document.getElementById('cookieinfo');
+    let error = document.getElementById('oledinfo');
+
+    error.style.display = "none";
+
+    oled.onclick = function() {
+        if (localStorage.getItem("oled") === "false" || localStorage.getItem("oled") === null) {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute("data-theme", "oled");
+                localStorage.setItem('oled', 'true');
+                error.style.display = "none";
+                info.style.display = "block";
+            }
+            else {
+                oled.checked = false;
+                oled.classList.add("animated");
+                oled.classList.add("shake");
+                info.style.display = "none";
+                error.style.display = "block";
+                error.classList.add("animated");
+                error.classList.add("fadeIn");
+                setTimeout(() => {
+                    oled.classList.remove("animated");
+                    oled.classList.remove("shake");
+                }, 300);
+            }
+        } else {
+            localStorage.setItem('oled', 'false');
+            document.documentElement.removeAttribute("data-theme");
+        }
+    };
+
+}
