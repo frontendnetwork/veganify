@@ -167,6 +167,26 @@
     }
 }
 
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
 .animate__backOutDown {
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
@@ -179,6 +199,11 @@
 .zoomIn {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
 }
 
 .animated {
