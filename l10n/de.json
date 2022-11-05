@@ -94,6 +94,20 @@
         "tos": "Nutzungsbedingungen",
         "privacypolicy": "Datenschutzerklärung",
         "api": "API Dokumentation",
-        "imprint": "Impressum"
-    }
+        "imprint": "Impressum",
+        "oled": {
+            "cookiewarning": "Dies setzt einen Cookie",
+            "error": "Aktiviere den Dark-Mode auf deinem Gerät!"
+        },
+        "donate": {
+            "once": "Einmalig",
+            "monthly": "Monatlich",
+            "via": "via",
+            "month": "Monat",
+            "vendor": "Der Bezahlprozess wird auf <span id=\"vendor\">PayPal<\/span> abgeschlossen."
+        }
+    },
+    "language": "Diese Seite ist nur auf Deutsch und Englisch verfügbar.",
+    "germanonly": "Diese Seite ist nur auf Deutsch verfügbar.",
+    "tos": "<p><b>Nutzung der Seite \"VeganCheck.me\"<\/b><\/p><p>Die Nutzung der Seite \"VeganCheck.me\" erfolgt kostenlos. Die entgeltliche Weitergabe der Inhalte oder unserer Services ist untersagt. Automatisierte Abfragen sind ebenfalls untersagt und dürfen nur mittels der <a href=\"https:\/\/jokenetwork.de\/vegancheck-api\">API<\/a> erfolgen.<br> Wir behalten uns vor, unsere Services jederzeit zu ändern, zu reduzieren, zu erweitern oder zu deaktivieren.<\/p><p><b>Verarbeitung eingegebener Texte und Nummern<\/b><\/p><p>Auf unserer Website können in Textfeldern Barcodes oder Zutaten eines Produktes eingegeben werden. Dies ist notwendig, um unseren Dienst im vollem Umfang zur Verfügung zu stellen. Die Eingabe erfolgt freiwillig.<br>In die benannten Textfelder dürfen nur Barcodes oder Zutaten eingegeben werden, die Eingabe oder Übermittlung von personenbezogenen Daten jeglicher Art ist untersagt.<\/p><p>Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.<sup><a href=\"https:\/\/ec.europa.eu\/info\/law\/law-topic\/data-protection\/reform\/what-personal-data_de\">?<\/a><\/sup><\/p><p><b>Haftungsausschluss<\/b><\/p><p>Wir übernehmen keine Haftung für die Richtigkeit der angebotenen Produktinformationen und Zutatenlisten und für die Verfügbarkeit unseres Dienstes.<\/p>"
 }

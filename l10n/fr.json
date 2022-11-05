@@ -94,6 +94,20 @@
         "tos": "Conditions d'utilisation",
         "privacypolicy": "Politique de confidentialité",
         "api": "Documentation de l'API",
-        "imprint": "Mentions légales"
-    }
+        "imprint": "Mentions légales",
+        "oled" : {
+            "cookiewarning" : "Ceci définit un cookie",
+            "error" : "Activez le mode sombre sur votre appareil !"
+        },
+        "donate" : {
+            "once" : "Une fois",
+            "monthly" : "Mensuel",
+            "via" : "via",
+            "month" : "mois",
+            "vendor" : "Le processus de paiement sera effectué sur <span id=\"vendor\">PayPal."
+        }
+    },
+    "language" : "Cette page est uniquement disponible en anglais et en allemand.",
+    "germanonly" : "Cette page n'est disponible qu'en allemand.",
+    "tos": "<p><b>Use of \"VeganCheck.me\"<\/b><\/p><p>The use of the site \"VeganCheck.me\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https:\/\/jokenetwork.de\/vegancheck-api\">API<\/a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.<\/p><p><b>Processing of entered texts and numbers<\/b><\/p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.<\/p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https:\/\/ec.europa.eu\/info\/law\/law-topic\/data-protection\/reform\/what-personal-data_en\">?<\/a><\/sup><\/p><p><b>Disclaimer<\/b><\/p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.<\/p>"
 }
