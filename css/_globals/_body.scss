@@ -371,10 +371,11 @@ sup {
 
         input.switch {
             position: relative;
+            appearance: none;
             -webkit-appearance: none;
             outline: none;
-            width: 1.875rem;
-            height: 1.25rem;
+            width: 3.125rem;
+            height: 1.875rem;
             background-color: #fff;
             border: .063rem solid #D9DADC;
             border-radius: 3.125rem;
@@ -386,18 +387,18 @@ sup {
                 top: .063rem;
                 left: .063rem;
                 background: transparent;
-                width: 1rem;
-                height: 1rem;
+                width: 1.625rem;
+                height: 1.625rem;
                 border-radius: 50%;
                 box-shadow: .125rem .25rem .375rem rgba(0, 0, 0, 0.2);
             }
 
             &:checked {
-                box-shadow: inset .688rem 0 0 0 #4ed164;
-                border-color: #4ed164;
+                box-shadow: inset 1.25rem 0 0 0 var(--button-bg-re);
+                border-color: var(--button-bg-re);
 
                 &:after {
-                    left: .625rem;
+                    left: 1.25rem;
                     box-shadow: -0.125rem .25rem .188rem rgba(0, 0, 0, 0.05);
                 }
             }
@@ -405,7 +406,7 @@ sup {
 
 
         .description {
-            width: 92% !important;
+            width: 85% !important;
             flex: none !important;
             text-align: left;
             font-weight: var(--semibold-fontweight);
@@ -422,7 +423,7 @@ sup {
         }
 
         .icons {
-            width: 8% !important;
+            width: 15% !important;
             flex: none !important;
             font-weight: var(--semibold-fontweight);
             text-align: right;
@@ -470,6 +471,35 @@ sup {
         display: inline-block;
     }
 }
+
+/*.button {
+    font-size: 1rem;
+    color: var(--button-fg);
+    background: var(--button-bg);
+    padding: 1.0rem;
+    border-radius: 0.625rem;
+    text-decoration: none;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    border: none;
+    padding-left: 1.5rem;
+
+    &:hover {
+        background: var(--button-bg);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--button-fg);
+
+        &:hover, &:active, &:focus {
+            color: var(--button-fg);
+        }
+    }
+}*/
 
 .labels {
     padding: .5rem !important;
@@ -575,6 +605,7 @@ sup {
 
 .btn_ocr {
     border-right: none;
+    width: 8%;
 }
 
 button {
@@ -902,7 +933,7 @@ thead {
         }
 
         &:last-child {
-            margin-top: .3rem;
+            margin-top: -.4rem;
             margin-left: auto;
             float: right;
             justify-content: flex-end;
