@@ -303,6 +303,50 @@ $('button[name="checkingredients"]').on('click', function(e) {
 
             // Scroll to result
             self.location.href = '#resscroll';
+
+            $(document).on('click', function() {
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
+                $(".modal_view").addClass('fadeOutDown')
+                setTimeout(function() {
+                    $(".modal_view").css("display", "none")
+                    $(".modal_view").removeClass('fadeOutDown')
+                    $(".modal_view").addClass('fadeInUp')
+                }, 200);
+            });
+            $(".modal_view").on('click', function(event) {
+                event.stopPropagation();
+            });
+            $('#processed_modal').click(function() {
+                $("#processed").css("display", "block")
+                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
+                event.stopPropagation();
+            });
+            $('.modal_close').click(function() {
+                $("#processed").addClass('fadeOutDown')
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
+                setTimeout(function() {
+                    $("#processed").removeClass('fadeOutDown')
+                    $("#processed").addClass('fadeInUp')
+                    $("#processed").css("display", "none")
+
+                }, 200);
+            });
+            $('#license_modal').click(function() {
+                $("#license").css("display", "block")
+                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
+                event.stopPropagation();
+            });
+            $('.modal_close').click(function() {
+                $("#license").addClass('fadeOutDown')
+                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
+                setTimeout(function() {
+                    $("#license").removeClass('fadeOutDown')
+                    $("#license").addClass('fadeInUp')
+                    $("#license").css("display", "none")
+
+                }, 200);
+            });
+
         }
     });
 });
@@ -638,6 +682,7 @@ if (document.getElementById("ocr")) {
 if (localStorage.getItem("oled") === "true") {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.setAttribute("data-theme", "oled");
+        document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#000");
         if (document.getElementById("oled-switch")) {
             document.getElementById('oled-switch').checked = true;
         }
@@ -655,11 +700,11 @@ if (document.getElementById("oled-switch")) {
         if (localStorage.getItem("oled") === "false" || localStorage.getItem("oled") === null) {
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.documentElement.setAttribute("data-theme", "oled");
+                document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#000");
                 localStorage.setItem('oled', 'true');
                 error.style.display = "none";
                 info.style.display = "block";
-            }
-            else {
+            } else {
                 oled.checked = false;
                 oled.classList.add("animated");
                 oled.classList.add("shake");
@@ -675,6 +720,7 @@ if (document.getElementById("oled-switch")) {
         } else {
             localStorage.setItem('oled', 'false');
             document.documentElement.removeAttribute("data-theme");
+            document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#141414");
         }
     };
 
