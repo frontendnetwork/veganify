@@ -30,13 +30,13 @@
       <h1><?php echo L::other_rotate; ?></h1>
     </div>
 
-    <div class="modal_view animatedfaster fadeIn" id="processed" style="display:none;">
+    <div class="modal_view animatedfaster fadeInUp" id="processed" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2><?php echo L::modal_processed; ?></h2>
           <p><?php echo L::modal_processed_desc; ?></p>
     </div>
 
-    <div class="modal_view animatedfaster fadeIn" id="license" style="display:none;">
+    <div class="modal_view animatedfaster fadeInUp" id="license" style="display:none;">
       <div class="modal_close"><a class="btn-dark">&times;</a></div>
           <h2><?php echo L::modal_licenses; ?></h2>
           <p><?php echo L::modal_licenses_desc; ?></p>

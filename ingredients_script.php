@@ -25,7 +25,7 @@ function translate($targetlang, $text) {
   $deeplauth = $_ENV['DEEPL_AUTH'];
   $headers = array('Content-Disposition' => 'form-data', 'Authorization' => 'DeepL-Auth-Key '.$deeplauth.'');
   $data = array('target_lang' => $targetlang, 'text' => $text);
-  return = Requests::post('https://api-free.deepl.com/v2/translate', $headers, $data);
+  return Requests::post('https://api-free.deepl.com/v2/translate', $headers, $data);
 }
 
 // Textfield is empty
