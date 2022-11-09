@@ -62,7 +62,7 @@ function setupLiveReader(resultElement) {
 
         // Check for the facingMode
         if (camera == 'environment' || camera == 'user') {
-            let constraints = {
+            var constraints = {
                 audio: false,
                 video: {
                     width: window.innerWidth * window.devicePixelRatio,
@@ -74,7 +74,7 @@ function setupLiveReader(resultElement) {
             };
         } else {
             camera = 'environment'
-            let constraints = {
+            var constraints = {
                 audio: false,
                 video: {
                     width: window.innerWidth * window.devicePixelRatio,
@@ -245,7 +245,7 @@ if (document.getElementById("shortcut")) {
     }
 
     // Only show shortcut on iOS
-    let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (!isIOS) {
         shortcut.style.display = 'none';
         mainpage.classList.add('top');
@@ -261,9 +261,9 @@ if (document.getElementById("shortcut")) {
 // PWA Prompt Display
 if (document.getElementById("installation")) {
     function setCookie(name, value, days) {
-        let expires = "";
+        var expires = "";
         if (days) {
-            let date = new Date();
+            var date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
         }
@@ -271,10 +271,10 @@ if (document.getElementById("installation")) {
     }
 
     function getCookie(name) {
-        let nameEQ = name + "=";
-        let ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
             while (c.charAt(0) == ' ') c = c.substring(1, c.length);
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
