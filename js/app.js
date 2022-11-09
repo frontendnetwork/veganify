@@ -200,79 +200,6 @@ $('button[name="submit"]').on('click', function(e) {
 
             // Scroll to result
             self.location.href = '#resscroll';
-
-            $(document).on('click', function() {
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                $(".modal_view").addClass('fadeOutDown')
-                setTimeout(function() {
-                    $(".modal_view").css("display", "none")
-                    $(".modal_view").removeClass('fadeOutDown')
-                    $(".modal_view").addClass('fadeInUp')
-                }, 200);
-            });
-            $(".modal_view").on('click', function(event) {
-                event.stopPropagation();
-            });
-
-            $('#nutri_modal').click(function() {
-                $("#nutriscore").css("display", "block")
-                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#nutriscore").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                setTimeout(function() {
-                    $("#nutriscore").css("display", "none")
-                    $("#nutriscore").removeClass('fadeOutDown')
-                    $("#nutriscore").addClass('fadeInUp')
-                }, 200);
-            });
-            $('#palm_modal').click(function() {
-                $("#palmoil").css("display", "block")
-                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#palmoil").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                setTimeout(function() {
-                    $("#palmoil").removeClass('fadeOutDown')
-                    $("#palmoil").addClass('fadeInUp')
-                    $("#palmoil").css("display", "none")
-
-                }, 200);
-            });
-            $('#processed_modal').click(function() {
-                $("#processed").css("display", "block")
-                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#processed").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                setTimeout(function() {
-                    $("#processed").removeClass('fadeOutDown')
-                    $("#processed").addClass('fadeInUp')
-                    $("#processed").css("display", "none")
-
-                }, 200);
-            });
-            $('#license_modal').click(function() {
-                $("#license").css("display", "block")
-                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#license").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                setTimeout(function() {
-                    $("#license").removeClass('fadeOutDown')
-                    $("#license").addClass('fadeInUp')
-                    $("#license").css("display", "none")
-
-                }, 200);
-            });
         }
     });
 });
@@ -303,50 +230,6 @@ $('button[name="checkingredients"]').on('click', function(e) {
 
             // Scroll to result
             self.location.href = '#resscroll';
-
-            $(document).on('click', function() {
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                $(".modal_view").addClass('fadeOutDown')
-                setTimeout(function() {
-                    $(".modal_view").css("display", "none")
-                    $(".modal_view").removeClass('fadeOutDown')
-                    $(".modal_view").addClass('fadeInUp')
-                }, 200);
-            });
-            $(".modal_view").on('click', function(event) {
-                event.stopPropagation();
-            });
-            $('#processed_modal').click(function() {
-                $("#processed").css("display", "block")
-                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#processed").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                setTimeout(function() {
-                    $("#processed").removeClass('fadeOutDown')
-                    $("#processed").addClass('fadeInUp')
-                    $("#processed").css("display", "none")
-
-                }, 200);
-            });
-            $('#license_modal').click(function() {
-                $("#license").css("display", "block")
-                $(".container").addClass('modalIsOpen').removeClass('modalIsClosed')
-                event.stopPropagation();
-            });
-            $('.modal_close').click(function() {
-                $("#license").addClass('fadeOutDown')
-                $(".container").removeClass('modalIsOpen').addClass('modalIsClosed')
-                setTimeout(function() {
-                    $("#license").removeClass('fadeOutDown')
-                    $("#license").addClass('fadeInUp')
-                    $("#license").css("display", "none")
-
-                }, 200);
-            });
-
         }
     });
 });
@@ -410,25 +293,6 @@ if (document.getElementById("installation")) {
     } else {
         document.getElementById("pwainstall").style.display = 'none';
     }
-
-    // Installation instruction modal
-    document.getElementById("getbtn").onclick = function() {
-        document.getElementById("mainpage").classList.remove("modalIsClosed");
-        var imodal = document.getElementById("installation");
-        imodal.style.display = 'block';
-        document.getElementById("mainpage").classList.add("modalIsOpen");
-
-        document.getElementById("modal_close").onclick = function() {
-            imodal.classList.add("fadeOutDown");
-            document.getElementById("mainpage").classList.add("modalIsClosed");
-            setTimeout(() => {
-                document.getElementById("mainpage").classList.remove("modalIsOpen");
-                imodal.classList.remove("fadeOutDown");
-                imodal.classList.add("fadeInUp");
-                imodal.style.display = 'none';
-            }, 200);
-        }
-    }
 }
 
 // Donation Modal 
@@ -484,24 +348,6 @@ if (document.getElementById("donationmodal")) {
         document.getElementById('supportbtn').setAttribute('href', 'https://donate.stripe.com/3cs5mzgy42jd2645kk');
         document.getElementById('supportbtn').innerHTML = '<span class="icon-credit-card-alt"></span>&nbsp; Donate with Stripe';
         document.getElementById('vendor').innerHTML = 'Stripe';
-    }
-
-    document.getElementById("donate").onclick = function() {
-        var modal = document.getElementById("donationmodal");
-        modal.style.display = 'block';
-        document.getElementById("mainpage").classList.remove("modalIsClosed");
-        document.getElementById("mainpage").classList.add("modalIsOpen");
-
-        document.getElementById("modal_close").onclick = function() {
-            modal.classList.add("fadeOutDown");
-            setTimeout(() => {
-                document.getElementById("mainpage").classList.remove("modalIsOpen");
-                document.getElementById("mainpage").classList.add("modalIsClosed");
-                modal.classList.remove("fadeOutDown");
-                modal.classList.add("fadeInUp");
-                modal.style.display = 'none';
-            }, 200);
-        }
     }
 }
 
@@ -718,10 +564,86 @@ if (document.getElementById("oled-switch")) {
                 }, 300);
             }
         } else {
-            localStorage.setItem('oled', 'false');
+            localStorage.clear();
             document.documentElement.removeAttribute("data-theme");
             document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#141414");
         }
     };
-
 }
+
+// Modal
+document.addEventListener('click', function(e) {
+    e = e || window.event;
+    let target = e.target || e.srcElement;
+
+    if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+        if (target.hasAttribute('data-target')) {
+            let m_ID = target.getAttribute('data-target');
+            let modal = document.getElementById(m_ID);
+            document.getElementById(m_ID).classList.add('open');
+            document.getElementById("mainpage").classList.remove("modalIsClosed");
+            document.getElementById("mainpage").classList.add("modalIsOpen");
+            e.preventDefault();
+
+            modal.addEventListener("touchstart", startTouch, false);
+            modal.addEventListener("touchmove", moveTouch, false);
+
+            // Swipe Up / Down / Left / Right
+            let initialX = null;
+            let initialY = null;
+
+            function startTouch(e) {
+                initialX = e.touches[0].clientX;
+                initialY = e.touches[0].clientY;
+            };
+
+            function moveTouch(e) {
+                if (initialX === null) {
+                    return;
+                }
+
+                if (initialY === null) {
+                    return;
+                }
+
+                let currentX = e.touches[0].clientX;
+                let currentY = e.touches[0].clientY;
+
+                let diffX = initialX - currentX;
+                let diffY = initialY - currentY;
+
+                if (Math.abs(diffX) < Math.abs(diffY)) {
+                    // sliding vertically
+                    if (diffY < 0) {
+                        document.querySelector('.btn-dark').click();
+                    }
+                }
+
+                initialX = null;
+                initialY = null;
+
+                e.preventDefault();
+            };
+        }
+    }
+
+    // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+    if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target.classList.contains('modalIsOpen') || target.classList.contains('form')) {
+        var modal = document.querySelector('[class="modal_view animatedfaster fadeInUp open"]');
+        modal.classList.add("fadeOutDown");
+        setTimeout(() => {
+            document.getElementById("mainpage").classList.remove("modalIsOpen");
+            document.getElementById("mainpage").classList.add("modalIsClosed");
+            modal.classList.remove("fadeOutDown");
+            modal.classList.add("fadeInUp");
+            modal.classList.remove('open');
+        }, 200);
+        e.preventDefault();
+    }
+}, false);
+
+document.body.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelector('.btn-dark').click();
+    }
+});
