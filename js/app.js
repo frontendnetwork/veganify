@@ -18,7 +18,7 @@ function setupLiveReader(resultElement) {
     window.location.hash = '#top';
 
     // Create scanner-container
-    var container = document.createElement('div')
+    let container = document.createElement('div')
     container.className = 'eanscanner'
     container.style.position = 'absolute'
     container.style.zIndex = '999'
@@ -26,9 +26,9 @@ function setupLiveReader(resultElement) {
     container.style.height = '100%'
     container.style.left = '0'
     container.style.top = '0'
-    var canvas = document.createElement('canvas')
-    var video = document.createElement('video')
-    var context = canvas.getContext('2d')
+    let canvas = document.createElement('canvas')
+    let video = document.createElement('video')
+    let context = canvas.getContext('2d')
     canvas.style.position = 'absolute'
     container.appendChild(canvas)
     document.body.insertBefore(container, resultElement)
@@ -62,7 +62,7 @@ function setupLiveReader(resultElement) {
 
         // Check for the facingMode
         if (camera == 'environment' || camera == 'user') {
-            var constraints = {
+            let constraints = {
                 audio: false,
                 video: {
                     width: window.innerWidth * window.devicePixelRatio,
@@ -74,7 +74,7 @@ function setupLiveReader(resultElement) {
             };
         } else {
             camera = 'environment'
-            var constraints = {
+            let constraints = {
                 audio: false,
                 video: {
                     width: window.innerWidth * window.devicePixelRatio,
@@ -235,8 +235,8 @@ $('button[name="checkingredients"]').on('click', function(e) {
 });
 
 if (document.getElementById("shortcut")) {
-    var shortcut = document.getElementById('shortcut');
-    var mainpage = document.getElementById('mainpage');
+    let shortcut = document.getElementById('shortcut');
+    let mainpage = document.getElementById('mainpage');
 
     // Only show shortcut if PWA is not installed
     if (window.matchMedia('(display-mode: standalone)').matches) {
@@ -245,7 +245,7 @@ if (document.getElementById("shortcut")) {
     }
 
     // Only show shortcut on iOS
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (!isIOS) {
         shortcut.style.display = 'none';
         mainpage.classList.add('top');
@@ -261,9 +261,9 @@ if (document.getElementById("shortcut")) {
 // PWA Prompt Display
 if (document.getElementById("installation")) {
     function setCookie(name, value, days) {
-        var expires = "";
+        let expires = "";
         if (days) {
-            var date = new Date();
+            let date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
         }
@@ -271,10 +271,10 @@ if (document.getElementById("installation")) {
     }
 
     function getCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
             while (c.charAt(0) == ' ') c = c.substring(1, c.length);
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
@@ -629,7 +629,7 @@ document.addEventListener('click', function(e) {
 
     // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
     if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target.classList.contains('modalIsOpen') || target.classList.contains('form')) {
-        var modal = document.querySelector('[class="modal_view animatedfaster fadeInUp open"]');
+        let modal = document.querySelector('[class="modal_view animatedfaster fadeInUp open"]');
         modal.classList.add("fadeOutDown");
         setTimeout(() => {
             document.getElementById("mainpage").classList.remove("modalIsOpen");
