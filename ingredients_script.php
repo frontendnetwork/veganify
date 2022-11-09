@@ -79,7 +79,7 @@ else
                       </div></span>');
         }
 
-     print_r('<span class="source">'. L::results_datasource .' <a href="https://www.veganpeace.com/ingredients/ingredients.htm">VeganPeace</a>, <a href="https://www.peta.org/living/food/animal-ingredients-list/">PETA</a> '.L::ingredients_and.' <a href="http://www.veganwolf.com/animal_ingredients.htm">The VEGAN WOLF</a><sup id="license_modal">?</sup><br>'.L::ingredients_translated.' <a href="https://deepl.com">DeepL</a><br>'. L::results_processed . '<sup id="processed_modal">?</sup></span>');
+     print_r('<span class="source">'. L::results_datasource .' <a href="https://www.veganpeace.com/ingredients/ingredients.htm">VeganPeace</a>, <a href="https://www.peta.org/living/food/animal-ingredients-list/">PETA</a> '.L::ingredients_and.' <a href="http://www.veganwolf.com/animal_ingredients.htm">The VEGAN WOLF</a><sup data-target="license" data-toggle="modal">?</sup><br>'.L::ingredients_translated.' <a href="https://deepl.com">DeepL</a><br>'. L::results_processed . '<sup data-target="processed" data-toggle="modal">?</sup></span>');
      print_r('</div></div>');
     }
     elseif($product->data->vegan == "true"){
@@ -88,7 +88,7 @@ else
                         <div class="Grid-cell description"><b>Vegan</b></div>
                         <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
                       </div>');
-        print_r('<span class="source">'. L::results_datasource .' <a href="https://www.veganpeace.com/ingredients/ingredients.htm">VeganPeace</a>, <a href="https://www.peta.org/living/food/animal-ingredients-list/">PETA</a> '.L::ingredients_and.' <a href="http://www.veganwolf.com/animal_ingredients.htm">The VEGAN WOLF</a><sup id="license_modal">?</sup><br>'. L::results_processed . '<sup id="processed_modal">?</sup></span>');
+        print_r('<span class="source">'. L::results_datasource .' <a href="https://www.veganpeace.com/ingredients/ingredients.htm">VeganPeace</a>, <a href="https://www.peta.org/living/food/animal-ingredients-list/">PETA</a> '.L::ingredients_and.' <a href="http://www.veganwolf.com/animal_ingredients.htm">The VEGAN WOLF</a><sup data-target="license" data-toggle="modal">?</sup><br>'. L::results_processed . '<sup data-target="processed" data-toggle="modal">?</sup></span>');
         print_r('</div></div>');
     }
     else {

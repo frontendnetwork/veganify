@@ -30,14 +30,14 @@
       <h1><?php echo L::other_rotate; ?></h1>
     </div>
 
-    <div class="modal_view animatedfaster fadeInUp" id="processed" style="display:none;">
-      <div class="modal_close"><a class="btn-dark">&times;</a></div>
+    <div class="modal_view animatedfaster fadeInUp" id="processed">
+      <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
           <h2><?php echo L::modal_processed; ?></h2>
           <p><?php echo L::modal_processed_desc; ?></p>
     </div>
 
-    <div class="modal_view animatedfaster fadeInUp" id="license" style="display:none;">
-      <div class="modal_close"><a class="btn-dark">&times;</a></div>
+    <div class="modal_view animatedfaster fadeInUp" id="license">
+      <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
           <h2><?php echo L::modal_licenses; ?></h2>
           <p><?php echo L::modal_licenses_desc; ?></p>
           <p>
@@ -64,7 +64,7 @@
     <div class="cam_btn" id="click-photo" style="display:none;"><span class="icon-camera"></span></div>
     
 
-    <div class="container top">
+    <div class="container top" id="mainpage">
       <div id="main">
         <div class="form ingredients" id="resscroll">
           <img src="../img/VeganCheck.svg" alt="Logo" class="logo">

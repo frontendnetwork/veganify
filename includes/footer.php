@@ -1,3 +1,8 @@
+ <div class="modal_view animatedfaster fadeInUp" id="installation">
+      <div class="modal_close" id="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
+          <h2><?php echo L::prompt_install; ?></h2>
+          <p><?php echo L::prompt_info; ?></p>
+    </div>
 <div id="pwainstall">
     <div class="flex-container">
         <div class="flex-item" id="pwaclose">
@@ -11,7 +16,7 @@
             <span class="subheading"><?php echo L::meta_title; ?></span>
         </div>
         <div class="flex-item">
-            <span class="button" id="getbtn"><?php echo L::prompt_get; ?></span>
+            <span class="button" data-target="installation" data-toggle="modal"><?php echo L::prompt_get; ?></span>
         </div>
     </div>
 </div>

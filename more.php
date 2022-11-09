@@ -33,8 +33,8 @@
   </div>
   </div>
   </nav>
-    <div class="modal_view animatedfaster fadeInUp" id="donationmodal" style="display: none;">
-      <div class="modal_close" id="modal_close"><a class="btn-dark">&times;</a></div>
+    <div class="modal_view animatedfaster fadeInUp" id="donationmodal">
+      <div class="modal_close" id="modal_close" ><a class="btn-dark" data-dismiss="modal">&times;</a></div>
           <h2><?php echo L::more_supportus; ?></h2>
           <div class="option active" id="option_once">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="once" checked>
@@ -65,10 +65,10 @@
     <div class="container top" id="mainpage">
       <div id="main">
         <div class="form">
-            <a href="#" id="donate" class="Grid links">
-                  <div class="Grid-cell description"><?php echo L::more_supportus; ?></div>
-                  <div class="Grid-cell icons"><span class="unknown icon-right-open"></span></div>
-            </a>
+            <div class="Grid links">
+                  <div class="Grid-cell description" data-target="donationmodal" data-toggle="modal"><?php echo L::more_supportus; ?></div>
+                  <div class="Grid-cell icons"><span class="unknown icon-right-open" data-target="donationmodal" data-toggle="modal"></span></div>
+            </div>
             <a href="tos" class="Grid links">
                   <div class="Grid-cell description"><?php echo L::more_tos; ?></div>
                   <div class="Grid-cell icons"><span class="unknown icon-right-open"></span></div>
