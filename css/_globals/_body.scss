@@ -179,6 +179,10 @@ sup {
     text-decoration: underline;
 }
 
+.open {
+    display: block!important;
+}
+
 .modal_view {
     background-color: #FFF;
     color: #000 !important;
@@ -186,9 +190,6 @@ sup {
     border-top-left-radius: .5rem;
     position: fixed;
     bottom: 0%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
     width: 100%;
     height: auto;
     max-height: 95%;
@@ -197,6 +198,7 @@ sup {
     text-align: left;
     box-shadow: 0 1.5625rem 3.125rem 0.75rem rgba(0, 0, 0, 0.5);
     padding-bottom: 1rem;
+    display: none;
 
     .pwa-install-prompt__guide__icon {
         width: 1rem;
@@ -241,7 +243,7 @@ sup {
         .btn-dark {
             width: 2rem;
             height: 2rem;
-            position: absolute;
+            position: fixed;
             right: 1rem;
             margin-top: 0.8rem !important;
             display: inline-block;
@@ -255,8 +257,10 @@ sup {
             padding: 0;
             border-radius: 60%;
             color: #000 !important;
-            background-color: #ccc;
+            background-color: rgba(204, 204, 204, .6);
             font-size: 1.3rem;
+            z-index: 999999;
+            backdrop-filter: blur(0.2rem);
         }
     }
 
@@ -435,6 +439,7 @@ sup {
         text-decoration: none;
         font-weight: var(--semibold-fontweight);
         width: 90% !important;
+        cursor: pointer;
     }
 
     .Grid-cell {
@@ -802,6 +807,7 @@ table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+    color: #000;
 }
 
 table tbody,
