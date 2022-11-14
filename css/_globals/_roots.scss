@@ -24,6 +24,9 @@
     --nav-border: solid #1f1f1f 0.01rem;
     --pwa-bg: #141414;
     --pwa-border: solid #1f1f1f 0.01rem;
+    --modal-bg: #292929;
+    --modal-fg: #fff;
+    --modal-full-btn: #3e3e3e;
 }
 
 @media (prefers-color-scheme: light) {
@@ -40,6 +43,9 @@
         --nav-border: solid grey 0.01rem;
         --pwa-bg: #7f8fa6;
         --pwa-border: solid #8d99af 0.01rem;
+        --modal-bg: #f3f4f5;
+        --modal-fg: #000;
+        --modal-full-btn: #fff;
     }
 }
 
@@ -67,4 +73,7 @@ html[data-theme='oled'] {
     --nav-border: solid #1f1f1f 0.01rem;
     --pwa-bg: #141414;
     --pwa-border: solid #1f1f1f 0.01rem;
+    --modal-bg: #292929;
+    --modal-fg: #fff;
+    --modal-full-btn: #3e3e3e;
 }
