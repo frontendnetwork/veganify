@@ -38,10 +38,10 @@
           <h2><?php echo L::more_supportus; ?></h2>
           <div class="option active" id="option_once">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="once" checked>
-            <span class="muted"><?php echo L::more_donate_once; ?></span>
+            <span class="muted"><?php echo L::more_donate_once; ?> <?php echo L::more_donate_via; ?> PayPal</span>
             <span class="price">1-15€</span>
           </div>
-          <div class="option" id="option_monthly">
+          <div class="option" id="option_monthly" style="display:none;">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="monthly">
             <span class="muted"><?php echo L::more_donate_monthly; ?></span>
             <span class="price">1-15€/<?php echo L::more_donate_month; ?></span>
