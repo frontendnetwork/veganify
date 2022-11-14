@@ -173,26 +173,32 @@ footer {
 }
 
 /* Modals */
+.source {
+    sup {
+        font-size: 100%;
+        margin-left: .3rem;
+    }
+}
+
 sup {
-    font-weight: var(--body-fontweight);
-    cursor: pointer;
+    margin: .1rem;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .open {
-    display: block!important;
+    display: block !important;
 }
 
 .modal_view {
     background-color: var(--modal-bg);
-    color: var(--modal-fg)!important;
+    color: var(--modal-fg) !important;
     border-top-right-radius: .5rem;
     border-top-left-radius: .5rem;
     position: fixed;
     bottom: 0%;
     width: 100%;
-    height: auto;
-    max-height: 95%;
+    height: 94%;
     z-index: 9999999;
     overflow: overlay;
     text-align: left;
@@ -214,7 +220,7 @@ sup {
     }
 
     p {
-        color: var(--modal-fg)!important;
+        color: var(--modal-fg) !important;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
@@ -265,27 +271,27 @@ sup {
     }
 
     .share-btn {
-       background: var(--modal-full-btn);
-       border-radius: .5rem;
+        background: var(--modal-full-btn);
+        border-radius: .5rem;
         padding: 1rem;
         margin: 1rem;
-        display: flex; 
+        display: flex;
 
         .share-text {
             display: block;
             font-size: 1.2rem;
-            width: 95%;
+            width: 93%;
         }
 
         .share-icon {
-            width: 5%;
+            width: 7%;
         }
     }
 
     /* Donation modal */
     .option {
         background: var(--modal-full-btn);
-        border: .1rem #dee1e3 solid;
+        border: var(--modal-border);
         border-radius: .5rem;
         padding: 1rem;
         margin: 1rem;

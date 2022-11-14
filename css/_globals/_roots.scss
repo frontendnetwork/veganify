@@ -27,6 +27,7 @@
     --modal-bg: #292929;
     --modal-fg: #fff;
     --modal-full-btn: #3e3e3e;
+    --modal-border: 0.1rem #3e3e3e solid;
 }
 
 @media (prefers-color-scheme: light) {
@@ -46,6 +47,7 @@
         --modal-bg: #f3f4f5;
         --modal-fg: #000;
         --modal-full-btn: #fff;
+        --modal-border: 0.1rem #dee1e3 solid;
     }
 }
 
@@ -76,4 +78,5 @@ html[data-theme='oled'] {
     --modal-bg: #292929;
     --modal-fg: #fff;
     --modal-full-btn: #3e3e3e;
+    --modal-border: 0.1rem #3e3e3e solid;
 }
