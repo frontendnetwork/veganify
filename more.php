@@ -56,6 +56,11 @@
             <span class="muted"><?php echo L::more_donate_monthly; ?> <?php echo L::more_donate_via; ?> GitHub</span>
             <span class="price">1-100$/<?php echo L::more_donate_month; ?></span>
           </div>
+          <div class="option" id="option_kofi">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="kofi">
+            <span class="muted"><?php echo L::more_donate_once; ?> <?php echo L::more_donate_via; ?> Ko-Fi</span>
+            <span class="price">1-50€</span>
+          </div>
           <div class="center">
             <a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536" class="button" id="supportbtn"><span class="icon-paypal"></span> Donate with PayPal</a>
             <span class="info"><?php echo L::more_donate_vendor; ?></span>
