@@ -26,7 +26,7 @@ https://vegc.net/repo
     <meta charset="UTF-8">
 
     <meta name="description" content="<?php echo L::meta_description; ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     <meta property="og:title" content="<?php echo L::meta_title;  ?>">
     <meta property="og:type" content="website">
