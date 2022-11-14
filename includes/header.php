@@ -2,12 +2,14 @@
   require('/var/www/virtual/jake/vegancheck.me/vendor/autoload.php');
   $i18n = new i18n('/var/www/virtual/jake/vegancheck.me/l10n/{LANGUAGE}.json', '/var/www/virtual/jake/vegancheck.me/langcache/', 'en');
   $str = trim("$_SERVER[REQUEST_URI]", '/');
-  if ($str == "en" || $str == "de" || $str == "fr" || $str == "es" || $str == "nl" || $str == "es" || $str == "zh"){
-    $i18n->setForcedLang($str);
-    setcookie("lang", $str, 0,'/');
-  }
-  elseif (isset($_COOKIE['lang'])){
+  if (isset($_COOKIE['lang'])){
     $i18n->setForcedLang($_COOKIE['lang']);
+  }
+  else {
+    if ($str == "en" || $str == "de" || $str == "fr" || $str == "es" || $str == "nl" || $str == "es" || $str == "zh"){
+      $i18n->setForcedLang($str);
+      setcookie("lang", $str, 0,'/');
+    }
   }
   $i18n->init();
   $string = file_get_contents('/var/www/virtual/jake/vegancheck.me/includes/versions.json');
