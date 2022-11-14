@@ -89,6 +89,7 @@ or if you find something else you could improve, just open a new issue for it!
 
 ### Support us
 <a href="https://github.com/sponsors/philipbrembeck"><img src="https://img.shields.io/badge/Sponsor%20on%20GitHub-white.svg?logo=githubsponsors" alt="Consider Sponsoring"></a>
+<a href="https://ko-fi.com/vegancheck"><img src="https://img.shields.io/badge/Buy%20us%20a%20coffee-white.svg?logo=kofi" alt="Buy us a coffee"></a>
 <a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536"><img src="https://shields.io/badge/Donate%20with%20PayPal-blue?style=flat&logo=Paypal" alt="Donate"></a> <a href="https://twitter.com/vegancheckme"><img src="https://img.shields.io/twitter/url?label=@vegancheckme&logo=twitter&logoColor=grey&url=https%3A%2F%2Ftwitter.com%2Fvegancheckme" alt="Twitter"></a> 
 <a href="https://instagram.com/vegancheck.me"><img src="https://img.shields.io/twitter/url?label=@vegancheck.me&logo=instagram&logoColor=grey&url=https%3A%2F%2Finstagram.com%2Fvegancheck.me" alt="Instagram"></a>
 <a href="https://fb.me/vegancheck.me"><img src="https://img.shields.io/twitter/url?label=vegancheck.me&logo=facebook&logoColor=grey&url=https%3A%2F%2Ffb.me%2Fvegancheck.me" alt="Facebook"></a> 
