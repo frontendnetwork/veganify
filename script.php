@@ -457,7 +457,7 @@ if ($vegan == "false")
                         <div class="Grid-cell icons"><span class="non-vegan icon-cancel"></span></div>
                       </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup data-target="license" data-toggle="modal">?</sup>' . $processed . '</span>
-                      <span class="button" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <span class="button" id="share">' . L::footer_share . '</span>
                       <a href="' . $edituri . '" target="_blank" class="button"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
@@ -488,7 +488,7 @@ elseif ($vegan == "true")
                         <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
                       </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup data-target="license" data-toggle="modal">?</sup>' . $processed . '</span>
-                      <span class="button" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <span class="button" id="share">' . L::footer_share . '</span>
                       <a href="' . $edituri . '" target="_blank" class="button"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');
@@ -505,7 +505,7 @@ elseif ($vegan == "unknown")
                         <div class="Grid-cell icons"><span class="unknown icon-help"></span></div>
                       </div></span>' . $vegetarian . $animaltestfree . $palmoil . $nutriscore . '
                       <span class="source">' . L::results_datasource . ' <a href="' . $baseuri . '" target="_blank">' . $apiname . '</a><sup data-target="license" data-toggle="modal">?</sup></span>
-                      <span class="button" id="share" onClick="sharebutton()">' . L::footer_share . '</span>
+                      <span class="button" id="share">' . L::footer_share . '</span>
                       <a href="' . $edituri . '" target="_blank" class="button"><span class="icon-pencil"></span> ' . L::results_edit . '</a>
                     </div>
                   </div>');

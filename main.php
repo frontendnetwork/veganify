@@ -24,7 +24,6 @@
   </div>
   </div>
   </nav>
-
     <div class="rotate">
       <img src="../img/rotatedevice.svg" alt="<?php echo L::other_rotate; ?>">
       <h1><?php echo L::other_rotate; ?></h1>
@@ -57,6 +56,38 @@
             &copy; Open EAN/GTIN Database Contributors, licensed under <a href="https://www.gnu.org/licenses/fdl-1.3.html">GNU FDL</a>.<br>
             &copy; VeganCheck.me Contributors and Hamed Montazeri, licensed under <a href="https://github.com/JokeNetwork/vegan-ingredients-api/blob/master/LICENSE">MIT License</a>, sourced from <a href="https://www.veganpeace.com/ingredients/ingredients.htm">VeganPeace</a>, <a href="https://www.peta.org/living/food/animal-ingredients-list/">PETA</a> and <a href="http://www.veganwolf.com/animal_ingredients.htm">The VEGAN WOLF</a>.<br>
             &copy; VeganCheck.me Contributors, sourced from &copy; <a href="https://crueltyfree.peta.org">PETA (Beauty without Bunnies)</a>. 
+    </div>
+    <div class="modal_view animatedfaster fadeInUp" id="sharemodal">
+      <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
+          <h2><?php echo L::footer_share; ?></h2>
+          <div class="share-btn" id="copy">
+            <span class="share-text">Copy</span>
+            <span class="share-icon icon-docs"></span>
+          </div>
+          <div class="share-btn" id="twitter">
+            <span class="share-text">Share on Twitter</span>
+            <span class="share-icon icon-twitter"></span>
+          </div>
+          <div class="share-btn" id="whatsapp">
+            <span class="share-text">Share on WhatsApp</span>
+            <span class="share-icon icon-whatsapp"></span>
+          </div>
+          <div class="share-btn" id="telegram">
+            <span class="share-text">Share on Telegram</span>
+            <span class="share-icon icon-telegram"></span>
+          </div>
+          <div class="share-btn" id="facebook">
+            <span class="share-text">Share on Facebook</span>
+            <span class="share-icon icon-facebook"></span>
+          </div>
+          <div class="share-btn" id="message">
+            <span class="share-text">Share as message</span>
+            <span class="share-icon icon-chat"></span>
+          </div>
+          <div class="share-btn" id="email">
+            <span class="share-text">Share via e-mail</span>
+            <span class="share-icon icon-mail"></span>
+          </div>
     </div>
     <noscript>
       <div class="noscript">
