@@ -200,6 +200,53 @@ $('button[name="submit"]').on('click', function(e) {
 
             // Scroll to result
             self.location.href = '#resscroll';
+
+            // Share button init
+            const title = document.title;
+            const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
+            const ean = document.getElementById('barcode').value;
+            const url = "https://vegancheck.me/en/?ean=" + ean;
+
+            if (navigator.share == undefined) {
+                document.getElementById("share").setAttribute("data-toggle", "modal");
+                document.getElementById("share").setAttribute("data-target", "sharemodal");
+                document.getElementById("share").removeAttribute("onclick");
+
+                // Copy
+                document.getElementById("copy").addEventListener('click', function handleClick() { navigator.clipboard.writeText(text+": "+url); document.querySelector('.btn-dark').click(); });
+
+                // Twitter
+                document.getElementById("twitter").addEventListener('click', function handleClick() {window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+
+                // WhatsApp
+                document.getElementById("whatsapp").addEventListener('click', function handleClick() {window.location = `whatsapp://send?text=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+
+                // Facebook
+                document.getElementById("facebook").addEventListener('click', function handleClick() {window.location = `https://www.facebook.com/sharer/sharer.php?u=https://vegancheck.me/en/?ean=${encodeURI(ean)}`; document.querySelector('.btn-dark').click();});
+
+                // Message
+                document.getElementById("message").addEventListener('click', function handleClick() {window.location = `sms:&body=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+
+                // E-Mail
+                document.getElementById("email").addEventListener('click', function handleClick() {window.location = `mailto:?body="https://vegancheck.me/en/ean=${ean}"&subject=${text}`; document.querySelector('.btn-dark').click();});
+
+                // Telegram
+                document.getElementById("telegram").addEventListener('click', function handleClick() {window.location = `https://telegram.me/share/url?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+
+
+
+            } else {
+                document.getElementById("share").addEventListener('click', function handleClick() {
+                    navigator.share({
+                            title,
+                            text,
+                            ean,
+                            url
+                        })
+                        .catch(err => "");
+                });
+            }
+
         }
     });
 });
@@ -298,6 +345,7 @@ if (document.getElementById("installation")) {
 // Donation Modal 
 if (document.getElementById("donationmodal")) {
     document.getElementById("option_monthly").onclick = function() {
+        document.getElementById("option_kofi").classList.remove("active");
         document.getElementById("option_once").classList.remove("active");
         document.getElementById("option_gh").classList.remove("active");
         document.getElementById("option_stripe").classList.remove("active");
@@ -306,11 +354,13 @@ if (document.getElementById("donationmodal")) {
         document.getElementById("monthly").checked = true;
         document.getElementById("gh").checked = false;
         document.getElementById("stripe").checked = false;
+        document.getElementById("kofi").checked = false;
         document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
         document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
         document.getElementById('vendor').innerHTML = 'PayPal';
     }
     document.getElementById("option_once").onclick = function() {
+        document.getElementById("option_kofi").classList.remove("active");
         document.getElementById("option_monthly").classList.remove("active");
         document.getElementById("option_gh").classList.remove("active");
         document.getElementById("option_stripe").classList.remove("active");
@@ -319,11 +369,13 @@ if (document.getElementById("donationmodal")) {
         document.getElementById("monthly").checked = false;
         document.getElementById("gh").checked = false;
         document.getElementById("stripe").checked = false;
+        document.getElementById("kofi").checked = false;
         document.getElementById('supportbtn').setAttribute('href', 'https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536');
         document.getElementById('supportbtn').innerHTML = '<span class="icon-paypal"></span> Donate with PayPal';
         document.getElementById('vendor').innerHTML = 'PayPal';
     }
     document.getElementById("option_gh").onclick = function() {
+        document.getElementById("option_kofi").classList.remove("active");
         document.getElementById("option_monthly").classList.remove("active");
         document.getElementById("option_once").classList.remove("active");
         document.getElementById("option_stripe").classList.remove("active");
@@ -332,11 +384,13 @@ if (document.getElementById("donationmodal")) {
         document.getElementById("monthly").checked = false;
         document.getElementById("once").checked = false;
         document.getElementById("stripe").checked = false;
+        document.getElementById("kofi").checked = false;
         document.getElementById('supportbtn').setAttribute('href', 'https://github.com/sponsors/philipbrembeck');
         document.getElementById('supportbtn').innerHTML = '<span class="icon-github-circled"></span> Sponsor on GitHub';
         document.getElementById('vendor').innerHTML = 'GitHub';
     }
     document.getElementById("option_stripe").onclick = function() {
+        document.getElementById("option_kofi").classList.remove("active");
         document.getElementById("option_monthly").classList.remove("active");
         document.getElementById("option_once").classList.remove("active");
         document.getElementById("option_gh").classList.remove("active");
@@ -345,14 +399,34 @@ if (document.getElementById("donationmodal")) {
         document.getElementById("monthly").checked = false;
         document.getElementById("once").checked = false;
         document.getElementById("gh").checked = false;
+        document.getElementById("kofi").checked = false;
         document.getElementById('supportbtn').setAttribute('href', 'https://donate.stripe.com/3cs5mzgy42jd2645kk');
         document.getElementById('supportbtn').innerHTML = '<span class="icon-credit-card-alt"></span>&nbsp; Donate with Stripe';
         document.getElementById('vendor').innerHTML = 'Stripe';
     }
+    document.getElementById("option_kofi").onclick = function() {
+        document.getElementById("option_monthly").classList.remove("active");
+        document.getElementById("option_once").classList.remove("active");
+        document.getElementById("option_gh").classList.remove("active");
+        document.getElementById("option_stripe").classList.remove("active");
+        document.getElementById("option_kofi").classList.add("active");
+        document.getElementById("kofi").checked = true;
+        document.getElementById("stripe").checked = false;
+        document.getElementById("monthly").checked = false;
+        document.getElementById("once").checked = false;
+        document.getElementById("gh").checked = false;
+        document.getElementById('supportbtn').setAttribute('href', 'https://ko-fi.com/vegancheck');
+        document.getElementById('supportbtn').innerHTML = '<svg viewBox="0 0 25 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;width:1em;margin-right: 0.2em;text-align: center;text-transform: none;line-height: 1em;margin-left: 0.2em;"><g id="ArtBoard1" transform="matrix(0.964946,0,0,0.898431,0.0552102,-7.08779)"><rect x="-0.057" y="7.889" width="24.977" height="17.024" style="fill:none;"/><clipPath id="_clip1"><rect x="-0.057" y="7.889" width="24.977" height="17.024"/></clipPath><g clip-path="url(#_clip1)"><g transform="matrix(1.03633,0,0,1.11305,0.0143001,3.06776)"><path d="M23.881,8.948C23.108,4.863 19.022,4.355 19.022,4.355L0.723,4.355C0.119,4.355 0.044,5.153 0.044,5.153C0.044,5.153 -0.038,12.477 0.022,16.975C0.186,19.399 2.608,19.647 2.608,19.647C2.608,19.647 10.875,19.624 14.574,19.598C17.012,19.172 17.257,17.032 17.232,15.864C21.584,16.104 24.654,13.033 23.881,8.948ZM12.819,12.459C11.573,13.912 8.808,16.435 8.808,16.435C8.808,16.435 8.687,16.554 8.498,16.458C8.422,16.401 8.39,16.368 8.39,16.368C7.947,15.927 5.022,13.319 4.356,12.414C3.647,11.449 3.315,9.714 4.265,8.704C5.216,7.694 7.27,7.618 8.628,9.111C8.628,9.111 10.193,7.329 12.096,8.148C14,8.968 13.928,11.159 12.819,12.459ZM18.992,12.937C18.064,13.053 17.31,12.965 17.31,12.965L17.31,7.284L19.08,7.284C19.08,7.284 21.051,7.835 21.051,9.922C21.051,11.835 20.066,12.589 18.992,12.937Z" style="fill:white;fill-rule:nonzero;"/></g></g></g></svg>&nbsp; Donate with Ko-Fi';
+        document.getElementById('vendor').innerHTML = 'Ko-Fi.com';
+    }
 }
 
 // Initialize SW
-if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('../sw.js');
+    });
+}
 
 // Spinner while AJAX request
 let $loading = $('#spinner').hide();
@@ -379,25 +453,6 @@ $(document).ajaxStart(function() {
 // Check if user is offline
 window.addEventListener('offline', function(e) { window.location.href = "/offline"; });
 
-// Share button init
-function sharebutton() {
-    const title = document.title;
-    const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
-    const ean = document.getElementById('barcode').value;
-    const url = "https://vegancheck.me/en/?ean=" + ean;
-
-    if (navigator.share !== undefined) {
-        navigator.share({
-                title,
-                text,
-                ean,
-                url
-            })
-            .catch(err => "");
-    } else {
-        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
-    }
-}
 
 // OCR Reader
 let camera_button = document.querySelector("#ocr");
