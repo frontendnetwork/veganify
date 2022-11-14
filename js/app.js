@@ -202,49 +202,51 @@ $('button[name="submit"]').on('click', function(e) {
             self.location.href = '#resscroll';
 
             // Share button init
-            const title = document.title;
-            const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
-            const ean = document.getElementById('barcode').value;
-            const url = "https://vegancheck.me/en/?ean=" + ean;
+            if (document.getElementById("share")) {
+                const title = document.title;
+                const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
+                const ean = document.getElementById('barcode').value;
+                const url = "https://vegancheck.me/en/?ean=" + ean;
 
-            if (navigator.share == undefined) {
-                document.getElementById("share").setAttribute("data-toggle", "modal");
-                document.getElementById("share").setAttribute("data-target", "sharemodal");
-                document.getElementById("share").removeAttribute("onclick");
+                if (navigator.share == undefined) {
+                    document.getElementById("share").setAttribute("data-toggle", "modal");
+                    document.getElementById("share").setAttribute("data-target", "sharemodal");
+                    document.getElementById("share").removeAttribute("onclick");
 
-                // Copy
-                document.getElementById("copy").addEventListener('click', function handleClick() { navigator.clipboard.writeText(text+": "+url); document.querySelector('.btn-dark').click(); });
+                    // Copy
+                    document.getElementById("copy").addEventListener('click', function handleClick() { navigator.clipboard.writeText(text+": "+url); document.querySelector('.btn-dark').click(); });
 
-                // Twitter
-                document.getElementById("twitter").addEventListener('click', function handleClick() {window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    // Twitter
+                    document.getElementById("twitter").addEventListener('click', function handleClick() {window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
 
-                // WhatsApp
-                document.getElementById("whatsapp").addEventListener('click', function handleClick() {window.location = `whatsapp://send?text=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    // WhatsApp
+                    document.getElementById("whatsapp").addEventListener('click', function handleClick() {window.location = `whatsapp://send?text=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
 
-                // Facebook
-                document.getElementById("facebook").addEventListener('click', function handleClick() {window.location = `https://www.facebook.com/sharer/sharer.php?u=https://vegancheck.me/en/?ean=${encodeURI(ean)}`; document.querySelector('.btn-dark').click();});
+                    // Facebook
+                    document.getElementById("facebook").addEventListener('click', function handleClick() {window.location = `https://www.facebook.com/sharer/sharer.php?u=https://vegancheck.me/en/?ean=${encodeURI(ean)}`; document.querySelector('.btn-dark').click();});
 
-                // Message
-                document.getElementById("message").addEventListener('click', function handleClick() {window.location = `sms:&body=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    // Message
+                    document.getElementById("message").addEventListener('click', function handleClick() {window.location = `sms:&body=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
 
-                // E-Mail
-                document.getElementById("email").addEventListener('click', function handleClick() {window.location = `mailto:?body="https://vegancheck.me/en/ean=${ean}"&subject=${text}`; document.querySelector('.btn-dark').click();});
+                    // E-Mail
+                    document.getElementById("email").addEventListener('click', function handleClick() {window.location = `mailto:?body="https://vegancheck.me/en/ean=${ean}"&subject=${text}`; document.querySelector('.btn-dark').click();});
 
-                // Telegram
-                document.getElementById("telegram").addEventListener('click', function handleClick() {window.location = `https://telegram.me/share/url?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    // Telegram
+                    document.getElementById("telegram").addEventListener('click', function handleClick() {window.location = `https://telegram.me/share/url?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
 
 
 
-            } else {
-                document.getElementById("share").addEventListener('click', function handleClick() {
-                    navigator.share({
-                            title,
-                            text,
-                            ean,
-                            url
-                        })
-                        .catch(err => "");
-                });
+                } else {
+                    document.getElementById("share").addEventListener('click', function handleClick() {
+                        navigator.share({
+                                title,
+                                text,
+                                ean,
+                                url
+                            })
+                            .catch(err => "");
+                    });
+                }
             }
 
         }
