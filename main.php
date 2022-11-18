@@ -31,24 +31,36 @@
 
     <div class="modal_view animatedfaster fadeInUp" id="nutriscore">
       <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
-          <h2>Nutriscore</h2>
+          <span class="center">
+            <img src="../img/nutriscore_image.svg" class="heading_img">
+            <h1>Nutriscore</h1>
+          </span>
           <p><?php echo L::modal_nutriscore_desc; ?></p>
     </div>
 
     <div class="modal_view animatedfaster fadeInUp" id="palmoil">
       <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
-          <h2><?php echo L::modal_palmoil; ?></h2>
+          <span class="center">
+            <img src="../img/palmoil_img.svg" class="heading_img">
+            <h1><?php echo L::modal_palmoil; ?></h1>
+          </span>
           <p><?php echo L::modal_palmoil_desc; ?></p>
     </div>
 
     <div class="modal_view animatedfaster fadeInUp" id="processed">
       <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
-          <h2><?php echo L::modal_processed; ?></h2>
+          <span class="center">
+            <img src="../img/computed_image.svg" class="heading_img">
+            <h1><?php echo L::modal_processed; ?></h1>
+          </span>
           <p><?php echo L::modal_processed_desc; ?></p>
     </div>
     <div class="modal_view animatedfaster fadeInUp" id="license">
       <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
-          <h2><?php echo L::modal_licenses; ?></h2>
+          <span class="center">
+            <img src="../img/license_img.svg" class="heading_img">
+            <h1><?php echo L::modal_licenses; ?></h1>
+          </span>
           <p><?php echo L::modal_licenses_desc; ?></p>
           <p>
             &copy; OpenFoodFacts Contributors, licensed under <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> and <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.<br>
