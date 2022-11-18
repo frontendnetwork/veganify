@@ -206,17 +206,30 @@ sup {
     padding-bottom: 1rem;
     display: none;
 
+    .heading_img {
+        width: 20%;
+        max-width: 3rem;
+        margin-top: 2rem; 
+        margin-bottom: 0px;
+    }
+
     .pwa-install-prompt__guide__icon {
         width: 1rem;
         padding-right: .3rem;
     }
 
-    h2 {
+    h2, h1 {
         font-weight: 600;
         font-size: 1rem;
         margin-top: 1.5rem;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-top: .5rem;
+        color: var(--modal-fg)!important;
     }
 
     p {
@@ -317,6 +330,16 @@ sup {
     .center {
         text-align: center;
         margin: 0 auto;
+        display:block;
+    }
+
+    .donate {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        background-color: var(--modal-bg-overlay); 
+        backdrop-filter: blur(0.2rem);
     }
 
     .info {
@@ -346,6 +369,10 @@ sup {
     top: 0;
     padding: 1rem;
     text-decoration: none;
+}
+
+#option_kofi {
+    margin-bottom: 10rem;
 }
 
 /* Main container with border */

@@ -205,7 +205,7 @@
         }
 
         .heading {
-        font-size: .65rem;
+            font-size: .65rem;
         }
 
         .subheading {
@@ -252,22 +252,37 @@
 }
 
 /* Desktop rules */
-@media ( min-width: 69.6rem ) {
+@media (min-width: 69.6rem) {
     .modal_view {
-        height: 30%;
+        height: auto;
         max-width: 40%;
         max-height: 50%;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        left: 30%;
+        top: 10%;
         border-radius: .5rem;
-        box-shadow: 0 .5625rem 15rem .75rem rgba(0,0,0,0.5);
+        box-shadow: none;
+
+        .donate {
+            position: initial;
+        }
+
+        .modal_close {
+            .btn-dark {
+                right: 31%;
+            }
+        }
+
+        #option_kofi {
+            margin-bottom: 1rem;
+        }
     }
 }
 
-/* Prevent landscape orientation */
+/* Prevent landscape orientation -- Do NOT use!*/
+/*
 @media screen and (min-width: 20rem) and (max-width: 56rem) and (orientation: landscape) {
     .rotate {
         display: block;
     }
 }
+*/
