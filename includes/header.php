@@ -36,7 +36,7 @@ https://vegc.net/repo
     <meta name="twitter:image" content="https://vegancheck.me/img/icon-512x512.png?v=<?php echo $versions->img; ?>">
     <meta name="twitter:image:alt" content="VeganCheck.me">
 
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico?v=<?php echo $versions->img; ?>">
     <link rel="apple-touch-icon" href="../img/icon.png?v=<?php echo $versions->img; ?>">
 
     <link rel="manifest" href="../img/site.webmanifest?v=<?php echo $versions->manifest; ?>">
@@ -49,6 +49,14 @@ https://vegc.net/repo
 
     <meta name="application-name" content="VeganCheck">
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
-    <link rel="apple-touch-startup-image" href="../img/iossplash.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_14_Pro_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_14_Pro_Max_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="../img/splash_screens/iPhone_11__iPhone_XR_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_portrait.png?v=<?php echo $versions->img; ?>">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="../img/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png?v=<?php echo $versions->img; ?>">
 
     <link href="../css/style.min.css?v=<?php echo $versions->css; ?>" rel="stylesheet">
