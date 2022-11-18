@@ -32,13 +32,19 @@
 
     <div class="modal_view animatedfaster fadeInUp" id="processed">
       <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
-          <h2><?php echo L::modal_processed; ?></h2>
+          <span class="center">
+            <img src="../img/computed_image.svg" class="heading_img">
+            <h1><?php echo L::modal_processed; ?></h1>
+          </span>
           <p><?php echo L::modal_processed_desc; ?></p>
     </div>
 
     <div class="modal_view animatedfaster fadeInUp" id="license">
       <div class="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
-          <h2><?php echo L::modal_licenses; ?></h2>
+          <span class="center">
+            <img src="../img/license_img.svg" class="heading_img">
+            <h1><?php echo L::modal_licenses; ?></h1>
+          </span>
           <p><?php echo L::modal_licenses_desc; ?></p>
           <p>
             &copy; VeganCheck.me Contributors and Hamed Montazeri, licensed under <a href="https://github.com/JokeNetwork/vegan-ingredients-api/blob/master/LICENSE">MIT License</a>, sourced from <a href="https://www.veganpeace.com/ingredients/ingredients.htm">VeganPeace</a>, <a href="https://www.peta.org/living/food/animal-ingredients-list/">PETA</a> and <a href="http://www.veganwolf.com/animal_ingredients.htm">The VEGAN WOLF</a>.

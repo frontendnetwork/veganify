@@ -35,7 +35,10 @@
   </nav>
     <div class="modal_view animatedfaster fadeInUp" id="donationmodal">
       <div class="modal_close" id="modal_close" ><a class="btn-dark" data-dismiss="modal">&times;</a></div>
-          <h2><?php echo L::more_supportus; ?></h2>
+          <span class="center">
+            <img src="img/donate_img.svg" class="heading_img">
+            <h1><?php echo L::more_supportus; ?></h1>
+          </span>
           <div class="option active" id="option_once">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="once" checked>
             <span class="muted"><?php echo L::more_donate_once; ?> <?php echo L::more_donate_via; ?> PayPal</span>
@@ -61,7 +64,7 @@
             <span class="muted"><?php echo L::more_donate_once; ?> <?php echo L::more_donate_via; ?> Ko-Fi</span>
             <span class="price">1-50€</span>
           </div>
-          <div class="center">
+          <div class="center donate">
             <a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536" class="button" id="supportbtn"><span class="icon-paypal"></span> Donate with PayPal</a>
             <span class="info"><?php echo L::more_donate_vendor; ?></span>
         </div>
