@@ -109,7 +109,7 @@
     <div class="container" id="mainpage">
       <div id="main">
         <div class="form" id="resscroll">
-        <img src="../img/VeganCheck.svg" alt="Logo" class="logo">
+        <img src="../img/VeganCheck.svg?v=<?php echo $versions->img; ?>" alt="Logo" class="logo">
         <form action="../script.php">
           <fieldset>
             <legend><?php echo L::form_enterbarcode; ?></legend>
@@ -125,10 +125,10 @@
         <footer>
             <p><?php echo L::footer_credits; ?></p>
             <?php if(date('m')=="01"){echo '<a href="https://veganuary.com/try-vegan/"><img src="../img/veganuary.svg" alt="We are taking part in Veganuary" class="labels"></a>';} ?>
+            <a href="https://vegancheck.me"><img src="../img/VeganCheck_text.svg" alt="VeganCheck.me Logo" class="labels"></a>
             <a href="https://github.com/jokenetwork/vegancheck.me"><img src="../img/opensource.svg" alt="Open Source" class="labels"></a>
             <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me"><img src="../img/greenhosted.svg" alt="Hosted Green" class="labels"></a>
             <a href="https://iplantatree.org/user/VeganCheck.me"><img src="../img/treelabel.svg" alt="We plant trees. We're carbon neutral." class="labels"></a>
-            <a href="https://philip.media"><img src="../img/pml.svg" alt="philip.media" class="labels"></a>
         </footer>
       </div>
     </div>

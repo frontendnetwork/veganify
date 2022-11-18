@@ -6,7 +6,7 @@
     <div class="container top">
       <div id="main">
         <div class="form">
-          <a href="//vegancheck.me"><img src="img/VeganCheck.svg" alt="Logo"></a><br>
+          <a href="//vegancheck.me"><img src="img/VeganCheck.svg?v=<?php echo $versions->img; ?>" alt="Logo"></a><br>
           <h3><?php echo L::other_offline; ?></h3>
           <p><a href="/"><?php echo L::other_reload; ?></a></p>
       </div>
