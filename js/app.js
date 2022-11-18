@@ -678,8 +678,6 @@ document.addEventListener('click', function(e) {
 
                 initialX = null;
                 initialY = null;
-
-                e.preventDefault();
             };
         }
     }
