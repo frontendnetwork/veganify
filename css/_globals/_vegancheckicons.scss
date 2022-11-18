@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'vegancheckicons';
-    src: url('https://vegancheck.me/css/font/vegancheckicons.eot?33525212');
-    src: url('https://vegancheck.me/css/font/vegancheckicons.eot?33525212#iefix') format('embedded-opentype'),
-        url('https://vegancheck.me/css/font/vegancheckicons.woff2?33525212') format('woff2'),
-        url('https://vegancheck.me/css/font/vegancheckicons.woff?33525212') format('woff'),
-        url('https://vegancheck.me/css/font/vegancheckicons.ttf?33525212') format('truetype'),
-        url('https://vegancheck.me/css/font/vegancheckicons.svg?33525212#vegancheckicons') format('svg');
+    src: url('https://vegancheck.me/css/font/vegancheckicons.eot?33525214');
+    src: url('https://vegancheck.me/css/font/vegancheckicons.eot?33525214#iefix') format('embedded-opentype'),
+        url('https://vegancheck.me/css/font/vegancheckicons.woff2?33525214') format('woff2'),
+        url('https://vegancheck.me/css/font/vegancheckicons.woff?33525214') format('woff'),
+        url('https://vegancheck.me/css/font/vegancheckicons.ttf?33525214') format('truetype'),
+        url('https://vegancheck.me/css/font/vegancheckicons.svg?33525214#vegancheckicons') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -94,16 +94,6 @@
 .icon-telegram:before { content: '\f286'; } /* '' */
 
 
-.icon-greenhosted:before {
-    content: '\e800';
-}
-
-/* '' */
-.icon-opensource:before {
-    content: '\e801';
-}
-
-/* '' */
 .icon-block:before {
     content: '\e802';
 }
@@ -146,6 +136,7 @@
 /* '' */
 .icon-heart:before {
     content: '\e80a';
+    color: #ee5253;
 }
 
 /* '' */
