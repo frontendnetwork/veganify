@@ -102,6 +102,7 @@
             <div class="Grid-cell icons"><input class="switch" id="oled-switch" type="checkbox"></div>
           </span>
         </div>
+        <span id="version" class="info"></span>
       </div>
     </div>
 
