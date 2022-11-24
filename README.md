@@ -48,29 +48,7 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
 [Click here to see the installation guide!](https://jokenetwork.github.io/vegancheck.me/)
 
 - PHP >=7.4 installed
-- [Composer](https://getcomposer.org/download/) and [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) installed with the following components: 
-  ````bash
-  $ composer require rmccue/requests
-  $ composer require vlucas/phpdotenv
-  $ composer require philipp15b/php-i18n
-  $ npm i barcode-reader
-  $ npm i jquery
-  ````
-- Or just use: 
-  ````bash
-  $ composer install
-  $ npm install
-  ````
-- Optional: Get an API-Key for Open EAN Database by donating to Coast against plastic (Küsten gegen Plastik) - [Learn more here](https://opengtindb-org.translate.goog/userid.php?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp), insert it in the `.env.example`.
-- Get an API Token on [DeepL.com](https://deepl.com) and insert it in the `.env.example`.
-- Rename `.env.example` to `.env`. 
-Also change the path to the .env-file in `script.php`. Then you should be good to go!
-  ```php
-  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-  ````
-
-
-Get the [latest release](https://github.com/JokeNetwork/vegancheck.me/releases) or fork this repositiory and make the changes you want!
+- [Composer](https://getcomposer.org/download/) and [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) installed
 
 ## Browser Compatibility 
 |  | <img src="https://user-images.githubusercontent.com/4144601/196047698-f89fddb8-7de1-4309-934d-96ee31343933.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196047892-1f25f72f-dd1e-48d0-bd85-e404a8015ac3.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196047989-b60f7192-dc06-4896-8dba-993939991511.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048071-381cdc29-bd8a-4f99-9477-3ae2d948d25d.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048153-fe181ef2-303c-45cc-b4f4-c091ba4b5cea.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048187-25de52f4-9a4c-4905-92c8-9d18ec9c71b6.png" width="25"> |
