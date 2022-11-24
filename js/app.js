@@ -13,6 +13,8 @@
  *
  */
 
+const version = "2.1.1";
+
 function setupLiveReader(resultElement) {
     // Scroll to top
     window.location.hash = '#top';
@@ -214,25 +216,46 @@ $('button[name="submit"]').on('click', function(e) {
                     document.getElementById("share").removeAttribute("onclick");
 
                     // Copy
-                    document.getElementById("copy").addEventListener('click', function handleClick() { navigator.clipboard.writeText(text+": "+url); document.querySelector('.btn-dark').click(); });
+                    document.getElementById("copy").addEventListener('click', function handleClick() {
+                        navigator.clipboard.writeText(text + ": " + url);
+                        document.querySelector('.btn-dark').click();
+                    });
 
                     // Twitter
-                    document.getElementById("twitter").addEventListener('click', function handleClick() {window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    document.getElementById("twitter").addEventListener('click', function handleClick() {
+                        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
+                        document.querySelector('.btn-dark').click();
+                    });
 
                     // WhatsApp
-                    document.getElementById("whatsapp").addEventListener('click', function handleClick() {window.location = `whatsapp://send?text=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    document.getElementById("whatsapp").addEventListener('click', function handleClick() {
+                        window.location = `whatsapp://send?text=https://vegancheck.me/en/?ean=${encodeURI(ean)}` + ` ` + `${encodeURI(text)}`;
+                        document.querySelector('.btn-dark').click();
+                    });
 
                     // Facebook
-                    document.getElementById("facebook").addEventListener('click', function handleClick() {window.location = `https://www.facebook.com/sharer/sharer.php?u=https://vegancheck.me/en/?ean=${encodeURI(ean)}`; document.querySelector('.btn-dark').click();});
+                    document.getElementById("facebook").addEventListener('click', function handleClick() {
+                        window.location = `https://www.facebook.com/sharer/sharer.php?u=https://vegancheck.me/en/?ean=${encodeURI(ean)}`;
+                        document.querySelector('.btn-dark').click();
+                    });
 
                     // Message
-                    document.getElementById("message").addEventListener('click', function handleClick() {window.location = `sms:&body=https://vegancheck.me/en/?ean=${encodeURI(ean)}`+` `+`${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    document.getElementById("message").addEventListener('click', function handleClick() {
+                        window.location = `sms:&body=https://vegancheck.me/en/?ean=${encodeURI(ean)}` + ` ` + `${encodeURI(text)}`;
+                        document.querySelector('.btn-dark').click();
+                    });
 
                     // E-Mail
-                    document.getElementById("email").addEventListener('click', function handleClick() {window.location = `mailto:?body="https://vegancheck.me/en/ean=${ean}"&subject=${text}`; document.querySelector('.btn-dark').click();});
+                    document.getElementById("email").addEventListener('click', function handleClick() {
+                        window.location = `mailto:?body="https://vegancheck.me/en/ean=${ean}"&subject=${text}`;
+                        document.querySelector('.btn-dark').click();
+                    });
 
                     // Telegram
-                    document.getElementById("telegram").addEventListener('click', function handleClick() {window.location = `https://telegram.me/share/url?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`; document.querySelector('.btn-dark').click();});
+                    document.getElementById("telegram").addEventListener('click', function handleClick() {
+                        window.location = `https://telegram.me/share/url?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
+                        document.querySelector('.btn-dark').click();
+                    });
 
 
 
@@ -702,3 +725,19 @@ document.body.addEventListener('keydown', (e) => {
         document.querySelector('.btn-dark').click();
     }
 });
+
+// Inform about updates
+if (document.getElementById("version")) {
+    fetch("https://vegancheck.me/includes/versions.json").then((r) => {
+        r.text()
+            .then((d) => {
+                let content = d;
+                var json = JSON.parse(content);
+                if (json.app == version) {
+                    document.getElementById("version").innerHTML = "Version: v" + json.app;
+                } else {
+                    document.getElementById("version").innerHTML = "Version: v" + version + " - Update to v" + json.app;
+                }
+            })
+    })
+}
