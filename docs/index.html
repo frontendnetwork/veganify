@@ -1,36 +1,106 @@
 <!DOCTYPE html>
-<html lang="en" data-color-mode="dark" data-dark-theme="dark_dimmed">
-   <head>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta charset="utf-8">
-      <title>VeganCheck.me Installation Guide</title>
-      <link rel="stylesheet" href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css">
-      <style>
-         body {
-            background: #000;
-         }
-      </style>
-   </head>
-   <body class="m-5">
-      <div class="markdown-body">
-      <span class="branch-name">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" class="octicon octicon-git-branch"><path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path></svg>
-  main
-</span>
-     <img width="80px" src="https://raw.githubusercontent.com/JokeNetwork/vegancheck.me/main/img/hero_icon.png" align="right" alt="VeganCheck Logo">
-      <h1>VeganCheck.me Installation Guide</h1>
-      <p class="color-fg-subtle">Bitte fülle alle mit <span class="color-fg-danger">*</span> markierten Felder aus.<br>
-Verbotene Zeichen (z.B. Emojis) resultieren in einem fehlerhaften Ergebnis.      </p>
-      
-     <div class="flash flash-warning p-3 mt-3 mb-3" role="alert"><p><h4 class="alert-heading">Hinweis</h4> Das Ergebnis dieses Formulars dient nur zu Testzwecken und ist nicht immer auf dem neuesten Stand. Für produktive wissenschaftliche Arbeiten sollte die <a href="https://github.com/philipbrembeck/HM-Hausarbeiten-Vorlage"><span class="latex">L<sup>A</sup>T<sub>E</sub>X</span>-Vorlage auf GitHub</a> verwendet werden.<br>
-Diese Vorlage kann derzeit nicht:</p>
-<ul>
-<li>Schriftarten richtig darstellen</li>
-<li>Bibliographien/Literaturverzeichnisse darstellen</li>
-<li><code>.bib</code>-Dateien einbinden</li>
-</ul></div>
-      <p class="color-fg-muted">&copy; 2022 <a href="//vegancheck.me">VeganCheck.me</a> - Licensed under <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT</a></p>
-      </div>
-   </body>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>VeganCheck.me Installation Guide</title>
+    <link rel="stylesheet" href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css">
+</head>
+
+<body class="m-5 ml-6 mr-6">
+    <div class="markdown-body">
+        <span class="branch-name">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" class="octicon octicon-git-branch">
+                <path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path>
+            </svg>
+            main
+        </span>
+        <span class="Label mr-1 Label--success">Stable</span>
+        <img width="80px" src="https://raw.githubusercontent.com/JokeNetwork/vegancheck.me/main/img/hero_icon.png" align="right" alt="VeganCheck Logo">
+        <h1>VeganCheck.me Installation Guide</h1>
+        <p>Installing VeganCheck.me on your own server or hosting your own mirror is straight forward.<br>Here you can find out how it works and what to note.</p>
+        <h2 id="requirements">Requirements</h2>
+        <ul>
+            <li>PHP &gt;=7.4 installed (We recommend 8.1 or higher)</li>
+            <li><a href="https://getcomposer.org/download/">Composer</a> and <a href="https://docs.npmjs.com/cli/v8/commands/npm-install">npm</a> installed </li>
+        </ul>
+        <h2 id="get-started">Get started</h2>
+        <p>Download the <a href="https://github.com/JokeNetwork/vegancheck.me/releases">latest release</a> and upload it to your server or just use the following command:</p>
+        <pre><code class="lang-bash">$ git clone git@github<span class="hljs-selector-class">.com</span>:JokeNetwork/vegancheck<span class="hljs-selector-class">.me</span><span class="hljs-selector-class">.git</span>
+</code></pre>
+        <h2 id="install-dependencies">Install dependencies</h2>
+        <p>The components <code>rmccue/requests</code>, <code>vlucas/phpdotenv</code>, <code>philipp15b/php-i18n</code>, <code>barcode-reader</code> and <code>jquery</code> are required.</p>
+        <p>Use the following commands to install all at once: </p>
+        <pre><code class="lang-bash">  $ composer <span class="hljs-keyword">install</span>
+  $ npm <span class="hljs-keyword">install</span>
+</code></pre>
+        <h2 id="configure-environment-variables">Configure environment-variables</h2>
+        <p>To get VeganCheck.me working as expected, you will need to enter your own API-Keys into the <code>.env</code>-file.</p>
+        <ul>
+            <li>First of all, find the <code>.env.example</code> file and rename it to <code>.env</code> </li>
+            <li>Change the path to the <code>.env</code>-file in <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/script.php#L16"><code>script.php:16</code></a> and <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/ingredients_script.php#L18"><code>ingredients_script.php:18</code></a>:
+                <pre><code class="lang-php"><span class="hljs-variable">$dotenv</span> = Dotenv\<span class="hljs-symbol">Dotenv:</span><span class="hljs-symbol">:createImmutable</span>(<span class="hljs-string">'/var/www/virtual/jake/'</span>); <span class="hljs-regexp">//</span> Change to your path <span class="hljs-keyword">or</span> to <span class="hljs-string">'__DIR__'</span>
+</code></pre>
+            </li>
+        </ul>
+        <h3 id="where-to-get-the-api-keys">Where to get the API-Keys</h3>
+        <h4 id="open-ean-database">Open EAN Database</h4>
+        <p><strong>This is optional</strong>:
+            Get an API-Key for Open EAN Database by donating to Coast against plastic (Küsten gegen Plastik) - <a href="https://opengtindb-org.translate.goog/userid.php?_x_tr_sl=de&amp;_x_tr_tl=en&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">Learn more here</a>, insert it in the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/.env.example#L3"><code>.env:3</code></a>.</p>
+        <p>If you do not want to donate for the key, you can also use the already defined, publicly available test-key <code>400000000</code>. However, this key has limited usability, as the access limit of this key is more limited and others are abled to use it in their application. It is good for test purposes. </p>
+        <p>You can also rewrite the <code>script.php</code> and use our <a href="#api-documentation">API</a> to avoid access limits.</p>
+        <p><strong>What this is used for:</strong> Open EAN Database is a database that contains information about many EAN-codes such as ingredients.</p>
+        <h4 id="deepl">DeepL</h4>
+        <p>Get an API Token on <a href="https://www.deepl.com/pro#developer">DeepL.com</a> and insert it in the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/.env.example#L5"><code>.env:5</code></a>.</p>
+        <p>There is a free option available, however, if you use the free option you have to declare that no personal data is transferred to the API and let users know (we do so in our terms of service and privacy policy), because the data transferred will be processed and used to improve the DeepL AI.</p>
+        <p><strong>What this is used for:</strong> DeepL is a translation service. It translates ingredients entered into the ingredients-checker to english and back to the original language, to make the best use of the Ingredients API.</p>
+        <h2 id="reconfigure-paths">Reconfigure paths</h2>
+        <ul>
+            <li>
+                <p>To make localizations with <code>php-i18n</code> work, you need to change the paths to the language-files in <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/includes/header.php#L3"><code>includes/header.php:3</code></a>, <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/ingredients_script.php#L16"><code>ingredients_script.php:16</code></a>, <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/script.php#L21"><code>script.php:21</code></a>: </p>
+                <pre><code class="lang-php">$i18n = <span class="hljs-keyword">new</span> <span class="hljs-type">i18n</span>(<span class="hljs-string">'/var/www/virtual/jake/vegancheck.me/l10n/{LANGUAGE}.json'</span>, <span class="hljs-string">'/var/www/virtual/jake/vegancheck.me/langcache/'</span>, <span class="hljs-string">'en'</span>);
+</code></pre>
+                <p>Change <code>/var/www/virtual/jake/vegancheck.me/</code> to your absolute path.</p>
+            </li>
+            <li>
+                <p>To make the language recognition work, you need to change the following lines (<a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/index.php#L9"><code>9</code></a> &amp; <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/index.php#L13"><code>13</code></a>) in <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/index.php"><code>index.php</code></a> to your url:</p>
+                <pre><code class="lang-php"><span class="hljs-keyword">header</span>(<span class="hljs-string">"Location: https://vegancheck.me/en"</span>);
+<span class="hljs-params">...</span>
+<span class="hljs-keyword">header</span>(<span class="hljs-string">"Location: https://vegancheck.me/$lang"</span>);
+</code></pre>
+                <p>Change <code>https://vegancheck.me</code> to your url.</p>
+            </li>
+            <li>
+                <p>To make cache-control work, you need to change the following line in <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/includes/header.php#L15"><code>header.php:15</code></a> to your corresponding absolute path:</p>
+                <pre><code class="lang-php">$<span class="hljs-built_in">string</span> = file_get_contents('/var/www/virtual/jake/vegancheck.<span class="hljs-keyword">me</span>/includes/versions.json');
+</code></pre>
+                <p>Change <code>/var/www/virtual/jake/vegancheck.me/</code> to your absolute path.</p>
+            </li>
+        </ul>
+        <h2 id="use-of-icons">Use of icons</h2>
+        <ul>
+            <li>The VeganCheck.me Logo and the app icons are free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>.</li>
+            <li>The Open-Source logo is free to use, as long as you publish your fork of the repository openly.</li>
+            <li>The Green Hosted logo is free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>, but only to be used if your fork is actually hosted green as of the criteria of <a href="https://www.thegreenwebfoundation.org">The Green Web Foundation</a>.</li>
+            <li>The We plant trees. logo is free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>, but only to be used if your fork of VeganCheck.me plants trees in the tree planting team &quot;WE PLANT TREES.&quot; on <a href="https://iplantatree.org/user/VeganCheck.me">I Plant A Tree</a>.</li>
+            <li>The icons used in our iconfonts are free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>.</li>
+            <div class="flash flash-warn p-3 mt-3 mb-3" role="alert">
+                <strong>Important!</strong> All other icons used in the VeganCheck.me repo are exclusively licensed to VeganCheck.me and the VeganCheck.me domain by <a href="https://thenounproject.com">Noun Project</a>. If you want to use those icons, you will need to get a paid membership at Noun Project: <a href="https://thenounproject.com/pricing/">NounPro Unlimited</a>. Otherwise, please replace those icons.
+            </div>
+        </ul>
+        <h2 id="api-documentation">API documentation</h2>
+        <p>The API documentation was relocated and can now be found at one of the following locations:</p>
+        <ul>
+            <li><a href="https://jokenetwork.de/vegancheck-api">VeganCheck.me API at JokeNetwork</a></li>
+            <li><a href="https://jokenetwork.de/vegancheck-ingredients-api">VeganCheck.me Ingredients API at JokeNetwork</a></li>
+            <li><a href="https://jokenetwork.de/vegancheck-peta-api">VeganCheck.me PETA API at JokeNetwork</a></li>
+        </ul>
+        <footer class="border-top">
+            <p class="color-fg-muted mt-2">&copy; 2022 <a href="//vegancheck.me">VeganCheck.me</a> - Licensed under <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT</a></p>
+        </footer>
+    </div>
+</body>
+
 </html>
