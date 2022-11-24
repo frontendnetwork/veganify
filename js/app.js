@@ -732,7 +732,7 @@ if (document.getElementById("version")) {
         r.text()
             .then((d) => {
                 let content = d;
-                var json = JSON.parse(content);
+                let json = JSON.parse(content);
                 if (json.app == version) {
                     document.getElementById("version").innerHTML = "Version: v" + json.app;
                 } else {
