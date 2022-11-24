@@ -44,7 +44,9 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
 ![GitHub language count](https://img.shields.io/github/languages/count/jokenetwork/vegancheck.me)
 
 	
-## Requirements: 
+## Requirements
+[Click here to see the installation guide!](https://jokenetwork.github.io/vegancheck.me/)
+
 - PHP >=7.4 installed
 - [Composer](https://getcomposer.org/download/) and [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) installed with the following components: 
   ````bash
