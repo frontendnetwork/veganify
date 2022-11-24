@@ -1,0 +1,35 @@
+/* Rotate device screen */
+.rotate {
+    z-index: 99999999999999999999;
+    background: #121212;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    img {
+        padding-top: rem(80px);
+        height: rem(128px);
+    }
+}
+
+/* Noscript screen */
+.noscript {
+    z-index: 999999999999999999999;
+    background: #000;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    h3 {
+        padding-top: rem(80px);
+    }
+}

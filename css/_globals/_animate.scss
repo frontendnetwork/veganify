@@ -1,5 +1,29 @@
 @charset "UTF-8";
 
+@keyframes smallerize {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: .5;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes biggerize {
+    0% {
+        opacity: .5;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /*!
  * animate.css -https://daneden.github.io/animate.css/
  * Version - 3.7.2

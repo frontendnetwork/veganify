@@ -1,0 +1,161 @@
+/* Selection color */
+::-moz-selection {
+    background-color: #353b48;
+    color: #fff;
+}
+
+::selection {
+    background-color: #353b48;
+    color: #fff;
+}
+
+/* Define main body */
+body {
+    font-family: var(--body-font);
+    font-weight: var(--body-fontweight);
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-size: var(--body-fontsize);
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.modalIsOpen {
+    opacity: .5;
+    transform: scale(0.95);
+    animation: .5s smallerize;
+
+}
+
+.modalIsClosed {
+    opacity: 1;
+    transform: scale(1);
+    animation: .5s biggerize;
+
+}
+
+/* Headings */
+h1 {
+    color: var(--fg-color);
+}
+
+/* Link styles */
+a {
+    text-decoration: underline;
+    color: var(--link-color);
+    outline: 0;
+    transition: .8s;
+}
+
+a:hover,
+a:focus {
+    color: var(--link-transition-color);
+}
+
+/* Inputs */
+fieldset {
+    display: flex;
+    outline: none;
+    border: none;
+}
+
+legend {
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    width: 45%;
+    padding: rem(16px);
+    outline: none;
+    text-align: center;
+    color: #000;
+    font-weight: var(--body-fontweight);
+    flex: 1;
+    border-top: rem(0.16px) solid #ccc;
+    border-bottom: rem(0.16px) solid #ccc;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+textarea {
+    width: 45%;
+    padding: rem(16px);
+    outline: none;
+    text-align: center;
+    color: #000;
+    font-weight: var(--body-fontweight);
+    flex: 1;
+    border-top: rem(0.16px) solid #ccc;
+    border-bottom: rem(0.16px) solid #ccc;
+    border-left: rem(0.16px) solid #ccc;
+    border-right: none;
+    border-radius: 0;
+    resize: vertical;
+}
+
+/* Container */
+.container {
+    padding-top: rem(150px);
+    padding-bottom: rem(50px);
+    width: 50%;
+    margin: 0 auto;
+
+    img {
+        width: rem(48px);
+        height: rem(48px);
+    }
+}
+
+.logo {
+    padding-bottom: rem(32px);
+}
+
+/* Longpage for Privacy/Imprint */
+.longpage {
+    padding-top: rem(50px) !important;
+    color: #000;
+
+    a,
+    h1 {
+        color: #000;
+    }
+}
+
+/* Paragraphs */
+p.unknown,
+p.missing {
+    margin: 0 !important;
+}
+
+p {
+    line-height: rem(24px);
+}
+
+/* Footer */
+footer {
+    font-size: rem(13.6px);
+
+    a:hover,
+    a:focus {
+        color: #7f8fa6;
+    }
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    color: #000;
+}
+
+table tbody,
+thead {
+    text-align: left;
+}

@@ -1,0 +1,56 @@
+.labels {
+    padding: rem(8px) !important;
+    width: rem(64px) !important;
+}
+
+/* Main colors for results */
+.non-vegan,
+.icon-cancle {
+    color: var(--non-vegan);
+}
+
+.vegan,
+.icon-ok {
+    color: var(--vegan);
+}
+
+.unknown {
+    color: var(--unknown);
+}
+
+.icon-cancle,
+.icon-ok {
+    display: inline-block;
+}
+
+.nutri_a {
+    color: #00BF00;
+}
+
+.nutri_b {
+    color: #73FF00;
+}
+
+.nutri_c {
+    color: #FC0;
+}
+
+.nutri_d {
+    color: #F60;
+}
+
+.nutri_e {
+    color: #FF1900;
+}
+
+.non-vegan,
+.nutri_a,
+.nutri_b,
+.nutri_c,
+.nutri_d,
+.nutri_e,
+.unknown,
+.vegan,
+.warning {
+    display: block !important;
+}
