@@ -59,13 +59,6 @@
     }
 
     background-color: $color;
-
-    //@if opacity($color) < 1 {
-    //    .no-rgba & {
-    //        // IE6-9
-    //        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str($color)}, endColorstr=#{ie-hex-str($color)});
-    //    }
-    //}
 }
 
 // MEDIA QUERY Mixin
