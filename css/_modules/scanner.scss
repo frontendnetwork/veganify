@@ -40,7 +40,6 @@
         &:last-child {
             float: right;
             justify-content: flex-end;
-
         }
     }
 
@@ -94,7 +93,7 @@
     opacity: .4;
     font-size: rem(128px);
     -webkit-transform: translateX(-50%);
-    transform: translateX(-50%)
+    transform: translateX(-50%);
 }
 
 /* Scanner Underlay */
