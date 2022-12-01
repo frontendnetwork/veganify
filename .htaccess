@@ -15,8 +15,8 @@ RewriteRule datenschutz privacy-policy [L,R=301]
 # UTF-8 Endcoding
 AddDefaultCharset UTF-8
 
-ErrorDocument 404 https://vegancheck.me
-ErrorDocument 403 https://vegancheck.me
+ErrorDocument 404 /errordocs/404.php
+ErrorDocument 403 /errordocs/403.html
 
 # Don't require .php/.html ending
 RewriteCond %{REQUEST_FILENAME} !-d
