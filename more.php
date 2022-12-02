@@ -73,7 +73,7 @@
   <div class="modal_view animatedfaster fadeInUp" id="followmodal">
       <div class="modal_close" id="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
           <span class="center">
-            <img src="img/follow_img.svg" class="heading_img">
+            <img src="img/follow_img.svg" class="heading_img" alt="Follow us">
             <h1><?php echo L::more_follow; ?></h1>
           </span>
           <a href="https://twitter.com/vegancheckme" class="menu twitter">
