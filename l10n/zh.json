@@ -105,7 +105,8 @@
             "via": "通过",
             "month": "モナト",
             "vendor": "付款过程在<span id=\"vendor\">PayPal<\/span>上完成"
-        }
+        },
+        "follow": "关注我们"
     },
     "language": "这个页面只有英语和德语版本。",
     "germanonly": "这个页面只有德语版。",

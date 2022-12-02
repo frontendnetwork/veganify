@@ -105,7 +105,8 @@
             "via": "vía",
             "month": "mes",
             "vendor": "El proceso de pago se completará en <span id=\"vendor\">PayPal</span>."
-        }
+        },
+        "follow": "Siga con nosotros"
     },
     "language": "Esta página sólo está disponible en inglés y alemán",
     "germanonly": "Esta página sólo está disponible en alemán",

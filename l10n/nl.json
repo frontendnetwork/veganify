@@ -105,7 +105,8 @@
             "via": "via",
             "month": "Maand",
             "vendor": "Het betalingsproces wordt voltooid op <span id=\"vendor\">PayPal</span>."
-        }
+        },
+        "follow": "Volg ons"
     },
     "language": "Deze pagina is alleen beschikbaar in het Engels en Duits.",
     "germanonly": "Deze pagina is alleen beschikbaar in het Duits.",
