@@ -70,12 +70,36 @@
         </div>
   </div>
 
+  <div class="modal_view animatedfaster fadeInUp" id="followmodal">
+      <div class="modal_close" id="modal_close"><a class="btn-dark" data-dismiss="modal">&times;</a></div>
+          <span class="center">
+            <img src="img/follow_img.svg" class="heading_img">
+            <h1><?php echo L::more_follow; ?></h1>
+          </span>
+          <a href="https://twitter.com/vegancheckme" class="menu twitter">
+            <span class="label">Twitter</span>
+            <div class="social-icon"><span class="icon-twitter"></span></div>
+        </a>
+          <a href="https://instagram.com/vegancheck.me" class="menu">
+            <span class="label">Instagram</span>
+            <div class="social-icon"><span class="icon-instagram"></span></div>
+          </a>
+          <a href="https://facebook.com/vegancheck.me" class="menu facebook">
+            <span class="label">Facebook</span>
+            <div class="social-icon"><span class="icon-facebook"></span></div>
+          </a>
+  </div>
+
     <div class="container top" id="mainpage">
       <div id="main">
         <div class="form">
             <div class="Grid links">
                   <div class="Grid-cell description" data-target="donationmodal" data-toggle="modal"><?php echo L::more_supportus; ?></div>
                   <div class="Grid-cell icons"><span class="unknown icon-right-open" data-target="donationmodal" data-toggle="modal"></span></div>
+            </div>
+            <div class="Grid links">
+                  <div class="Grid-cell description" data-target="followmodal" data-toggle="modal"><?php echo L::more_follow; ?></div>
+                  <div class="Grid-cell icons"><span class="unknown icon-right-open" data-target="followmodal" data-toggle="modal"></span></div>
             </div>
             <a href="tos" class="Grid links">
                   <div class="Grid-cell description"><?php echo L::more_tos; ?></div>
