@@ -93,10 +93,11 @@ else
         // Check for non-animal-tested products
         if ($apiname == "OpenBeautyFacts")
         {
-            if (isset($product
-                ->product
-                ->labels_tags))
-            {
+            function in_arrayi($needle, $haystack){
+                return in_array(strtolower($needle), array_map('strtolower', $haystack));
+            }
+
+            if (!empty($product->product->labels_tags)){
                 if (in_array("en:not-tested-on-animals", $product
                     ->product
                     ->labels_tags) || in_array("de:ohne-tierversuche", $product
@@ -118,17 +119,13 @@ else
                       </div>
                       ';
                 }
-
                 // Check for the manufacturer in PETA Cruelty Free brands
-                elseif (!empty($product
-                    ->product
-                    ->brands))
-                {
+                elseif (!empty($product->product->brands)){
                     $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
                     $peta = json_decode($petapi->body);
+                    print_r($peta);
 
-                    if (in_array($beautyproduct
-                        ->product->brands, $peta->PETA_DOES_NOT_TEST))
+                    if (in_arrayi($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST))
                     {
                         $animaltestfree = '<div class="Grid">
                         <div class="Grid-cell description">' . L::results_animaltestfree . '</div>
@@ -145,15 +142,10 @@ else
                 }
             }
             // Check for the manufacturer in PETA Cruelty Free brands
-            elseif (!empty($product
-                ->product
-                ->brands))
-            {
+            elseif (!empty($product->product->brands)){
                 $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
                 $peta = json_decode($petapi->body);
-                if (in_array($beautyproduct
-                    ->product->brands, $peta->PETA_DOES_NOT_TEST))
-                {
+                if (in_arrayi($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST)){
                     $animaltestfree = '<div class="Grid">
                         <div class="Grid-cell description">' . L::results_animaltestfree . '</div>
                         <div class="Grid-cell icons"><span class="vegan icon-ok"></span></div>
@@ -230,7 +222,7 @@ else
                         <div class="Grid-cell icons"><span class="nutri_e icon-e"></span></div>
                       </div>';
         }
-        elseif ($apiname == "OpenBeautyFacts")
+        elseif ($apiname == "OpenBeautyFacts" || $apiname == "OpenBeautyFacts, PETA Beauty without Bunnies")
         {
             $nutriscore = null;
         }
