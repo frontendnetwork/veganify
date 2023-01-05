@@ -87,4 +87,4 @@ This repo uses:
 
 ## License
 
-All text and code in this repository is licensed under [MIT](https://github.com/jokenetwork/VeganCheck.me/blob/main/LICENSE), © 2022 Philip Brembeck, © 2022 JokeNetwork.
+All text and code in this repository is licensed under [MIT](https://github.com/jokenetwork/VeganCheck.me/blob/main/LICENSE), © 2023 Philip Brembeck, © 2023 JokeNetwork.
