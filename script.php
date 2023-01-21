@@ -123,7 +123,6 @@ else
                 elseif (!empty($product->product->brands)){
                     $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
                     $peta = json_decode($petapi->body);
-                    print_r($peta);
 
                     if (in_arrayi($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST))
                     {
