@@ -47,6 +47,13 @@ https://vegc.net/repo
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#7f8fa6">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141414">
 
+    <link rel="alternate" href="https://vegancheck.me/de" hreflang="de">
+    <link rel="alternate" href="https://vegancheck.me/en" hreflang="en">
+    <link rel="alternate" href="https://vegancheck.me/es" hreflang="es">
+    <link rel="alternate" href="https://vegancheck.me/fr" hreflang="fr">
+    <link rel="alternate" href="https://vegancheck.me/nl" hreflang="nl">
+    <link rel="alternate" href="https://vegancheck.me/zh" hreflang="zh">
+
     <meta name="application-name" content="VeganCheck">
     <meta name="apple-mobile-web-app-title" content="VeganCheck">
     <link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="../img/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png?v=<?php echo $versions->img; ?>">
