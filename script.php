@@ -121,7 +121,7 @@ else
                 }
                 // Check for the manufacturer in PETA Cruelty Free brands
                 elseif (!empty($product->product->brands)){
-                    $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
+                    $petapi = Requests::get('https://python.cldsi.de/v0/peta/crueltyfree');
                     $peta = json_decode($petapi->body);
 
                     if (in_arrayi($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST))
@@ -142,7 +142,7 @@ else
             }
             // Check for the manufacturer in PETA Cruelty Free brands
             elseif (!empty($product->product->brands)){
-                $petapi = Requests::get('https://api.vegancheck.me/v0/peta?type=crueltyfree');
+                $petapi = Requests::get('https://python.cldsi.de/v0/peta/crueltyfree');
                 $peta = json_decode($petapi->body);
                 if (in_arrayi($beautyproduct->product->brands, $peta->PETA_DOES_NOT_TEST)){
                     $animaltestfree = '<div class="Grid">

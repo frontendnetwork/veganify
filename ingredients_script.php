@@ -47,9 +47,9 @@ else
         $ingredients = $input;
     }
 
-    $url = 'https://api.vegancheck.me/v0/ingredients';
+    $url = 'https://python.cldsi.de/v0/ingredients/'.$ingredients;
     $headers = array('Content-Type' => 'text/plain');
-    $response = Requests::post($url, $headers, $ingredients);
+    $response = Requests::get($url, $headers);
     $product = json_decode($response->body);
     if($product->data->vegan == "false"){
         print_r('<div class="animated fadeIn"><div class="resultborder">');
