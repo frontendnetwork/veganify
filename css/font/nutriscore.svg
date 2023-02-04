@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2022 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2023 by original authors @ fontello.com</metadata>
 <defs>
 <font id="nutriscore" horiz-adv-x="1000" >
 <font-face font-family="nutriscore" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
@@ -17,6 +17,8 @@
 <glyph glyph-name="d" unicode="&#xe90d;" d="M194 688l301 0c69 0 131-13 185-39 53-27 95-63 125-111 30-48 44-103 44-168 0-64-14-119-44-168-30-48-72-84-125-110-54-26-116-39-185-39l-301 0 0 635z m293-492c55 0 98 16 132 46 32 31 49 74 49 128 0 55-17 97-49 128-34 31-77 46-132 46l-113 0 0-348 113 0z" horiz-adv-x="1044" />
 
 <glyph glyph-name="e" unicode="&#xe90e;" d="M777 192l0-139-509 0 0 635 498 0 0-139-320 0 0-107 282 0 0-134-282 0 0-116 331 0z" horiz-adv-x="1044" />
+
+<glyph glyph-name="mastodon" unicode="&#xf098;" d="M933 522c0 217-143 280-143 280-139 64-509 64-648 0 0 0-142-63-142-280 0-258-15-579 236-646 90-23 168-29 230-25 114 6 177 40 177 40l-3 83c0 0-81-26-172-23-91 3-186 10-200 121-2 10-2 20-2 31 191-47 354-20 398-15 126 15 235 92 249 163 21 111 20 271 20 271z m-168-280h-104v255c0 111-143 115-143-15v-140h-103v140c0 130-143 126-143 15v-255h-104c0 273-12 330 41 391 58 64 178 69 232-14l25-43 26 43c54 83 175 78 232 14 53-61 41-118 41-391z" horiz-adv-x="933" />
 
 <glyph glyph-name="twitter" unicode="&#xf099;" d="M0-37q30-3 60-3 176 0 314 108-82 1-147 50t-89 125q20-4 47-4 35 0 67 9-88 17-145 87t-58 160l0 3q53-30 115-31-52 34-82 90t-31 120q0 68 35 127 94-117 230-186t290-78q-7 33-7 58 0 104 74 178t179 74q109 0 184-80 87 18 160 62-28-91-110-140 73 9 144 40-48-75-125-131l0-33q0-101-29-202t-90-194-145-165-201-115-253-42q-209 0-387 113z" horiz-adv-x="1230" />
 
