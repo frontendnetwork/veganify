@@ -61,9 +61,9 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
 We're happy you want to help! Please read our [Code of Conduct](https://github.com/JokeNetwork/vegancheck.me/blob/main/CODE_OF_CONDUCT.md).
 
 Please refer to our issue trackers to see where you could help: 
+- [[Roadmap] v3.x](https://github.com/JokeNetwork/vegancheck.me/issues/152)
 - [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
 - [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
-- [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
 
 or if you find something else you could improve, just open a new issue for it!
 
