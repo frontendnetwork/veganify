@@ -13,7 +13,7 @@
  *
  */
 
-const version = "2.1.11";
+const version = "2.2.0";
 
 function setupLiveReader(resultElement) {
     // Scroll to top
@@ -178,103 +178,200 @@ $(document).ready(function() {
     }
 });
 
+// Disable all results
+$("#RSFound").css("display", "none");
+$("#RSNotFound").css("display", "none");
+$("#RSInvalid").css("display", "none");
+
 // submit.js
-$('button[name="submit"]').on('click', function(e) {
-    e.preventDefault();
-    $(".timeout-final").css("display", "none");
-    $.ajax({
-        url: '../script.php',
-        type: 'POST',
-        timeout: 8000,
-        data: {
-            barcode: $('input[name="barcode"]').val(),
-            lang: $('input[name="lang"]').val()
-        },
-        error: function() {
-            $(".timeout").css("display", "none");
-            $(".timeout-final").css("display", "block");
-        },
-        success: function(result) {
-            $('#result').html(result);
-            $('html, body').animate({
-                scrollTop: $('#resscroll').offset().top
-            }, 900, 'swing');
+$('button[name="submit"]').on("click", function (e) {
+    $("#RSFound").css("display", "none");
+    $("#RSNotFound").css("display", "none");
+    $("#RSInvalid").css("display", "none");
+  e.preventDefault();
+  $(".timeout-final").css("display", "none");
+  let barcode = $('input[name="barcode"]').val();
+  $.ajax({
+    url: "https://api.vegancheck.me/v0/product/" + barcode,
+    type: "POST",
+    timeout: 10000,
+    error: function (xhr, statusText, err) {
+      if (xhr.status == 404) {
+        $("#RSInvalid").css("display", "block");
+      } else {
+        $(".timeout").css("display", "none");
+        $(".timeout-final").css("display", "block");
+      }
+    },
+    success: function (result) {
+      if (result.status == 200) {
+        let productname =
+          result.product.productname === "n/a"
+            ? "?"
+            : result.product.productname;
+        let vegan =
+          result.product.vegan === "true"
+            ? "<span class='vegan icon-ok'></span>"
+            : result.product.vegan === "false"
+            ? "<span class='non-vegan icon-cancel'></span>"
+            : "<span class='unknown icon-help'></span>";
+        let vegetarian =
+          result.product.vegetarian === "true"
+            ? "<span class='vegan icon-ok'></span>"
+            : result.product.vegetarian === "false"
+            ? "<span class='non-vegan icon-cancel'></span>"
+            : "<span class='unknown icon-help'></span>";
+        let animaltestfree =
+          result.product.animaltestfree === "true"
+            ? "<span class='vegan icon-ok'></span>"
+            : result.product.animaltestfree === "false"
+            ? "<span class='non-vegan icon-cancel'></span>"
+            : "n/a";
+        let palmoil =
+          result.product.palmoil === "true"
+            ? "<span class='non-vegan icon-cancel'></span>"
+            : result.product.palmoil === "false"
+            ? "<span class='vegan icon-ok'></span>"
+            : "<span class='unknown icon-help'></span>";
+        let nutriscore = result.product.nutriscore;
+        let grade =
+          result.product.grade === "n/a"
+            ? "<span class='unknown icon-help'></span>"
+            : result.product.grade;
 
-            // Scroll to result
-            self.location.href = '#resscroll';
-
-            // Share button init
-            if (document.getElementById("share")) {
-                const title = document.title;
-                const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
-                const ean = document.getElementById('barcode').value;
-                const url = "https://vegancheck.me/en/?ean=" + ean;
-
-                if (navigator.share == undefined) {
-                    document.getElementById("share").setAttribute("data-toggle", "modal");
-                    document.getElementById("share").setAttribute("data-target", "sharemodal");
-                    document.getElementById("share").removeAttribute("onclick");
-
-                    // Copy
-                    document.getElementById("copy").addEventListener('click', function handleClick() {
-                        navigator.clipboard.writeText(text + ": " + url);
-                        document.querySelector('.btn-dark').click();
-                    });
-
-                    // Twitter
-                    document.getElementById("twitter").addEventListener('click', function handleClick() {
-                        window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
-                        document.querySelector('.btn-dark').click();
-                    });
-
-                    // WhatsApp
-                    document.getElementById("whatsapp").addEventListener('click', function handleClick() {
-                        window.location = `whatsapp://send?text=https://vegancheck.me/en/?ean=${encodeURI(ean)}` + ` ` + `${encodeURI(text)}`;
-                        document.querySelector('.btn-dark').click();
-                    });
-
-                    // Facebook
-                    document.getElementById("facebook").addEventListener('click', function handleClick() {
-                        window.location = `https://www.facebook.com/sharer/sharer.php?u=https://vegancheck.me/en/?ean=${encodeURI(ean)}`;
-                        document.querySelector('.btn-dark').click();
-                    });
-
-                    // Message
-                    document.getElementById("message").addEventListener('click', function handleClick() {
-                        window.location = `sms:&body=https://vegancheck.me/en/?ean=${encodeURI(ean)}` + ` ` + `${encodeURI(text)}`;
-                        document.querySelector('.btn-dark').click();
-                    });
-
-                    // E-Mail
-                    document.getElementById("email").addEventListener('click', function handleClick() {
-                        window.location = `mailto:?body="https://vegancheck.me/en/ean=${ean}"&subject=${text}`;
-                        document.querySelector('.btn-dark').click();
-                    });
-
-                    // Telegram
-                    document.getElementById("telegram").addEventListener('click', function handleClick() {
-                        window.location = `https://telegram.me/share/url?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
-                        document.querySelector('.btn-dark').click();
-                    });
-
-
-
-                } else {
-                    document.getElementById("share").addEventListener('click', function handleClick() {
-                        navigator.share({
-                                title,
-                                text,
-                                ean,
-                                url
-                            })
-                            .catch(err => "");
-                    });
-                }
-            }
-
+        if (nutriscore === "n/a") {
+          nutriscore = '<span class="unknown icon-help"></span>';
+        } else if (nutriscore === "a") {
+          nutriscore = '<span class="nutri_a icon-a"></span>';
+        } else if (nutriscore === "b") {
+          nutriscore = '<span class="nutri_b icon-b"></span>';
+        } else if (nutriscore === "c") {
+          nutriscore = '<span class="nutri_c icon-c"></span>';
+        } else if (nutriscore === "d") {
+          nutriscore = '<span class="nutri_d icon-d"></span>';
+        } else if (nutriscore === "e") {
+          nutriscore = '<span class="nutri_e icon-e"></span>';
         }
-    });
+
+        if (grade === "n/a") {
+          grade = '<span class="unknown icon-help"></span>';
+        } else if (grade === "A") {
+          grade = '<span class="nutri_a icon-a"></span>';
+        } else if (grade === "B") {
+          grade = '<span class="nutri_b icon-b"></span>';
+        } else if (grade === "C") {
+          grade = '<span class="nutri_c icon-c"></span>';
+        } else if (grade === "D") {
+          grade = '<span class="nutri_d icon-d"></span>';
+        } else if (grade === "A+") {
+          grade = '<span class="nutri_a">A+</span>';
+        } else if (grade === "Not eligible") {
+          grade = '<span class="non-vegan icon-cancel"></span>';
+        }
+
+        let api = result.sources.api;
+        let baseuri = result.sources.baseuri;
+
+        $("#RSFound").css("display", "block");
+
+        $(".name").html(productname);
+        $(".RSVegan").html(vegan);
+        $(".RSVegetarian").html(vegetarian);
+        $(".RSPalmoil").html(palmoil);
+        $(".RSNutriscore").html(nutriscore);
+        $(".RSGrade").html(grade);
+        if (animaltestfree === "n/a") {
+          $(".Crueltyfree").css("display", "none");
+        } else {
+          $(".RSAnimaltestfree").html(animaltestfree);
+        }
+        $(".RSSource").html(api);
+        $(".RSSource").attr("href", baseuri);
+      } else {
+        $("#RSNotFound").css("display", "block");
+      }
+      $("html, body").animate(
+        {
+          scrollTop: $("#resscroll").offset().top,
+        },
+        900,
+        "swing"
+      );
+    },
+  });
 });
+
+// Scroll to result
+self.location.href = '#resscroll';
+
+// Share button init
+if (document.getElementById("share")) {
+    const title = document.title;
+    const text = document.getElementById('name_sh').innerHTML + " - Checked using VeganCheck";
+    const ean = document.getElementById('barcode').value;
+    const url = "https://vegancheck.me/en/?ean=" + ean;
+
+    if (navigator.share == undefined) {
+        document.getElementById("share").setAttribute("data-toggle", "modal");
+        document.getElementById("share").setAttribute("data-target", "sharemodal");
+        document.getElementById("share").removeAttribute("onclick");
+
+        // Copy
+        document.getElementById("copy").addEventListener('click', function handleClick() {
+            navigator.clipboard.writeText(text + ": " + url);
+            document.querySelector('.btn-dark').click();
+        });
+
+        // Twitter
+        document.getElementById("twitter").addEventListener('click', function handleClick() {
+            window.location = `https://twitter.com/intent/tweet?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
+            document.querySelector('.btn-dark').click();
+        });
+
+        // WhatsApp
+        document.getElementById("whatsapp").addEventListener('click', function handleClick() {
+            window.location = `whatsapp://send?text=https://vegancheck.me/en/?ean=${encodeURI(ean)}` + ` ` + `${encodeURI(text)}`;
+            document.querySelector('.btn-dark').click();
+        });
+
+        // Facebook
+        document.getElementById("facebook").addEventListener('click', function handleClick() {
+            window.location = `https://www.facebook.com/sharer/sharer.php?u=https://vegancheck.me/en/?ean=${encodeURI(ean)}`;
+            document.querySelector('.btn-dark').click();
+        });
+
+        // Message
+        document.getElementById("message").addEventListener('click', function handleClick() {
+            window.location = `sms:&body=https://vegancheck.me/en/?ean=${encodeURI(ean)}` + ` ` + `${encodeURI(text)}`;
+            document.querySelector('.btn-dark').click();
+        });
+
+        // E-Mail
+        document.getElementById("email").addEventListener('click', function handleClick() {
+            window.location = `mailto:?body="https://vegancheck.me/en/ean=${ean}"&subject=${text}`;
+            document.querySelector('.btn-dark').click();
+        });
+
+        // Telegram
+        document.getElementById("telegram").addEventListener('click', function handleClick() {
+            window.location = `https://telegram.me/share/url?url=https://vegancheck.me/en/?ean=${encodeURI(ean)}&text=${encodeURI(text)}`;
+            document.querySelector('.btn-dark').click();
+        });
+
+
+
+    } else {
+        document.getElementById("share").addEventListener('click', function handleClick() {
+            navigator.share({
+                    title,
+                    text,
+                    ean,
+                    url
+                })
+                .catch(err => "");
+        });
+    }
+}
 
 
 // Ingredient checker

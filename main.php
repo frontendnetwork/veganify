@@ -120,7 +120,42 @@
         </form>
         <div class="timeout animated fadeIn" style="display:none;"><?php echo L::other_timeout; ?><span>.</span><span>.</span><span>.</span></div>
          <div class="timeout-final animated fadeIn" style="display:none;"><?php echo L::other_timeoutfinal; ?></div>
-        <div id="result">&nbsp;</div>
+        
+         <div id="result">
+        <div class="animated fadeIn resultborder" id="RSFound">
+          <span class="unknown">  
+            <span class="name" id="name_sh"></span>
+          </span>
+          <span id="result_sh"><div class="Grid">
+            <div class="Grid-cell description"><?php echo L::results_vegan; ?></div>
+            <div class="Grid-cell icons RSVegan"></div>
+          </div></span><div class="Grid">
+            <div class="Grid-cell description"><?php echo L::results_vegetarian; ?></div>
+            <div class="Grid-cell icons RSVegetarian"></div>
+          </div><div class="Grid">
+            <div class="Grid-cell description"><?php echo L::modal_palmoil; ?><sup data-target="palmoil" data-toggle="modal">?</sup></div>
+            <div class="Grid-cell icons RSPalmoil"></div>
+          </div>
+          <div class="Grid Crueltyfree">
+            <div class="Grid-cell description"><?php echo L::results_animaltestfree; ?></div>
+            <div class="Grid-cell icons RSAnimaltestfree"></div>
+          </div>
+          <div class="Grid">
+            <div class="Grid-cell description">Nutriscore<sup data-target="nutriscore" data-toggle="modal">?</sup></div>
+            <div class="Grid-cell icons RSNutriscore"></div>
+          </div>
+          <div class="Grid">
+            <div class="Grid-cell description">Grade</div>
+            <div class="Grid-cell icons RSGrade"></div>
+          </div>
+          <span class="source"><?php echo L::results_datasource;?> <a href="" class="RSSource" target="_blank"></a><sup data-target="license" data-toggle="modal">?</sup></span>
+          <span class="button" id="share">Teilen</span>
+        </div>
+        <div class="animated fadeIn resultborder" id="RSNotFound"><span><?php echo L::results_notindb; ?></span><p class="missing"><?php echo L::results_add; ?> <a href="https://world.openfoodfacts.org/cgi/product.pl" target="_blank">Lebensmittel hinzufügen</a> oder <a href="https://world.openbeautyfacts.org/cgi/product.pl" target="_blank">Kosemtika hinzufügen</a>.</p>
+        </div>
+        <div class="animated fadeIn resultborder" id="RSInvalid"><span><?php echo L::results_invalidscan; ?></span></div>
+      </div>
+        
       </div>
         <footer>
             <p><?php echo L::footer_credits; ?></p>
