@@ -76,7 +76,7 @@
             <img src="img/follow_img.svg" class="heading_img" alt="Follow us">
             <h1><?php echo L::more_follow; ?></h1>
           </span>
-          <a href="https://veganism.social/@vegancheck" class="menu twitter">
+          <a href="https://veganism.social/@vegancheck" rel="me" class="menu twitter">
             <span class="label">Mastodon</span>
             <div class="social-icon"><span class="icon-mastodon"></span></div>
         </a>
