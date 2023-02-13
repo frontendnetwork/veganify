@@ -8,7 +8,9 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: production
+    environment: 
+      name: production
+      url: https://vegancheck.me
     steps:
       - name: deploy
         uses: appleboy/ssh-action@v0.1.7
@@ -17,5 +19,4 @@ jobs:
           username: ${{ secrets.UBERSPACE_USER }}
           key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
           port: 22
-          script: |
-            curl -I https://vegancheck.me
+          script: curl -I https://vegancheck.me
