@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+      url: https://vegancheck.me
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.UBERSPACE_HOST }}
+        username: ${{ secrets.UBERSPACE_USER }}
+        key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+        port: 22
+        script: curl -I https://vegancheck.me
