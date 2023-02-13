@@ -16,4 +16,4 @@ jobs:
         username: ${{ secrets.UBERSPACE_USER }}
         key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
         port: 22
-        script: curl -I https://vegancheck.me
+        script: curl -I https://vegancheck.me 
