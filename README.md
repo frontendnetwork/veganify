@@ -75,6 +75,21 @@ or if you find something else you could improve, just open a new issue for it!
 <a href="https://instagram.com/vegancheck.me"><img src="https://img.shields.io/twitter/url?label=vegancheck.me&logo=instagram&logoColor=grey&url=https%3A%2F%2Finstagram.com%2Fvegancheck.me" alt="Instagram"></a>
 <a href="https://fb.me/vegancheck.me"><img src="https://img.shields.io/twitter/url?label=vegancheck.me&logo=facebook&logoColor=grey&url=https%3A%2F%2Ffb.me%2Fvegancheck.me" alt="Facebook"></a> 
 
+### Premium Supporters
+<a href="https://veganism.social/@mvtracing">
+	<picture>
+	  <source srcset="https://user-images.githubusercontent.com/4144601/218593453-28333f8a-3e24-46d2-8bc9-856eb2e4a390.png" media="(prefers-color-scheme: dark)" width="120">
+	  <img src="https://user-images.githubusercontent.com/4144601/218593448-cde11d35-97ec-498d-8aa9-6613ed5471bd.png" width="120">
+	</picture>
+</a>
+
+<a href="https://philip.media">
+	<picture>
+	  <source srcset="https://user-images.githubusercontent.com/4144601/218594015-e28f4b94-c6ac-4ad7-842f-83296adc9d74.svg" media="(prefers-color-scheme: dark)" width="160">
+	  <img src="https://user-images.githubusercontent.com/4144601/218594012-3a5968bc-5145-4f7a-aeed-e411164ddb71.svg" width="160">
+	</picture>
+</a>
+
 ## Dependencies & Credits 
 
 This repo uses:
