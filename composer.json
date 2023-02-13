@@ -1,7 +1,0 @@
-{
-    "require": {
-        "rmccue/requests": "^2.0",
-        "vlucas/phpdotenv": "^5.4",
-        "philipp15b/php-i18n": "^4.0"
-    }
-}

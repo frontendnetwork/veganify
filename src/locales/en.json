@@ -1,0 +1,91 @@
+{
+  "Nav": {
+    "title": "Is it vegan? – Vegan Check",
+    "description": "Are you unsure whether a product is vegan or not? With VeganCheck.me you can scan the bar code of an item while shopping and check whether it is vegan or not and that without a lot of other unnecessary information! Try it out now!",
+    "home": "Home",
+    "ingredientcheck": "Ingredient Check",
+    "more": "More"
+  },
+  "Footer": {
+    "credit": "Made with {heart} by {philipLink} & {jokeLink}"
+  },
+  "Check": {
+    "enterbarcode": "Enter barcode",
+    "submit": "Submit",
+    "vegan": "Vegan",
+    "vegetarian": "Vegetarian",
+    "palmoil": "Palmoil",
+    "palmoil_desc": "Palm-oil has an extremly harmful impact on the planet. It is the major driver of deforestation of some of the most biodiverse forests, destroying the natural habitats of already endangered animals. Because of this, we'd recommend to not buy any products that contain palm-oil. Sadly, there are still many products out there which include palm oil.",
+    "crueltyfree": "Cruelty-Free",
+    "nutriscore_desc": "The Nutriscore indicates the nutritional profile of a product in traffic light form. However, the Nutriscore is not considered accurate and should not be used as a reference. You can find more information on the Nutriscore on {Algorithmwatch} (English).",
+    "grades_desc": "Are you confused by all the vegan/eco-friendly/organic labels?<br />You will be no more with the easy to understand VeganCheck Grades! VeganCheck Grades is a rating system for vegan products, that assigns one of six grades (A+ - Not eligible) to a product.<br />If you are interested in learning more about VeganCheck Grades or if you want to request a rating for a product, you can do so on {Grades}!",
+    "source": "Data source",
+    "licenses": "Licenses",
+    "licenses_desc": "VeganCheck.me uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
+    "notindb": "This product is not in our database yet.",
+    "notindb_add": "Do you want to add it?",
+    "add_food": "Add foods",
+    "or": "or",
+    "add_cosmetic": "add cosmetics",
+    "wrongbarcode": "This barcode is invalid.",
+    "timeout1": "This takes longer than usual",
+    "timeout2": "The request took too long. Please try again.",
+    "share": "Share"
+  },
+  "More": {
+    "buyusacoffee": "Buy us a coffee",
+    "followus": "Follow us",
+    "tos": "Terms of service",
+    "privacypolicy": "Privacy Policy",
+    "apidocumentation": "API Documentation",
+    "imprint": "Imprint",
+    "onceviapaypal": "Once via PayPal",
+    "onceviakofi": "Once via Ko-Fi",
+    "monthlyviagithub": "Monthly via GitHub",
+    "redirect": "You will be redirected to",
+    "thissetsacookie": "This sets a cookie.",
+    "activatedarkmode": "Activate the dark mode on your device first!"
+  },
+  "TOS": {
+    "englishgermanonly": "This page is only available in English and German.",
+    "tos": "Terms of service",
+    "tos_content": "<p><b>Use of \"VeganCheck.me\"</b></p><p>The use of the site \"VeganCheck.me\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https://jokenetwork.de/vegancheck-api\">API</a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.</p><p><b>Processing of entered texts and numbers</b></p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.</p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en\">?</a></sup></p><p><b>Disclaimer</b></p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.</p>"
+  },
+  "Privacy": {
+    "germanonly": "This page is only available in German."
+  },
+  "404": {
+    "error404": "Error 404.",
+    "pagedoesnotexist": "This page does not exist.",
+    "message": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues.",
+    "statuspage": "status page"
+  },
+  "Fallback": {
+    "yourareoffline": "You are offline.",
+    "needinternet": "You need an active internet connection to use VeganCheck.me.",
+    "tryagain": "Try again"
+  },
+  "InstallPrompt": {
+    "subheading": "Is it Vegan? - Vegan Check",
+    "install": "Install VeganCheck.me",
+    "get": "Get",
+    "howtoinstall": "Tap on {share} then \"Add to Home Screen\"."
+  },
+  "ShortcutPrompt": {
+    "Shortcuts": "Shortcuts",
+    "openinapp": "Open in the shortcuts app",
+    "open": "Open"
+  },
+  "Ingredients": {
+    "ingredientcheck": "Vegan Ingredient Checker",
+    "ingredientcheck_desc": "Check if the Ingredients of a product are vegan! – Enter ingredients comma seperated",
+    "entercommaseperated": "Enter ingredients comma seperated",
+    "submit": "Submit",
+    "vegan": "Vegan",
+    "source": "Data source",
+    "cannotbeempty": "Ingredients-list cannot be empty or include special characters and has to be comma seperated!",
+    "licenses": "Licenses",
+    "licenses_desc": "VeganCheck.me uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
+    "languagewarning": "These results may be incorrect due to translation errors or missing information. The results are translated with {deepl}."
+  }
+}

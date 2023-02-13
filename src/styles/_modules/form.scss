@@ -1,0 +1,158 @@
+/* Main container with border */
+
+.form {
+    word-wrap: break-word;
+    background: #fff;
+    border: rem(2px) solid #f5f5f5;
+    border-radius: rem(10px);
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: rem(64px);
+    padding: rem(64px);
+    line-height: rem(30px);
+    box-shadow: 0 rem(25px) rem(50px) rem(-12px) rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+    color: #000;
+
+    &.component {
+        margin-bottom: 6.5rem;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    a,
+    ul,
+    li {
+        color: #000;
+        text-align: left;
+    }
+
+    .small {
+        font-size: rem(11.2px);
+        line-height: rem(16px);
+    }
+
+    .Grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 60%;
+        margin: 0 auto;
+        border-top: rem(0.08px) solid #ccc;
+        padding: rem(8px);
+
+        &:first-child {
+            border-top: none;
+        }
+    }
+
+    .switcher {
+        width: 90% !important;
+
+        input.switch {
+            position: relative;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            width: rem(50px);
+            height: rem(30px);
+            background-color: #fff;
+            border: rem(1.008px) solid #d9dadc;
+            border-radius: rem(50px);
+            box-shadow: inset rem(-20px) 0 0 0 #fff;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: rem(1.008px);
+                left: rem(1.008px);
+                background: transparent;
+                width: rem(26px);
+                height: rem(26px);
+                border-radius: 50%;
+                box-shadow: rem(2px) rem(4px) rem(6px) rgba(0, 0, 0, 0.2);
+            }
+
+            &:checked {
+                box-shadow: inset rem(20px) 0 0 0 var(--button-bg-re);
+                border-color: var(--button-bg-re);
+
+                &:after {
+                    left: 1.25rem;
+                    box-shadow: rem(-2px) rem(4px) rem(3.008px) rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
+
+
+        .description {
+            width: 85% !important;
+            flex: none !important;
+            text-align: left;
+            font-weight: var(--semibold-fontweight);
+
+            .info {
+                display: block;
+                font-weight: 400;
+                font-size: rem(14.4px);
+                color: #ccc;
+                margin-top: 0;
+                padding: 0;
+                line-height: rem(16px);
+            }
+        }
+
+        .icons {
+            width: 15% !important;
+            flex: none !important;
+            font-weight: var(--semibold-fontweight);
+            text-align: right;
+        }
+    }
+
+    .links {
+        color: #000;
+        text-decoration: none;
+        font-weight: var(--semibold-fontweight);
+        width: 90% !important;
+        cursor: pointer;
+    }
+
+    .Grid-cell {
+        flex: 1;
+        flex-direction: column;
+        flex-basis: 100%;
+    }
+
+    .icons {
+        width: 5% !important;
+        flex: none !important;
+        font-weight: var(--semibold-fontweight);
+        text-align: right;
+    }
+
+    .description {
+        width: 95% !important;
+        flex: none !important;
+        text-align: left;
+    }
+
+    .button {
+        font-size: rem(11.2px);
+        color: var(--button-fg-re);
+        text-transform: uppercase;
+        font-weight: bold;
+        background: var(--button-bg-re);
+        padding: rem(3.2px);
+        padding-left: rem(16px);
+        padding-right: rem(16px);
+        border-radius: rem(48px);
+        margin-top: rem(12.8px) !important;
+        text-decoration: none;
+        display: inline-block;
+    }
+}

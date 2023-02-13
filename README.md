@@ -1,5 +1,5 @@
 <p align="center">
- <img width="100px" src="img/hero_icon.png" align="center" alt="VeganCheck Logo">
+ <img width="100px" src="public/img/hero_icon.png" align="center" alt="VeganCheck Logo">
 </p>
 <h3 align="center">VeganCheck.me</h3>
 
@@ -17,13 +17,13 @@
 
 ## Overview
 <p align="center">
-<img src="img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500"><br>
+<img src="public/img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500"><br>
 	<sup>MacBook Pro® and iPhone® are trademarks of Apple Inc., registered in the U.S. and other countries.</sup>
 </p>
 
 VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
 	
-VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts, Brocade.io and Open EAN Database in one tool. 
+VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open EAN Database, as well as our very own ingredient checker in one tool. 
 <details>
   <summary>See an example of how it works!</summary>
   <img src="https://user-images.githubusercontent.com/4144601/198900839-8dc58d58-fdb8-48b6-93e4-a4662ae64954.mov" width="300">
@@ -47,8 +47,9 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredient
 ## Requirements
 [Click here to see the installation guide!](https://jokenetwork.github.io/vegancheck.me/)
 
-- PHP >=7.4 installed
-- [Composer](https://getcomposer.org/download/) and [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) installed
+- Node.js (React 18.2.0, Next.js 13.1.6) 
+- [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) installed
+- Run `npm run start` to develop & `npm run build` to build
 
 ## Browser Compatibility 
 |  | <img src="https://user-images.githubusercontent.com/4144601/196047698-f89fddb8-7de1-4309-934d-96ee31343933.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196047892-1f25f72f-dd1e-48d0-bd85-e404a8015ac3.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196047989-b60f7192-dc06-4896-8dba-993939991511.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048071-381cdc29-bd8a-4f99-9477-3ae2d948d25d.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048153-fe181ef2-303c-45cc-b4f4-c091ba4b5cea.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048187-25de52f4-9a4c-4905-92c8-9d18ec9c71b6.png" width="25"> |
@@ -62,8 +63,8 @@ We're happy you want to help! Please read our [Code of Conduct](https://github.c
 
 Please refer to our issue trackers to see where you could help: 
 - [[Roadmap] v3.x](https://github.com/JokeNetwork/vegancheck.me/issues/152)
-- [[Tasks] Project enhancements](https://github.com/JokeNetwork/vegancheck.me/issues/53)
 - [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
+- [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
 
 or if you find something else you could improve, just open a new issue for it!
 
@@ -77,13 +78,9 @@ or if you find something else you could improve, just open a new issue for it!
 ## Dependencies & Credits 
 
 This repo uses:
-
-* [JQuery](https://jquery.com) @jQuery
-* [BarCode-reader](https://github.com/iemadk/BarCode-reader) [@iemadk](https://github.com/iemadk)
+* [Quagga.js](https://serratus.github.io/quaggaJS/)
 * [OpenFoodFacts API](https://openfoodfacts.org/) & [OpenBeautyFacts API](https://openbeautyfacts.org/) [@openfoodfacts](https://github.com/openfoodfacts)
-* [Brocade.io API](https://brocade.io) [@ferrisoxide](https://github.com/ferrisoxide)
 * [Open EAN Database](https://opengtindb.org)
-* [is-vegan](https://github.com/hmontazeri/is-vegan) [@hmontazeri](https://github.com/hmontazeri)
 
 ## License
 
