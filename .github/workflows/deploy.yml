@@ -19,6 +19,8 @@ jobs:
         script_stop: true
         script: |
           cd vegancheck.me
+          git reset --hard HEAD
+          git clean -f -d
           git pull
           npm i next
           npm run build
