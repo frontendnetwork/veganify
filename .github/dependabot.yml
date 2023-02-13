@@ -8,7 +8,7 @@ updates:
       interval: "daily"
 
   # Maintain dependencies for Composer
-  - package-ecosystem: "composer"
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
