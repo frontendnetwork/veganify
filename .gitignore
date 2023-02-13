@@ -1,36 +1,21 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# local env files
-.env*.local
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+privacy-policy.php
+impressum.php
+prepros.config
+css/prepros.config
+.intern
+stats.php
+api/
+api
+.env
+vendor/*
+vendor/
+vendor
+vendor/composer/autoload_files.php
+vendor/composer/autoload_files.php
+vendor/composer/autoload_psr4.php
+vendor/composer/autoload_static.php
+langcache/
+includes/url.php
+node_modules/
+tos.php
