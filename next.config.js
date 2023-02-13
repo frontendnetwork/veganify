@@ -11,4 +11,4 @@ module.exports = withPWA({
     locales: ['de', 'en', 'fr', 'es'],
     defaultLocale: 'en',
   }
-})
+});
