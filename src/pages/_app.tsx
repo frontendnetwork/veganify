@@ -1,7 +1,7 @@
 import "@/styles/style.scss";
 import type { AppProps } from "next/app";
 import { NextIntlProvider } from "next-intl";
-import Script from 'next/script'
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
