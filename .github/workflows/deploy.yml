@@ -18,6 +18,7 @@ jobs:
         username: ${{ secrets.UBERSPACE_USER }}
         key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
         port: 22
+        retry-max: 3
         script_stop: true
         script: |
           cd vegancheck.me
