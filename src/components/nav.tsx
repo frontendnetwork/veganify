@@ -3,11 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { GetStaticPropsContext } from 'next'
-import { useTranslations } from 'next-intl';
+import { GetStaticPropsContext } from "next";
+import { useTranslations } from "next-intl";
+
 
 export default function Nav() {
-  const t = useTranslations('Nav');
+  const t = useTranslations("Nav");
   const router = useRouter();
   useEffect(() => {
     const localStorageValue = localStorage.getItem("oled");
@@ -27,10 +28,8 @@ export default function Nav() {
   return (
     <>
       <Head>
-        <title>{t('title')}</title>
-        <meta
-          name="description"
-          content={t('description')} />
+        <title>{t("title")}</title>
+        <meta name="description" content={t("description")} />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -40,12 +39,26 @@ export default function Nav() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://vegancheck.me" />
 
-        <meta name="twitter:card" content="summary" />
         <meta
-          name="twitter:image"
-          content="https://vegancheck.me/img/icon-512x512.png"
+          name="twitter:image:src"
+          content="https://vegancheck.me/img/og_image.png"
         />
-        <meta name="twitter:image:alt" content="VeganCheck.me" />
+        <meta
+          property="twitter:image:alt"
+          content="VeganCheck.me"
+        />
+        <meta name="twitter:site" content="@vegancheckme" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          property="og:image"
+          content="https://vegancheck.me/img/og_image.png"
+        />
+        <meta
+          property="og:image:alt"
+          content="VeganCheck.me"
+        />
+        <meta property="og:site_name" content="VeganCheck.me" />
+        <meta property="og:type" content="object" />
 
         <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="apple-touch-icon" href="../img/icon.png" />
@@ -123,7 +136,7 @@ export default function Nav() {
           >
             <Link href="/">
               <span className="icon icon-vegancheck"></span>
-              <span className="menu-item">{t('home')}</span>
+              <span className="menu-item">{t("home")}</span>
             </Link>
           </div>
           <div
@@ -135,7 +148,7 @@ export default function Nav() {
           >
             <Link href="/ingredients">
               <span className="icon icon-ingredients"></span>
-              <span className="menu-item">{t('ingredientcheck')}</span>
+              <span className="menu-item">{t("ingredientcheck")}</span>
             </Link>
           </div>
           <div
@@ -149,7 +162,7 @@ export default function Nav() {
           >
             <Link href="/more">
               <span className="icon icon-ellipsis"></span>
-              <span className="menu-item">{t('more')}</span>
+              <span className="menu-item">{t("more")}</span>
             </Link>
           </div>
         </div>
@@ -161,7 +174,7 @@ export default function Nav() {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`..//locales/${locale}.json`)).default
-    }
+      messages: (await import(`..//locales/${locale}.json`)).default,
+    },
   };
 }
