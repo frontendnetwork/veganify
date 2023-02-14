@@ -16,7 +16,7 @@
         body {
             width: 95%;
         }
-        img {
+        .logo_12 {
             display: none;
         }
     }
@@ -32,7 +32,7 @@
             main
         </span>
         <span class="Label mr-1 Label--success">Stable</span>
-        <img width="80px" src="https://raw.githubusercontent.com/JokeNetwork/vegancheck.me/main/public/img/hero_icon.png" align="right" alt="VeganCheck Logo">
+        <img width="80px" src="https://raw.githubusercontent.com/JokeNetwork/vegancheck.me/main/public/img/hero_icon.png" align="right" alt="VeganCheck Logo" class="logo_12">
         <h1>VeganCheck.me Installation Guide</h1>
         <p>Installing VeganCheck.me on your own server or hosting your own mirror is straight forward.<br>Here you can find out how it works and what to note.</p>
         <h2 id="vercek">Deploy to Vercel</h2>
@@ -56,6 +56,7 @@
         <p>To build the service just run:</p>
         <pre><code class="lang-bash">$ npm run build</span></code></pre>
         <p>You can then run the code in a normal Node.js production environment (Like with the help of <a href="http://supervisord.org">supervisord</a>).</p>
+        <p>Please note that the service runs on <code>Port 1030</code>. You can change the port by editing the "start" command in the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/package.json">package.json</a> at <code>"start": "next start -p [Desired port]"</code>.</p>
         <h2 id="use-of-icons">Use of icons</h2>
         <ul>
             <li>The VeganCheck.me Logo and the app icons are free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>.</li>
