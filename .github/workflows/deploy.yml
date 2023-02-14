@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -12,13 +13,13 @@ jobs:
       url: https://vegancheck.me
     steps:
     - name: executing remote ssh commands using password
+      id: ssh
       uses: appleboy/ssh-action@v0.1.7
       with:
         host: ${{ secrets.UBERSPACE_HOST }}
         username: ${{ secrets.UBERSPACE_USER }}
         key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
         port: 22
-        retry-max: 3
         script_stop: true
         script: |
           cd vegancheck.me
@@ -28,3 +29,12 @@ jobs:
           npm i next
           npm run build
           supervisorctl restart vegancheck
+    - name: Check for failure
+      run: exit ${{ steps.ssh.outcome }}
+      shell: bash
+    - name: Retry on failure
+      if: failure()
+      uses: actions/retry@v2
+      with:
+        max-retries: 3
+        delay: 10s
