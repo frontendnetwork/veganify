@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 
-const Modal = ({ id, children, buttonType, buttonClass, buttonText }) => {
+type ModalProps = {
+  id: string;
+  children: React.ReactNode;
+  buttonType: "sup" | "span" | "div";
+  buttonClass: string;
+  buttonText: string;
+};
+
+const Modal: React.FC<ModalProps> = ({
+  id,
+  children,
+  buttonType,
+  buttonClass,
+  buttonText,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -50,9 +64,10 @@ const Modal = ({ id, children, buttonType, buttonClass, buttonText }) => {
               className="btn-dark"
               data-dismiss="modal"
               onClick={() => {
-                document.querySelector(".modal_view").classList.add("fadeOutDown");
+                const modalView = document.querySelector(".modal_view");
+                modalView?.classList.add("fadeOutDown");
                 setTimeout(() => {
-                    setIsOpen(false);
+                  setIsOpen(false);
                 }, 500);
               }}
             >
