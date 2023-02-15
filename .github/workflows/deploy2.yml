@@ -34,8 +34,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2
         env:
           ARGS: '-rltgoDzvO --delete'
-          SOURCE: build/
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY_PRIVATE }}
-          REMOTE_HOST: ${{ secrets.UBERSPACE_HOST }}
-          REMOTE_USER: ${{ secrets.UBERSPACE_USER }}
-          TARGET: /vegancheck.me/
+          REMOTE_HOST: cassiopeia.uberspace.de
+          REMOTE_USER: jake
+          TARGET: vegancheck.me/
