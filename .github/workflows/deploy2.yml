@@ -36,7 +36,7 @@ jobs:
           ARGS: '-rltgoDzvO --delete'
           SOURCE: build/
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY_PRIVATE }}
-          REMOTE_HOST: ${{ secrets.UBERSPACE_HOST }}
-          REMOTE_USER: ${{ secrets.UBERSPACE_USER }}
+          REMOTE_HOST: cassiopeia.uberspace.de
+          REMOTE_USER: jake
           TARGET: /vegancheck.me/
 
