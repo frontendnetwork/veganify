@@ -44,7 +44,12 @@
     "monthlyviagithub": "Monthly via GitHub",
     "redirect": "You will be redirected to",
     "thissetsacookie": "This sets a cookie.",
-    "activatedarkmode": "Activate the dark mode on your device first!"
+    "activatedarkmode": "Activate the dark mode on your device first!",
+    "language": "Language",
+    "english": "English",
+    "german": "German",
+    "spanish": "Spanish",
+    "french": "French"
   },
   "TOS": {
     "englishgermanonly": "This page is only available in English and German.",

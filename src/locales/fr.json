@@ -44,7 +44,12 @@
     "monthlyviagithub": "Mensuel via GitHub",
     "redirect": "Vous serez redirigé vers",
     "thissetsacookie": "Ceci définit un cookie.",
-    "activatedarkmode": "Activez d'abord le thème sombre sur votre appareil !"
+    "activatedarkmode": "Activez d'abord le thème sombre sur votre appareil !",
+    "language": "Langue",
+    "english": "Anglais",
+    "german": "Allemand",
+    "spanish": "Espagnol",
+    "french": "Français"
   },
   "TOS": {
     "englishgermanonly": "Cette page est uniquement disponible en anglais et en allemand.",
