@@ -1,6 +1,6 @@
-name: deploy
+# Sourced from https://github.com/zerforschung/schnelltesttest.de
+name: Deploy to Production
 
-# alle schon laufenden "deploy"s canceln
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
@@ -8,8 +8,6 @@ concurrency:
 on:
   push:
     branches: [main]
-  # deploy auslösen mittels:
-  # `curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: Token $personalaccesstoken' -d '{"event_type": "redeploy"}' https://api.github.com/repos/zerforschung/schnelltesttest.de/dispatches`
   repository_dispatch:
     types:
       - redeploy
@@ -18,6 +16,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: 
+    name: Production
+      url: https://vegancheck.me
 
     steps:
       - uses: actions/checkout@v2
@@ -35,6 +36,6 @@ jobs:
         env:
           ARGS: '-rltgoDzvO --delete'
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY_PRIVATE }}
-          REMOTE_HOST: cassiopeia.uberspace.de
-          REMOTE_USER: jake
+          REMOTE_HOST: ${{ secrets.UBERSPACE_HOST }}
+          REMOTE_USER: ${{ secrets.UBERSPACE_USER }}
           TARGET: vegancheck.me/
