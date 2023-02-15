@@ -39,4 +39,3 @@ jobs:
           REMOTE_HOST: cassiopeia.uberspace.de
           REMOTE_USER: jake
           TARGET: /home/jake/vegancheck.me
-
