@@ -1,29 +1,29 @@
-name: Production Deployment
+#name: Production Deployment
 
-on:
-  push:
-    branches:
-      - main
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment: 
-      name: Production
-      url: https://vegancheck.me
-    steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: ${{ secrets.UBERSPACE_HOST }}
-        username: ${{ secrets.UBERSPACE_USER }}
-        key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
-        port: 22
-        script_stop: true
-        script: |
-          cd vegancheck.me
-          git reset --hard HEAD
-          git clean -f -d
-          git pull
-          npm i next
-          npm run build
-          supervisorctl restart vegancheck
+#on:
+#  push:
+#    branches:
+#      - main
+#jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#    environment: 
+#     name: Production
+#      url: https://vegancheck.me
+ #   steps:
+  #  - name: executing remote ssh commands using password
+   #   uses: appleboy/ssh-action@v0.1.7
+  #    with:
+  #      host: ${{ secrets.UBERSPACE_HOST }}
+  #      username: ${{ secrets.UBERSPACE_USER }}
+   #     key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+   #     port: 22
+   #     script_stop: true
+    #    script: |
+    #      cd vegancheck.me
+     #     git reset --hard HEAD
+     #     git clean -f -d
+     #     git pull
+     #     npm i next
+      #    npm run build
+      #    supervisorctl restart vegancheck
