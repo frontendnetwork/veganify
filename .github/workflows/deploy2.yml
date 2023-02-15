@@ -38,5 +38,5 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY_PRIVATE }}
           REMOTE_HOST: cassiopeia.uberspace.de
           REMOTE_USER: jake
-          TARGET: /
+          TARGET: /home/jake/vegancheck.me
 
