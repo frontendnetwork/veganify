@@ -34,7 +34,6 @@ jobs:
         uses: easingthemes/ssh-deploy@v2
         env:
           ARGS: '-rltgoDzvO --delete'
-          SOURCE: vegancheck.me/
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY_PRIVATE }}
           REMOTE_HOST: cassiopeia.uberspace.de
           REMOTE_USER: jake
