@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/scanner.js", "src/components/scanner.js", "src/components/scanmodule.js", "src/components/scanmodule.js", "src/components/scanner.js", "src/components/scanner.js", "src/components/Scanner/scanner.js", "src/components/Scanner/scanner.js", "src/pages/translation.js", "src/pages/translation.js", "src/components/ingredientscheck.js", "src/components/ingredientscheck.js", "src/components/ingredientscheck.js", "src/components/elements/share.js", "src/components/elements/modalwrapper.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/scanner.js", "src/components/scanner.js", "src/components/scanmodule.js", "src/components/scanmodule.js", "src/components/scanner.js", "src/components/scanner.js", "src/components/Scanner/scanner.js", "src/components/Scanner/scanner.js", "src/pages/translation.js", "src/pages/translation.js", "src/components/ingredientscheck.js", "src/components/ingredientscheck.js", "src/components/ingredientscheck.js", "src/components/elements/share.js", "src/components/elements/modalwrapper.js", "src/components/translation.js", "src/components/translation.js", "src/components/elements/container.js", "src/components/elements/container.js", "src/components/elements/modals.js", "src/components/elements/modals.js"],
   "exclude": ["node_modules"]
 }
