@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
 import Nav from "@/components/nav";
 import IngredientsCheck from '@/components/ingredientscheck'
 import Container from "@/components/elements/container";
