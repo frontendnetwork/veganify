@@ -32,7 +32,7 @@ jobs:
       - run: yarn build
 
       - name: ssh deploy
-        uses: easingthemes/ssh-deploy@v2
+        uses: easingthemes/ssh-deploy@v4
         env:
           ARGS: '-rltgoDzvO --delete'
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY_PRIVATE }}
