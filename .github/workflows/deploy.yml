@@ -31,7 +31,7 @@ jobs:
       - run: yarn install
       - run: yarn build
 
-      - name: ssh deploy
+      - name: Deploy via SSH
         uses: easingthemes/ssh-deploy@v4
         env:
           ARGS: '-rltgoDzvO --delete'
@@ -39,3 +39,13 @@ jobs:
           REMOTE_HOST: ${{ secrets.UBERSPACE_HOST }}
           REMOTE_USER: ${{ secrets.UBERSPACE_USER }}
           TARGET: vegancheck.me/
+          
+      - name: Restart supervisord
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.UBERSPACE_HOST }}
+        username: ${{ secrets.UBERSPACE_USER }}
+        key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+        port: 22
+        script_stop: true
+        script: supervisorctl restart vegancheck
