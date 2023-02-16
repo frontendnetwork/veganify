@@ -42,6 +42,7 @@
         <ul>
             <li>Node.js (React 18.2.0, Next.js 13.1.6) installed  
             <li><a href="https://docs.npmjs.com/cli/v8/commands/npm-install">npm</a> installed (is automatically installed with Node)</li>
+            <li>or: <a href="https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable">Yarn</a> installed (<code>npm install --global yarn</code>)</li> 
         </ul>
         <h2 id="get-started">Get started</h2>
         <p>Download the <a href="https://github.com/JokeNetwork/vegancheck.me/releases">latest release</a> or just use the following command:</p>
@@ -50,11 +51,17 @@
         <h2 id="install-dependencies">Install dependencies</h2>
         <p>Use the following commands to install all at once: </p>
         <pre><code class="lang-bash">$ npm <span class="hljs-keyword">install</span></code></pre>
+        <p>or:</p>
+        <pre><code class="lang-bash">$ yarn <span class="hljs-keyword">install</span></code></pre>
         <h2 id="configure-environment-variables">Start the service</h2>
         <p>In a local environment you can just run:</p>
         <pre><code class="lang-bash">$ npm run start</span></code></pre>
+    <p>or:</p>
+    <pre><code class="lang-bash">$ yarn start</span></code></pre>
         <p>To build the service just run:</p>
         <pre><code class="lang-bash">$ npm run build</span></code></pre>
+<p>or:</p>
+    <pre><code class="lang-bash">$ yarn build</span></code></pre>
         <p>You can then run the code in a normal Node.js production environment (Like with the help of <a href="http://supervisord.org">supervisord</a>).</p>
         <p>Please note that the service runs on <code>Port 1030</code>. You can change the port by editing the "start" command in the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/package.json">package.json</a> at <code>"start": "next start -p [Desired port]"</code>.</p>
         <h2 id="use-of-icons">Use of icons</h2>
