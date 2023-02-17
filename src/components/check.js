@@ -344,7 +344,7 @@ const ProductSearch = () => {
                   </p>
                 </ModalWrapper>
               </span>
-              <ShareButton />
+              <ShareButton productName={productname} barcode={barcode} />
             </div>
           </div>
         </>
