@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 
-const ModalWrapper = ({ children, id, buttonType, buttonClass, buttonText }) => {
+interface ModalProps {
+  id: string;
+  buttonType: string;
+  buttonClass: string;
+  buttonText: string;
+  children: React.ReactNode;
+}
+
+
+const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonClass, buttonText }) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalRoot = typeof document !== 'undefined' ? document.getElementById("modal-root") : null;
 
@@ -53,10 +62,13 @@ const ModalWrapper = ({ children, id, buttonType, buttonClass, buttonText }) => 
                 className="btn-dark"
                 data-dismiss="modal"
                 onClick={() => {
-                  document.querySelector(".modal_view").classList.add("fadeOutDown");
-                  setTimeout(() => {
-                    setIsOpen(false);
-                  }, 500);
+                  const modalView = document.querySelector(".modal_view");
+                  if (modalView) {
+                    modalView.classList.add("fadeOutDown");
+                    setTimeout(() => {
+                      setIsOpen(false);
+                    }, 500);
+                  }
                 }}
               >
                 ×
@@ -64,7 +76,7 @@ const ModalWrapper = ({ children, id, buttonType, buttonClass, buttonText }) => 
             </div>
             {children}
           </div>,
-          modalRoot
+          modalRoot!
         )}
     </>
   );
