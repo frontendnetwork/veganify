@@ -30,7 +30,9 @@
     "wrongbarcode": "Este c\u00f3digo de barras no es v\u00e1lido.",
     "timeout1": "Esto tarda m\u00e1s de lo normal",
     "timeout2": "La consulta ha tardado demasiado. Por favor, int\u00e9ntalo de nuevo.",
-    "share": "Compartir"
+    "share": "Compartir",
+    "copy": "Copiar",
+    "on": "en"
   },
   "More": {
     "buyusacoffee": "Invítenos a un café",

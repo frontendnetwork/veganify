@@ -30,7 +30,9 @@
     "wrongbarcode": "Mit diesem Barcode stimmt etwas nicht.",
     "timeout1": "Die Abfrage dauert länger als gewöhnlich",
     "timeout2": "Die Abfrage hat zu lange gedauert. Bitte versuche es erneut.",
-    "share": "Teilen"
+    "share": "Teilen",
+    "copy": "Kopieren",
+    "on": "auf"
   },
   "More": {
     "buyusacoffee": "Kauf uns einen Kaffee",

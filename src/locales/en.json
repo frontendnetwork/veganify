@@ -30,7 +30,9 @@
     "wrongbarcode": "This barcode is invalid.",
     "timeout1": "This takes longer than usual",
     "timeout2": "The request took too long. Please try again.",
-    "share": "Share"
+    "share": "Share",
+    "copy": "Copy",
+    "on": "on"
   },
   "More": {
     "buyusacoffee": "Buy us a coffee",

@@ -30,7 +30,9 @@
     "wrongbarcode": "Il y a un probl\u00e8me avec ce code-barres",
     "timeout1": "Cela prend plus de temps que d'habitude",
     "timeout2": "La requ\u00eate a dur\u00e9 trop longtemps. Veuillez r\u00e9essayer.",
-    "share": "Partager"
+    "share": "Partager",
+    "copy": "Copier",
+    "on": "sur"
   },
   "More": {
     "buyusacoffee": "Achetez-nous un café",
