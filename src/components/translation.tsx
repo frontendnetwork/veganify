@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps } from "next";
 
 interface Props {
   messages: Record<string, string>;
