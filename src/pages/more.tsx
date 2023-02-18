@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { setCookie } from 'nookies';
 import { GetStaticPropsContext } from "next";
 import { useTranslations } from "next-intl";
 import Nav from "@/components/nav";
@@ -12,6 +13,15 @@ import OLEDMode from "@/components/elements/contents/oledmode";
 export default function more() {
   const router = useRouter();
   const t = useTranslations("More");
+
+  function handleLanguageChange(locale: string) {
+    setCookie(null, "NEXT_LOCALE", locale, {
+      maxAge: 30 * 24 * 60 * 60, // 30 days
+      path: "/",
+    });
+    router.push("/more", undefined, { locale });
+  }
+
   return (
     <>
       <div id="modal-root"></div>
@@ -122,7 +132,7 @@ export default function more() {
               />
               <h1>{t('language')}</h1>
             </span>
-            <Link className="nolink" href="/more" locale="en">
+            <Link className="nolink" href="/more" locale="en" onClick={() => handleLanguageChange('en')}>
             <div
               className={router.locale === "en" ? "option active" : "option"}
             >
@@ -135,7 +145,7 @@ export default function more() {
               <span className="price">{t('english')}</span>
             </div>
             </Link>
-            <Link className="nolink" href="/more" locale="de">
+            <Link className="nolink" href="/more" locale="de" onClick={() => handleLanguageChange('de')}>
             <div
               className={router.locale === "de" ? "option active" : "option"}
             >
@@ -148,7 +158,7 @@ export default function more() {
               <span className="price">{t('german')}</span>
             </div>
             </Link>
-            <Link className="nolink" href="/more" locale="es">
+            <Link className="nolink" href="/more" locale="es" onClick={() => handleLanguageChange('es')}>
             <div
               className={router.locale === "es" ? "option active" : "option"}
             >
@@ -161,7 +171,7 @@ export default function more() {
               <span className="price">{t('spanish')}</span>
             </div>
             </Link>
-            <Link className="nolink" href="/more" locale="fr">
+            <Link className="nolink" href="/more" locale="fr" onClick={() => handleLanguageChange('fr')}>
             <div
               className={router.locale === "fr" ? "option active" : "option"}
             >
@@ -174,6 +184,7 @@ export default function more() {
               <span className="price">{t('french')}</span>
             </div>
             </Link>
+            <span className="info" id="cookieinfo">{t('thissetsacookie')}</span>
           </ModalWrapper>
           <div className="Grid-cell icons">
             <span
