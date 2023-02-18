@@ -1,5 +1,5 @@
 /* Define fonts */
-@font-face {
+/*@font-face {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
@@ -28,5 +28,28 @@
     font-style: italic;
     font-weight: 600;
     src: url(../font/Montserrat-SemiBold.ttf);
+    font-display: swap;
+}*/
+@font-face {
+    font-family: MonaSans;
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/Mona-Sans-Regular.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MonaSans;
+    font-style: normal;
+    font-weight: 600;
+    src: url(../font/Mona-Sans-SemiBold.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MonaSans;
+    font-style: normal;
+    font-weight: 700;
+    src: url(../font/Mona-Sans-Bold.woff2);
     font-display: swap;
 }
