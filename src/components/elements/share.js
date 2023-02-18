@@ -21,10 +21,9 @@ const ShareButton = ({ productName, barcode }) => {
   };
 
   const handleMastodonClick = () => {
-    const mastodonurl = `https://sharetomastodon.github.io/?title=${encodeURI(
-      text
-    )}&url=${url}`;
+    const mastodonurl = `https://s2f.kytta.dev/?text=${encodeURI(text)} https%3A%2F%2Fvegancheck.me%2F%3Fean%3D${barcode}`;
     window.location = mastodonurl;
+    document.querySelector(".btn-dark").click();
   };
 
   const handleTweetClick = () => {
