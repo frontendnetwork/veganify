@@ -22,17 +22,20 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
 
     const handleTouchStart = (event: TouchEvent) => {
       const touchY = event.changedTouches[0].clientY;
+      const swipeThreshold = 0;
     
       document.body.addEventListener("touchmove", handleTouchMove);
     
       function handleTouchMove(event: TouchEvent) {
         const currentY = event.changedTouches[0].clientY;
-        if (currentY > touchY) {
+        const deltaY = currentY - touchY;
+        if (deltaY > swipeThreshold) {
           closeModal();
         }
         document.body.removeEventListener("touchmove", handleTouchMove);
       }
     };
+    
     
 
     document.addEventListener("keydown", handleEscapeKeyPress);
