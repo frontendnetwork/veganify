@@ -10,5 +10,13 @@ module.exports = withPWA({
   i18n: {
     locales: ['de', 'en', 'fr', 'es'],
     defaultLocale: 'en',
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/datenschutz',
+        destination: '/privacy-policy',
+      },
+    ]
   }
 });

@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
         <p className="small">
         {t('germanonly')}
         </p>
-    <div dangerouslySetInnerHTML={{ __html: datenschutz }} />
+    <div className="privacy" dangerouslySetInnerHTML={{ __html: datenschutz }} />
     </Container>
     </>
   );
