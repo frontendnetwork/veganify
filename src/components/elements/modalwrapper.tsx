@@ -32,7 +32,6 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
           closeModal();
         }
         document.body.removeEventListener("touchend", handleTouchEnd);
-        document.removeEventListener("touchstart", handleTouchStart);
       }
     };
     
