@@ -10,6 +10,7 @@ const IngredientsCheck = () => {
   const [flagged, setFlagged] = useState([]);
   const [vegan, setVegan] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (event) => {
     setVegan("");
@@ -18,6 +19,7 @@ const IngredientsCheck = () => {
     const ingredients = event.target.elements.ingredients.value;
     const url = `https://api.vegancheck.me/v0/ingredients/${ingredients}`;
 
+    setLoading(true);
     fetch(url, { method: "GET" })
       .then((response) => response.json())
       .then((data) => {
@@ -26,17 +28,29 @@ const IngredientsCheck = () => {
         if (data.data.vegan === "false") {
           setVegan(false);
           setFlagged(data.data.flagged);
+          setLoading(false);
         } else if (data.data.vegan === "true") {
           setVegan(true);
+          setLoading(false);
         }
       })
       .catch((error) => {
         setError(true);
+        setLoading(false);
       });
   };
 
   return (
     <>
+    <Image
+        src="/./img/VeganCheck.svg"
+        alt="Logo"
+        className={`logo ${loading ? "spinner" : ""}`}
+        width={48}
+        height={48}
+      />
+    <h2 style={{textAlign: "center", marginTop: "0"}}>{t('ingredientcheck')}</h2>
+    <p style={{textAlign: "center"}}>{t('ingredientcheck_desc')}</p>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>{t('entercommaseperated')}</legend>

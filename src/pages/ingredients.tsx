@@ -11,12 +11,9 @@ export default function ingredients() {
       <div id="modal-root"></div>
       <Nav />
       <Container
-        heading={t('ingredientcheck')}
-        headingstyle="center"
-        logo="true"
+        logo="false"
         backbutton="false"
       >
-        <p style={{textAlign: "center"}}>{t('ingredientcheck_desc')}</p>
         <IngredientsCheck />
       </Container>
     </>
