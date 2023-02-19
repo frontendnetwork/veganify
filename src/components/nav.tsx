@@ -6,20 +6,25 @@ import { useEffect } from "react";
 import { GetStaticPropsContext } from "next";
 import { useTranslations } from "next-intl";
 
-
 export default function Nav() {
   const t = useTranslations("Nav");
   const router = useRouter();
   useEffect(() => {
+    const themeColor = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "#141414"
+      : "#7f8fa6";
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", themeColor);
+    }
+
     const localStorageValue = localStorage.getItem("oled");
     if (
       localStorageValue === "true" &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
       document.documentElement.setAttribute("data-theme", "oled");
-      const themeColorMeta = document.querySelector(
-        'meta[name="theme-color"][media="(prefers-color-scheme: dark)"]'
-      );
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
       if (themeColorMeta) {
         themeColorMeta.setAttribute("content", "#000");
       }
@@ -43,20 +48,14 @@ export default function Nav() {
           name="twitter:image:src"
           content="https://vegancheck.me/img/og_image.png"
         />
-        <meta
-          property="twitter:image:alt"
-          content="VeganCheck.me"
-        />
+        <meta property="twitter:image:alt" content="VeganCheck.me" />
         <meta name="twitter:site" content="@vegancheckme" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="og:image"
           content="https://vegancheck.me/img/og_image.png"
         />
-        <meta
-          property="og:image:alt"
-          content="VeganCheck.me"
-        />
+        <meta property="og:image:alt" content="VeganCheck.me" />
         <meta property="og:site_name" content="VeganCheck.me" />
         <meta property="og:type" content="object" />
 
@@ -66,8 +65,6 @@ export default function Nav() {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="msapplication-starturl" content="/" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#7f8fa6"/>
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141414" />
 
         <link rel="manifest" href="/manifest.json" />
 
@@ -159,6 +156,7 @@ export default function Nav() {
           </div>
         </div>
       </nav>
+      <meta name="theme-color" content="#7f8fa6" />
     </>
   );
 }
