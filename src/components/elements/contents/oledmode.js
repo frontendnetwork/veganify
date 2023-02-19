@@ -10,7 +10,7 @@ const OLEDMode = () => {
     const localStorageValue = localStorage.getItem("oled");
     if (localStorageValue === "true" && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.setAttribute("data-theme", "oled");
-      document.querySelector('meta[name="theme-color"]').setAttribute("content", "#000");
+      document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#000");
       setIsChecked(true);
     }
   }, []);
@@ -22,12 +22,12 @@ const OLEDMode = () => {
     }
     if (!isChecked) {
       document.documentElement.setAttribute("data-theme", "oled");
-      document.querySelector('meta[name="theme-color"]').setAttribute("content", "#000");
+      document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#000");
       localStorage.setItem('oled', 'true');
     } else {
       localStorage.clear();
       document.documentElement.removeAttribute("data-theme");
-      document.querySelector('meta[name="theme-color"]').setAttribute("content", "#141414");
+      document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#141414");
     }
     setIsChecked(!isChecked);
     setError(false);
