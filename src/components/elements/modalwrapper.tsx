@@ -28,7 +28,7 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
     
       function handleTouchEnd(event: TouchEvent) {
         touchEndY = event.changedTouches[0].clientY;
-        if (touchEndY - touchStartY > 50) {
+        if (touchEndY - touchStartY > 10) {
           closeModal();
         }
         document.body.removeEventListener("touchend", handleTouchEnd);
