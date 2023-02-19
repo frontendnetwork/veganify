@@ -22,7 +22,7 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
 
     const handleTouchStart = (event: TouchEvent) => {
       const touchY = event.changedTouches[0].clientY;
-      const swipeThreshold = 0;
+      const swipeThreshold = 50;
     
       document.body.addEventListener("touchmove", handleTouchMove);
     
