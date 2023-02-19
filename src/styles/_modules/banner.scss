@@ -9,7 +9,7 @@
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    background: var(--pwa-bg);
+    background: var(--bg-color);
     width: 100%;
     border-bottom: var(--pwa-border);
     text-align: left;
@@ -95,7 +95,7 @@
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    background: var(--pwa-bg);
+    background: var(--bg-color);
     width: 100%;
     max-width: 100%;
     overflow: hidden;
