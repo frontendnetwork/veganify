@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 interface ModalProps {
@@ -9,17 +9,51 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-
 const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonClass, buttonText }) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalRoot = typeof document !== 'undefined' ? document.getElementById("modal-root") : null;
+
+  useEffect(() => {
+    const handleEscapeKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    const handleTouchStart = (event: TouchEvent) => {
+      const touchY = event.changedTouches[0].clientY;
+      document.body.addEventListener("touchmove", handleTouchMove);
+
+      function handleTouchMove(event: TouchEvent) {
+        const currentY = event.changedTouches[0].clientY;
+        if (currentY > touchY) {
+          closeModal();
+          document.body.removeEventListener("touchmove", handleTouchMove);
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleEscapeKeyPress);
+    document.addEventListener("touchstart", handleTouchStart);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKeyPress);
+      document.removeEventListener("touchstart", handleTouchStart);
+    };
+  }, []);
 
   const openModal = () => {
     setIsOpen(true);
   };
 
   const closeModal = () => {
-    setIsOpen(false);
+    const modalView = document.querySelector(".modal_view");
+    if (modalView) {
+      modalView.classList.add("fadeOutDown");
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 500);
+    }
   };
 
   return (
@@ -61,15 +95,7 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
               <a
                 className="btn-dark"
                 data-dismiss="modal"
-                onClick={() => {
-                  const modalView = document.querySelector(".modal_view");
-                  if (modalView) {
-                    modalView.classList.add("fadeOutDown");
-                    setTimeout(() => {
-                      setIsOpen(false);
-                    }, 500);
-                  }
-                }}
+                onClick={closeModal}
               >
                 ×
               </a>
