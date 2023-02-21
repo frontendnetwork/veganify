@@ -1,73 +1,88 @@
 /* Navbar */
 .nav {
-    cursor: pointer;
-    position: fixed;
-    z-index: 999;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    backdrop-filter: blur(rem(3.2px));
-    background: var(--nav-bg);
-    width: 100%;
-    border-bottom: var(--nav-border);
-    text-align: left;
-    height: rem(67.2px);
-    font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  position: fixed;
+  z-index: 999;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(rem(3.2px));
+  background: var(--nav-bg);
+  width: 100%;
+  border-bottom: var(--nav-border);
+  text-align: left;
+  height: rem(67.2px);
+  font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
 
-    @include mq(s-desktop){
-        bottom: 0%;
-        top: initial;
-        border-top: var(--nav-border);
-        border-bottom: none;
-        height: 4.8rem;
+  @include mq(s-desktop) {
+    bottom: 0%;
+    top: initial;
+    border-top: var(--nav-border);
+    border-bottom: none;
+    height: 4.8rem;
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    padding-top: rem(8px);
+    padding-left: rem(16px);
+    padding-right: rem(16px);
+    margin: 0;
+    list-style: none;
+  }
+
+  .flex-item {
+    height: rem(40px);
+    margin: 0;
+    padding: rem(1.6px);
+    text-align: center;
+    color: #8e8e93;
+    font-size: rem(16px);
+
+    @include theme(light) {
+      color: #000;
     }
 
-    .flex-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 0;
-        padding-top: rem(8px);
-        padding-left: rem(16px);
-        padding-right: rem(16px);
-        margin: 0;
-        list-style: none;
-    }
-
-    .flex-item {
-        height: rem(40px);
-        margin: 0;
-        padding: rem(1.6px);
-        text-align: center;
-        color: #8e8e93;
-        font-size: rem(16px);
-
-        .icon {
-            &:before {
-                color: #8e8e93 !important;
-            }
+    .icon {
+      &:before {
+        color: #8e8e93 !important;
+        @include theme(light) {
+          color: #000;
         }
+      }
+    }
+  }
+
+  .active {
+    color: #fff !important;
+
+    @include theme(light) {
+      color: #007aff !important;
     }
 
-    .active {
+    .icon {
+      &:before {
         color: #fff !important;
-
-        .icon {
-            &:before {
-                color: #fff !important;
-            }
+        @include theme(light) {
+          color: #007aff !important;
         }
+      }
     }
+  }
 
-    .menu-item {
-        display: block;
-        padding-top: rem(4.8px);
-    }
+  .menu-item {
+    display: block;
+    padding-top: rem(4.8px);
+  }
 
-    a,
-    a:hover,
-    a:focus {
-        text-decoration: none;
-        color: inherit;
-    }
+  a,
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    color: inherit;
+  }
 }
