@@ -1,0 +1,51 @@
+# Sourced from https://github.com/zerforschung/schnelltesttest.de
+name: Deploy to Staging
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [staging]
+  repository_dispatch:
+    types:
+      - redeploy
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: 
+      name: Staging
+      url: https://staging.vegancheck.me
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Deploy via SSH
+        uses: easingthemes/ssh-deploy@v4
+        env:
+          ARGS: '-rltgoDzvO --delete'
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+          REMOTE_HOST: ${{ secrets.UBERSPACE_HOST }}
+          REMOTE_USER: ${{ secrets.UBERSPACE_USER }}
+          TARGET: vegancheck.me-stage/
+          
+      - name: Restart supervisord
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.UBERSPACE_HOST }}
+          username: ${{ secrets.UBERSPACE_USER }}
+          key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+          port: 22
+          script_stop: true
+          script: supervisorctl restart vegancheck-stage
