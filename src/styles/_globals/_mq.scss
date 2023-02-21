@@ -75,12 +75,6 @@
 
 }
 
-/* Make sure mobile functions are not displayed on desktop*/
-#torch,
-#flipbutton {
-    display: none;
-}
-
 /* Smartphone */
 @media only screen and (max-width:48rem) {
 
@@ -175,9 +169,6 @@
 
 /* Older, smaller phones */
 @media only screen and (max-width:21.5rem) {
-    .Grid {
-        width: 80% !important;
-    }
 
     .labels {
         padding: .5rem !important;
@@ -229,68 +220,3 @@
         }
     }
 }
-
-/* Smaller screens & tablets */
-@media only screen and (max-width:69.5rem) {
-    button {
-        width: 15%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .nav {
-        bottom: 0%;
-        top: initial;
-        border-top: var(--nav-border);
-        border-bottom: none;
-        height: 4.8rem;
-    }
-
-    .modal_view {
-        .form-check-input {
-            transform: scale(1.5);
-        }
-    }
-
-    .top {
-        padding-top: .5rem;
-        /* padding-bottom: 6rem;*/
-    }
-
-}
-
-/* Desktop rules */
-@media (min-width: 69.6rem) {
-    .modal_view {
-        height: auto;
-        max-width: 40%;
-        max-height: 50%;
-        left: 30%;
-        top: 10%;
-        border-radius: .5rem;
-        box-shadow: none;
-
-        .donate {
-            position: initial;
-        }
-
-        .modal_close {
-            .btn-dark {
-                right: 31%;
-            }
-        }
-
-        #option_kofi {
-            margin-bottom: 1rem;
-        }
-    }
-}
-
-/* Prevent landscape orientation -- Do NOT use!*/
-/*
-@media screen and (min-width: 20rem) and (max-width: 56rem) and (orientation: landscape) {
-    .rotate {
-        display: block;
-    }
-}
-*/

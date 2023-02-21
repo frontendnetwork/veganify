@@ -32,6 +32,16 @@ sup {
     box-shadow: 0 rem(25px) rem(25px) rem(50px) rem(12px) rgba(0, 0, 0, 0.5);
     padding-bottom: rem(16px);
 
+    @include mq(desktop){
+        height: auto;
+        max-width: 40%;
+        max-height: 50%;
+        left: 30%;
+        top: 10%;
+        border-radius: .5rem;
+        box-shadow: none;
+    }
+
 
     .heading_img {
         width: 20%;
@@ -73,7 +83,7 @@ sup {
 
     .button {
         font-size: rem(16px);
-        color: var(--button-fg-re);
+        color: var(--button-fg-re)!important;
         background: var(--button-bg-re);
         padding: rem(16px);
         padding-left: rem(16px);
@@ -109,6 +119,10 @@ sup {
             font-size: rem(20.8px);
             z-index: 999999;
             backdrop-filter: blur(rem(3.2px));
+
+            @include mq(desktop){
+                right: 31%;
+            }
         }
     }
 
@@ -169,6 +183,9 @@ sup {
         height: auto;
         background-color: var(--modal-bg-overlay); 
         backdrop-filter: blur(rem(3.2px));
+        @include mq(desktop){
+            position: initial;
+        }
     }
 
     .info {
@@ -183,6 +200,9 @@ sup {
         position: absolute;
         right: rem(32px);
         transform: scale(1.2);
+        @include mq(s-desktop){
+            transform: scale(1.5);
+        }
     }
 
     /* Menu */

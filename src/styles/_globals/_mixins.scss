@@ -2,85 +2,51 @@
 
 // converts several units to em (supports px, pt, pc, in, mm, cm)
 @function em($size) {
-    @if not unitless($size) {
-        @if unit($size) == em {
-            @return $size;
-        }
-
-        @return ((0px + $size) / 16px * 1em);
+  @if not unitless($size) {
+    @if unit($size) == em {
+      @return $size;
     }
 
-    @return null;
+    @return ((0px + $size) / 16px * 1em);
+  }
+
+  @return null;
 }
 
 // converts several units to rem (supports px, pt, pc, in, mm, cm)
 @function rem($size) {
-    $size: em($size);
+  $size: em($size);
 
-    @if $size {
-        @return em($size) / 1em + rem;
-    }
+  @if $size {
+    @return em($size) / 1em + rem;
+  }
 
-    @return null;
+  @return null;
 }
 
 // FONT SIZE MIXIN for rem
 @mixin font-size($size) {
-    font-size: $size;
-    font-size: rem($size);
-}
-
-// responsive img, max-width
-@mixin img($max-width) {
-    max-width: $max-width;
-    width: 100%;
-    height: auto;
-}
-
-// LINE HEIGHT MIXIN for rem
-@mixin line-height($size) {
-    line-height: $size;
-    line-height: rem($size);
-}
-
-// POSITIONING MIXIN for absolute positioned elements
-@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
-    top: $top;
-    left: $left;
-    right: $right;
-    bottom: $bottom;
-    position: absolute;
-}
-
-// SEMI-TRANSPARENT BACKGROUND with old IE fallback
-@mixin background-color($color) {
-    @if opacity($color) < 1 {
-        background-color: opacify($color, 1);
-    }
-
-    background-color: $color;
+  font-size: $size;
+  font-size: rem($size);
 }
 
 // MEDIA QUERY Mixin
-@mixin mq($type) {
-    @if map-has-key($breakpoints, $type) {
-        @media #{map-get($breakpoints, $type)} {
-            @content;
-        }
-
-        // duplicate style for ie8
-        @if index($breakpoints-ie8, $type) {
-            @if & {
-                .lt-ie9 & {
-                    @content;
-                }
-            } @else {
-                .lt-ie9 {
-                    @content;
-                }
-            }
-        }
-    } @else {
-        @warn "Unknown breakpoint #{$type}!";
+@mixin mq($size) {
+  @if $size == phone {
+    @media (max-width: 48rem) {
+      @content;
     }
+  } @else if $size == s-phone {
+    @media (max-width: 21.5rem) {
+      @content;
+    }
+  } @else if $size == s-desktop {
+    @media (max-width: 69.5rem) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: 69.6rem) {
+      @content;
+    }
+  }
 }

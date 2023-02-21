@@ -69,3 +69,14 @@
 .timeout span:nth-child(3) {
     animation-delay: .4s;
 }
+
+/* Make sure mobile functions are not displayed on desktop*/
+.icon-flipcamera {
+    @include mq(desktop) {
+        display: none;
+    }
+
+    @include mq(phone) {
+            display: inline-block;
+    }
+}

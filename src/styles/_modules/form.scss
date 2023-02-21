@@ -45,6 +45,10 @@
         border-top: rem(0.08px) solid #ccc;
         padding: rem(8px);
 
+        @include mq(s-phone){
+            width: 80% !important;
+        }
+
         &:first-child {
             border-top: none;
         }
@@ -154,5 +158,6 @@
         margin-top: rem(12.8px) !important;
         text-decoration: none;
         display: inline-block;
+        cursor: pointer;
     }
 }

@@ -13,6 +13,12 @@ button {
     transition: .5s;
     border: rem(0.16px) solid #ccc; 
     height: 4rem;
+
+    @include mq(s-desktop){
+        width: 15%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 button:hover,
