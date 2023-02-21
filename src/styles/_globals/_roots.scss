@@ -1,85 +1,85 @@
 /* Document variables */
 :root {
-    font-size: 16px;
+  font-size: 16px;
 
-    --bg-color: #141414;
-    --fg-color: #ccc;
-    --body-font: 'MonaSans', Fallback, sans-serif;
-    --body-fontweight: 400;
-    --bold-fontweight: 700;
-    --semibold-fontweight: 600;
-    --body-fontsize: 1.0833rem;
-    --body-h1-fontsize: 2.0833rem;
-    --body-h2-fontsize: 1.5rem;
-    --non-vegan: #ee5253;
-    --vegan: #10ac84;
-    --unknown: #576574;
-    --link-color: #ccc;
-    --link-transition-color: #000;
-    --button-bg: #007aff;
-    --button-fg: #fff;
-    --button-bg-re: #007aff;
-    --button-fg-re: #fff;
-    --nav-bg: rgba(0, 0, 0, 0.8);
-    --nav-border: solid #1f1f1f 0.01rem;
-    --pwa-bg: #141414;
-    --pwa-border: solid #1f1f1f 0.01rem;
-    --modal-bg: #292929;
-    --modal-bg-overlay: rgba(41, 41, 41, 0.8);
-    --modal-fg: #fff;
-    --modal-full-btn: #3e3e3e;
-    --modal-border: 0.1rem #3e3e3e solid;
+  --bg-color: #141414;
+  --fg-color: #ccc;
+  --body-font: "MonaSans", Fallback, sans-serif;
+  --body-fontweight: 400;
+  --bold-fontweight: 700;
+  --semibold-fontweight: 600;
+  --body-fontsize: 1.0833rem;
+  --body-h1-fontsize: 2.0833rem;
+  --body-h2-fontsize: 1.5rem;
+  --non-vegan: #ee5253;
+  --vegan: #10ac84;
+  --unknown: #576574;
+  --link-color: #ccc;
+  --link-transition-color: #000;
+  --button-bg: #007aff;
+  --button-fg: #fff;
+  --button-bg-re: #007aff;
+  --button-fg-re: #fff;
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --nav-border: solid #1f1f1f 0.01rem;
+  --pwa-bg: #141414;
+  --pwa-border: solid #1f1f1f 0.01rem;
+  --modal-bg: #292929;
+  --modal-bg-overlay: rgba(41, 41, 41, 0.8);
+  --modal-fg: #fff;
+  --modal-full-btn: #3e3e3e;
+  --modal-border: 0.1rem #3e3e3e solid;
 }
 
 @media (prefers-color-scheme: light) {
-    :root {
-        --bg-color: #7f8fa6;
-        --fg-color: #fff;
-        --link-color: #fff;
-        --link-transition-color: #ccc;
-        --button-bg: #fff;
-        --button-fg: #7f8fa6;
-        --button-bg-re: #016afe;
-        --button-fg-re: #fff;
-        --nav-bg: rgba(255, 255, 255, 0.8);
-        --nav-border: solid grey 0.01rem;
-        --pwa-bg: #7f8fa6;
-        --pwa-border: solid #8d99af 0.01rem;
-        --modal-bg: #f3f4f5;
-        --modal-bg-overlay: rgba(243, 244, 245, 0.8);
-        --modal-fg: #000;
-        --modal-full-btn: #fff;
-        --modal-border: 0.1rem #dee1e3 solid;
-    }
+  :root {
+    --bg-color: #7f8fa6;
+    --fg-color: #fff;
+    --link-color: #fff;
+    --link-transition-color: #ccc;
+    --button-bg: #fff;
+    --button-fg: #7f8fa6;
+    --button-bg-re: #016afe;
+    --button-fg-re: #fff;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --nav-border: solid grey 0.01rem;
+    --pwa-bg: #7f8fa6;
+    --pwa-border: solid #8d99af 0.01rem;
+    --modal-bg: #f3f4f5;
+    --modal-bg-overlay: rgba(243, 244, 245, 0.8);
+    --modal-fg: #000;
+    --modal-full-btn: #fff;
+    --modal-border: 0.1rem #dee1e3 solid;
+  }
 }
 
-html[data-theme='oled'] {
-    font-size: 16px;
-    --bg-color: #000;
-    --fg-color: #ccc;
-    --body-font: 'MonaSans', Fallback, sans-serif;
-    --body-fontweight: 400;
-    --bold-fontweight: 700;
-    --semibold-fontweight: 600;
-    --body-fontsize: 1.0833rem;
-    --body-h1-fontsize: 2.0833rem;
-    --body-h2-fontsize: 1.5rem;
-    --non-vegan: #ee5253;
-    --vegan: #10ac84;
-    --unknown: #576574;
-    --link-color: #ccc;
-    --link-transition-color: #000;
-    --button-bg: #007aff;
-    --button-fg: #fff;
-    --button-bg-re: #007aff;
-    --button-fg-re: #fff;
-    --nav-bg: rgba(0, 0, 0, 0.8);
-    --nav-border: solid #1f1f1f 0.01rem;
-    --pwa-bg: #141414;
-    --pwa-border: solid #1f1f1f 0.01rem;
-    --modal-bg: #292929;
-    --modal-bg-overlay: rgba(41, 41, 41, 0.8);
-    --modal-fg: #fff;
-    --modal-full-btn: #3e3e3e;
-    --modal-border: 0.1rem #3e3e3e solid;
+html[data-theme="oled"] {
+  font-size: 16px;
+  --bg-color: #000;
+  --fg-color: #ccc;
+  --body-font: "MonaSans", Fallback, sans-serif;
+  --body-fontweight: 400;
+  --bold-fontweight: 700;
+  --semibold-fontweight: 600;
+  --body-fontsize: 1.0833rem;
+  --body-h1-fontsize: 2.0833rem;
+  --body-h2-fontsize: 1.5rem;
+  --non-vegan: #ee5253;
+  --vegan: #10ac84;
+  --unknown: #576574;
+  --link-color: #ccc;
+  --link-transition-color: #000;
+  --button-bg: #007aff;
+  --button-fg: #fff;
+  --button-bg-re: #007aff;
+  --button-fg-re: #fff;
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --nav-border: solid #1f1f1f 0.01rem;
+  --pwa-bg: #141414;
+  --pwa-border: solid #1f1f1f 0.01rem;
+  --modal-bg: #292929;
+  --modal-bg-overlay: rgba(41, 41, 41, 0.8);
+  --modal-fg: #fff;
+  --modal-full-btn: #3e3e3e;
+  --modal-border: 0.1rem #3e3e3e solid;
 }

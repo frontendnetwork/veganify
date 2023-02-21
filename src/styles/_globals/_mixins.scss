@@ -50,3 +50,17 @@
     }
   }
 }
+
+// COLORSCHEME Mixin
+@mixin theme($color) {
+    @if $color == light {
+        @media (prefers-color-scheme: light) {
+            @content;
+        }
+    }
+    @else if $color == dark {
+        @media (prefers-color-scheme: dark) {
+            @content;
+        }
+    }
+}

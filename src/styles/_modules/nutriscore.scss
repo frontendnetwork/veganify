@@ -1,47 +1,56 @@
 .labels {
-    padding: rem(8px) !important;
-    width: rem(64px) !important;
-    height: auto;
+  padding: rem(8px) !important;
+  width: rem(64px) !important;
+  height: auto;
+
+  @include mq(s-phone) {
+    padding: 0.5rem !important;
+    width: 2.5rem !important;
+  }
+
+  @include mq(phone) {
+    width: 3rem !important;
+  }
 }
 
 /* Main colors for results */
 .non-vegan,
 .icon-cancle {
-    color: var(--non-vegan);
+  color: var(--non-vegan);
 }
 
 .vegan,
 .icon-ok {
-    color: var(--vegan);
+  color: var(--vegan);
 }
 
 .unknown {
-    color: var(--unknown);
+  color: var(--unknown);
 }
 
 .icon-cancle,
 .icon-ok {
-    display: inline-block;
+  display: inline-block;
 }
 
 .nutri_a {
-    color: #00bf00;
+  color: #00bf00;
 }
 
 .nutri_b {
-    color: #73ff00;
+  color: #73ff00;
 }
 
 .nutri_c {
-    color: #fc0;
+  color: #fc0;
 }
 
 .nutri_d {
-    color: #f60;
+  color: #f60;
 }
 
 .nutri_e {
-    color: #ff1900;
+  color: #ff1900;
 }
 
 .non-vegan,
@@ -53,5 +62,12 @@
 .unknown,
 .vegan,
 .warning {
-    display: block !important;
+  display: block !important;
+}
+
+.warning {
+  @include mq(phone) {
+    font-size: 0.6rem !important;
+    line-height: 1rem !important;
+  }
 }

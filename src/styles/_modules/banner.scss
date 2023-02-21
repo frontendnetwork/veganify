@@ -1,183 +1,237 @@
 /* Open Shortcuts */
 #shortcut {
-    cursor: pointer;
-    color: #0abde3;
-    font-weight: bold;
-    position: absolute;
-    z-index: 999;
-    top: 0%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    background: var(--bg-color);
-    width: 100%;
-    border-bottom: var(--pwa-border);
-    text-align: left;
-    height: rem(44.8px);
+  cursor: pointer;
+  color: #0abde3;
+  font-weight: bold;
+  position: absolute;
+  z-index: 999;
+  top: 0%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: var(--bg-color);
+  width: 100%;
+  border-bottom: var(--pwa-border);
+  text-align: left;
+  height: rem(44.8px);
 
-    .flex-container {
-        display: flex;
-        flex-flow: row wrap;
-        writing-mode: horizontal-tb;
-        padding: 0;
-        padding-left: rem(16px);
-        padding-right: rem(16px);
-        margin: 0;
-        list-style: none;
+  .flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    writing-mode: horizontal-tb;
+    padding: 0;
+    padding-left: rem(16px);
+    padding-right: rem(16px);
+    margin: 0;
+    list-style: none;
+  }
+
+  .flex-item {
+    height: rem(40px);
+    margin: 0;
+    padding: 0;
+    padding-top: rem(3.2px);
+
+    &:first-child {
+      width: rem(40px);
+      max-width: 20%;
     }
 
-    .flex-item {
-        height: rem(40px);
-        margin: 0;
-        padding: 0;
-        padding-top: rem(3.2px);
-
-        &:first-child {
-            width: rem(40px);
-            max-width: 20%;
-        }
-
-        &:nth-child(2) {
-            max-width: 50%;
-        }
-
-        &:last-child {
-            margin-top: rem(6.4px);
-            margin-left: auto;
-            float: right;
-            max-width: 35%;
-            justify-content: flex-end;
-        }
+    &:nth-child(2) {
+      max-width: 50%;
     }
 
-    .heading {
-        font-size: rem(12.8px);
-        font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-        color: #fff;
+    &:last-child {
+      margin-top: rem(6.4px);
+      margin-left: auto;
+      float: right;
+      max-width: 35%;
+      justify-content: flex-end;
     }
+  }
 
-    .subheading {
-        font-size: rem(11.2px);
-        font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-        display: block;
-        color: #ccc;
-        font-weight: 400;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
+  .heading {
+    font-size: rem(12.8px);
+    font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
+      Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #fff;
 
-    a {
-        text-decoration: none;
+    @include theme(light) {
+      color: #fff;
     }
+  }
 
-    .button {
-        font-size: rem(11.2px);
-        color: #fff;
-        text-transform: uppercase;
-        background: #007aff;
-        padding: rem(8px);
-        padding-left: rem(24px);
-        padding-right: rem(24px);
-        border-radius: rem(48px);
-    }
+  .subheading {
+    font-size: rem(11.2px);
+    font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
+      Helvetica Neue, Helvetica, Arial, sans-serif;
+    display: block;
+    color: #ccc;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
-    img {
-        width: rem(32px);
+    @include theme(light) {
+      color: #c0c5d5;
     }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .button {
+    font-size: rem(11.2px);
+    color: #fff;
+    text-transform: uppercase;
+    background: #007aff;
+    padding: rem(8px);
+    padding-left: rem(24px);
+    padding-right: rem(24px);
+    border-radius: rem(48px);
+
+    @include theme(light) {
+      background: #fff;
+      color: #7f8fa6;
+    }
+  }
+
+  img {
+    width: rem(32px);
+  }
 }
 
 /* Install PWA */
 #pwainstall {
-    position: absolute;
-    z-index: 9999;
-    top: 0%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    background: var(--bg-color);
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    border-bottom: var(--pwa-border);
-    text-align: left;
-    height: rem(64px);
-    display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: var(--bg-color);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-bottom: var(--pwa-border);
+  text-align: left;
+  height: rem(64px);
+  display: none;
 
+  @include mq(s-phone) {
+    height: 3.5rem;
+  }
 
-    .flex-container {
-        display: flex;
-        flex-flow: row wrap;
-        writing-mode: horizontal-tb;
-        padding: 0;
-        padding-left: rem(16px);
-        padding-right: rem(16px);
-        margin: 0;
-        list-style: none;
+  .flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    writing-mode: horizontal-tb;
+    padding: 0;
+    padding-left: rem(16px);
+    padding-right: rem(16px);
+    margin: 0;
+    list-style: none;
+
+    @include mq(s-phone) {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  .flex-item {
+    height: rem(40px);
+    margin: 0;
+    padding: 0;
+    padding-top: rem(4.8px);
+
+    &:first-child {
+      font-size: rem(24px);
+      padding-top: rem(16px);
+      padding-right: rem(8px);
+      font-weight: 100;
+      color: #ccc;
+      opacity: 0.2;
     }
 
-    .flex-item {
-        height: rem(40px);
-        margin: 0;
-        padding: 0;
-        padding-top: rem(4.8px);
-
-        &:first-child {
-            font-size: rem(24px);
-            padding-top: rem(16px);
-            padding-right: rem(8px);
-            font-weight: 100;
-            color: #ccc;
-            opacity: .2;
-        }
-
-        &:nth-child(3) {
-            padding-top: rem(11.2px);
-        }
-
-        &:last-child {
-            margin-top: rem(12px);
-            margin-left: auto;
-            float: right;
-            justify-content: flex-end;
-        }
+    &:nth-child(3) {
+      padding-top: rem(11.2px);
     }
 
-    .heading {
-        font-size: rem(12.8px);
-        font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-        color: #FFF;
-        font-weight: bold;
+    &:last-child {
+      margin-top: rem(12px);
+      margin-left: auto;
+      float: right;
+      justify-content: flex-end;
+    }
+  }
+
+  .heading {
+    font-size: rem(12.8px);
+    font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
+      Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-weight: bold;
+
+    @include mq(s-phone) {
+      font-size: 0.65rem;
     }
 
-    .subheading {
-        font-size: rem(11.2px);
-        font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-        display: block;
-        color: #ccc;
-        font-weight: 400;
+    @include theme(light) {
+      color: #fff;
+    }
+  }
+
+  .subheading {
+    font-size: rem(11.2px);
+    font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
+      Helvetica Neue, Helvetica, Arial, sans-serif;
+    display: block;
+    color: #ccc;
+    font-weight: 400;
+
+    @include mq(s-phone) {
+      font-size: 0.55rem;
     }
 
-    a {
-        text-decoration: none;
+    @include theme(light) {
+      color: #c0c5d5;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .button {
+    font-size: rem(11.2px);
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    background: #007aff;
+    padding: rem(8px);
+    padding-left: rem(24px);
+    padding-right: rem(24px);
+    border-radius: rem(48px);
+
+    @include mq(s-phone) {
+      font-size: 0.5rem;
     }
 
-    .button {
-        font-size: rem(11.2px);
-        font-weight: bold;
-        color: #FFF;
-        text-transform: uppercase;
-        background: #007aff;
-        padding: rem(8px);
-        padding-left: rem(24px);
-        padding-right: rem(24px);
-        border-radius: rem(48px);
+    @include theme(light) {
+      background: #fff;
+      color: #7f8fa6;
     }
+  }
 
-    img {
-        width: rem(51.2px);
-        border: rem(0.8px) grey solid;
-        border-radius: rem(12px);
-        margin-right: rem(8px);
+  img {
+    width: rem(51.2px);
+    border: rem(0.8px) grey solid;
+    border-radius: rem(12px);
+    margin-right: rem(8px);
+
+    @include mq(s-phone) {
+      width: 2.8rem;
     }
+  }
 }
