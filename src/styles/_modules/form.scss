@@ -21,6 +21,10 @@
     padding-bottom: 2rem;
   }
 
+  @include theme(light) {
+    color: #000;
+  }
+
   &.component {
     margin-bottom: 6.5rem;
   }
@@ -35,6 +39,9 @@
   li {
     color: #000;
     text-align: left;
+    @include theme(light) {
+      color: #000;
+    }
   }
 
   .small {
