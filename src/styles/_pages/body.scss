@@ -138,6 +138,9 @@ textarea {
   @include mq(s-phone) {
     padding-top: 0.5rem;
   }
+  @include mq(s-desktop) {
+    padding-top: 2rem;
+  }
 }
 
 .logo {
