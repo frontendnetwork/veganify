@@ -170,7 +170,7 @@ const ProductSearch = () => {
       {showFound && (
         <>
           <div id="result">
-            <div className="animated fadeIn resultborder" id="RSFound">
+            <div className="resultborder" id="RSFound">
               <span className="unknown">
                 <span className="name" id="name_sh">
                   {productname}
@@ -351,7 +351,7 @@ const ProductSearch = () => {
       )}
       {showNotFound && (
         <div id="result">
-          <div className="animated fadeIn resultborder" id="RSNotFound">
+          <div className="resultborder" id="RSNotFound">
             <span>
             {t('notindb')}
             </span>
@@ -377,7 +377,7 @@ const ProductSearch = () => {
       )}
       {showInvalid && (
         <div id="result">
-          <div className="animated fadeIn resultborder" id="RSInvalid">
+          <div className="resultborder" id="RSInvalid">
             <span>{t('wrongbarcode')}</span>
           </div>
         </div>
@@ -393,6 +393,55 @@ const ProductSearch = () => {
         <div className="timeout-final animated fadeIn">
          {t('timeout2')}
         </div>
+      )}
+      {loading && (
+        <>
+        <div id="result">
+              <div className="animated fadeIn resultborder" id="RSFound">
+                <span className="unknown">
+                  <span className="name skeleton">&nbsp;</span>
+                </span>
+                <span id="result_sh">
+                  <div className="Grid">
+                    <div className="Grid-cell description skeleton">{t('vegan')}</div>
+                    <div className="Grid-cell icons skeleton">
+                      <span className="icon-help"></span>
+                    </div>
+                  </div>
+                </span>
+                <div className="Grid">
+                  <div className="Grid-cell description skeleton">
+                  {t('vegetarian')}
+                  </div>
+                  <div className="Grid-cell icons skeleton">
+                    <span className="icon-help"></span>
+                  </div>
+                </div>
+                <div className="Grid">
+                  <div className="Grid-cell description skeleton">{t('palmoil')}</div>
+                  <div className="Grid-cell icons skeleton">
+                    <span className="icon-help"></span>
+                  </div>
+                </div>
+                <div className="Grid">
+                  <div className="Grid-cell description skeleton">
+                    Nutriscore
+                  </div>
+                  <div className="Grid-cell icons skeleton">
+                    <span className="icon-help"></span>
+                  </div>
+                </div>
+                <div className="Grid">
+                  <div className="Grid-cell description skeleton">{t('grade')}</div>
+                  <div className="Grid-cell icons skeleton">
+                    <span className="icon-help"></span>
+                  </div>
+                </div>
+                <span className="source skeleton">&nbsp;</span>
+                <span className="button skeleton">{t('share')}</span>
+              </div>
+            </div>
+        </>
       )}
     </>
   );
