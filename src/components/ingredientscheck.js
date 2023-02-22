@@ -67,7 +67,7 @@ const IngredientsCheck = () => {
 
       {vegan && (
         <div id="result">
-          <div className="animated fadeIn">
+          <div className="">
             <div className="resultborder">
               <div className="Grid">
                 <div className="Grid-cell description">
@@ -159,7 +159,7 @@ const IngredientsCheck = () => {
       {vegan === false && (
         <>
           <div id="result">
-            <div className="animated fadeIn">
+            <div className="">
               <div className="resultborder">
                 <div className="Grid">
                   <div className="Grid-cell description">
@@ -266,6 +266,25 @@ const IngredientsCheck = () => {
             {t('cannotbeempty')}
             </div>
           </span>
+        </div>
+      )}
+      {loading && (
+        <div id="result">
+          <div className="animated fadeIn">
+            <div className="resultborder">
+              <div className="Grid">
+                <div className="Grid-cell description skeleton">
+                  <b>{t('vegan')}</b>
+                </div>
+                <div className="Grid-cell icons skeleton">
+                  <span className="icon-help"></span>
+                </div>
+              </div>
+              <span className="source skeleton">&nbsp;</span>
+              <span className="source skeleton">&nbsp;</span>
+              <span className="source skeleton">&nbsp;</span>
+            </div>
+          </div>
         </div>
       )}
     </>

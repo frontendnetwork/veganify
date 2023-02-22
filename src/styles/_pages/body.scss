@@ -49,7 +49,6 @@ h1 {
 a {
   text-decoration: underline;
   color: var(--link-color);
-  outline: 0;
   transition: 0.8s;
 }
 
@@ -61,7 +60,6 @@ a:focus {
 /* Inputs */
 fieldset {
   display: flex;
-  outline: none;
   border: none;
 }
 
@@ -80,7 +78,6 @@ input[type="number"] {
   width: 55%;
   padding: rem(16px);
   padding-top: rem(15px);
-  outline: none;
   text-align: center;
   color: #000;
   font-weight: var(--body-fontweight);
@@ -100,7 +97,6 @@ input[type="number"] {
 textarea {
   width: 45%;
   padding-top: 1rem;
-  outline: none;
   text-align: center;
   color: #000;
   font-weight: var(--body-fontweight);

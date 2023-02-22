@@ -1,0 +1,63 @@
+.skeleton {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  background: #ccc;
+  color: transparent;
+  border-radius: 1.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-bottom: 0;
+  cursor: default !important;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #ccc;
+  }
+  100% {
+    background-color: #eee;
+  }
+}
+
+.form {
+  .name.skeleton {
+    margin-bottom: 1rem !important;
+    width: 30%;
+    margin: 0 auto;
+  }
+  .description.skeleton {
+    color: transparent;
+    margin-left: 0;
+    padding: 0;
+    max-width: fit-content;
+    @include mq(s-phone) {
+      max-width: 60%;
+      white-space: nowrap;
+    }
+  }
+
+  .icons.skeleton {
+    margin-right: 0;
+    max-width: 5%;
+  }
+  .source.skeleton {
+    margin-top: 1rem;
+    padding-top: 0;
+    width: 40%;
+
+    &:nth-child(3){
+        margin-top: .5rem;
+        width: 60%;
+    }
+
+    &:nth-child(4){
+        margin-top: .5rem;
+        width: 10%;
+    }
+  }
+  .button.skeleton {
+    color: transparent;
+  }
+}
