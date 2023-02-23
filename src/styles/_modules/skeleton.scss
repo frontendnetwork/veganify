@@ -9,23 +9,31 @@
   padding-right: 0.8rem;
   padding-bottom: 0;
   cursor: default !important;
-  animation: skeleton-loading 1s linear infinite alternate;
+  background: rgba(130, 130, 130, 0.2);
+  background: linear-gradient(
+    to right,
+    rgba(130, 130, 130, 0.2) 8%,
+    rgba(130, 130, 130, 0.3) 18%,
+    rgba(130, 130, 130, 0.2) 33%
+  ) !important;
+  background-size: rem(800px) rem(100px) !important;
+  animation: skeleton 2s infinite ease-out;
 }
 
-@keyframes skeleton-loading {
+@keyframes skeleton {
   0% {
-    background-color: #ccc;
+    background-position: rem(-468px) 0;
   }
   100% {
-    background-color: #eee;
+    background-position: rem(468px) 0;
   }
 }
 
 .form {
   .name.skeleton {
+    margin: 0 auto;
     margin-bottom: 1rem !important;
     width: 30%;
-    margin: 0 auto;
   }
   .description.skeleton {
     color: transparent;
@@ -47,14 +55,14 @@
     padding-top: 0;
     width: 40%;
 
-    &:nth-child(3){
-        margin-top: .5rem;
-        width: 60%;
+    &:nth-child(3) {
+      margin-top: 0.5rem;
+      width: 60%;
     }
 
-    &:nth-child(4){
-        margin-top: .5rem;
-        width: 10%;
+    &:nth-child(4) {
+      margin-top: 0.5rem;
+      width: 10%;
     }
   }
   .button.skeleton {
