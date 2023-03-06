@@ -184,6 +184,20 @@ export default function more() {
               <span className="price">{t('french')}</span>
             </div>
             </Link>
+            <Link className="nolink" href="/more" locale="uwu" onClick={() => handleLanguageChange('fr')}>
+            <div
+              className={router.locale === "uwu" ? "option active" : "option"}
+            >
+              <input
+                className="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                checked={router.locale === "uwu"}
+              />
+              <span className="price">{t('cursed')}</span>
+              <span className="muted" style={{paddingBottom: "0", paddingTop: "1rem"}}>{t('memeculture')}</span>
+            </div>
+            </Link>
             <span className="info" id="cookieinfo">{t('thissetsacookie')}</span>
           </ModalWrapper>
           <div className="Grid-cell icons">
