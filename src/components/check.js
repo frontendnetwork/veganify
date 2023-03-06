@@ -60,7 +60,7 @@ const ProductSearch = () => {
         } else {
           setShowInvalid(true);
           setShowTimeout(false);
-        }
+        } 
       })
       .catch((error) => {
         console.error(error);
