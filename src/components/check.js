@@ -54,7 +54,7 @@ const ProductSearch = () => {
           setSources(data.sources);
           setShowFound(true);
           setShowTimeout(false);
-        } else if (data.status === 400) {
+        } else if (data.status === 404) {
           setShowNotFound(true);
           setShowTimeout(false);
         } else {
