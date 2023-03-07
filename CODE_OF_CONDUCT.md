@@ -1,6 +1,6 @@
 # Contributor Covenant Code of Conduct
 
-## Foreword of the JokeNetwork Team
+## Foreword of the FrontEndNet.work Team
 Please note that we communicate in English only in our repositories, our issues, and our pull requests.
 Please speak to us in English as well to keep our projects accessible to everyone.
 We are not native speakers and will not take offense if something is worded wrong or your English is not that good.
