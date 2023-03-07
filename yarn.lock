@@ -2564,13 +2564,13 @@ ndarray@^1.0.13, ndarray@^1.0.18:
     iota-array "^1.0.0"
     is-buffer "^1.0.2"
 
-next-intl@^2.10.4:
-  version "2.10.4"
-  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-2.10.4.tgz#50cd87ed9f817dc6e54b1529f57819bf29e07d20"
-  integrity sha512-qutpLRdu8YEczjXmdiDh2GZ0+vsJnL4qD25dlQDICP3glwNKZAiY348C6DYM5dYTL/2i19C5pggRAAPuv0qyEg==
+next-intl@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-2.11.0.tgz#9954746eff4c2ec0c4aa8449c6d9437dc02095c0"
+  integrity sha512-p+rYbNtVvZdenpU2RV8n2VjCNivzUq6DRC50DklU08S3OpQhwoaBVD5P+L5bIAZoUB9VBBS04PQj8ofbcEW0kQ==
   dependencies:
     accept-language-parser "^1.5.0"
-    use-intl "^2.10.4"
+    use-intl "^2.11.0"
 
 next-pwa@^5.6.0:
   version "5.6.0"
@@ -3377,10 +3377,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-use-intl@^2.10.4:
-  version "2.10.4"
-  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-2.10.4.tgz#2d12885b710f48be495f6b252e71af576adea637"
-  integrity sha512-wTE9eTjgRQi3PzSTIPXgAj/jgvYYnsuj1IE+L/Ng1nAIAfm+Ab0l5aQp2rXMph2SqusV/GdroO+FjRNwd41JBw==
+use-intl@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-2.11.0.tgz#b77c34927e7d5bea81b91fe7ffcb48557a2734f5"
+  integrity sha512-EVdve8I11kKITzDsjt7nvNFGhzAykNrL1Z4ULJxri4OnYAlMqM5VyQeRBPJhPltTek8fK5tSFD9TKwWf6U+DEQ==
   dependencies:
     "@formatjs/ecma402-abstract" "^1.11.4"
     intl-messageformat "^9.3.18"
