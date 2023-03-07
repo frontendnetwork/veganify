@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <>
       <footer>
-        <p dangerouslySetInnerHTML={{ __html: t('credit', {heart: '<i class="icon-heart"></i>', philipLink: '<a href="https://philipbrembeck.com">Philip Brembeck</a>', jokeLink: '<a href="https://jokenetwork.de">JokeNetwork</a>'})}} />
+        <p dangerouslySetInnerHTML={{ __html: t('credit', {heart: '<i class="icon-heart"></i>', philipLink: '<a href="https://philipbrembeck.com">Philip Brembeck</a>', jokeLink: '<a href="https://frontendnet.work">FrontEndNet.work</a>'})}} />
         <a href="https://vegancheck.me">
           <Image
             src="../img/VeganCheck_text.svg"
