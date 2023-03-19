@@ -1,9 +1,8 @@
 ---
 name: Feature request
 about: Request a new feature
-title: 
-labels: low priority, enhancement
-assignees: philipbrembeck
+title: '[Feat]'
+labels: needs priority, enhancement
 
 ---
 
