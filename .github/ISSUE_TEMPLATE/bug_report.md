@@ -3,6 +3,7 @@ name: Bug report
 about: Create a report for a bug in VeganCheck.me
 title: "[BUG]"
 labels: bug
+
 ---
 
 ## Bug description
