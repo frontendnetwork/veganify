@@ -31,7 +31,7 @@ VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open 
 </details>	
 
 	
-The [VeganCheck Ingredients API](https://github.com/JokeNetwork/vegan-ingredients-api), a fork of is-vegan, checks the products ingredients against a list of thousands of non-vegan items.
+The [VeganCheck Ingredients API](https://github.com/JokeNetwork/VeganCheck.me-API) checks the products ingredients against a list of thousands of non-vegan items.
 
 ## Status
 <a href="https://jokenetwork.de/badges"><img alt="JKN Status: Active" src="https://jokenetwork.de/assets/img/gitstatus/active.svg"></a>
