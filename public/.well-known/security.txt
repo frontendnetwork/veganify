@@ -1,0 +1,13 @@
+# Our security address
+Contact: mailto:security@cldsi.de
+
+# Our OpenPGP key
+Encryption: https://cldsi.de/pgp.txt
+
+Preferred-Languages: en, de
+
+# Our seurity policy
+Policy: https://philip-media.github.io/security-policy/en.html
+Acknowledgments: https://philip-media.github.io/security-policy/Acknowledgments.html
+
+Canonical: https://cldsi.de/.well-known/security.txt
