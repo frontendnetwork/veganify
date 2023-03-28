@@ -9,7 +9,7 @@ module.exports = withPWA({
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   i18n: {
-    locales: ['de', 'en', 'fr', 'es', 'uwu'],
+    locales: ['de', 'en', 'fr', 'es'],
     defaultLocale: 'en',
   },
   async rewrites() {
