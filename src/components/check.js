@@ -396,7 +396,7 @@ const ProductSearch = () => {
       )}
       {loading && (
         <>
-        <div id="result">
+        <div id="result" class="loading_skeleton">
               <div className="animated fadeIn resultborder" id="RSFound">
                 <span className="unknown">
                   <span className="name skeleton">&nbsp;</span>

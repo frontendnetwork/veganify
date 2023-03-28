@@ -1,0 +1,76 @@
+import { test, expect } from "@playwright/test";
+
+test("User should be able to load page and change language", async ({
+  page,
+}) => {
+  await page.goto("http://localhost:3000/en");
+  await page.click("text=More");
+  await expect(page).toHaveURL("http://localhost:3000/more");
+  await page.click("text=Language");
+  await page.click("text=German");
+  await expect(page).toHaveURL("http://localhost:3000/de/more");
+});
+
+test("User should be able to input a barcode and get a result", async ({
+  page,
+}) => {
+  await page.goto("http://localhost:3000/en");
+  const inputField = await page.$('input[name="barcode"]');
+  await inputField.type("4066600204404");
+  const submitButton = await page.$('button[name="submit"]');
+  await submitButton.click();
+  await page.waitForSelector(".loading_skeleton", { state: "hidden" });
+  const resultText = await page.textContent("#result");
+  expect(resultText).toContain("Paulaner Spezi Zero");
+});
+
+test("User should be able to input ingredients and get a result", async ({
+  page,
+}) => {
+  await page.goto("http://localhost:3000/en/ingredients");
+  const inputField = await page.$('textarea[id="ingredients"]');
+  await inputField.type("Duck");
+  const submitButton = await page.$('button[name="checkingredients"]');
+  await submitButton.click();
+  await page.waitForSelector(".loading_skeleton", { state: "hidden" });
+  const resultText = await page.textContent(".resultborder");
+  expect(resultText).toContain("Duck");
+});
+
+test("User should be able to switch on OLED mode in darkmode, in lightmode, user should get an error", async ({
+  page,
+}) => {
+  await page.goto("http://localhost:3000/en/more");
+
+  // Locate the switch input and click on it
+  const switchInput = await page.$("#oled-switch");
+  await switchInput.click();
+
+  // Wait for either the "animated shake" class or the background color to change
+  await Promise.any([
+    page.waitForSelector(".switch.animated.shake", { timeout: 5000 }),
+    page.waitForFunction(
+      () => {
+        const bodyStyles = window.getComputedStyle(document.body);
+        return bodyStyles.backgroundColor === "#000";
+      },
+      { timeout: 5000 }
+    ),
+  ]);
+  // Check if the switch triggered the expected result
+  const bodyStyles = await page.evaluate(() => {
+    return window.getComputedStyle(document.body);
+  });
+  if (bodyStyles.backgroundColor === "#000") {
+    // Dark mode was activated
+    expect(bodyStyles.color).toBe("#141414");
+  } else {
+    // Light mode was activated
+    const switchClasses = await switchInput.evaluate((input) =>
+      Array.from(input.classList)
+    );
+    expect(switchClasses).toEqual(
+      expect.arrayContaining(["animated", "shake"])
+    );
+  }
+});
