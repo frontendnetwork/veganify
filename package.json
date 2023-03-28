@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start -p 1030",
     "stage": "next start -p 1031",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "playwright test"
   },
   "dependencies": {
     "@next/font": "13.2.4",
@@ -23,5 +24,8 @@
     "react-dom": "18.2.0",
     "sass": "^1.60.0",
     "typescript": "5.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.32.1"
   }
 }

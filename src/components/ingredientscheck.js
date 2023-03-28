@@ -269,7 +269,7 @@ const IngredientsCheck = () => {
         </div>
       )}
       {loading && (
-        <div id="result">
+        <div id="result" class="loading_skeleton">
           <div className="animated fadeIn">
             <div className="resultborder">
               <div className="Grid">
