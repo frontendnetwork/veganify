@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <title>VeganCheck.me Installation Guide</title>
     <link rel="stylesheet" href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css">
+    <link rel="stylesheet" href="assets/prism.css">
     <style>
     body {
         width: 50%;
@@ -31,6 +32,7 @@
             </svg>
             main
         </span>
+
         <span class="Label mr-1 Label--success">Stable</span>
         <img width="80px" src="https://raw.githubusercontent.com/JokeNetwork/vegancheck.me/main/public/img/hero_icon.png" align="right" alt="VeganCheck Logo" class="logo_12">
         <h1>VeganCheck.me Installation Guide</h1>
@@ -46,23 +48,31 @@
         </ul>
         <h2 id="get-started">Get started</h2>
         <p>Download the <a href="https://github.com/JokeNetwork/vegancheck.me/releases">latest release</a> or just use the following command:</p>
-        <pre><code class="lang-bash">$ git clone https://github.com/JokeNetwork/vegancheck.me.git</code></pre>
+        <div class="highlight"><pre class="highlight"><code class="language-bash">$ git clone https://github.com/JokeNetwork/vegancheck.me.git</code></pre></div>
         <h2 id="install-dependencies">Install dependencies</h2>
         <p>Use the following commands to install all at once: </p>
-        <pre><code class="lang-bash">$ npm <span class="hljs-keyword">install</span></code></pre>
+        <div class="highlight"><pre class="highlight"><code class="lang-bash">$ npm <span class="hljs-keyword">install</span></code></pre></div>
         <p>or:</p>
-        <pre><code class="lang-bash">$ yarn <span class="hljs-keyword">install</span></code></pre>
-        <h2 id="configure-environment-variables">Start the service</h2>
+        <div class="highlight"><pre class="highlight"><code class="lang-bash">$ yarn <span class="hljs-keyword">install</span></code></pre></div>
+        <h2 id="start-the-service">Start the service</h2>
         <p>In a local environment you can just run:</p>
-        <pre><code class="lang-bash">$ npm run start</span></code></pre>
+        <div class="highlight"><pre class="highlight"><code class="lang-bash">$ npm run start</span></code></pre></div>
     <p>or:</p>
-    <pre><code class="lang-bash">$ yarn start</span></code></pre>
+    <div class="highlight"><pre class="highlight"><code class="lang-bash">$ yarn start</span></code></pre></div>
         <p>To build the service just run:</p>
-        <pre><code class="lang-bash">$ npm run build</span></code></pre>
+        <div class="highlight"><pre class="highlight"><code class="lang-bash">$ npm run build</span></code></pre></div>
 <p>or:</p>
-    <pre><code class="lang-bash">$ yarn build</span></code></pre>
+    <div class="highlight"><pre class="highlight"><code class="lang-bash">$ yarn build</span></code></pre></div>
         <p>You can then run the code in a normal Node.js production environment (Like with the help of <a href="http://supervisord.org">supervisord</a>).</p>
         <p>Please note that the service runs on <code>Port 1030</code>. You can change the port by editing the "start" command in the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/package.json">package.json</a> at <code>"start": "next start -p [Desired port]"</code>.</p>
+        <h2 id="use-tests">Use Frontend Tests</h2>
+        <p>We use the Playwright Framework for our Frontend tests.<br />
+        For more information about Playwright, please visit <a href="https://playwright.dev">https://playwright.dev</a>.</p>
+        <p>To run the tests, just start the dev-environment:</p>
+        <div class="highlight"><pre class="highlight"><code class="lang-bash">$ npm run dev</code></pre></div>
+        <p>and then</p>
+        <div class="highlight"><pre class="highlight"><code class="lang-bash">$ npm run test</code></pre></div>
+        <p>All test should pass. Those test only check for the usabilty of the page. If you want to write your own tests, you can find the tests in <code>src/tests/usability.spec.ts</code>.</p>
         <h2 id="use-of-icons">Use of icons</h2>
         <ul>
             <li>The VeganCheck.me Logo and the app icons are free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>.</li>
@@ -85,6 +95,7 @@
             <p class="color-fg-muted mt-2">&copy; 2023 <a href="//vegancheck.me">VeganCheck.me</a> - Licensed under <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT</a></p>
         </footer>
     </div>
+    <script src="assets/prism.js"></script>
 </body>
 
 </html>
