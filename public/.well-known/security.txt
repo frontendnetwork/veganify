@@ -7,7 +7,7 @@ Encryption: https://cldsi.de/pgp.txt
 Preferred-Languages: en, de
 
 # Our seurity policy
-Policy: https://philip-media.github.io/security-policy/en.html
-Acknowledgments: https://philip-media.github.io/security-policy/Acknowledgments.html
+Policy: https://security.philip.media/
+Acknowledgments: https://security.philip.media/Acknowledgments
 
-Canonical: https://cldsi.de/.well-known/security.txt
+Canonical: https://vegancheck.me/.well-known/security.txt
