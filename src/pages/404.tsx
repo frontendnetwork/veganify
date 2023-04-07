@@ -3,7 +3,7 @@ import Container from "@/components/elements/container";
 import { GetStaticPropsContext } from 'next'
 import { useTranslations } from 'next-intl';
 
-export default function error() {
+export default function NotFound() {
   const t = useTranslations('404');
   return (
     <>

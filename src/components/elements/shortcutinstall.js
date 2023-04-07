@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import ModalWrapper from "@/components/elements/modalwrapper";
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
 export default function Shortcut() {
-  const t = useTranslations('ShortcutPrompt');
+  const t = useTranslations("ShortcutPrompt");
   const [showShortcut, setShowShortcut] = useState(false);
 
   useEffect(() => {
@@ -33,15 +33,20 @@ export default function Shortcut() {
     <div id="shortcut">
       <div className="flex-container">
         <div className="flex-item">
-          <img src="../img/shortcuts.png" />
+          <Image
+            src="/img/shortcuts.png"
+            alt="Shortcuts"
+            width={32}
+            height={32}
+          />
         </div>
         <div className="flex-item">
-          <span className="heading">{t('Shortcuts')}</span>
-          <span className="subheading">{t('openinapp')}</span>
+          <span className="heading">{t("Shortcuts")}</span>
+          <span className="subheading">{t("openinapp")}</span>
         </div>
         <div className="flex-item">
           <a href="https://shareshortcuts.com/download/2224-vegancheck.html">
-            <span className="button">{t('open')}</span>
+            <span className="button">{t("open")}</span>
           </a>
         </div>
       </div>
