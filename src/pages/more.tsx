@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { setCookie } from 'nookies';
+import { setCookie } from "nookies";
 import { GetStaticPropsContext } from "next";
 import { useTranslations } from "next-intl";
 import Nav from "@/components/nav";
@@ -10,7 +10,7 @@ import ModalWrapper from "@/components/elements/modalwrapper";
 import SupportOption from "@/components/elements/contents/donate";
 import OLEDMode from "@/components/elements/contents/oledmode";
 
-export default function more() {
+export default function More() {
   const router = useRouter();
   const t = useTranslations("More");
 
@@ -52,10 +52,12 @@ export default function more() {
             buttonText={t("followus")}
           >
             <span className="center">
-              <img
+              <Image
                 src="/img/follow_img.svg"
                 className="heading_img"
                 alt="Follow us"
+                width={48}
+                height={48}
               />
               <h1>{t("followus")}</h1>
             </span>
@@ -122,69 +124,93 @@ export default function more() {
             id="follow"
             buttonType="div"
             buttonClass="Grid-cell description"
-            buttonText={t('language')}
+            buttonText={t("language")}
           >
             <span className="center">
-            <img
+              <Image
                 src="/img/language_img.svg"
                 className="heading_img"
                 alt="Language"
+                width={48}
+                height={48}
               />
-              <h1>{t('language')}</h1>
+              <h1>{t("language")}</h1>
             </span>
-            <Link className="nolink" href="/more" locale="en" onClick={() => handleLanguageChange('en')}>
-            <div
-              className={router.locale === "en" ? "option active" : "option"}
+            <Link
+              className="nolink"
+              href="/more"
+              locale="en"
+              onClick={() => handleLanguageChange("en")}
             >
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                checked={router.locale === "en"}
-              />
-              <span className="price">{t('english')}</span>
-            </div>
+              <div
+                className={router.locale === "en" ? "option active" : "option"}
+              >
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  checked={router.locale === "en"}
+                />
+                <span className="price">{t("english")}</span>
+              </div>
             </Link>
-            <Link className="nolink" href="/more" locale="de" onClick={() => handleLanguageChange('de')}>
-            <div
-              className={router.locale === "de" ? "option active" : "option"}
+            <Link
+              className="nolink"
+              href="/more"
+              locale="de"
+              onClick={() => handleLanguageChange("de")}
             >
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                checked={router.locale === "de"}
-              />
-              <span className="price">{t('german')}</span>
-            </div>
+              <div
+                className={router.locale === "de" ? "option active" : "option"}
+              >
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  checked={router.locale === "de"}
+                />
+                <span className="price">{t("german")}</span>
+              </div>
             </Link>
-            <Link className="nolink" href="/more" locale="es" onClick={() => handleLanguageChange('es')}>
-            <div
-              className={router.locale === "es" ? "option active" : "option"}
+            <Link
+              className="nolink"
+              href="/more"
+              locale="es"
+              onClick={() => handleLanguageChange("es")}
             >
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                checked={router.locale === "es"}
-              />
-              <span className="price">{t('spanish')}</span>
-            </div>
+              <div
+                className={router.locale === "es" ? "option active" : "option"}
+              >
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  checked={router.locale === "es"}
+                />
+                <span className="price">{t("spanish")}</span>
+              </div>
             </Link>
-            <Link className="nolink" href="/more" locale="fr" onClick={() => handleLanguageChange('fr')}>
-            <div
-              className={router.locale === "fr" ? "option active" : "option"}
+            <Link
+              className="nolink"
+              href="/more"
+              locale="fr"
+              onClick={() => handleLanguageChange("fr")}
             >
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                checked={router.locale === "fr"}
-              />
-              <span className="price">{t('french')}</span>
-            </div>
+              <div
+                className={router.locale === "fr" ? "option active" : "option"}
+              >
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  checked={router.locale === "fr"}
+                />
+                <span className="price">{t("french")}</span>
+              </div>
             </Link>
-            <span className="info" id="cookieinfo">{t('thissetsacookie')}</span>
+            <span className="info" id="cookieinfo">
+              {t("thissetsacookie")}
+            </span>
           </ModalWrapper>
           <div className="Grid-cell icons">
             <span

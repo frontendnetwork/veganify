@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import ModalWrapper from "@/components/elements/modalwrapper";
+import Image from "next/image";
 
 const ShareButton = ({ productName, barcode }) => {
   const t = useTranslations("Check");
@@ -21,7 +22,9 @@ const ShareButton = ({ productName, barcode }) => {
   };
 
   const handleMastodonClick = () => {
-    const mastodonurl = `https://s2f.kytta.dev/?text=${encodeURI(text)} https%3A%2F%2Fvegancheck.me%2F%3Fean%3D${barcode}`;
+    const mastodonurl = `https://s2f.kytta.dev/?text=${encodeURI(
+      text
+    )} https%3A%2F%2Fvegancheck.me%2F%3Fean%3D${barcode}`;
     window.location = mastodonurl;
     document.querySelector(".btn-dark").click();
   };
@@ -90,7 +93,13 @@ const ShareButton = ({ productName, barcode }) => {
         buttonText={t("share")}
       >
         <span class="center">
-          <img src="../img/pwainstall_img.svg" class="heading_img" />
+          <Image
+            src="../img/pwainstall_img.svg"
+            class="heading_img"
+            width={48}
+            height={48}
+            alt="Share"
+          />
           <h1>{t("share")}</h1>
         </span>
         <div class="share-btn" id="copy" onClick={handleCopyClick}>
@@ -98,23 +107,33 @@ const ShareButton = ({ productName, barcode }) => {
           <span class="share-icon icon-docs"></span>
         </div>
         <div class="share-btn" id="mastodon" onClick={handleMastodonClick}>
-          <span class="share-text">{t("share")} {t("on")} Mastodon</span>
+          <span class="share-text">
+            {t("share")} {t("on")} Mastodon
+          </span>
           <span class="share-icon icon-mastodon"></span>
         </div>
         <div class="share-btn" id="twitter" onClick={handleTweetClick}>
-          <span class="share-text">{t("share")} {t("on")} Twitter</span>
+          <span class="share-text">
+            {t("share")} {t("on")} Twitter
+          </span>
           <span class="share-icon icon-twitter"></span>
         </div>
         <div class="share-btn" id="whatsapp" onClick={handleWhatsAppClick}>
-          <span class="share-text">{t("share")} {t("on")} WhatsApp</span>
+          <span class="share-text">
+            {t("share")} {t("on")} WhatsApp
+          </span>
           <span class="share-icon icon-whatsapp"></span>
         </div>
         <div class="share-btn" id="telegram" onClick={handleTelegramClick}>
-          <span class="share-text">{t("share")} {t("on")} Telegram</span>
+          <span class="share-text">
+            {t("share")} {t("on")} Telegram
+          </span>
           <span class="share-icon icon-telegram"></span>
         </div>
         <div class="share-btn" id="facebook" onClick={handleFacebookClick}>
-          <span class="share-text">{t("share")} {t("on")} Facebook</span>
+          <span class="share-text">
+            {t("share")} {t("on")} Facebook
+          </span>
           <span class="share-icon icon-facebook"></span>
         </div>
         <div class="share-btn" id="message" onClick={handleMessageClick}>

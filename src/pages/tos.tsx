@@ -4,7 +4,7 @@ import { GetStaticPropsContext } from 'next'
 import { useTranslations } from 'next-intl';
 
 
-export default function tos() {
+export default function TOS() {
   const t = useTranslations('TOS');
   return (
     <>
