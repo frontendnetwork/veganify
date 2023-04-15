@@ -41,7 +41,7 @@ jobs:
           TARGET: vegancheck.me-stage/
           
       - name: Restart supervisord
-        uses: appleboy/ssh-action@v0.1.8
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.UBERSPACE_HOST }}
           username: ${{ secrets.UBERSPACE_USER }}
