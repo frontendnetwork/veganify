@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-node@v2
         with:
           node-version: '18'
           cache: 'yarn'
@@ -19,11 +19,13 @@ jobs:
 
       - name: Comment on success or failure
         if: ${{ always() }}
-        uses: actions/github-script@v4
+        uses: actions/github-script@5.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           script: |
             const successMessage = "Build successfully! Good job – Thank you very much!";
-            const failureMessage = "Uh oh. Building this did not work.";
+            const failureMessage = "Uh oh. That did not work.";
             const result = process.env.GITHUB_JOB_STATUS;
             const octokit = require("@octokit/rest")();
             octokit.authenticate({
@@ -45,5 +47,3 @@ jobs:
                 body: `${failureMessage}\n\n${process.env.GITHUB_JOB_STATUS_MESSAGE}`,
               });
             }
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
