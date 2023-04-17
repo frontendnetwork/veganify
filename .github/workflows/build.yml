@@ -19,7 +19,7 @@ jobs:
 
       - name: Comment on success or failure
         if: ${{ always() }}
-        uses: actions/github-script@latest
+        uses: actions/github-script@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
