@@ -16,3 +16,34 @@ jobs:
 
       - run: yarn install
       - run: yarn build
+
+      - name: Comment on success or failure
+        if: ${{ always() }}
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const successMessage = "Build successfully! Good job – Thank you very much!";
+            const failureMessage = "Uh oh. Building this did not work.";
+            const result = process.env.GITHUB_JOB_STATUS;
+            const octokit = require("@octokit/rest")();
+            octokit.authenticate({
+              type: "token",
+              token: process.env.GITHUB_TOKEN,
+            });
+            if (result === "success") {
+              octokit.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: successMessage,
+              });
+            } else {
+              octokit.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `${failureMessage}\n\n${process.env.GITHUB_JOB_STATUS_MESSAGE}`,
+              });
+            }
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
