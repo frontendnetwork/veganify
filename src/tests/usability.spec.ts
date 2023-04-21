@@ -3,18 +3,18 @@ import { test, expect } from "@playwright/test";
 test("User should be able to load page and change language", async ({
   page,
 }) => {
-  await page.goto("http://localhost:3000/en");
+  await page.goto("http://localhost:1030/en");
   await page.click("text=More");
-  await expect(page).toHaveURL("http://localhost:3000/more");
+  await expect(page).toHaveURL("http://localhost:1030/more");
   await page.click("text=Language");
   await page.click("text=German");
-  await expect(page).toHaveURL("http://localhost:3000/de/more");
+  await expect(page).toHaveURL("http://localhost:1030/de/more");
 });
 
 test("User should be able to input a barcode and get a result", async ({
   page,
 }) => {
-  await page.goto("http://localhost:3000/en");
+  await page.goto("http://localhost:1030/en");
 
   const inputField = await page.$('input[name="barcode"]');
   await inputField.type("4066600204404");
@@ -30,7 +30,7 @@ test("User should be able to input a barcode and get a result", async ({
 test("User should be able to input ingredients and get a result", async ({
   page,
 }) => {
-  await page.goto("http://localhost:3000/en/ingredients");
+  await page.goto("http://localhost:1030/en/ingredients");
 
   const inputField = await page.$('textarea[id="ingredients"]');
   await inputField.type("Duck");
@@ -65,7 +65,7 @@ test("User should be able to input ingredients and get a result", async ({
 test("User should be able to switch on OLED mode in darkmode, in lightmode, user should get an error", async ({
   page,
 }) => {
-  await page.goto("http://localhost:3000/en/more");
+  await page.goto("http://localhost:1030/en/more");
 
   // Locate the switch input and click on it
   const switchInput = await page.$("#oled-switch");
@@ -131,7 +131,7 @@ test("User should be able to input a barcode via the URL parameter `ean` ", asyn
     });
   });
 
-  await page.goto("http://localhost:3000/en?ean=4066600204404");
+  await page.goto("http://localhost:1030/en?ean=4066600204404");
 
   const inputField = await page.waitForSelector('input[name="barcode"]', {
     visible: true,
