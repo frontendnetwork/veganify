@@ -6,7 +6,7 @@
 Check if a product is vegan or not with <a href="https://vegancheck.me"><strong>» VeganCheck.me</strong></a>
 
 <br/>
-<img src="https://user-images.githubusercontent.com/4144601/233676587-c0b1f89a-9e1f-49f9-b4b9-fdbf1e592f5f.png" alt="VeganCheck.me Hero" align="center">
+<a href="https://vegancheck.me"><img src="https://user-images.githubusercontent.com/4144601/233676587-c0b1f89a-9e1f-49f9-b4b9-fdbf1e592f5f.png" alt="VeganCheck.me Hero" align="center"></a>
 </div>
 
 ## Overview
