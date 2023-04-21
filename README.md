@@ -10,17 +10,14 @@
 <p align="center">
 <a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://jokenetwork.de/#projects">Product page on JokeNetwork.de</a> | <a href="https://jokenetwork.de/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
 </p>
-	
-  
-[<img src="https://jokenetwork.de/assets/img/PWA.svg" alt="Open PWA in browser" width="150" align="right">](https://vegancheck.me) 
-## Progressive Web App
-
-## Overview
+ 
 <p align="center">
-<img src="public/img/Hero.svg" alt="VeganCheck.me Hero" align="center" height="500"><br>
-	<sup>MacBook Pro® and iPhone® are trademarks of Apple Inc., registered in the U.S. and other countries.</sup>
+<img src="https://user-images.githubusercontent.com/4144601/233674109-6d7b6e58-6e2f-44a4-b9d4-06cc11443ce6.png" alt="VeganCheck.me Hero" align="center">
 </p>
 
+
+[<img src="https://jokenetwork.de/assets/img/PWA.svg" alt="Open PWA in browser" width="150" align="right">](https://vegancheck.me) 
+## Overview
 VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
 	
 VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open EAN Database, as well as our very own ingredient checker in one tool. 
@@ -44,20 +41,8 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/VeganCheck.me-AP
 ![GitHub language count](https://img.shields.io/github/languages/count/jokenetwork/vegancheck.me)
 
 	
-## Requirements
+## Installation
 [Click here to see the installation guide!](https://jokenetwork.github.io/vegancheck.me/)
-
-- Node.js (React 18.2.0, Next.js 13.1.6) 
-- [npm](https://docs.npmjs.com/cli/v8/commands/npm-install) or [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) (`npm install --global yarn`) installed
-- Run `npm run start` to develop & `npm run build` to build or `yarn build` & `yarn start` 
-- Note that the sever is running on port 1030!
-
-## Browser Compatibility 
-|  | <img src="https://user-images.githubusercontent.com/4144601/196047698-f89fddb8-7de1-4309-934d-96ee31343933.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196047892-1f25f72f-dd1e-48d0-bd85-e404a8015ac3.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196047989-b60f7192-dc06-4896-8dba-993939991511.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048071-381cdc29-bd8a-4f99-9477-3ae2d948d25d.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048153-fe181ef2-303c-45cc-b4f4-c091ba4b5cea.png" width="25"> | <img src="https://user-images.githubusercontent.com/4144601/196048187-25de52f4-9a4c-4905-92c8-9d18ec9c71b6.png" width="25"> |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| iOS | ✖︎ (Web-App only) | ✖︎ (Web-App only) | ✔︎ | ✖︎ (Web-App only) | ✖︎ (Web-App only) | ✖︎ |
-| Android | ✔︎ | ✔︎ |  | ✔︎ | ✔︎ | ✖︎ |
-| Desktop | ✔︎ | ✔︎ | ✖︎ (Web-App only) | ✔︎ | ✔︎ | ✖︎ |
 
 ## Contribute & Support
 We're happy you want to help! Please read our [Code of Conduct](https://github.com/JokeNetwork/vegancheck.me/blob/main/CODE_OF_CONDUCT.md).
