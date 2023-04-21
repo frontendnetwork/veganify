@@ -1,22 +1,14 @@
-<p align="center">
- <img width="100px" src="public/img/hero_icon.png" align="center" alt="VeganCheck Logo">
-</p>
-<h3 align="center">VeganCheck.me</h3>
+<div align="center">
+<img width="128px" src="https://user-images.githubusercontent.com/4144601/233675806-32769506-f311-416b-80f4-2e8aff0a85a9.svg" alt="VeganCheck Logo">
 
-<p align="center">
-  Check if a product is vegan or not with <a href="https://vegancheck.me"><strong>» VeganCheck.me</strong></a>
-</p>
+# VeganCheck.me
 
-<p align="center">
-<a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://jokenetwork.de/#projects">Product page on JokeNetwork.de</a> | <a href="https://jokenetwork.de/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
-</p>
- 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/4144601/233674109-6d7b6e58-6e2f-44a4-b9d4-06cc11443ce6.png" alt="VeganCheck.me Hero" align="center">
-</p>
+Check if a product is vegan or not with <a href="https://vegancheck.me"><strong>» VeganCheck.me</strong></a>
 
+<br/>
+<img src="https://user-images.githubusercontent.com/4144601/233676587-c0b1f89a-9e1f-49f9-b4b9-fdbf1e592f5f.png" alt="VeganCheck.me Hero" align="center">
+</div>
 
-[<img src="https://jokenetwork.de/assets/img/PWA.svg" alt="Open PWA in browser" width="150" align="right">](https://vegancheck.me) 
 ## Overview
 VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
 	
@@ -29,6 +21,10 @@ VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open 
 
 	
 The [VeganCheck Ingredients API](https://github.com/JokeNetwork/VeganCheck.me-API) checks the products ingredients against a list of thousands of non-vegan items.
+
+<p align="center">
+<a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://jokenetwork.de/#projects">Product page on JokeNetwork.de</a> | <a href="https://jokenetwork.de/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
+</p>
 
 ## Status
 <a href="https://jokenetwork.de/badges"><img alt="JKN Status: Active" src="https://jokenetwork.de/assets/img/gitstatus/active.svg"></a>
@@ -48,7 +44,6 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/VeganCheck.me-AP
 We're happy you want to help! Please read our [Code of Conduct](https://github.com/JokeNetwork/vegancheck.me/blob/main/CODE_OF_CONDUCT.md).
 
 Please refer to our issue trackers to see where you could help: 
-- [[Roadmap] v3.x](https://github.com/JokeNetwork/vegancheck.me/issues/152)
 - [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
 - [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
 
