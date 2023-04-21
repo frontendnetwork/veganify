@@ -3,9 +3,6 @@ name: E2E Tests
 on:
   push:
     branches: [staging, main]
-  repository_dispatch:
-    types:
-      - redeploy
   workflow_dispatch:
 
 jobs:
@@ -21,5 +18,5 @@ jobs:
           cache: 'npm'
 
       - run: npm install
-      - run: npm run dev
+      - run: npm run build
       - run: npm run test
