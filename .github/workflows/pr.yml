@@ -1,4 +1,4 @@
-name: Build PRs
+name: Build and Lint PRs
 
 on: [pull_request]
 
@@ -16,3 +16,4 @@ jobs:
 
       - run: yarn install
       - run: yarn build
+      - run: yarn lint

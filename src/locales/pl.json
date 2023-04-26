@@ -1,0 +1,101 @@
+{
+  "Nav": {
+    "title": "Czy to wegańskie? – Vegan Check",
+    "description": "Masz wątpliwości czy produkt jest na pewno wegański? Za pomocą VeganCheck.me możesz zeskanować kod kreskowy produktu w trakcie zakupów i sprawdzić czy jest on wegański czy nie - a to wszystko bez natłoku zbędnych informacji. Wypróbuj teraz!",
+    "home": "Strona główna",
+    "ingredientcheck": "Sprawdź składnik",
+    "more": "Więcej"
+  },
+  "Footer": {
+    "credit": "Zbudowane z {heart} przez {philipLink} i {jokeLink}"
+  },
+  "Check": {
+    "enterbarcode": "Wprowadź kod kreskowy",
+    "submit": "Wyślij",
+    "vegan": "Wegańskie",
+    "vegetarian": "Wegetariańskie",
+    "palmoil": "Olej palmowy",
+    "palmoil_desc": "Olej palmowy jest ekstremalnie szkodliwy dla planety. Stanowi główną przyczynę wylesiania wielu najbardziej różnorodnych biologicznie lasów, niszcząc przy tym naturalne siedliska już zagrożonych gatunków zwierząt. Z tego powodu odradzamy kupowanie produktów zawierających olej palmowy. Niestety, wciąż dostępnych jest wiele produktów, które go zawierają.",
+    "crueltyfree": "Wolne od okrucieństwa",
+    "nutriscore_desc": "Nutriscore opisuje profil odżywczy produktu w formie sygnalizacji świetlnej. Nutriscore nie jest jednak uważany za dokładny i nie powinien być wykorzystywany jako punkt odniesienia. Więcej informacji na temat Nutriscore znajdziesz na {Algorithmwatch} (po angielsku).",
+    "grades_desc": "Dezorientują Cię te wszystkie etykiety wegańskice/przyjazne dla środowiska/organiczne?<br/>Już nie będziesz mieć problemów dzięki prostemu do zrozumienia systemowi VeganCheck Grades! VeganCheck Grades to system ocen produktów wegańskich, który przydziela produktom jedną z sześciu ocen (od A+ do 'Nie kwalifikuje się').<br />Jeżeli chcesz dowiedzieć się więcej o VeganCheck Grades lub poprosić o ocenę produktu, możesz to zrobić na {Grades}!",
+    "source": "Źródło danych",
+    "licenses": "Licencje",
+    "licenses_desc": "VeganCheck.me korzysta z różnych baz danych i API do zbierania informacji o produktach. Informacje są objęte następującymi licencjami:",
+    "notindb": "Ten produkt nie istnieje jeszcze w naszej bazie.",
+    "notindb_add": "Chcesz go dodać?",
+    "add_food": "Dodaj produkt żywnościowy",
+    "or": "lub",
+    "add_cosmetic": "dodaj kosmetyk",
+    "wrongbarcode": "Ten kod kreskowy jest niepoprawny.",
+    "timeout1": "To trwa dłużej niż zwykle",
+    "timeout2": "Zapytanie trwało zbyt długo. Spróbuj jeszcze raz.",
+    "share": "Udostępnij",
+    "copy": "Skopiuj",
+    "on": "na"
+  },
+  "More": {
+    "buyusacoffee": "Postaw nam kawę",
+    "followus": "Obserwuj nas",
+    "tos": "Warunki użytkowania",
+    "privacypolicy": "Polityka prywatności",
+    "apidocumentation": "Dokumentacja API",
+    "imprint": "Imprint",
+    "onceviapaypal": "Jednorazowo przez PayPal",
+    "onceviakofi": "Jednorazowo przez Ko-Fi",
+    "monthlyviagithub": "Comiesięcznie przez GitHub",
+    "redirect": "Nastąpi przekierowanie do serwisu",
+    "thissetsacookie": "Zostanie ustawione ciasteczko.",
+    "activatedarkmode": "Ustaw najpierw tryb ciemny na swoim urządzeniu!",
+    "language": "Język",
+    "english": "angielski",
+    "german": "niemiecki",
+    "spanish": "hiszpański",
+    "french": "francuski",
+    "polish": "polski",
+    "cursed": "przeklęty",
+    "memeculture": "Niech żyje kultura memów!"
+  },
+  "TOS": {
+    "englishgermanonly": "Ta strona jest dostępna tylko w języku angielskim i niemieckim.",
+    "tos": "Warunki użytkowania",
+    "tos_content": "<p><b>Use of \"VeganCheck.me\"</b></p><p>The use of the site \"VeganCheck.me\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https://jokenetwork.de/vegancheck-api\">API</a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.</p><p><b>Processing of entered texts and numbers</b></p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.</p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en\">?</a></sup></p><p><b>Disclaimer</b></p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.</p>"
+  },
+  "Privacy": {
+    "germanonly": "Ta strona jest dostępna tylko w języku niemieckim."
+  },
+  "404": {
+    "error404": "Błąd 404.",
+    "pagedoesnotexist": "Ta strona nie istnieje.",
+    "message": "Sprawdź naszą {statuspage} albo nasz profil w sieci {mastodon} aby dowiedzieć się o aktualnych problemach.",
+    "statuspage": "stronę statusu"
+  },
+  "Fallback": {
+    "yourareoffline": "Brak połączenia z siecią.",
+    "needinternet": "Aby użyć VeganCheck.me połącz się z internetem.",
+    "tryagain": "Spróbuj ponownie"
+  },
+  "InstallPrompt": {
+    "subheading": "Czy To Wegańskie? - Vegan Check",
+    "install": "Zainstaluj VeganCheck.me",
+    "get": "Pobierz",
+    "howtoinstall": "Wybierz {share} a następnie \"Dodaj do ekranu głównego\"."
+  },
+  "ShortcutPrompt": {
+    "Shortcuts": "Skróty",
+    "openinapp": "Otwórz w aplikacji Skróty",
+    "open": "Otwórz"
+  },
+  "Ingredients": {
+    "ingredientcheck": "Weryfikator Składników Wegańskich",
+    "ingredientcheck_desc": "Sprawdź, czy składniki produktu są wegańskie! Wprowadź składniki oddzielając je przecinkiem",
+    "entercommaseperated": "Wprowadź składniki oddzielone przecinkiem",
+    "submit": "Wyślij",
+    "vegan": "Wegańskie",
+    "source": "Źródło danych",
+    "cannotbeempty": "Lista składników nie może być pusta, zawierać znaków specjalnych i musi być oddzielona przecinkiem!",
+    "licenses": "Licencje",
+    "licenses_desc": "VeganCheck.me uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
+    "languagewarning": "Wyniki mogą być nieprawidłowe z racji błędów w tłumaczeniach lub niekompletnych informacji. Wyniki są tłumaczone przez {deepl}."
+  }
+}
