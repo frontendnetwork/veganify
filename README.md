@@ -45,7 +45,7 @@ We're happy you want to help! Please read our [Code of Conduct](https://github.c
 
 Please refer to our issue trackers to see where you could help: 
 - [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
-- [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59)
+- [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59) - Learn how to localize VeganCheck [here](https://jokenetwork.github.io/vegancheck.me/localization)
 
 or if you find something else you could improve, just open a new issue for it!
 
