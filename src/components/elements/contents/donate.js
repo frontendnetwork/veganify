@@ -101,7 +101,7 @@ const SupportOption = () => {
           checked={ghChecked}
         />
         <span className="muted">{t("monthlyviagithub")}</span>
-        <span className="price">1-100$/Monat</span>
+        <span className="price">1-100$/{t("month")}</span>
       </div>
       <div className="center donate">
         <a href={supportBtnLink} id="supportbtn" className="button">
