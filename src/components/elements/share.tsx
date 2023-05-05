@@ -87,8 +87,8 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
       onClick={() => {
         navigator
           .share({
-            text: text,
-            url: url,
+            text,
+            url,
           })
           .catch((err) => {});
       }}
