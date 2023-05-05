@@ -26,7 +26,7 @@ export default function More() {
     <>
       <div id="modal-root"></div>
       <Nav />
-      <Container logo="false" backbutton="false">
+      <Container logo={false} backbutton={false}>
         <div className="Grid links">
           <ModalWrapper
             id="donate"
