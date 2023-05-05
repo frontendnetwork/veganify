@@ -5,18 +5,33 @@ import ModalWrapper from "@/components/elements/modalwrapper";
 import ShareButton from "@/components/elements/share";
 import { useTranslations } from 'next-intl';
 
-const ProductSearch = () => {
+interface ProductResult {
+  productname?: string;
+  vegan?: string;
+  vegetarian?: string;
+  animaltestfree?: string;
+  palmoil?: string;
+  nutriscore?: string;
+  grade?: string;
+}
+
+interface Sources {
+  api?: string;
+  baseuri?: string;
+}
+
+const ProductSearch: React.FC = () => {
   const t = useTranslations('Check');
-  const formRef = useRef(null);
-  const [result, setResult] = useState({});
-  const [sources, setSources] = useState({});
-  const [barcode, setBarcode] = useState("");
-  const [showFound, setShowFound] = useState(false);
-  const [showNotFound, setShowNotFound] = useState(false);
-  const [showInvalid, setShowInvalid] = useState(false);
-  const [showTimeout, setShowTimeout] = useState(false);
-  const [showTimeoutFinal, setShowTimeoutFinal] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [result, setResult] = useState<ProductResult>({});
+  const [sources, setSources] = useState<Sources>({});
+  const [barcode, setBarcode] = useState<string>("");
+  const [showFound, setShowFound] = useState<boolean>(false);
+  const [showNotFound, setShowNotFound] = useState<boolean>(false);
+  const [showInvalid, setShowInvalid] = useState<boolean>(false);
+  const [showTimeout, setShowTimeout] = useState<boolean>(false);
+  const [showTimeoutFinal, setShowTimeoutFinal] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   /* EAN from URL for iOS Shortcut */
   useEffect(() => {
@@ -29,8 +44,8 @@ const ProductSearch = () => {
   }, []);
 
   /* Submitting */
-  const handleSubmit = (barcode, e = {}) => {
-    e.preventDefault && e.preventDefault();
+  const handleSubmit = (barcode: string, event?: React.FormEvent) => {
+    event?.preventDefault();
     setShowTimeoutFinal(false);
     setShowTimeout(false);
     setShowFound(false);
@@ -40,7 +55,6 @@ const ProductSearch = () => {
     setLoading(true);
     fetch(`https://api.vegancheck.me/v0/product/${barcode}`, {
       method: "POST",
-      timeout: 8000,
     })
       .then((res) => {
         setShowTimeout(false);
@@ -70,7 +84,7 @@ const ProductSearch = () => {
       });
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBarcode(e.target.value);
   };
 
@@ -148,21 +162,21 @@ const ProductSearch = () => {
         id="eanform"
         onSubmit={(e) => handleSubmit(barcode, e)}
       >
-        <legend>{t('enterbarcode')}</legend>
+        <legend>{t("enterbarcode")}</legend>
         <fieldset>
           <Scan
             onDetected={(barcode) => setBarcode(barcode)}
-            handleSubmit={handleSubmit}
+            handleSubmit={(barcode) => handleSubmit(barcode)}
           />
           <input
             type="number"
             name="barcode"
-            placeholder={t('enterbarcode')}
+            placeholder={t("enterbarcode")}
             autoFocus={true}
             value={barcode}
             onChange={handleChange}
           />
-          <button name="submit" aria-label={t('submit')} role="button">
+          <button name="submit" aria-label={t("submit")} role="button">
             <span className="icon-right-open" />
           </button>
         </fieldset>
@@ -178,21 +192,21 @@ const ProductSearch = () => {
               </span>
               <span id="result_sh">
                 <div className="Grid">
-                  <div className="Grid-cell description">{t('vegan')}</div>
+                  <div className="Grid-cell description">{t("vegan")}</div>
                   <div className="Grid-cell icons RSVegan">
                     <span className={vegan}></span>
                   </div>
                 </div>
               </span>
               <div className="Grid">
-                <div className="Grid-cell description">{t('vegetarian')}</div>
+                <div className="Grid-cell description">{t("vegetarian")}</div>
                 <div className="Grid-cell icons RSVegetarian">
                   <span className={vegetarian}></span>
                 </div>
               </div>
               <div className="Grid">
                 <div className="Grid-cell description">
-                {t('palmoil')}
+                  {t("palmoil")}
                   <ModalWrapper
                     id="palmoil"
                     buttonType="sup"
@@ -207,19 +221,24 @@ const ProductSearch = () => {
                         width={48}
                         height={48}
                       />
-                      <h1>{t('palmoil')}</h1>
+                      <h1>{t("palmoil")}</h1>
                     </span>
-                    <p>
-                    {t('palmoil_desc')}
-                    </p>
+                    <p>{t("palmoil_desc")}</p>
                   </ModalWrapper>
                 </div>
                 <div className="Grid-cell icons RSPalmoil">
                   <span className={palmoil}></span>
                 </div>
               </div>
-              <div className="Grid Crueltyfree" style={animaltestfree === "unknown icon-help" ? {display: "none"} : {}}>
-                <div className="Grid-cell description">{t('crueltyfree')}</div>
+              <div
+                className="Grid Crueltyfree"
+                style={
+                  animaltestfree === "unknown icon-help"
+                    ? { display: "none" }
+                    : {}
+                }
+              >
+                <div className="Grid-cell description">{t("crueltyfree")}</div>
                 <div className="Grid-cell icons RSAnimaltestfree">
                   <span className={animaltestfree}></span>
                 </div>
@@ -243,7 +262,14 @@ const ProductSearch = () => {
                       />
                       <h1>Nutriscore</h1>
                     </span>
-                    <p dangerouslySetInnerHTML={{ __html: t('nutriscore_desc', {Algorithmwatch: '<a href="https://algorithmwatch.org/en/nutriscore/">Algorithmwatch</a>'})}} />
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: t("nutriscore_desc", {
+                          Algorithmwatch:
+                            '<a href="https://algorithmwatch.org/en/nutriscore/">Algorithmwatch</a>',
+                        }),
+                      }}
+                    />
                   </ModalWrapper>
                 </div>
                 <div className="Grid-cell icons RSNutriscore">
@@ -269,9 +295,18 @@ const ProductSearch = () => {
                       />
                       <h1>Grades</h1>
                     </span>
-                    <p dangerouslySetInnerHTML={{ __html: t('grades_desc', {Grades: '<a href="https://grade.vegancheck.me">VeganCheck Grades</a>'})}} />
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: t("grades_desc", {
+                          Grades:
+                            '<a href="https://grade.vegancheck.me">VeganCheck Grades</a>',
+                        }),
+                      }}
+                    />
                     <span className="center">
-                      <a href="https://grade.vegancheck.me" className="button">VeganCheck Grades</a>
+                      <a href="https://grade.vegancheck.me" className="button">
+                        VeganCheck Grades
+                      </a>
                     </span>
                   </ModalWrapper>
                 </div>
@@ -280,7 +315,7 @@ const ProductSearch = () => {
                 </div>
               </div>
               <span className="source">
-              {t('source')}:{" "}
+                {t("source")}:{" "}
                 <a href={uri} className="RSSource" target="_blank">
                   {api}
                 </a>
@@ -298,11 +333,9 @@ const ProductSearch = () => {
                       width={48}
                       height={48}
                     />
-                    <h1>{t('licenses')}</h1>
+                    <h1>{t("licenses")}</h1>
                   </span>
-                  <p>
-                  {t('licenses_desc')}
-                  </p>
+                  <p>{t("licenses_desc")}</p>
                   <p>
                     &copy; OpenFoodFacts Contributors, licensed under{" "}
                     <a href="https://opendatacommons.org/licenses/odbl/1.0/">
@@ -352,23 +385,21 @@ const ProductSearch = () => {
       {showNotFound && (
         <div id="result">
           <div className="resultborder" id="RSNotFound">
-            <span>
-            {t('notindb')}
-            </span>
+            <span>{t("notindb")}</span>
             <p className="missing" style={{ textAlign: "center" }}>
-            {t('notindb_add')}{" "}
+              {t("notindb_add")}{" "}
               <a
                 href="https://world.openfoodfacts.org/cgi/product.pl"
                 target="_blank"
               >
-                {t('add_food')}
+                {t("add_food")}
               </a>{" "}
-              {t('or')}{" "}
+              {t("or")}{" "}
               <a
                 href="https://world.openbeautyfacts.org/cgi/product.pl"
                 target="_blank"
               >
-                {t('add_cosmetic')}
+                {t("add_cosmetic")}
               </a>
               .
             </p>
@@ -378,69 +409,72 @@ const ProductSearch = () => {
       {showInvalid && (
         <div id="result">
           <div className="resultborder" id="RSInvalid">
-            <span>{t('wrongbarcode')}</span>
+            <span>{t("wrongbarcode")}</span>
           </div>
         </div>
       )}
       {showTimeout && (
         <div className="timeout animated fadeIn">
-          {t('timeout1')}<span>.</span>
+          {t("timeout1")}
+          <span>.</span>
           <span>.</span>
           <span>.</span>
         </div>
       )}
       {showTimeoutFinal && (
-        <div className="timeout-final animated fadeIn">
-         {t('timeout2')}
-        </div>
+        <div className="timeout-final animated fadeIn">{t("timeout2")}</div>
       )}
       {loading && (
         <>
-        <div id="result" class="loading_skeleton">
-              <div className="animated fadeIn resultborder" id="RSFound">
-                <span className="unknown">
-                  <span className="name skeleton">&nbsp;</span>
-                </span>
-                <span id="result_sh">
-                  <div className="Grid">
-                    <div className="Grid-cell description skeleton">{t('vegan')}</div>
-                    <div className="Grid-cell icons skeleton">
-                      <span className="icon-help"></span>
-                    </div>
-                  </div>
-                </span>
+          <div id="result" className="loading_skeleton">
+            <div className="animated fadeIn resultborder" id="RSFound">
+              <span className="unknown">
+                <span className="name skeleton">&nbsp;</span>
+              </span>
+              <span id="result_sh">
                 <div className="Grid">
                   <div className="Grid-cell description skeleton">
-                  {t('vegetarian')}
+                    {t("vegan")}
                   </div>
                   <div className="Grid-cell icons skeleton">
                     <span className="icon-help"></span>
                   </div>
                 </div>
-                <div className="Grid">
-                  <div className="Grid-cell description skeleton">{t('palmoil')}</div>
-                  <div className="Grid-cell icons skeleton">
-                    <span className="icon-help"></span>
-                  </div>
+              </span>
+              <div className="Grid">
+                <div className="Grid-cell description skeleton">
+                  {t("vegetarian")}
                 </div>
-                <div className="Grid">
-                  <div className="Grid-cell description skeleton">
-                    Nutriscore
-                  </div>
-                  <div className="Grid-cell icons skeleton">
-                    <span className="icon-help"></span>
-                  </div>
+                <div className="Grid-cell icons skeleton">
+                  <span className="icon-help"></span>
                 </div>
-                <div className="Grid">
-                  <div className="Grid-cell description skeleton">{t('grade')}</div>
-                  <div className="Grid-cell icons skeleton">
-                    <span className="icon-help"></span>
-                  </div>
-                </div>
-                <span className="source skeleton">&nbsp;</span>
-                <span className="button skeleton">{t('share')}</span>
               </div>
+              <div className="Grid">
+                <div className="Grid-cell description skeleton">
+                  {t("palmoil")}
+                </div>
+                <div className="Grid-cell icons skeleton">
+                  <span className="icon-help"></span>
+                </div>
+              </div>
+              <div className="Grid">
+                <div className="Grid-cell description skeleton">Nutriscore</div>
+                <div className="Grid-cell icons skeleton">
+                  <span className="icon-help"></span>
+                </div>
+              </div>
+              <div className="Grid">
+                <div className="Grid-cell description skeleton">
+                  {t("grade")}
+                </div>
+                <div className="Grid-cell icons skeleton">
+                  <span className="icon-help"></span>
+                </div>
+              </div>
+              <span className="source skeleton">&nbsp;</span>
+              <span className="button skeleton">{t("share")}</span>
             </div>
+          </div>
         </>
       )}
     </>
