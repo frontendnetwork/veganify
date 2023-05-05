@@ -1,44 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import ModalWrapper from "@/components/elements/modalwrapper";
 
-const IngredientsCheck = () => {
-  const t = useTranslations("Ingredients");
-  const [ingredients, setIngredients] = useState("");
-  const [result, setResult] = useState("");
-  const [flagged, setFlagged] = useState([]);
-  const [vegan, setVegan] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+interface FlaggedItem {
+item: string;
+index: number;
+}
 
-  const handleSubmit = (event) => {
-    setVegan("");
-    setError(false);
-    event.preventDefault();
-    const ingredients = event.target.elements.ingredients.value;
-    const url = `https://api.vegancheck.me/v0/ingredients/${ingredients}`;
+const IngredientsCheck: React.FC = () => {
+const t = useTranslations("Ingredients");
+const [flagged, setFlagged] = useState<string[]>([]);
+const [vegan, setVegan] = useState<string | boolean>("");
+const [error, setError] = useState(false);
+const [loading, setLoading] = useState(false);
 
-    setLoading(true);
-    fetch(url, { method: "GET" })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        console.log(data.data.vegan);
-        if (data.data.vegan === "false") {
-          setVegan(false);
-          setFlagged(data.data.flagged);
-          setLoading(false);
-        } else if (data.data.vegan === "true") {
-          setVegan(true);
-          setLoading(false);
-        }
-      })
-      .catch((error) => {
-        setError(true);
-        setLoading(false);
-      });
-  };
+const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+setVegan("");
+setError(false);
+event.preventDefault();
+const ingredients = event.currentTarget.elements.namedItem("ingredients") as HTMLInputElement;
+const url = `https://api.vegancheck.me/v0/ingredients/${ingredients.value}`;
+
+setLoading(true);
+fetch(url, { method: "GET" })
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.data.vegan === "false") {
+      setVegan(false);
+      setFlagged(data.data.flagged);
+      setLoading(false);
+    } else if (data.data.vegan === "true") {
+      setVegan(true);
+      setLoading(false);
+    }
+  })
+  .catch((error) => {
+    setError(true);
+    setLoading(false);
+  });
+};
 
   return (
     <>
@@ -93,7 +94,7 @@ const IngredientsCheck = () => {
                   PETA
                 </a>{" "}
                 &amp;{" "}
-                <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                <a href="https://www.veganwolf.com/animal_ingredients.htm">
                   The VEGAN WOLF
                 </a>
                 <ModalWrapper
@@ -142,7 +143,7 @@ const IngredientsCheck = () => {
                       PETA
                     </a>{" "}
                     and{" "}
-                    <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                    <a href="https://www.veganwolf.com/animal_ingredients.htm">
                       The VEGAN WOLF
                     </a>
                     .<br />
@@ -199,7 +200,7 @@ const IngredientsCheck = () => {
                     PETA
                   </a>{" "}
                   &amp;{" "}
-                  <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                  <a href="https://www.veganwolf.com/animal_ingredients.htm">
                     The VEGAN WOLF
                   </a>
                   <ModalWrapper
@@ -248,7 +249,7 @@ const IngredientsCheck = () => {
                         PETA
                       </a>{" "}
                       and{" "}
-                      <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                      <a href="https://www.veganwolf.com/animal_ingredients.htm">
                         The VEGAN WOLF
                       </a>
                       .<br />
@@ -281,7 +282,7 @@ const IngredientsCheck = () => {
         </div>
       )}
       {loading && (
-        <div id="result" class="loading_skeleton">
+        <div id="result" className="loading_skeleton">
           <div className="animated fadeIn">
             <div className="resultborder">
               <div className="Grid">

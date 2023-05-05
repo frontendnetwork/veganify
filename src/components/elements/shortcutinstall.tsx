@@ -1,16 +1,21 @@
-import { useState, useEffect } from "react";
-import ModalWrapper from "@/components/elements/modalwrapper";
+import { useState, useEffect, FC } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-export default function Shortcut() {
+interface ExtendedWindow extends Window {
+  MSStream?: any;
+}
+
+const Shortcut: FC = () => {
   const t = useTranslations("ShortcutPrompt");
-  const [showShortcut, setShowShortcut] = useState(false);
+  const [showShortcut, setShowShortcut] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const isIOS =
-        /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const windowWithMSStream = window as ExtendedWindow;
+
+      const isIOS: boolean =
+        /iPad|iPhone|iPod/.test(navigator.userAgent) && !windowWithMSStream.MSStream;
 
       if (
         !window.matchMedia("(display-mode: standalone)").matches &&
@@ -18,7 +23,7 @@ export default function Shortcut() {
         window.location.href.indexOf("shortcut") === -1
       ) {
         if (typeof window !== "undefined") {
-          document.getElementById("mainpage").classList.remove("top");
+          document.getElementById("mainpage")?.classList.remove("top");
         }
         setShowShortcut(true);
       }
@@ -52,4 +57,6 @@ export default function Shortcut() {
       </div>
     </div>
   );
-}
+};
+
+export default Shortcut;

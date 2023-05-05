@@ -9,8 +9,8 @@ export default function ingredients() {
       <div id="modal-root"></div>
       <Nav />
       <Container
-        logo="false"
-        backbutton="false"
+        logo={false}
+        backbutton={false}
       >
         <IngredientsCheck />
       </Container>

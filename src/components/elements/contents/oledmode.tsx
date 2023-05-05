@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
-const OLEDMode = () => {
+const OLEDMode: React.FC = () => {
   const t = useTranslations('More');
-  const [isChecked, setIsChecked] = useState(false);
-  const [error, setError] = useState(false);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
+  const setThemeColorAttribute = (color: string) => {
+    const themeColorElement = document.querySelector<HTMLMetaElement>('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]');
+  
+    if (themeColorElement) {
+      themeColorElement.setAttribute("content", color);
+    }
+  };
 
   useEffect(() => {
     const localStorageValue = localStorage.getItem("oled");
     if (localStorageValue === "true" && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.setAttribute("data-theme", "oled");
-      document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#000");
+      setThemeColorAttribute("#000");
       setIsChecked(true);
     }
   }, []);
@@ -22,12 +30,12 @@ const OLEDMode = () => {
     }
     if (!isChecked) {
       document.documentElement.setAttribute("data-theme", "oled");
-      document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#000");
+      setThemeColorAttribute("#000");
       localStorage.setItem('oled', 'true');
     } else {
       localStorage.clear();
       document.documentElement.removeAttribute("data-theme");
-      document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]').setAttribute("content", "#141414");
+      setThemeColorAttribute("#141414");
     }
     setIsChecked(!isChecked);
     setError(false);

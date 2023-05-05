@@ -1,17 +1,26 @@
-import React, { Component, useState } from "react";
-import Quagga from "quagga";
+import React, { Component } from "react";
+import Quagga from "@ericblade/quagga2";
 
-class Scanner extends Component {
-  state = {
+interface ScannerProps {
+  onDetected: (result: any) => void;
+  setScanning: (scanning: boolean) => void;
+}
+
+interface ScannerState {
+  facingMode: string;
+  isHidden: boolean;
+}
+
+class Scanner extends Component<ScannerProps, ScannerState> {
+  state: ScannerState = {
     facingMode: "environment",
+    isHidden: false,
   };
 
   handleClick = () => {
-    if (this.state.facingMode === "environment") {
-      this.setState({ facingMode: "user" });
-    } else {
-      this.setState({ facingMode: "environment" });
-    }
+    const { facingMode } = this.state;
+    const newFacingMode = facingMode === "environment" ? "user" : "environment";
+    this.setState({ facingMode: newFacingMode });
 
     Quagga.init(
       {
@@ -21,8 +30,7 @@ class Scanner extends Component {
             width: window.innerWidth * window.devicePixelRatio,
             height: window.innerHeight * window.devicePixelRatio,
             aspectRatio: { ideal: window.innerHeight / window.innerWidth },
-            facingMode: this.state.facingMode,
-            focusMode: "continuous",
+            facingMode: newFacingMode,
           },
         },
         locator: {
@@ -40,7 +48,7 @@ class Scanner extends Component {
         },
         locate: true,
       },
-      function (err) {
+      (err: any) => {
         if (err) {
           return console.log(err);
         }
@@ -49,43 +57,43 @@ class Scanner extends Component {
     );
   };
 
-  componentDidMount = () => {
-    console.log(this.state.facingMode);
+  componentDidMount() {
+    const { facingMode } = this.state;
+    console.log(facingMode);
     this.handleClick();
     Quagga.onDetected(this._onDetected);
-  };
+  }
 
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     Quagga.offDetected(this._onDetected);
-  };
+  }
 
-  _onDetected = (result) => {
-    this.props.onDetected(result);
+  _onDetected = (result: any) => {
+    const { onDetected } = this.props;
+    onDetected(result);
     Quagga.stop();
   };
 
-  state = {
-    isHidden: false,
-  };
-
   _onClose = () => {
-    this.setState({
-      isHidden: !this.state.isHidden,
-    });
-    this.props.setScanning(false);
+    const { isHidden } = this.state;
+    this.setState({ isHidden: !isHidden });
+    const { setScanning } = this.props;
+    setScanning(false);
     Quagga.stop();
   };
 
   render() {
-    const vid = {
+    const { isHidden } = this.state;
+
+    const vid: React.CSSProperties = {
       position: "fixed",
-      zIndex: "999",
-      left: "0px",
-      top: "0px",
+      zIndex: 999,
+      left: 0,
+      top: 0,
     };
 
     return (
-      !this.state.isHidden && (
+      !isHidden && (
         <>
           <div id="controls">
             <span id="close">
@@ -115,10 +123,13 @@ class Scanner extends Component {
   }
 }
 
-class Result extends Component {
-  render() {
-    const result = this.props.result;
+interface ResultProps {
+  result: any;
+}
 
+class Result extends Component<ResultProps> {
+  render() {
+    const { result } = this.props;
     if (!result) {
       return null;
     }
@@ -126,8 +137,19 @@ class Result extends Component {
   }
 }
 
-class Scan extends React.Component {
-  state = {
+interface ScanProps {
+  onDetected: (barcode: string) => void;
+  handleSubmit: (barcode: string, obj: object) => void;
+}
+
+interface ScanState {
+  scanning: boolean;
+  results: any[];
+  codeResult: string;
+}
+
+class Scan extends React.Component<ScanProps, ScanState> {
+  state: ScanState = {
     scanning: false,
     results: [],
     codeResult: "",
@@ -137,19 +159,19 @@ class Scan extends React.Component {
     this.setState({ scanning: true });
   };
 
-  _onDetected = (result) => {
-    this.setState({
-      results: this.state.results.concat([result]),
-      codeResult: result.codeResult.code,
-    });
-    this.setState({ scanning: !this.state.scanning });
-    let barcode = result.codeResult.code;
-    this.props.onDetected(barcode);
+  _onDetected = (result: any) => {
+    const { onDetected, handleSubmit } = this.props;
+    const { results } = this.state;
+    const newResults = [...results, result];
+    const codeResult = result.codeResult.code;
+    this.setState({ results: newResults, codeResult, scanning: false });
+    onDetected(codeResult);
     Quagga.stop();
-    this.props.handleSubmit(barcode, {});
+    handleSubmit(codeResult, {});
   };
 
   render() {
+    const { scanning } = this.state;
     return (
       <>
         <button
@@ -161,7 +183,7 @@ class Scan extends React.Component {
         >
           <span className="icon-barcode" />
         </button>
-        {this.state.scanning ? (
+        {scanning ? (
           <Scanner
             onDetected={this._onDetected}
             setScanning={(scanning) => this.setState({ scanning })}

@@ -3,7 +3,9 @@ import ModalWrapper from "@/components/elements/modalwrapper";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-export default function InstallPrompt() {
+interface InstallPromptProps {}
+
+const InstallPrompt: React.FC<InstallPromptProps> = () => {
   const t = useTranslations("InstallPrompt");
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
 
@@ -12,8 +14,8 @@ export default function InstallPrompt() {
     if (pwainstall !== "hidden") {
       if (typeof window !== "undefined") {
         const isIOS =
-          /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
+          /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+          !(window as any).MSStream;
         if (
           !window.matchMedia("(display-mode: standalone)").matches &&
           isIOS &&
@@ -57,11 +59,11 @@ export default function InstallPrompt() {
             buttonClass="button"
             buttonText={t("get")}
           >
-            <span class="center">
+            <span className="center">
               <Image
                 src="../img/pwainstall_img.svg"
                 alt="PWAInstall"
-                class="heading_img"
+                className="heading_img"
                 width={48}
                 height={48}
               />
@@ -80,9 +82,9 @@ export default function InstallPrompt() {
       </div>
     </div>
   );
-}
+};
 
-function getCookie(name) {
+function getCookie(name: string): string | undefined {
   const cookie = document.cookie
     .split(";")
     .find((c) => c.trim().startsWith(name + "="));
@@ -90,9 +92,11 @@ function getCookie(name) {
   return cookie.split("=")[1];
 }
 
-function setCookie(name, value, days) {
+function setCookie(name: string, value: string, days: number): void {
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
   const expires = "expires=" + date.toUTCString();
   document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
+
+export default InstallPrompt;

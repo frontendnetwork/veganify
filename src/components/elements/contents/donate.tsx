@@ -2,17 +2,17 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-const SupportOption = () => {
+const SupportOption: React.FC = () => {
   const t = useTranslations("More");
-  const [icon, setIcon] = useState("icon-paypal");
-  const [vendor, setVendor] = useState("PayPal");
-  const [supportBtnText, setSupportBtnText] = useState("Donate with PayPal");
-  const [supportBtnLink, setSupportBtnLink] = useState(
+  const [icon, setIcon] = useState<string>("icon-paypal");
+  const [vendor, setVendor] = useState<string>("PayPal");
+  const [supportBtnText, setSupportBtnText] = useState<string>("Donate with PayPal");
+  const [supportBtnLink, setSupportBtnLink] = useState<string>(
     "https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536"
   );
-  const [onceChecked, setOnceChecked] = useState(true);
-  const [ghChecked, setGhChecked] = useState(false);
-  const [KofiChecked, setKofiChecked] = useState(false);
+  const [onceChecked, setOnceChecked] = useState<boolean>(true);
+  const [ghChecked, setGhChecked] = useState<boolean>(false);
+  const [KofiChecked, setKofiChecked] = useState<boolean>(false);
 
   const handleOptionOnceClick = () => {
     setIcon("icon-paypal");
@@ -45,13 +45,12 @@ const SupportOption = () => {
     setOnceChecked(false);
     setKofiChecked(false);
   };
-
   return (
     <>
-      <span class="center">
+      <span className="center">
         <Image
           src="/img/donate_img.svg"
-          class="heading_img"
+          className="heading_img"
           alt="Donate"
           width={48}
           height={48}
@@ -79,14 +78,14 @@ const SupportOption = () => {
         onClick={handleOptionKofiClick}
       >
         <input
-          class="form-check-input"
+          className="form-check-input"
           type="radio"
           name="flexRadioDefault"
           id="kofi"
           checked={KofiChecked}
         />
-        <span class="muted">{t("onceviakofi")}</span>
-        <span class="price">1-50€</span>
+        <span className="muted">{t("onceviakofi")}</span>
+        <span className="price">1-50€</span>
       </div>
       <div
         className={`option ${ghChecked ? "active" : ""}`}
@@ -107,7 +106,7 @@ const SupportOption = () => {
         <a href={supportBtnLink} id="supportbtn" className="button">
           <span className={icon}></span> {supportBtnText}
         </a>
-        <span class="info">
+        <span className="info">
           {t("redirect")} <span id="vendor">{vendor}</span>.
         </span>
       </div>
