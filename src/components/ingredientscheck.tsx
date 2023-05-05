@@ -10,7 +10,6 @@ index: number;
 
 const IngredientsCheck: React.FC = () => {
 const t = useTranslations("Ingredients");
-const [result, setResult] = useState("");
 const [flagged, setFlagged] = useState<string[]>([]);
 const [vegan, setVegan] = useState<string | boolean>("");
 const [error, setError] = useState(false);
@@ -95,7 +94,7 @@ fetch(url, { method: "GET" })
                   PETA
                 </a>{" "}
                 &amp;{" "}
-                <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                <a href="https://www.veganwolf.com/animal_ingredients.htm">
                   The VEGAN WOLF
                 </a>
                 <ModalWrapper
@@ -144,7 +143,7 @@ fetch(url, { method: "GET" })
                       PETA
                     </a>{" "}
                     and{" "}
-                    <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                    <a href="https://www.veganwolf.com/animal_ingredients.htm">
                       The VEGAN WOLF
                     </a>
                     .<br />
@@ -201,7 +200,7 @@ fetch(url, { method: "GET" })
                     PETA
                   </a>{" "}
                   &amp;{" "}
-                  <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                  <a href="https://www.veganwolf.com/animal_ingredients.htm">
                     The VEGAN WOLF
                   </a>
                   <ModalWrapper
@@ -250,7 +249,7 @@ fetch(url, { method: "GET" })
                         PETA
                       </a>{" "}
                       and{" "}
-                      <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                      <a href="https://www.veganwolf.com/animal_ingredients.htm">
                         The VEGAN WOLF
                       </a>
                       .<br />
