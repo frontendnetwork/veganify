@@ -10,7 +10,6 @@ index: number;
 
 const IngredientsCheck: React.FC = () => {
 const t = useTranslations("Ingredients");
-const [ingredients, setIngredients] = useState("");
 const [result, setResult] = useState("");
 const [flagged, setFlagged] = useState<string[]>([]);
 const [vegan, setVegan] = useState<string | boolean>("");

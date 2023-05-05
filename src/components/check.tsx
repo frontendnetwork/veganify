@@ -3,7 +3,7 @@ import Scan from "./Scanner/scanner";
 import Image from "next/image";
 import ModalWrapper from "@/components/elements/modalwrapper";
 import ShareButton from "@/components/elements/share";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
 interface ProductResult {
   productname?: string;
@@ -21,7 +21,7 @@ interface Sources {
 }
 
 const ProductSearch: React.FC = () => {
-  const t = useTranslations('Check');
+  const t = useTranslations("Check");
   const formRef = useRef<HTMLFormElement>(null);
   const [result, setResult] = useState<ProductResult>({});
   const [sources, setSources] = useState<Sources>({});
@@ -74,7 +74,7 @@ const ProductSearch: React.FC = () => {
         } else {
           setShowInvalid(true);
           setShowTimeout(false);
-        } 
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -89,30 +89,34 @@ const ProductSearch: React.FC = () => {
   };
 
   let productname = result.productname === "n/a" ? "?" : result.productname;
-  let vegan =
-    result.vegan === "true"
-      ? "vegan icon-ok"
-      : result.vegan === "false"
-      ? "non-vegan icon-cancel"
-      : "unknown icon-help";
-  let vegetarian =
-    result.vegetarian === "true"
-      ? "vegan icon-ok"
-      : result.vegetarian === "false"
-      ? "non-vegan icon-cancel"
-      : "unknown icon-help";
-  let animaltestfree =
-    result.animaltestfree === "true"
-      ? "vegan icon-ok"
-      : result.animaltestfree === "false"
-      ? "non-vegan icon-cancel"
-      : "unknown icon-help";
-  let palmoil =
-    result.palmoil === "true"
-      ? "non-vegan icon-cancel"
-      : result.palmoil === "false"
-      ? "vegan icon-ok"
-      : "unknown icon-help";
+  let vegan = "unknown icon-help";
+  if (result.vegan === "true") {
+    vegan = "vegan icon-ok";
+  } else if (result.vegan === "false") {
+    vegan = "non-vegan icon-cancel";
+  }
+
+  let vegetarian = "unknown icon-help";
+  if (result.vegetarian === "true") {
+    vegetarian = "vegan icon-ok";
+  } else if (result.vegetarian === "false") {
+    vegetarian = "non-vegan icon-cancel";
+  }
+
+  let animaltestfree = "unknown icon-help";
+  if (result.animaltestfree === "true") {
+    animaltestfree = "vegan icon-ok";
+  } else if (result.animaltestfree === "false") {
+    animaltestfree = "non-vegan icon-cancel";
+  }
+
+  let palmoil = "unknown icon-help";
+  if (result.palmoil === "true") {
+    palmoil = "non-vegan icon-cancel";
+  } else if (result.palmoil === "false") {
+    palmoil = "vegan icon-ok";
+  }
+
   let nutriscore = result.nutriscore;
   let grade = result.grade;
   let api = sources.api;
@@ -365,7 +369,7 @@ const ProductSearch: React.FC = () => {
                       PETA
                     </a>{" "}
                     and{" "}
-                    <a href="http://www.veganwolf.com/animal_ingredients.htm">
+                    <a href="https://www.veganwolf.com/animal_ingredients.htm">
                       The VEGAN WOLF
                     </a>
                     .<br />

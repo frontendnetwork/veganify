@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import BackButton from '@/components/button_back'
@@ -13,7 +12,8 @@ interface ContainerProps {
 
 export default function Container(props: ContainerProps) {
   let hasHeading = props.heading ? "true" : "false";
-  let headingStyle = props.headingstyle || undefined;
+  let headingStyle = props.headingstyle ?? undefined;
+
 
   let hasBackButton = props.backbutton !== false ? true : false;
   let hasLogo = props.logo !== false ? true : false;

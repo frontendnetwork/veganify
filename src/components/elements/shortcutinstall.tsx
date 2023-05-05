@@ -1,5 +1,4 @@
 import { useState, useEffect, FC } from "react";
-import ModalWrapper from "@/components/elements/modalwrapper";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 

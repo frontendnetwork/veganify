@@ -13,7 +13,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
   const [showButton, setShowButton] = useState<boolean>(false);
 
   useEffect(() => {
-    if ((navigator.share as (() => Promise<void>) | undefined)) {
+    if (navigator.share as (() => Promise<void>) | undefined) {
       setShowButton(true);
     }
   }, []);
@@ -22,10 +22,16 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
   let url = `https://vegancheck.me/?ean=${barcode}`;
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(`${text}: ${url}`);
-    (document.querySelector(".btn-dark") as HTMLElement)?.click();
+    navigator.clipboard
+      .writeText(`${text}: ${url}`)
+      .then(() => {
+        (document.querySelector(".btn-dark") as HTMLElement)?.click();
+      })
+      .catch((error) => {
+        console.error("Error writing to clipboard:", error);
+      });
   };
-  
+
   const handleMastodonClick = () => {
     const mastodonurl = `https://s2f.kytta.dev/?text=${encodeURI(
       text
@@ -33,7 +39,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
     window.location.href = mastodonurl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };
-  
+
   const handleTweetClick = () => {
     const tweetUrl = `https://twitter.com/intent/tweet?url=${url}&text=${encodeURI(
       text
@@ -41,13 +47,13 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
     window.location.href = tweetUrl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };
-  
+
   const handleWhatsAppClick = () => {
     const whatsappurl = `whatsapp://send?text=${encodeURI(text)} ${url}`;
     window.location.href = whatsappurl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };
-  
+
   const handleTelegramClick = () => {
     const telegramurl = `https://telegram.me/share/url?url=${url}&text=${encodeURI(
       text
@@ -55,25 +61,24 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
     window.location.href = telegramurl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };
-  
+
   const handleFacebookClick = () => {
     const facebookurl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
     window.location.href = facebookurl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };
-  
+
   const handleMessageClick = () => {
     const messageurl = `sms:&body=${url} ${text}`;
     window.location.href = messageurl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };
-  
+
   const handleEmailClick = () => {
     const emailurl = `mailto:?body="${url}"&subject=${text}`;
     window.location.href = emailurl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };
-  
 
   return showButton ? (
     <span
