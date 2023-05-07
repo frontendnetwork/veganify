@@ -25,11 +25,11 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'yarn'
+          node-version: '19.x'
+          cache: 'npm'
 
-      - run: yarn install
-      - run: yarn build
+      - run: npm install
+      - run: npm run build
 
       - name: Deploy via SSH
         uses: easingthemes/ssh-deploy@v4
