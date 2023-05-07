@@ -13,10 +13,10 @@
   "dependencies": {
     "@ericblade/quagga2": "^1.8.2",
     "@types/node": "18.16.2",
-    "@types/react": "18.2.5",
+    "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
-    "next": "13.4.1",
-    "next-intl": "^2.13.2",
+    "next": "13.3.1",
+    "next-intl": "^2.13.1",
     "next-pwa": "^5.6.0",
     "nookies": "^2.5.2",
     "quagga": "^0.12.1",
