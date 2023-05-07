@@ -20,7 +20,7 @@ VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open 
 </details>	
 
 	
-The [VeganCheck Ingredients API](https://github.com/JokeNetwork/VeganCheck.me-API) checks the products ingredients against a list of thousands of non-vegan items.
+The [VeganCheck Ingredients API](https://github.com/frontendnetwork/VeganCheck.me-API) checks the products ingredients against a list of thousands of non-vegan items.
 
 <p align="center">
 <a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://jokenetwork.de/#projects">Product page on JokeNetwork.de</a> | <a href="https://jokenetwork.de/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
@@ -34,18 +34,18 @@ The [VeganCheck Ingredients API](https://github.com/JokeNetwork/VeganCheck.me-AP
 <a href="https://codeclimate.com/github/JokeNetwork/vegancheck.me/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e4c87c9f6b92b9e13b5/maintainability" /></a>
 <a href="https://www.codacy.com/gh/JokeNetwork/vegancheck.me/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JokeNetwork/vegancheck.me&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/88f4f14676db4160881af922125245d7"/></a>
 <a href="https://www.codefactor.io/repository/github/jokenetwork/vegancheck.me"><img src="https://www.codefactor.io/repository/github/jokenetwork/vegancheck.me/badge" alt="CodeFactor" /></a>
-![GitHub language count](https://img.shields.io/github/languages/count/jokenetwork/vegancheck.me)
+![GitHub language count](https://img.shields.io/github/languages/count/frontendnetwork/vegancheck.me)
 
 	
 ## Installation
-[Click here to see the installation guide!](https://jokenetwork.github.io/vegancheck.me/)
+[Click here to see the installation guide!](https://frontendnetwork.github.io/vegancheck.me/)
 
 ## Contribute & Support
-We're happy you want to help! Please read our [Code of Conduct](https://github.com/JokeNetwork/vegancheck.me/blob/main/CODE_OF_CONDUCT.md).
+We're happy you want to help! Please read our [Code of Conduct](https://github.com/frontendnetwork/vegancheck.me/blob/main/CODE_OF_CONDUCT.md).
 
 Please refer to our issue trackers to see where you could help: 
-- [[Tasks] Code Improvements](https://github.com/JokeNetwork/vegancheck.me/issues/52)
-- [[Tasks] Localization](https://github.com/JokeNetwork/vegancheck.me/issues/59) - Learn how to localize VeganCheck [here](https://jokenetwork.github.io/vegancheck.me/localization)
+- [[Tasks] Code Improvements](https://github.com/frontendnetwork/vegancheck.me/issues/52)
+- [[Tasks] Localization](https://github.com/frontendnetwork/vegancheck.me/issues/59) - Learn how to localize VeganCheck [here](https://frontendnetwork.github.io/vegancheck.me/localization)
 
 or if you find something else you could improve, just open a new issue for it!
 
@@ -80,4 +80,4 @@ This repo uses:
 
 ## License
 
-All text and code in this repository is licensed under [MIT](https://github.com/jokenetwork/VeganCheck.me/blob/main/LICENSE), © 2023 Philip Brembeck, © 2023 JokeNetwork.
+All text and code in this repository is licensed under [MIT](https://github.com/frontendnetwork/VeganCheck.me/blob/main/LICENSE), © 2023 Philip Brembeck, © 2023 FrontEndNetwork.
