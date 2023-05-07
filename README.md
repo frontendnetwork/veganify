@@ -31,9 +31,9 @@ The [VeganCheck Ingredients API](https://github.com/frontendnetwork/VeganCheck.m
 ![Website](https://img.shields.io/website?down_color=red&down_message=down&up_color=green&up_message=up&url=https%3A%2F%2Fvegancheck.me)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/vegancheck.me?publish)
 <a href="https://sonarcloud.io/summary/new_code?id=JokeNetwork_vegancheck.me"><img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=JokeNetwork_vegancheck.me&metric=alert_status"></a>
-<a href="https://codeclimate.com/github/JokeNetwork/vegancheck.me/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e4c87c9f6b92b9e13b5/maintainability" /></a>
-<a href="https://www.codacy.com/gh/JokeNetwork/vegancheck.me/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JokeNetwork/vegancheck.me&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/88f4f14676db4160881af922125245d7"/></a>
-<a href="https://www.codefactor.io/repository/github/jokenetwork/vegancheck.me"><img src="https://www.codefactor.io/repository/github/jokenetwork/vegancheck.me/badge" alt="CodeFactor" /></a>
+<a href="https://codeclimate.com/github/frontendnetwork/vegancheck.me/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e4c87c9f6b92b9e13b5/maintainability" /></a>
+<a href="https://www.codacy.com/gh/frontendnetwork/vegancheck.me/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JokeNetwork/vegancheck.me&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/88f4f14676db4160881af922125245d7"/></a>
+[![CodeFactor](https://www.codefactor.io/repository/github/frontendnetwork/vegancheck.me/badge)](https://www.codefactor.io/repository/github/frontendnetwork/vegancheck.me)
 ![GitHub language count](https://img.shields.io/github/languages/count/frontendnetwork/vegancheck.me)
 
 	
