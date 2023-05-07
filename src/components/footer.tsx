@@ -18,7 +18,7 @@ export default function Footer() {
             height={48}
           />
         </a>
-        <a href="https://github.com/jokenetwork/vegancheck.me">
+        <a href="https://github.com/frontendnetwork/vegancheck.me">
           <Image
             src="../img/opensource.svg"
             alt="Open Source"
