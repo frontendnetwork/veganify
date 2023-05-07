@@ -25,11 +25,11 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '19.x'
-          cache: 'npm'
+          node-version: '18.x'
+          cache: 'yarn'
 
-      - run: npm install
-      - run: npm run build
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
 
       - name: Deploy via SSH
         uses: easingthemes/ssh-deploy@v4
