@@ -11,9 +11,9 @@ jobs:
       
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'yarn'
+          node-version: '18.x'
+          cache: 'npm'
 
-      - run: yarn install
-      - run: yarn build
-      - run: yarn lint
+      - run: npm ci
+      - run: npm run build
+      - run: npm lint
