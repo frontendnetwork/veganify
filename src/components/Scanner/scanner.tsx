@@ -89,13 +89,28 @@ class Scanner extends Component<ScannerProps, ScannerState> {
     const vid: React.CSSProperties = {
       position: "fixed",
       zIndex: 999,
-      left: 0,
+      left: "50%",
       top: 0,
+      transform: "translateX(-50%)",
     };
+
+    const backdrop: React.CSSProperties = {
+      position: "fixed",
+      zIndex: 998,
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0, 0, 0, 0.2)",
+      backdropFilter: "blur(0.5rem)",
+      WebkitBackdropFilter: "blur(0.5rem)",
+    };
+    
 
     return (
       !isHidden && (
         <>
+          <div style={backdrop}></div>
           <div id="controls">
             <span id="close">
               <div className="flex-container">
