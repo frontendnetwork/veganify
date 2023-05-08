@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Quagga from "@ericblade/quagga2";
-
 interface ScannerProps {
   onDetected: (result: any) => void;
   setScanning: (scanning: boolean) => void;
