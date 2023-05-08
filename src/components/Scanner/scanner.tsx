@@ -21,14 +21,18 @@ class Scanner extends Component<ScannerProps, ScannerState> {
     const newFacingMode = facingMode === "environment" ? "user" : "environment";
     this.setState({ facingMode: newFacingMode });
 
+    const scaleFactor = 0.75;
+    const width = window.innerWidth * scaleFactor;
+    const height = window.innerHeight * scaleFactor;
+
     Quagga.init(
       {
         inputStream: {
           type: "LiveStream",
           constraints: {
-            width: window.innerWidth * window.devicePixelRatio,
-            height: window.innerHeight * window.devicePixelRatio,
-            aspectRatio: { ideal: window.innerHeight / window.innerWidth },
+            width,
+            height,
+            aspectRatio: { ideal: height / width },
             facingMode: newFacingMode,
           },
         },
