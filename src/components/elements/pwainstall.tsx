@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from "react";
 import ModalWrapper from "@/components/elements/modalwrapper";
 import Image from "next/image";
