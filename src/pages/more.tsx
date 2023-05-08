@@ -226,6 +226,24 @@ export default function More() {
                 <span className="price">{t("polish")}</span>
               </div>
             </Link>
+            <Link
+              className="nolink"
+              href="/more"
+              locale="cz"
+              onClick={() => handleLanguageChange("cz")}
+            >
+              <div
+                className={router.locale === "cz" ? "option active" : "option"}
+              >
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  checked={router.locale === "cz"}
+                />
+                <span className="price">{t("czech")}</span>
+              </div>
+            </Link>
             <span className="info" id="cookieinfo">
               {t("thissetsacookie")}
             </span>
