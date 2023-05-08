@@ -1,0 +1,102 @@
+{
+  "Nav": {
+    "title": "Je to veganské? – Vegan Check",
+    "description": "Nejste si jistí, zda je výrobek veganský, nebo ne? S VeganCheck.me můžete při nákupu naskenovat čárový kód zboží a zkontrolovat zda je veganské, nebo ne a to bez spousty dalších zbytečných informací! Vyzkoušejte to hned teď!",
+    "home": "Domů",
+    "ingredientcheck": "Kontrola ingrediencí",
+    "more": "Více"
+  },
+  "Footer": {
+    "credit": "Vyrobil s {heart} {philipLink} & {jokeLink}"
+  },
+  "Check": {
+    "enterbarcode": "Vložte čárový kód",
+    "submit": "Odeslat",
+    "vegan": "Veganské",
+    "vegetarian": "Vegetariánské",
+    "palmoil": "Palmový olej",
+    "palmoil_desc": "Palmový olej má mimořádně škodlivý dopad na planetu. Je hlavní příčinou odlesňování některých biologicky nejrozmanitějších lesů a ničí přirozené prostředí již ohrožených živočichů. Z tohoto důvodu bychom doporučovali nekupovat žádné výrobky, které obsahují palmový olej. Bohužel je na trhu stále mnoho výrobků, které palmový olej obsahují.",
+    "crueltyfree": "Cruelty-Free",
+    "nutriscore_desc": "Nutriscore označuje nutriční profil výrobku ve formě semaforu. Nutriscore však není považováno za přesné a nemělo by se používat jako referenční hodnota. Více informací o Nutriscore najdete na stránkách {Algorithmwatch} (v angličtině).",
+    "grades_desc": "Jste zmateni všemi těmi veganskými/eco-friendly/organickými štítky?<br />Se snadno srozumitelnými VeganCheck Známkami už nebudete! VeganCheck Známky je systém hodnocení pro veganské produkty, který produktu přiděluje jeden ze šesti stupňů (A+ – Nezpůsobilé).<br />Pokud se chcete dozvědět více o VeganCheck Známkách nebo chcete-li požádat o hodnocení produktu, můžete tak učinit na {Grades}!",
+    "source": "Zdroj dat",
+    "licenses": "Licence",
+    "licenses_desc": "VeganCheck.me používá ke shromažďování informací o výrobku různé databáze a rozhraní API. Informace jsou licencovány pod následujícími licencemi:",
+    "notindb": "Tento produkt zatím není v naší databázi.",
+    "notindb_add": "Chcete jej přidat?",
+    "add_food": "Přidat potraviny",
+    "or": "nebo",
+    "add_cosmetic": "přidat kosmetiku",
+    "wrongbarcode": "Tento čárový kód je neplatný.",
+    "timeout1": "Trvá to déle než obvykle",
+    "timeout2": "Žádost trvala příliš dlouho. Zkuste to prosím znovu.",
+    "share": "Sdílet",
+    "copy": "Kopírovat",
+    "on": "na"
+  },
+  "More": {
+    "buyusacoffee": "Kupte nám kafe",
+    "followus": "Sledujte nás",
+    "tos": "Podmínky služby",
+    "privacypolicy": "Zásady ochrany osobních údajů",
+    "apidocumentation": "API Dokumentace",
+    "imprint": "Otisk",
+    "onceviapaypal": "Jednou přes PayPal",
+    "onceviakofi": "Jednou přes Ko-Fi",
+    "monthlyviagithub": "Měsíčně přes GitHub",
+    "month": "měsíc",
+    "redirect": "Budete přesměrováni na",
+    "thissetsacookie": "Toto nastavuje cookie.",
+    "activatedarkmode": "Nejprve zaktivujte tmavý režim na vašem zařízení!",
+    "language": "Jazyk",
+    "english": "Angličtina",
+    "german": "Němčina",
+    "spanish": "Španělština",
+    "french": "Francoužština",
+    "polish": "Polština",
+    "cursed": "Prokletý",
+    "memeculture": "Oslava meme-kultury"
+  },
+  "TOS": {
+    "englishgermanonly": "Tato stránka je k dispozici pouze v angličtině a němčině.",
+    "tos": "Podmínky služby",
+    "tos_content": "<p><b>Use of \"VeganCheck.me\"</b></p><p>The use of the site \"VeganCheck.me\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https://jokenetwork.de/vegancheck-api\">API</a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.</p><p><b>Processing of entered texts and numbers</b></p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.</p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en\">?</a></sup></p><p><b>Disclaimer</b></p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.</p>"
+  },
+  "Privacy": {
+    "germanonly": "Tato stránka je k dispozici pouze v němčině."
+  },
+  "404": {
+    "error404": "Chyba 404.",
+    "pagedoesnotexist": "Tato stránka neexistuje.",
+    "message": "Můžete navštívit naši {statuspage} nebo nás zkontrolovat na {mastodon} a zjistit, zda nejsou nějaké aktuální problémy.",
+    "statuspage": "stavová stránka"
+  },
+  "Fallback": {
+    "yourareoffline": "Jste offline.",
+    "needinternet": "K používání VeganCheck.me potřebujete aktivní připojení k internetu.",
+    "tryagain": "Zkuste to znovu"
+  },
+  "InstallPrompt": {
+    "subheading": "Je to veganské? - Vegan Check",
+    "install": "Nainstalovat VeganCheck.me",
+    "get": "Získat",
+    "howtoinstall": "Klepněte na {share} a potom na \"Přidat na domovskou obrazovku\".."
+  },
+  "ShortcutPrompt": {
+    "Shortcuts": "Zástupci",
+    "openinapp": "Otevření v aplikaci Zástupci",
+    "open": "Otevřít"
+  },
+  "Ingredients": {
+    "ingredientcheck": "Kontrola veganských složek",
+    "ingredientcheck_desc": "Zkontrolujte, zda jsou složky výrobku veganské! - Zadejte složky oddělené čárkou",
+    "entercommaseperated": "Zadejte složky oddělené čárkou",
+    "submit": "Odeslat",
+    "vegan": "Veganské",
+    "source": "Zdroj dat",
+    "cannotbeempty": "Seznam ingrediencí nesmí být prázdný ani obsahovat speciální znaky a musí být oddělen čárkou!",
+    "licenses": "Licence",
+    "licenses_desc": "VeganCheck.me používá ke shromažďování informací o výrobku různé databáze a rozhraní API. Informace jsou licencovány pod následujícími licencemi:",
+    "languagewarning": "Tyto výsledky mohou být nesprávné z důvodu chyb v překladu nebo chybějících informací. Výsledky jsou přeloženy pomocí {deepl}."
+  }
+}
