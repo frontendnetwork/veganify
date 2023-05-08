@@ -18,10 +18,10 @@ class Scanner extends Component<ScannerProps, ScannerState> {
 
   handleClick = () => {
     const { facingMode } = this.state;
-    const newFacingMode = facingMode === "environment" ? "user" : "environment";
+    const newFacingMode = facingMode === "user" ? "environment" : "user";
     this.setState({ facingMode: newFacingMode });
 
-    const scaleFactor = 0.75;
+    const scaleFactor = 0.5;
     const width = window.innerWidth * scaleFactor;
     const height = window.innerHeight * scaleFactor;
 
@@ -93,6 +93,9 @@ class Scanner extends Component<ScannerProps, ScannerState> {
       zIndex: 999,
       left: 0,
       top: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
     };
 
     return (
