@@ -59,15 +59,34 @@ class Scanner extends Component<ScannerProps, ScannerState> {
     );
   };
 
+  updateVideoSize() {
+    const video = document.querySelector("video");
+    if (video) {
+      const aspectRatio = video.videoWidth / video.videoHeight;
+      const windowAspectRatio = window.innerWidth / window.innerHeight;
+
+      if (aspectRatio > windowAspectRatio) {
+        video.style.width = "100%";
+        video.style.height = "auto";
+      } else {
+        video.style.width = "auto";
+        video.style.height = "100%";
+      }
+    }
+  }
+
   componentDidMount() {
     const { facingMode } = this.state;
     console.log(facingMode);
     this.handleClick();
     Quagga.onDetected(this._onDetected);
+    this.updateVideoSize();
+    window.addEventListener("resize", this.updateVideoSize);
   }
 
   componentWillUnmount() {
     Quagga.offDetected(this._onDetected);
+    window.removeEventListener("resize", this.updateVideoSize);
   }
 
   _onDetected = (result: any) => {
@@ -90,11 +109,9 @@ class Scanner extends Component<ScannerProps, ScannerState> {
     const vid: React.CSSProperties = {
       position: "fixed",
       zIndex: 999,
-      left: 0,
-      top: 0,
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
+      left: "50%",
+      top: "50%",
+      transform: "translate(-50%, -50%)",
     };
 
     return (
