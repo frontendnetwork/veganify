@@ -18,12 +18,11 @@ class Scanner extends Component<ScannerProps, ScannerState> {
 
   handleClick = () => {
     const { facingMode } = this.state;
-    const newFacingMode = facingMode === "user" ? "environment" : "user";
+    const newFacingMode = facingMode === "environment" ? "environment" : "user";
     this.setState({ facingMode: newFacingMode });
 
-    const scaleFactor = 0.5;
-    const width = window.innerWidth * scaleFactor;
-    const height = window.innerHeight * scaleFactor;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
     Quagga.init(
       {
