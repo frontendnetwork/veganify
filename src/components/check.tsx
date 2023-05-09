@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import VeganCheck from "@frontendnetwork/vegancheck";
 import Scan from "./Scanner/scanner";
 import Image from "next/image";
 import ModalWrapper from "@/components/elements/modalwrapper";
@@ -18,6 +19,12 @@ interface ProductResult {
 interface Sources {
   api?: string;
   baseuri?: string;
+}
+
+interface ErrorResponse {
+  response: {
+    status: number;
+  };
 }
 
 const ProductSearch: React.FC = () => {
@@ -44,44 +51,52 @@ const ProductSearch: React.FC = () => {
   }, []);
 
   /* Submitting */
-  const handleSubmit = (barcode: string, event?: React.FormEvent) => {
+  const handleSubmit = async (barcode: string, event?: React.FormEvent) => {
     event?.preventDefault();
     setShowTimeoutFinal(false);
     setShowTimeout(false);
     setShowFound(false);
     setShowNotFound(false);
     setShowInvalid(false);
-
+  
     setLoading(true);
-    fetch(`https://api.vegancheck.me/v0/product/${barcode}`, {
-      method: "POST",
-    })
-      .then((res) => {
+    try {
+      const data = await VeganCheck.getProductByBarcode(barcode);
+      setLoading(false);
+      if (data.status === 200) {
+        setResult(data.product);
+        setSources(data.sources);
+        setShowFound(true);
         setShowTimeout(false);
-
-        return res.json();
-      })
-      .then((data) => {
-        setLoading(false);
-        if (data.status === 200) {
-          setResult(data.product);
-          setSources(data.sources);
-          setShowFound(true);
-          setShowTimeout(false);
-        } else if (data.status === 404) {
-          setShowNotFound(true);
-          setShowTimeout(false);
-        } else {
+      } else if (data.status === 404) {
+        setShowNotFound(true);
+        setShowTimeout(false);
+      } else {
+        setShowInvalid(true);
+        setShowTimeout(false);
+      }
+    } catch (error) {
+      if (
+        typeof error === 'object' &&
+        error !== null &&
+        'response' in error &&
+        'status' in (error as ErrorResponse).response
+      ) {
+        if ((error as ErrorResponse).response.status == 400) {
           setShowInvalid(true);
           setShowTimeout(false);
         }
-      })
-      .catch((error) => {
+        else if ((error as ErrorResponse).response.status == 404) {
+          setShowNotFound(true);
+          setShowTimeout(false);
+        }
+      } else {
         console.error(error);
-        setLoading(false);
         setShowTimeoutFinal(true);
         setShowTimeout(false);
-      });
+      }
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -469,7 +484,7 @@ const ProductSearch: React.FC = () => {
               </div>
               <div className="Grid">
                 <div className="Grid-cell description skeleton">
-                  {t("grade")}
+                  Grade
                 </div>
                 <div className="Grid-cell icons skeleton">
                   <span className="icon-help"></span>
