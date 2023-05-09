@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css"
     />
+    <link rel="stylesheet" href="assets/prism.css">
     <style>
       body {
         width: 50%;
@@ -21,6 +22,18 @@
         img {
           display: none;
         }
+      }
+
+      .markdown-body table {
+        display: revert;
+        width: 100%;
+        max-width: 100%;
+        overflow: auto;
+      }
+
+      :not(pre) >code[class*="language-"], pre[class*="language-"] {
+        background: #000;
+        border: solid .01rem #ccc;
       }
     </style>
   </head>
@@ -110,7 +123,53 @@
       <p>
       Legal documents and everything that is only available in English and/or German should not be translated. This would require us to get a Laywer everytime we got a new translation. Thank you very much!
       </p>
+      <h3 id="optional-steps">Optional steps</h3>
+      <p>
+        If you want to help us make the localization process faster, you can also modify the following files:
+      </p>
+      <ul>
+        <li><strong><code>next.config.js</code></strong>: Add your locale ({yourlocale}) to the configuration:<br>
+          <pre class="highlight"><code class="lang-javascript">i18n: {
+  locales: ['de', 'en', 'fr', 'es', 'pl', 'cz', '{yourlocale}'],
+  defaultLocale: 'en',
+},</span></code></pre>
+        </li>
+        <li><strong><code>src/pages/more.tsx</code></strong>: Add your locale to the change language page:<br>
+          <pre class="highlight"><code class="lang-javascript">&lt;Link
+  className=&quot;nolink&quot;
+  href=&quot;/more&quot;
+  locale=&quot;{yourlocale}&quot;
+  onClick={() =&gt; handleLanguageChange(&quot;{yourlocale}&quot;)}
+&gt;
+  &lt;div
+    className={router.locale === &quot;{yourlocale}&quot; ? &quot;option active&quot; : &quot;option&quot;}
+  &gt;
+    &lt;input
+      className=&quot;form-check-input&quot;
+      type=&quot;radio&quot;
+      name=&quot;flexRadioDefault&quot;
+      checked={router.locale === &quot;{yourlocale}&quot;}
+    /&gt;
+    &lt;span className=&quot;price&quot;&gt;{t(&quot;translation_string_for_your_locale&quot;)}&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/Link&gt;</span></code></pre>
+        </li>
+        <li><strong><code>locales/[...].json</code></strong>: Add the translation_string_for_your_locale for your locale to the other locales:<br>
+          <pre class="highlight"><code class="lang-json">/* src/locales/en.json */
 
+"More": {
+  ...
+  "english": "English",
+  "german": "German",
+  "spanish": "Spanish",
+  "french": "French",
+  "polish": "Polish",
+  "cursed": "Cursed",
+  "czech": "Czech",
+  "translation_string_for_your_locale": "Your locale in e.g. english"
+},</span></code></pre>
+        </li>
+      </ul>
       <footer class="border-top">
         <p class="color-fg-muted mt-2">
           &copy; 2023 <a href="//vegancheck.me">VeganCheck.me</a> - Licensed
@@ -122,5 +181,6 @@
         </p>
       </footer>
     </div>
+    <script src="assets/prism.js"></script>
   </body>
 </html>
