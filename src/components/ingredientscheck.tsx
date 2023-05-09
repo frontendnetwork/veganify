@@ -1,45 +1,49 @@
 import React, { useState, FormEvent } from "react";
+import VeganCheck from "@frontendnetwork/vegancheck";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import ModalWrapper from "@/components/elements/modalwrapper";
 
 interface FlaggedItem {
-item: string;
-index: number;
+  item: string;
+  index: number;
 }
 
 const IngredientsCheck: React.FC = () => {
-const t = useTranslations("Ingredients");
-const [flagged, setFlagged] = useState<string[]>([]);
-const [vegan, setVegan] = useState<string | boolean>("");
-const [error, setError] = useState(false);
-const [loading, setLoading] = useState(false);
+  const t = useTranslations("Ingredients");
+  const [flagged, setFlagged] = useState<string[]>([]);
+  const [vegan, setVegan] = useState<string | boolean>("");
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-setVegan("");
-setError(false);
-event.preventDefault();
-const ingredients = event.currentTarget.elements.namedItem("ingredients") as HTMLInputElement;
-const url = `https://api.vegancheck.me/v0/ingredients/${ingredients.value}`;
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    setVegan("");
+    setError(false);
+    event.preventDefault();
+    const ingredients = event.currentTarget.elements.namedItem(
+      "ingredients"
+    ) as HTMLInputElement;
 
-setLoading(true);
-fetch(url, { method: "GET" })
-  .then((response) => response.json())
-  .then((data) => {
-    if (data.data.vegan === "false") {
-      setVegan(false);
-      setFlagged(data.data.flagged);
-      setLoading(false);
-    } else if (data.data.vegan === "true") {
-      setVegan(true);
-      setLoading(false);
-    }
-  })
-  .catch((error) => {
-    setError(true);
-    setLoading(false);
-  });
-};
+    const checkIngredients = async () => {
+      setLoading(true);
+      try {
+        const data = await VeganCheck.checkIngredientsList(ingredients.value);
+        if (data.data.vegan === "false") {
+          setVegan(false);
+          setFlagged(data.data.flagged);
+          setLoading(false);
+        } else if (data.data.vegan === "true") {
+          setVegan(true);
+          setLoading(false);
+        }
+      } catch (error) {
+        setError(true);
+        setLoading(false);
+      }
+    };
+
+    checkIngredients();
+  };
 
   return (
     <>
