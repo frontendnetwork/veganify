@@ -1,17 +1,18 @@
 import "@/styles/style.scss";
 import type { AppProps } from "next/app";
 import { NextIntlProvider } from "next-intl";
-import Script from "next/script";
+import { init } from "@socialgouv/matomo-next";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    init({ url: "https://analytics.vegancheck.me", siteId: "1" });
+  }, []);
   return (
     <>
-    <NextIntlProvider messages={pageProps.messages}>
-      <Script async src="https://analytics.vegancheck.me/ackee.js" data-ackee-server="https://analytics.vegancheck.me" data-ackee-domain-id="77898809-adfe-4573-a05f-88cd663f0fb5" data-ackee-opts='{ "detailed": true }' />
-      <Component {...pageProps} />
-    </NextIntlProvider>
+      <NextIntlProvider messages={pageProps.messages}>
+        <Component {...pageProps} />
+      </NextIntlProvider>
     </>
   );
 }
-
-                          
