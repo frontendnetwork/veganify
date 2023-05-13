@@ -31,9 +31,5 @@
     "eslint": "8.40.0",
     "eslint-config-next": "^13.4.2",
     "eslint-config-sznm": "^1.1.1"
-  },
-  "volta": {
-    "node": "18.16.0",
-    "yarn": "1.22.19"
   }
 }
