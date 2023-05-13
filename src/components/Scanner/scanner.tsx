@@ -12,13 +12,13 @@ interface ScannerState {
 
 class Scanner extends Component<ScannerProps, ScannerState> {
   state: ScannerState = {
-    facingMode: "environment",
+    facingMode: "user",
     isHidden: false,
   };
 
   handleClick = () => {
     const { facingMode } = this.state;
-    const newFacingMode = facingMode === "environment" ? "environment" : "user";
+    const newFacingMode = facingMode === "environment" ? "user" : "environment";
     this.setState({ facingMode: newFacingMode });
 
     const width = window.innerWidth;
