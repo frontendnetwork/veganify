@@ -8,18 +8,21 @@ interface ScannerProps {
 interface ScannerState {
   facingMode: string;
   isHidden: boolean;
+  isMirrored: boolean;
 }
 
 class Scanner extends Component<ScannerProps, ScannerState> {
   state: ScannerState = {
     facingMode: "user",
     isHidden: false,
+    isMirrored: true,
   };
 
   handleClick = () => {
     const { facingMode } = this.state;
     const newFacingMode = facingMode === "environment" ? "user" : "environment";
-    this.setState({ facingMode: newFacingMode });
+    const isMirrored = newFacingMode === "user";
+    this.setState({ facingMode: newFacingMode, isMirrored });
 
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -84,14 +87,14 @@ class Scanner extends Component<ScannerProps, ScannerState> {
   };
 
   render() {
-    const { isHidden } = this.state;
+    const { isHidden, isMirrored } = this.state;
 
     const vid: React.CSSProperties = {
       position: "fixed",
       zIndex: 999,
       left: "50%",
       top: 0,
-      transform: "translateX(-50%)",
+      transform: isMirrored ? "translateX(-50%) scaleX(-1)" : "translateX(-50%)",
     };
 
     const backdrop: React.CSSProperties = {
