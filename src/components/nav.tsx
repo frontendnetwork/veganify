@@ -32,7 +32,7 @@ export default function Nav() {
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
 
-        <meta property="og:title" content="Ist es Vegan? - Vegan Check" />
+        <meta property="og:title" content={t("title")} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://vegancheck.me" />
 
