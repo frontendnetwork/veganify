@@ -1029,10 +1029,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@frontendnetwork/vegancheck@1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@frontendnetwork/vegancheck/-/vegancheck-1.1.5.tgz#0b97003955ea5392113ad27d8d838240115f4244"
-  integrity sha512-cSXyquphJ54yOJmaZLutert6pyp/5DC7NsL/inzglD2oovmI3yFymspr5epQ1R6ccWKBClZ5HDa208RBZH1F7g==
+"@frontendnetwork/vegancheck@1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@frontendnetwork/vegancheck/-/vegancheck-1.1.10.tgz#b4ee06af33050596f64b35aaa0aade6d3053f36f"
+  integrity sha512-fPw7K0/1VHecH2pfaGeM034oMbw6oHIuKh3W4OMRixwKD9c0NWOLwx4deMPdMyxxucczybQgv53J434YSMOmPA==
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
