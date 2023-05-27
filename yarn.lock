@@ -3612,7 +3612,7 @@ negotiator@^0.6.3:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-next-intl@^2.14.2:
+next-intl@^2.14.6:
   version "2.14.6"
   resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-2.14.6.tgz#c636ba6fc9b8900fa659a6c9d00d6e2c94f41271"
   integrity sha512-RZgQQMAUlGWmPx6gequHRCZf7NKD6ixCskyovRd1AMx0UeNqAZggbL7nFsGA8M7mZbE0twv3+4JLrPse8xbwsg==
