@@ -1,14 +1,34 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
-  const t = useTranslations('Footer');
+  const t = useTranslations("Footer");
   return (
     <>
       <footer>
-        <p dangerouslySetInnerHTML={{ __html: t('credit', {heart: '<i class="icon-heart"></i>', philipLink: '<a href="https://philipbrembeck.com">Philip Brembeck</a>', jokeLink: '<a href="https://frontendnet.work">FrontEndNet.work</a>'})}} />
+        <a
+          href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me"
+          target="_blank"
+        >
+          <img
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=396704&theme=neutral"
+            alt="VeganCheck.me | Product Hunt"
+            height="40"
+          />
+        </a>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: t("credit", {
+              heart: '<i class="icon-heart"></i>',
+              philipLink:
+                '<a href="https://philipbrembeck.com">Philip Brembeck</a>',
+              jokeLink:
+                '<a href="https://frontendnet.work">FrontEndNet.work</a>',
+            }),
+          }}
+        />
         <a href="https://vegancheck.me">
           <Image
             src="../img/VeganCheck_text.svg"
@@ -41,7 +61,7 @@ export default function Footer() {
             src="../img/treelabel.svg"
             alt="We plant trees. We're carbon neutral."
             className="labels"
-            width={48} 
+            width={48}
             height={48}
           />
         </a>
