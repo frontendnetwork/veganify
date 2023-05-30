@@ -15,7 +15,18 @@ export default function Footer() {
           <img
             src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=396704&theme=neutral"
             alt="VeganCheck.me | Product Hunt"
-            height="40"
+            height="30"
+          />
+        </a>
+        &nbsp;
+        <a
+          href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me"
+          target="_blank"
+        >
+          <img
+            src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=396704&theme=neutral&period=weekly&topic_id=43"
+            alt="VeganCheck.me | Product Hunt"
+            height="30"
           />
         </a>
         <p
