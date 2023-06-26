@@ -6,6 +6,7 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 
 module.exports = withPWA({
+  output: 'standalone',
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   i18n: {
