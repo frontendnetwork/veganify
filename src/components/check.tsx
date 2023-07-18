@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+
 import VeganCheck from "@frontendnetwork/vegancheck";
-import Scan from "./Scanner/scanner";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import React, { useState, useEffect, useRef } from "react";
+
 import ModalWrapper from "@/components/elements/modalwrapper";
 import ShareButton from "@/components/elements/share";
-import { useTranslations } from "next-intl";
+
+import Scan from "./Scanner/scanner";
 
 interface ProductResult {
   productname?: string;

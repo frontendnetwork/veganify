@@ -1,8 +1,9 @@
-import Container from "@/components/elements/container";
-import Nav from "@/components/nav";
-import React, { useState, useEffect } from 'react';
 import { GetStaticPropsContext } from 'next'
 import { useTranslations } from 'next-intl';
+import React, { useState, useEffect } from 'react';
+
+import Container from "@/components/elements/container";
+import Nav from "@/components/nav";
 
 const PrivacyPolicy = () => {
   const t = useTranslations('Privacy');

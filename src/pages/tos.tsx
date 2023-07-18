@@ -1,8 +1,8 @@
-import Container from "@/components/elements/container";
-import Nav from "@/components/nav";
 import { GetStaticPropsContext } from 'next'
 import { useTranslations } from 'next-intl';
 
+import Container from "@/components/elements/container";
+import Nav from "@/components/nav";
 
 export default function TOS() {
   const t = useTranslations('TOS');

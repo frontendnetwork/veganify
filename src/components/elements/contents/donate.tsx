@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 const SupportOption: React.FC = () => {
   const t = useTranslations("More");

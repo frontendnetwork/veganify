@@ -1,7 +1,8 @@
-import Nav from "@/components/nav";
-import Container from "@/components/elements/container";
 import { GetStaticPropsContext } from 'next'
 import { useTranslations } from 'next-intl';
+
+import Container from "@/components/elements/container";
+import Nav from "@/components/nav";
 
 export default function NotFound() {
   const t = useTranslations('404');

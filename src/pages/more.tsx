@@ -1,14 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { setCookie } from "nookies";
 import { GetStaticPropsContext } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
-import Nav from "@/components/nav";
+import { setCookie } from "nookies";
+
 import Container from "@/components/elements/container";
-import ModalWrapper from "@/components/elements/modalwrapper";
 import SupportOption from "@/components/elements/contents/donate";
 import OLEDMode from "@/components/elements/contents/oledmode";
+import ModalWrapper from "@/components/elements/modalwrapper";
+import Nav from "@/components/nav";
 
 export default function More() {
   const router = useRouter();

@@ -1,7 +1,8 @@
-import React, { useState, FormEvent } from "react";
 import VeganCheck from "@frontendnetwork/vegancheck";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import React, { useState, FormEvent } from "react";
+
 import ModalWrapper from "@/components/elements/modalwrapper";
 
 export interface FlaggedItem {

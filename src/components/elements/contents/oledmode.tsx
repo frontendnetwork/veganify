@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import React, { useState, useEffect } from 'react';
 
 const OLEDMode: React.FC = () => {
   const t = useTranslations('More');

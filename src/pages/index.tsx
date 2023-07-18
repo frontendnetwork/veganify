@@ -1,9 +1,10 @@
-import Nav from "@/components/nav";
-import Footer from "@/components/footer";
+import { GetStaticPropsContext } from "next";
+
 import ProductSearch from "@/components/check";
 import InstallPrompt from "@/components/elements/pwainstall";
 import Shortcut from "@/components/elements/shortcutinstall";
-import { GetStaticPropsContext } from "next";
+import Footer from "@/components/footer";
+import Nav from "@/components/nav";
 
 export default function Home() {
   return (

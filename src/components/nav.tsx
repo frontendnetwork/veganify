@@ -1,9 +1,9 @@
+import { GetStaticPropsContext } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { GetStaticPropsContext } from "next";
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 
 export default function Nav() {
   const t = useTranslations("Nav");

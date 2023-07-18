@@ -1,7 +1,8 @@
-import Nav from "@/components/nav";
-import IngredientsCheck from '@/components/ingredientscheck'
-import Container from "@/components/elements/container";
 import { GetStaticPropsContext } from "next";
+
+import Container from "@/components/elements/container";
+import IngredientsCheck from '@/components/ingredientscheck'
+import Nav from "@/components/nav";
 
 export default function ingredients() {
   return (

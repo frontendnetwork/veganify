@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
-import ModalWrapper from "@/components/elements/modalwrapper";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import React, { useState, useEffect } from "react";
+
+import ModalWrapper from "@/components/elements/modalwrapper";
 
 interface ShareButtonProps {
   productName: string | undefined;

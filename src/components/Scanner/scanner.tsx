@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { Component } from "react";
 import Quagga from "@ericblade/quagga2";
+import React, { Component } from "react";
 interface ScannerProps {
   onDetected: (result: any) => void;
   setScanning: (scanning: boolean) => void;
