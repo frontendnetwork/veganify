@@ -15,7 +15,7 @@
     "@frontendnetwork/vegancheck": "1.1.11",
     "@socialgouv/matomo-next": "^1.6.1",
     "@types/node": "20.2.5",
-    "@types/react-dom": "18.2.4",
+    "@types/react-dom": "18.2.6",
     "eslint-config-sznm": "^2.0.2",
     "jest-worker": "^29.5.0",
     "next": "13.4.4",
