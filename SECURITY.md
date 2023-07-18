@@ -4,7 +4,7 @@
 
 Only the current released versions and the versions available online (on https://vegancheck.me) are in scope. 
 
-Also, [api.vegancheck.me](api.vegancheck.me), [grade.vegancheck.me](grade.vegancheck.me) and [grades.vegancheck.me](grades.vegancheck.me) are in scope. 
+Also, [api.vegancheck.me](https://api.vegancheck.me), [grade.vegancheck.me](https://grade.vegancheck.me) and [grades.vegancheck.me](https://grades.vegancheck.me) are in scope. 
 
 ## Reporting a Vulnerability
 
