@@ -1,3 +1,6 @@
+# Default GitHub build&push workflow
+# Docs: https://docs.github.com/en/actions/publishing-packages/publishing-docker-images#publishing-images-to-github-packages
+
 name: Create and publish a Docker image
 
 on:
@@ -12,25 +15,20 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-push-image:
+  build-and-push-prod:
+    if: github.ref != 'refs/heads/staging'
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
 
+    environment: 
+      name: Production
+      url: https://vegancheck.me
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Set Environment
-        run: |
-          if [[ "${{ github.ref }}" == "refs/heads/staging" ]]; then
-            echo "ENV_NAME=Staging" >> $GITHUB_ENV
-            echo "ENV_URL=https://staging.vegancheck.me" >> $GITHUB_ENV
-          else
-            echo "ENV_NAME=Production" >> $GITHUB_ENV
-            echo "ENV_URL=https://vegancheck.me" >> $GITHUB_ENV
-          fi
 
       - name: Log in to the Container registry
         uses: docker/login-action@a9794064588be971151ec5e7144cb535bcb56e36
@@ -52,7 +50,39 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          
+  build-and-push-staging:
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     environment: 
-      name: ${{ env.ENV_NAME }}
-      url: ${{ env.ENV_URL }}
+      name: Staging
+      url: https://staging.vegancheck.me
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@a9794064588be971151ec5e7144cb535bcb56e36
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@35e9aff4f5d665b5aa8a8f2adffaf8a1b5f49cc0
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@4fad532b9fdbfb80f436784834374a1c11834153
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
