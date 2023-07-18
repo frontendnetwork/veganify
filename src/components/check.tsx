@@ -103,7 +103,7 @@ const ProductSearch: React.FC = () => {
     setBarcode(e.target.value);
   };
 
-  let productname = result.productname === "n/a" ? "?" : result.productname;
+  const productname = result.productname === "n/a" ? "?" : result.productname;
   let vegan = "unknown icon-help";
   if (result.vegan === "true") {
     vegan = "vegan icon-ok";
@@ -134,8 +134,8 @@ const ProductSearch: React.FC = () => {
 
   let nutriscore = result.nutriscore;
   let grade = result.grade;
-  let api = sources.api;
-  let uri = sources.baseuri;
+  const api = sources.api;
+  const uri = sources.baseuri;
 
   if (nutriscore === "n/a") {
     nutriscore = "unknown icon-help";

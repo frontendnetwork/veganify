@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { Component } from "react";
 import Quagga from "@ericblade/quagga2";
 interface ScannerProps {

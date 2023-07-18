@@ -1,5 +1,4 @@
-import Head from "next/head";
-import Link from "next/link";
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 

@@ -18,8 +18,8 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
     }
   }, []);
 
-  let text = productName + " - Checked using VeganCheck";
-  let url = `https://vegancheck.me/?ean=${barcode}`;
+  const text = productName + " - Checked using VeganCheck";
+  const url = `https://vegancheck.me/?ean=${barcode}`;
 
   const handleCopyClick = () => {
     navigator.clipboard
@@ -90,7 +90,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
             text,
             url,
           })
-          .catch((err) => {});
+          .catch((err) => {console.error(err)});
       }}
     >
       {t("share")}

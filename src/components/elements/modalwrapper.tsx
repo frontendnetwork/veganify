@@ -91,7 +91,7 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
           {buttonText}
         </div>
       )}
-      {isOpen &&
+      {isOpen && modalRoot &&
         createPortal(
           <div className="modal_view animated fadeInUp open">
             <div className="modal_close">
@@ -105,7 +105,7 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
             </div>
             {children}
           </div>,
-          modalRoot!
+          modalRoot
         )}
     </>
   );

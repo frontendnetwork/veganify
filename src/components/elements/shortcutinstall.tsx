@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, FC } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";

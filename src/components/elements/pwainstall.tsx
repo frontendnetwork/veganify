@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import ModalWrapper from "@/components/elements/modalwrapper";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-interface InstallPromptProps {}
-
-const InstallPrompt: React.FC<InstallPromptProps> = () => {
+const InstallPrompt = () => {
   const t = useTranslations("InstallPrompt");
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
 

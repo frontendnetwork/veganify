@@ -4,12 +4,12 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import ModalWrapper from "@/components/elements/modalwrapper";
 
-interface FlaggedItem {
+export interface FlaggedItem {
   item: string;
   index: number;
 }
 
-const IngredientsCheck: React.FC = () => {
+const IngredientsCheck = () => {
   const t = useTranslations("Ingredients");
   const [flagged, setFlagged] = useState<string[]>([]);
   const [vegan, setVegan] = useState<string | boolean>("");

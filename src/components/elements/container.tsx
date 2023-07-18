@@ -11,12 +11,12 @@ interface ContainerProps {
 }
 
 export default function Container(props: ContainerProps) {
-  let hasHeading = props.heading ? "true" : "false";
-  let headingStyle = props.headingstyle ?? undefined;
+  const hasHeading = props.heading ? "true" : "false";
+  const headingStyle = props.headingstyle ?? undefined;
 
 
-  let hasBackButton = props.backbutton !== false ? true : false;
-  let hasLogo = props.logo !== false ? true : false;
+  const hasBackButton = props.backbutton !== false ? true : false;
+  const hasLogo = props.logo !== false ? true : false;
 
   return (
     <div className="container top">
