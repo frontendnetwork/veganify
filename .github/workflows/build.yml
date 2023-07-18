@@ -20,6 +20,9 @@ jobs:
     permissions:
       contents: read
       packages: write
+    environment: 
+      name: Production
+      url: https://vegancheck.me
 
     steps:
       - name: Checkout repository
