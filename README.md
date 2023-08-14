@@ -31,7 +31,7 @@ The [VeganCheck Ingredients API](https://github.com/frontendnetwork/VeganCheck.m
 </p>
 
 ## Status
-<a href="https://jokenetwork.de/badges"><img alt="JKN Status: Active" src="https://jokenetwork.de/assets/img/gitstatus/active.svg"></a>
+<a href="https://frontendnet.work/badges"><img alt="JKN Status: Active" src="https://frontendnet.work/assets/img/gitstatus/active.svg"></a>
 ![Website](https://img.shields.io/website?down_color=red&down_message=VeganCheck%20is%20down&up_color=green&up_message=VeganCheck%20is%20up&url=https%3A%2F%2Fvegancheck.me)
 <a href="https://sonarcloud.io/summary/new_code?id=JokeNetwork_vegancheck.me"><img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=JokeNetwork_vegancheck.me&metric=alert_status"></a>
 <a href="https://codeclimate.com/github/frontendnetwork/vegancheck.me/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e4c87c9f6b92b9e13b5/maintainability" /></a>
