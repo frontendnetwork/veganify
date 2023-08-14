@@ -18,7 +18,7 @@
     "@types/react-dom": "18.2.7",
     "eslint-config-sznm": "^2.0.2",
     "jest-worker": "^29.6.2",
-    "next": "13.4.11",
+    "next": "13.4.15",
     "next-intl": "^2.19.1",
     "next-pwa": "^5.6.0",
     "nookies": "^2.5.2",
