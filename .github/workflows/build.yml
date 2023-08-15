@@ -43,6 +43,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: Setup Production Env
+        run: cp .env.production .env
+
       - name: Build and push Docker image
         uses: docker/build-push-action@56932deb0a0db9d23e245320b1e45fec46b8d66f
         with:
@@ -78,6 +81,9 @@ jobs:
         uses: docker/metadata-action@0f8c876bafbf5dbce05c36682ec68e9a0274a48a
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Setup Staging Env
+        run: cp .env.staging .env
 
       - name: Build and push Docker image
         uses: docker/build-push-action@56932deb0a0db9d23e245320b1e45fec46b8d66f

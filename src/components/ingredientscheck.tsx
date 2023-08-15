@@ -28,7 +28,7 @@ const IngredientsCheck = () => {
     const checkIngredients = async () => {
       setLoading(true);
       try {
-        const data = await VeganCheck.checkIngredientsList(ingredients.value);
+        const data = await VeganCheck.checkIngredientsList(ingredients.value, process.env.NEXT_PUBLIC_STAGING === "true" ? true : false);
         if (data.data.vegan === "false") {
           setVegan(false);
           setFlagged(data.data.flagged);
