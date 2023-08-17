@@ -1,24 +1,34 @@
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  swSrc: 'service-worker.js'
-})
+const million = require("million/compiler");
+const withPWA = require("next-pwa")({
+  dest: "public",
+  swSrc: "service-worker.js",
+});
 
 /** @type {import('next').NextConfig} */
-
-module.exports = withPWA({
-  output: 'standalone',
+let nextConfig = {
+  output: "standalone",
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   i18n: {
-    locales: ['de', 'en', 'fr', 'es', 'pl', 'cz'],
-    defaultLocale: 'en',
+    locales: ["de", "en", "fr", "es", "pl", "cz"],
+    defaultLocale: "en",
   },
   async rewrites() {
     return [
       {
-        source: '/datenschutz',
-        destination: '/privacy-policy',
+        source: "/datenschutz",
+        destination: "/privacy-policy",
       },
-    ]
-  }
-});
+    ];
+  },
+};
+
+const millionConfig = {
+  auto: true,
+  // if you're using RSC:
+  // auto: { rsc: true },
+};
+
+nextConfig = million.next(nextConfig, millionConfig);
+
+module.exports = withPWA(nextConfig);
