@@ -47,7 +47,7 @@ jobs:
         run: cp .env.production .env
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@56932deb0a0db9d23e245320b1e45fec46b8d66f
+        uses: docker/build-push-action@9311bf5263ae5b36f3ec67aff768790c6e2344ad
         with:
           context: .
           push: true
@@ -83,10 +83,13 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Setup Staging Env
-        run: cp .env.development .env
+        run: cp .env.development .env 
+
+      - name: Display .env contents
+        run: cat .env
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@56932deb0a0db9d23e245320b1e45fec46b8d66f
+        uses: docker/build-push-action@9311bf5263ae5b36f3ec67aff768790c6e2344ad
         with:
           context: .
           push: true
