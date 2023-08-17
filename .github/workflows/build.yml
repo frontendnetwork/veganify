@@ -44,7 +44,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Setup Production Env
-        run: cp .env.production .env
+        run: cp .env.main .env
 
       - name: Build and push Docker image
         uses: docker/build-push-action@9311bf5263ae5b36f3ec67aff768790c6e2344ad
