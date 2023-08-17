@@ -64,7 +64,6 @@ const ProductSearch: React.FC = () => {
   
     setLoading(true);
     try {
-      console.warn(process.env.NEXT_PUBLIC_STAGING);
       const data = await VeganCheck.getProductByBarcode(barcode, process.env.NEXT_PUBLIC_STAGING === "true" ? true : false);
       setLoading(false);
       if (data.status === 200) {
