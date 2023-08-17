@@ -1,3 +1,7 @@
 version = 1
 require_automerge_label = false
 merge.show_missing_automerge_label_message = false
+
+[merge.automerge_dependencies]
+versions = ["minor", "patch"]
+usernames = ["dependabot", "renovate"]
