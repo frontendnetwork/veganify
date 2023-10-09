@@ -108,7 +108,7 @@ export default function More() {
             <span className="unknown icon-right-open"></span>
           </div>
         </Link>
-        <a href="https://jokenetwork.de/vegancheck-api" className="Grid links">
+        <a href="https://frontendnet.work/vegancheck-api" className="Grid links">
           <div className="Grid-cell description">{t("apidocumentation")}</div>
           <div className="Grid-cell icons">
             <span className="unknown icon-right-open"></span>
