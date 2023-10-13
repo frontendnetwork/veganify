@@ -47,7 +47,7 @@ jobs:
         run: cp .env.main .env
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@9311bf5263ae5b36f3ec67aff768790c6e2344ad
+        uses: docker/build-push-action@8d2cf95286e3dd3d016d478187b93b57af29fd2d
         with:
           context: .
           push: true
@@ -89,7 +89,7 @@ jobs:
         run: cat .env
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@9311bf5263ae5b36f3ec67aff768790c6e2344ad
+        uses: docker/build-push-action@8d2cf95286e3dd3d016d478187b93b57af29fd2d
         with:
           context: .
           push: true
