@@ -27,7 +27,7 @@ VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open 
 The [VeganCheck Ingredients API](https://github.com/frontendnetwork/VeganCheck.me-API) checks the products ingredients against a list of thousands of non-vegan items.
 
 <p align="center">
-<a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://jokenetwork.de/#projects">Product page on JokeNetwork.de</a> | <a href="https://jokenetwork.de/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
+<a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://frontendnet.work/#projects">Product page on FrontEndNetwork</a> | <a href="https://frontendnet.work/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
 </p>
 
 ## Status
