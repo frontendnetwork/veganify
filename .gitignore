@@ -19,6 +19,8 @@
 .DS_Store
 *.pem
 .icloud
+*.icloud
+*/*.icloud
 
 # debug
 npm-debug.log*
