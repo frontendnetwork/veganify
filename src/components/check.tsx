@@ -60,7 +60,6 @@ const ProductSearch = () => {
       );
       setLoading(false);
       if (data.status === 200) {
-        console.log(data.product);
         setResult(data.product);
         setSources(data.sources);
         setShowFound(true);
