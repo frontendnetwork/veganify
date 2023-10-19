@@ -6,9 +6,9 @@ name: Create and publish a Docker image
 on:
   push:
     branches:
-    - main
-    - release
-    - staging
+      - main
+      - release
+      - staging
 
 env:
   REGISTRY: ghcr.io
@@ -22,7 +22,7 @@ jobs:
       contents: read
       packages: write
 
-    environment: 
+    environment:
       name: Production
       url: https://vegancheck.me
 
@@ -47,6 +47,7 @@ jobs:
         run: cp .env.main .env
 
       - name: Build and push Docker image
+        id: build-prod
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
           context: .
@@ -54,18 +55,24 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Run Docker Compose
+  deploy-prod:
+    needs: build-and-push-prod
+    if: success() && github.ref != 'refs/heads/staging'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH into the server and run Docker Compose
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd vegancheck
             docker-compose stop vc-frontend
             docker-compose pull vc-frontend
             docker-compose up -d vc-frontend
-          
+
   build-and-push-staging:
     if: github.ref == 'refs/heads/staging'
     runs-on: ubuntu-latest
@@ -73,10 +80,10 @@ jobs:
       contents: read
       packages: write
 
-    environment: 
+    environment:
       name: Staging
       url: https://staging.vegancheck.me
-      
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -95,12 +102,13 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Setup Staging Env
-        run: cp .env.development .env 
+        run: cp .env.development .env
 
       - name: Display .env contents
         run: cat .env
 
       - name: Build and push Docker image
+        id: build-staging
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
           context: .
@@ -108,12 +116,18 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Run Docker Compose
+  deploy-staging:
+    needs: build-and-push-staging
+    if: success() && github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH into the server and run Docker Compose
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd vegancheck
             docker-compose stop vc-frontend
