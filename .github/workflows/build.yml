@@ -53,6 +53,18 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Run Docker Compose
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          script: |
+            cd vegancheck
+            docker-compose stop
+            docker-compose pull
+            docker-compose up -d
           
   build-and-push-staging:
     if: github.ref == 'refs/heads/staging'
@@ -95,3 +107,15 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Run Docker Compose
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          script: |
+            cd vegancheck
+            docker-compose stop
+            docker-compose pull
+            docker-compose up -d
