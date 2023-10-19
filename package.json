@@ -14,18 +14,18 @@
     "@ericblade/quagga2": "^1.8.2",
     "@frontendnetwork/vegancheck": "^1.1.31",
     "@socialgouv/matomo-next": "^1.6.1",
-    "@types/node": "20.4.5",
+    "@types/node": "20.8.7",
     "@types/react-dom": "18.2.7",
     "eslint-config-sznm": "^2.0.2",
     "jest-worker": "^29.6.2",
     "million": "^2.6.4",
     "next": "13.4.16",
-    "next-intl": "^2.19.1",
+    "next-intl": "^2.21.0",
     "next-pwa": "^5.6.0",
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.64.1",
+    "sass": "^1.69.4",
     "typescript": "5.1.6"
   },
   "devDependencies": {
@@ -33,9 +33,9 @@
     "@types/react": "^18.2.20",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "@typescript-eslint/typescript-estree": "^6.2.1",
+    "@typescript-eslint/typescript-estree": "^6.8.0",
     "eslint": "8.47.0",
-    "eslint-config-next": "^13.4.13",
+    "eslint-config-next": "^13.5.6",
     "eslint-plugin-import": "^2.28.0"
   },
   "volta": {
