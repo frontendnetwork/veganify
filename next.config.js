@@ -24,9 +24,7 @@ let nextConfig = {
 };
 
 const millionConfig = {
-  auto: true,
-  // if you're using RSC:
-  // auto: { rsc: true },
+  auto: { rsc: true },
 };
 
 nextConfig = million.next(nextConfig, millionConfig);

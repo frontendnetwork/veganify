@@ -52,7 +52,7 @@ const ProductSearch = () => {
     setShowInvalid(false);
 
     setLoading(true);
-
+    
     try {
       const data = await VeganCheck.getProductByBarcode(
         barcode,
