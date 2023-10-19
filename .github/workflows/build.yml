@@ -62,9 +62,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} 
           script: |
             cd vegancheck
-            docker-compose stop
-            docker-compose pull
-            docker-compose up -d
+            docker-compose stop vc-frontend
+            docker-compose pull vc-frontend
+            docker-compose up -d vc-frontend
           
   build-and-push-staging:
     if: github.ref == 'refs/heads/staging'
@@ -116,6 +116,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} 
           script: |
             cd vegancheck
-            docker-compose stop
-            docker-compose pull
-            docker-compose up -d
+            docker-compose stop vc-frontend
+            docker-compose pull vc-frontend
+            docker-compose up -d vc-frontend
