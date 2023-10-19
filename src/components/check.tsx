@@ -1,4 +1,3 @@
-
 import VeganCheck from "@frontendnetwork/vegancheck";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -6,34 +5,24 @@ import React, { useState, useEffect, useRef } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 import ShareButton from "@/components/elements/share";
+import { ErrorResponse } from "@/models/ErrorRepsonse";
+import { ProductResult } from "@/models/ProductResults";
+import { Sources } from "@/models/Sources";
 
 import Scan from "./Scanner/scanner";
 
-interface ProductResult {
-  productname?: string;
-  vegan?: string;
-  vegetarian?: string;
-  animaltestfree?: string;
-  palmoil?: string;
-  nutriscore?: string;
-  grade?: string;
-}
-
-interface Sources {
-  api?: string;
-  baseuri?: string;
-}
-
-interface ErrorResponse {
-  response: {
-    status: number;
-  };
-}
-
-const ProductSearch: React.FC = () => {
+const ProductSearch = () => {
   const t = useTranslations("Check");
   const formRef = useRef<HTMLFormElement>(null);
-  const [result, setResult] = useState<ProductResult>({});
+  const [result, setResult] = useState<ProductResult>({
+    productname: "",
+    vegan: "n/a",
+    vegetarian: "n/a",
+    animaltestfree: "n/a",
+    palmoil: "n/a",
+    nutriscore: "",
+    grade: "",
+  });
   const [sources, setSources] = useState<Sources>({});
   const [barcode, setBarcode] = useState<string>("");
   const [showFound, setShowFound] = useState<boolean>(false);
@@ -61,12 +50,17 @@ const ProductSearch: React.FC = () => {
     setShowFound(false);
     setShowNotFound(false);
     setShowInvalid(false);
-  
+
     setLoading(true);
+
     try {
-      const data = await VeganCheck.getProductByBarcode(barcode, process.env.NEXT_PUBLIC_STAGING === "true" ? true : false);
+      const data = await VeganCheck.getProductByBarcode(
+        barcode,
+        process.env.NEXT_PUBLIC_STAGING === "true"
+      );
       setLoading(false);
       if (data.status === 200) {
+        console.log(data.product);
         setResult(data.product);
         setSources(data.sources);
         setShowFound(true);
@@ -80,16 +74,15 @@ const ProductSearch: React.FC = () => {
       }
     } catch (error) {
       if (
-        typeof error === 'object' &&
+        typeof error === "object" &&
         error !== null &&
-        'response' in error &&
-        'status' in (error as ErrorResponse).response
+        "response" in error &&
+        "status" in (error as ErrorResponse).response
       ) {
         if ((error as ErrorResponse).response.status == 400) {
           setShowInvalid(true);
           setShowTimeout(false);
-        }
-        else if ((error as ErrorResponse).response.status == 404) {
+        } else if ((error as ErrorResponse).response.status == 404) {
           setShowNotFound(true);
           setShowTimeout(false);
         }
@@ -108,30 +101,30 @@ const ProductSearch: React.FC = () => {
 
   const productname = result.productname === "n/a" ? "?" : result.productname;
   let vegan = "unknown icon-help";
-  if (result.vegan === "true") {
+  if (result.vegan === true) {
     vegan = "vegan icon-ok";
-  } else if (result.vegan === "false") {
+  } else if (result.vegan === false) {
     vegan = "non-vegan icon-cancel";
   }
 
   let vegetarian = "unknown icon-help";
-  if (result.vegetarian === "true") {
+  if (result.vegetarian === true) {
     vegetarian = "vegan icon-ok";
-  } else if (result.vegetarian === "false") {
+  } else if (result.vegetarian === false) {
     vegetarian = "non-vegan icon-cancel";
   }
 
   let animaltestfree = "unknown icon-help";
-  if (result.animaltestfree === "true") {
+  if (result.animaltestfree === true) {
     animaltestfree = "vegan icon-ok";
-  } else if (result.animaltestfree === "false") {
+  } else if (result.animaltestfree === false) {
     animaltestfree = "non-vegan icon-cancel";
   }
 
   let palmoil = "unknown icon-help";
-  if (result.palmoil === "true") {
+  if (result.palmoil === true) {
     palmoil = "non-vegan icon-cancel";
-  } else if (result.palmoil === "false") {
+  } else if (result.palmoil === false) {
     palmoil = "vegan icon-ok";
   }
 
@@ -142,15 +135,15 @@ const ProductSearch: React.FC = () => {
 
   if (nutriscore === "n/a") {
     nutriscore = "unknown icon-help";
-  } else if (nutriscore === "a") {
+  } else if (nutriscore === "a" || nutriscore === "A") {
     nutriscore = "nutri_a icon-a";
-  } else if (nutriscore === "b") {
+  } else if (nutriscore === "b" || nutriscore === "B") {
     nutriscore = "nutri_b icon-b";
-  } else if (nutriscore === "c") {
+  } else if (nutriscore === "c" || nutriscore === "C") {
     nutriscore = "nutri_c icon-c";
-  } else if (nutriscore === "d") {
+  } else if (nutriscore === "d" || nutriscore === "D") {
     nutriscore = "nutri_d icon-d";
-  } else if (nutriscore === "e") {
+  } else if (nutriscore === "e" || nutriscore === "E") {
     nutriscore = "nutri_e icon-e";
   }
 
@@ -486,9 +479,7 @@ const ProductSearch: React.FC = () => {
                 </div>
               </div>
               <div className="Grid">
-                <div className="Grid-cell description skeleton">
-                  Grade
-                </div>
+                <div className="Grid-cell description skeleton">Grade</div>
                 <div className="Grid-cell icons skeleton">
                   <span className="icon-help"></span>
                 </div>
