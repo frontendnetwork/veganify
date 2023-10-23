@@ -9,7 +9,7 @@ interface ShareButtonProps {
   barcode: string;
 }
 
-const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
+const ShareButton = ({ productName, barcode }: ShareButtonProps) => {
   const t = useTranslations("Check");
   const [showButton, setShowButton] = useState<boolean>(false);
 
@@ -91,7 +91,9 @@ const ShareButton: React.FC<ShareButtonProps> = ({ productName, barcode }) => {
             text,
             url,
           })
-          .catch((err) => {console.error(err)});
+          .catch((err) => {
+            console.error(err);
+          });
       }}
     >
       {t("share")}

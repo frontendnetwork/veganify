@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useState, useEffect, FC } from "react";
+import { useState, useEffect } from "react";
 
 interface ExtendedWindow extends Window {
   MSStream?: any;
 }
 
-const Shortcut: FC = () => {
+const Shortcut = () => {
   const t = useTranslations("ShortcutPrompt");
   const [showShortcut, setShowShortcut] = useState<boolean>(false);
 
@@ -16,7 +16,8 @@ const Shortcut: FC = () => {
       const windowWithMSStream = window as ExtendedWindow;
 
       const isIOS: boolean =
-        /iPad|iPhone|iPod/.test(navigator.userAgent) && !windowWithMSStream.MSStream;
+        /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+        !windowWithMSStream.MSStream;
 
       if (
         !window.matchMedia("(display-mode: standalone)").matches &&
