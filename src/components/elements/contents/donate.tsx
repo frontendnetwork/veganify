@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-const SupportOption: React.FC = () => {
+const SupportOption = () => {
   const t = useTranslations("More");
   const [icon, setIcon] = useState<string>("icon-paypal");
   const [vendor, setVendor] = useState<string>("PayPal");

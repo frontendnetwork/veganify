@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from "next";
 
 import Container from "@/components/elements/container";
-import IngredientsCheck from '@/components/ingredientscheck'
+import IngredientsCheck from "@/components/ingredientscheck";
 import Nav from "@/components/nav";
 
 export default function ingredients() {
@@ -9,10 +9,7 @@ export default function ingredients() {
     <>
       <div id="modal-root"></div>
       <Nav />
-      <Container
-        logo={false}
-        backbutton={false}
-      >
+      <Container logo={false} backbutton={false}>
         <IngredientsCheck />
       </Container>
     </>

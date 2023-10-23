@@ -5,11 +5,6 @@ import React, { useState, FormEvent } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 
-export interface FlaggedItem {
-  item: string;
-  index: number;
-}
-
 const IngredientsCheck = () => {
   const t = useTranslations("Ingredients");
   const [flagged, setFlagged] = useState<string[]>([]);

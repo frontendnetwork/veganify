@@ -9,9 +9,18 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonClass, buttonText }) => {
+const ModalWrapper = ({
+  children,
+  id,
+  buttonType,
+  buttonClass,
+  buttonText,
+}: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const modalRoot = typeof document !== 'undefined' ? document.getElementById("modal-root") : null;
+  const modalRoot =
+    typeof document !== "undefined"
+      ? document.getElementById("modal-root")
+      : null;
 
   useEffect(() => {
     const handleEscapeKeyPress = (event: KeyboardEvent) => {
@@ -23,9 +32,9 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
     const handleTouchStart = (event: TouchEvent) => {
       const touchStartY = event.touches[0].clientY;
       let touchEndY;
-    
+
       document.body.addEventListener("touchend", handleTouchEnd);
-    
+
       function handleTouchEnd(event: TouchEvent) {
         touchEndY = event.changedTouches[0].clientY;
         if (touchEndY - touchStartY > 10) {
@@ -34,7 +43,6 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
         document.body.removeEventListener("touchend", handleTouchEnd);
       }
     };
-    
 
     document.addEventListener("keydown", handleEscapeKeyPress);
     document.addEventListener("touchstart", handleTouchStart);
@@ -91,15 +99,12 @@ const ModalWrapper: React.FC<ModalProps> = ({ children, id, buttonType, buttonCl
           {buttonText}
         </div>
       )}
-      {isOpen && modalRoot &&
+      {isOpen &&
+        modalRoot &&
         createPortal(
           <div className="modal_view animated fadeInUp open">
             <div className="modal_close">
-              <a
-                className="btn-dark"
-                data-dismiss="modal"
-                onClick={closeModal}
-              >
+              <a className="btn-dark" data-dismiss="modal" onClick={closeModal}>
                 ×
               </a>
             </div>
