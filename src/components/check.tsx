@@ -52,7 +52,7 @@ const ProductSearch = () => {
     setShowInvalid(false);
 
     setLoading(true);
-    
+
     try {
       const data = await VeganCheck.getProductByBarcode(
         barcode,
@@ -178,13 +178,16 @@ const ProductSearch = () => {
       >
         <legend>{t("enterbarcode")}</legend>
         <fieldset>
+          <legend>{t("enterbarcode")}</legend>
           <Scan
             onDetected={(barcode) => setBarcode(barcode)}
             handleSubmit={(barcode) => handleSubmit(barcode)}
           />
+          <label htmlFor="barcodeInput" className="hidden">{t("enterbarcode")}</label>
           <input
             type="number"
             name="barcode"
+            id="barcodeInput"
             placeholder={t("enterbarcode")}
             autoFocus={true}
             value={barcode}
