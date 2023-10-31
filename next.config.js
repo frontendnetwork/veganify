@@ -1,5 +1,5 @@
 const million = require("million/compiler");
-const withPWA = require("next-pwa")({
+const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   swSrc: "service-worker.js",
 });
