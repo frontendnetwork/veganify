@@ -48,7 +48,7 @@ jobs:
 
       - name: Build and push Docker image
         id: build-prod
-        uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
+        uses: docker/build-push-action@7a786bb2b9408f7f997564f677248fabd4b886d5
         with:
           context: .
           push: true
@@ -109,7 +109,7 @@ jobs:
 
       - name: Build and push Docker image
         id: build-staging
-        uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
+        uses: docker/build-push-action@7a786bb2b9408f7f997564f677248fabd4b886d5
         with:
           context: .
           push: true
