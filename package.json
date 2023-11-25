@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.39.0",
-    "@types/react": "^18.2.33",
+    "@types/react": "^18.2.38",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@typescript-eslint/typescript-estree": "^6.12.0",
