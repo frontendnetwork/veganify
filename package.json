@@ -13,7 +13,7 @@
   "dependencies": {
     "@ducanh2912/next-pwa": "^9.7.2",
     "@ericblade/quagga2": "^1.8.2",
-    "@frontendnetwork/vegancheck": "^1.1.42",
+    "@frontendnetwork/vegancheck": "^1.1.45",
     "@types/node": "20.9.1",
     "@types/react-dom": "18.2.14",
     "eslint-config-sznm": "^2.0.2",
