@@ -7,7 +7,7 @@ import ModalWrapper from "@/components/elements/modalwrapper";
 
 const IngredientsCheck = () => {
   const t = useTranslations("Ingredients");
-  const [flagged, setFlagged] = useState<string[]>([]);
+  const [flagged, setFlagged] = useState<string[] | undefined>([]);
   const [vegan, setVegan] = useState<string | boolean>("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -23,12 +23,15 @@ const IngredientsCheck = () => {
     const checkIngredients = async () => {
       setLoading(true);
       try {
-        const data = await VeganCheck.checkIngredientsList(ingredients.value, process.env.NEXT_PUBLIC_STAGING === "true" ? true : false);
-        if (data.data.vegan === "false") {
+        const data = await VeganCheck.checkIngredientsList(
+          ingredients.value,
+          process.env.NEXT_PUBLIC_STAGING === "true" ? true : false
+        );
+        if (data.data.vegan === false) {
           setVegan(false);
           setFlagged(data.data.flagged);
           setLoading(false);
-        } else if (data.data.vegan === "true") {
+        } else if (data.data.vegan === true) {
           setVegan(true);
           setLoading(false);
         }
@@ -167,8 +170,7 @@ const IngredientsCheck = () => {
           </div>
         </div>
       )}
-      {vegan === false && (
-        <>
+      {vegan === false && flagged && (
           <div id="result">
             <div className="">
               <div className="resultborder">
@@ -272,7 +274,6 @@ const IngredientsCheck = () => {
               </div>
             </div>
           </div>
-        </>
       )}
       {error && (
         <div id="result">
