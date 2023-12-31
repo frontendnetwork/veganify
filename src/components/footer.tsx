@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const d = new Date().getMonth();
   return (
     <>
       <footer>
@@ -39,6 +40,16 @@ export default function Footer() {
             }),
           }}
         />
+        {d === 0 ? (
+        <a href="https://vegc.net/veganuary">
+          <Image
+            src="../img/veganuary.svg"
+            alt="Go to Veganuary"
+            className="labels"
+            width={48}
+            height={48}
+          />
+        </a>) : (
         <a href="https://vegancheck.me">
           <Image
             src="../img/VeganCheck_text.svg"
@@ -48,6 +59,7 @@ export default function Footer() {
             height={48}
           />
         </a>
+        )}
         <a href="https://github.com/frontendnetwork/vegancheck.me">
           <Image
             src="../img/opensource.svg"

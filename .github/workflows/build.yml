@@ -62,7 +62,7 @@ jobs:
 
     steps:
       - name: SSH into the server and run Docker Compose
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.0.1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
@@ -123,7 +123,7 @@ jobs:
 
     steps:
       - name: SSH into the server and run Docker Compose
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.0.1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
