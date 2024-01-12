@@ -14,7 +14,7 @@
     "@ducanh2912/next-pwa": "^9.7.2",
     "@ericblade/quagga2": "^1.8.4",
     "@frontendnetwork/vegancheck": "^1.1.45",
-    "@types/node": "20.10.6",
+    "@types/node": "20.11.0",
     "@types/react-dom": "18.2.18",
     "eslint-config-sznm": "^2.0.2",
     "jest-worker": "^29.7.0",
