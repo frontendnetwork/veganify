@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^9.7.2",
-    "@ericblade/quagga2": "^1.8.2",
+    "@ericblade/quagga2": "^1.8.4",
     "@frontendnetwork/vegancheck": "^1.1.45",
-    "@types/node": "20.9.1",
-    "@types/react-dom": "18.2.14",
+    "@types/node": "20.11.0",
+    "@types/react-dom": "18.2.18",
     "eslint-config-sznm": "^2.0.2",
     "jest-worker": "^29.7.0",
     "million": "^2.6.4",
@@ -24,16 +24,16 @@
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.69.5",
+    "sass": "^1.69.7",
     "sharp": "^0.33.1",
     "typescript": "5.3.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/react": "^18.2.38",
+    "@types/react": "^18.2.47",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "@typescript-eslint/typescript-estree": "^6.12.0",
+    "@typescript-eslint/typescript-estree": "^6.18.1",
     "eslint": "8.52.0",
     "eslint-config-next": "^14.0.4",
     "eslint-plugin-import": "^2.29.0"
