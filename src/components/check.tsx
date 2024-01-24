@@ -1,4 +1,4 @@
-import VeganCheck from "@frontendnetwork/vegancheck";
+import Veganify from "@frontendnetwork/veganify";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React, { useState, useEffect, useRef } from "react";
@@ -54,7 +54,7 @@ const ProductSearch = () => {
     setLoading(true);
 
     try {
-      const data = await VeganCheck.getProductByBarcode(
+      const data = await Veganify.getProductByBarcode(
         barcode,
         process.env.NEXT_PUBLIC_STAGING === "true"
       );

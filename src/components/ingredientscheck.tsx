@@ -1,4 +1,4 @@
-import VeganCheck from "@frontendnetwork/vegancheck";
+import Veganify from "@frontendnetwork/veganify";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React, { useState, FormEvent } from "react";
@@ -23,7 +23,7 @@ const IngredientsCheck = () => {
     const checkIngredients = async () => {
       setLoading(true);
       try {
-        const data = await VeganCheck.checkIngredientsList(
+        const data = await Veganify.checkIngredientsList(
           ingredients.value,
           process.env.NEXT_PUBLIC_STAGING === "true" ? true : false
         );
