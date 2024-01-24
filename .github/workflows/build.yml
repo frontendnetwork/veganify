@@ -132,4 +132,4 @@ jobs:
             cd vegancheck
             docker-compose stop vc-frontend-staging
             docker-compose pull vc-frontend-staging
-            docker-compose up -d vc-frontend
+            docker-compose up -d vc-frontend-staging
