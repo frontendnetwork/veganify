@@ -9,23 +9,12 @@ export default function Footer() {
     <>
       <footer>
         <a
-          href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me"
+          href="https://www.producthunt.com/products/vegancheck-me?utm_source=badge-featured&utm_medium=badge"
           target="_blank"
         >
           <img
             src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=396704&theme=neutral"
-            alt="VeganCheck.me | Product Hunt"
-            height="30"
-          />
-        </a>
-        &nbsp;
-        <a
-          href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me"
-          target="_blank"
-        >
-          <img
-            src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=396704&theme=neutral&period=weekly&topic_id=43"
-            alt="VeganCheck.me | Product Hunt"
+            alt="Veganify | Product Hunt"
             height="30"
           />
         </a>
@@ -41,26 +30,27 @@ export default function Footer() {
           }}
         />
         {d === 0 ? (
-        <a href="https://vegc.net/veganuary">
-          <Image
-            src="../img/veganuary.svg"
-            alt="Go to Veganuary"
-            className="labels"
-            width={48}
-            height={48}
-          />
-        </a>) : (
-        <a href="https://vegancheck.me">
-          <Image
-            src="../img/VeganCheck_text.svg"
-            alt="VeganCheck.me Logo"
-            className="labels"
-            width={48}
-            height={48}
-          />
-        </a>
+          <a href="https://vegc.net/veganuary">
+            <Image
+              src="../img/veganuary.svg"
+              alt="Go to Veganuary"
+              className="labels"
+              width={48}
+              height={48}
+            />
+          </a>
+        ) : (
+          <a href="https://veganify.app">
+            <Image
+              src="../img/veganify_text.svg"
+              alt="Veganify Logo"
+              className="labels"
+              width={48}
+              height={48}
+            />
+          </a>
         )}
-        <a href="https://github.com/frontendnetwork/vegancheck.me">
+        <a href="https://github.com/frontendnetwork/veganify">
           <Image
             src="../img/opensource.svg"
             alt="Open Source"
@@ -69,7 +59,7 @@ export default function Footer() {
             height={48}
           />
         </a>
-        <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fvegancheck.me">
+        <a href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fveganify.app">
           <Image
             src="../img/greenhosted.svg"
             alt="Hosted Green"
@@ -78,7 +68,7 @@ export default function Footer() {
             height={48}
           />
         </a>
-        <a href="https://iplantatree.org/user/VeganCheck.me">
+        <a href="https://iplantatree.org/user/Veganify">
           <Image
             src="../img/treelabel.svg"
             alt="We plant trees. We're carbon neutral."

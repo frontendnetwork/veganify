@@ -1,22 +1,22 @@
 <div align="center">
-<img width="128px" src="https://user-images.githubusercontent.com/4144601/233675806-32769506-f311-416b-80f4-2e8aff0a85a9.svg" alt="VeganCheck Logo">
+<img width="128px" src="https://user-images.githubusercontent.com/4144601/233675806-32769506-f311-416b-80f4-2e8aff0a85a9.svg" alt="Veganify Logo">
 
-# VeganCheck.me
+# Veganify
 
-Check if a product is vegan or not with <a href="https://vegancheck.me"><strong>» VeganCheck.me</strong></a>
+Check if a product is vegan or not with <a href="https://veganify.app"><strong>» Veganify.app</strong></a>
 
 <br/>
-<a href="https://vegancheck.me"><img src="https://user-images.githubusercontent.com/4144601/233676587-c0b1f89a-9e1f-49f9-b4b9-fdbf1e592f5f.png" alt="VeganCheck.me Hero" align="center"></a>
+<a href="https://veganify.app"><img src="https://user-images.githubusercontent.com/4144601/233676587-c0b1f89a-9e1f-49f9-b4b9-fdbf1e592f5f.png" alt="Veganify Hero" align="center"></a>
 <br><br>
-<a href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=396704&theme=neutral" alt="VeganCheck&#0046;me - Check&#0032;if&#0032;a&#0032;product&#0032;if&#0032;vegan&#0047;vegetarian&#0032;easily&#0032;and&#0032;fast | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-<a href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=396704&theme=neutral&period=weekly&topic_id=43" alt="VeganCheck&#0046;me - Check&#0032;if&#0032;a&#0032;product&#0032;if&#0032;vegan&#0047;vegetarian&#0032;easily&#0032;and&#0032;fast | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-<a href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=396704&theme=neutral&period=weekly&topic_id=204" alt="VeganCheck&#0046;me - Check&#0032;if&#0032;a&#0032;product&#0032;if&#0032;vegan&#0047;vegetarian&#0032;easily&#0032;and&#0032;fast | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=396704&theme=neutral" alt="Veganify - Check&#0032;if&#0032;a&#0032;product&#0032;if&#0032;vegan&#0047;vegetarian&#0032;easily&#0032;and&#0032;fast | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=396704&theme=neutral&period=weekly&topic_id=43" alt="Veganify - Check&#0032;if&#0032;a&#0032;product&#0032;if&#0032;vegan&#0047;vegetarian&#0032;easily&#0032;and&#0032;fast | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/posts/vegancheck-me?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-vegancheck&#0045;me" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=396704&theme=neutral&period=weekly&topic_id=204" alt="Veganify- Check&#0032;if&#0032;a&#0032;product&#0032;if&#0032;vegan&#0047;vegetarian&#0032;easily&#0032;and&#0032;fast | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 </div>
 
 ## Overview
-VeganCheck.me checks the barcode (EAN or UPC) of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
+Veganify checks the barcode (EAN or UPC) of a food- or non-food-product and tells you if it is vegan or not. It is an useful tool for vegans and vegetarians - Developed with usability and simplicity in mind, so without distracting irrelevant facts or advertising.
 	
-VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open EAN Database, as well as our very own ingredient checker in one tool. 
+Veganify combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open EAN Database, as well as our very own ingredient checker in one tool. 
 <details>
   <summary>See an example of how it works!</summary>
   <img src="https://user-images.githubusercontent.com/4144601/198900839-8dc58d58-fdb8-48b6-93e4-a4662ae64954.mov" width="300">
@@ -24,40 +24,30 @@ VeganCheck.me combines the Databases of OpenFoodFacts, OpenBeautyFacts and Open 
 </details>	
 
 	
-The [VeganCheck Ingredients API](https://github.com/frontendnetwork/VeganCheck.me-API) checks the products ingredients against a list of thousands of non-vegan items.
+The [Veganify Ingredients API](https://github.com/frontendnetwork/Veganify-API) checks the products ingredients against a list of thousands of non-vegan items.
 
 <p align="center">
-<a href="https://vegancheck.me">Open PWA in browser</a> | <a href="https://frontendnet.work/#projects">Product page on FrontEndNetwork</a> | <a href="https://frontendnet.work/vegancheck-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
+<a href="https://veganify.app">Open PWA in browser</a> | <a href="https://frontendnet.work/#projects">Product page on FrontEndNetwork</a> | <a href="https://frontendnet.work/veganify-api">Use the API</a> | <a href="https://shareshortcuts.com/shortcuts/2224-vegancheck.html">iOS Shortcut</a> | <a href="https://stats.uptimerobot.com/LY1gRuP5j6">Uptime Status</a>
 </p>
-
-## Status
-<a href="https://frontendnet.work/badges"><img alt="JKN Status: Active" src="https://frontendnet.work/assets/img/gitstatus/active.svg"></a>
-![Website](https://img.shields.io/website?down_color=red&down_message=VeganCheck%20is%20down&up_color=green&up_message=VeganCheck%20is%20up&url=https%3A%2F%2Fvegancheck.me)
-<a href="https://sonarcloud.io/summary/new_code?id=JokeNetwork_vegancheck.me"><img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=JokeNetwork_vegancheck.me&metric=alert_status"></a>
-<a href="https://codeclimate.com/github/frontendnetwork/vegancheck.me/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e4c87c9f6b92b9e13b5/maintainability" /></a>
-<a href="https://www.codacy.com/gh/frontendnetwork/vegancheck.me/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JokeNetwork/vegancheck.me&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/88f4f14676db4160881af922125245d7"/></a>
-[![CodeFactor](https://www.codefactor.io/repository/github/frontendnetwork/vegancheck.me/badge)](https://www.codefactor.io/repository/github/frontendnetwork/vegancheck.me)
-![GitHub language count](https://img.shields.io/github/languages/count/frontendnetwork/vegancheck.me)
 
 	
 ## Installation
-[Click here to see the installation guide!](https://frontendnetwork.github.io/vegancheck.me/)
+[Click here to see the installation guide!](https://frontendnetwork.github.io/veganify/)
 
 ## Contribute & Support
-We're happy you want to help! Please read our [Code of Conduct](https://github.com/frontendnetwork/vegancheck.me/blob/main/CODE_OF_CONDUCT.md).
+We're happy you want to help! Please read our [Code of Conduct](https://github.com/frontendnetwork/veganify/blob/main/CODE_OF_CONDUCT.md).
 
 Please refer to our issue trackers to see where you could help: 
-- [[Tasks] Code Improvements](https://github.com/frontendnetwork/vegancheck.me/issues/52)
-- [[Tasks] Localization](https://github.com/frontendnetwork/vegancheck.me/issues/59) - Learn how to localize VeganCheck [here](https://frontendnetwork.github.io/vegancheck.me/localization)
+- [[Tasks] Code Improvements](https://github.com/frontendnetwork/veganify/issues/52)
+- [[Tasks] Localization](https://github.com/frontendnetwork/veganify/issues/59) - Learn how to localize Veganify [here](https://frontendnetwork.github.io/veganify/localization)
 
 or if you find something else you could improve, just open a new issue for it!
 
 ### Support us
 <a href="https://github.com/sponsors/philipbrembeck"><img src="https://img.shields.io/badge/Sponsor%20on%20GitHub-white.svg?logo=githubsponsors" alt="Consider Sponsoring"></a>
 <a href="https://ko-fi.com/vegancheck"><img src="https://img.shields.io/badge/Buy%20us%20a%20coffee-white.svg?logo=kofi" alt="Buy us a coffee"></a>
-<a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536"><img src="https://shields.io/badge/Donate%20with%20PayPal-blue?style=flat&logo=Paypal" alt="Donate"></a> <a href="https://veganism.social/@vegancheck" rel="me"><img src="https://img.shields.io/twitter/url?label=@vegancheck@veganism.social&logo=mastodon&logoColor=grey&url=https%3A%2F%2Ftwitter.com%2Fvegancheckme" alt="Twitter"></a> 
-<a href="https://instagram.com/vegancheck.me"><img src="https://img.shields.io/twitter/url?label=vegancheck.me&logo=instagram&logoColor=grey&url=https%3A%2F%2Finstagram.com%2Fvegancheck.me" alt="Instagram"></a>
-<a href="https://fb.me/vegancheck.me"><img src="https://img.shields.io/twitter/url?label=vegancheck.me&logo=facebook&logoColor=grey&url=https%3A%2F%2Ffb.me%2Fvegancheck.me" alt="Facebook"></a> 
+<a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536"><img src="https://shields.io/badge/Donate%20with%20PayPal-blue?style=flat&logo=Paypal" alt="Donate"></a>
+
 
 ### Premium Supporters
 <a href="https://veganism.social/@mvtracing">
@@ -83,4 +73,4 @@ This repo uses:
 
 ## License
 
-All text and code in this repository is licensed under [MIT](https://github.com/frontendnetwork/VeganCheck.me/blob/main/LICENSE), © 2023 Philip Brembeck, © 2023 FrontEndNetwork.
+All text and code in this repository is licensed under [MIT](https://github.com/frontendnetwork/veganify/blob/main/LICENSE), © 2023 Philip Brembeck, © 2023 FrontEndNetwork.

@@ -43,7 +43,7 @@ test("User should be able to input ingredients and get a result", async ({
 
   await page.route("**/v0/ingredients/*", (route) => {
     expect(route.request().url()).toBe(
-      "https://api.vegancheck.me/v0/ingredients/Duck"
+      "https://api.veganify.app/v0/ingredients/Duck"
     );
     expect(route.request().method()).toBe("GET");
     route.fulfill({
@@ -105,7 +105,7 @@ test("User should be able to input a barcode via the URL parameter `ean` ", asyn
 }) => {
   await page.route("**/v0/product/*", (route) => {
     expect(route.request().url()).toBe(
-      "https://api.vegancheck.me/v0/product/4066600204404"
+      "https://api.veganify.app/v0/product/4066600204404"
     );
     expect(route.request().method()).toBe("POST");
     route.fulfill({

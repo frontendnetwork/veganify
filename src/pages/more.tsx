@@ -72,19 +72,10 @@ export default function More() {
                 <span className="icon-mastodon"></span>
               </div>
             </a>
-            <a href="https://instagram.com/vegancheck.me" className="menu">
+            <a href="https://instagram.com/veganify.app" className="menu">
               <span className="label">Instagram</span>
               <div className="social-icon">
                 <span className="icon-instagram"></span>
-              </div>
-            </a>
-            <a
-              href="https://facebook.com/vegancheck.me"
-              className="menu facebook"
-            >
-              <span className="label">Facebook</span>
-              <div className="social-icon">
-                <span className="icon-facebook"></span>
               </div>
             </a>
           </ModalWrapper>
@@ -109,7 +100,7 @@ export default function More() {
           </div>
         </Link>
         <a
-          href="https://frontendnet.work/vegancheck-api"
+          href="https://frontendnet.work/veganify-api"
           className="Grid links"
         >
           <div className="Grid-cell description">{t("apidocumentation")}</div>

@@ -165,7 +165,7 @@ const ProductSearch = () => {
   return (
     <>
       <Image
-        src="/./img/VeganCheck.svg"
+        src="/./img/Veganify.svg"
         alt="Logo"
         className={`logo ${loading ? "spinner" : ""}`}
         width={48}
@@ -316,13 +316,13 @@ const ProductSearch = () => {
                       dangerouslySetInnerHTML={{
                         __html: t("grades_desc", {
                           Grades:
-                            '<a href="https://grade.vegancheck.me">VeganCheck Grades</a>',
+                            '<a href="https://grade.veganify.app">Veganify Grades</a>',
                         }),
                       }}
                     />
                     <span className="center">
-                      <a href="https://grade.vegancheck.me" className="button">
-                        VeganCheck Grades
+                      <a href="https://grade.veganify.app" className="button">
+                        Veganify Grades
                       </a>
                     </span>
                   </ModalWrapper>
@@ -368,7 +368,7 @@ const ProductSearch = () => {
                       GNU FDL
                     </a>
                     .<br />
-                    &copy; VeganCheck.me Contributors and Hamed Montazeri,
+                    &copy; Veganify Contributors and Hamed Montazeri,
                     licensed under{" "}
                     <a href="https://github.com/JokeNetwork/vegan-ingredients-api/blob/master/LICENSE">
                       MIT License
@@ -386,7 +386,7 @@ const ProductSearch = () => {
                       The VEGAN WOLF
                     </a>
                     .<br />
-                    &copy; VeganCheck.me Contributors, sourced from ©{" "}
+                    &copy; Veganify Contributors, sourced from ©{" "}
                     <a href="https://crueltyfree.peta.org">
                       PETA (Beauty without Bunnies)
                     </a>

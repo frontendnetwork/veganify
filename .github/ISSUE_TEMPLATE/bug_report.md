@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report for a bug in VeganCheck.me
+about: Create a report for a bug in Veganify
 title: "[BUG]"
 labels: bug
 
