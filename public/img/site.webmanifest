@@ -3,10 +3,10 @@
     "background_color": "#121212",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://vegancheck.me",
-    "name": "VeganCheck.me",
-    "short_name": "VeganCheck",
-    "description": "VeganCheck.me checks if a product is vegan or not.",
+    "start_url": "https://veganify.app",
+    "name": "Veganify",
+    "short_name": "Veganify",
+    "description": "Veganify checks if a product is vegan or not.",
     "start_url": "/?utm_source=pwa",
     "icons": [
         {

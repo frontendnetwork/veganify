@@ -19,8 +19,8 @@ const ShareButton = ({ productName, barcode }: ShareButtonProps) => {
     }
   }, []);
 
-  const text = productName + " - Checked using VeganCheck";
-  const url = `https://vegancheck.me/?ean=${barcode}`;
+  const text = productName + " - Checked using Veganify";
+  const url = `https://veganify.app/?ean=${barcode}`;
 
   const handleCopyClick = () => {
     navigator.clipboard
@@ -36,7 +36,7 @@ const ShareButton = ({ productName, barcode }: ShareButtonProps) => {
   const handleMastodonClick = () => {
     const mastodonurl = `https://s2f.kytta.dev/?text=${encodeURI(
       text
-    )} https%3A%2F%2Fvegancheck.me%2F%3Fean%3D${barcode}`;
+    )} https%3A%2F%2Fveganify.app%2F%3Fean%3D${barcode}`;
     window.location.href = mastodonurl;
     (document.querySelector(".btn-dark") as HTMLElement)?.click();
   };

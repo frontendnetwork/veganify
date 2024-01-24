@@ -1,7 +1,7 @@
 {
   "Nav": {
-    "title": "Ist es Vegan? – Vegan Check",
-    "description": "Du bist dir unsicher, ob ein Produkt vegan ist oder nicht? Mit VeganCheck.me kannst du direkt beim Einkaufen den Barcode von einem Artikel scannen und überprüfen, ob es vegan ist oder nicht und das ohne viele andere unnötige Informationen! Probiere es jetzt aus!",
+    "title": "Ist es Vegan? – Veganify",
+    "description": "Du bist dir unsicher, ob ein Produkt vegan ist oder nicht? Mit Veganify kannst du direkt beim Einkaufen den Barcode von einem Artikel scannen und überprüfen, ob es vegan ist oder nicht und das ohne viele andere unnötige Informationen! Probiere es jetzt aus!",
     "home": "Home",
     "ingredientcheck": "Zutatencheck",
     "more": "Mehr"
@@ -18,10 +18,10 @@
     "palmoil_desc": "Palmöl hat extrem schädliche Auswirkungen auf den Planeten. Es ist die Hauptursache für die Abholzung einiger der artenreichsten Wälder und zerstört die natürlichen Lebensräume von bereits gefährdeten Tieren. Aus diesem Grund empfehlen wir, keine Produkte zu kaufen, die Palmöl enthalten. Leider gibt es immer noch viele Produkte, die Palmöl enthalten.",
     "crueltyfree": "Tierversuchsfrei",
     "nutriscore_desc": "Der Nutriscore zeigt das Nährwertprofil eines Produktes in Ampelform an. Der Nutriscore gilt jedoch nicht als genau und sollte nicht als Referenz verwendet werden, weil er immer auf der Basis von 100g/100ml des Produktes berechnet wird. Weitere Informationen sind bei {Algorithmwatch} (Englisch) zu finden.",
-    "grades_desc": "Bist du verwirtt von all den Vegan/Bio/Umweltfreundlich Zertifikaten und Labels?<br />Das gehört der Vergangenheit an, mit den einfach zu verstehenden VeganCheck Grades! VeganCheck Grades ist ein Bewertungssystem für vegane Produkte, das eine von sechs Noten an ein Produkt vergibt (von A+ - nicht geeignet).<br />Wenn du mehr über VeganCheck Grades erfahren möchtest oder eine Bewertung für ein Produkt anfragen möchtest, kannst du das auf {Grades} tun!",
+    "grades_desc": "Bist du verwirtt von all den Vegan/Bio/Umweltfreundlich Zertifikaten und Labels?<br />Das gehört der Vergangenheit an, mit den einfach zu verstehenden Veganify Grades! Veganify Grades ist ein Bewertungssystem für vegane Produkte, das eine von sechs Noten an ein Produkt vergibt (von A+ - nicht geeignet).<br />Wenn du mehr über Veganify Grades erfahren möchtest oder eine Bewertung für ein Produkt anfragen möchtest, kannst du das auf {Grades} tun!",
     "source": "Datenquelle",
     "licenses": "Lizenzen",
-    "licenses_desc": "VeganCheck.me benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
+    "licenses_desc": "Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
     "notindb": "Dieses Produkt haben wir noch nicht in unserer Datenbank.",
     "notindb_add": "Willst du es hinzufügen?",
     "add_food": "Lebensmittel hinzufügen",
@@ -61,7 +61,7 @@
   "TOS": {
     "englishgermanonly": "Die Nutzungsbedingungen sind nur in Englisch und Deutsch verfügbar.",
     "tos": "Nutzungsbedingungen",
-    "tos_content": "<p><b>Nutzung der Seite \"VeganCheck.me\"</b></p><p>Die Nutzung der Seite \"VeganCheck.me\" erfolgt kostenlos. Die entgeltliche Weitergabe der Inhalte oder unserer Services ist untersagt. Automatisierte Abfragen sind ebenfalls untersagt und dürfen nur mittels der <a href=\"https://frontendnet.work/vegancheck-api\">API</a> erfolgen.<br> Wir behalten uns vor, unsere Services jederzeit zu ändern, zu reduzieren, zu erweitern oder zu deaktivieren.</p><p><b>Verarbeitung eingegebener Texte und Nummern</b></p><p>Auf unserer Website können in Textfeldern Barcodes oder Zutaten eines Produktes eingegeben werden. Dies ist notwendig, um unseren Dienst im vollem Umfang zur Verfügung zu stellen. Die Eingabe erfolgt freiwillig.<br>In die benannten Textfelder dürfen nur Barcodes oder Zutaten eingegeben werden, die Eingabe oder Übermittlung von personenbezogenen Daten jeglicher Art ist untersagt.</p><p>Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_de\">?</a></sup></p><p><b>Haftungsausschluss</b></p><p>Wir übernehmen keine Haftung für die Richtigkeit der angebotenen Produktinformationen und Zutatenlisten und für die Verfügbarkeit unseres Dienstes.</p>"
+    "tos_content": "<p><b>Nutzung der Seite \"Veganify.app\"</b></p><p>Die Nutzung der Seite \"Veganify.app\" erfolgt kostenlos. Die entgeltliche Weitergabe der Inhalte oder unserer Services ist untersagt. Automatisierte Abfragen sind ebenfalls untersagt und dürfen nur mittels der <a href=\"https://frontendnet.work/veganify-api\">API</a> erfolgen.<br> Wir behalten uns vor, unsere Services jederzeit zu ändern, zu reduzieren, zu erweitern oder zu deaktivieren.</p><p><b>Verarbeitung eingegebener Texte und Nummern</b></p><p>Auf unserer Website können in Textfeldern Barcodes oder Zutaten eines Produktes eingegeben werden. Dies ist notwendig, um unseren Dienst im vollem Umfang zur Verfügung zu stellen. Die Eingabe erfolgt freiwillig.<br>In die benannten Textfelder dürfen nur Barcodes oder Zutaten eingegeben werden, die Eingabe oder Übermittlung von personenbezogenen Daten jeglicher Art ist untersagt.</p><p>Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_de\">?</a></sup></p><p><b>Haftungsausschluss</b></p><p>Wir übernehmen keine Haftung für die Richtigkeit der angebotenen Produktinformationen und Zutatenlisten und für die Verfügbarkeit unseres Dienstes.</p>"
   },
   "Privacy": {
     "germanonly": "Diese Seite ist nur auf Deutsch verfügbar."
@@ -75,12 +75,12 @@
   },
   "Fallback": {
     "yourareoffline": "Du bist offline.",
-    "needinternet": "VeganCheck.me funktioniert nur mit einer aktiven Internet-Verbindung.",
+    "needinternet": "Veganify funktioniert nur mit einer aktiven Internet-Verbindung.",
     "tryagain": "Erneut versuchen"
   },
   "InstallPrompt": {
-    "subheading": "Ist es Vegan? - Vegan Check",
-    "install": "VeganCheck.me installieren",
+    "subheading": "Ist es Vegan? - Veganify",
+    "install": "Veganify installieren",
     "get": "Laden",
     "howtoinstall": "Tippe auf {share} und dann auf \"Zum Home-Bildschirm\"."
   },
@@ -98,7 +98,7 @@
     "source": "Datenquelle",
     "cannotbeempty": "Die Zutatenliste darf nicht leer sein oder Sonderzeichen enthalten und muss durch Kommata getrennt sein!",
     "licenses": "Lizenzen",
-    "licenses_desc":"VeganCheck.me benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
+    "licenses_desc":"Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
     "languagewarning": "Diese Ergebnisse können aufgrund von Übersetzungsfehlern oder fehlenden Informationen inkorrekt sein. Die Ergebnisse werden mit {deepl} übersetzt."
   }
 }

@@ -30,7 +30,7 @@ const SupportOption = () => {
     setIcon("icon-kofi");
     setVendor("Ko-Fi.com");
     setSupportBtnText("Sponsor on Ko-Fi");
-    setSupportBtnLink("https://ko-fi.com/vegancheck");
+    setSupportBtnLink("https://ko-fi.com/veganify");
     setKofiChecked(true);
     setOnceChecked(false);
     setGhChecked(false);

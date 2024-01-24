@@ -1,7 +1,7 @@
 {
   "Nav": {
-    "title": "\u00bfEs vegano? - Vegan Check",
-    "description": "\u00bfNo est\u00e1s seguro de si un producto es vegano o no? Con VeganCheck.me puedes escanear el c\u00f3digo de barras de un art\u00edculo mientras compras y comprobar si es vegano o no, \u00a1y eso sin mucha otra informaci\u00f3n innecesaria! Pru\u00e9balo ahora!",
+    "title": "\u00bfEs vegano? - Veganify",
+    "description": "\u00bfNo est\u00e1s seguro de si un producto es vegano o no? Con Veganify puedes escanear el c\u00f3digo de barras de un art\u00edculo mientras compras y comprobar si es vegano o no, \u00a1y eso sin mucha otra informaci\u00f3n innecesaria! Pru\u00e9balo ahora!",
     "home": "Home",
     "ingredientcheck": "Ingredientes Comprobar",
     "more": "Más"
@@ -18,10 +18,10 @@
     "palmoil_desc": "El aceite de palma tiene un impacto extremadamente perjudicial para el planeta. Es el principal impulsor de la deforestaci\u00f3n de algunos de los bosques m\u00e1s biodiversos, destruyendo los h\u00e1bitats naturales de animales ya amenazados. Por ello, recomendamos no comprar ning\u00fan producto que contenga aceite de palma. Lamentablemente, todav\u00eda hay muchos productos que incluyen aceite de palma.",
     "crueltyfree": "Sin crueldad",
     "nutriscore_desc": "El Nutriscore indica el perfil nutricional de un producto en forma de sem\u00e1foro. Sin embargo, el Nutriscore no se considera exacto y no debe utilizarse como referencia. Puede encontrar más información sobre Nutriscore en {Algorithmwatch} (en inglés).",
-    "grades_desc": "¿Te confunden todas las etiquetas vegano/ecológico/orgánico?<br />Con VeganCheck Grades, fácil de entender, ya no lo estarás. VeganCheck Grades es un sistema de calificación para productos veganos, que asigna una de seis calificaciones (A+ - No apto) a un producto.<br />Si estás interesado en saber más sobre VeganCheck Grades o si quieres solicitar una calificación para un producto, ¡puedes hacerlo en {Grades}!",
+    "grades_desc": "¿Te confunden todas las etiquetas vegano/ecológico/orgánico?<br />Con Veganify Grades, fácil de entender, ya no lo estarás. Veganify Grades es un sistema de calificación para productos veganos, que asigna una de seis calificaciones (A+ - No apto) a un producto.<br />Si estás interesado en saber más sobre Veganify Grades o si quieres solicitar una calificación para un producto, ¡puedes hacerlo en {Grades}!",
     "source": "Origen de los datos",
     "licenses": "Licencias",
-    "licenses_desc": "VeganCheck.me utiliza varias fuentes de datos para recoger informaci\u00F3n sobre un producto. Esta informaci\u00F3n est\u00E1 bajo las siguientes licencias:",
+    "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger informaci\u00F3n sobre un producto. Esta informaci\u00F3n est\u00E1 bajo las siguientes licencias:",
     "notindb": "Este producto a\u00fan no est\u00e1 en nuestra base de datos.",
     "notindb_add": "\u00bfQuiere a\u00f1adirlo?",
     "add_food": "A\u00f1adir comida",
@@ -61,7 +61,7 @@
   "TOS": {
     "englishgermanonly": "Esta página sólo está disponible en inglés y alemán.",
     "tos": "Condiciones de servicio",
-    "tos_content": "<p><b>Use of \"VeganCheck.me\"</b></p><p>The use of the site \"VeganCheck.me\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https://jokenetwork.de/vegancheck-api\">API</a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.</p><p><b>Processing of entered texts and numbers</b></p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.</p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en\">?</a></sup></p><p><b>Disclaimer</b></p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.</p>"
+    "tos_content": "<p><b>Use of \"Veganify\"</b></p><p>The use of the site \"Veganify.app\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https://jokenetwork.de/veganify-api\">API</a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.</p><p><b>Processing of entered texts and numbers</b></p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.</p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en\">?</a></sup></p><p><b>Disclaimer</b></p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.</p>"
   },
   "Privacy": {
     "germanonly": "Esta página sólo está disponible en alemán."
@@ -74,12 +74,12 @@
   },
   "Fallback": {
     "yourareoffline": "Estás desconectado.",
-    "needinternet": "Necesitas una conexión activa a Internet para utilizar VeganCheck.me.",
+    "needinternet": "Necesitas una conexión activa a Internet para utilizar Veganify.",
     "tryagain": "Inténtalo de nuevo"
   },
   "InstallPrompt": {
-    "subheading": "¿Es vegano? - Vegan Check",
-    "install": "Instalar VeganCheck.me",
+    "subheading": "¿Es vegano? - Veganify",
+    "install": "Instalar Veganify",
     "get": "Obtener",
     "howtoinstall": "Pulse sobre {share} y después sobre \"Añadir a pantalla de inicio\"."
   },
@@ -97,7 +97,7 @@
     "source": "Origen de los datos",
     "cannotbeempty": "La lista de ingredientes no puede estar vacía ni incluir caracteres especiales y tiene que estar separada por comas.",
     "licenses": "Licencias",
-    "licenses_desc": "VeganCheck.me utiliza varias fuentes de datos para recoger informaci\u00F3n sobre un producto. Esta informaci\u00F3n est\u00E1 bajo las siguientes licencias:",
+    "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger informaci\u00F3n sobre un producto. Esta informaci\u00F3n est\u00E1 bajo las siguientes licencias:",
     "languagewarning": "Estos resultados pueden ser incorrectos debido a errores de traducción o falta de información. Los resultados se traducen con {deepl}."
   }
 }

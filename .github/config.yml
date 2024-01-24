@@ -8,7 +8,7 @@ newIssueWelcomeComment: >
 
 # Comment to be posted to on PRs from first time contributors in your repository
 newPRWelcomeComment: >
-  Thanks for opening this pull request for VeganCheck.me! Any help is highly appreciated!
+  Thanks for opening this pull request for Veganify! Any help is highly appreciated!
 
 # Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
 
