@@ -27,7 +27,7 @@ export default function Container(props: ContainerProps) {
           {hasLogo === true && (
             <>
               <Link href="/">
-                <Image src="/./img/VeganCheck.svg" alt="Logo" className="logo" width={48} height={48} />
+                <Image src="/./img/Veganify.svg" alt="Logo" className="logo" width={48} height={48} />
               </Link>
               <br />
             </>

@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>VeganCheck.me Installation Guide</title>
+    <title>Veganify Installation Guide</title>
     <link rel="stylesheet" href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css">
     <link rel="stylesheet" href="assets/prism.css">
     <style>
@@ -34,12 +34,12 @@
         </span>
 
         <span class="Label mr-1 Label--success">Stable</span>
-        <img width="80px" src="https://raw.githubusercontent.com/JokeNetwork/vegancheck.me/main/public/img/hero_icon.png" align="right" alt="VeganCheck Logo" class="logo_12">
-        <h1>VeganCheck.me Installation Guide</h1>
-        <p>Installing VeganCheck.me on your own server or hosting your own mirror is straight forward.<br>Here you can find out how it works and what to note.</p>
+        <img width="80px" src="https://raw.githubusercontent.com/JokeNetwork/veganify.app/main/public/img/hero_icon.png" align="right" alt="Veganify Logo" class="logo_12">
+        <h1>veganify.app Installation Guide</h1>
+        <p>Installing veganify.app on your own server or hosting your own mirror is straight forward.<br>Here you can find out how it works and what to note.</p>
         <h2 id="vercek">Deploy to Vercel</h2>
         <p>The easiest way is to deploy the project to Vercel. Please note that Vercel is not GDPR compliant.</p>
-        <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJokeNetwork%2Fvegancheck.me"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
+        <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJokeNetwork%2Fveganify.app"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
         <h2 id="requirements">Requirements</h2>
         <ul>
             <li>Node.js (React 18.2.0, Next.js 13.1.6) installed  
@@ -47,8 +47,8 @@
             <li>or: <a href="https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable">Yarn</a> installed (<code>npm install --global yarn</code>)</li> 
         </ul>
         <h2 id="get-started">Get started</h2>
-        <p>Download the <a href="https://github.com/JokeNetwork/vegancheck.me/releases">latest release</a> or just use the following command:</p>
-        <div class="highlight"><pre class="highlight"><code class="language-bash">$ git clone https://github.com/JokeNetwork/vegancheck.me.git</code></pre></div>
+        <p>Download the <a href="https://github.com/JokeNetwork/veganify.app/releases">latest release</a> or just use the following command:</p>
+        <div class="highlight"><pre class="highlight"><code class="language-bash">$ git clone https://github.com/JokeNetwork/veganify.app.git</code></pre></div>
         <h2 id="install-dependencies">Install dependencies</h2>
         <p>Use the following commands to install all at once: </p>
         <div class="highlight"><pre class="highlight"><code class="lang-bash">$ npm <span class="hljs-keyword">install</span></code></pre></div>
@@ -64,7 +64,7 @@
 <p>or:</p>
     <div class="highlight"><pre class="highlight"><code class="lang-bash">$ yarn build</span></code></pre></div>
         <p>You can then run the code in a normal Node.js production environment (Like with the help of <a href="http://supervisord.org">supervisord</a>).</p>
-        <p>Please note that the service runs on <code>Port 1030</code>. You can change the port by editing the "start" command in the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/package.json">package.json</a> at <code>"start": "next start -p [Desired port]"</code>.</p>
+        <p>Please note that the service runs on <code>Port 1030</code>. You can change the port by editing the "start" command in the <a href="https://github.com/JokeNetwork/veganify.app/blob/main/package.json">package.json</a> at <code>"start": "next start -p [Desired port]"</code>.</p>
         <h2 id="use-tests">Use Frontend Tests</h2>
         <p>We use the Playwright Framework for our Frontend tests.<br />
         For more information about Playwright, please visit <a href="https://playwright.dev">https://playwright.dev</a>.</p>
@@ -75,24 +75,24 @@
         <p>All test should pass. Those test only check for the usabilty of the page. If you want to write your own tests, you can find the tests in <code>src/tests/usability.spec.ts</code>.</p>
         <h2 id="use-of-icons">Use of icons</h2>
         <ul>
-            <li>The VeganCheck.me Logo and the app icons are free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>.</li>
+            <li>The veganify.app Logo and the app icons are free to use under the terms of the <a href="https://github.com/JokeNetwork/veganify.app/blob/main/LICENSE">MIT License</a>.</li>
             <li>The Open-Source logo is free to use, as long as you publish your fork of the repository openly.</li>
-            <li>The Green Hosted logo is free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>, but only to be used if your fork is actually hosted green as of the criteria of <a href="https://www.thegreenwebfoundation.org">The Green Web Foundation</a>.</li>
-            <li>The We plant trees. logo is free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>, but only to be used if your fork of VeganCheck.me plants trees in the tree planting team &quot;WE PLANT TREES.&quot; on <a href="https://iplantatree.org/user/VeganCheck.me">I Plant A Tree</a>.</li>
-            <li>The icons used in our iconfonts are free to use under the terms of the <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT License</a>.</li>
+            <li>The Green Hosted logo is free to use under the terms of the <a href="https://github.com/JokeNetwork/veganify.app/blob/main/LICENSE">MIT License</a>, but only to be used if your fork is actually hosted green as of the criteria of <a href="https://www.thegreenwebfoundation.org">The Green Web Foundation</a>.</li>
+            <li>The We plant trees. logo is free to use under the terms of the <a href="https://github.com/JokeNetwork/veganify.app/blob/main/LICENSE">MIT License</a>, but only to be used if your fork of veganify.app plants trees in the tree planting team &quot;WE PLANT TREES.&quot; on <a href="https://iplantatree.org/user/veganify.app">I Plant A Tree</a>.</li>
+            <li>The icons used in our iconfonts are free to use under the terms of the <a href="https://github.com/JokeNetwork/veganify.app/blob/main/LICENSE">MIT License</a>.</li>
             <div class="flash flash-warn p-3 mt-3 mb-3" role="alert">
-                <strong>Important!</strong> All other icons used in the VeganCheck.me repo are exclusively licensed to VeganCheck.me and the VeganCheck.me domain by <a href="https://thenounproject.com">Noun Project</a>. If you want to use those icons, you will need to get a paid membership at Noun Project: <a href="https://thenounproject.com/pricing/">NounPro Unlimited</a>. Otherwise, please replace those icons.
+                <strong>Important!</strong> All other icons used in the veganify.app repo are exclusively licensed to veganify.app and the veganify.app domain by <a href="https://thenounproject.com">Noun Project</a>. If you want to use those icons, you will need to get a paid membership at Noun Project: <a href="https://thenounproject.com/pricing/">NounPro Unlimited</a>. Otherwise, please replace those icons.
             </div>
         </ul>
         <h2 id="api-documentation">API documentation</h2>
         <p>The API documentation was relocated and can now be found at one of the following locations:</p>
         <ul>
-            <li><a href="https://jokenetwork.de/vegancheck-api">VeganCheck.me API at JokeNetwork</a></li>
-            <li><a href="https://jokenetwork.de/vegancheck-ingredients-api">VeganCheck.me Ingredients API at JokeNetwork</a></li>
-            <li><a href="https://jokenetwork.de/vegancheck-peta-api">VeganCheck.me PETA API at JokeNetwork</a></li>
+            <li><a href="https://jokenetwork.de/veganify-api">veganify.app API at JokeNetwork</a></li>
+            <li><a href="https://jokenetwork.de/veganify-ingredients-api">veganify.app Ingredients API at JokeNetwork</a></li>
+            <li><a href="https://jokenetwork.de/veganify-peta-api">veganify.app PETA API at JokeNetwork</a></li>
         </ul>
         <footer class="border-top">
-            <p class="color-fg-muted mt-2">&copy; 2023 <a href="//vegancheck.me">VeganCheck.me</a> - Licensed under <a href="https://github.com/JokeNetwork/vegancheck.me/blob/main/LICENSE">MIT</a></p>
+            <p class="color-fg-muted mt-2">&copy; 2024 <a href="//veganify.app">veganify.app</a> - Licensed under <a href="https://github.com/frontendnetwork/veganify.app/blob/main/LICENSE">MIT</a></p>
         </footer>
     </div>
     <script src="assets/prism.js"></script>

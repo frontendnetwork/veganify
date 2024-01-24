@@ -33,21 +33,20 @@ export default function Nav() {
 
         <meta property="og:title" content={t("title")} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vegancheck.me" />
+        <meta property="og:url" content="https://veganify.app" />
 
         <meta
           name="twitter:image:src"
-          content="https://vegancheck.me/img/og_image.png"
+          content="https://veganify.app/img/og_image.png"
         />
-        <meta property="twitter:image:alt" content="VeganCheck.me" />
-        <meta name="twitter:site" content="@vegancheckme" />
+        <meta property="twitter:image:alt" content="Veganify" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="og:image"
-          content="https://vegancheck.me/img/og_image.png"
+          content="https://veganify.app/img/og_image.png"
         />
-        <meta property="og:image:alt" content="VeganCheck.me" />
-        <meta property="og:site_name" content="VeganCheck.me" />
+        <meta property="og:image:alt" content="Veganify" />
+        <meta property="og:site_name" content="Veganify" />
         <meta property="og:type" content="object" />
 
         <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
@@ -62,53 +61,8 @@ export default function Nav() {
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#7f8fa6" key="pcl" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141414" key="pcd" />
 
-        <meta name="application-name" content="VeganCheck" />
-        <meta name="apple-mobile-web-app-title" content="VeganCheck" />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_14_Pro_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_14_Pro_Max_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_11__iPhone_XR_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_portrait.png"
-        />
-        <link
-          rel="apple-touch-startup-image"
-          media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-          href="../img/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png"
-        />
+        <meta name="application-name" content="Veganify" />
+        <meta name="apple-mobile-web-app-title" content="Veganify" />
       </Head>
       <nav className="nav">
         <div className="flex-container">

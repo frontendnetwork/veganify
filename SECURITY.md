@@ -1,24 +1,23 @@
 # Security Policy
 
 > [!IMPORTANT]  
-> Up-to-Date contact information can be found in our [security.txt](https://vegancheck.me/.well-known/security.txt)! 
+> Up-to-Date contact information can be found in our [security.txt](https://veganify.app/.well-known/security.txt)! 
 
 
 ## Supported Versions
 
-Only the current released versions and the versions available online (on https://vegancheck.me) are supported officially. Forks are not within our scope.
+Only the current released versions and the versions available online (on https://veganify.app) are supported officially. Forks are not within our scope.
 
 ## Scope of the Security Policy
 The Scope of this Security Policy includes:
-- analytics.vegancheck.me
-- api.vegancheck.me
-- dev.vegancheck.me *
-- grade.vegancheck.me
-- grades.vegancheck.me
-- mastobot.vegancheck.me †
-- preprod.vegancheck.me *
-- staging.vegancheck.me
-- vegancheck.me
+- api.veganify.app
+- dev.veganify.app *
+- grade.veganify.app
+- grades.veganify.app
+- mastobot.veganify.app †
+- preprod.veganify.app *
+- staging.veganify.app
+- veganify.app
 
   
 > [!NOTE]  
@@ -29,4 +28,4 @@ The Scope of this Security Policy includes:
 
 ## Reporting a Vulnerability
 
-You can read more about reporting a vulnerability [here](https://security.philip.media/vdp). Please also see our contact details in our [security.txt](https://vegancheck.me/.well-known/security.txt).
+You can read more about reporting a vulnerability [here](https://security.philip.media/vdp). Please also see our contact details in our [security.txt](https://veganify.app/.well-known/security.txt).

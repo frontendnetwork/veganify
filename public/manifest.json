@@ -3,9 +3,9 @@
     "background_color": "#121212",
     "display": "standalone",
     "scope": "/",
-    "name": "VeganCheck.me",
-    "short_name": "VeganCheck",
-    "description": "VeganCheck.me checks if a product is vegan or not.",
+    "name": "Veganify",
+    "short_name": "Veganify",
+    "description": "Veganify checks if a product is vegan or not.",
     "start_url": "/?utm_source=pwa",
     "icons": [
         {

@@ -47,10 +47,10 @@ const InstallPrompt = () => {
           ×
         </div>
         <div className="flex-item">
-          <img src="/img/maskable_icon.png" alt="VeganCheck Icon" />
+          <img src="/img/maskable_icon.png" alt="Veganify Icon" />
         </div>
         <div className="flex-item">
-          <span className="heading">VeganCheck.me</span>
+          <span className="heading">Veganify</span>
           <span className="subheading">{t("subheading")}</span>
         </div>
         <div className="flex-item">

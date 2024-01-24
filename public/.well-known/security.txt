@@ -10,4 +10,4 @@ Preferred-Languages: en, de
 Policy: https://security.philip.media/
 Acknowledgments: https://security.philip.media/Acknowledgments
 
-Canonical: https://vegancheck.me/.well-known/security.txt
+Canonical: https://veganify.app/.well-known/security.txt
