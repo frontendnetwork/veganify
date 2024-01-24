@@ -130,6 +130,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd vegancheck
-            docker-compose stop vc-frontend
-            docker-compose pull vc-frontend
+            docker-compose stop vc-frontend-staging
+            docker-compose pull vc-frontend-staging
             docker-compose up -d vc-frontend
