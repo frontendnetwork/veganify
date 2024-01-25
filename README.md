@@ -40,6 +40,8 @@ Please refer to our issue trackers to see where you could help:
 - [[Tasks] Code Improvements](https://github.com/frontendnetwork/veganify/issues/52)
 - [[Tasks] Localization](https://github.com/frontendnetwork/veganify/issues/59) - Learn how to localize Veganify [here](https://frontendnetwork.github.io/veganify/localization)
 
+<a href="https://fink.inlang.com/github.com/frontendnetwork/veganify?ref=badge"><img src="https://badge.inlang.com/?url=github.com/frontendnetwork/veganify" alt="Veganify on Inlang" style="border-radius: 5%;"></a>
+
 or if you find something else you could improve, just open a new issue for it!
 
 ### Support us
