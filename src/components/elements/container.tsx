@@ -11,7 +11,7 @@ interface ContainerProps {
   children: React.ReactNode;
 }
 
-export default function Container(props: ContainerProps) {
+export default function Container(props: Readonly<ContainerProps>) {
   const hasHeading = props.heading ? "true" : "false";
   const headingStyle = props.headingstyle ?? undefined;
 
