@@ -13,7 +13,7 @@
   "dependencies": {
     "@ducanh2912/next-pwa": "^9.7.2",
     "@ericblade/quagga2": "^1.8.4",
-    "@frontendnetwork/veganify": "^1.1.49",
+    "@frontendnetwork/veganify": "file:../vegancheck-api-wrapper",
     "@types/node": "20.11.16",
     "@types/react-dom": "18.2.18",
     "eslint-config-sznm": "^2.0.2",
@@ -26,7 +26,8 @@
     "react-dom": "18.2.0",
     "sass": "^1.69.7",
     "sharp": "^0.33.1",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "veganify": "github:frontendnetwork/veganify"
   },
   "devDependencies": {
     "@playwright/test": "^1.41.1",

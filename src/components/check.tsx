@@ -1,7 +1,7 @@
 import Veganify from "@frontendnetwork/veganify";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, FormEvent } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 import ShareButton from "@/components/elements/share";
@@ -43,7 +43,7 @@ const ProductSearch = () => {
   }, []);
 
   /* Submitting */
-  const handleSubmit = async (barcode: string, event?: React.FormEvent) => {
+  const handleSubmit = async (barcode: string, event?: FormEvent) => {
     event?.preventDefault();
     setShowTimeoutFinal(false);
     setShowTimeout(false);
@@ -183,7 +183,9 @@ const ProductSearch = () => {
             onDetected={(barcode) => setBarcode(barcode)}
             handleSubmit={(barcode) => handleSubmit(barcode)}
           />
-          <label htmlFor="barcodeInput" className="hidden">{t("enterbarcode")}</label>
+          <label htmlFor="barcodeInput" className="hidden">
+            {t("enterbarcode")}
+          </label>
           <input
             type="number"
             name="barcode"
@@ -368,8 +370,8 @@ const ProductSearch = () => {
                       GNU FDL
                     </a>
                     .<br />
-                    &copy; Veganify Contributors and Hamed Montazeri,
-                    licensed under{" "}
+                    &copy; Veganify Contributors and Hamed Montazeri, licensed
+                    under{" "}
                     <a href="https://github.com/JokeNetwork/vegan-ingredients-api/blob/master/LICENSE">
                       MIT License
                     </a>
