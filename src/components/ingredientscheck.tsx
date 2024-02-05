@@ -182,9 +182,9 @@ const IngredientsCheck = () => {
                     <span className="non-vegan icon-cancel"></span>
                   </div>
                 </div>
-                {flagged.map((item, index) => (
+                {flagged.map((item) => (
                   <div className="Grid" key={item}>
-                    <div className="Grid-cell description" key={index}>
+                    <div className="Grid-cell description" key={item}>
                       {item.charAt(0).toUpperCase() + item.slice(1)}
                     </div>
                     <div className="Grid-cell icons">
