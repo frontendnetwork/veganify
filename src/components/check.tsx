@@ -60,8 +60,13 @@ const ProductSearch = () => {
       );
       setLoading(false);
       if (data.status === 200) {
-        setResult(data.product);
-        setSources(data.sources);
+
+        if ("product" in data) {
+          setResult(data.product);
+        }
+        if ("sources" in data) {
+          setSources(data.sources);
+        }
         setShowFound(true);
         setShowTimeout(false);
       } else if (data.status === 404) {
