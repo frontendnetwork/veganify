@@ -24,13 +24,13 @@
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.69.7",
+    "sass": "^1.70.0",
     "sharp": "^0.33.1",
     "typescript": "5.3.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.41.1",
-    "@types/react": "^18.2.47",
+    "@types/react": "^18.2.55",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@typescript-eslint/typescript-estree": "^6.19.1",
