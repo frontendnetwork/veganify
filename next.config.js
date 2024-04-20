@@ -1,8 +1,4 @@
-const million = require("million/compiler");
-const withPWA = require("@ducanh2912/next-pwa").default({
-  dest: "public",
-  swSrc: "service-worker.js",
-});
+const next = require('next');
 
 /** @type {import('next').NextConfig} */
 let nextConfig = {
@@ -23,10 +19,4 @@ let nextConfig = {
   },
 };
 
-const millionConfig = {
-  auto: { rsc: true },
-};
-
-nextConfig = million.next(nextConfig, millionConfig);
-
-module.exports = withPWA(nextConfig);
+module.exports = nextConfig;
