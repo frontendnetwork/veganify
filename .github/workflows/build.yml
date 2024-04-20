@@ -76,7 +76,7 @@ jobs:
 
       - name: Restart Kubernetes Pod
         run: |
-          kubectl rollout restart deployment/veganify-deployment -n veganify
+          kubectl rollout restart deployment/veganify-frontend -n veganify
 
   build-and-push-staging:
     if: github.ref == 'refs/heads/staging'
