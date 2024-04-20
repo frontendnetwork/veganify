@@ -61,17 +61,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: SSH into the server and run Docker Compose
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Kubectl
+        uses: azure/setup-kubectl@v4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd vegancheck
-            docker-compose stop vc-frontend
-            docker-compose pull vc-frontend
-            docker-compose up -d vc-frontend
+          version: "latest"
+
+      - name: Configure Kubeconfig
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+
+      - name: Restart Kubernetes Pod
+        run: |
+          kubectl rollout restart deployment/veganify-deployment -n veganify
 
   build-and-push-staging:
     if: github.ref == 'refs/heads/staging'
@@ -122,14 +126,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: SSH into the server and run Docker Compose
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Kubectl
+        uses: azure/setup-kubectl@v4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd vegancheck
-            docker-compose stop vc-frontend-staging
-            docker-compose pull vc-frontend-staging
-            docker-compose up -d vc-frontend-staging
+          version: "latest"
+
+      - name: Configure Kubeconfig
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+
+      - name: Restart Kubernetes Pod
+        run: |
+          kubectl rollout restart deployment/veganify -n veganify-staging
