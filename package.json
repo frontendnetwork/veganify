@@ -18,9 +18,9 @@
     "@types/react-dom": "18.2.18",
     "eslint-config-sznm": "^2.0.2",
     "jest-worker": "^29.7.0",
-    "million": "^2.6.4",
-    "next": "13.4.16",
-    "next-intl": "^2.21.0",
+    "million": "^3.0.6",
+    "next": "14.2.2",
+    "next-intl": "^3.11.3",
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -29,13 +29,13 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.41.1",
+    "@playwright/test": "^1.43.1",
     "@types/react": "^18.2.55",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@typescript-eslint/typescript-estree": "^6.19.1",
     "eslint": "8.56.0",
-    "eslint-config-next": "^14.0.4",
+    "eslint-config-next": "^14.2.2",
     "eslint-plugin-import": "^2.29.0"
   },
   "volta": {
