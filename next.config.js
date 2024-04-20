@@ -1,4 +1,4 @@
-const next = require('next');
+const million = require("million/compiler");
 
 /** @type {import('next').NextConfig} */
 let nextConfig = {
@@ -18,5 +18,11 @@ let nextConfig = {
     ];
   },
 };
+
+const millionConfig = {
+  auto: { rsc: true },
+};
+
+nextConfig = million.next(nextConfig, millionConfig);
 
 module.exports = nextConfig;
