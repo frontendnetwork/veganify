@@ -1,0 +1,80 @@
+                                                                                
+              ********************             ********************             
+          *****                  *****     *****                  *****         
+        ***.                         *******                         ****       
+      ***                              ***                              ***     
+    ***                                                     **            ***   
+   ***             ***********                       ********              ***  
+   **               ***      **                 ****       .*               **  
+  ***                 **      **             ***            **              *** 
+  ***                  **.     ***          **       **     **              *** 
+  ***                   ***      **         **     ***     **               **. 
+   ***                   ***      **         **   **       **              ***  
+    ***                    **      ***        *****     ***               ***   
+     ***                    ***      **        ** *****                  ***    
+       ***                   ***      **     ***                       ***      
+         ***                  ***      **   ***                     ****        
+           ****                 **      ******                    ****          
+              ***.               ***      ***                  ****             
+                ****              ***    ***                 ****               
+                   ***.             **  ***               ****                  
+                     ****            *****              ****                    
+                        ***,          ***            ****                       
+                          ****                     ****                         
+                             ***,               ****                            
+                               ****           ****                              
+                                  ****     ****                                 
+                                    **** ****                                   
+                                       ***                                      
+
+                                  Veganify.app
+
+/* CORE TEAM */
+
+    Maintainer & Founder: Philip Brembeck
+    Contact: philip@brembeck.me
+    Web: https://philipbrembeck.com
+    From: Munich, Germany
+
+    Infrastructure Developer: neox3n
+    Contact: https://github.com/IQNeoXen
+    From: Munich, Germany
+
+    NextJS Developer: gitgauner
+    Contact: https://github.com/gitgauner
+    From: Furstenfeldbruck, Germany
+
+/* THANKS */
+                            
+Thanks to all the wonderful creators, translators and contributors on https://github.com/frontendnetwork/veganify
+Also many thanks to OpenFoodFacts and the OpenGTIN Database, which we use as Datasources!
+
+Thank you to the guys at https://Uberspace.de, where this project kickstarted and got to over 500k+ product queries in the first year!
+
+    EN Translator: gitgauner
+    Contact: https://github.com/gitgauner
+
+    FR Translator: Léa
+    Contact: lea@cldsi.de
+
+    PL Translator: Łukasz
+    Contact: https://github.com/lwojcik
+
+    CZ Translator: Michal
+    Contact: https://github.com/MichalBryxi
+
+    Translation Provider: Inlang via Nils
+    Contact: https://github.com/NilsJacobsen
+    Web: https://inlang.com
+
+                            
+/* SITE */
+
+                            
+Standards: NextJS, SCSS, NestJS
+
+Infrastructure: Kubernetes, Terraform, Cloduflare, GitHub as CI/CD
+
+Software: Git, VSCode, Affinity Designer
+
+Language:  Česky / Deutsch / English / Español / Français / Polski 
