@@ -36,7 +36,7 @@
     "@typescript-eslint/typescript-estree": "^7.9.0",
     "eslint": "8.56.0",
     "eslint-config-next": "^14.2.5",
-    "eslint-plugin-import": "^2.29.0"
+    "eslint-plugin-import": "^2.30.0"
   },
   "volta": {
     "node": "18.16.0",
