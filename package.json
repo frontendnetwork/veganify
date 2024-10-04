@@ -11,7 +11,7 @@
     "test": "playwright test"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^10.2.8",
+    "@ducanh2912/next-pwa": "^10.2.9",
     "@ericblade/quagga2": "^1.8.4",
     "@frontendnetwork/veganify": "^1.1.64",
     "@types/node": "22.5.4",
