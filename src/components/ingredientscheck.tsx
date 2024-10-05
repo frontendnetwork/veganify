@@ -7,13 +7,18 @@ import ModalWrapper from "@/components/elements/modalwrapper";
 
 const IngredientsCheck = () => {
   const t = useTranslations("Ingredients");
-  const [flagged, setFlagged] = useState<string[] | undefined>([]);
-  const [vegan, setVegan] = useState<string | boolean>("");
+  const [surelyVegan, setSurelyVegan] = useState<string[]>([]);
+  const [notVegan, setNotVegan] = useState<string[]>([]);
+  const [maybeVegan, setMaybeVegan] = useState<string[]>([]);
+  const [vegan, setVegan] = useState<boolean | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    setVegan("");
+    setVegan(null);
+    setSurelyVegan([]);
+    setNotVegan([]);
+    setMaybeVegan([]);
     setError(false);
     event.preventDefault();
     const ingredients = event.currentTarget.elements.namedItem(
@@ -27,14 +32,11 @@ const IngredientsCheck = () => {
           ingredients.value,
           process.env.NEXT_PUBLIC_STAGING === "true" ? true : false
         );
-        if (data.data.vegan === false) {
-          setVegan(false);
-          setFlagged(data.data.flagged);
-          setLoading(false);
-        } else if (data.data.vegan === true) {
-          setVegan(true);
-          setLoading(false);
-        }
+        setVegan(data.data.vegan);
+        setSurelyVegan(data.data.surely_vegan);
+        setNotVegan(data.data.not_vegan);
+        setMaybeVegan(data.data.maybe_vegan);
+        setLoading(false);
       } catch (error) {
         setError(true);
         setLoading(false);
@@ -75,7 +77,7 @@ const IngredientsCheck = () => {
         </fieldset>
       </form>
 
-      {vegan && (
+      {vegan !== null && (
         <div id="result">
           <div className="">
             <div className="resultborder">
@@ -84,9 +86,55 @@ const IngredientsCheck = () => {
                   <b>{t("vegan")}</b>
                 </div>
                 <div className="Grid-cell icons">
-                  <span className="vegan icon-ok"></span>
+                  <span
+                    className={
+                      vegan ? "vegan icon-ok" : "non-vegan icon-cancel"
+                    }
+                  ></span>
                 </div>
               </div>
+              {notVegan.length > 0 && (
+                <>
+                  {notVegan.map((item) => (
+                    <div className="Grid" key={item}>
+                      <div className="Grid-cell description">
+                        {item.charAt(0).toUpperCase() + item.slice(1)}
+                      </div>
+                      <div className="Grid-cell icons">
+                        <span className="non-vegan icon-cancel"></span>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
+              {maybeVegan.length > 0 && (
+                <>
+                  {maybeVegan.map((item) => (
+                    <div className="Grid" key={item}>
+                      <div className="Grid-cell description">
+                        {item.charAt(0).toUpperCase() + item.slice(1)}
+                      </div>
+                      <div className="Grid-cell icons">
+                        <span className="maybe-vegan icon-help"></span>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
+              {surelyVegan.length > 0 && (
+                <>
+                  {surelyVegan.map((item) => (
+                    <div className="Grid" key={item}>
+                      <div className="Grid-cell description">
+                        {item.charAt(0).toUpperCase() + item.slice(1)}
+                      </div>
+                      <div className="Grid-cell icons">
+                        <span className="vegan icon-ok"></span>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
               <span className="source">
                 {t("source")}:{" "}
                 <a href="https://www.veganpeace.com/ingredients/ingredients.htm">
@@ -132,8 +180,8 @@ const IngredientsCheck = () => {
                       GNU FDL
                     </a>
                     .<br />
-                    &copy; Veganify Contributors and Hamed Montazeri,
-                    licensed under{" "}
+                    &copy; Veganify Contributors and Hamed Montazeri, licensed
+                    under{" "}
                     <a href="https://github.com/JokeNetwork/vegan-ingredients-api/blob/master/LICENSE">
                       MIT License
                     </a>
@@ -169,111 +217,6 @@ const IngredientsCheck = () => {
             </div>
           </div>
         </div>
-      )}
-      {vegan === false && flagged && (
-          <div id="result">
-            <div className="">
-              <div className="resultborder">
-                <div className="Grid">
-                  <div className="Grid-cell description">
-                    <b>{t("vegan")}</b>
-                  </div>
-                  <div className="Grid-cell icons">
-                    <span className="non-vegan icon-cancel"></span>
-                  </div>
-                </div>
-                {flagged.map((item) => (
-                  <div className="Grid" key={item}>
-                    <div className="Grid-cell description" key={item}>
-                      {item.charAt(0).toUpperCase() + item.slice(1)}
-                    </div>
-                    <div className="Grid-cell icons">
-                      <span className="non-vegan icon-cancel"></span>
-                    </div>
-                  </div>
-                ))}
-                <span className="source">
-                  {t("source")}:{" "}
-                  <a href="https://www.veganpeace.com/ingredients/ingredients.htm">
-                    VeganPeace
-                  </a>{" "}
-                  ,{" "}
-                  <a href="https://www.peta.org/living/food/animal-ingredients-list/">
-                    PETA
-                  </a>{" "}
-                  &amp;{" "}
-                  <a href="https://www.veganwolf.com/animal_ingredients.htm">
-                    The VEGAN WOLF
-                  </a>
-                  <ModalWrapper
-                    id="license"
-                    buttonType="sup"
-                    buttonClass="help-icon"
-                    buttonText="?"
-                  >
-                    <span className="center">
-                      <Image
-                        src="../img/license_img.svg"
-                        className="heading_img"
-                        alt="Licenses"
-                        width={48}
-                        height={48}
-                      />
-                      <h1>{t("licenses")}</h1>
-                    </span>
-                    <p>{t("licenses_desc")}</p>
-                    <p>
-                      &copy; OpenFoodFacts Contributors, licensed under{" "}
-                      <a href="https://opendatacommons.org/licenses/odbl/1.0/">
-                        Open Database License
-                      </a>{" "}
-                      and{" "}
-                      <a href="https://opendatacommons.org/licenses/dbcl/1.0/">
-                        Database Contents License
-                      </a>
-                      .<br />
-                      &copy; Open EAN/GTIN Database Contributors, licensed under{" "}
-                      <a href="https://www.gnu.org/licenses/fdl-1.3.html">
-                        GNU FDL
-                      </a>
-                      .<br />
-                      &copy; Veganify Contributors and Hamed Montazeri,
-                      licensed under{" "}
-                      <a href="https://github.com/JokeNetwork/vegan-ingredients-api/blob/master/LICENSE">
-                        MIT License
-                      </a>
-                      , sourced from{" "}
-                      <a href="https://www.veganpeace.com/ingredients/ingredients.htm">
-                        VeganPeace
-                      </a>
-                      ,{" "}
-                      <a href="https://www.peta.org/living/food/animal-ingredients-list/">
-                        PETA
-                      </a>{" "}
-                      and{" "}
-                      <a href="https://www.veganwolf.com/animal_ingredients.htm">
-                        The VEGAN WOLF
-                      </a>
-                      .<br />
-                      &copy; Veganify Contributors, sourced from ©{" "}
-                      <a href="https://crueltyfree.peta.org">
-                        PETA (Beauty without Bunnies)
-                      </a>
-                      .
-                    </p>
-                  </ModalWrapper>
-                  <br />
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: t("languagewarning", {
-                        deepl: '<a href="https://deepl.com">DeepL</a>',
-                      }),
-                    }}
-                  />
-                </span>
-              </div>
-            </div>
-          </div>
       )}
       {error && (
         <div id="result">
