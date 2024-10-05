@@ -11,9 +11,9 @@
     "test": "playwright test"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^10.2.8",
+    "@ducanh2912/next-pwa": "^10.2.9",
     "@ericblade/quagga2": "^1.8.4",
-    "@frontendnetwork/veganify": "^1.1.64",
+    "@frontendnetwork/veganify": "^1.2.5",
     "@types/node": "22.5.4",
     "@types/react-dom": "18.3.0",
     "eslint-config-sznm": "^2.0.2",
@@ -36,7 +36,7 @@
     "@typescript-eslint/typescript-estree": "^8.8.0",
     "eslint": "8.56.0",
     "eslint-config-next": "^14.2.5",
-    "eslint-plugin-import": "^2.30.0"
+    "eslint-plugin-import": "^2.31.0"
   },
   "volta": {
     "node": "18.16.0",
