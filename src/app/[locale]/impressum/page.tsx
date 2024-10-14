@@ -1,16 +1,17 @@
-import { GetStaticPropsContext } from "next";
+"use client";
+
 import { useTranslations } from "next-intl";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import Container from "@/components/elements/container";
 import Nav from "@/components/nav";
 
-const Impressum = () => {
+export default function Impressum() {
   const t = useTranslations();
   const [impressum, setImpressum] = useState("");
 
   useEffect(() => {
-    fetch("https://philipbrembeck.com/impressum.txt", { method: "GET" })
+    fetch("https://philipbrembeck.com/impressum.txt")
       .then((response) => response.text())
       .then((text) => setImpressum(text))
       .catch((error) => console.error(error));
@@ -25,14 +26,4 @@ const Impressum = () => {
       </Container>
     </>
   );
-};
-
-export default Impressum;
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: (await import(`../locales/${locale}.json`)).default,
-    },
-  };
 }

@@ -1,7 +1,16 @@
-import Router from 'next/router';
+"use client";
 
-const BackButton = () => (
-  <span onClick={() => Router.back()} style={{cursor: "pointer"}} className="icon-left-open back"/>
-);
+import { useRouter } from "next/navigation";
+
+const BackButton = () => {
+  const router = useRouter();
+  return (
+    <span
+      onClick={() => router.back()}
+      style={{ cursor: "pointer" }}
+      className="icon-left-open back"
+    />
+  );
+};
 
 export default BackButton;

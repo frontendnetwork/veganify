@@ -1,10 +1,8 @@
-import { GetStaticPropsContext } from "next";
-
 import Container from "@/components/elements/container";
 import IngredientsCheck from "@/components/ingredientscheck";
 import Nav from "@/components/nav";
 
-export default function ingredients() {
+export default function IngredientsPage() {
   return (
     <>
       <div id="modal-root"></div>
@@ -14,12 +12,4 @@ export default function ingredients() {
       </Container>
     </>
   );
-}
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: (await import(`../locales/${locale}.json`)).default,
-    },
-  };
 }

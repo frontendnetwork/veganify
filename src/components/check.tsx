@@ -1,3 +1,5 @@
+"use client";
+
 import Veganify from "@frontendnetwork/veganify";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -60,7 +62,6 @@ const ProductSearch = () => {
       );
       setLoading(false);
       if (data.status === 200) {
-
         if ("product" in data) {
           setResult(data.product);
         }
