@@ -1,19 +1,22 @@
-const million = require("million/compiler");
+import million from 'million/compiler';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 let nextConfig = {
   output: "standalone",
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
-  i18n: {
-    locales: ["de", "en", "fr", "es", "pl", "cz"],
-    defaultLocale: "en",
-  },
   async rewrites() {
     return [
       {
         source: "/datenschutz",
         destination: "/privacy-policy",
+      },
+      {
+        source: "/impressum",
+        destination: "/en/impressum",
       },
     ];
   },
@@ -23,6 +26,8 @@ const millionConfig = {
   auto: { rsc: true },
 };
 
+// Apply Million's optimization
 nextConfig = million.next(nextConfig, millionConfig);
 
-module.exports = nextConfig;
+// Apply next-intl plugin
+export default withNextIntl(nextConfig);

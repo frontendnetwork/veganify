@@ -1,7 +1,9 @@
+"use client";
+
 import Veganify from "@frontendnetwork/veganify";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import React, { useState, FormEvent } from "react";
+import React, { useState, useCallback } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 
@@ -14,37 +16,41 @@ const IngredientsCheck = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    setVegan(null);
-    setSurelyVegan([]);
-    setNotVegan([]);
-    setMaybeVegan([]);
-    setError(false);
-    event.preventDefault();
-    const ingredients = event.currentTarget.elements.namedItem(
-      "ingredients"
-    ) as HTMLInputElement;
+  const handleSubmit = useCallback(
+    async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setVegan(null);
+      setSurelyVegan([]);
+      setNotVegan([]);
+      setMaybeVegan([]);
+      setError(false);
 
-    const checkIngredients = async () => {
+      const formData = new FormData(event.currentTarget);
+      const ingredients = formData.get("ingredients") as string;
+
+      if (!ingredients) {
+        setError(true);
+        return;
+      }
+
       setLoading(true);
       try {
         const data = await Veganify.checkIngredientsList(
-          ingredients.value,
-          process.env.NEXT_PUBLIC_STAGING === "true" ? true : false
+          ingredients,
+          process.env.NEXT_PUBLIC_STAGING === "true"
         );
         setVegan(data.data.vegan);
         setSurelyVegan(data.data.surely_vegan);
         setNotVegan(data.data.not_vegan);
         setMaybeVegan(data.data.maybe_vegan);
-        setLoading(false);
       } catch (error) {
         setError(true);
+      } finally {
         setLoading(false);
       }
-    };
-
-    checkIngredients();
-  };
+    },
+    []
+  );
 
   return (
     <>
@@ -68,9 +74,9 @@ const IngredientsCheck = () => {
             placeholder={t("entercommaseperated")}
           />
           <button
+            type="submit"
             name="checkingredients"
             aria-label={t("submit")}
-            role="button"
           >
             <span className="icon-right-open"></span>
           </button>
