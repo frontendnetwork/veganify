@@ -8,29 +8,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-          cache: 'npm'
+          node-version: "18.x"
+          cache: "pnpm"
 
-      - run: npm ci
-      - run: npm run build
-      - run: npm run lint
-
-  legacy_peer_deps_build:
-    runs-on: ubuntu-latest
-    needs: regular_build
-    if: ${{ always() && needs.regular_build.result == 'failure' }}
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18.x'
-          cache: 'npm'
-
-      - run: npm ci --legacy-peer-deps
-      - run: npm run build
-      - run: npm run lint
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm lint
