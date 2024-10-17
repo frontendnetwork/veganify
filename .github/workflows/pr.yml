@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: "18.x"
           cache: "pnpm"
+          cache-dependency-path: "**/pnpm-lock.yaml"
       - run: pnpm install
       - run: pnpm run build
       - run: pnpm run lint
