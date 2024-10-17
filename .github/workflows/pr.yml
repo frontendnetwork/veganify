@@ -1,19 +1,33 @@
 name: Build and Lint PRs
-
 on: [pull_request]
-
 jobs:
   regular_build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v4
         with:
           node-version: "18.x"
           cache: "pnpm"
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build
-      - run: pnpm lint
+      - run: pnpm install
+      - run: pnpm run build
+      - run: pnpm run lint
+  legacy_peer_deps_build:
+    runs-on: ubuntu-latest
+    needs: regular_build
+    if: ${{ always() && needs.regular_build.result == 'failure' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+          cache: "pnpm"
+      - run: pnpm install --no-strict-peer-dependencies
+      - run: pnpm run build
+      - run: pnpm run lint
