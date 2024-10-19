@@ -6,7 +6,6 @@ import { setCookie } from "nookies";
 
 import Container from "@/components/elements/container";
 import SupportOption from "@/components/elements/contents/donate";
-import OLEDMode from "@/components/elements/contents/oledmode";
 import ModalWrapper from "@/components/elements/modalwrapper";
 import Nav from "@/components/nav";
 import { Link } from "@/i18n/routing";
@@ -26,7 +25,7 @@ export default function More() {
     <>
       <div id="modal-root"></div>
       <Nav />
-      <Container logo={false} backbutton={false}>
+      <Container logo={false} backButton={false}>
         <div className="Grid links">
           <ModalWrapper
             id="donate"
@@ -172,7 +171,6 @@ export default function More() {
             ></span>
           </div>
         </div>
-        <OLEDMode />
       </Container>
     </>
   );
