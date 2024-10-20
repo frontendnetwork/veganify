@@ -15,8 +15,8 @@ importers:
         specifier: ^1.8.4
         version: 1.8.4
       '@frontendnetwork/veganify':
-        specifier: ^1.2.5
-        version: 1.2.5
+        specifier: ^1.2.8
+        version: 1.2.8
       '@types/node':
         specifier: 22.5.4
         version: 22.5.4
@@ -739,8 +739,8 @@ packages:
   '@formatjs/intl-localematcher@0.5.4':
     resolution: {integrity: sha512-zTwEpWOzZ2CiKcB93BLngUX59hQkuZjT2+SAQEscSm52peDW/getsawMcWF1rGRpMCX6D7nSJA3CzJ8gn13N/g==}
 
-  '@frontendnetwork/veganify@1.2.5':
-    resolution: {integrity: sha512-pgpppUNA814BxBgeQznUv8Da25D+ND1fEK3JLqG436CQ2Q7Fheq+fxLiO4TGL7mrUQMZ3Etm0tZD7urOHXr/2Q==}
+  '@frontendnetwork/veganify@1.2.8':
+    resolution: {integrity: sha512-PInUPolLdoThg80EfSEOvdvkdEtAe5GyDb4XNdXXZFDHPtwNJKK1MCEXABAHU3U6gtH5o8Q8ggk2aY6EYUi8/Q==}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -4121,7 +4121,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@frontendnetwork/veganify@1.2.5': {}
+  '@frontendnetwork/veganify@1.2.8': {}
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
