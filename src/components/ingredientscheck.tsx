@@ -7,29 +7,35 @@ import React, { useState, useCallback } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 
-const IngredientsCheck = () => {
+interface IngredientResult {
+  vegan: boolean | null;
+  surelyVegan: string[];
+  notVegan: string[];
+  maybeVegan: string[];
+}
+
+const IngredientsCheck: React.FC = () => {
   const t = useTranslations("Ingredients");
-  const [surelyVegan, setSurelyVegan] = useState<string[]>([]);
-  const [notVegan, setNotVegan] = useState<string[]>([]);
-  const [maybeVegan, setMaybeVegan] = useState<string[]>([]);
-  const [vegan, setVegan] = useState<boolean | null>(null);
-  const [error, setError] = useState(false);
+  const [result, setResult] = useState<IngredientResult>({
+    vegan: null,
+    surelyVegan: [],
+    notVegan: [],
+    maybeVegan: [],
+  });
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      setVegan(null);
-      setSurelyVegan([]);
-      setNotVegan([]);
-      setMaybeVegan([]);
-      setError(false);
+      setResult({ vegan: null, surelyVegan: [], notVegan: [], maybeVegan: [] });
+      setError(null);
 
       const formData = new FormData(event.currentTarget);
       const ingredients = formData.get("ingredients") as string;
 
-      if (!ingredients) {
-        setError(true);
+      if (!ingredients.trim()) {
+        setError(t("cannotbeempty"));
         return;
       }
 
@@ -39,17 +45,34 @@ const IngredientsCheck = () => {
           ingredients,
           process.env.NEXT_PUBLIC_STAGING === "true"
         );
-        setVegan(data.data.vegan);
-        setSurelyVegan(data.data.surely_vegan);
-        setNotVegan(data.data.not_vegan);
-        setMaybeVegan(data.data.maybe_vegan);
+        setResult({
+          vegan: data.data.vegan,
+          surelyVegan: data.data.surely_vegan,
+          notVegan: data.data.not_vegan,
+          maybeVegan: data.data.maybe_vegan,
+        });
       } catch (error) {
-        setError(true);
+        setError(t("cannotbeempty"));
       } finally {
         setLoading(false);
       }
     },
-    []
+    [t]
+  );
+
+  const renderIngredientList = (items: string[], iconClass: string) => (
+    <>
+      {items.map((item) => (
+        <div className="Grid" key={item}>
+          <div className="Grid-cell description">
+            {item.charAt(0).toUpperCase() + item.slice(1)}
+          </div>
+          <div className="Grid-cell icons">
+            <span className={iconClass}></span>
+          </div>
+        </div>
+      ))}
+    </>
   );
 
   return (
@@ -65,6 +88,7 @@ const IngredientsCheck = () => {
         {t("ingredientcheck")}
       </h2>
       <p style={{ textAlign: "center" }}>{t("ingredientcheck_desc")}</p>
+
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>{t("entercommaseperated")}</legend>
@@ -83,7 +107,7 @@ const IngredientsCheck = () => {
         </fieldset>
       </form>
 
-      {vegan !== null && (
+      {result.vegan !== null && (
         <div id="result">
           <div className="">
             <div className="resultborder">
@@ -94,53 +118,14 @@ const IngredientsCheck = () => {
                 <div className="Grid-cell icons">
                   <span
                     className={
-                      vegan ? "vegan icon-ok" : "non-vegan icon-cancel"
+                      result.vegan ? "vegan icon-ok" : "non-vegan icon-cancel"
                     }
                   ></span>
                 </div>
               </div>
-              {notVegan.length > 0 && (
-                <>
-                  {notVegan.map((item) => (
-                    <div className="Grid" key={item}>
-                      <div className="Grid-cell description">
-                        {item.charAt(0).toUpperCase() + item.slice(1)}
-                      </div>
-                      <div className="Grid-cell icons">
-                        <span className="non-vegan icon-cancel"></span>
-                      </div>
-                    </div>
-                  ))}
-                </>
-              )}
-              {maybeVegan.length > 0 && (
-                <>
-                  {maybeVegan.map((item) => (
-                    <div className="Grid" key={item}>
-                      <div className="Grid-cell description">
-                        {item.charAt(0).toUpperCase() + item.slice(1)}
-                      </div>
-                      <div className="Grid-cell icons">
-                        <span className="maybe-vegan icon-help"></span>
-                      </div>
-                    </div>
-                  ))}
-                </>
-              )}
-              {surelyVegan.length > 0 && (
-                <>
-                  {surelyVegan.map((item) => (
-                    <div className="Grid" key={item}>
-                      <div className="Grid-cell description">
-                        {item.charAt(0).toUpperCase() + item.slice(1)}
-                      </div>
-                      <div className="Grid-cell icons">
-                        <span className="vegan icon-ok"></span>
-                      </div>
-                    </div>
-                  ))}
-                </>
-              )}
+              {renderIngredientList(result.notVegan, "non-vegan icon-cancel")}
+              {renderIngredientList(result.maybeVegan, "maybe-vegan icon-help")}
+              {renderIngredientList(result.surelyVegan, "vegan icon-ok")}
               <span className="source">
                 {t("source")}:{" "}
                 <a href="https://www.veganpeace.com/ingredients/ingredients.htm">
@@ -227,7 +212,7 @@ const IngredientsCheck = () => {
       {error && (
         <div id="result">
           <span className="animated fadeIn">
-            <div className="resultborder">{t("cannotbeempty")}</div>
+            <div className="resultborder">{error}</div>
           </span>
         </div>
       )}

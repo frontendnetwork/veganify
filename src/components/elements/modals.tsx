@@ -1,75 +1,54 @@
-/* eslint-disable  @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, ReactNode, ElementType } from "react";
 
 interface Props {
   id: string;
-  children: React.ReactNode;
+  children: ReactNode;
   buttonType: "sup" | "span" | "div";
   buttonClass: string;
   buttonText: string;
 }
 
-const Modal = ({ id, children, buttonType, buttonClass, buttonText }: Props) => {
+const Modal = ({
+  id,
+  children,
+  buttonType,
+  buttonClass,
+  buttonText,
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
+  const toggleModal = (state: boolean) => {
+    setIsOpen(state);
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const ButtonComponent: ElementType = buttonType;
 
   return (
     <>
-      {buttonType === "sup" && (
-        <sup
-          data-target={id}
-          data-toggle="modal"
-          className={buttonClass}
-          onClick={openModal}
-        >
-          {buttonText}
-        </sup>
-      )}
-      {buttonType === "span" && (
-        <span
-          data-target={id}
-          data-toggle="modal"
-          className={buttonClass}
-          onClick={openModal}
-        >
-          {buttonText}
-        </span>
-      )}
-      {buttonType === "div" && (
-        <div
-          data-target={id}
-          data-toggle="modal"
-          className={buttonClass}
-          onClick={openModal}
-        >
-          {buttonText}
-        </div>
-      )}
+      <ButtonComponent
+        data-target={id}
+        data-toggle="modal"
+        className={buttonClass}
+        onClick={() => toggleModal(true)}
+      >
+        {buttonText}
+      </ButtonComponent>
       {isOpen && (
         <div className="modal_view animated fadeInUp open">
           <div className="modal_close">
-            <a
+            <button
               className="btn-dark"
               data-dismiss="modal"
               onClick={() => {
                 const modalView = document.querySelector(".modal_view");
                 if (modalView) {
                   modalView.classList.add("fadeOutDown");
-                  setTimeout(() => {
-                    setIsOpen(false);
-                  }, 500);
+                  setTimeout(() => toggleModal(false), 500);
                 }
               }}
             >
               ×
-            </a>
+            </button>
           </div>
           {children}
         </div>
