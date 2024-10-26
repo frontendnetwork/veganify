@@ -1,32 +1,35 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 
 interface ExtendedWindow extends Window {
-  MSStream?: any;
+  MSStream?: unknown;
 }
+
+const isIOSDevice = (window: ExtendedWindow): boolean => {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+};
+
+const shouldShowShortcut = (window: ExtendedWindow): boolean => {
+  return (
+    !window.matchMedia("(display-mode: standalone)").matches &&
+    isIOSDevice(window) &&
+    !window.location.href.includes("shortcut")
+  );
+};
 
 const Shortcut = () => {
   const t = useTranslations("ShortcutPrompt");
-  const [showShortcut, setShowShortcut] = useState<boolean>(false);
+  const [showShortcut, setShowShortcut] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const windowWithMSStream = window as ExtendedWindow;
 
-      const isIOS: boolean =
-        /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-        !windowWithMSStream.MSStream;
-
-      if (
-        !window.matchMedia("(display-mode: standalone)").matches &&
-        isIOS &&
-        window.location.href.indexOf("shortcut") === -1
-      ) {
-        if (typeof window !== "undefined") {
-          document.getElementById("mainpage")?.classList.remove("top");
-        }
+      if (shouldShowShortcut(windowWithMSStream)) {
+        document.getElementById("mainpage")?.classList.remove("top");
         setShowShortcut(true);
       }
     }

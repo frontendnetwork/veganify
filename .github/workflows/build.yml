@@ -143,3 +143,35 @@ jobs:
       - name: Restart Kubernetes Pod
         run: |
           kubectl rollout restart deployment/veganify -n veganify-staging
+
+  e2e-tests:
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.12.1
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Wait for deployment to be ready
+        run: |
+          # Wait for 30 seconds to allow deployment to stabilize
+          sleep 30
+
+      - name: Run Playwright tests
+        run: npx playwright test

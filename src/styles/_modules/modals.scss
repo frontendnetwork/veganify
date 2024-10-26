@@ -183,6 +183,7 @@ sup {
     height: auto;
     background-color: var(--modal-bg-overlay);
     backdrop-filter: blur(rem(3.2px));
+
     @include mq(desktop) {
       position: initial;
     }
@@ -200,12 +201,15 @@ sup {
     position: absolute;
     right: rem(32px);
     transform: scale(1.2);
+
     @include mq(s-desktop) {
       transform: scale(1.5);
     }
+
     @include mq(s-phone) {
       transform: scale(1.2);
     }
+
     @include mq(phone) {
       transform: scale(1.5);
     }
@@ -233,11 +237,13 @@ sup {
       color: var(--modal-fg) !important;
     }
   }
+
   .twitter {
     border-top-right-radius: rem(8px);
     border-top-left-radius: rem(8px);
   }
-  .facebook {
+
+  .last {
     border-bottom-right-radius: rem(8px);
     border-bottom-left-radius: rem(8px);
     border-bottom: none;

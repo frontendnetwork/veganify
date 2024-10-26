@@ -1,36 +1,38 @@
 name: Build and Lint PRs
-
 on: [pull_request]
-
 jobs:
   regular_build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-      
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.1
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-          cache: 'npm'
-
-      - run: npm ci
-      - run: npm run build
-      - run: npm run lint
-
+          node-version: "20.x"
+          cache: "pnpm"
+          cache-dependency-path: "**/pnpm-lock.yaml"
+      - run: pnpm install
+      - run: pnpm run lint
+      - run: pnpm run type-check
+      - run: pnpm run test
+      - run: pnpm run build
   legacy_peer_deps_build:
     runs-on: ubuntu-latest
     needs: regular_build
     if: ${{ always() && needs.regular_build.result == 'failure' }}
-    
     steps:
       - uses: actions/checkout@v4
-      
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.1
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-          cache: 'npm'
-
-      - run: npm ci --legacy-peer-deps
-      - run: npm run build
-      - run: npm run lint
+          node-version: "20.x"
+          cache: "pnpm"
+      - run: pnpm install --no-strict-peer-dependencies
+      - run: pnpm run lint
+      - run: pnpm run type-check
+      - run: pnpm run test
+      - run: pnpm run build
