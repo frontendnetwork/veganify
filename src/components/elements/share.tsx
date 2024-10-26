@@ -33,14 +33,24 @@ const ShareButton = ({
     document.querySelector<HTMLElement>(".btn-dark")?.click();
   };
 
-  const shareOptions = useMemo(
+  interface ShareOption {
+    id: string;
+    text: string;
+    icon: string;
+    url: string;
+    handler?: () => Promise<void>;
+  }
+
+  const shareOptions = useMemo<ShareOption[]>(
     () => [
       {
         id: "copy",
         text: t("copy"),
         icon: "icon-docs",
         url: `${text}: ${url}`,
-        handler: () => navigator.clipboard.writeText(`${text}: ${url}`),
+        handler: async () => {
+          await navigator.clipboard.writeText(`${text}: ${url}`);
+        },
       },
       {
         id: "mastodon",
