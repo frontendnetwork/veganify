@@ -72,8 +72,8 @@ src/
 │   │   │	├── util.ts
 │   │   │	└──	util.test.ts		# Utility specify tests
 │   │   ├── models/     			# Component-specific types/interfaces
-│   │   ├── componentPart.tsx    	# Component files
-│   │   └── index.tsx   			# Component files
+│   │   ├── componentPart.tsx		# Component files
+│   │   └── index.tsx				# Component files
 ├── @models/        # Global type definitions
 ├── styles/         # CSS styles
 ├── tests/          # Only test setup files & Playwright tests
