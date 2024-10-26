@@ -1,32 +1,31 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
+import { getTranslations } from "next-intl/server";
 
 import Container from "@/components/elements/container";
-import Nav from "@/components/nav";
 
-export default function PrivacyPolicy() {
-  const t = useTranslations("Privacy");
-  const [datenschutz, setDatenschutz] = useState("");
+async function getPrivacyPolicy() {
+  try {
+    const response = await fetch("https://philipbrembeck.com/datenschutz.txt");
+    if (!response.ok) {
+      throw new Error(`Failed to fetch privacy policy: ${response.status}`);
+    }
+    return response.text();
+  } catch (error) {
+    console.error("Failed to fetch privacy policy:", error);
+    return "";
+  }
+}
 
-  useEffect(() => {
-    fetch("https://philipbrembeck.com/datenschutz.txt")
-      .then((response) => response.text())
-      .then((text) => setDatenschutz(text))
-      .catch((error) => console.error(error));
-  }, []);
+export default async function PrivacyPolicy() {
+  const t = await getTranslations("Privacy");
+  const datenschutz = await getPrivacyPolicy();
 
   return (
-    <>
-      <Nav />
-      <Container>
-        <p className="small">{t("germanonly")}</p>
-        <div
-          className="privacy"
-          dangerouslySetInnerHTML={{ __html: datenschutz }}
-        />
-      </Container>
-    </>
+    <Container>
+      <p className="small">{t("germanonly")}</p>
+      <div
+        className="privacy"
+        dangerouslySetInnerHTML={{ __html: datenschutz }}
+      />
+    </Container>
   );
 }

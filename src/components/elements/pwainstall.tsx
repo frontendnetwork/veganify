@@ -1,7 +1,6 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
@@ -14,18 +13,15 @@ const InstallPrompt = () => {
 
   useEffect(() => {
     const pwainstall = getCookie("pwainstall");
-    if (pwainstall !== "hidden") {
-      if (typeof window !== "undefined") {
-        const isIOS =
-          /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-          !(window as any).MSStream;
-        if (
-          !window.matchMedia("(display-mode: standalone)").matches &&
-          isIOS &&
-          window.location.href.indexOf("shortcut") === -1
-        ) {
-          setShowInstallPrompt(true);
-        }
+    if (pwainstall !== "hidden" && typeof window !== "undefined") {
+      const isIOS =
+        /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window);
+      const isNotStandalone = !window.matchMedia("(display-mode: standalone)")
+        .matches;
+      const isNotShortcut = window.location.href.indexOf("shortcut") === -1;
+
+      if (isIOS && isNotStandalone && isNotShortcut) {
+        setShowInstallPrompt(true);
       }
     }
   }, []);
@@ -40,10 +36,7 @@ const InstallPrompt = () => {
   }
 
   return (
-    <div
-      id="pwainstall"
-      style={{ display: showInstallPrompt ? "block" : "none" }}
-    >
+    <div id="pwainstall" style={{ display: "block" }}>
       <div className="flex-container">
         <div className="flex-item" id="pwaclose" onClick={closeInstallPrompt}>
           ×
@@ -90,16 +83,15 @@ const InstallPrompt = () => {
 function getCookie(name: string): string | undefined {
   const cookie = document.cookie
     .split(";")
-    .find((c) => c.trim().startsWith(name + "="));
-  if (!cookie) return undefined;
-  return cookie.split("=")[1];
+    .find((c) => c.trim().startsWith(`${name}=`));
+  return cookie ? cookie.split("=")[1] : undefined;
 }
 
 function setCookie(name: string, value: string, days: number): void {
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  const expires = "expires=" + date.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  const expires = `expires=${date.toUTCString()}`;
+  document.cookie = `${name}=${value};${expires};path=/`;
 }
 
 export default InstallPrompt;

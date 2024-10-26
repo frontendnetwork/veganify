@@ -1,4 +1,4 @@
-export type ProductResult = {
+export interface ProductResult {
   productname: string;
   vegan: boolean | "n/a" | undefined;
   vegetarian: boolean | "n/a" | undefined;
@@ -6,4 +6,4 @@ export type ProductResult = {
   palmoil: boolean | "n/a" | undefined;
   nutriscore?: string;
   grade?: string;
-};
+}

@@ -1,4 +1,4 @@
-export type Sources = {
+export interface Sources {
   api?: string;
   baseuri?: string;
-};
+}

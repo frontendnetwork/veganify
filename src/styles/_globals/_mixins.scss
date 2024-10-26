@@ -1,13 +1,14 @@
+@use 'sass:math';
 /* Setup: @include font-size(50px); and for media-queries @include mq(tablet){} */
 
 // converts several units to em (supports px, pt, pc, in, mm, cm)
 @function em($size) {
   @if not unitless($size) {
-    @if unit($size) == em {
+    @if unit($size)==em {
       @return $size;
     }
 
-    @return ((0px + $size) / 16px * 1em);
+    @return math.div(0px + $size, 16px) * 1em;
   }
 
   @return null;
@@ -18,7 +19,7 @@
   $size: em($size);
 
   @if $size {
-    @return em($size) / 1em + rem;
+    @return calc(em($size) / 1em)+rem;
   }
 
   @return null;
@@ -32,19 +33,25 @@
 
 // MEDIA QUERY Mixin
 @mixin mq($size) {
-  @if $size == phone {
+  @if $size ==phone {
     @media (max-width: 48rem) {
       @content;
     }
-  } @else if $size == s-phone {
+  }
+
+  @else if $size ==s-phone {
     @media (max-width: 21.5rem) {
       @content;
     }
-  } @else if $size == s-desktop {
+  }
+
+  @else if $size ==s-desktop {
     @media (max-width: 69.5rem) {
       @content;
     }
-  } @else if $size == desktop {
+  }
+
+  @else if $size ==desktop {
     @media (min-width: 69.6rem) {
       @content;
     }
@@ -53,14 +60,15 @@
 
 // COLORSCHEME Mixin
 @mixin theme($color) {
-    @if $color == light {
-        @media (prefers-color-scheme: light) {
-            @content;
-        }
+  @if $color ==light {
+    @media (prefers-color-scheme: light) {
+      @content;
     }
-    @else if $color == dark {
-        @media (prefers-color-scheme: dark) {
-            @content;
-        }
+  }
+
+  @else if $color ==dark {
+    @media (prefers-color-scheme: dark) {
+      @content;
     }
+  }
 }
