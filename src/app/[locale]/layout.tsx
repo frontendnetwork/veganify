@@ -45,21 +45,15 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default async function LocaleLayout(
-  props: {
-    children: ReactNode;
-    params: Promise<{ locale: string }>;
-  }
-) {
+export default async function LocaleLayout(props: {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
   const params = await props.params;
 
-  const {
-    locale
-  } = params;
+  const { locale } = params;
 
-  const {
-    children
-  } = props;
+  const { children } = props;
 
   const messages = await getMessages();
 
@@ -67,7 +61,7 @@ export default async function LocaleLayout(
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div id="modal-root"></div>
+          <div id="modal-root" />
           <Nav />
           {children}
         </NextIntlClientProvider>

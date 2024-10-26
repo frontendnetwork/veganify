@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import ProductSearch from "@/components/check";
+import ProductSearch from "@/components/Check/index";
 import InstallPrompt from "@/components/elements/pwainstall";
 import Shortcut from "@/components/elements/shortcutinstall";
 import Footer from "@/components/footer";
@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div id="modal-root"></div>
       <InstallPrompt />
       <Shortcut />
       <Nav />

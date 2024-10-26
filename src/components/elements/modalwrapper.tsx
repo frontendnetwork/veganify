@@ -1,8 +1,10 @@
+"use client";
+
 import React, {
   useState,
   useEffect,
   useCallback,
-  useMemo,
+  useRef,
   ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
@@ -23,11 +25,13 @@ const ModalWrapper = ({
   buttonText,
 }: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const modalRootRef = useRef<HTMLElement | null>(null);
 
-  const modalRoot = useMemo(() => {
-    return typeof document !== "undefined"
-      ? document.getElementById("modal-root")
-      : null;
+  useEffect(() => {
+    setMounted(true);
+    modalRootRef.current = document.getElementById("modal-root");
+    return () => setMounted(false);
   }, []);
 
   const closeModal = useCallback(() => {
@@ -41,6 +45,8 @@ const ModalWrapper = ({
   }, []);
 
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleEscapeKeyPress = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeModal();
@@ -68,9 +74,11 @@ const ModalWrapper = ({
       document.removeEventListener("keydown", handleEscapeKeyPress);
       document.removeEventListener("touchstart", handleTouchStart);
     };
-  }, [closeModal]);
+  }, [isOpen, closeModal]);
 
   const ButtonComponent = buttonType;
+
+  if (!mounted) return null;
 
   return (
     <>
@@ -83,7 +91,7 @@ const ModalWrapper = ({
         {buttonText}
       </ButtonComponent>
       {isOpen &&
-        modalRoot &&
+        modalRootRef.current &&
         createPortal(
           <div className="modal_view animated fadeInUp open">
             <div className="modal_close">
@@ -97,7 +105,7 @@ const ModalWrapper = ({
             </div>
             {children}
           </div>,
-          modalRoot
+          modalRootRef.current
         )}
     </>
   );

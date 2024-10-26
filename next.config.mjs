@@ -16,11 +16,7 @@ let nextConfig = {
       {
         source: "/datenschutz",
         destination: "/privacy-policy",
-      },
-      {
-        source: "/impressum",
-        destination: "/en/impressum",
-      },
+      }
     ];
   },
 };
