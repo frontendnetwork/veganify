@@ -6,7 +6,7 @@ import BackButton from "@/components/button_back";
 
 interface ContainerProps {
   heading?: string;
-  headingStyle?: "center" | string;
+  headingStyle?: "center" | { textAlign: string };
   backButton?: boolean;
   logo?: boolean;
   children: ReactNode;
