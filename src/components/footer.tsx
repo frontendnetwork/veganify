@@ -57,7 +57,7 @@ export default function Footer() {
         <Image
           src="../img/ph_neutral.svg"
           alt="Veganify | Product Hunt"
-          width={132}
+          width={182}
           height={40}
         />
       </a>
