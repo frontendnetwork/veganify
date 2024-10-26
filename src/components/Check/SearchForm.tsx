@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { FormEvent } from "react";
 
 import ScanButton from "@/components/Scanner";
-import { FormEvent } from "react";
 
 interface SearchFormProps {
   barcode: string;

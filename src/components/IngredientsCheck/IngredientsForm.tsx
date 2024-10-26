@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { FormEvent, useState } from "react";
+
 import { IngredientResult } from "./models/IngredientResult";
 import { ResultDisplay } from "./ResultsDisplay";
 import { checkIngredients } from "./utils/actions";
