@@ -21,6 +21,7 @@ export async function checkIngredients(ingredients: string) {
       maybeVegan: data.data.maybe_vegan,
     };
   } catch (error) {
-    throw new Error(`Failed to check ingredients: ${error}`);
+    console.error(error);
+    throw new Error(`Failed to check ingredients`);
   }
 }

@@ -1,12 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { FormEvent, useState } from "react";
-
 import { IngredientResult } from "./models/IngredientResult";
 import { ResultDisplay } from "./ResultsDisplay";
 import { checkIngredients } from "./utils/actions";
+import { preprocessIngredients } from "./utils/preprocessIngredients";
 
 export function IngredientsForm() {
   const t = useTranslations("Ingredients");
@@ -25,19 +24,22 @@ export function IngredientsForm() {
     setError(null);
 
     const formData = new FormData(event.currentTarget);
-    const ingredients = formData.get("ingredients") as string;
+    const rawIngredients = formData.get("ingredients") as string;
 
-    if (!ingredients.trim()) {
+    if (!rawIngredients.trim()) {
       setError(t("cannotbeempty"));
       return;
     }
 
     setLoading(true);
     try {
-      const data = await checkIngredients(ingredients);
+      const processedIngredients = preprocessIngredients(rawIngredients);
+      const ingredientsString = processedIngredients.join(", ");
+
+      const data = await checkIngredients(ingredientsString);
       setResult(data);
     } catch (error) {
-      console.log(error);
+      console.error("Error processing ingredients:", error);
       setError(t("cannotbeempty"));
     } finally {
       setLoading(false);
@@ -75,9 +77,7 @@ export function IngredientsForm() {
           </button>
         </fieldset>
       </form>
-
       {result.vegan !== null && <ResultDisplay result={result} t={t} />}
-
       {error && (
         <div id="result">
           <span className="animated fadeIn">
@@ -85,7 +85,6 @@ export function IngredientsForm() {
           </span>
         </div>
       )}
-
       {loading && (
         <div id="result" className="loading_skeleton">
           <div className="animated fadeIn">
