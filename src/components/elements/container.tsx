@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 import BackButton from "@/components/button_back";
 
@@ -8,7 +9,7 @@ interface ContainerProps {
   headingStyle?: "center" | string;
   backButton?: boolean;
   logo?: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function Container({
