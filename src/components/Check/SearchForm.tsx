@@ -4,12 +4,13 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import ScanButton from "@/components/Scanner";
+import { FormEvent } from "react";
 
 interface SearchFormProps {
   barcode: string;
   loading: boolean;
   onBarcodeChange: (barcode: string) => void;
-  onSubmit: (barcode: string, e?: React.FormEvent) => void;
+  onSubmit: (barcode: string, e?: FormEvent) => void;
 }
 
 export function SearchForm({

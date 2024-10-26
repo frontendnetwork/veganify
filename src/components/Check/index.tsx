@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 
 import { ErrorResponse } from "@/models/ErrorRepsonse";
 import { ProductResult } from "@/models/ProductResults";
@@ -41,7 +41,7 @@ export default function ProductSearch() {
     }
   }, []);
 
-  const handleSubmit = async (barcode: string, event?: React.FormEvent) => {
+  const handleSubmit = async (barcode: string, event?: FormEvent) => {
     event?.preventDefault();
 
     setShowTimeoutFinal(false);
