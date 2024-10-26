@@ -49,7 +49,7 @@ export function SearchForm({
             value={barcode}
             onChange={(e) => onBarcodeChange(e.target.value)}
           />
-          <button name="submit" aria-label={t("submit")} role="button">
+          <button name="submit" aria-label={t("submit")}>
             <span className="icon-right-open" />
           </button>
         </fieldset>
