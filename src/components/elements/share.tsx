@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 
@@ -33,57 +33,60 @@ const ShareButton = ({
     document.querySelector<HTMLElement>(".btn-dark")?.click();
   };
 
-  const shareOptions = [
-    {
-      id: "copy",
-      text: t("copy"),
-      icon: "icon-docs",
-      url: `${text}: ${url}`,
-      handler: () => navigator.clipboard.writeText(`${text}: ${url}`),
-    },
-    {
-      id: "mastodon",
-      text: `${t("share")} ${t("on")} Mastodon`,
-      icon: "icon-mastodon",
-      url: `https://s2f.kytta.dev/?text=${encodeURI(text)} https%3A%2F%2Fveganify.app%2F%3Fean%3D${barcode}`,
-    },
-    {
-      id: "twitter",
-      text: `${t("share")} ${t("on")} Twitter`,
-      icon: "icon-twitter",
-      url: `https://twitter.com/intent/tweet?url=${url}&text=${encodeURI(text)}`,
-    },
-    {
-      id: "whatsapp",
-      text: `${t("share")} ${t("on")} WhatsApp`,
-      icon: "icon-whatsapp",
-      url: `whatsapp://send?text=${encodeURI(text)} ${url}`,
-    },
-    {
-      id: "telegram",
-      text: `${t("share")} ${t("on")} Telegram`,
-      icon: "icon-telegram",
-      url: `https://telegram.me/share/url?url=${url}&text=${encodeURI(text)}`,
-    },
-    {
-      id: "facebook",
-      text: `${t("share")} ${t("on")} Facebook`,
-      icon: "icon-facebook",
-      url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-    },
-    {
-      id: "message",
-      text: `${t("share")} via message`,
-      icon: "icon-chat",
-      url: `sms:&body=${url} ${text}`,
-    },
-    {
-      id: "email",
-      text: `${t("share")} via e-mail`,
-      icon: "icon-mail",
-      url: `mailto:?body="${url}"&subject=${text}`,
-    },
-  ];
+  const shareOptions = useMemo(
+    () => [
+      {
+        id: "copy",
+        text: t("copy"),
+        icon: "icon-docs",
+        url: `${text}: ${url}`,
+        handler: () => navigator.clipboard.writeText(`${text}: ${url}`),
+      },
+      {
+        id: "mastodon",
+        text: `${t("share")} ${t("on")} Mastodon`,
+        icon: "icon-mastodon",
+        url: `https://s2f.kytta.dev/?text=${encodeURI(text)} https%3A%2F%2Fveganify.app%2F%3Fean%3D${barcode}`,
+      },
+      {
+        id: "twitter",
+        text: `${t("share")} ${t("on")} Twitter`,
+        icon: "icon-twitter",
+        url: `https://twitter.com/intent/tweet?url=${url}&text=${encodeURI(text)}`,
+      },
+      {
+        id: "whatsapp",
+        text: `${t("share")} ${t("on")} WhatsApp`,
+        icon: "icon-whatsapp",
+        url: `whatsapp://send?text=${encodeURI(text)} ${url}`,
+      },
+      {
+        id: "telegram",
+        text: `${t("share")} ${t("on")} Telegram`,
+        icon: "icon-telegram",
+        url: `https://telegram.me/share/url?url=${url}&text=${encodeURI(text)}`,
+      },
+      {
+        id: "facebook",
+        text: `${t("share")} ${t("on")} Facebook`,
+        icon: "icon-facebook",
+        url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      },
+      {
+        id: "message",
+        text: `${t("share")} via message`,
+        icon: "icon-chat",
+        url: `sms:&body=${url} ${text}`,
+      },
+      {
+        id: "email",
+        text: `${t("share")} via e-mail`,
+        icon: "icon-mail",
+        url: `mailto:?body="${url}"&subject=${text}`,
+      },
+    ],
+    [t, text, url, barcode]
+  );
 
   return showButton ? (
     <span
