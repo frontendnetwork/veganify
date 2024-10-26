@@ -111,6 +111,14 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
                 id="closebtn"
                 className="icon-left-open"
                 onClick={handleClose}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleClose();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label="Close scanner"
               />
             </div>
             <div className="flex-item">
@@ -118,6 +126,14 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
                 id="switch-camera"
                 className="icon-flipcamera"
                 onClick={handleCameraSwitch}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleCameraSwitch();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label="Switch camera"
               />
             </div>
           </div>

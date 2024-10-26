@@ -37,6 +37,7 @@ export function IngredientsForm() {
       const data = await checkIngredients(ingredients);
       setResult(data);
     } catch (error) {
+      console.log(error);
       setError(t("cannotbeempty"));
     } finally {
       setLoading(false);

@@ -11,13 +11,13 @@
     "lint": "next lint",
     "test": "playwright test"
   },
+  "packageManager": "pnpm@9.12.1",
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",
     "@ericblade/quagga2": "^1.8.4",
     "@frontendnetwork/veganify": "^1.2.5",
     "@types/node": "22.5.4",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "eslint-config-sznm": "^2.0.2",
     "jest-worker": "^29.7.0",
     "million": "^2.6.4",
     "next": "15.0.1",
@@ -33,21 +33,46 @@
   "devDependencies": {
     "@playwright/test": "^1.48.0",
     "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "@typescript-eslint/typescript-estree": "^8.8.0",
-    "eslint": "8.56.0",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "@typescript-eslint/typescript-estree": "^8.11.0",
+    "eslint": "9.13.0",
     "eslint-config-next": "15.0.1",
-    "eslint-plugin-import": "^2.31.0"
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-config-sznm": "^2.0.3"
   },
   "volta": {
-    "node": "18.16.0",
-    "yarn": "1.22.19"
+    "node": "20.0.0"
   },
   "pnpm": {
     "overrides": {
       "@types/react": "npm:types-react@19.0.0-rc.1",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+      "eslint": "9.13.0",
+      "react": "19.0.0-rc-69d4b800-20241021",
+      "react-dom": "19.0.0-rc-69d4b800-20241021",
+      "@typescript-eslint/eslint-plugin": "^8.11.0",
+      "@typescript-eslint/parser": "^8.11.0",
+      "@typescript-eslint/typescript-estree": "^8.11.0",
+      "uuid": "3.4.0",
+      "request": "2.88.2",
+      "core-js": "^3.36.0",
+      "glob": "^10.3.10",
+      "sourcemap-codec": "^1.4.8"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": "9.13.0",
+        "react": "19.0.0-rc-69d4b800-20241021"
+      },
+      "ignoreMissing": [
+        "@babel/core",
+        "webpack",
+        "react",
+        "react-dom",
+        "eslint"
+      ]
     }
   }
 }
