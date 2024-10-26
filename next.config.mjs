@@ -8,6 +8,9 @@ let nextConfig = {
   output: "standalone",
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
+  sassOptions: {
+    silenceDeprecations: ['legacy-js-api'],
+  },
   async rewrites() {
     return [
       {
