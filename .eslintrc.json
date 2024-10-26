@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/strict",
@@ -7,6 +8,20 @@
     "plugin:import/typescript"
   ],
   "plugins": ["@typescript-eslint", "import"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      },
+      "node": true
+    }
+  },
   "rules": {
     "import/order": [
       "error",
@@ -26,11 +41,5 @@
         }
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": true,
-      "node": true
-    }
   }
 }
