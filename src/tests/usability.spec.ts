@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("User should be able to input a barcode and get a result", async ({
   page,
 }) => {
-  await page.goto("http://localhost:3000/en");
+  await page.goto("https://staging.veganify.app/en");
 
   const inputField = await page.$('input[name="barcode"]');
   await inputField?.type("4066600204404");
@@ -19,7 +19,7 @@ test("User should be able to input a barcode and get a result", async ({
 test("User should be able to input ingredients and get a result", async ({
   page,
 }) => {
-  await page.goto("http://localhost:3000/en/ingredients");
+  await page.goto("https://staging.veganify.app/en/ingredients");
 
   const inputField = await page.$('textarea[id="ingredients"]');
   await inputField?.type("Duck");
@@ -82,7 +82,7 @@ test("User should be able to input a barcode via the URL parameter `ean` ", asyn
     });
   });
 
-  await page.goto("http://localhost:3000/en?ean=4066600204404");
+  await page.goto("https://staging.veganify.app/en?ean=4066600204404");
   const inputField = await page.waitForSelector('input[name="barcode"]');
   const inputValue = await inputField.inputValue();
   expect(inputValue).toBe("4066600204404");
