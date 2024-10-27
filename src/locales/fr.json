@@ -98,6 +98,8 @@
     "cannotbeempty": "La liste des ingr\u00e9dients ne peut \u00eatre vide ou inclure des caract\u00e8res sp\u00e9ciaux et doit \u00eatre s\u00e9par\u00e9e par des virgules !",
     "licenses": "Licenses",
     "licenses_desc": "Veganify utilise diff\u00E9rentes sources de donn\u00E9es pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
-    "languagewarning": "Ces résultats peuvent être incorrects en raison d'erreurs de traduction ou d'informations manquantes. Les résultats sont traduits avec {deepl}."
+    "languagewarning": "Ces résultats peuvent être incorrects en raison d'erreurs de traduction ou d'informations manquantes. Les résultats sont traduits avec {deepl}.",
+    "maybe_vegan": "Cet ingrédient pourrait contenir des produits d'origine animale.",
+    "unknown_vegan": "Nous ne disposons pas d'informations sur cet ingrédient."
   }
 }
