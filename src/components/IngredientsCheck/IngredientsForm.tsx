@@ -14,14 +14,21 @@ export function IngredientsForm() {
     vegan: null,
     surelyVegan: [],
     notVegan: [],
-    maybeVegan: [],
+    maybeNotVegan: [],
+    unknown: [],
   });
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setResult({ vegan: null, surelyVegan: [], notVegan: [], maybeVegan: [] });
+    setResult({
+      vegan: null,
+      surelyVegan: [],
+      notVegan: [],
+      maybeNotVegan: [],
+      unknown: [],
+    });
     setError(null);
 
     const formData = new FormData(event.currentTarget);

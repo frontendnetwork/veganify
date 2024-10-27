@@ -1,136 +1,126 @@
 import Veganify from "@frontendnetwork/veganify";
 
+import { checkIngredients } from "./actions";
+
 jest.mock("@frontendnetwork/veganify", () => ({
-  getProductByBarcode: jest.fn(),
+  __esModule: true,
+  default: {
+    checkIngredientsListV1: jest.fn(),
+  },
 }));
 
-async function testFetchProduct(barcode: string) {
-  try {
-    const data = await Veganify.getProductByBarcode(
-      barcode,
-      process.env.NEXT_PUBLIC_STAGING === "true"
-    );
-    if (data && "product" in data && "sources" in data) {
-      return {
-        product: data.product,
-        sources: data.sources,
-        status: data.status,
-      };
-    } else if (data && "status" in data) {
-      return {
-        status: data.status,
-      };
-    }
-    throw new Error("Invalid response format");
-  } catch (error) {
-    console.error("Product fetch error:", error);
-    throw error;
-  }
-}
-
-describe("fetchProduct", () => {
+describe("checkIngredients", () => {
+  // Reset all mocks before each test
   beforeEach(() => {
     jest.clearAllMocks();
-    // Reset environment variables
-    process.env.NEXT_PUBLIC_STAGING = undefined;
   });
 
-  it("returns product and sources when available", async () => {
-    const mockResponse = {
-      product: {
-        name: "Test Product",
+  it("should successfully check ingredients and return formatted data", async () => {
+    // Mock successful API response
+    const mockApiResponse = {
+      data: {
         vegan: true,
+        surely_vegan: ["apple", "banana"],
+        not_vegan: [],
+        maybe_not_vegan: [],
+        unknown: ["artificial-flavor"],
       },
-      sources: {
-        openFoodFacts: true,
-      },
-      status: 200,
     };
 
-    (Veganify.getProductByBarcode as jest.Mock).mockResolvedValueOnce(
-      mockResponse
+    (Veganify.checkIngredientsListV1 as jest.Mock).mockResolvedValue(
+      mockApiResponse
     );
 
-    const result = await testFetchProduct("4000417025005");
+    const result = await checkIngredients("apple, banana, artificial-flavor");
 
-    expect(result).toEqual(mockResponse);
-    expect(Veganify.getProductByBarcode).toHaveBeenCalledWith(
-      "4000417025005",
-      false
+    // Check if the function returns the expected formatted data
+    expect(result).toEqual({
+      vegan: true,
+      surelyVegan: ["apple", "banana"],
+      notVegan: [],
+      maybeNotVegan: [],
+      unknown: ["artificial-flavor"],
+    });
+
+    // Verify Veganify was called with correct parameters
+    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith(
+      "apple, banana, artificial-flavor",
+      process.env.NEXT_PUBLIC_STAGING === "true"
     );
   });
 
-  it("returns only status when no product found", async () => {
-    const mockResponse = {
-      status: 404,
-    };
-
-    (Veganify.getProductByBarcode as jest.Mock).mockResolvedValueOnce(
-      mockResponse
+  it("should throw an error when ingredients string is empty", async () => {
+    await expect(checkIngredients("")).rejects.toThrow(
+      "Ingredients cannot be empty"
+    );
+    await expect(checkIngredients("   ")).rejects.toThrow(
+      "Ingredients cannot be empty"
     );
 
-    const result = await testFetchProduct("4000417025005");
-
-    expect(result).toEqual({ status: 404 });
+    // Verify Veganify was not called
+    expect(Veganify.checkIngredientsListV1).not.toHaveBeenCalled();
   });
 
-  it("throws error when API call fails", async () => {
-    const mockError = new Error("API Error");
-    (Veganify.getProductByBarcode as jest.Mock).mockRejectedValueOnce(
-      mockError
+  it("should throw an error when API call fails", async () => {
+    // Mock API failure
+    (Veganify.checkIngredientsListV1 as jest.Mock).mockRejectedValue(
+      new Error("API Error")
     );
 
-    await expect(testFetchProduct("4000417025005")).rejects.toThrow(
-      "API Error"
+    await expect(checkIngredients("apple")).rejects.toThrow(
+      "Failed to check ingredients"
+    );
+
+    // Verify Veganify was called
+    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith(
+      "apple",
+      process.env.NEXT_PUBLIC_STAGING === "true"
     );
   });
 
-  it("uses staging flag correctly", async () => {
-    const mockResponse = {
-      product: {
-        name: "Test Product",
-        vegan: true,
+  it("should handle non-vegan ingredients correctly", async () => {
+    // Mock API response with non-vegan ingredients
+    const mockApiResponse = {
+      data: {
+        vegan: false,
+        surely_vegan: ["apple"],
+        not_vegan: ["gelatin"],
+        maybe_not_vegan: ["sugar"],
+        unknown: [],
       },
-      sources: {
-        openFoodFacts: true,
-      },
-      status: 200,
     };
 
-    (Veganify.getProductByBarcode as jest.Mock).mockResolvedValue(mockResponse);
+    (Veganify.checkIngredientsListV1 as jest.Mock).mockResolvedValue(
+      mockApiResponse
+    );
+
+    const result = await checkIngredients("apple, gelatin, sugar");
+
+    expect(result).toEqual({
+      vegan: false,
+      surelyVegan: ["apple"],
+      notVegan: ["gelatin"],
+      maybeNotVegan: ["sugar"],
+      unknown: [],
+    });
+  });
+
+  it("should handle staging environment flag correctly", async () => {
+    const originalEnv = process.env.NEXT_PUBLIC_STAGING;
 
     // Test with staging true
     process.env.NEXT_PUBLIC_STAGING = "true";
-    await testFetchProduct("4000417025005");
-    expect(Veganify.getProductByBarcode).toHaveBeenLastCalledWith(
-      "4000417025005",
-      true
-    );
+    await checkIngredients("apple");
+    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith("apple", true);
 
     // Test with staging false
     process.env.NEXT_PUBLIC_STAGING = "false";
-    await testFetchProduct("4000417025005");
-    expect(Veganify.getProductByBarcode).toHaveBeenLastCalledWith(
-      "4000417025005",
+    await checkIngredients("apple");
+    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith(
+      "apple",
       false
     );
 
-    // Test with staging undefined
-    process.env.NEXT_PUBLIC_STAGING = undefined;
-    await testFetchProduct("4000417025005");
-    expect(Veganify.getProductByBarcode).toHaveBeenLastCalledWith(
-      "4000417025005",
-      false
-    );
-  });
-
-  it("handles invalid response format", async () => {
-    (Veganify.getProductByBarcode as jest.Mock).mockResolvedValueOnce({
-      invalidField: "invalid",
-    });
-
-    await expect(testFetchProduct("4000417025005")).rejects.toThrow(
-      "Invalid response format"
-    );
+    process.env.NEXT_PUBLIC_STAGING = originalEnv;
   });
 });
