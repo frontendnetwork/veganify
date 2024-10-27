@@ -1,14 +1,16 @@
+@use "../_globals/mixins";
+
 .labels {
-  padding: rem(8px) !important;
-  width: rem(64px) !important;
+  padding: mixins.rem(8px) !important;
+  width: mixins.rem(64px) !important;
   height: auto;
 
-  @include mq(s-phone) {
+  @include mixins.mq(s-phone) {
     padding: 0.5rem !important;
     width: 2.5rem !important;
   }
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     width: 3rem !important;
   }
 }
@@ -17,6 +19,10 @@
 .non-vegan,
 .icon-cancle {
   color: var(--non-vegan);
+}
+
+.maybe-vegan {
+  color: var(--maybe-vegan);
 }
 
 .vegan,
@@ -66,7 +72,7 @@
 }
 
 .warning {
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     font-size: 0.6rem !important;
     line-height: 1rem !important;
   }

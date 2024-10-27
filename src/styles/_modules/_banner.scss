@@ -1,3 +1,5 @@
+@use "../_globals/mixins";
+
 /* Open Shortcuts */
 #shortcut {
   cursor: pointer;
@@ -13,27 +15,27 @@
   width: 100%;
   border-bottom: var(--pwa-border);
   text-align: left;
-  height: rem(44.8px);
+  height: mixins.rem(44.8px);
 
   .flex-container {
     display: flex;
     flex-flow: row wrap;
     writing-mode: horizontal-tb;
     padding: 0;
-    padding-left: rem(16px);
-    padding-right: rem(16px);
+    padding-left: mixins.rem(16px);
+    padding-right: mixins.rem(16px);
     margin: 0;
     list-style: none;
   }
 
   .flex-item {
-    height: rem(40px);
+    height: mixins.rem(40px);
     margin: 0;
     padding: 0;
-    padding-top: rem(3.2px);
+    padding-top: mixins.rem(3.2px);
 
     &:first-child {
-      width: rem(40px);
+      width: mixins.rem(40px);
       max-width: 20%;
     }
 
@@ -42,7 +44,7 @@
     }
 
     &:last-child {
-      margin-top: rem(6.4px);
+      margin-top: mixins.rem(6.4px);
       margin-left: auto;
       float: right;
       max-width: 35%;
@@ -51,18 +53,18 @@
   }
 
   .heading {
-    font-size: rem(12.8px);
+    font-size: mixins.rem(12.8px);
     font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
       Helvetica Neue, Helvetica, Arial, sans-serif;
     color: #fff;
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       color: #fff;
     }
   }
 
   .subheading {
-    font-size: rem(11.2px);
+    font-size: mixins.rem(11.2px);
     font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
       Helvetica Neue, Helvetica, Arial, sans-serif;
     display: block;
@@ -72,7 +74,7 @@
     overflow: hidden;
     white-space: nowrap;
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       color: #c0c5d5;
     }
   }
@@ -82,23 +84,23 @@
   }
 
   .button {
-    font-size: rem(11.2px);
+    font-size: mixins.rem(11.2px);
     color: #fff;
     text-transform: uppercase;
     background: #007aff;
-    padding: rem(8px);
-    padding-left: rem(24px);
-    padding-right: rem(24px);
-    border-radius: rem(48px);
+    padding: mixins.rem(8px);
+    padding-left: mixins.rem(24px);
+    padding-right: mixins.rem(24px);
+    border-radius: mixins.rem(48px);
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       background: #fff;
       color: #7f8fa6;
     }
   }
 
   img {
-    width: rem(32px);
+    width: mixins.rem(32px);
   }
 }
 
@@ -116,10 +118,10 @@
   overflow: hidden;
   border-bottom: var(--pwa-border);
   text-align: left;
-  height: rem(64px);
+  height: mixins.rem(64px);
   display: none;
 
-  @include mq(s-phone) {
+  @include mixins.mq(s-phone) {
     height: 3.5rem;
   }
 
@@ -128,38 +130,38 @@
     flex-flow: row wrap;
     writing-mode: horizontal-tb;
     padding: 0;
-    padding-left: rem(16px);
-    padding-right: rem(16px);
+    padding-left: mixins.rem(16px);
+    padding-right: mixins.rem(16px);
     margin: 0;
     list-style: none;
 
-    @include mq(s-phone) {
+    @include mixins.mq(s-phone) {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
     }
   }
 
   .flex-item {
-    height: rem(40px);
+    height: mixins.rem(40px);
     margin: 0;
     padding: 0;
-    padding-top: rem(4.8px);
+    padding-top: mixins.rem(4.8px);
 
     &:first-child {
-      font-size: rem(24px);
-      padding-top: rem(16px);
-      padding-right: rem(8px);
+      font-size: mixins.rem(24px);
+      padding-top: mixins.rem(16px);
+      padding-right: mixins.rem(8px);
       font-weight: 100;
       color: #ccc;
       opacity: 0.2;
     }
 
     &:nth-child(3) {
-      padding-top: rem(11.2px);
+      padding-top: mixins.rem(11.2px);
     }
 
     &:last-child {
-      margin-top: rem(12px);
+      margin-top: mixins.rem(12px);
       margin-left: auto;
       float: right;
       justify-content: flex-end;
@@ -167,34 +169,34 @@
   }
 
   .heading {
-    font-size: rem(12.8px);
+    font-size: mixins.rem(12.8px);
     font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
       Helvetica Neue, Helvetica, Arial, sans-serif;
     color: #fff;
     font-weight: bold;
 
-    @include mq(s-phone) {
+    @include mixins.mq(s-phone) {
       font-size: 0.65rem;
     }
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       color: #fff;
     }
   }
 
   .subheading {
-    font-size: rem(11.2px);
+    font-size: mixins.rem(11.2px);
     font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
       Helvetica Neue, Helvetica, Arial, sans-serif;
     display: block;
     color: #ccc;
     font-weight: 400;
 
-    @include mq(s-phone) {
+    @include mixins.mq(s-phone) {
       font-size: 0.55rem;
     }
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       color: #c0c5d5;
     }
   }
@@ -204,33 +206,33 @@
   }
 
   .button {
-    font-size: rem(11.2px);
+    font-size: mixins.rem(11.2px);
     font-weight: bold;
     color: #fff;
     text-transform: uppercase;
     background: #007aff;
-    padding: rem(8px);
-    padding-left: rem(24px);
-    padding-right: rem(24px);
-    border-radius: rem(48px);
+    padding: mixins.rem(8px);
+    padding-left: mixins.rem(24px);
+    padding-right: mixins.rem(24px);
+    border-radius: mixins.rem(48px);
 
-    @include mq(s-phone) {
+    @include mixins.mq(s-phone) {
       font-size: 0.5rem;
     }
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       background: #fff;
       color: #7f8fa6;
     }
   }
 
   img {
-    width: rem(51.2px);
-    border: rem(0.8px) grey solid;
-    border-radius: rem(12px);
-    margin-right: rem(8px);
+    width: mixins.rem(51.2px);
+    border: mixins.rem(0.8px) grey solid;
+    border-radius: mixins.rem(12px);
+    margin-right: mixins.rem(8px);
 
-    @include mq(s-phone) {
+    @include mixins.mq(s-phone) {
       width: 2.8rem;
     }
   }

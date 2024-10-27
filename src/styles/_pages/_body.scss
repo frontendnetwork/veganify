@@ -1,3 +1,5 @@
+@use "../_globals/mixins";
+
 /* Selection color */
 ::-moz-selection {
   background-color: #353b48;
@@ -19,7 +21,7 @@ body {
   text-align: center;
   word-wrap: break-word;
 
-  @include theme(light) {
+  @include mixins.theme(light) {
     background-color: #7f8fa6;
   }
 }
@@ -40,7 +42,7 @@ body {
 h1 {
   color: var(--fg-color);
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     font-size: 1.8rem;
   }
 }
@@ -76,21 +78,21 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
   width: 55%;
-  padding: rem(16px);
-  padding-top: rem(15px);
+  padding: mixins.rem(16px);
+  padding-top: mixins.rem(15px);
   text-align: center;
   color: #000;
   font-weight: var(--body-fontweight);
   flex: 1;
-  border-top: rem(0.16px) solid #ccc;
-  border-bottom: rem(0.16px) solid #ccc;
+  border-top: mixins.rem(0.16px) solid #ccc;
+  border-bottom: mixins.rem(0.16px) solid #ccc;
   border-left: none;
   border-right: none;
   border-radius: 0;
 
-  @include mq(phone) {
-    padding-top: rem(14px);
-    padding-bottom: rem(15px);
+  @include mixins.mq(phone) {
+    padding-top: mixins.rem(14px);
+    padding-bottom: mixins.rem(15px);
   }
 }
 
@@ -101,9 +103,9 @@ textarea {
   color: #000;
   font-weight: var(--body-fontweight);
   flex: 1;
-  border-top: rem(0.16px) solid #ccc;
-  border-bottom: rem(0.16px) solid #ccc;
-  border-left: rem(0.16px) solid #ccc;
+  border-top: mixins.rem(0.16px) solid #ccc;
+  border-bottom: mixins.rem(0.16px) solid #ccc;
+  border-left: mixins.rem(0.16px) solid #ccc;
   border-right: none;
   border-radius: 0;
   resize: vertical;
@@ -111,38 +113,40 @@ textarea {
 
 /* Container */
 .container {
-  padding-top: rem(150px);
+  padding-top: mixins.rem(150px);
   /* padding-bottom: rem(50px);*/
   width: 50%;
   margin: 0 auto;
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     padding-top: 4rem;
     width: 100%;
   }
 
   img {
-    width: rem(48px);
-    height: rem(48px);
+    width: mixins.rem(48px);
+    height: mixins.rem(48px);
   }
 }
 
 .top {
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     padding-top: 0.5rem;
   }
-  @include mq(s-phone) {
+
+  @include mixins.mq(s-phone) {
     padding-top: 0.5rem;
   }
-  @include mq(s-desktop) {
+
+  @include mixins.mq(s-desktop) {
     padding-top: 2rem;
   }
 }
 
 .logo {
-  padding-bottom: rem(32px);
+  padding-bottom: mixins.rem(32px);
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     padding-bottom: 1rem;
     padding-top: 1rem;
   }
@@ -150,7 +154,7 @@ textarea {
 
 /* Longpage for Privacy/Imprint */
 .longpage {
-  padding-top: rem(50px) !important;
+  padding-top: mixins.rem(50px) !important;
   color: #000;
 
   a,
@@ -166,23 +170,24 @@ p.missing {
 }
 
 p {
-  line-height: rem(24px);
-  @include theme(light) {
+  line-height: mixins.rem(24px);
+
+  @include mixins.theme(light) {
     color: #fff;
   }
 }
 
 /* Footer */
 footer {
-  font-size: rem(13.6px);
+  font-size: mixins.rem(13.6px);
   padding-bottom: 4.8rem;
 
-  @include mq(s-phone) {
+  @include mixins.mq(s-phone) {
     font-size: 0.6rem;
     margin-bottom: 1rem;
   }
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     font-size: 0.7rem;
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -190,7 +195,7 @@ footer {
   }
 
   a {
-    @include theme(light) {
+    @include mixins.theme(light) {
       color: #fff;
     }
   }
@@ -198,7 +203,8 @@ footer {
   a:hover,
   a:focus {
     color: #7f8fa6;
-    @include theme(light) {
+
+    @include mixins.theme(light) {
       color: #fff;
     }
   }

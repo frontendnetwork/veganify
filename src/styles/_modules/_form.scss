@@ -1,26 +1,28 @@
+@use "../_globals/mixins";
+
 /* Main container with border */
 
 .form {
   word-wrap: break-word;
   background: #fff;
-  border: rem(2px) solid #f5f5f5;
-  border-radius: rem(10px);
+  border: mixins.rem(2px) solid #f5f5f5;
+  border-radius: mixins.rem(10px);
   margin: 0 auto;
-  margin-bottom: rem(24px);
-  padding: rem(64px);
-  line-height: rem(30px);
-  box-shadow: 0 rem(25px) rem(50px) rem(-12px) rgba(0, 0, 0, 0.25);
+  margin-bottom: mixins.rem(24px);
+  padding: mixins.rem(64px);
+  line-height: mixins.rem(30px);
+  box-shadow: 0 mixins.rem(25px) mixins.rem(50px) mixins.rem(-12px) rgba(0, 0, 0, 0.25);
   overflow: hidden;
   position: relative;
   color: #000;
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     max-width: 80%;
     padding: 1rem;
     padding-bottom: 2rem;
   }
 
-  @include theme(light) {
+  @include mixins.theme(light) {
     color: #000;
   }
 
@@ -38,14 +40,15 @@
   li {
     color: #000;
     text-align: left;
-    @include theme(light) {
+
+    @include mixins.theme(light) {
       color: #000;
     }
   }
 
   .small {
-    font-size: rem(11.2px);
-    line-height: rem(16px);
+    font-size: mixins.rem(11.2px);
+    line-height: mixins.rem(16px);
   }
 
   .Grid {
@@ -54,14 +57,14 @@
     flex-wrap: wrap;
     width: 60%;
     margin: 0 auto;
-    border-top: rem(0.08px) solid #ccc;
-    padding: rem(8px);
+    border-top: mixins.rem(0.08px) solid #ccc;
+    padding: mixins.rem(8px);
 
-    @include mq(s-phone) {
+    @include mixins.mq(s-phone) {
       width: 80% !important;
     }
 
-    @include mq(phone) {
+    @include mixins.mq(phone) {
       width: 70% !important;
     }
 
@@ -78,32 +81,32 @@
       appearance: none;
       -webkit-appearance: none;
       outline: none;
-      width: rem(50px);
-      height: rem(30px);
+      width: mixins.rem(50px);
+      height: mixins.rem(30px);
       background-color: #fff;
-      border: rem(1.008px) solid #d9dadc;
-      border-radius: rem(50px);
-      box-shadow: inset rem(-20px) 0 0 0 #fff;
+      border: mixins.rem(1.008px) solid #d9dadc;
+      border-radius: mixins.rem(50px);
+      box-shadow: inset mixins.rem(-20px) 0 0 0 #fff;
 
       &:after {
         content: "";
         position: absolute;
-        top: rem(1.008px);
-        left: rem(1.008px);
+        top: mixins.rem(1.008px);
+        left: mixins.rem(1.008px);
         background: transparent;
-        width: rem(26px);
-        height: rem(26px);
+        width: mixins.rem(26px);
+        height: mixins.rem(26px);
         border-radius: 50%;
-        box-shadow: rem(2px) rem(4px) rem(6px) rgba(0, 0, 0, 0.2);
+        box-shadow: mixins.rem(2px) mixins.rem(4px) mixins.rem(6px) rgba(0, 0, 0, 0.2);
       }
 
       &:checked {
-        box-shadow: inset rem(20px) 0 0 0 var(--button-bg-re);
+        box-shadow: inset mixins.rem(20px) 0 0 0 var(--button-bg-re);
         border-color: var(--button-bg-re);
 
         &:after {
           left: 1.25rem;
-          box-shadow: rem(-2px) rem(4px) rem(3.008px) rgba(0, 0, 0, 0.05);
+          box-shadow: mixins.rem(-2px) mixins.rem(4px) mixins.rem(3.008px) rgba(0, 0, 0, 0.05);
         }
       }
     }
@@ -117,11 +120,11 @@
       .info {
         display: block;
         font-weight: 400;
-        font-size: rem(14.4px);
+        font-size: mixins.rem(14.4px);
         color: #595959;
         margin-top: 0;
         padding: 0;
-        line-height: rem(16px);
+        line-height: mixins.rem(16px);
       }
     }
 
@@ -161,16 +164,16 @@
   }
 
   .button {
-    font-size: rem(11.2px);
+    font-size: mixins.rem(11.2px);
     color: var(--button-fg-re);
     text-transform: uppercase;
     font-weight: bold;
     background: var(--button-bg-re);
-    padding: rem(3.2px);
-    padding-left: rem(16px);
-    padding-right: rem(16px);
-    border-radius: rem(48px);
-    margin-top: rem(12.8px) !important;
+    padding: mixins.rem(3.2px);
+    padding-left: mixins.rem(16px);
+    padding-right: mixins.rem(16px);
+    border-radius: mixins.rem(48px);
+    margin-top: mixins.rem(12.8px) !important;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;

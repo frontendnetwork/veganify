@@ -1,3 +1,5 @@
+@use "../_globals/mixins";
+
 /* Navbar */
 .nav {
   cursor: pointer;
@@ -6,16 +8,16 @@
   top: 0%;
   left: 50%;
   transform: translateX(-50%);
-  backdrop-filter: blur(rem(3.2px));
+  backdrop-filter: blur(mixins.rem(3.2px));
   background: var(--nav-bg);
   width: 100%;
   border-bottom: var(--nav-border);
   text-align: left;
-  height: rem(67.2px);
+  height: mixins.rem(67.2px);
   font-family: SF Pro Text, system-ui, -apple-system, BlinkMacSystemFont,
     Helvetica Neue, Helvetica, Arial, sans-serif;
 
-  @include mq(s-desktop) {
+  @include mixins.mq(s-desktop) {
     bottom: 0%;
     top: initial;
     border-top: var(--nav-border);
@@ -28,29 +30,30 @@
     align-items: center;
     justify-content: space-around;
     padding: 0;
-    padding-top: rem(8px);
-    padding-left: rem(16px);
-    padding-right: rem(16px);
+    padding-top: mixins.rem(8px);
+    padding-left: mixins.rem(16px);
+    padding-right: mixins.rem(16px);
     margin: 0;
     list-style: none;
   }
 
   .flex-item {
-    height: rem(40px);
+    height: mixins.rem(40px);
     margin: 0;
-    padding: rem(1.6px);
+    padding: mixins.rem(1.6px);
     text-align: center;
     color: #8e8e93;
-    font-size: rem(16px);
+    font-size: mixins.rem(16px);
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       color: #000;
     }
 
     .icon {
       &:before {
         color: #8e8e93 !important;
-        @include theme(light) {
+
+        @include mixins.theme(light) {
           color: #000;
         }
       }
@@ -60,14 +63,15 @@
   .active {
     color: #fff !important;
 
-    @include theme(light) {
+    @include mixins.theme(light) {
       color: #007aff !important;
     }
 
     .icon {
       &:before {
         color: #fff !important;
-        @include theme(light) {
+
+        @include mixins.theme(light) {
           color: #007aff !important;
         }
       }
@@ -76,7 +80,7 @@
 
   .menu-item {
     display: block;
-    padding-top: rem(4.8px);
+    padding-top: mixins.rem(4.8px);
   }
 
   a,
