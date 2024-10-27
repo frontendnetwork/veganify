@@ -1,9 +1,11 @@
+@use "../_globals/mixins";
+
 /* Data Source label */
 .source {
   font-weight: 400;
-  font-size: rem(12.8px);
-  padding-top: rem(16px);
-  line-height: rem(22.4px);
+  font-size: mixins.rem(12.8px);
+  padding-top: mixins.rem(16px);
+  line-height: mixins.rem(22.4px);
   display: block;
 
   a {

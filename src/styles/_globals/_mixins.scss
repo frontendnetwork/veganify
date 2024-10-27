@@ -3,8 +3,8 @@
 
 // converts several units to em (supports px, pt, pc, in, mm, cm)
 @function em($size) {
-  @if not unitless($size) {
-    @if unit($size)==em {
+  @if not math.is-unitless($size) {
+    @if math.unit($size)==em {
       @return $size;
     }
 

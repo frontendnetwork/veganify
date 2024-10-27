@@ -98,6 +98,8 @@
     "cannotbeempty": "Ingredients-list cannot be empty or include special characters and has to be comma seperated!",
     "licenses": "Licenses",
     "licenses_desc": "Veganify uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
-    "languagewarning": "These results may be incorrect due to translation errors or missing information. The results are translated with {deepl}."
+    "languagewarning": "These results may be incorrect due to translation errors or missing information. The results are translated with {deepl}.",
+    "maybe_vegan": "This ingredient could contain animal products.",
+    "unknown_vegan": "We don't have information about this ingredient."
   }
 }

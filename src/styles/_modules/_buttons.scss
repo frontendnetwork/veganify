@@ -1,3 +1,5 @@
+@use "../_globals/mixins";
+
 /* Buttons */
 button {
   width: 10%;
@@ -5,21 +7,21 @@ button {
   cursor: pointer;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  padding: rem(16px);
+  padding: mixins.rem(16px);
   text-align: center;
   color: #000;
   font-weight: var(--body-fontweight);
   transition: 0.5s;
-  border: rem(0.16px) solid #ccc;
+  border: mixins.rem(0.16px) solid #ccc;
   height: 4rem;
 
-  @include mq(s-desktop) {
+  @include mixins.mq(s-desktop) {
     width: 15%;
     padding-left: 0;
     padding-right: 0;
   }
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     width: 20%;
     padding-left: 0;
     padding-right: 0;
@@ -32,23 +34,23 @@ button:focus {
 }
 
 .btn-dark {
-  margin-top: rem(12.8px) !important;
+  margin-top: mixins.rem(12.8px) !important;
   display: inline-block;
   min-width: auto;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
-  border: rem(1.008px) solid #424242;
+  border: mixins.rem(1.008px) solid #424242;
   cursor: pointer;
-  padding: rem(4px) rem(8px);
-  font-size: rem(14px);
-  border-radius: rem(3.2px);
+  padding: mixins.rem(4px) mixins.rem(8px);
+  font-size: mixins.rem(14px);
+  border-radius: mixins.rem(3.2px);
   color: #fff !important;
   background-color: #212529;
   transition: 0.5s;
 
-  @include mq(s-phone) {
+  @include mixins.mq(s-phone) {
     width: 6.5rem;
     font-size: 0.9rem;
   }
@@ -56,7 +58,7 @@ button:focus {
   &:hover,
   &:focus {
     color: #fff;
-    border: rem(1.008px) solid #6b6b6b;
+    border: mixins.rem(1.008px) solid #6b6b6b;
   }
 
   &:active {
@@ -66,7 +68,7 @@ button:focus {
 }
 
 #tweet {
-  margin-right: rem(3.2px);
+  margin-right: mixins.rem(3.2px);
 }
 
 .nolink {

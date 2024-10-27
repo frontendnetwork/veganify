@@ -9,7 +9,7 @@ export async function checkIngredients(ingredients: string) {
   }
 
   try {
-    const data = await Veganify.checkIngredientsList(
+    const data = await Veganify.checkIngredientsListV1(
       ingredients,
       process.env.NEXT_PUBLIC_STAGING === "true"
     );
@@ -18,7 +18,8 @@ export async function checkIngredients(ingredients: string) {
       vegan: data.data.vegan,
       surelyVegan: data.data.surely_vegan,
       notVegan: data.data.not_vegan,
-      maybeVegan: data.data.maybe_vegan,
+      maybeNotVegan: data.data.maybe_not_vegan,
+      unknown: data.data.unknown,
     };
   } catch (error) {
     console.error(error);

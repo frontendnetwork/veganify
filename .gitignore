@@ -37,4 +37,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-test-results/.last-run.json
+
+# tests
+test-results/
+playwright-report/

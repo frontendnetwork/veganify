@@ -98,7 +98,9 @@
     "source": "Datenquelle",
     "cannotbeempty": "Die Zutatenliste darf nicht leer sein oder Sonderzeichen enthalten und muss durch Kommata getrennt sein!",
     "licenses": "Lizenzen",
-    "licenses_desc":"Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
-    "languagewarning": "Diese Ergebnisse können aufgrund von Übersetzungsfehlern oder fehlenden Informationen inkorrekt sein. Die Ergebnisse werden mit {deepl} übersetzt."
+    "licenses_desc": "Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
+    "languagewarning": "Diese Ergebnisse können aufgrund von Übersetzungsfehlern oder fehlenden Informationen inkorrekt sein. Die Ergebnisse werden mit {deepl} übersetzt.",
+    "maybe_vegan": "Diese Zutat könnte tierische Produkte enthalten.",
+    "unknown_vegan": "Wir haben keine Informationen über diese Zutat."
   }
 }

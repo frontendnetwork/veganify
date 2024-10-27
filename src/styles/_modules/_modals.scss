@@ -1,13 +1,15 @@
+@use "../_globals/mixins";
+
 /* Modals */
 .source {
   sup {
     font-size: 100%;
-    margin-left: rem(4.8px);
+    margin-left: mixins.rem(4.8px);
   }
 }
 
 sup {
-  margin: rem(1.6px);
+  margin: mixins.rem(1.6px);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -19,8 +21,8 @@ sup {
 .modal_view {
   background-color: var(--modal-bg);
   color: var(--modal-fg) !important;
-  border-top-right-radius: rem(8px);
-  border-top-left-radius: rem(8px);
+  border-top-right-radius: mixins.rem(8px);
+  border-top-left-radius: mixins.rem(8px);
   position: fixed;
   bottom: 0%;
   left: 0;
@@ -29,10 +31,10 @@ sup {
   z-index: 9999999;
   overflow: overlay;
   text-align: left;
-  box-shadow: 0 rem(25px) rem(25px) rem(50px) rem(12px) rgba(0, 0, 0, 0.5);
-  padding-bottom: rem(16px);
+  box-shadow: 0 mixins.rem(25px) mixins.rem(25px) mixins.rem(50px) mixins.rem(12px) rgba(0, 0, 0, 0.5);
+  padding-bottom: mixins.rem(16px);
 
-  @include mq(desktop) {
+  @include mixins.mq(desktop) {
     height: auto;
     max-width: 40%;
     max-height: 50%;
@@ -44,36 +46,36 @@ sup {
 
   .heading_img {
     width: 20%;
-    max-width: rem(48px);
-    margin-top: rem(32px);
+    max-width: mixins.rem(48px);
+    margin-top: mixins.rem(32px);
     margin-bottom: 0;
   }
 
   .pwa-install-prompt__guide__icon {
-    width: rem(16px);
-    padding-right: rem(4.8px);
+    width: mixins.rem(16px);
+    padding-right: mixins.rem(4.8px);
   }
 
   h2,
   h1 {
     font-weight: 600;
-    font-size: rem(16px);
-    margin-top: rem(24px);
-    padding-left: rem(24px);
-    padding-right: rem(24px);
+    font-size: mixins.rem(16px);
+    margin-top: mixins.rem(24px);
+    padding-left: mixins.rem(24px);
+    padding-right: mixins.rem(24px);
   }
 
   h1 {
-    font-size: rem(24px);
-    margin-top: rem(8px);
+    font-size: mixins.rem(24px);
+    margin-top: mixins.rem(8px);
     color: var(--modal-fg) !important;
     text-align: center !important;
   }
 
   p {
     color: var(--modal-fg) !important;
-    padding-left: rem(24px);
-    padding-right: rem(24px);
+    padding-left: mixins.rem(24px);
+    padding-right: mixins.rem(24px);
     font-size: var(--body-fontsize);
   }
 
@@ -82,15 +84,15 @@ sup {
   }
 
   .button {
-    font-size: rem(16px);
+    font-size: mixins.rem(16px);
     color: var(--button-fg-re) !important;
     background: var(--button-bg-re);
-    padding: rem(16px);
-    padding-left: rem(16px);
-    padding-right: rem(16px);
-    border-radius: rem(48px);
-    margin-top: rem(12.8px) !important;
-    margin-bottom: rem(16px);
+    padding: mixins.rem(16px);
+    padding-left: mixins.rem(16px);
+    padding-right: mixins.rem(16px);
+    border-radius: mixins.rem(48px);
+    margin-top: mixins.rem(12.8px) !important;
+    margin-bottom: mixins.rem(16px);
     text-decoration: none;
     display: inline-block;
   }
@@ -99,11 +101,11 @@ sup {
     text-align: left;
 
     .btn-dark {
-      width: rem(32px);
-      height: rem(32px);
+      width: mixins.rem(32px);
+      height: mixins.rem(32px);
       position: fixed;
-      right: rem(16px);
-      margin-top: rem(12.8px) !important;
+      right: mixins.rem(16px);
+      margin-top: mixins.rem(12.8px) !important;
       display: inline-block;
       min-width: auto;
       font-weight: 400;
@@ -116,11 +118,11 @@ sup {
       border-radius: 60%;
       color: #000 !important;
       background-color: rgba(204, 204, 204, 0.6);
-      font-size: rem(20.8px);
+      font-size: mixins.rem(20.8px);
       z-index: 999999;
-      backdrop-filter: blur(rem(3.2px));
+      backdrop-filter: blur(mixins.rem(3.2px));
 
-      @include mq(desktop) {
+      @include mixins.mq(desktop) {
         right: 31%;
       }
     }
@@ -128,14 +130,14 @@ sup {
 
   .share-btn {
     background: var(--modal-full-btn);
-    border-radius: rem(8px);
-    padding: rem(16px);
-    margin: rem(16px);
+    border-radius: mixins.rem(8px);
+    padding: mixins.rem(16px);
+    margin: mixins.rem(16px);
     display: flex;
 
     .share-text {
       display: block;
-      font-size: rem(19.2px);
+      font-size: mixins.rem(19.2px);
       width: 93%;
     }
 
@@ -148,26 +150,26 @@ sup {
   .option {
     background: var(--modal-full-btn);
     border: var(--modal-border);
-    border-radius: rem(8px);
-    padding: rem(16px);
-    margin: rem(16px);
+    border-radius: mixins.rem(8px);
+    padding: mixins.rem(16px);
+    margin: mixins.rem(16px);
 
     .muted {
       color: #ccc;
       display: block;
-      font-size: rem(12.8px);
+      font-size: mixins.rem(12.8px);
       text-transform: uppercase;
-      padding-bottom: rem(16px);
+      padding-bottom: mixins.rem(16px);
     }
 
     .price {
       display: block;
-      font-size: rem(19.2px);
+      font-size: mixins.rem(19.2px);
     }
   }
 
   .active {
-    border: rem(1.6px) #016afe solid;
+    border: mixins.rem(1.6px) #016afe solid;
   }
 
   .center {
@@ -182,35 +184,35 @@ sup {
     width: 100%;
     height: auto;
     background-color: var(--modal-bg-overlay);
-    backdrop-filter: blur(rem(3.2px));
+    backdrop-filter: blur(mixins.rem(3.2px));
 
-    @include mq(desktop) {
+    @include mixins.mq(desktop) {
       position: initial;
     }
   }
 
   .info {
     color: #9e9e9e;
-    font-size: rem(12.8px);
+    font-size: mixins.rem(12.8px);
     display: block;
-    margin: rem(16px);
+    margin: mixins.rem(16px);
     margin-top: 0;
   }
 
   .form-check-input {
     position: absolute;
-    right: rem(32px);
+    right: mixins.rem(32px);
     transform: scale(1.2);
 
-    @include mq(s-desktop) {
+    @include mixins.mq(s-desktop) {
       transform: scale(1.5);
     }
 
-    @include mq(s-phone) {
+    @include mixins.mq(s-phone) {
       transform: scale(1.2);
     }
 
-    @include mq(phone) {
+    @include mixins.mq(phone) {
       transform: scale(1.5);
     }
   }
@@ -218,9 +220,9 @@ sup {
   /* Menu */
   .menu {
     background: var(--modal-full-btn);
-    padding: rem(16px);
-    margin-left: rem(16px);
-    margin-right: rem(16px);
+    padding: mixins.rem(16px);
+    margin-left: mixins.rem(16px);
+    margin-right: mixins.rem(16px);
     border-radius: 0;
     border-bottom: var(--nav-border);
     display: flex;
@@ -228,7 +230,7 @@ sup {
 
     .label {
       display: block;
-      font-size: rem(19.2px);
+      font-size: mixins.rem(19.2px);
       width: 95%;
     }
 
@@ -239,20 +241,20 @@ sup {
   }
 
   .twitter {
-    border-top-right-radius: rem(8px);
-    border-top-left-radius: rem(8px);
+    border-top-right-radius: mixins.rem(8px);
+    border-top-left-radius: mixins.rem(8px);
   }
 
   .last {
-    border-bottom-right-radius: rem(8px);
-    border-bottom-left-radius: rem(8px);
+    border-bottom-right-radius: mixins.rem(8px);
+    border-bottom-left-radius: mixins.rem(8px);
     border-bottom: none;
   }
 }
 
 .info {
   color: #9e9e9e;
-  font-size: rem(12.8px);
+  font-size: mixins.rem(12.8px);
   display: block;
   margin-top: 0;
 }
@@ -267,6 +269,6 @@ sup {
   position: absolute;
   left: 0;
   top: 0;
-  padding: rem(16px);
+  padding: mixins.rem(16px);
   text-decoration: none;
 }
