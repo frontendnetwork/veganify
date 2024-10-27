@@ -1,0 +1,45 @@
+@use "../_globals/mixins";
+
+.tooltip-wrapper {
+    margin: 0 auto;
+    position: relative;
+    display: block;
+
+    .Grid:first-child {
+        border-top: .005rem solid #ccc;
+    }
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0.3125rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #333;
+    color: white;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    z-index: 1000;
+    white-space: wrap;
+    line-height: 1.25rem;
+    pointer-events: none;
+    width: fit-content;
+
+    @include mixins.mq(phone) {
+        width: 90% !important;
+    }
+
+    .tooltip-arrow {
+        position: absolute;
+        bottom: -0.3125rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 0.3125rem solid transparent;
+        border-right: 0.3125rem solid transparent;
+        border-top: 0.3125rem solid #333;
+    }
+}

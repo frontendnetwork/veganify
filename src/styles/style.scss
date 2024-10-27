@@ -1,8 +1,25 @@
 /* Import scss structure */
-@import '_globals/normalize', '_globals/animate', '_globals/vegancheckicons', '_globals/mixins', '_globals/fonts', '_globals/roots';
+@use '_globals/normalize';
+@use '_globals/animate';
+@use '_globals/vegancheckicons';
+@use '_globals/mixins' as *;
+@use '_globals/fonts';
+@use '_globals/roots';
 
 /* Import scss pages */
-@import '_pages/body', '_pages/frontpage', '_pages/more';
+@use '_pages/body';
+@use '_pages/frontpage';
+@use '_pages/more';
 
 /* Import modules */
-@import '_modules/modals', '_modules/form', '_modules/label', '_modules/scanner', '_modules/overlays', '_modules/buttons', '_modules/banner', '_modules/navbar', '_modules/nutriscore', '_modules/skeleton';
+@use '_modules/modals';
+@use '_modules/form';
+@use '_modules/label';
+@use '_modules/scanner';
+@use '_modules/overlays';
+@use '_modules/buttons';
+@use '_modules/banner';
+@use '_modules/navbar';
+@use '_modules/nutriscore';
+@use '_modules/skeleton';
+@use '_modules/tooltip';

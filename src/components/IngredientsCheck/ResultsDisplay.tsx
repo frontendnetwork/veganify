@@ -1,14 +1,14 @@
 import { IngredientList } from "./IngredientsList";
 import { IngredientResult } from "./models/IngredientResult";
+import { TranslationFunction } from "./models/TranslateFunction";
 import { SourceInfo } from "./SourceInfo";
 
-export function ResultDisplay({
-  result,
-  t,
-}: {
+interface ResultDisplayProps {
   result: IngredientResult;
-  t: (key: string, values?: Record<string, string>) => string;
-}) {
+  t: TranslationFunction;
+}
+
+export function ResultDisplay({ result, t }: ResultDisplayProps) {
   return (
     <div id="result">
       <div className="">
@@ -28,14 +28,22 @@ export function ResultDisplay({
           <IngredientList
             items={result.notVegan}
             iconClass="non-vegan icon-cancel"
+            t={t}
           />
           <IngredientList
-            items={result.maybeVegan}
-            iconClass="maybe-vegan icon-help"
+            items={result.unknown}
+            iconClass="unknown-vegan icon-help"
+            t={t}
+          />
+          <IngredientList
+            items={result.maybeNotVegan}
+            iconClass="maybe-vegan icon-attention-alt"
+            t={t}
           />
           <IngredientList
             items={result.surelyVegan}
             iconClass="vegan icon-ok"
+            t={t}
           />
           <SourceInfo t={t} />
         </div>

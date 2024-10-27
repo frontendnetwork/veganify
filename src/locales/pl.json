@@ -98,6 +98,8 @@
     "cannotbeempty": "Lista składników nie może być pusta, zawierać znaków specjalnych i musi być oddzielona przecinkiem!",
     "licenses": "Licencje",
     "licenses_desc": "Veganify uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
-    "languagewarning": "Wyniki mogą być nieprawidłowe z racji błędów w tłumaczeniach lub niekompletnych informacji. Wyniki są tłumaczone przez {deepl}."
+    "languagewarning": "Wyniki mogą być nieprawidłowe z racji błędów w tłumaczeniach lub niekompletnych informacji. Wyniki są tłumaczone przez {deepl}.",
+    "maybe_vegan": "Ten składnik może zawierać produkty pochodzenia zwierzęcego.",
+    "unknown_vegan": "Nie mamy informacji o tym składniku."
   }
 }

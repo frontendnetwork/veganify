@@ -98,6 +98,8 @@
     "cannotbeempty": "Seznam ingrediencí nesmí být prázdný ani obsahovat speciální znaky a musí být oddělen čárkou!",
     "licenses": "Licence",
     "licenses_desc": "Veganify používá ke shromažďování informací o výrobku různé databáze a rozhraní API. Informace jsou licencovány pod následujícími licencemi:",
-    "languagewarning": "Tyto výsledky mohou být nesprávné z důvodu chyb v překladu nebo chybějících informací. Výsledky jsou přeloženy pomocí {deepl}."
+    "languagewarning": "Tyto výsledky mohou být nesprávné z důvodu chyb v překladu nebo chybějících informací. Výsledky jsou přeloženy pomocí {deepl}.",
+    "maybe_vegan": "Tato složka může obsahovat živočišné produkty.",
+    "unknown_vegan": "O této složce nemáme žádné informace."
   }
 }

@@ -98,6 +98,8 @@
     "cannotbeempty": "La lista de ingredientes no puede estar vacía ni incluir caracteres especiales y tiene que estar separada por comas.",
     "licenses": "Licencias",
     "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger informaci\u00F3n sobre un producto. Esta informaci\u00F3n est\u00E1 bajo las siguientes licencias:",
-    "languagewarning": "Estos resultados pueden ser incorrectos debido a errores de traducción o falta de información. Los resultados se traducen con {deepl}."
+    "languagewarning": "Estos resultados pueden ser incorrectos debido a errores de traducción o falta de información. Los resultados se traducen con {deepl}.",
+    "maybe_vegan": "Este ingrediente podría contener productos de origen animal.",
+    "unknown_vegan": "No tenemos información sobre este ingrediente."
   }
 }

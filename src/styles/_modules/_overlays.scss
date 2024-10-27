@@ -1,3 +1,5 @@
+@use "../_globals/mixins";
+
 /* Rotate device screen */
 .rotate {
   z-index: 99999999999999999999;
@@ -12,8 +14,8 @@
   display: none;
 
   img {
-    padding-top: rem(80px);
-    height: rem(128px);
+    padding-top: mixins.rem(80px);
+    height: mixins.rem(128px);
   }
 }
 
@@ -30,6 +32,6 @@
   height: 100%;
 
   h3 {
-    padding-top: rem(80px);
+    padding-top: mixins.rem(80px);
   }
 }

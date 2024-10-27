@@ -1,8 +1,7 @@
 @font-face {
   font-family: "vegancheckicons";
   src: url("../font/vegancheckicons.eot?33525214");
-  src: url("../font/vegancheckicons.eot?33525214#iefix")
-      format("embedded-opentype"),
+  src: url("../font/vegancheckicons.eot?33525214#iefix") format("embedded-opentype"),
     url("../font/vegancheckicons.woff2?33525214") format("woff2"),
     url("../font/vegancheckicons.woff?33525214") format("woff"),
     url("../font/vegancheckicons.ttf?33525214") format("truetype"),
@@ -15,8 +14,7 @@
 @font-face {
   font-family: "additional_icons";
   src: url("../font/additional_icons.eot?64205737");
-  src: url("../font/additional_icons.eot?64205737#iefix")
-      format("embedded-opentype"),
+  src: url("../font/additional_icons.eot?64205737#iefix") format("embedded-opentype"),
     url("../font/additional_icons.svg?64205737#additional_icons") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -26,8 +24,7 @@
 @font-face {
   font-family: "nutriscore";
   src: url("../font/nutriscore.eot?4788995906");
-  src: url("../font/nutriscore.eot?4788995906#iefix")
-      format("embedded-opentype"),
+  src: url("../font/nutriscore.eot?4788995906#iefix") format("embedded-opentype"),
     url("../font/nutriscore.woff2?4788995906") format("woff2"),
     url("../font/nutriscore.woff?4788995906") format("woff"),
     url("../font/nutriscore.ttf?4788995906") format("truetype"),
@@ -176,6 +173,11 @@
 /* '' */
 .icon-ok:before {
   content: "\e804";
+}
+
+/* '' */
+.icon-attention-alt:before {
+  content: '\f12a';
 }
 
 /* '' */

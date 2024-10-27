@@ -1,3 +1,5 @@
+@use "../_globals/mixins";
+
 .skeleton {
   display: block;
   width: fit-content;
@@ -10,22 +12,21 @@
   padding-bottom: 0;
   cursor: default !important;
   background: rgba(130, 130, 130, 0.2);
-  background: linear-gradient(
-    to right,
-    rgba(130, 130, 130, 0.2) 8%,
-    rgba(130, 130, 130, 0.3) 18%,
-    rgba(130, 130, 130, 0.2) 33%
-  ) !important;
-  background-size: rem(800px) rem(100px) !important;
+  background: linear-gradient(to right,
+      rgba(130, 130, 130, 0.2) 8%,
+      rgba(130, 130, 130, 0.3) 18%,
+      rgba(130, 130, 130, 0.2) 33%) !important;
+  background-size: mixins.rem(800px) mixins.rem(100px) !important;
   animation: skeleton 2s infinite ease-out;
 }
 
 @keyframes skeleton {
   0% {
-    background-position: rem(-468px) 0;
+    background-position: mixins.rem(-468px) 0;
   }
+
   100% {
-    background-position: rem(468px) 0;
+    background-position: mixins.rem(468px) 0;
   }
 }
 
@@ -35,12 +36,14 @@
     margin-bottom: 1rem !important;
     width: 30%;
   }
+
   .description.skeleton {
     color: transparent;
     margin-left: 0;
     padding: 0;
     max-width: fit-content;
-    @include mq(s-phone) {
+
+    @include mixins.mq(s-phone) {
       max-width: 60%;
       white-space: nowrap;
     }
@@ -50,6 +53,7 @@
     margin-right: 0;
     max-width: 5%;
   }
+
   .source.skeleton {
     margin-top: 1rem;
     padding-top: 0;
@@ -65,6 +69,7 @@
       width: 10%;
     }
   }
+
   .button.skeleton {
     color: transparent;
   }

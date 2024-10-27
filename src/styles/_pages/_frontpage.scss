@@ -1,3 +1,5 @@
+@use "../_globals/mixins";
+
 #result {
   height: auto;
   -webkit-box-orient: vertical;
@@ -9,7 +11,7 @@
   line-height: 2rem;
   padding-bottom: 1rem;
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     font-size: 1rem !important;
     line-height: 1.5rem;
   }
@@ -78,11 +80,11 @@
 
 /* Make sure mobile functions are not displayed on desktop*/
 .icon-flipcamera {
-  @include mq(desktop) {
+  @include mixins.mq(desktop) {
     display: none;
   }
 
-  @include mq(phone) {
+  @include mixins.mq(phone) {
     display: inline-block;
   }
 }
