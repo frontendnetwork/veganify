@@ -1,3 +1,4 @@
+/* eslint-disable react-compiler/react-compiler */
 "use client";
 
 import React, {
@@ -82,6 +83,7 @@ const ModalWrapper = ({
 
   return (
     <>
+      z
       <ButtonComponent
         data-target={id}
         data-toggle="modal"

@@ -15,8 +15,10 @@
     }
   ],
   "eslint.options": {
-    "overrideConfigFile": ".eslintrc.json"
+    "overrideConfigFile": "eslint.config.mjs"
   },
+  "eslint.useFlatConfig": true,
+  "eslint.enable": true,
   "typescript.tsdk": "node_modules/typescript",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
