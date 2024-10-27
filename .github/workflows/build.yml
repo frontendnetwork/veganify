@@ -174,4 +174,6 @@ jobs:
           sleep 30
 
       - name: Run Playwright tests
+        env:
+          CI: true
         run: npx playwright test
