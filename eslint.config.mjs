@@ -1,4 +1,6 @@
 import nextPlugin from "@next/eslint-plugin-next";
+import reactPlugin from "eslint-plugin-react";
+import hooksPlugin from "eslint-plugin-react-hooks";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import importPlugin from "eslint-plugin-import";
@@ -15,6 +17,8 @@ export default [
       }
     },
     plugins: {
+      react: reactPlugin,
+      'react-hooks': hooksPlugin,
       "@typescript-eslint": tsPlugin,
       "import": importPlugin,
       "@next/next": nextPlugin,
@@ -30,12 +34,14 @@ export default [
       }
     },
     rules: {
-      ...nextPlugin.configs["core-web-vitals"].rules,
-      ...nextPlugin.configs["recommended"].rules,
+      ...reactPlugin.configs['jsx-runtime'].rules,
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs['core-web-vitals'].rules,
       ...tsPlugin.configs["strict"].rules,
       ...tsPlugin.configs["stylistic"].rules,
       ...importPlugin.configs["recommended"].rules,
       ...importPlugin.configs["typescript"].rules,
+      ...hooksPlugin.configs.recommended.rules,
       'react-compiler/react-compiler': 'warn',
       "import/order": [
         "error",
