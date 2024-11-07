@@ -26,7 +26,7 @@ export default function Container({
           {backButton && <BackButton />}
           {logo && (
             <>
-              <Link href="/">
+              <Link prefetch={true} href="/">
                 <Image
                   src="/./img/Veganify.svg"
                   alt="Logo"

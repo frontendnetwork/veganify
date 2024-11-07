@@ -83,7 +83,6 @@ const ModalWrapper = ({
 
   return (
     <>
-      z
       <ButtonComponent
         data-target={id}
         data-toggle="modal"
