@@ -177,6 +177,13 @@ or if you find something else you could improve, just open a new issue for it!
 
 ### Premium Supporters
 
+<a href="https://uptimerobot.com">
+	<picture>
+	  <source srcset="https://github.com/user-attachments/assets/2ae2e9eb-5099-4962-87fb-a99a0b069e29" media="(prefers-color-scheme: dark)" width="120">
+	  <img src="https://github.com/user-attachments/assets/638da2ff-755d-4343-acc1-330e41fbda95" width="120">
+	</picture>
+</a>
+
 <a href="https://veganism.social/@mvtracing">
 	<picture>
 	  <source srcset="https://user-images.githubusercontent.com/4144601/218593453-28333f8a-3e24-46d2-8bc9-856eb2e4a390.png" media="(prefers-color-scheme: dark)" width="120">
