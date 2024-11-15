@@ -92,14 +92,14 @@ export default function More() {
         </div>
       </div>
 
-      <Link href="/tos" className="Grid links">
+      <Link prefetch={true} href="/tos" className="Grid links">
         <div className="Grid-cell description">{t("tos")}</div>
         <div className="Grid-cell icons">
           <span className="unknown icon-right-open" />
         </div>
       </Link>
 
-      <Link href="privacy-policy" className="Grid links">
+      <Link prefetch={true} href="privacy-policy" className="Grid links">
         <div className="Grid-cell description">{t("privacypolicy")}</div>
         <div className="Grid-cell icons">
           <span className="unknown icon-right-open" />
@@ -113,7 +113,7 @@ export default function More() {
         </div>
       </a>
 
-      <Link href="impressum" className="Grid links">
+      <Link prefetch={true} href="impressum" className="Grid links">
         <div className="Grid-cell description">{t("imprint")}</div>
         <div className="Grid-cell icons">
           <span className="unknown icon-right-open" />

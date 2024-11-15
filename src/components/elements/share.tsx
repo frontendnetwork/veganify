@@ -29,6 +29,7 @@ const ShareButton = ({
   const url = `https://veganify.app/?ean=${barcode}`;
 
   const handleShareClick = (shareUrl: string) => {
+    // eslint-disable-next-line react-compiler/react-compiler
     window.location.href = shareUrl;
     document.querySelector<HTMLElement>(".btn-dark")?.click();
   };

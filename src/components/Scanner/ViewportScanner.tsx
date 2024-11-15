@@ -74,7 +74,8 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
       Quagga.offDetected(onDetected);
       Quagga.stop();
     };
-    // Disabled here, as we only want to run this once
+    // We disable this here, since we only want to run this effect once
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

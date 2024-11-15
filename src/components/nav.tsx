@@ -16,7 +16,7 @@ const NavItem = ({
   isActive: boolean;
 }) => (
   <div className={`flex-item ${isActive ? "active" : ""}`}>
-    <Link href={href}>
+    <Link prefetch={true} href={href}>
       <span className={`icon ${iconClass}`}></span>
       <span className="menu-item">{translationKey}</span>
     </Link>

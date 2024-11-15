@@ -65,6 +65,12 @@ export default function Footer() {
       <p dangerouslySetInnerHTML={{ __html: creditText }} />
 
       <FooterLink
+        href="https://uptimerobot.com"
+        src="../img/uptimerobot-logo.svg"
+        alt="Sponsored by UptimeRobot"
+      />
+
+      <FooterLink
         href={isJanuary ? "https://vegc.net/veganuary" : "https://veganify.app"}
         src={isJanuary ? "../img/veganuary.svg" : "../img/veganify_text.svg"}
         alt={isJanuary ? "Go to Veganuary" : "Veganify Logo"}
@@ -74,12 +80,6 @@ export default function Footer() {
         href="https://github.com/frontendnetwork/veganify"
         src="../img/opensource.svg"
         alt="Open Source"
-      />
-
-      <FooterLink
-        href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fveganify.app"
-        src="../img/greenhosted.svg"
-        alt="Hosted Green"
       />
 
       <FooterLink
