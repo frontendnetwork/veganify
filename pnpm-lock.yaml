@@ -106,8 +106,8 @@ importers:
         specifier: 15.0.3
         version: 15.0.3(eslint@9.13.0)(typescript@5.6.3)
       eslint-config-sznm:
-        specifier: ^2.0.3
-        version: 2.0.3(eslint@9.13.0)(prettier@3.3.3)(typescript@5.6.3)
+        specifier: ^2.0.4
+        version: 2.0.4(eslint@9.13.0)(prettier@3.3.3)(typescript@5.6.3)
       eslint-import-resolver-typescript:
         specifier: ^3.6.3
         version: 3.6.3(@typescript-eslint/parser@8.14.0(eslint@9.13.0)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@9.13.0)
@@ -1387,9 +1387,6 @@ packages:
   '@types/node@22.10.1':
     resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
-  '@types/node@22.8.1':
-    resolution: {integrity: sha512-k6Gi8Yyo8EtrNtkHXutUu2corfDf9su95VYVP10aGYMMROM6SAItZi0w1XszA6RtWTHSVp5OeFof37w0IEqCQg==}
-
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
 
@@ -2172,8 +2169,9 @@ packages:
     peerDependencies:
       eslint: 9.13.0
 
-  eslint-config-sznm@2.0.3:
-    resolution: {integrity: sha512-8/EAEOTj6FDibLEazYCoLMqoWqIZJ1/nLYu396TsbR/Jztx0f0qDPH0dK2H37+d0z0yTiyYdTEbuN4WRMK/YBQ==}
+  eslint-config-sznm@2.0.4:
+    resolution: {integrity: sha512-zopXpKK1EnkaSY+7fU/Q6W/9LyVKNhvhw20zQFPq5DJZckN9/iY6/Rdihj45nZ2jElumSIY6jby/gIziU5AAtw==}
+    deprecated: This config library is deprecated. Please use other alternatives (see readme).
     peerDependencies:
       eslint: 9.13.0
       prettier: 3.x
@@ -3978,9 +3976,6 @@ packages:
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
-  undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
-
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
@@ -5702,10 +5697,6 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
-  '@types/node@22.8.1':
-    dependencies:
-      undici-types: 6.19.8
-
   '@types/resolve@1.20.2': {}
 
   '@types/stack-utils@2.0.3': {}
@@ -6620,7 +6611,7 @@ snapshots:
     dependencies:
       eslint: 9.13.0
 
-  eslint-config-sznm@2.0.3(eslint@9.13.0)(prettier@3.3.3)(typescript@5.6.3):
+  eslint-config-sznm@2.0.4(eslint@9.13.0)(prettier@3.3.3)(typescript@5.6.3):
     dependencies:
       '@typescript-eslint/eslint-plugin': 8.14.0(@typescript-eslint/parser@8.14.0(eslint@9.13.0)(typescript@5.6.3))(eslint@9.13.0)(typescript@5.6.3)
       '@typescript-eslint/parser': 8.14.0(eslint@9.13.0)(typescript@5.6.3)
@@ -7695,7 +7686,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.8.1
+      '@types/node': 22.10.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -8773,8 +8764,6 @@ snapshots:
       has-bigints: 1.0.2
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
-
-  undici-types@6.19.8: {}
 
   undici-types@6.20.0: {}
 
