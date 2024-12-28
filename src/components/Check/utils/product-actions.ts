@@ -1,5 +1,4 @@
 "use server";
-"use cache";
 
 import Veganify from "@frontendnetwork/veganify";
 
