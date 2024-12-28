@@ -26,7 +26,7 @@ const millionConfig = {
 };
 
 // Apply Million's optimization
-// eslint-disable-next-line import/no-named-as-default-member
+
 const nextConfig: NextConfig = million.next(baseConfig, millionConfig);
 
 // Apply next-intl plugin and export the final config
