@@ -38,7 +38,7 @@
     "react-dom": "19.0.0-rc-69d4b800-20241021",
     "sass": "^1.81.0",
     "sharp": "^0.33.5",
-    "typescript": "5.6.3"
+    "typescript": "5.7.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.2",
