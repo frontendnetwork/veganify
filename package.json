@@ -30,7 +30,7 @@
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "jest-worker": "^29.7.0",
     "million": "^2.6.4",
-    "next": "15.0.1",
+    "next": "15.1.5",
     "next-intl": "^3.25.1",
     "nookies": "^2.5.2",
     "prom-client": "^15.1.3",
