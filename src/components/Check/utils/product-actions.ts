@@ -24,6 +24,6 @@ export async function fetchProduct(barcode: string): Promise<{
     if (error instanceof Error) {
       throw error;
     }
-    throw new Error("Unknown error occurred");
+    throw new Error("Unknown error occurred", { cause: error });
   }
 }
