@@ -1,34 +1,29 @@
 "use server";
-"use cache";
 
-import Veganify from "@frontendnetwork/veganify";
-
-import { ProductResult } from "@/models/ProductResults";
-import { Sources } from "@/models/Sources";
+import Veganify, { ProductResponse } from "@frontendnetwork/veganify";
 
 export async function fetchProduct(barcode: string): Promise<{
-  product?: ProductResult;
-  sources?: Sources;
+  product?: ProductResponse["product"];
+  sources?: ProductResponse["sources"];
   status: number;
 }> {
   try {
-    const data = await Veganify.getProductByBarcode(
-      barcode,
-      process.env.NEXT_PUBLIC_STAGING === "true"
-    );
-    if ("product" in data && "sources" in data) {
-      return {
-        product: data.product,
-        sources: data.sources,
-        status: data.status,
-      };
-    } else {
-      return {
-        status: data.status,
-      };
-    }
+    const veganify = Veganify.getInstance({
+      staging: process.env.NEXT_PUBLIC_STAGING === "true",
+    });
+
+    const data = await veganify.getProductByBarcode(barcode);
+
+    return {
+      product: data.product,
+      sources: data.sources,
+      status: data.status,
+    };
   } catch (error) {
     console.error("Product fetch error:", error);
-    throw error;
+    if (error instanceof Error) {
+      throw error;
+    }
+    throw new Error("Unknown error occurred", { cause: error });
   }
 }

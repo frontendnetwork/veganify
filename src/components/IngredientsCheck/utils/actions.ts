@@ -1,7 +1,6 @@
 "use server";
-"use cache";
 
-import Veganify from "@frontendnetwork/veganify";
+import Veganify, { ValidationError } from "@frontendnetwork/veganify";
 
 export async function checkIngredients(ingredients: string) {
   if (!ingredients.trim()) {
@@ -9,10 +8,11 @@ export async function checkIngredients(ingredients: string) {
   }
 
   try {
-    const data = await Veganify.checkIngredientsListV1(
-      ingredients,
-      process.env.NEXT_PUBLIC_STAGING === "true"
-    );
+    const veganify = Veganify.getInstance({
+      staging: process.env.NEXT_PUBLIC_STAGING === "true",
+    });
+
+    const data = await veganify.checkIngredientsListV1(ingredients);
 
     return {
       vegan: data.data.vegan,
@@ -23,6 +23,9 @@ export async function checkIngredients(ingredients: string) {
     };
   } catch (error) {
     console.error(error);
-    throw new Error(`Failed to check ingredients`);
+    if (error instanceof ValidationError) {
+      throw new Error("Invalid ingredients format");
+    }
+    throw new Error("Failed to check ingredients");
   }
 }
