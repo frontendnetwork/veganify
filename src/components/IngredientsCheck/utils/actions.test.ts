@@ -1,4 +1,4 @@
-import Veganify from "@frontendnetwork/veganify";
+import Veganify, { ValidationError } from "@frontendnetwork/veganify";
 
 import { checkIngredients } from "./actions";
 
@@ -23,13 +23,26 @@ jest.mock("@frontendnetwork/veganify", () => {
 
 describe("checkIngredients", () => {
   let mockVeganifyInstance: { checkIngredientsListV1: jest.Mock };
+  const getInstanceMock = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
     mockVeganifyInstance = {
-      checkIngredientsListV1: jest.fn(),
+      checkIngredientsListV1: jest.fn().mockResolvedValue({
+        code: "200",
+        status: "success",
+        message: "OK",
+        data: {
+          vegan: true,
+          surely_vegan: ["apple"],
+          not_vegan: [],
+          maybe_not_vegan: [],
+          unknown: [],
+        },
+      }),
     };
-    (Veganify.getInstance as jest.Mock).mockReturnValue(mockVeganifyInstance);
+    getInstanceMock.mockReturnValue(mockVeganifyInstance);
+    (Veganify.getInstance as jest.Mock) = getInstanceMock;
   });
 
   it("should successfully check ingredients and return formatted data", async () => {
@@ -63,6 +76,20 @@ describe("checkIngredients", () => {
     // Verify Veganify was called with correct parameters
     expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
       "apple, banana, artificial-flavor"
+    );
+  });
+
+  it("should handle validation errors from the API", async () => {
+    mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
+      new ValidationError("Invalid ingredients format")
+    );
+
+    await expect(checkIngredients("invalid!ingredients")).rejects.toThrow(
+      "Invalid ingredients format"
+    );
+
+    expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
+      "invalid!ingredients"
     );
   });
 
@@ -119,5 +146,26 @@ describe("checkIngredients", () => {
       maybeNotVegan: ["sugar"],
       unknown: [],
     });
+  });
+
+  it("should handle staging environment flag correctly", async () => {
+    const originalEnv = process.env.NEXT_PUBLIC_STAGING;
+
+    // Test with staging true
+    process.env.NEXT_PUBLIC_STAGING = "true";
+    await checkIngredients("apple");
+    expect(Veganify.getInstance).toHaveBeenCalledWith({
+      staging: true,
+    });
+
+    // Test with staging false
+    process.env.NEXT_PUBLIC_STAGING = "false";
+    await checkIngredients("apple");
+    expect(Veganify.getInstance).toHaveBeenCalledWith({
+      staging: false,
+    });
+
+    // Reset environment
+    process.env.NEXT_PUBLIC_STAGING = originalEnv;
   });
 });
