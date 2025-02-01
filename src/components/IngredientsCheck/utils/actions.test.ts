@@ -1,23 +1,55 @@
-import Veganify from "@frontendnetwork/veganify";
+import Veganify, { ValidationError } from "@frontendnetwork/veganify";
 
 import { checkIngredients } from "./actions";
 
-jest.mock("@frontendnetwork/veganify", () => ({
-  __esModule: true,
-  default: {
+// Mock Veganify
+jest.mock("@frontendnetwork/veganify", () => {
+  const mockInstance = {
     checkIngredientsListV1: jest.fn(),
-  },
-}));
+  };
+  return {
+    __esModule: true,
+    default: {
+      getInstance: jest.fn(() => mockInstance),
+    },
+    ValidationError: class extends Error {
+      constructor(message: string) {
+        super(message);
+        this.name = "ValidationError";
+      }
+    },
+  };
+});
 
 describe("checkIngredients", () => {
-  // Reset all mocks before each test
+  let mockVeganifyInstance: { checkIngredientsListV1: jest.Mock };
+  const getInstanceMock = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
+    mockVeganifyInstance = {
+      checkIngredientsListV1: jest.fn().mockResolvedValue({
+        code: "200",
+        status: "success",
+        message: "OK",
+        data: {
+          vegan: true,
+          surely_vegan: ["apple"],
+          not_vegan: [],
+          maybe_not_vegan: [],
+          unknown: [],
+        },
+      }),
+    };
+    getInstanceMock.mockReturnValue(mockVeganifyInstance);
+    (Veganify.getInstance as jest.Mock) = getInstanceMock;
   });
 
   it("should successfully check ingredients and return formatted data", async () => {
-    // Mock successful API response
     const mockApiResponse = {
+      code: "200",
+      status: "success",
+      message: "OK",
       data: {
         vegan: true,
         surely_vegan: ["apple", "banana"],
@@ -27,13 +59,12 @@ describe("checkIngredients", () => {
       },
     };
 
-    (Veganify.checkIngredientsListV1 as jest.Mock).mockResolvedValue(
+    mockVeganifyInstance.checkIngredientsListV1.mockResolvedValue(
       mockApiResponse
     );
 
     const result = await checkIngredients("apple, banana, artificial-flavor");
 
-    // Check if the function returns the expected formatted data
     expect(result).toEqual({
       vegan: true,
       surelyVegan: ["apple", "banana"],
@@ -43,9 +74,22 @@ describe("checkIngredients", () => {
     });
 
     // Verify Veganify was called with correct parameters
-    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith(
-      "apple, banana, artificial-flavor",
-      process.env.NEXT_PUBLIC_STAGING === "true"
+    expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
+      "apple, banana, artificial-flavor"
+    );
+  });
+
+  it("should handle validation errors from the API", async () => {
+    mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
+      new ValidationError("Invalid ingredients format")
+    );
+
+    await expect(checkIngredients("invalid!ingredients")).rejects.toThrow(
+      "Invalid ingredients format"
+    );
+
+    expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
+      "invalid!ingredients"
     );
   });
 
@@ -58,12 +102,11 @@ describe("checkIngredients", () => {
     );
 
     // Verify Veganify was not called
-    expect(Veganify.checkIngredientsListV1).not.toHaveBeenCalled();
+    expect(mockVeganifyInstance.checkIngredientsListV1).not.toHaveBeenCalled();
   });
 
   it("should throw an error when API call fails", async () => {
-    // Mock API failure
-    (Veganify.checkIngredientsListV1 as jest.Mock).mockRejectedValue(
+    mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
       new Error("API Error")
     );
 
@@ -71,16 +114,16 @@ describe("checkIngredients", () => {
       "Failed to check ingredients"
     );
 
-    // Verify Veganify was called
-    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith(
-      "apple",
-      process.env.NEXT_PUBLIC_STAGING === "true"
+    expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
+      "apple"
     );
   });
 
   it("should handle non-vegan ingredients correctly", async () => {
-    // Mock API response with non-vegan ingredients
     const mockApiResponse = {
+      code: "200",
+      status: "success",
+      message: "OK",
       data: {
         vegan: false,
         surely_vegan: ["apple"],
@@ -90,7 +133,7 @@ describe("checkIngredients", () => {
       },
     };
 
-    (Veganify.checkIngredientsListV1 as jest.Mock).mockResolvedValue(
+    mockVeganifyInstance.checkIngredientsListV1.mockResolvedValue(
       mockApiResponse
     );
 
@@ -111,16 +154,18 @@ describe("checkIngredients", () => {
     // Test with staging true
     process.env.NEXT_PUBLIC_STAGING = "true";
     await checkIngredients("apple");
-    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith("apple", true);
+    expect(Veganify.getInstance).toHaveBeenCalledWith({
+      staging: true,
+    });
 
     // Test with staging false
     process.env.NEXT_PUBLIC_STAGING = "false";
     await checkIngredients("apple");
-    expect(Veganify.checkIngredientsListV1).toHaveBeenCalledWith(
-      "apple",
-      false
-    );
+    expect(Veganify.getInstance).toHaveBeenCalledWith({
+      staging: false,
+    });
 
+    // Reset environment
     process.env.NEXT_PUBLIC_STAGING = originalEnv;
   });
 });

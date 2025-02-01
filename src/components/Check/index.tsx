@@ -54,7 +54,15 @@ export default function ProductSearch() {
     try {
       const data = await fetchProduct(barcode);
       if (data.status === 200 && data.product && data.sources) {
-        setResult(data.product);
+        setResult({
+          productname: data.product.productname,
+          vegan: data.product.vegan ?? "n/a",
+          vegetarian: data.product.vegetarian ?? "n/a",
+          animaltestfree: data.product.animaltestfree ?? "n/a",
+          palmoil: data.product.palmoil ?? "n/a",
+          nutriscore: data.product.nutriscore ?? "",
+          grade: data.product.grade ?? "",
+        });
         setSources(data.sources);
         setShowFound(true);
       } else if (data.status === 404) {
