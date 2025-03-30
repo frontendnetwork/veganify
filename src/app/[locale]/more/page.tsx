@@ -16,6 +16,7 @@ const languages = [
   { code: "fr", name: "french" },
   { code: "pl", name: "polish" },
   { code: "cz", name: "czech" },
+  { code: "pt-br", name: "portuguese-br" },
 ] as const;
 
 export default function More() {
