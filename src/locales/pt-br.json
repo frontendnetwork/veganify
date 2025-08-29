@@ -1,0 +1,106 @@
+{
+  "Nav": {
+    "title": "É vegano? – Veganify",
+    "description": "Você não tem certeza se um produto é vegano ou não? Com o Veganify, você pode escanear o código de barras de um item enquanto faz compras e verificar se ele é vegano ou não, excluindo informações desnecessárias! Experimente agora!",
+    "home": "Home",
+    "ingredientcheck": "Verificar Ingredientes",
+    "more": "Mais"
+  },
+  "Footer": {
+    "credit": "Feito com {heart} por {philipLink} & {jokeLink}"
+  },
+  "Check": {
+    "enterbarcode": "Insira o código de barras",
+    "submit": "Enviar",
+    "vegan": "Vegano",
+    "vegetarian": "Vegetariano",
+    "palmoil": "Óleo de palma",
+    "palmoil_desc": "O óleo de palma tem um impacto extremamente prejudicial no planeta. É o principal responsável pelo desmatamento de algumas das florestas mais biodiversas, destruindo os habitats naturais de animais já ameaçados. Por isso, recomendamos não comprar produtos que contenham óleo de palma. Infelizmente, ainda existem muitos produtos que incluem óleo de palma.",
+    "crueltyfree": "Livre de Crueldade Animal",
+    "nutriscore_desc": "O Nutriscore indica o perfil nutricional de um produto em forma de semáforo. No entanto, o Nutriscore não é considerado preciso e não deve ser usado como referência. Você pode encontrar mais informações sobre o Nutriscore em {Algorithmwatch} (inglês).",
+    "grades_desc": "Você está confuso com todos os rótulos veganos/eco-friendly/orgânicos?<br />Você não estará mais com o Veganify Grades! O Veganify Grades é um sistema de classificação para produtos veganos, que atribui uma das seis notas (A+ - Não elegível) a um produto.<br />Se você estiver interessado em aprender mais sobre o Veganify Grades ou se quiser solicitar uma classificação para um produto, você pode fazê-lo em {Grades}!",
+    "source": "Fonte de dados",
+    "licenses": "Licenças",
+    "licenses_desc": "O Veganify usa diferentes bancos de dados e APIs para coletar informações sobre um produto. As informações estão licenciadas sob as seguintes licenças:",
+    "notindb": "Este produto ainda não está em nosso banco de dados.",
+    "notindb_add": "Você quer adicioná-lo?",
+    "add_food": "Adicionar alimentos",
+    "or": "ou",
+    "add_cosmetic": "adicionar cosméticos",
+    "wrongbarcode": "Este código de barras é inválido.",
+    "timeout1": "Isso está demorando mais do que o habitual",
+    "timeout2": "A solicitação demorou muito. Por favor, tente novamente.",
+    "share": "Compartilhar",
+    "copy": "Copiar",
+    "on": "em"
+  },
+  "More": {
+    "buyusacoffee": "Compre-nos um café",
+    "followus": "Siga-nos",
+    "tos": "Termos de serviço",
+    "privacypolicy": "Política de Privacidade",
+    "apidocumentation": "Documentação da API",
+    "imprint": "Impressão",
+    "onceviapaypal": "Uma vez via PayPal",
+    "onceviakofi": "Uma vez via Ko-Fi",
+    "monthlyviagithub": "Mensalmente via GitHub",
+    "month": "mês",
+    "redirect": "Você será redirecionado para",
+    "thissetsacookie": "Isso define um cookie.",
+    "activatedarkmode": "Ative o modo escuro no seu dispositivo primeiro!",
+    "language": "Idioma",
+    "english": "Inglês",
+    "german": "Alemão",
+    "spanish": "Espanhol",
+    "french": "Francês",
+    "polish": "Polonês",
+    "cursed": "Maldito",
+    "memeculture": "Celebrando a cultura meme",
+    "czech": "Tcheco",
+    "portuguese-br": "Português Brasileiro"
+  },
+  "TOS": {
+    "englishgermanonly": "Esta página está disponível apenas em Inglês e Alemão.",
+    "tos": "Terms of service",
+    "tos_content": "<p><b>Use of \"Veganify\"</b></p><p>The use of the site \"Veganify.app\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https://frontendnet.work/veganify-api\">API</a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.</p><p><b>Processing of entered texts and numbers</b></p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.</p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en\">?</a></sup></p><p><b>Disclaimer</b></p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.</p>"
+  },
+  "Privacy": {
+    "germanonly": "Esta página está disponível apenas em Alemão."
+  },
+  "404": {
+    "error404": "Erro 404.",
+    "pagedoesnotexist": "Essa página não existe.",
+    "message": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues.",
+    "statuspage": "página de status"
+  },
+  "Fallback": {
+    "yourareoffline": "Você está desconectado..",
+    "needinternet": "Você precisa estar conectado à internet para usar o Veganify.",
+    "tryagain": "Tente novamente"
+  },
+  "InstallPrompt": {
+    "subheading": "É vegano? – Veganify",
+    "install": "Instalar Veganify",
+    "get": "Obter",
+    "howtoinstall": "Clique em {share} e em \"Adicionar à Página Inicial\"."
+  },
+  "ShortcutPrompt": {
+    "Shortcuts": "Atalhos",
+    "openinapp": "Abrir no app de atalhos",
+    "open": "Abrir"
+  },
+  "Ingredients": {
+    "ingredientcheck": "Verificador de Ingredientes Veganos",
+    "ingredientcheck_desc": "Verifique se os ingredientes de um produto são veganos! – Insira os ingredientes separados por vírgula",
+    "entercommaseperated": "Insira os ingredientes separados por vírgula",
+    "submit": "Enviar",
+    "vegan": "Vegano",
+    "source": "Origem dos dados",
+    "cannotbeempty": "A lista de ingredientes não pode estar vazia ou incluir caracteres especiais, e os ingredientes deve ser separada por vírgulas!",
+    "licenses": "Licenças",
+    "licenses_desc": "Veganify utiliza diferentes bancos de dados e APIs para coletar informações sobre um produto. As informações estão licenciadas sob as seguintes licenças:",
+    "languagewarning": "Esses resultados podem estar incorretos devido a erros de tradução ou informações pendentes. Os resultados são traduzidos utilizando {deepl}.",
+    "maybe_vegan": "Este ingrediente pode conter produtos de origem animal.",
+    "unknown_vegan": "Nao temos informações sobre este ingrediente."
+  }
+}
