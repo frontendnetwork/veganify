@@ -7,7 +7,7 @@ import { setCookie } from "nookies";
 import Container from "@/components/elements/container";
 import SupportOption from "@/components/elements/contents/donate";
 import ModalWrapper from "@/components/elements/modalwrapper";
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 
 const languages = [
   { code: "en", name: "english" },
