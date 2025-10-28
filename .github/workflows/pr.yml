@@ -4,7 +4,7 @@ jobs:
   regular_build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 9.12.1
@@ -23,7 +23,7 @@ jobs:
     needs: regular_build
     if: ${{ always() && needs.regular_build.result == 'failure' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 9.12.1
