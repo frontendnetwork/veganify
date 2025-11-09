@@ -1,4 +1,10 @@
 {
+  "404": {
+    "error404": "Error 404.",
+    "pagedoesnotexist": "This page does not exist.",
+    "message": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues.",
+    "statuspage": "status page"
+  },
   "Nav": {
     "title": "Is it vegan? – Veganify",
     "description": "Are you unsure whether a product is vegan or not? With Veganify you can scan the bar code of an item while shopping and check whether it is vegan or not and that without a lot of other unnecessary information! Try it out now!",
@@ -66,12 +72,6 @@
   },
   "Privacy": {
     "germanonly": "This page is only available in German."
-  },
-  "404": {
-    "error404": "Error 404.",
-    "pagedoesnotexist": "This page does not exist.",
-    "message": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues.",
-    "statuspage": "status page"
   },
   "Fallback": {
     "yourareoffline": "You are offline.",
