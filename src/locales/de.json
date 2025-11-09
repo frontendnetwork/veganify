@@ -1,4 +1,11 @@
 {
+  "404": {
+    "error404": "Fehler 404.",
+    "pagedoesnotexist": "Diese Seite existiert nicht.",
+    "message": "Gehe zu unserer {statuspage} oder folge uns auf {mastodon} um zu sehen, ob es gerade ein Problem gibt.",
+    "statuspage": "Statusseite",
+    "message_en": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues."
+  },
   "Nav": {
     "title": "Ist es Vegan? – Veganify",
     "description": "Du bist dir unsicher, ob ein Produkt vegan ist oder nicht? Mit Veganify kannst du direkt beim Einkaufen den Barcode von einem Artikel scannen und überprüfen, ob es vegan ist oder nicht und das ohne viele andere unnötige Informationen! Probiere es jetzt aus!",
@@ -66,13 +73,6 @@
   },
   "Privacy": {
     "germanonly": "Diese Seite ist nur auf Deutsch verfügbar."
-  },
-  "404": {
-    "error404": "Fehler 404.",
-    "pagedoesnotexist": "Diese Seite existiert nicht.",
-    "message": "Gehe zu unserer {statuspage} oder folge uns auf {mastodon} um zu sehen, ob es gerade ein Problem gibt.",
-    "statuspage": "Statusseite",
-    "message_en": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues."
   },
   "Fallback": {
     "yourareoffline": "Du bist offline.",

@@ -1,4 +1,10 @@
 {
+  "404": {
+    "error404": "Błąd 404.",
+    "pagedoesnotexist": "Ta strona nie istnieje.",
+    "message": "Sprawdź naszą {statuspage} albo nasz profil w sieci {mastodon} aby dowiedzieć się o aktualnych problemach.",
+    "statuspage": "stronę statusu"
+  },
   "Nav": {
     "title": "Czy to wegańskie? – Veganify",
     "description": "Masz wątpliwości czy produkt jest na pewno wegański? Za pomocą Veganify możesz zeskanować kod kreskowy produktu w trakcie zakupów i sprawdzić czy jest on wegański czy nie - a to wszystko bez natłoku zbędnych informacji. Wypróbuj teraz!",
@@ -66,12 +72,6 @@
   },
   "Privacy": {
     "germanonly": "Ta strona jest dostępna tylko w języku niemieckim."
-  },
-  "404": {
-    "error404": "Błąd 404.",
-    "pagedoesnotexist": "Ta strona nie istnieje.",
-    "message": "Sprawdź naszą {statuspage} albo nasz profil w sieci {mastodon} aby dowiedzieć się o aktualnych problemach.",
-    "statuspage": "stronę statusu"
   },
   "Fallback": {
     "yourareoffline": "Brak połączenia z siecią.",

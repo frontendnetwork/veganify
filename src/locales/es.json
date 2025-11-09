@@ -1,7 +1,13 @@
 {
+  "404": {
+    "error404": "Errores 404.",
+    "pagedoesnotexist": "Esta página no existe.",
+    "message": "Puede visitar nuestra {statuspage} o visitarnos en {mastodon} para ver si hay algún problema actual.",
+    "statuspage": "página de estado"
+  },
   "Nav": {
-    "title": "\u00bfEs vegano? - Veganify",
-    "description": "\u00bfNo est\u00e1s seguro de si un producto es vegano o no? Con Veganify puedes escanear el c\u00f3digo de barras de un art\u00edculo mientras compras y comprobar si es vegano o no, \u00a1y eso sin mucha otra informaci\u00f3n innecesaria! Pru\u00e9balo ahora!",
+    "title": "¿Es vegano? - Veganify",
+    "description": "¿No estás seguro de si un producto es vegano o no? Con Veganify puedes escanear el código de barras de un artículo mientras compras y comprobar si es vegano o no, ¡y eso sin mucha otra información innecesaria! Pruébalo ahora!",
     "home": "Home",
     "ingredientcheck": "Ingredientes Comprobar",
     "more": "Más"
@@ -10,26 +16,26 @@
     "credit": "Hecho con {heart} por {philipLink} & {jokeLink}"
   },
   "Check": {
-    "enterbarcode": "Introduzca el c\u00f3digo de barras del producto",
+    "enterbarcode": "Introduzca el código de barras del producto",
     "submit": "Enviar",
     "vegan": "Vegano",
     "vegetarian": "Vegetariano",
     "palmoil": "Aceite de palma",
-    "palmoil_desc": "El aceite de palma tiene un impacto extremadamente perjudicial para el planeta. Es el principal impulsor de la deforestaci\u00f3n de algunos de los bosques m\u00e1s biodiversos, destruyendo los h\u00e1bitats naturales de animales ya amenazados. Por ello, recomendamos no comprar ning\u00fan producto que contenga aceite de palma. Lamentablemente, todav\u00eda hay muchos productos que incluyen aceite de palma.",
+    "palmoil_desc": "El aceite de palma tiene un impacto extremadamente perjudicial para el planeta. Es el principal impulsor de la deforestación de algunos de los bosques más biodiversos, destruyendo los hábitats naturales de animales ya amenazados. Por ello, recomendamos no comprar ningún producto que contenga aceite de palma. Lamentablemente, todavía hay muchos productos que incluyen aceite de palma.",
     "crueltyfree": "Sin crueldad",
-    "nutriscore_desc": "El Nutriscore indica el perfil nutricional de un producto en forma de sem\u00e1foro. Sin embargo, el Nutriscore no se considera exacto y no debe utilizarse como referencia. Puede encontrar más información sobre Nutriscore en {Algorithmwatch} (en inglés).",
+    "nutriscore_desc": "El Nutriscore indica el perfil nutricional de un producto en forma de semáforo. Sin embargo, el Nutriscore no se considera exacto y no debe utilizarse como referencia. Puede encontrar más información sobre Nutriscore en {Algorithmwatch} (en inglés).",
     "grades_desc": "¿Te confunden todas las etiquetas vegano/ecológico/orgánico?<br />Con Veganify Grades, fácil de entender, ya no lo estarás. Veganify Grades es un sistema de calificación para productos veganos, que asigna una de seis calificaciones (A+ - No apto) a un producto.<br />Si estás interesado en saber más sobre Veganify Grades o si quieres solicitar una calificación para un producto, ¡puedes hacerlo en {Grades}!",
     "source": "Origen de los datos",
     "licenses": "Licencias",
-    "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger informaci\u00F3n sobre un producto. Esta informaci\u00F3n est\u00E1 bajo las siguientes licencias:",
-    "notindb": "Este producto a\u00fan no est\u00e1 en nuestra base de datos.",
-    "notindb_add": "\u00bfQuiere a\u00f1adirlo?",
-    "add_food": "A\u00f1adir comida",
+    "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger información sobre un producto. Esta información está bajo las siguientes licencias:",
+    "notindb": "Este producto aún no está en nuestra base de datos.",
+    "notindb_add": "¿Quiere añadirlo?",
+    "add_food": "Añadir comida",
     "or": "o",
-    "add_cosmetic": "a\u00f1adir cosemtics",
-    "wrongbarcode": "Este c\u00f3digo de barras no es v\u00e1lido.",
-    "timeout1": "Esto tarda m\u00e1s de lo normal",
-    "timeout2": "La consulta ha tardado demasiado. Por favor, int\u00e9ntalo de nuevo.",
+    "add_cosmetic": "añadir cosemtics",
+    "wrongbarcode": "Este código de barras no es válido.",
+    "timeout1": "Esto tarda más de lo normal",
+    "timeout2": "La consulta ha tardado demasiado. Por favor, inténtalo de nuevo.",
     "share": "Compartir",
     "copy": "Copiar",
     "on": "en"
@@ -67,12 +73,6 @@
   "Privacy": {
     "germanonly": "Esta página sólo está disponible en alemán."
   },
-  "404": {
-    "error404": "Error 404.",
-    "pagedoesnotexist": "Esta página no existe.",
-    "message": "Puede visitar nuestra {statuspage} o visitarnos en {mastodon} para ver si hay algún problema actual.",
-    "statuspage": "página de estado"
-  },
   "Fallback": {
     "yourareoffline": "Estás desconectado.",
     "needinternet": "Necesitas una conexión activa a Internet para utilizar Veganify.",
@@ -98,7 +98,7 @@
     "source": "Origen de los datos",
     "cannotbeempty": "La lista de ingredientes no puede estar vacía ni incluir caracteres especiales y tiene que estar separada por comas.",
     "licenses": "Licencias",
-    "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger informaci\u00F3n sobre un producto. Esta informaci\u00F3n est\u00E1 bajo las siguientes licencias:",
+    "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger información sobre un producto. Esta información está bajo las siguientes licencias:",
     "languagewarning": "Estos resultados pueden ser incorrectos debido a errores de traducción o falta de información. Los resultados se traducen con {deepl}.",
     "maybe_vegan": "Este ingrediente podría contener productos de origen animal.",
     "unknown_vegan": "No tenemos información sobre este ingrediente."
