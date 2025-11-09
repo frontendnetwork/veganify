@@ -20,5 +20,11 @@
   "eslint.useFlatConfig": true,
   "eslint.enable": true,
   "typescript.tsdk": "node_modules/typescript",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": true,
+  "explorer.fileNesting.patterns": {
+    "AGENTS.md": "CLAUDE.md",
+    "*.component.ts": "$(capture).component.html, $(capture).component.spec.ts, $(capture).component.css, $(capture).component.scss, $(capture).component.sass, $(capture).component.less"
+  }
 }
