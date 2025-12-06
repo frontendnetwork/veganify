@@ -1,4 +1,10 @@
 {
+  "404": {
+    "error404": "Chyba 404.",
+    "pagedoesnotexist": "Tato stránka neexistuje.",
+    "message": "Můžete navštívit naši {statuspage} nebo nás zkontrolovat na {mastodon} a zjistit, zda nejsou nějaké aktuální problémy.",
+    "statuspage": "stavová stránka"
+  },
   "Nav": {
     "title": "Je to veganské? – Veganify",
     "description": "Nejste si jistí, zda je výrobek veganský, nebo ne? S Veganify můžete při nákupu naskenovat čárový kód zboží a zkontrolovat zda je veganské, nebo ne a to bez spousty dalších zbytečných informací! Vyzkoušejte to hned teď!",
@@ -66,12 +72,6 @@
   },
   "Privacy": {
     "germanonly": "Tato stránka je k dispozici pouze v němčině."
-  },
-  "404": {
-    "error404": "Chyba 404.",
-    "pagedoesnotexist": "Tato stránka neexistuje.",
-    "message": "Můžete navštívit naši {statuspage} nebo nás zkontrolovat na {mastodon} a zjistit, zda nejsou nějaké aktuální problémy.",
-    "statuspage": "stavová stránka"
   },
   "Fallback": {
     "yourareoffline": "Jste offline.",

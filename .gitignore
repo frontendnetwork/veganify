@@ -41,3 +41,6 @@ next-env.d.ts
 # tests
 test-results/
 playwright-report/
+
+# mcp
+.cursor/

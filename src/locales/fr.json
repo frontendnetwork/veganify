@@ -1,35 +1,41 @@
 {
+  "404": {
+    "error404": "Erreur 404.",
+    "pagedoesnotexist": "Cette page n'existe pas.",
+    "message": "Vous pouvez consulter notre {statuspage} ou nous rendre visite sur {mastodon} pour voir s'il y a des problèmes en cours.",
+    "statuspage": "page d'état"
+  },
   "Nav": {
-    "title": "Est-ce que c'est v\u00e9g\u00e9talien ? - Veganify",
-    "description": "Tu n'es pas s\u00fbr qu'un produit soit v\u00e9gane ou non ? Avec Veganify, tu peux scanner le code-barres d'un article directement lors de tes achats et v\u00e9rifier s'il est v\u00e9g\u00e9talien ou non, et ce sans avoir \u00e0 fournir beaucoup d'autres informations inutiles ! Essaye-le maintenant!",
+    "title": "Est-ce que c'est végétalien ? - Veganify",
+    "description": "Tu n'es pas sûr qu'un produit soit végane ou non ? Avec Veganify, tu peux scanner le code-barres d'un article directement lors de tes achats et vérifier s'il est végétalien ou non, et ce sans avoir à fournir beaucoup d'autres informations inutiles ! Essaye-le maintenant!",
     "home": "Home",
     "ingredientcheck": "Vérification des ingrédients",
     "more": "Plus de"
   },
   "Footer": {
-    "credit": "R\u00e9alis\u00e9 avec {heart} par {philipLink} & {jokeLink}"
+    "credit": "Réalisé avec {heart} par {philipLink} & {jokeLink}"
   },
   "Check": {
     "enterbarcode": "Saisir le code-barres",
     "submit": "Envoyer",
     "vegan": "Végétalien",
-    "vegetarian": "V\u00e9g\u00e9tarien",
+    "vegetarian": "Végétarien",
     "palmoil": "Huile de palme",
-    "palmoil_desc": "L'huile de palme a un impact extr\u00eamement n\u00e9faste sur la plan\u00e8te. Elle est le principal moteur de la d\u00e9forestation de certaines des for\u00eats les plus riches en biodiversit\u00e9, d\u00e9truisant les habitats naturels d'animaux d\u00e9j\u00e0 menac\u00e9s. C'est pourquoi nous vous recommandons de ne pas acheter de produits contenant de l'huile de palme. Malheureusement, il existe encore de nombreux produits qui contiennent de l'huile de palme.",
-    "crueltyfree": "Sans cruaut\u00e9",
-    "nutriscore_desc": "Le Nutriscore indique le profil nutritionnel d'un produit sous forme de feux tricolores. Cependant, le Nutriscore n'est pas consid\u00e9r\u00e9 comme pr\u00e9cis et ne doit pas \u00eatre utilis\u00e9 comme une r\u00e9f\u00e9rence. Vous pouvez trouver plus d'informations sur le Nutriscore sur {Algorithmwatch} (anglais).",
+    "palmoil_desc": "L'huile de palme a un impact extrêmement néfaste sur la planète. Elle est le principal moteur de la déforestation de certaines des forêts les plus riches en biodiversité, détruisant les habitats naturels d'animaux déjà menacés. C'est pourquoi nous vous recommandons de ne pas acheter de produits contenant de l'huile de palme. Malheureusement, il existe encore de nombreux produits qui contiennent de l'huile de palme.",
+    "crueltyfree": "Sans cruauté",
+    "nutriscore_desc": "Le Nutriscore indique le profil nutritionnel d'un produit sous forme de feux tricolores. Cependant, le Nutriscore n'est pas considéré comme précis et ne doit pas être utilisé comme une référence. Vous pouvez trouver plus d'informations sur le Nutriscore sur {Algorithmwatch} (anglais).",
     "grades_desc": "Êtes-vous confus par tous les labels végétaliens/écologiques/organiques ? <br />Vous ne le serez plus avec le système Veganify Grades, facile à comprendre ! Veganify Grades est un système d'évaluation des produits végétaliens, qui attribue l'une des six notes (A+ - Non admissible) à un produit.<br />Si vous souhaitez en savoir plus sur Veganify Grades ou si vous voulez demander une évaluation pour un produit, vous pouvez le faire sur {Grades} !",
-    "source": "Source des donn\u00e9es",
+    "source": "Source des données",
     "licenses": "Licenses",
-    "licenses_desc": "Veganify utilise diff\u00E9rentes sources de donn\u00E9es pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
+    "licenses_desc": "Veganify utilise différentes sources de données pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
     "notindb": "Ce produit n'est pas encore dans notre base de données.",
     "notindb_add": "Voulez-vous l'ajouter ?",
     "add_food": "Ajouter des aliments",
     "or": "ou",
-    "add_cosmetic": "ajouter des cosm\u00e9tiques",
-    "wrongbarcode": "Il y a un probl\u00e8me avec ce code-barres",
+    "add_cosmetic": "ajouter des cosmétiques",
+    "wrongbarcode": "Il y a un problème avec ce code-barres",
     "timeout1": "Cela prend plus de temps que d'habitude",
-    "timeout2": "La requ\u00eate a dur\u00e9 trop longtemps. Veuillez r\u00e9essayer.",
+    "timeout2": "La requête a duré trop longtemps. Veuillez réessayer.",
     "share": "Partager",
     "copy": "Copier",
     "on": "sur"
@@ -67,12 +73,6 @@
   "Privacy": {
     "germanonly": "Cette page est uniquement disponible en allemand."
   },
-  "404": {
-    "error404": "Erreur 404.",
-    "pagedoesnotexist": "Cette page n'existe pas.",
-    "message": "Vous pouvez consulter notre {statuspage} ou nous rendre visite sur {mastodon} pour voir s'il y a des problèmes en cours.",
-    "statuspage": "page d'état"
-  },
   "Fallback": {
     "yourareoffline": "Vous n'êtes pas connecté.",
     "needinternet": "Vous devez disposer d'une connexion Internet active pour utiliser Veganify.",
@@ -90,15 +90,15 @@
     "open": "Ouvrir"
   },
   "Ingredients": {
-    "ingredientcheck": "V\u00e9rificateur d'ingrédients v\u00e9g\u00e9taliens",
-    "ingredientcheck_desc": "V\u00e9rifiez si les ingr\u00e9dients d'un produit sont v\u00e9g\u00e9taliens ! – Entrez les ingr\u00e9dients séparés par des virgules",
-    "entercommaseperated": "Entrez les ingr\u00e9dients séparés par des virgules",
+    "ingredientcheck": "Vérificateur d'ingrédients végétaliens",
+    "ingredientcheck_desc": "Vérifiez si les ingrédients d'un produit sont végétaliens ! – Entrez les ingrédients séparés par des virgules",
+    "entercommaseperated": "Entrez les ingrédients séparés par des virgules",
     "submit": "Envoyer",
     "vegan": "Végétalien",
-    "source": "Source des donn\u00e9es",
-    "cannotbeempty": "La liste des ingr\u00e9dients ne peut \u00eatre vide ou inclure des caract\u00e8res sp\u00e9ciaux et doit \u00eatre s\u00e9par\u00e9e par des virgules !",
+    "source": "Source des données",
+    "cannotbeempty": "La liste des ingrédients ne peut être vide ou inclure des caractères spéciaux et doit être séparée par des virgules !",
     "licenses": "Licenses",
-    "licenses_desc": "Veganify utilise diff\u00E9rentes sources de donn\u00E9es pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
+    "licenses_desc": "Veganify utilise différentes sources de données pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
     "languagewarning": "Ces résultats peuvent être incorrects en raison d'erreurs de traduction ou d'informations manquantes. Les résultats sont traduits avec {deepl}.",
     "maybe_vegan": "Cet ingrédient pourrait contenir des produits d'origine animale.",
     "unknown_vegan": "Nous ne disposons pas d'informations sur cet ingrédient."
