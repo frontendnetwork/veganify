@@ -44,3 +44,4 @@ playwright-report/
 
 # mcp
 .cursor/
+.pi-lens/
