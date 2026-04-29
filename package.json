@@ -28,7 +28,7 @@
 		"@types/node": "24.10.1",
 		"@types/react-dom": "19.2.3",
 		"next": "16.2.4",
-		"next-intl": "^4.9.1",
+		"next-intl": "^4.11.0",
 		"react": "19.2.0",
 		"react-dom": "19.2.0",
 		"sass": "^1.99.0",
