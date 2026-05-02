@@ -11,14 +11,11 @@ bun run start        # Start production server on port 1030
 bun run stage        # Start staging server on port 1031
 
 # Quality assurance
-bun run lint         # Run Biome linter
+bun run check        # Run Linter, Formatter, Unit Tests and Type Checker concurrently
 bun run lint:fix     # Auto-fix Biome issues
 bun run type-check   # Run TypeScript type checking
 
 # Testing
-bun test src/components  # Run Bun unit tests
-bun test --watch src/components  # Run Bun tests in watch mode
-bun test --coverage src/components  # Run tests with coverage report
 bun run test:e2e     # Run Playwright end-to-end tests
 ```
 
