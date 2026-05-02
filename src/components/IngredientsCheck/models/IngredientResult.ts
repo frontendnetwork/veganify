@@ -1,7 +1,7 @@
 export interface IngredientResult {
-  vegan: boolean | null;
-  surelyVegan: string[];
-  notVegan: string[];
   maybeNotVegan: string[];
+  notVegan: string[];
+  surelyVegan: string[];
   unknown: string[];
+  vegan: boolean | null;
 }

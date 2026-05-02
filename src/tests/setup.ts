@@ -1,21 +1,23 @@
+import { mock } from "bun:test";
+
 import "@testing-library/jest-dom";
 
 global.console = {
   ...console,
-  log: jest.fn(),
-  debug: jest.fn(),
-  info: jest.fn(),
-  warn: jest.fn(),
-  error: jest.fn(),
+  log: mock(),
+  debug: mock(),
+  info: mock(),
+  warn: mock(),
+  error: mock(),
 };
 
-jest.mock("next/navigation", () => ({
+mock.module("next/navigation", () => ({
   useRouter() {
     return {
-      push: jest.fn(),
-      replace: jest.fn(),
-      prefetch: jest.fn(),
-      back: jest.fn(),
+      push: mock(),
+      replace: mock(),
+      prefetch: mock(),
+      back: mock(),
     };
   },
   useSearchParams() {
@@ -26,7 +28,7 @@ jest.mock("next/navigation", () => ({
   },
 }));
 
-jest.mock("next-intl", () => ({
+mock.module("next-intl", () => ({
   useTranslations: () => (key: string) => key,
   useLocale: () => "en",
 }));

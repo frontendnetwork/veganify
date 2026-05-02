@@ -2,12 +2,12 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 interface FooterLinkProps {
-  href: string;
-  src: string;
   alt: string;
   className?: string;
-  width?: number;
   height?: number;
+  href: string;
+  src: string;
+  width?: number;
 }
 
 function FooterLink({
@@ -19,13 +19,13 @@ function FooterLink({
   height = 48,
 }: FooterLinkProps) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a href={href} rel="noopener noreferrer" target="_blank">
       <Image
-        src={src}
         alt={alt}
         className={className}
-        width={width}
         height={height}
+        src={src}
+        width={width}
       />
     </a>
   );
@@ -33,8 +33,8 @@ function FooterLink({
 
 interface CreditTextParams {
   heart: string;
-  philipLink: string;
   jokeLink: string;
+  philipLink: string;
 }
 
 export default function Footer() {
@@ -51,41 +51,41 @@ export default function Footer() {
     <footer>
       <a
         href="https://www.producthunt.com/products/vegancheck-me?utm_source=badge-featured&utm_medium=badge"
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
         <Image
-          src="../img/ph_neutral.svg"
           alt="Veganify | Product Hunt"
-          width={182}
           height={40}
+          src="../img/ph_neutral.svg"
+          width={182}
         />
       </a>
 
       <p dangerouslySetInnerHTML={{ __html: creditText }} />
 
       <FooterLink
+        alt="Sponsored by UptimeRobot"
         href="https://uptimerobot.com"
         src="../img/uptimerobot-logo.svg"
-        alt="Sponsored by UptimeRobot"
       />
 
       <FooterLink
+        alt={isJanuary ? "Go to Veganuary" : "Veganify Logo"}
         href={isJanuary ? "https://vegc.net/veganuary" : "https://veganify.app"}
         src={isJanuary ? "../img/veganuary.svg" : "../img/veganify_text.svg"}
-        alt={isJanuary ? "Go to Veganuary" : "Veganify Logo"}
       />
 
       <FooterLink
+        alt="Open Source"
         href="https://github.com/frontendnetwork/veganify"
         src="../img/opensource.svg"
-        alt="Open Source"
       />
 
       <FooterLink
+        alt="We plant trees. We're carbon neutral."
         href="https://iplantatree.org/user/Veganify"
         src="../img/treelabel.svg"
-        alt="We plant trees. We're carbon neutral."
       />
     </footer>
   );

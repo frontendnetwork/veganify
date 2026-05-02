@@ -1,4 +1,4 @@
 export interface FlaggedItem {
-  item: string;
   index: number;
+  item: string;
 }

@@ -1,4 +1,4 @@
-import { ProductResult } from "@/models/ProductResults";
+import type { ProductResult } from "@/models/ProductResults";
 
 import { getProductState } from "./product-helpers";
 

@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 
-import { DetectionResult } from "./models/scanner";
+import type { DetectionResult } from "./models/scanner";
 import { ViewportScanner } from "./ViewportScanner";
 
 interface ScanButtonProps {
-  onDetected: (barcode: string) => void;
   handleSubmit: (barcode: string, obj: object) => void;
+  onDetected: (barcode: string) => void;
 }
 
 export function ScanButton({ onDetected, handleSubmit }: ScanButtonProps) {
@@ -23,9 +23,9 @@ export function ScanButton({ onDetected, handleSubmit }: ScanButtonProps) {
   return (
     <>
       <button
-        type="button"
         aria-label="Barcode scannen"
         onClick={() => setScanning(true)}
+        type="button"
       >
         <span className="icon-barcode" />
       </button>

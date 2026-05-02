@@ -1,5 +1,7 @@
 export function preprocessIngredients(input: string): string[] {
-  if (!input || typeof input !== "string") return [];
+  if (!input || typeof input !== "string") {
+    return [];
+  }
 
   const processed = input
     .replace(/\d+(\.\d+)?%/g, "")

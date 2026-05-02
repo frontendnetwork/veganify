@@ -1,10 +1,10 @@
-import { IconClassType } from "./models/Tooltip";
-import { TranslationFunction } from "./models/TranslateFunction";
+import type { IconClassType } from "./models/Tooltip";
+import type { TranslationFunction } from "./models/TranslateFunction";
 import { TooltipClient } from "./shared/Tooltip";
 
 interface IngredientListProps {
-  items: string[];
   iconClass: IconClassType;
+  items: string[];
   t: TranslationFunction;
 }
 
@@ -26,13 +26,13 @@ export function IngredientList({ items, iconClass, t }: IngredientListProps) {
   return (
     <>
       {items.map((item) => (
-        <TooltipClient message={tooltipMessage as string} key={item}>
+        <TooltipClient key={item} message={tooltipMessage as string}>
           <div className="Grid">
             <div className="Grid-cell description">
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </div>
             <div className="Grid-cell icons">
-              <span className={iconClass}></span>
+              <span className={iconClass} />
             </div>
           </div>
         </TooltipClient>

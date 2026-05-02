@@ -3,8 +3,8 @@
 import { useTranslations } from "next-intl";
 
 interface StatusMessagesProps {
-  showNotFound: boolean;
   showInvalid: boolean;
+  showNotFound: boolean;
   showTimeout: boolean;
   showTimeoutFinal: boolean;
 }
@@ -26,6 +26,7 @@ export function StatusMessages({
             {t("notindb_add")}{" "}
             <a
               href="https://world.openfoodfacts.org/cgi/product.pl"
+              rel="noopener noreferrer"
               target="_blank"
             >
               {t("add_food")}
@@ -33,6 +34,7 @@ export function StatusMessages({
             {t("or")}{" "}
             <a
               href="https://world.openbeautyfacts.org/cgi/product.pl"
+              rel="noopener noreferrer"
               target="_blank"
             >
               {t("add_cosmetic")}

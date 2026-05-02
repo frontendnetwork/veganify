@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 import ProductSearch from "@/components/Check/index";
 import InstallPrompt from "@/components/elements/pwainstall";
@@ -17,7 +17,7 @@ export default function Home() {
       <InstallPrompt />
       <Shortcut />
       <Nav />
-      <div className="container top" id="mainpage">
+      <div className="top container" id="mainpage">
         <div id="main">
           <div className="form" id="resscroll">
             <ProductSearch />

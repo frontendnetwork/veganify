@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import BackButton from "@/components/button_back";
 
 interface ContainerProps {
+  backButton?: boolean;
+  children: ReactNode;
   heading?: string;
   headingStyle?: "center" | { textAlign: string };
-  backButton?: boolean;
   logo?: boolean;
-  children: ReactNode;
 }
 
 export default function Container({
@@ -20,19 +20,19 @@ export default function Container({
   children,
 }: Readonly<ContainerProps>) {
   return (
-    <div className="container top">
+    <div className="top container">
       <div id="main">
         <div className="form component">
           {backButton && <BackButton />}
           {logo && (
             <>
-              <Link prefetch={true} href="/">
+              <Link href="/" prefetch={true}>
                 <Image
-                  src="/./img/Veganify.svg"
                   alt="Logo"
                   className="logo"
-                  width={48}
                   height={48}
+                  src="/./img/Veganify.svg"
+                  width={48}
                 />
               </Link>
               <br />

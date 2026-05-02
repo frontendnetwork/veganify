@@ -1,13 +1,13 @@
 export interface NutriscoreGrade {
-  score: string;
   className: string;
+  score: string;
 }
 
 export interface ProductState {
+  animaltestfree: string;
+  grade: NutriscoreGrade;
+  nutriscore: NutriscoreGrade;
+  palmoil: string;
   vegan: string;
   vegetarian: string;
-  animaltestfree: string;
-  palmoil: string;
-  nutriscore: NutriscoreGrade;
-  grade: NutriscoreGrade;
 }

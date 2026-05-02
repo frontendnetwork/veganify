@@ -1,3 +1,13 @@
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  type Mock,
+  mock,
+  test,
+} from "bun:test";
+
 import Veganify, {
   NotFoundError,
   ValidationError,
@@ -6,14 +16,14 @@ import Veganify, {
 import { fetchProduct } from "./product-actions";
 
 // Mock Veganify
-jest.mock("@frontendnetwork/veganify", () => {
+mock.module("@frontendnetwork/veganify", () => {
   const mockInstance = {
-    getProductByBarcode: jest.fn(),
+    getProductByBarcode: mock(),
   };
   return {
     __esModule: true,
     default: {
-      getInstance: jest.fn(() => mockInstance),
+      getInstance: mock(() => mockInstance),
     },
     NotFoundError: class extends Error {
       constructor(message: string) {
@@ -32,13 +42,13 @@ jest.mock("@frontendnetwork/veganify", () => {
 
 describe("fetchProduct", () => {
   const originalError = console.error;
-  let mockVeganify: { getProductByBarcode: jest.Mock };
+  let mockVeganify: { getProductByBarcode: Mock<(...args: any[]) => any> };
 
   beforeEach(() => {
-    console.error = jest.fn();
-    jest.clearAllMocks();
+    console.error = mock() as typeof console.error;
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockClear();
     mockVeganify = {
-      getProductByBarcode: jest.fn().mockResolvedValue({
+      getProductByBarcode: mock().mockResolvedValue({
         product: {
           productname: "Test Product",
           vegan: true,
@@ -51,7 +61,9 @@ describe("fetchProduct", () => {
         status: 200,
       }),
     };
-    (Veganify.getInstance as jest.Mock).mockReturnValue(mockVeganify);
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockReturnValue(
+      mockVeganify
+    );
   });
 
   afterEach(() => {
@@ -144,7 +156,7 @@ describe("fetchProduct", () => {
   describe("edge cases", () => {
     test("handles empty product response", async () => {
       const mockResponse = {
-        product: {},
+        product: { productname: "" },
         sources: {
           processed: true,
           api: "test",

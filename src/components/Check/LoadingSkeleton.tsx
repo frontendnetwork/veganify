@@ -6,7 +6,7 @@ export function LoadingSkeleton() {
   const t = useTranslations("Check");
 
   return (
-    <div id="result" className="loading_skeleton">
+    <div className="loading_skeleton" id="result">
       <div className="animated fadeIn resultborder" id="RSFound">
         <span className="unknown">
           <span className="name skeleton">&nbsp;</span>
@@ -15,7 +15,7 @@ export function LoadingSkeleton() {
           <div className="Grid">
             <div className="Grid-cell description skeleton">{t("vegan")}</div>
             <div className="Grid-cell icons skeleton">
-              <span className="icon-help"></span>
+              <span className="icon-help" />
             </div>
           </div>
         </span>
@@ -24,25 +24,25 @@ export function LoadingSkeleton() {
             {t("vegetarian")}
           </div>
           <div className="Grid-cell icons skeleton">
-            <span className="icon-help"></span>
+            <span className="icon-help" />
           </div>
         </div>
         <div className="Grid">
           <div className="Grid-cell description skeleton">{t("palmoil")}</div>
           <div className="Grid-cell icons skeleton">
-            <span className="icon-help"></span>
+            <span className="icon-help" />
           </div>
         </div>
         <div className="Grid">
           <div className="Grid-cell description skeleton">Nutriscore</div>
           <div className="Grid-cell icons skeleton">
-            <span className="icon-help"></span>
+            <span className="icon-help" />
           </div>
         </div>
         <div className="Grid">
           <div className="Grid-cell description skeleton">Grade</div>
           <div className="Grid-cell icons skeleton">
-            <span className="icon-help"></span>
+            <span className="icon-help" />
           </div>
         </div>
         <span className="source skeleton">&nbsp;</span>

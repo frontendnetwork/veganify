@@ -1,16 +1,18 @@
+import { beforeEach, describe, expect, it, type Mock, mock } from "bun:test";
+
 import Veganify, { ValidationError } from "@frontendnetwork/veganify";
 
 import { checkIngredients } from "./actions";
 
 // Mock Veganify
-jest.mock("@frontendnetwork/veganify", () => {
+mock.module("@frontendnetwork/veganify", () => {
   const mockInstance = {
-    checkIngredientsListV1: jest.fn(),
+    checkIngredientsListV1: mock(),
   };
   return {
     __esModule: true,
     default: {
-      getInstance: jest.fn(() => mockInstance),
+      getInstance: mock(() => mockInstance),
     },
     ValidationError: class extends Error {
       constructor(message: string) {
@@ -22,13 +24,14 @@ jest.mock("@frontendnetwork/veganify", () => {
 });
 
 describe("checkIngredients", () => {
-  let mockVeganifyInstance: { checkIngredientsListV1: jest.Mock };
-  const getInstanceMock = jest.fn();
+  let mockVeganifyInstance: {
+    checkIngredientsListV1: Mock<(...args: any[]) => any>;
+  };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockClear();
     mockVeganifyInstance = {
-      checkIngredientsListV1: jest.fn().mockResolvedValue({
+      checkIngredientsListV1: mock().mockResolvedValue({
         code: "200",
         status: "success",
         message: "OK",
@@ -41,8 +44,9 @@ describe("checkIngredients", () => {
         },
       }),
     };
-    getInstanceMock.mockReturnValue(mockVeganifyInstance);
-    (Veganify.getInstance as jest.Mock) = getInstanceMock;
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockReturnValue(
+      mockVeganifyInstance
+    );
   });
 
   it("should successfully check ingredients and return formatted data", async () => {

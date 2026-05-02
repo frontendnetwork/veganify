@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const OLEDMode = () => {
   const t = useTranslations("More");
@@ -36,19 +36,19 @@ const OLEDMode = () => {
       "(prefers-color-scheme: dark)"
     ).matches;
 
-    if (!isChecked && !isDarkModePreferred) {
+    if (!(isChecked || isDarkModePreferred)) {
       setError(true);
       return;
     }
 
-    if (!isChecked) {
-      document.documentElement.setAttribute("data-theme", "oled");
-      setThemeColorAttribute("#000");
-      localStorage.setItem("oled", "true");
-    } else {
+    if (isChecked) {
       localStorage.removeItem("oled");
       document.documentElement.removeAttribute("data-theme");
       setThemeColorAttribute("#141414");
+    } else {
+      document.documentElement.setAttribute("data-theme", "oled");
+      setThemeColorAttribute("#000");
+      localStorage.setItem("oled", "true");
     }
 
     setIsChecked((prevChecked) => !prevChecked);
@@ -56,7 +56,7 @@ const OLEDMode = () => {
   }, [isChecked, setThemeColorAttribute]);
 
   return (
-    <label htmlFor="oled-switch" className="Grid switcher">
+    <label className="Grid switcher" htmlFor="oled-switch">
       <div className="Grid-cell description">
         OLED-Mode
         <span className="info" id="cookieinfo">
@@ -72,12 +72,11 @@ const OLEDMode = () => {
       </div>
       <div className="Grid-cell icons">
         <input
+          checked={isChecked}
           className={`switch ${error ? "animated shake" : ""}`}
           id="oled-switch"
-          type="checkbox"
-          checked={isChecked}
-          onClick={handleClick}
           onChange={handleClick}
+          type="checkbox"
         />
       </div>
     </label>

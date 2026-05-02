@@ -5,19 +5,19 @@ import { useTranslations } from "next-intl";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 import ShareButton from "@/components/elements/share";
-import { ProductResult } from "@/models/ProductResults";
-import { Sources } from "@/models/Sources";
+import type { ProductResult } from "@/models/ProductResults";
+import type { Sources } from "@/models/Sources";
 
 import LicenseModalContent from "../shared/LicenseModalContent";
 
-import { ProductState } from "./models/product";
+import type { ProductState } from "./models/product";
 import { ResultGrid } from "./ResultGrid";
 
 interface ProductResultProps {
+  barcode: string;
+  productState: ProductState;
   result: ProductResult;
   sources: Sources;
-  productState: ProductState;
-  barcode: string;
 }
 
 export function ProductResultView({
@@ -147,7 +147,12 @@ export function ProductResultView({
 
         <span className="source">
           {t("source")}:{" "}
-          <a href={sources.baseuri} className="RSSource" target="_blank">
+          <a
+            href={sources.baseuri}
+            className="RSSource"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {sources.api}
           </a>
           <ModalWrapper

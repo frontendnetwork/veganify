@@ -1,6 +1,6 @@
 import { IngredientList } from "./IngredientsList";
-import { IngredientResult } from "./models/IngredientResult";
-import { TranslationFunction } from "./models/TranslateFunction";
+import type { IngredientResult } from "./models/IngredientResult";
+import type { TranslationFunction } from "./models/TranslateFunction";
 import { SourceInfo } from "./SourceInfo";
 
 interface ResultDisplayProps {
@@ -22,27 +22,27 @@ export function ResultDisplay({ result, t }: ResultDisplayProps) {
                 className={
                   result.vegan ? "vegan icon-ok" : "non-vegan icon-cancel"
                 }
-              ></span>
+              />
             </div>
           </div>
           <IngredientList
-            items={result.notVegan}
             iconClass="non-vegan icon-cancel"
+            items={result.notVegan}
             t={t}
           />
           <IngredientList
-            items={result.unknown}
             iconClass="unknown-vegan icon-help"
+            items={result.unknown}
             t={t}
           />
           <IngredientList
-            items={result.maybeNotVegan}
             iconClass="maybe-vegan icon-attention-alt"
+            items={result.maybeNotVegan}
             t={t}
           />
           <IngredientList
-            items={result.surelyVegan}
             iconClass="vegan icon-ok"
+            items={result.surelyVegan}
             t={t}
           />
           <SourceInfo t={t} />

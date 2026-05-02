@@ -1,17 +1,22 @@
-import { ProductResult } from "@/models/ProductResults";
+import type { ProductResult } from "@/models/ProductResults";
 
-import { NutriscoreGrade, ProductState } from "../models/product";
+import type { NutriscoreGrade, ProductState } from "../models/product";
 
 export function getProductState(result: ProductResult): ProductState {
   const getVeganState = (value: boolean | "n/a" | undefined): string => {
-    if (value === true) return "vegan icon-ok";
-    if (value === false) return "non-vegan icon-cancel";
+    if (value === true) {
+      return "vegan icon-ok";
+    }
+    if (value === false) {
+      return "non-vegan icon-cancel";
+    }
     return "unknown icon-help";
   };
 
   const getNutriscoreClass = (score: string | undefined): NutriscoreGrade => {
-    if (!score || score === "n/a")
+    if (!score || score === "n/a") {
       return { score: "unknown icon-help", className: "" };
+    }
 
     const normalizedScore = score.toLowerCase();
     if (["a", "b", "c", "d", "e"].includes(normalizedScore)) {
