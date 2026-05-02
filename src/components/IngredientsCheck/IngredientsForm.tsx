@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { FormEvent, useState } from "react";
+import { type FormEvent, useState } from "react";
 
-import { IngredientResult } from "./models/IngredientResult";
+import type { IngredientResult } from "./models/IngredientResult";
 import { ResultDisplay } from "./ResultsDisplay";
 import { checkIngredients } from "./utils/actions";
 import { preprocessIngredients } from "./utils/preprocessIngredients";
@@ -57,11 +57,11 @@ export function IngredientsForm() {
   return (
     <>
       <Image
-        src="/./img/Veganify.svg"
         alt="Logo"
         className={`logo ${loading ? "spinner" : ""}`}
-        width={48}
         height={48}
+        src="/./img/Veganify.svg"
+        width={48}
       />
       <h2 style={{ textAlign: "center", marginTop: "0" }}>
         {t("ingredientcheck")}
@@ -77,11 +77,11 @@ export function IngredientsForm() {
             placeholder={t("entercommaseperated")}
           />
           <button
-            type="submit"
-            name="checkingredients"
             aria-label={t("submit")}
+            name="checkingredients"
+            type="submit"
           >
-            <span className="icon-right-open"></span>
+            <span className="icon-right-open" />
           </button>
         </fieldset>
       </form>
@@ -94,7 +94,7 @@ export function IngredientsForm() {
         </div>
       )}
       {loading && (
-        <div id="result" className="loading_skeleton">
+        <div className="loading_skeleton" id="result">
           <div className="animated fadeIn">
             <div className="resultborder">
               <div className="Grid">
@@ -102,7 +102,7 @@ export function IngredientsForm() {
                   <b>{t("vegan")}</b>
                 </div>
                 <div className="Grid-cell icons skeleton">
-                  <span className="icon-help"></span>
+                  <span className="icon-help" />
                 </div>
               </div>
               <span className="source skeleton">&nbsp;</span>

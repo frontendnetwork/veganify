@@ -2,23 +2,19 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface ExtendedWindow extends Window {
   MSStream?: unknown;
 }
 
-const isIOSDevice = (window: ExtendedWindow): boolean => {
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-};
+const isIOSDevice = (window: ExtendedWindow): boolean =>
+  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-const shouldShowShortcut = (window: ExtendedWindow): boolean => {
-  return (
-    !window.matchMedia("(display-mode: standalone)").matches &&
-    isIOSDevice(window) &&
-    !window.location.href.includes("shortcut")
-  );
-};
+const shouldShowShortcut = (window: ExtendedWindow): boolean =>
+  !window.matchMedia("(display-mode: standalone)").matches &&
+  isIOSDevice(window) &&
+  !window.location.href.includes("shortcut");
 
 const Shortcut = () => {
   const t = useTranslations("ShortcutPrompt");
@@ -44,10 +40,10 @@ const Shortcut = () => {
       <div className="flex-container">
         <div className="flex-item">
           <Image
-            src="/img/shortcuts.png"
             alt="Shortcuts"
-            width={32}
             height={32}
+            src="/img/shortcuts.png"
+            width={32}
           />
         </div>
         <div className="flex-item">

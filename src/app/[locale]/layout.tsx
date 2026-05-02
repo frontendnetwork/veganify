@@ -2,7 +2,7 @@ import "@/styles/style.scss";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import Nav from "@/components/nav";
 

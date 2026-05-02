@@ -24,10 +24,10 @@ export function SourceInfo({
         The VEGAN WOLF
       </a>
       <ModalWrapper
-        id="license"
-        buttonType="sup"
         buttonClass="help-icon"
         buttonText="?"
+        buttonType="sup"
+        id="license"
       >
         <LicenseModalContent />
       </ModalWrapper>

@@ -16,8 +16,8 @@ const NavItem = ({
   isActive: boolean;
 }) => (
   <div className={`flex-item ${isActive ? "active" : ""}`}>
-    <Link prefetch={true} href={href}>
-      <span className={`icon ${iconClass}`}></span>
+    <Link href={href} prefetch={true}>
+      <span className={`icon ${iconClass}`} />
       <span className="menu-item">{translationKey}</span>
     </Link>
   </div>
@@ -49,13 +49,13 @@ export default function Nav() {
       <div className="flex-container">
         {navItems.map((item) => (
           <NavItem
-            key={item.href}
             href={item.href}
             iconClass={item.iconClass}
-            translationKey={item.translationKey}
             isActive={
               item.href === "/more" ? isMoreActive : pathname === item.href
             }
+            key={item.href}
+            translationKey={item.translationKey}
           />
         ))}
       </div>
