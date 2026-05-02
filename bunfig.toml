@@ -1,0 +1,5 @@
+[test]
+preload = ["./src/tests/setup.ts"]
+environment = "happy-dom"
+include = ["**/*.test.ts", "**/*.test.tsx"]
+exclude = ["node_modules", ".next"]

@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface ResultGridProps {
-  label: string;
-  iconClass: string;
   helpModal?: ReactNode;
+  iconClass: string;
+  label: string;
 }
 
 export function ResultGrid({ label, iconClass, helpModal }: ResultGridProps) {
@@ -14,7 +14,7 @@ export function ResultGrid({ label, iconClass, helpModal }: ResultGridProps) {
         {helpModal}
       </div>
       <div className="Grid-cell icons">
-        <span className={iconClass}></span>
+        <span className={iconClass} />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 "use server";
 
-import Veganify, { ProductResponse } from "@frontendnetwork/veganify";
+import Veganify, { type ProductResponse } from "@frontendnetwork/veganify";
 
 export async function fetchProduct(barcode: string): Promise<{
   product?: ProductResponse["product"];

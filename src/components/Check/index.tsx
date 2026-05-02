@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, FormEvent } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 
-import { ErrorResponse } from "@/models/ErrorRepsonse";
-import { ProductResult } from "@/models/ProductResults";
-import { Sources } from "@/models/Sources";
+import type { ErrorResponse } from "@/models/ErrorRepsonse";
+import type { ProductResult } from "@/models/ProductResults";
+import type { Sources } from "@/models/Sources";
 
 import { LoadingSkeleton } from "./LoadingSkeleton";
 import { ProductResultView } from "./ProductResult";
@@ -102,16 +102,16 @@ export default function ProductSearch() {
 
       {showFound && (
         <ProductResultView
+          barcode={barcode}
+          productState={getProductState(result)}
           result={result}
           sources={sources}
-          productState={getProductState(result)}
-          barcode={barcode}
         />
       )}
 
       <StatusMessages
-        showNotFound={showNotFound}
         showInvalid={showInvalid}
+        showNotFound={showNotFound}
         showTimeout={showTimeout}
         showTimeoutFinal={showTimeoutFinal}
       />

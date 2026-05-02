@@ -1,9 +1,9 @@
 "use client";
 
 import Quagga from "@ericblade/quagga2";
-import { CSSProperties, useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 
-import { ScannerProps } from "./models/scanner";
+import type { ScannerProps } from "./models/scanner";
 
 export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
   const [facingMode, setFacingMode] = useState("user");
@@ -74,12 +74,11 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
       Quagga.offDetected(onDetected);
       Quagga.stop();
     };
-    // We disable this here, since we only want to run this effect once
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (isHidden) return null;
+  if (isHidden) {
+    return null;
+  }
 
   const viewportStyle: CSSProperties = {
     position: "fixed",
@@ -109,8 +108,9 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
           <div className="flex-container">
             <div className="flex-item">
               <span
-                id="closebtn"
+                aria-label="Close scanner"
                 className="icon-left-open"
+                id="closebtn"
                 onClick={handleClose}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -119,13 +119,13 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
                 }}
                 role="button"
                 tabIndex={0}
-                aria-label="Close scanner"
               />
             </div>
             <div className="flex-item">
               <span
-                id="switch-camera"
+                aria-label="Switch camera"
                 className="icon-flipcamera"
+                id="switch-camera"
                 onClick={handleCameraSwitch}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -134,13 +134,12 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
                 }}
                 role="button"
                 tabIndex={0}
-                aria-label="Switch camera"
               />
             </div>
           </div>
         </span>
       </div>
-      <div id="interactive" className="viewport" style={viewportStyle} />
+      <div className="viewport" id="interactive" style={viewportStyle} />
     </>
   );
 }

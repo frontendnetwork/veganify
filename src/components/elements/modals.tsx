@@ -1,11 +1,11 @@
-import React, { useState, ReactNode, ElementType } from "react";
+import { type ElementType, type ReactNode, useState } from "react";
 
 interface Props {
-  id: string;
-  children: ReactNode;
-  buttonType: "sup" | "span" | "div";
   buttonClass: string;
   buttonText: string;
+  buttonType: "sup" | "span" | "div";
+  children: ReactNode;
+  id: string;
 }
 
 const Modal = ({
@@ -26,9 +26,9 @@ const Modal = ({
   return (
     <>
       <ButtonComponent
+        className={buttonClass}
         data-target={id}
         data-toggle="modal"
-        className={buttonClass}
         onClick={() => toggleModal(true)}
       >
         {buttonText}

@@ -1,9 +1,8 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 
@@ -42,7 +41,7 @@ const InstallPrompt = () => {
           ×
         </div>
         <div className="flex-item">
-          <img src="/img/maskable_icon.png" alt="Veganify Icon" />
+          <img alt="Veganify Icon" src="/img/maskable_icon.png" />
         </div>
         <div className="flex-item">
           <span className="heading">Veganify</span>
@@ -50,18 +49,18 @@ const InstallPrompt = () => {
         </div>
         <div className="flex-item">
           <ModalWrapper
-            id="modal2"
-            buttonType="span"
             buttonClass="button"
             buttonText={t("get")}
+            buttonType="span"
+            id="modal2"
           >
             <span className="center">
               <Image
-                src="../img/pwainstall_img.svg"
                 alt="PWAInstall"
                 className="heading_img"
-                width={48}
                 height={48}
+                src="../img/pwainstall_img.svg"
+                width={48}
               />
               <h1>{t("install")}</h1>
             </span>

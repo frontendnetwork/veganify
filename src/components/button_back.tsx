@@ -6,9 +6,9 @@ const BackButton = () => {
   const router = useRouter();
   return (
     <span
+      className="icon-left-open back"
       onClick={() => router.back()}
       style={{ cursor: "pointer" }}
-      className="icon-left-open back"
     />
   );
 };

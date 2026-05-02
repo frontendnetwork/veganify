@@ -8,11 +8,11 @@ const LicenseModalContent = () => {
     <>
       <span className="center">
         <Image
-          src="../img/license_img.svg"
-          className="heading_img"
           alt="Licenses"
-          width={48}
+          className="heading_img"
           height={48}
+          src="../img/license_img.svg"
+          width={48}
         />
         <h1>{t("licenses")}</h1>
       </span>

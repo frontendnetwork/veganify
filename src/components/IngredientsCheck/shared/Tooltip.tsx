@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 interface TooltipProps {
-  message: string;
   children: React.ReactNode;
+  message: string;
 }
 
 export function TooltipClient({ message, children }: TooltipProps) {
@@ -24,7 +24,7 @@ export function TooltipClient({ message, children }: TooltipProps) {
       {isVisible && (
         <div className="tooltip">
           {message}
-          <div className="tooltip-arrow"></div>
+          <div className="tooltip-arrow" />
         </div>
       )}
     </div>

@@ -43,35 +43,35 @@ const SupportOption = () => {
     <>
       <span className="center">
         <Image
-          src="/img/donate_img.svg"
-          className="heading_img"
           alt="Donate"
-          width={48}
+          className="heading_img"
           height={48}
+          src="/img/donate_img.svg"
+          width={48}
         />
         <h1>{t("buyusacoffee")}</h1>
       </span>
       {Object.entries(SUPPORT_OPTIONS).map(([key, option]) => (
         <div
-          key={key}
           className={`option ${selectedOption === option ? "active" : ""}`}
           id={`option_${key.toLowerCase()}`}
+          key={key}
           onClick={() => handleOptionClick(option)}
         >
           <input
-            className="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id={key.toLowerCase()}
             checked={selectedOption === option}
+            className="form-check-input"
+            id={key.toLowerCase()}
+            name="flexRadioDefault"
+            type="radio"
           />
           <span className="muted">{t(option.translationKey)}</span>
           <span className="price">{option.price}</span>
         </div>
       ))}
       <div className="center donate">
-        <a href={selectedOption.link} id="supportbtn" className="button">
-          <span className={selectedOption.icon}></span> {selectedOption.text}
+        <a className="button" href={selectedOption.link} id="supportbtn">
+          <span className={selectedOption.icon} /> {selectedOption.text}
         </a>
         <span className="info">
           {t("redirect")} <span id="vendor">{selectedOption.vendor}</span>.

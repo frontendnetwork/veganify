@@ -1,0 +1,85 @@
+{
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/react",
+    "ultracite/biome/next"
+  ],
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "includes": ["!service-worker.js"]
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        // Disabled: useSortedAttributes has a bug in Biome 2.4.12 that duplicates JSX props
+        "useSortedAttributes": "off"
+      }
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        // Project uses PascalCase for component files and models
+        "useFilenamingConvention": "off"
+      },
+      "performance": {
+        // Project uses barrel files (index.ts re-exports)
+        "noBarrelFile": "off",
+        // Not in original ESLint config
+        "useTopLevelRegex": "off",
+        // Not in original ESLint config
+        "noImgElement": "off"
+      },
+      "security": {
+        // Not in original ESLint config
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "suspicious": {
+        // Not in original ESLint config
+        "noDocumentCookie": "off",
+        // Allow any in .d.ts type shims (with biome-ignore on specific lines)
+        "noExplicitAny": "warn",
+        // Not in original ESLint config
+        "noEmptySource": "off"
+      },
+      "correctness": {
+        // Not in original ESLint config (exhaustive-deps was suppressed via eslint-disable)
+        "useExhaustiveDependencies": "off",
+        // Not in original ESLint config
+        "useImageSize": "off"
+      },
+      "complexity": {
+        // Not in original ESLint config
+        "noExcessiveCognitiveComplexity": "off",
+        // Not in original ESLint config
+        "noForEach": "off"
+      },
+      "a11y": {
+        // Not enforced by original ESLint config
+        "useKeyWithClickEvents": "off",
+        "noStaticElementInteractions": "off",
+        "noNoninteractiveElementInteractions": "off",
+        "useButtonType": "off",
+        "useSemanticElements": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
+        "src/tests/setup.ts"
+      ],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredVariables": "off"
+          }
+        }
+      }
+    }
+  ]
+}

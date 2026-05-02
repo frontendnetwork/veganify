@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import React, { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 
 interface ShareButtonProps {
-  productName?: string;
   barcode: string;
+  productName?: string;
 }
 
 const ShareButton = ({
@@ -29,17 +29,16 @@ const ShareButton = ({
   const url = `https://veganify.app/?ean=${barcode}`;
 
   const handleShareClick = (shareUrl: string) => {
-    // eslint-disable-next-line react-compiler/react-compiler
     window.location.href = shareUrl;
     document.querySelector<HTMLElement>(".btn-dark")?.click();
   };
 
   interface ShareOption {
+    handler?: () => Promise<void>;
+    icon: string;
     id: string;
     text: string;
-    icon: string;
     url: string;
-    handler?: () => Promise<void>;
   }
 
   const shareOptions = useMemo<ShareOption[]>(
@@ -111,26 +110,26 @@ const ShareButton = ({
     </span>
   ) : (
     <ModalWrapper
-      id="share"
-      buttonType="span"
       buttonClass="button"
       buttonText={t("share")}
+      buttonType="span"
+      id="share"
     >
       <span className="center">
         <Image
-          src="../img/pwainstall_img.svg"
-          className="heading_img"
-          width={48}
-          height={48}
           alt="Share"
+          className="heading_img"
+          height={48}
+          src="../img/pwainstall_img.svg"
+          width={48}
         />
         <h1>{t("share")}</h1>
       </span>
       {shareOptions.map(({ id, text, icon, url, handler }) => (
         <div
-          key={id}
           className="share-btn"
           id={id}
+          key={id}
           onClick={() =>
             handler
               ? handler()
@@ -140,7 +139,7 @@ const ShareButton = ({
           }
         >
           <span className="share-text">{text}</span>
-          <span className={`share-icon ${icon}`}></span>
+          <span className={`share-icon ${icon}`} />
         </div>
       ))}
     </ModalWrapper>

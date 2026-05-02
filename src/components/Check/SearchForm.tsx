@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 
 import ScanButton from "@/components/Scanner";
 
@@ -24,33 +24,33 @@ export function SearchForm({
   return (
     <>
       <Image
-        src="/./img/Veganify.svg"
         alt="Logo"
         className={`logo ${loading ? "spinner" : ""}`}
-        width={48}
         height={48}
+        src="/./img/Veganify.svg"
+        width={48}
       />
       <form onSubmit={(e) => onSubmit(barcode, e)}>
         <legend>{t("enterbarcode")}</legend>
         <fieldset>
           <legend>{t("enterbarcode")}</legend>
           <ScanButton
-            onDetected={onBarcodeChange}
             handleSubmit={(barcode) => onSubmit(barcode)}
+            onDetected={onBarcodeChange}
           />
-          <label htmlFor="barcodeInput" className="hidden">
+          <label className="hidden" htmlFor="barcodeInput">
             {t("enterbarcode")}
           </label>
           <input
-            type="number"
-            name="barcode"
-            id="barcodeInput"
-            placeholder={t("enterbarcode")}
             autoFocus={true}
-            value={barcode}
+            id="barcodeInput"
+            name="barcode"
             onChange={(e) => onBarcodeChange(e.target.value)}
+            placeholder={t("enterbarcode")}
+            type="number"
+            value={barcode}
           />
-          <button name="submit" aria-label={t("submit")}>
+          <button aria-label={t("submit")} name="submit">
             <span className="icon-right-open" />
           </button>
         </fieldset>
