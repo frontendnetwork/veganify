@@ -151,7 +151,7 @@ export function ProductResultView({
             href={sources.baseuri}
             className="RSSource"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             {sources.api}
           </a>

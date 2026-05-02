@@ -9,7 +9,7 @@
     "stage": "next start -p 1031",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsc --noEmit && tsc --noEmit --project tsconfig.test.json",
     "test": "bun test src/components",
     "test:watch": "bun test --watch src/components",
     "test:coverage": "bun test --coverage src/components",
@@ -42,6 +42,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
+    "@types/bun": "^1.3.13",
     "@types/react": "19.2.14",
     "happy-dom": "^20.9.0",
     "ultracite": "7.6.2"

@@ -7,6 +7,7 @@ import Container from "@/components/elements/container";
 import SupportOption from "@/components/elements/contents/donate";
 import ModalWrapper from "@/components/elements/modalwrapper";
 import { Link } from "@/i18n/navigation";
+import { setLocaleCookie } from "@/lib/locale-cookie";
 
 const languages = [
   { code: "en", name: "english" },
@@ -23,8 +24,7 @@ export default function More() {
   const currentLocale = useLocale();
 
   function handleLanguageChange(locale: string) {
-    const maxAge = 30 * 24 * 60 * 60; // 30 days
-    document.cookie = `NEXT_LOCALE=${locale};max-age=${maxAge};path=/`;
+    setLocaleCookie(locale);
   }
 
   return (

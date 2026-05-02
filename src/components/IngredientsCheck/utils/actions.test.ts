@@ -24,10 +24,12 @@ mock.module("@frontendnetwork/veganify", () => {
 });
 
 describe("checkIngredients", () => {
-  let mockVeganifyInstance: { checkIngredientsListV1: Mock };
+  let mockVeganifyInstance: {
+    checkIngredientsListV1: Mock<(...args: any[]) => any>;
+  };
 
   beforeEach(() => {
-    (Veganify.getInstance as Mock).mockClear();
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockClear();
     mockVeganifyInstance = {
       checkIngredientsListV1: mock().mockResolvedValue({
         code: "200",
@@ -42,7 +44,9 @@ describe("checkIngredients", () => {
         },
       }),
     };
-    (Veganify.getInstance as Mock).mockReturnValue(mockVeganifyInstance);
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockReturnValue(
+      mockVeganifyInstance
+    );
   });
 
   it("should successfully check ingredients and return formatted data", async () => {

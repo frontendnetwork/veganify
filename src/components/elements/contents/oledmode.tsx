@@ -76,7 +76,6 @@ const OLEDMode = () => {
           className={`switch ${error ? "animated shake" : ""}`}
           id="oled-switch"
           onChange={handleClick}
-          onClick={handleClick}
           type="checkbox"
         />
       </div>

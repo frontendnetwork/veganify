@@ -42,11 +42,11 @@ mock.module("@frontendnetwork/veganify", () => {
 
 describe("fetchProduct", () => {
   const originalError = console.error;
-  let mockVeganify: { getProductByBarcode: Mock };
+  let mockVeganify: { getProductByBarcode: Mock<(...args: any[]) => any> };
 
   beforeEach(() => {
     console.error = mock() as typeof console.error;
-    (Veganify.getInstance as Mock).mockClear();
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockClear();
     mockVeganify = {
       getProductByBarcode: mock().mockResolvedValue({
         product: {
@@ -61,7 +61,9 @@ describe("fetchProduct", () => {
         status: 200,
       }),
     };
-    (Veganify.getInstance as Mock).mockReturnValue(mockVeganify);
+    (Veganify.getInstance as Mock<(...args: any[]) => any>).mockReturnValue(
+      mockVeganify
+    );
   });
 
   afterEach(() => {
@@ -154,7 +156,7 @@ describe("fetchProduct", () => {
   describe("edge cases", () => {
     test("handles empty product response", async () => {
       const mockResponse = {
-        product: {},
+        product: { productname: "" },
         sources: {
           processed: true,
           api: "test",
