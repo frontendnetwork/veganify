@@ -34,7 +34,7 @@
     "next": "16.2.4",
     "next-intl": "^4.11.0",
     "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "react-dom": "19.2.5",
     "sass": "^1.99.0",
     "sharp": "^0.34.5",
     "typescript": "6.0.3"
@@ -60,7 +60,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "react-dom": "19.2.5",
     "core-js": "^3.36.0",
     "glob": "^10.5.0",
     "sourcemap-codec": "^1.4.8",
