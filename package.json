@@ -29,7 +29,7 @@
   "dependencies": {
     "@ericblade/quagga2": "^1.12.1",
     "@frontendnetwork/veganify": "^2.1.1",
-    "@types/node": "25.9.2",
+    "@types/node": "25.9.3",
     "@types/react-dom": "19.2.3",
     "next": "16.2.7",
     "next-intl": "^4.13.0",
