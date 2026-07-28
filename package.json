@@ -31,7 +31,7 @@
     "@frontendnetwork/veganify": "^2.1.1",
     "@types/node": "25.9.3",
     "@types/react-dom": "19.2.3",
-    "next": "16.2.11",
+    "next": "16.2.12",
     "next-intl": "^4.13.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
