@@ -6,7 +6,7 @@
       "name": "veganify",
       "dependencies": {
         "@ericblade/quagga2": "^1.12.1",
-        "@frontendnetwork/veganify": "^2.1.1",
+        "@frontendnetwork/veganify": "^2.1.6",
         "@types/node": "25.9.3",
         "@types/react-dom": "19.2.3",
         "next": "16.2.12",
@@ -99,7 +99,7 @@
 
     "@formatjs/intl-localematcher": ["@formatjs/intl-localematcher@0.8.7", "", { "dependencies": { "@formatjs/fast-memoize": "3.1.5" } }, "sha512-1R/ljfRKG1fUhKG4F0lUmrEKPkr/PlHqbgQ8xeYQYYunXu5/0+vbQeeVgGAgydp13Tq+S1X5Qjn6L90hijXjHg=="],
 
-    "@frontendnetwork/veganify": ["@frontendnetwork/veganify@2.1.1", "", { "dependencies": { "zod": "^4.4.2" } }, "sha512-tOxQZIF99ul8TDUaAkkLJ4THih2QF/Vd2QvExcv25ST2tPDGCnihd9bChoEyKaT38ECzVmBLhlGkGJJ//eaGrw=="],
+    "@frontendnetwork/veganify": ["@frontendnetwork/veganify@2.1.6", "", { "dependencies": { "zod": "^4.4.3" } }, "sha512-nxxG3cAaOkaEI+v5nhLFzedcXH4mhKUHPiVSpzQXxVJ9nP21PythTITZj0Mred883y16gJx5INlWbVBWaikd1g=="],
 
     "@img/colour": ["@img/colour@1.1.0", "", {}, "sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ=="],
 
