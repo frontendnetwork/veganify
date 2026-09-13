@@ -6,7 +6,12 @@
   ],
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": ["!service-worker.js"]
+    "includes": [
+      "!service-worker.js",
+      // Icon/font assets: not source code, and noSvgWithoutTitle fires on every
+      // decorative asset SVG
+      "!**/*.svg"
+    ]
   },
   "assist": {
     "actions": {
@@ -65,6 +70,62 @@
     }
   },
   "overrides": [
+    {
+      // Fluid Functionalism registry files are vendored upstream code (shadcn
+      // add). They follow the registry's own conventions — forwardRef,
+      // namespace imports, ref guards biome can't see across callbacks — and
+      // get relinted on every registry update. Rules that fight that style
+      // are relaxed here instead of drifting the files from upstream.
+      "includes": [
+        "src/components/ui/button.tsx",
+        "src/components/ui/dialog.tsx",
+        "src/components/ui/switch.tsx",
+        "src/components/ui/badge.tsx",
+        "src/components/ui/input-group.tsx",
+        "src/components/fluid-hover-highlight.tsx",
+        "src/lib/shape-context.tsx",
+        "src/lib/icon-context.tsx",
+        "src/lib/font-weight.ts",
+        "src/lib/size-context.tsx",
+        "src/hooks/**"
+      ],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noReactForwardRef": "off",
+            "noUnnecessaryConditions": "off",
+            "noLeakedRender": "off"
+          },
+          "performance": {
+            "noJsxPropsBind": "off",
+            "noNamespaceImport": "off"
+          },
+          "style": {
+            "noNestedTernary": "off",
+            "noIncrementDecrement": "off"
+          },
+          "complexity": {
+            "noVoid": "off",
+            "noRedundantDefaultExport": "off"
+          },
+          "a11y": {
+            "noSvgWithoutTitle": "off"
+          }
+        }
+      }
+    },
+    {
+      // Locale files use logical key grouping for translators; useSortedKeys
+      // would force alphabetical order across all seven languages
+      "includes": ["src/locales/**"],
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      }
+    },
     {
       "includes": [
         "**/*.test.ts",

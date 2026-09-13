@@ -1,52 +1,26 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-
+/**
+ * Content skeleton mirroring the result layout. The shimmer is decorative
+ * and suppressed under reduced motion; the live region in the orchestrator
+ * carries the "searching" announcement for assistive tech.
+ */
 export function LoadingSkeleton() {
-  const t = useTranslations("Check");
-
   return (
-    <div className="loading_skeleton" id="result">
-      <div className="animated fadeIn resultborder" id="RSFound">
-        <span className="unknown">
-          <span className="name skeleton">&nbsp;</span>
-        </span>
-        <span id="result_sh">
-          <div className="Grid">
-            <div className="Grid-cell description skeleton">{t("vegan")}</div>
-            <div className="Grid-cell icons skeleton">
-              <span className="icon-help" />
-            </div>
+    <div aria-hidden="true" className="mt-6">
+      <div className="rounded-2xl border border-line bg-surface p-5 shadow-elev-2 sm:p-6">
+        <div className="mx-auto mb-5 h-7 w-3/5 rounded-md bg-[length:200%_100%] bg-[linear-gradient(110deg,var(--surface-2)_30%,var(--line)_50%,var(--surface-2)_70%)] bg-surface-2 motion-safe:animate-shimmer" />
+        <div className="mb-4 h-16 rounded-xl bg-[length:200%_100%] bg-[linear-gradient(110deg,var(--surface-2)_30%,var(--line)_50%,var(--surface-2)_70%)] bg-surface-2 motion-safe:animate-shimmer" />
+        {["vegetarian", "palmoil", "nutriscore"].map((row) => (
+          <div
+            className="flex items-center justify-between border-line border-t py-3"
+            key={row}
+          >
+            <div className="h-5 w-28 rounded bg-[length:200%_100%] bg-[linear-gradient(110deg,var(--surface-2)_30%,var(--line)_50%,var(--surface-2)_70%)] bg-surface-2 motion-safe:animate-shimmer" />
+            <div className="h-5 w-16 rounded bg-[length:200%_100%] bg-[linear-gradient(110deg,var(--surface-2)_30%,var(--line)_50%,var(--surface-2)_70%)] bg-surface-2 motion-safe:animate-shimmer" />
           </div>
-        </span>
-        <div className="Grid">
-          <div className="Grid-cell description skeleton">
-            {t("vegetarian")}
-          </div>
-          <div className="Grid-cell icons skeleton">
-            <span className="icon-help" />
-          </div>
-        </div>
-        <div className="Grid">
-          <div className="Grid-cell description skeleton">{t("palmoil")}</div>
-          <div className="Grid-cell icons skeleton">
-            <span className="icon-help" />
-          </div>
-        </div>
-        <div className="Grid">
-          <div className="Grid-cell description skeleton">Nutriscore</div>
-          <div className="Grid-cell icons skeleton">
-            <span className="icon-help" />
-          </div>
-        </div>
-        <div className="Grid">
-          <div className="Grid-cell description skeleton">Grade</div>
-          <div className="Grid-cell icons skeleton">
-            <span className="icon-help" />
-          </div>
-        </div>
-        <span className="source skeleton">&nbsp;</span>
-        <span className="button skeleton">{t("share")}</span>
+        ))}
+        <div className="mt-4 h-11 w-full rounded-lg bg-[length:200%_100%] bg-[linear-gradient(110deg,var(--surface-2)_30%,var(--line)_50%,var(--surface-2)_70%)] bg-surface-2 motion-safe:animate-shimmer" />
       </div>
     </div>
   );

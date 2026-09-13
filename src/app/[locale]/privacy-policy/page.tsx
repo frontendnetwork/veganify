@@ -16,14 +16,14 @@ async function getPrivacyPolicy() {
 }
 
 export default async function PrivacyPolicy() {
-  const t = await getTranslations("Privacy");
+  const t = await getTranslations();
   const datenschutz = await getPrivacyPolicy();
 
   return (
-    <Container>
-      <p className="small">{t("germanonly")}</p>
+    <Container heading={t("More.privacypolicy")}>
+      <p className="mb-4 text-muted text-sm">{t("Privacy.germanonly")}</p>
       <div
-        className="privacy"
+        className="prose-legal"
         dangerouslySetInnerHTML={{ __html: datenschutz }}
       />
     </Container>

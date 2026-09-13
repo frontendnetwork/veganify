@@ -1,0 +1,3 @@
+# Env files must never leak into image builds (Bun auto-loads them and
+# .env.development previously overrode the production staging flag).
+.env*

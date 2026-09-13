@@ -1,39 +1,42 @@
 import type { ProductResult } from "@/models/ProductResults";
 
-import type { NutriscoreGrade, ProductState } from "../models/product";
+import type {
+  GradeLetter,
+  GradeState,
+  ProductState,
+  TriState,
+} from "../models/product";
+
+const getTriState = (value: boolean | "n/a" | undefined): TriState => {
+  if (value === true) {
+    return "yes";
+  }
+  if (value === false) {
+    return "no";
+  }
+  return "unknown";
+};
+
+const GRADE_LETTERS: GradeLetter[] = ["a", "b", "c", "d", "e"];
+
+const getGrade = (score: string | undefined): GradeState => {
+  if (!score || score === "n/a") {
+    return { grade: null };
+  }
+
+  const normalizedScore = score.toLowerCase();
+  return GRADE_LETTERS.includes(normalizedScore as GradeLetter)
+    ? { grade: normalizedScore as GradeLetter }
+    : { grade: null };
+};
 
 export function getProductState(result: ProductResult): ProductState {
-  const getVeganState = (value: boolean | "n/a" | undefined): string => {
-    if (value === true) {
-      return "vegan icon-ok";
-    }
-    if (value === false) {
-      return "non-vegan icon-cancel";
-    }
-    return "unknown icon-help";
-  };
-
-  const getNutriscoreClass = (score: string | undefined): NutriscoreGrade => {
-    if (!score || score === "n/a") {
-      return { score: "unknown icon-help", className: "" };
-    }
-
-    const normalizedScore = score.toLowerCase();
-    if (["a", "b", "c", "d", "e"].includes(normalizedScore)) {
-      return {
-        score: `nutri_${normalizedScore} icon-${normalizedScore}`,
-        className: `nutri_${normalizedScore}`,
-      };
-    }
-    return { score: "unknown icon-help", className: "" };
-  };
-
   return {
-    vegan: getVeganState(result.vegan),
-    vegetarian: getVeganState(result.vegetarian),
-    animaltestfree: getVeganState(result.animaltestfree),
-    palmoil: getVeganState(result.palmoil),
-    nutriscore: getNutriscoreClass(result.nutriscore),
-    grade: getNutriscoreClass(result.grade),
+    animaltestfree: getTriState(result.animaltestfree),
+    grade: getGrade(result.grade),
+    nutriscore: getGrade(result.nutriscore),
+    palmoil: getTriState(result.palmoil),
+    vegan: getTriState(result.vegan),
+    vegetarian: getTriState(result.vegetarian),
   };
 }

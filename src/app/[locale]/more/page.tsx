@@ -1,13 +1,32 @@
 "use client";
 
-import Image from "next/image";
+import {
+  BookOpen,
+  ChevronRight,
+  Coffee,
+  FileText,
+  Globe,
+  Heart,
+  Info,
+  Shield,
+} from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import {
+  type ComponentType,
+  type ReactNode,
+  type SVGProps,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 
 import Container from "@/components/elements/container";
 import SupportOption from "@/components/elements/contents/donate";
-import ModalWrapper from "@/components/elements/modalwrapper";
+import { AppDialog as Dialog } from "@/components/ui/app-dialog";
+import { Switch } from "@/components/ui/switch";
 import { Link } from "@/i18n/navigation";
 import { setLocaleCookie } from "@/lib/locale-cookie";
+import { cn } from "@/lib/utils";
 
 const languages = [
   { code: "en", name: "english" },
@@ -19,158 +38,266 @@ const languages = [
   { code: "pt-br", name: "portuguese-br" },
 ] as const;
 
+function ListRow({
+  icon: Icon,
+  label,
+  onClick,
+  href,
+}: {
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  label: string;
+  onClick?: () => void;
+  href?: string;
+}) {
+  const inner = (
+    <>
+      <Icon aria-hidden="true" className="size-5 shrink-0 text-muted" />
+      <span className="flex-1 text-left font-medium">{label}</span>
+      <ChevronRight aria-hidden="true" className="size-4 shrink-0 text-muted" />
+    </>
+  );
+  const className = cn(
+    "fluid-hover flex w-full items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+  );
+
+  if (href) {
+    return (
+      <a
+        className={className}
+        href={href}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <button className={className} onClick={onClick} type="button">
+      {inner}
+    </button>
+  );
+}
+
 export default function More() {
   const t = useTranslations("More");
+  const tNav = useTranslations("Nav");
   const currentLocale = useLocale();
+  const [donateOpen, setDonateOpen] = useState(false);
+  const [followOpen, setFollowOpen] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
 
-  function handleLanguageChange(locale: string) {
+  const openDonate = useCallback(() => setDonateOpen(true), []);
+  const openFollow = useCallback(() => setFollowOpen(true), []);
+  const openLanguage = useCallback(() => setLanguageOpen(true), []);
+  const handleLanguageChange = useCallback((locale: string) => {
     setLocaleCookie(locale);
-  }
+  }, []);
 
   return (
-    <Container backButton={false} logo={false}>
-      <div className="Grid links">
-        <ModalWrapper
-          buttonClass="Grid-cell description"
-          buttonText={t("buyusacoffee")}
-          buttonType="div"
-          id="donate"
+    <Container backButton={false} heading={tNav("more")} logo={false}>
+      <div className="flex flex-col">
+        <ListRow icon={Coffee} label={t("buyusacoffee")} onClick={openDonate} />
+        <ListRow icon={Heart} label={t("followus")} onClick={openFollow} />
+        <div className="my-1 border-line border-t" />
+        <Link
+          className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+          href="/tos"
+          prefetch={true}
         >
-          <SupportOption />
-        </ModalWrapper>
-        <div className="Grid-cell icons">
-          <span
-            className="unknown icon-right-open"
-            data-target="donationmodal"
-            data-toggle="modal"
+          <FileText aria-hidden="true" className="size-5 shrink-0 text-muted" />
+          <span className="flex-1 font-medium">{t("tos")}</span>
+          <ChevronRight
+            aria-hidden="true"
+            className="size-4 shrink-0 text-muted"
           />
+        </Link>
+        <Link
+          className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+          href="/privacy-policy"
+          prefetch={true}
+        >
+          <Shield aria-hidden="true" className="size-5 shrink-0 text-muted" />
+          <span className="flex-1 font-medium">{t("privacypolicy")}</span>
+          <ChevronRight
+            aria-hidden="true"
+            className="size-4 shrink-0 text-muted"
+          />
+        </Link>
+        <ListRow
+          href="https://frontendnet.work/veganify-api"
+          icon={BookOpen}
+          label={t("apidocumentation")}
+        />
+        <Link
+          className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+          href="/impressum"
+          prefetch={true}
+        >
+          <Info aria-hidden="true" className="size-5 shrink-0 text-muted" />
+          <span className="flex-1 font-medium">{t("imprint")}</span>
+          <ChevronRight
+            aria-hidden="true"
+            className="size-4 shrink-0 text-muted"
+          />
+        </Link>
+        <ListRow icon={Globe} label={t("language")} onClick={openLanguage} />
+        <div className="mt-2 border-line border-t pt-4">
+          <OLEDRow />
         </div>
       </div>
 
-      <div className="Grid links">
-        <ModalWrapper
-          buttonClass="Grid-cell description"
-          buttonText={t("followus")}
-          buttonType="div"
-          id="follow"
-        >
-          <span className="center">
-            <Image
-              alt="Follow us"
-              className="heading_img"
-              height={48}
-              src="/img/follow_img.svg"
-              width={48}
-            />
-            <h1>{t("followus")}</h1>
-          </span>
-          <a
-            className="menu twitter"
-            href="https://veganism.social/@vegancheck"
-            rel="me"
-          >
-            <span className="label">Mastodon</span>
-            <div className="social-icon">
-              <span className="icon-mastodon" />
-            </div>
-          </a>
-          <a className="menu last" href="https://instagram.com/veganify.app">
-            <span className="label">Instagram</span>
-            <div className="social-icon">
-              <span className="icon-instagram" />
-            </div>
-          </a>
-        </ModalWrapper>
-        <div className="Grid-cell icons">
-          <span
-            className="unknown icon-right-open"
-            data-target="donationmodal"
-            data-toggle="modal"
-          />
-        </div>
-      </div>
+      <Dialog
+        onOpenChange={setDonateOpen}
+        open={donateOpen}
+        title={t("buyusacoffee")}
+      >
+        <SupportOption />
+      </Dialog>
 
-      <Link className="Grid links" href="/tos" prefetch={true}>
-        <div className="Grid-cell description">{t("tos")}</div>
-        <div className="Grid-cell icons">
-          <span className="unknown icon-right-open" />
-        </div>
-      </Link>
-
-      <Link className="Grid links" href="privacy-policy" prefetch={true}>
-        <div className="Grid-cell description">{t("privacypolicy")}</div>
-        <div className="Grid-cell icons">
-          <span className="unknown icon-right-open" />
-        </div>
-      </Link>
-
-      <a className="Grid links" href="https://frontendnet.work/veganify-api">
-        <div className="Grid-cell description">{t("apidocumentation")}</div>
-        <div className="Grid-cell icons">
-          <span className="unknown icon-right-open" />
-        </div>
-      </a>
-
-      <Link className="Grid links" href="impressum" prefetch={true}>
-        <div className="Grid-cell description">{t("imprint")}</div>
-        <div className="Grid-cell icons">
-          <span className="unknown icon-right-open" />
-        </div>
-      </Link>
-
-      <div className="Grid links">
-        <ModalWrapper
-          buttonClass="Grid-cell description"
-          buttonText={t("language")}
-          buttonType="div"
-          id="language"
-        >
-          <span className="center">
-            <Image
-              alt="Language"
-              className="heading_img"
-              height={48}
-              src="/img/language_img.svg"
-              width={48}
-            />
-            <h1>{t("language")}</h1>
-          </span>
-          {languages.map(({ code, name }) => (
-            <Link
-              className="nolink"
-              href={"/more"}
-              key={code}
-              locale={
-                code as "en" | "de" | "es" | "fr" | "pl" | "cz" | undefined
-              }
-              onClick={() => handleLanguageChange(code)}
-            >
-              <div
-                className={currentLocale === code ? "option active" : "option"}
+      <Dialog
+        onOpenChange={setFollowOpen}
+        open={followOpen}
+        title={t("followus")}
+      >
+        <ul className="flex flex-col gap-1">
+          {[
+            { href: "https://veganism.social/@vegancheck", label: "Mastodon" },
+            { href: "https://instagram.com/veganify.app", label: "Instagram" },
+          ].map((item) => (
+            <li key={item.label}>
+              <a
+                className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-2.5 font-medium text-ink text-sm hover:bg-surface-2"
+                href={item.href}
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                <input
-                  checked={currentLocale === code}
-                  className="form-check-input"
-                  name="flexRadioDefault"
-                  readOnly
-                  type="radio"
-                />
-                <span className="price">{t(name)}</span>
-              </div>
-            </Link>
+                {item.label}
+              </a>
+            </li>
           ))}
-          <span className="info" id="cookieinfo">
-            {t("thissetsacookie")}
-          </span>
-        </ModalWrapper>
-        <div className="Grid-cell icons">
-          <span
-            className="unknown icon-right-open"
-            data-target="donationmodal"
-            data-toggle="modal"
-          />
+        </ul>
+      </Dialog>
+
+      <Dialog
+        description={t("thissetsacookie")}
+        onOpenChange={setLanguageOpen}
+        open={languageOpen}
+        title={t("language")}
+      >
+        <div className="flex flex-col gap-1">
+          {languages.map(({ code, name }) => (
+            <LanguageOption
+              code={code}
+              isCurrent={currentLocale === code}
+              key={code}
+              label={t(name)}
+              onLocaleChange={handleLanguageChange}
+              srCurrent={t("currentlanguage")}
+            />
+          ))}
         </div>
-      </div>
+      </Dialog>
     </Container>
   );
+}
+
+function OLEDRow(): ReactNode {
+  const t = useTranslations("More");
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("oled") === "true") {
+      setIsChecked(true);
+    }
+  }, []);
+
+  const handleClick = useCallback(() => {
+    const isDarkModePreferred = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (!(isChecked || isDarkModePreferred)) {
+      setError(true);
+      return;
+    }
+
+    if (isChecked) {
+      localStorage.removeItem("oled");
+      document.documentElement.removeAttribute("data-theme");
+      updateThemeColor("#13171e");
+    } else {
+      document.documentElement.setAttribute("data-theme", "oled");
+      localStorage.setItem("oled", "true");
+      updateThemeColor("#000000");
+    }
+
+    setIsChecked((prevChecked) => !prevChecked);
+    setError(false);
+  }, [isChecked]);
+
+  return (
+    <div className="flex items-center justify-between gap-3 px-3 py-3">
+      <div>
+        <p className="font-medium text-ink text-sm">OLED-Mode</p>
+        <p className="text-muted text-xs">{t("thissetsacookie")}</p>
+        {error ? (
+          <p aria-live="polite" className="mt-1 text-caution text-xs">
+            {t("activatedarkmode")}
+          </p>
+        ) : null}
+      </div>
+      <Switch
+        checked={isChecked}
+        className="[&>span]:sr-only"
+        label="OLED-Mode"
+        onToggle={handleClick}
+      />
+    </div>
+  );
+}
+
+function LanguageOption({
+  code,
+  isCurrent,
+  label,
+  onLocaleChange,
+  srCurrent,
+}: {
+  code: (typeof languages)[number]["code"];
+  isCurrent: boolean;
+  label: string;
+  onLocaleChange: (locale: string) => void;
+  srCurrent: string;
+}) {
+  const handleClick = useCallback(
+    () => onLocaleChange(code),
+    [code, onLocaleChange]
+  );
+
+  return (
+    <Link
+      className="fluid-hover flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 font-medium text-ink text-sm hover:bg-surface-2"
+      href="/more"
+      locale={code}
+      onClick={handleClick}
+    >
+      {label}
+      {isCurrent ? (
+        <>
+          <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
+          <span className="sr-only-focusable">{srCurrent}</span>
+        </>
+      ) : null}
+    </Link>
+  );
+}
+
+function updateThemeColor(color: string) {
+  document
+    .querySelector<HTMLMetaElement>(
+      'meta[name="theme-color"][media="(prefers-color-scheme: dark)"]'
+    )
+    ?.setAttribute("content", color);
 }

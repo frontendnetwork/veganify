@@ -21,8 +21,11 @@ export default async function Impressum() {
 
   return (
     <Container heading={t("More.imprint")}>
-      <p className="small">{t("Privacy.germanonly")}</p>
-      <div dangerouslySetInnerHTML={{ __html: impressum }} />
+      <p className="mb-4 text-muted text-sm">{t("Privacy.germanonly")}</p>
+      <div
+        className="prose-legal"
+        dangerouslySetInnerHTML={{ __html: impressum }}
+      />
     </Container>
   );
 }

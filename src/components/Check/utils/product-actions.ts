@@ -1,12 +1,23 @@
 "use server";
 
-import Veganify, { type ProductResponse } from "@frontendnetwork/veganify";
+import Veganify, {
+  NotFoundError,
+  type ProductResponse,
+  ValidationError,
+  VeganifyError,
+} from "@frontendnetwork/veganify";
 
-export async function fetchProduct(barcode: string): Promise<{
+import { FetchStatus } from "@/models/FetchStatus";
+
+export interface ProductFetchResult {
   product?: ProductResponse["product"];
   sources?: ProductResponse["sources"];
-  status: number;
-}> {
+  status: FetchStatus;
+}
+
+export async function fetchProduct(
+  barcode: string
+): Promise<ProductFetchResult> {
   try {
     const veganify = Veganify.getInstance({
       staging: process.env.NEXT_PUBLIC_STAGING === "true",
@@ -17,13 +28,22 @@ export async function fetchProduct(barcode: string): Promise<{
     return {
       product: data.product,
       sources: data.sources,
-      status: data.status,
+      status: FetchStatus.OK,
     };
   } catch (error) {
-    console.error("Product fetch error:", error);
-    if (error instanceof Error) {
-      throw error;
+    // Server actions serialize thrown errors opaquely in production, which
+    // hid real failures behind a generic timeout message. Return typed
+    // statuses instead so the client can show the right message.
+    if (error instanceof ValidationError) {
+      return { status: FetchStatus.INVALID };
     }
-    throw new Error("Unknown error occurred", { cause: error });
+    if (error instanceof NotFoundError) {
+      return { status: FetchStatus.NOT_FOUND };
+    }
+    if (error instanceof VeganifyError && error.statusCode === 408) {
+      return { status: FetchStatus.TIMEOUT };
+    }
+    console.error("Product fetch failed:", error);
+    return { status: FetchStatus.SERVER_ERROR };
   }
 }

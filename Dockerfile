@@ -1,4 +1,4 @@
-FROM oven/bun:1-alpine AS base
+FROM oven/bun:1.3.13-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -19,6 +19,14 @@ COPY . .
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
+
+# Prevent Bun from auto-loading .env.development (it defaults to development
+# mode when NODE_ENV is unset, which previously baked staging=true into prod
+# images). Env files are excluded via .dockerignore; the value is passed
+# explicitly as a build arg.
+ARG NEXT_PUBLIC_STAGING=false
+ENV NODE_ENV=production
+ENV NEXT_PUBLIC_STAGING=$NEXT_PUBLIC_STAGING
 
 RUN bun run build
 

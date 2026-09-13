@@ -4,31 +4,31 @@ import "@testing-library/jest-dom";
 
 global.console = {
   ...console,
-  log: mock(),
   debug: mock(),
-  info: mock(),
-  warn: mock(),
   error: mock(),
+  info: mock(),
+  log: mock(),
+  warn: mock(),
 };
 
 mock.module("next/navigation", () => ({
+  usePathname() {
+    return "";
+  },
   useRouter() {
     return {
+      back: mock(),
+      prefetch: mock(),
       push: mock(),
       replace: mock(),
-      prefetch: mock(),
-      back: mock(),
     };
   },
   useSearchParams() {
     return new URLSearchParams();
   },
-  usePathname() {
-    return "";
-  },
 }));
 
 mock.module("next-intl", () => ({
-  useTranslations: () => (key: string) => key,
   useLocale: () => "en",
+  useTranslations: () => (key: string) => key,
 }));

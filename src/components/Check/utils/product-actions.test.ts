@@ -11,7 +11,10 @@ import {
 import Veganify, {
   NotFoundError,
   ValidationError,
+  VeganifyError,
 } from "@frontendnetwork/veganify";
+
+import { FetchStatus } from "@/models/FetchStatus";
 
 import { fetchProduct } from "./product-actions";
 
@@ -37,6 +40,14 @@ mock.module("@frontendnetwork/veganify", () => {
         this.name = "ValidationError";
       }
     },
+    VeganifyError: class extends Error {
+      statusCode?: number;
+      constructor(message: string, statusCode?: number) {
+        super(message);
+        this.name = "VeganifyError";
+        this.statusCode = statusCode;
+      }
+    },
   };
 });
 
@@ -54,9 +65,9 @@ describe("fetchProduct", () => {
           vegan: true,
         },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
       }),
@@ -71,118 +82,138 @@ describe("fetchProduct", () => {
   });
 
   describe("successful responses", () => {
-    test("returns product and sources when available", async () => {
-      const mockResponse = {
+    test("returns product and sources with OK status", async () => {
+      mockVeganify.getProductByBarcode.mockResolvedValueOnce({
         product: {
           productname: "Test Product",
           vegan: true,
         },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
-      };
-
-      mockVeganify.getProductByBarcode.mockResolvedValueOnce(mockResponse);
+      });
 
       const result = await fetchProduct("4000417025005");
-      expect(result).toEqual(mockResponse);
+      expect(result).toEqual({
+        product: {
+          productname: "Test Product",
+          vegan: true,
+        },
+        sources: {
+          api: "test",
+          baseuri: "test",
+          processed: true,
+        },
+        status: FetchStatus.OK,
+      });
     });
 
     test("returns product with minimal data", async () => {
-      const mockResponse = {
+      mockVeganify.getProductByBarcode.mockResolvedValueOnce({
         product: {
           productname: "Minimal Product",
         },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
-      };
-
-      mockVeganify.getProductByBarcode.mockResolvedValueOnce(mockResponse);
+      });
 
       const result = await fetchProduct("4000417025005");
-      expect(result).toEqual(mockResponse);
+      expect(result.status).toBe(FetchStatus.OK);
+      expect(result.product?.productname).toBe("Minimal Product");
     });
   });
 
-  describe("error handling", () => {
-    test("throws error for invalid barcode format", async () => {
+  describe("error mapping", () => {
+    test("maps invalid barcode format to INVALID status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
         new ValidationError("Invalid barcode format")
       );
 
-      await expect(fetchProduct("invalid")).rejects.toThrow(
-        "Invalid barcode format"
-      );
+      const result = await fetchProduct("invalid");
+      expect(result).toEqual({ status: FetchStatus.INVALID });
     });
 
-    test("throws error for non-existent product", async () => {
+    test("maps non-existent product to NOT_FOUND status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
         new NotFoundError("Product not found")
       );
 
-      await expect(fetchProduct("4000417025005")).rejects.toThrow(
-        "Product not found"
-      );
+      const result = await fetchProduct("4000417025005");
+      expect(result).toEqual({ status: FetchStatus.NOT_FOUND });
     });
 
-    test("handles network errors", async () => {
+    test("maps request timeout to TIMEOUT status", async () => {
+      mockVeganify.getProductByBarcode.mockRejectedValueOnce(
+        new VeganifyError("Request timed out", 408)
+      );
+
+      const result = await fetchProduct("4000417025005");
+      expect(result).toEqual({ status: FetchStatus.TIMEOUT });
+    });
+
+    test("maps API errors to SERVER_ERROR status", async () => {
+      mockVeganify.getProductByBarcode.mockRejectedValueOnce(
+        new VeganifyError("HTTP error 500", 500)
+      );
+
+      const result = await fetchProduct("4000417025005");
+      expect(result).toEqual({ status: FetchStatus.SERVER_ERROR });
+    });
+
+    test("maps network errors to SERVER_ERROR status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
         new Error("Network error")
       );
 
-      await expect(fetchProduct("4000417025005")).rejects.toThrow(
-        "Network error"
-      );
+      const result = await fetchProduct("4000417025005");
+      expect(result).toEqual({ status: FetchStatus.SERVER_ERROR });
     });
 
-    test("handles unexpected error formats", async () => {
+    test("maps non-error rejections to SERVER_ERROR status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
         "Unexpected error"
       );
 
-      await expect(fetchProduct("4000417025005")).rejects.toThrow(
-        "Unknown error occurred"
-      );
+      const result = await fetchProduct("4000417025005");
+      expect(result).toEqual({ status: FetchStatus.SERVER_ERROR });
     });
   });
 
   describe("edge cases", () => {
-    test("handles empty product response", async () => {
-      const mockResponse = {
+    test("handles empty product name", async () => {
+      mockVeganify.getProductByBarcode.mockResolvedValueOnce({
         product: { productname: "" },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
-      };
-
-      mockVeganify.getProductByBarcode.mockResolvedValueOnce(mockResponse);
+      });
 
       const result = await fetchProduct("4000417025005");
-      expect(result).toEqual(mockResponse);
+      expect(result.status).toBe(FetchStatus.OK);
+      expect(result.product?.productname).toBe("");
     });
 
     test("handles missing sources", async () => {
-      const mockResponse = {
+      mockVeganify.getProductByBarcode.mockResolvedValueOnce({
         product: {
           productname: "Test Product",
         },
         status: 200,
-      };
-
-      mockVeganify.getProductByBarcode.mockResolvedValueOnce(mockResponse);
+      });
 
       const result = await fetchProduct("4000417025005");
-      expect(result).toEqual(mockResponse);
+      expect(result.status).toBe(FetchStatus.OK);
+      expect(result.sources).toBeUndefined();
     });
   });
 });

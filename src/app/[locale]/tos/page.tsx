@@ -6,8 +6,11 @@ export default function TOS() {
   const t = useTranslations("TOS");
   return (
     <Container heading={t("tos")}>
-      <p className="small">{t("englishgermanonly")}</p>
-      <div dangerouslySetInnerHTML={{ __html: t.raw("tos_content") }} />
+      <p className="mb-4 text-muted text-sm">{t("englishgermanonly")}</p>
+      <div
+        className="prose-legal"
+        dangerouslySetInnerHTML={{ __html: t.raw("tos_content") }}
+      />
     </Container>
   );
 }

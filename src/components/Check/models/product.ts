@@ -1,13 +1,16 @@
-export interface NutriscoreGrade {
-  className: string;
-  score: string;
+export type TriState = "yes" | "no" | "unknown";
+
+export type GradeLetter = "a" | "b" | "c" | "d" | "e";
+
+export interface GradeState {
+  grade: GradeLetter | null;
 }
 
 export interface ProductState {
-  animaltestfree: string;
-  grade: NutriscoreGrade;
-  nutriscore: NutriscoreGrade;
-  palmoil: string;
-  vegan: string;
-  vegetarian: string;
+  animaltestfree: TriState;
+  grade: GradeState;
+  nutriscore: GradeState;
+  palmoil: TriState;
+  vegan: TriState;
+  vegetarian: TriState;
 }

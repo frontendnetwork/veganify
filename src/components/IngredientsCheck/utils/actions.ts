@@ -1,10 +1,24 @@
 "use server";
 
-import Veganify, { ValidationError } from "@frontendnetwork/veganify";
+import Veganify, {
+  ValidationError,
+  VeganifyError,
+} from "@frontendnetwork/veganify";
 
-export async function checkIngredients(ingredients: string) {
+import { FetchStatus } from "@/models/FetchStatus";
+
+import type { IngredientResult } from "../models/IngredientResult";
+
+export interface IngredientsCheckResult {
+  result?: IngredientResult;
+  status: FetchStatus;
+}
+
+export async function checkIngredients(
+  ingredients: string
+): Promise<IngredientsCheckResult> {
   if (!ingredients.trim()) {
-    throw new Error("Ingredients cannot be empty");
+    return { status: FetchStatus.INVALID };
   }
 
   try {
@@ -15,17 +29,25 @@ export async function checkIngredients(ingredients: string) {
     const data = await veganify.checkIngredientsListV1(ingredients);
 
     return {
-      vegan: data.data.vegan,
-      surelyVegan: data.data.surely_vegan,
-      notVegan: data.data.not_vegan,
-      maybeNotVegan: data.data.maybe_not_vegan,
-      unknown: data.data.unknown,
+      result: {
+        maybeNotVegan: data.data.maybe_not_vegan,
+        notVegan: data.data.not_vegan,
+        surelyVegan: data.data.surely_vegan,
+        unknown: data.data.unknown,
+        vegan: data.data.vegan,
+      },
+      status: FetchStatus.OK,
     };
   } catch (error) {
-    console.error(error);
+    // Thrown errors are masked when crossing the server action boundary;
+    // typed statuses let the client render the actual failure cause.
     if (error instanceof ValidationError) {
-      throw new Error("Invalid ingredients format");
+      return { status: FetchStatus.INVALID };
     }
-    throw new Error("Failed to check ingredients");
+    if (error instanceof VeganifyError && error.statusCode === 408) {
+      return { status: FetchStatus.TIMEOUT };
+    }
+    console.error("Ingredients check failed:", error);
+    return { status: FetchStatus.SERVER_ERROR };
   }
 }
