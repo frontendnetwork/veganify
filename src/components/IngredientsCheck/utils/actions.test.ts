@@ -2,6 +2,8 @@ import { beforeEach, describe, expect, it, type Mock, mock } from "bun:test";
 
 import Veganify, { ValidationError } from "@frontendnetwork/veganify";
 
+import { FetchStatus } from "@/models/FetchStatus";
+
 import { checkIngredients } from "./actions";
 
 // Mock Veganify
@@ -13,6 +15,14 @@ mock.module("@frontendnetwork/veganify", () => {
     __esModule: true,
     default: {
       getInstance: mock(() => mockInstance),
+    },
+    VeganifyError: class extends Error {
+      statusCode?: number;
+      constructor(message: string, statusCode?: number) {
+        super(message);
+        this.name = "VeganifyError";
+        this.statusCode = statusCode;
+      }
     },
     ValidationError: class extends Error {
       constructor(message: string) {
@@ -70,11 +80,14 @@ describe("checkIngredients", () => {
     const result = await checkIngredients("apple, banana, artificial-flavor");
 
     expect(result).toEqual({
-      vegan: true,
-      surelyVegan: ["apple", "banana"],
-      notVegan: [],
-      maybeNotVegan: [],
-      unknown: ["artificial-flavor"],
+      result: {
+        vegan: true,
+        surelyVegan: ["apple", "banana"],
+        notVegan: [],
+        maybeNotVegan: [],
+        unknown: ["artificial-flavor"],
+      },
+      status: FetchStatus.OK,
     });
 
     // Verify Veganify was called with correct parameters
@@ -83,41 +96,39 @@ describe("checkIngredients", () => {
     );
   });
 
-  it("should handle validation errors from the API", async () => {
+  it("should map validation errors to INVALID status", async () => {
     mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
       new ValidationError("Invalid ingredients format")
     );
 
-    await expect(checkIngredients("invalid!ingredients")).rejects.toThrow(
-      "Invalid ingredients format"
-    );
+    const result = await checkIngredients("invalid!ingredients");
 
+    expect(result).toEqual({ status: FetchStatus.INVALID });
     expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
       "invalid!ingredients"
     );
   });
 
-  it("should throw an error when ingredients string is empty", async () => {
-    await expect(checkIngredients("")).rejects.toThrow(
-      "Ingredients cannot be empty"
-    );
-    await expect(checkIngredients("   ")).rejects.toThrow(
-      "Ingredients cannot be empty"
-    );
+  it("should return INVALID status when ingredients string is empty", async () => {
+    expect(await checkIngredients("")).toEqual({
+      status: FetchStatus.INVALID,
+    });
+    expect(await checkIngredients("   ")).toEqual({
+      status: FetchStatus.INVALID,
+    });
 
     // Verify Veganify was not called
     expect(mockVeganifyInstance.checkIngredientsListV1).not.toHaveBeenCalled();
   });
 
-  it("should throw an error when API call fails", async () => {
+  it("should map API failures to SERVER_ERROR status", async () => {
     mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
       new Error("API Error")
     );
 
-    await expect(checkIngredients("apple")).rejects.toThrow(
-      "Failed to check ingredients"
-    );
+    const result = await checkIngredients("apple");
 
+    expect(result).toEqual({ status: FetchStatus.SERVER_ERROR });
     expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
       "apple"
     );
@@ -144,11 +155,14 @@ describe("checkIngredients", () => {
     const result = await checkIngredients("apple, gelatin, sugar");
 
     expect(result).toEqual({
-      vegan: false,
-      surelyVegan: ["apple"],
-      notVegan: ["gelatin"],
-      maybeNotVegan: ["sugar"],
-      unknown: [],
+      result: {
+        vegan: false,
+        surelyVegan: ["apple"],
+        notVegan: ["gelatin"],
+        maybeNotVegan: ["sugar"],
+        unknown: [],
+      },
+      status: FetchStatus.OK,
     });
   });
 

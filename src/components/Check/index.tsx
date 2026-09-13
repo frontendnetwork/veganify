@@ -2,7 +2,7 @@
 
 import { type FormEvent, useEffect, useState } from "react";
 
-import type { ErrorResponse } from "@/models/ErrorRepsonse";
+import { FetchStatus } from "@/models/FetchStatus";
 import type { ProductResult } from "@/models/ProductResults";
 import type { Sources } from "@/models/Sources";
 
@@ -30,6 +30,7 @@ export default function ProductSearch() {
   const [showInvalid, setShowInvalid] = useState<boolean>(false);
   const [showTimeout, setShowTimeout] = useState<boolean>(false);
   const [showTimeoutFinal, setShowTimeoutFinal] = useState<boolean>(false);
+  const [showError, setShowError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function ProductSearch() {
     event?.preventDefault();
 
     setShowTimeoutFinal(false);
+    setShowError(false);
     setShowTimeout(false);
     setShowFound(false);
     setShowNotFound(false);
@@ -53,7 +55,7 @@ export default function ProductSearch() {
 
     try {
       const data = await fetchProduct(barcode);
-      if (data.status === 200 && data.product && data.sources) {
+      if (data.status === FetchStatus.OK && data.product && data.sources) {
         setResult({
           productname: data.product.productname,
           vegan: data.product.vegan ?? "n/a",
@@ -65,27 +67,17 @@ export default function ProductSearch() {
         });
         setSources(data.sources);
         setShowFound(true);
-      } else if (data.status === 404) {
+      } else if (data.status === FetchStatus.NOT_FOUND) {
         setShowNotFound(true);
-      } else {
+      } else if (data.status === FetchStatus.INVALID) {
         setShowInvalid(true);
-      }
-    } catch (error) {
-      if (
-        typeof error === "object" &&
-        error !== null &&
-        "response" in error &&
-        "status" in (error as ErrorResponse).response
-      ) {
-        if ((error as ErrorResponse).response.status === 400) {
-          setShowInvalid(true);
-        } else if ((error as ErrorResponse).response.status === 404) {
-          setShowNotFound(true);
-        }
-      } else {
-        console.error(error);
+      } else if (data.status === FetchStatus.TIMEOUT) {
         setShowTimeoutFinal(true);
+      } else {
+        setShowError(true);
       }
+    } catch {
+      setShowError(true);
     } finally {
       setLoading(false);
     }
@@ -112,6 +104,7 @@ export default function ProductSearch() {
       <StatusMessages
         showInvalid={showInvalid}
         showNotFound={showNotFound}
+        showError={showError}
         showTimeout={showTimeout}
         showTimeoutFinal={showTimeoutFinal}
       />

@@ -36,6 +36,7 @@
     "wrongbarcode": "This barcode is invalid.",
     "timeout1": "This takes longer than usual",
     "timeout2": "The request took too long. Please try again.",
+    "unknown_error": "An unexpected error occurred. Please try again.",
     "share": "Share",
     "copy": "Copy",
     "on": "on"
@@ -97,6 +98,7 @@
     "vegan": "Vegan",
     "source": "Data source",
     "cannotbeempty": "Ingredients-list cannot be empty or include special characters and has to be comma seperated!",
+    "unknown_error": "An unexpected error occurred. Please try again.",
     "licenses": "Licenses",
     "licenses_desc": "Veganify uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
     "languagewarning": "These results may be incorrect due to translation errors or missing information. The results are translated with {deepl}.",

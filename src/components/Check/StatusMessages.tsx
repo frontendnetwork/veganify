@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 
 interface StatusMessagesProps {
+  showError: boolean;
   showInvalid: boolean;
   showNotFound: boolean;
   showTimeout: boolean;
@@ -12,6 +13,7 @@ interface StatusMessagesProps {
 export function StatusMessages({
   showNotFound,
   showInvalid,
+  showError,
   showTimeout,
   showTimeoutFinal,
 }: StatusMessagesProps) {
@@ -51,6 +53,16 @@ export function StatusMessages({
       <div id="result">
         <div className="resultborder" id="RSInvalid">
           <span>{t("wrongbarcode")}</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (showError) {
+    return (
+      <div id="result">
+        <div className="resultborder" id="RSError">
+          <span>{t("unknown_error")}</span>
         </div>
       </div>
     );

@@ -37,6 +37,7 @@
     "wrongbarcode": "Mit diesem Barcode stimmt etwas nicht.",
     "timeout1": "Die Abfrage dauert länger als gewöhnlich",
     "timeout2": "Die Abfrage hat zu lange gedauert. Bitte versuche es erneut.",
+    "unknown_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
     "share": "Teilen",
     "copy": "Kopieren",
     "on": "auf"
@@ -98,6 +99,7 @@
     "vegan": "Vegan",
     "source": "Datenquelle",
     "cannotbeempty": "Die Zutatenliste darf nicht leer sein oder Sonderzeichen enthalten und muss durch Kommata getrennt sein!",
+    "unknown_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
     "licenses": "Lizenzen",
     "licenses_desc": "Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
     "languagewarning": "Diese Ergebnisse können aufgrund von Übersetzungsfehlern oder fehlenden Informationen inkorrekt sein. Die Ergebnisse werden mit {deepl} übersetzt.",

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { type FormEvent, useState } from "react";
-
+import { FetchStatus } from "@/models/FetchStatus";
 import type { IngredientResult } from "./models/IngredientResult";
 import { ResultDisplay } from "./ResultsDisplay";
 import { checkIngredients } from "./utils/actions";
@@ -45,10 +45,13 @@ export function IngredientsForm() {
       const ingredientsString = processedIngredients.join(", ");
 
       const data = await checkIngredients(ingredientsString);
-      setResult(data);
-    } catch (error) {
-      console.error("Error processing ingredients:", error);
-      setError(t("cannotbeempty"));
+      if (data.status === FetchStatus.OK && data.result) {
+        setResult(data.result);
+      } else {
+        setError(t("unknown_error"));
+      }
+    } catch {
+      setError(t("unknown_error"));
     } finally {
       setLoading(false);
     }

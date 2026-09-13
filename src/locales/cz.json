@@ -36,6 +36,7 @@
     "wrongbarcode": "Tento čárový kód je neplatný.",
     "timeout1": "Trvá to déle než obvykle",
     "timeout2": "Žádost trvala příliš dlouho. Zkuste to prosím znovu.",
+    "unknown_error": "Došlo k neočekávané chybě. Zkuste to prosím znovu.",
     "share": "Sdílet",
     "copy": "Kopírovat",
     "on": "na"
@@ -97,6 +98,7 @@
     "vegan": "Veganské",
     "source": "Zdroj dat",
     "cannotbeempty": "Seznam ingrediencí nesmí být prázdný ani obsahovat speciální znaky a musí být oddělen čárkou!",
+    "unknown_error": "Došlo k neočekávané chybě. Zkuste to prosím znovu.",
     "licenses": "Licence",
     "licenses_desc": "Veganify používá ke shromažďování informací o výrobku různé databáze a rozhraní API. Informace jsou licencovány pod následujícími licencemi:",
     "languagewarning": "Tyto výsledky mohou být nesprávné z důvodu chyb v překladu nebo chybějících informací. Výsledky jsou přeloženy pomocí {deepl}.",

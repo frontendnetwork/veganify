@@ -30,6 +30,7 @@
     "wrongbarcode": "Este código de barras é inválido.",
     "timeout1": "Isso está demorando mais do que o habitual",
     "timeout2": "A solicitação demorou muito. Por favor, tente novamente.",
+    "unknown_error": "Ocorreu um erro inesperado. Por favor, tente novamente.",
     "share": "Compartilhar",
     "copy": "Copiar",
     "on": "em"
@@ -97,6 +98,7 @@
     "vegan": "Vegano",
     "source": "Origem dos dados",
     "cannotbeempty": "A lista de ingredientes não pode estar vazia ou incluir caracteres especiais, e os ingredientes deve ser separada por vírgulas!",
+    "unknown_error": "Ocorreu um erro inesperado. Por favor, tente novamente.",
     "licenses": "Licenças",
     "licenses_desc": "Veganify utiliza diferentes bancos de dados e APIs para coletar informações sobre um produto. As informações estão licenciadas sob as seguintes licenças:",
     "languagewarning": "Esses resultados podem estar incorretos devido a erros de tradução ou informações pendentes. Os resultados são traduzidos utilizando {deepl}.",

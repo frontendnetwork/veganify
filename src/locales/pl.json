@@ -36,6 +36,7 @@
     "wrongbarcode": "Ten kod kreskowy jest niepoprawny.",
     "timeout1": "To trwa dłużej niż zwykle",
     "timeout2": "Zapytanie trwało zbyt długo. Spróbuj jeszcze raz.",
+    "unknown_error": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie.",
     "share": "Udostępnij",
     "copy": "Skopiuj",
     "on": "na"
@@ -97,6 +98,7 @@
     "vegan": "Wegańskie",
     "source": "Źródło danych",
     "cannotbeempty": "Lista składników nie może być pusta, zawierać znaków specjalnych i musi być oddzielona przecinkiem!",
+    "unknown_error": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie.",
     "licenses": "Licencje",
     "licenses_desc": "Veganify uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
     "languagewarning": "Wyniki mogą być nieprawidłowe z racji błędów w tłumaczeniach lub niekompletnych informacji. Wyniki są tłumaczone przez {deepl}.",

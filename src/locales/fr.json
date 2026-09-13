@@ -36,6 +36,7 @@
     "wrongbarcode": "Il y a un problème avec ce code-barres",
     "timeout1": "Cela prend plus de temps que d'habitude",
     "timeout2": "La requête a duré trop longtemps. Veuillez réessayer.",
+    "unknown_error": "Une erreur inattendue s'est produite. Veuillez réessayer.",
     "share": "Partager",
     "copy": "Copier",
     "on": "sur"
@@ -97,6 +98,7 @@
     "vegan": "Végétalien",
     "source": "Source des données",
     "cannotbeempty": "La liste des ingrédients ne peut être vide ou inclure des caractères spéciaux et doit être séparée par des virgules !",
+    "unknown_error": "Une erreur inattendue s'est produite. Veuillez réessayer.",
     "licenses": "Licenses",
     "licenses_desc": "Veganify utilise différentes sources de données pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
     "languagewarning": "Ces résultats peuvent être incorrects en raison d'erreurs de traduction ou d'informations manquantes. Les résultats sont traduits avec {deepl}.",
