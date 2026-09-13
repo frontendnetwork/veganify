@@ -242,7 +242,7 @@ html[data-theme="oled"] {
   --color-foreground: var(--ink);
   --color-border: var(--line);
   --color-input: var(--line-strong);
-  --color-muted: var(--surface-2);
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted);
   --color-card: var(--surface);
   --color-popover: var(--surface);

@@ -168,7 +168,7 @@ const InputField = forwardRef<HTMLDivElement, InputFieldProps>(
       bgClass = "bg-card";
       ringClass = "ring-border";
     } else if (isActive) {
-      bgClass = "bg-muted/50";
+      bgClass = "bg-surface-2/50";
       ringClass = "ring-border";
     } else {
       bgClass = "bg-transparent";
