@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import type { DetectionResult } from "./models/scanner";
 import { ViewportScanner } from "./ViewportScanner";
@@ -13,24 +13,29 @@ interface ScanButtonProps {
 export function ScanButton({ onDetected, handleSubmit }: ScanButtonProps) {
   const [scanning, setScanning] = useState(false);
 
-  const handleDetection = (result: DetectionResult) => {
-    const barcode = result.codeResult.code;
-    setScanning(false);
-    onDetected(barcode);
-    handleSubmit(barcode, {});
-  };
+  const startScanning = useCallback(() => setScanning(true), []);
+
+  const handleDetection = useCallback(
+    (result: DetectionResult) => {
+      const barcode = result.codeResult.code;
+      setScanning(false);
+      onDetected(barcode);
+      handleSubmit(barcode, {});
+    },
+    [handleSubmit, onDetected]
+  );
 
   return (
     <>
       <button
         aria-label="Barcode scannen"
-        onClick={() => setScanning(true)}
+        onClick={startScanning}
         type="button"
       >
         <span className="icon-barcode" />
       </button>
 
-      {scanning && (
+      {!!scanning && (
         <ViewportScanner
           onDetected={handleDetection}
           setScanning={setScanning}

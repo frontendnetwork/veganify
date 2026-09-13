@@ -14,7 +14,7 @@ export default defineConfig({
     ? undefined
     : {
         command: "bun run dev",
-        url: "http://localhost:3000",
         reuseExistingServer: true,
+        url: "http://localhost:3000",
       },
 });

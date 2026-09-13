@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type { FormEvent } from "react";
+import { type ChangeEvent, type FormEvent, useCallback } from "react";
 
 import ScanButton from "@/components/Scanner";
 
@@ -21,6 +21,20 @@ export function SearchForm({
 }: SearchFormProps) {
   const t = useTranslations("Check");
 
+  const handleFormSubmit = useCallback(
+    (event: FormEvent) => onSubmit(barcode, event),
+    [barcode, onSubmit]
+  );
+  const handleScanSubmit = useCallback(
+    (scannedBarcode: string) => onSubmit(scannedBarcode),
+    [onSubmit]
+  );
+  const handleBarcodeChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) =>
+      onBarcodeChange(event.target.value),
+    [onBarcodeChange]
+  );
+
   return (
     <>
       <Image
@@ -30,12 +44,12 @@ export function SearchForm({
         src="/./img/Veganify.svg"
         width={48}
       />
-      <form onSubmit={(e) => onSubmit(barcode, e)}>
+      <form onSubmit={handleFormSubmit}>
         <legend>{t("enterbarcode")}</legend>
         <fieldset>
           <legend>{t("enterbarcode")}</legend>
           <ScanButton
-            handleSubmit={(barcode) => onSubmit(barcode)}
+            handleSubmit={handleScanSubmit}
             onDetected={onBarcodeChange}
           />
           <label className="hidden" htmlFor="barcodeInput">
@@ -45,7 +59,7 @@ export function SearchForm({
             autoFocus={true}
             id="barcodeInput"
             name="barcode"
-            onChange={(e) => onBarcodeChange(e.target.value)}
+            onChange={handleBarcodeChange}
             placeholder={t("enterbarcode")}
             type="number"
             value={barcode}

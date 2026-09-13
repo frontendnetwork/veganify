@@ -135,30 +135,36 @@ export default function More() {
             />
             <h1>{t("language")}</h1>
           </span>
-          {languages.map(({ code, name }) => (
-            <Link
-              className="nolink"
-              href={"/more"}
-              key={code}
-              locale={
-                code as "en" | "de" | "es" | "fr" | "pl" | "cz" | undefined
-              }
-              onClick={() => handleLanguageChange(code)}
-            >
-              <div
-                className={currentLocale === code ? "option active" : "option"}
+          {languages.map(({ code, name }) => {
+            const handleLanguageSelect = () => handleLanguageChange(code);
+
+            return (
+              <Link
+                className="nolink"
+                href={"/more"}
+                key={code}
+                locale={
+                  code as "en" | "de" | "es" | "fr" | "pl" | "cz" | undefined
+                }
+                onClick={handleLanguageSelect}
               >
-                <input
-                  checked={currentLocale === code}
-                  className="form-check-input"
-                  name="flexRadioDefault"
-                  readOnly
-                  type="radio"
-                />
-                <span className="price">{t(name)}</span>
-              </div>
-            </Link>
-          ))}
+                <div
+                  className={
+                    currentLocale === code ? "option active" : "option"
+                  }
+                >
+                  <input
+                    checked={currentLocale === code}
+                    className="form-check-input"
+                    name="flexRadioDefault"
+                    readOnly
+                    type="radio"
+                  />
+                  <span className="price">{t(name)}</span>
+                </div>
+              </Link>
+            );
+          })}
           <span className="info" id="cookieinfo">
             {t("thissetsacookie")}
           </span>

@@ -43,8 +43,8 @@ export default function Footer() {
 
   const creditText = t("credit", {
     heart: '<i class="icon-heart"></i>',
-    philipLink: '<a href="https://philipbrembeck.com">Philip Brembeck</a>',
     jokeLink: '<a href="https://frontendnet.work">FrontEndNet.work</a>',
+    philipLink: '<a href="https://philipbrembeck.com">Philip Brembeck</a>',
   } satisfies CreditTextParams);
 
   return (

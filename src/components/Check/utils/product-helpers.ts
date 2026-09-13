@@ -15,25 +15,25 @@ export function getProductState(result: ProductResult): ProductState {
 
   const getNutriscoreClass = (score: string | undefined): NutriscoreGrade => {
     if (!score || score === "n/a") {
-      return { score: "unknown icon-help", className: "" };
+      return { className: "", score: "unknown icon-help" };
     }
 
     const normalizedScore = score.toLowerCase();
     if (["a", "b", "c", "d", "e"].includes(normalizedScore)) {
       return {
-        score: `nutri_${normalizedScore} icon-${normalizedScore}`,
         className: `nutri_${normalizedScore}`,
+        score: `nutri_${normalizedScore} icon-${normalizedScore}`,
       };
     }
-    return { score: "unknown icon-help", className: "" };
+    return { className: "", score: "unknown icon-help" };
   };
 
   return {
+    animaltestfree: getVeganState(result.animaltestfree),
+    grade: getNutriscoreClass(result.grade),
+    nutriscore: getNutriscoreClass(result.nutriscore),
+    palmoil: getVeganState(result.palmoil),
     vegan: getVeganState(result.vegan),
     vegetarian: getVeganState(result.vegetarian),
-    animaltestfree: getVeganState(result.animaltestfree),
-    palmoil: getVeganState(result.palmoil),
-    nutriscore: getNutriscoreClass(result.nutriscore),
-    grade: getNutriscoreClass(result.grade),
   };
 }

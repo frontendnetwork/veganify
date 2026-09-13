@@ -3,29 +3,29 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 const SUPPORT_OPTIONS = {
-  PAYPAL: {
-    icon: "icon-paypal",
-    vendor: "PayPal",
-    text: "Donate with PayPal",
-    link: "https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536",
-    price: "1-15€",
-    translationKey: "onceviapaypal",
+  GITHUB: {
+    icon: "icon-github-circled",
+    link: "https://github.com/sponsors/philipbrembeck",
+    price: "1-100$",
+    text: "Sponsor on GitHub",
+    translationKey: "monthlyviagithub",
+    vendor: "GitHub",
   },
   KOFI: {
     icon: "icon-kofi",
-    vendor: "Ko-Fi.com",
-    text: "Sponsor on Ko-Fi",
     link: "https://ko-fi.com/veganify",
     price: "1-50€",
+    text: "Sponsor on Ko-Fi",
     translationKey: "onceviakofi",
+    vendor: "Ko-Fi.com",
   },
-  GITHUB: {
-    icon: "icon-github-circled",
-    vendor: "GitHub",
-    text: "Sponsor on GitHub",
-    link: "https://github.com/sponsors/philipbrembeck",
-    price: "1-100$",
-    translationKey: "monthlyviagithub",
+  PAYPAL: {
+    icon: "icon-paypal",
+    link: "https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536",
+    price: "1-15€",
+    text: "Donate with PayPal",
+    translationKey: "onceviapaypal",
+    vendor: "PayPal",
   },
 };
 
@@ -51,24 +51,28 @@ const SupportOption = () => {
         />
         <h1>{t("buyusacoffee")}</h1>
       </span>
-      {Object.entries(SUPPORT_OPTIONS).map(([key, option]) => (
-        <div
-          className={`option ${selectedOption === option ? "active" : ""}`}
-          id={`option_${key.toLowerCase()}`}
-          key={key}
-          onClick={() => handleOptionClick(option)}
-        >
-          <input
-            checked={selectedOption === option}
-            className="form-check-input"
-            id={key.toLowerCase()}
-            name="flexRadioDefault"
-            type="radio"
-          />
-          <span className="muted">{t(option.translationKey)}</span>
-          <span className="price">{option.price}</span>
-        </div>
-      ))}
+      {Object.entries(SUPPORT_OPTIONS).map(([key, option]) => {
+        const handleOptionSelect = () => handleOptionClick(option);
+
+        return (
+          <div
+            className={`option ${selectedOption === option ? "active" : ""}`}
+            id={`option_${key.toLowerCase()}`}
+            key={key}
+            onClick={handleOptionSelect}
+          >
+            <input
+              checked={selectedOption === option}
+              className="form-check-input"
+              id={key.toLowerCase()}
+              name="flexRadioDefault"
+              type="radio"
+            />
+            <span className="muted">{t(option.translationKey)}</span>
+            <span className="price">{option.price}</span>
+          </div>
+        );
+      })}
       <div className="center donate">
         <a className="button" href={selectedOption.link} id="supportbtn">
           <span className={selectedOption.icon} /> {selectedOption.text}

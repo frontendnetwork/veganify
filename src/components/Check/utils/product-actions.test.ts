@@ -28,14 +28,6 @@ mock.module("@frontendnetwork/veganify", () => {
     default: {
       getInstance: mock(() => mockInstance),
     },
-    VeganifyError: class extends Error {
-      statusCode?: number;
-      constructor(message: string, statusCode?: number) {
-        super(message);
-        this.name = "VeganifyError";
-        this.statusCode = statusCode;
-      }
-    },
     NotFoundError: class extends Error {
       constructor(message: string) {
         super(message);
@@ -46,6 +38,14 @@ mock.module("@frontendnetwork/veganify", () => {
       constructor(message: string) {
         super(message);
         this.name = "ValidationError";
+      }
+    },
+    VeganifyError: class extends Error {
+      statusCode?: number;
+      constructor(message: string, statusCode?: number) {
+        super(message);
+        this.name = "VeganifyError";
+        this.statusCode = statusCode;
       }
     },
   };
@@ -65,9 +65,9 @@ describe("fetchProduct", () => {
           vegan: true,
         },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
       }),
@@ -89,9 +89,9 @@ describe("fetchProduct", () => {
           vegan: true,
         },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
       });
@@ -103,9 +103,9 @@ describe("fetchProduct", () => {
           vegan: true,
         },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: FetchStatus.OK,
       });
@@ -117,9 +117,9 @@ describe("fetchProduct", () => {
           productname: "Minimal Product",
         },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
       });
@@ -191,9 +191,9 @@ describe("fetchProduct", () => {
       mockVeganify.getProductByBarcode.mockResolvedValueOnce({
         product: { productname: "" },
         sources: {
-          processed: true,
           api: "test",
           baseuri: "test",
+          processed: true,
         },
         status: 200,
       });

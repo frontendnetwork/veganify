@@ -7,8 +7,8 @@ import Footer from "@/components/footer";
 import Nav from "@/components/nav";
 
 export const metadata: Metadata = {
-  title: "Veganify - Check if products are vegan",
   description: "Scan barcodes to check if products are vegan",
+  title: "Veganify - Check if products are vegan",
 };
 
 export default function Home() {

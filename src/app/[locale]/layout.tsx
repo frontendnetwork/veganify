@@ -7,42 +7,42 @@ import type { ReactNode } from "react";
 import Nav from "@/components/nav";
 
 export const metadata: Metadata = {
-  title: "Is it vegan? – Veganify",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Veganify",
+  },
+  applicationName: "Veganify",
   description:
     "Are you unsure whether a product is vegan or not? With Veganify you can scan the bar code of an item while shopping and check whether it is vegan or not and that without a lot of other unnecessary information! Try it out now!",
+  icons: {
+    apple: "../img/icon.png",
+    icon: "../favicon.ico",
+  },
+  manifest: "/manifest.json",
   openGraph: {
+    images: [{ url: "https://veganify.app/img/og_image.png" }],
+    siteName: "Veganify",
     title: "Veganify",
     type: "website",
     url: "https://veganify.app",
-    images: [{ url: "https://veganify.app/img/og_image.png" }],
-    siteName: "Veganify",
   },
+  title: "Is it vegan? – Veganify",
   twitter: {
     card: "summary_large_image",
-    images: [{ url: "https://veganify.app/img/og_image.png", alt: "Veganify" }],
+    images: [{ alt: "Veganify", url: "https://veganify.app/img/og_image.png" }],
   },
-  appleWebApp: {
-    capable: true,
-    title: "Veganify",
-    statusBarStyle: "default",
-  },
-  manifest: "/manifest.json",
-  icons: {
-    icon: "../favicon.ico",
-    apple: "../img/icon.png",
-  },
-  applicationName: "Veganify",
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#7f8fa6" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
-  width: "device-width",
   initialScale: 1,
   maximumScale: 1,
+  themeColor: [
+    { color: "#7f8fa6", media: "(prefers-color-scheme: light)" },
+    { color: "#000000", media: "(prefers-color-scheme: dark)" },
+  ],
   viewportFit: "cover",
+  width: "device-width",
 };
 
 export default async function LocaleLayout(props: {

@@ -23,8 +23,8 @@ export default function Container({
     <div className="top container">
       <div id="main">
         <div className="form component">
-          {backButton && <BackButton />}
-          {logo && (
+          {!!backButton && <BackButton />}
+          {!!logo && (
             <>
               <Link href="/" prefetch={true}>
                 <Image
@@ -38,7 +38,7 @@ export default function Container({
               <br />
             </>
           )}
-          {heading && (
+          {!!heading && (
             <h2
               style={headingStyle === "center" ? { textAlign: "center" } : {}}
             >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 interface TooltipProps {
   children: React.ReactNode;
@@ -10,6 +10,9 @@ interface TooltipProps {
 export function TooltipClient({ message, children }: TooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
 
+  const showTooltip = useCallback(() => setIsVisible(true), []);
+  const hideTooltip = useCallback(() => setIsVisible(false), []);
+
   if (!message) {
     return children;
   }
@@ -17,11 +20,11 @@ export function TooltipClient({ message, children }: TooltipProps) {
   return (
     <div
       className="tooltip-wrapper"
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
+      onMouseEnter={showTooltip}
+      onMouseLeave={hideTooltip}
     >
       {children}
-      {isVisible && (
+      {!!isVisible && (
         <div className="tooltip">
           {message}
           <div className="tooltip-arrow" />

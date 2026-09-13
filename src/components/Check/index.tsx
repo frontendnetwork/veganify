@@ -15,13 +15,13 @@ import { getProductState } from "./utils/product-helpers";
 
 export default function ProductSearch() {
   const [result, setResult] = useState<ProductResult>({
+    animaltestfree: "n/a",
+    grade: "",
+    nutriscore: "",
+    palmoil: "n/a",
     productname: "",
     vegan: "n/a",
     vegetarian: "n/a",
-    animaltestfree: "n/a",
-    palmoil: "n/a",
-    nutriscore: "",
-    grade: "",
   });
   const [sources, setSources] = useState<Sources>({});
   const [barcode, setBarcode] = useState<string>("");
@@ -42,7 +42,7 @@ export default function ProductSearch() {
     }
   }, []);
 
-  const handleSubmit = async (barcode: string, event?: FormEvent) => {
+  const handleSubmit = async (barcodeValue: string, event?: FormEvent) => {
     event?.preventDefault();
 
     setShowTimeoutFinal(false);
@@ -54,16 +54,16 @@ export default function ProductSearch() {
     setLoading(true);
 
     try {
-      const data = await fetchProduct(barcode);
+      const data = await fetchProduct(barcodeValue);
       if (data.status === FetchStatus.OK && data.product && data.sources) {
         setResult({
+          animaltestfree: data.product.animaltestfree ?? "n/a",
+          grade: data.product.grade ?? "",
+          nutriscore: data.product.nutriscore ?? "",
+          palmoil: data.product.palmoil ?? "n/a",
           productname: data.product.productname,
           vegan: data.product.vegan ?? "n/a",
           vegetarian: data.product.vegetarian ?? "n/a",
-          animaltestfree: data.product.animaltestfree ?? "n/a",
-          palmoil: data.product.palmoil ?? "n/a",
-          nutriscore: data.product.nutriscore ?? "",
-          grade: data.product.grade ?? "",
         });
         setSources(data.sources);
         setShowFound(true);
@@ -92,7 +92,7 @@ export default function ProductSearch() {
         onSubmit={handleSubmit}
       />
 
-      {showFound && (
+      {!!showFound && (
         <ProductResultView
           barcode={barcode}
           productState={getProductState(result)}
@@ -109,7 +109,7 @@ export default function ProductSearch() {
         showTimeoutFinal={showTimeoutFinal}
       />
 
-      {loading && <LoadingSkeleton />}
+      {!!loading && <LoadingSkeleton />}
     </>
   );
 }

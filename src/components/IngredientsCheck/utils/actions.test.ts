@@ -16,18 +16,18 @@ mock.module("@frontendnetwork/veganify", () => {
     default: {
       getInstance: mock(() => mockInstance),
     },
+    ValidationError: class extends Error {
+      constructor(message: string) {
+        super(message);
+        this.name = "ValidationError";
+      }
+    },
     VeganifyError: class extends Error {
       statusCode?: number;
       constructor(message: string, statusCode?: number) {
         super(message);
         this.name = "VeganifyError";
         this.statusCode = statusCode;
-      }
-    },
-    ValidationError: class extends Error {
-      constructor(message: string) {
-        super(message);
-        this.name = "ValidationError";
       }
     },
   };
@@ -43,15 +43,15 @@ describe("checkIngredients", () => {
     mockVeganifyInstance = {
       checkIngredientsListV1: mock().mockResolvedValue({
         code: "200",
-        status: "success",
-        message: "OK",
         data: {
-          vegan: true,
-          surely_vegan: ["apple"],
-          not_vegan: [],
           maybe_not_vegan: [],
+          not_vegan: [],
+          surely_vegan: ["apple"],
           unknown: [],
+          vegan: true,
         },
+        message: "OK",
+        status: "success",
       }),
     };
     (Veganify.getInstance as Mock<(...args: any[]) => any>).mockReturnValue(
@@ -62,15 +62,15 @@ describe("checkIngredients", () => {
   it("should successfully check ingredients and return formatted data", async () => {
     const mockApiResponse = {
       code: "200",
-      status: "success",
-      message: "OK",
       data: {
-        vegan: true,
-        surely_vegan: ["apple", "banana"],
-        not_vegan: [],
         maybe_not_vegan: [],
+        not_vegan: [],
+        surely_vegan: ["apple", "banana"],
         unknown: ["artificial-flavor"],
+        vegan: true,
       },
+      message: "OK",
+      status: "success",
     };
 
     mockVeganifyInstance.checkIngredientsListV1.mockResolvedValue(
@@ -81,11 +81,11 @@ describe("checkIngredients", () => {
 
     expect(result).toEqual({
       result: {
-        vegan: true,
-        surelyVegan: ["apple", "banana"],
-        notVegan: [],
         maybeNotVegan: [],
+        notVegan: [],
+        surelyVegan: ["apple", "banana"],
         unknown: ["artificial-flavor"],
+        vegan: true,
       },
       status: FetchStatus.OK,
     });
@@ -137,15 +137,15 @@ describe("checkIngredients", () => {
   it("should handle non-vegan ingredients correctly", async () => {
     const mockApiResponse = {
       code: "200",
-      status: "success",
-      message: "OK",
       data: {
-        vegan: false,
-        surely_vegan: ["apple"],
-        not_vegan: ["gelatin"],
         maybe_not_vegan: ["sugar"],
+        not_vegan: ["gelatin"],
+        surely_vegan: ["apple"],
         unknown: [],
+        vegan: false,
       },
+      message: "OK",
+      status: "success",
     };
 
     mockVeganifyInstance.checkIngredientsListV1.mockResolvedValue(
@@ -156,11 +156,11 @@ describe("checkIngredients", () => {
 
     expect(result).toEqual({
       result: {
-        vegan: false,
-        surelyVegan: ["apple"],
-        notVegan: ["gelatin"],
         maybeNotVegan: ["sugar"],
+        notVegan: ["gelatin"],
+        surelyVegan: ["apple"],
         unknown: [],
+        vegan: false,
       },
       status: FetchStatus.OK,
     });

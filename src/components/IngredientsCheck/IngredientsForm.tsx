@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useCallback, useState } from "react";
 import { FetchStatus } from "@/models/FetchStatus";
 import type { IngredientResult } from "./models/IngredientResult";
 import { ResultDisplay } from "./ResultsDisplay";
@@ -11,51 +11,54 @@ import { preprocessIngredients } from "./utils/preprocessIngredients";
 export function IngredientsForm() {
   const t = useTranslations("Ingredients");
   const [result, setResult] = useState<IngredientResult>({
-    vegan: null,
-    surelyVegan: [],
-    notVegan: [],
     maybeNotVegan: [],
+    notVegan: [],
+    surelyVegan: [],
     unknown: [],
+    vegan: null,
   });
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setResult({
-      vegan: null,
-      surelyVegan: [],
-      notVegan: [],
-      maybeNotVegan: [],
-      unknown: [],
-    });
-    setError(null);
+  const handleSubmit = useCallback(
+    async (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setResult({
+        maybeNotVegan: [],
+        notVegan: [],
+        surelyVegan: [],
+        unknown: [],
+        vegan: null,
+      });
+      setError(null);
 
-    const formData = new FormData(event.currentTarget);
-    const rawIngredients = formData.get("ingredients") as string;
+      const formData = new FormData(event.currentTarget);
+      const rawIngredients = formData.get("ingredients") as string;
 
-    if (!rawIngredients.trim()) {
-      setError(t("cannotbeempty"));
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const processedIngredients = preprocessIngredients(rawIngredients);
-      const ingredientsString = processedIngredients.join(", ");
-
-      const data = await checkIngredients(ingredientsString);
-      if (data.status === FetchStatus.OK && data.result) {
-        setResult(data.result);
-      } else {
-        setError(t("unknown_error"));
+      if (!rawIngredients.trim()) {
+        setError(t("cannotbeempty"));
+        return;
       }
-    } catch {
-      setError(t("unknown_error"));
-    } finally {
-      setLoading(false);
-    }
-  }
+
+      setLoading(true);
+      try {
+        const processedIngredients = preprocessIngredients(rawIngredients);
+        const ingredientsString = processedIngredients.join(", ");
+
+        const data = await checkIngredients(ingredientsString);
+        if (data.status === FetchStatus.OK && data.result) {
+          setResult(data.result);
+        } else {
+          setError(t("unknown_error"));
+        }
+      } catch {
+        setError(t("unknown_error"));
+      } finally {
+        setLoading(false);
+      }
+    },
+    [t]
+  );
 
   return (
     <>
@@ -66,7 +69,7 @@ export function IngredientsForm() {
         src="/./img/Veganify.svg"
         width={48}
       />
-      <h2 style={{ textAlign: "center", marginTop: "0" }}>
+      <h2 style={{ marginTop: "0", textAlign: "center" }}>
         {t("ingredientcheck")}
       </h2>
       <p style={{ textAlign: "center" }}>{t("ingredientcheck_desc")}</p>
@@ -89,14 +92,14 @@ export function IngredientsForm() {
         </fieldset>
       </form>
       {result.vegan !== null && <ResultDisplay result={result} t={t} />}
-      {error && (
+      {!!error && (
         <div id="result">
           <span className="animated fadeIn">
             <div className="resultborder">{error}</div>
           </span>
         </div>
       )}
-      {loading && (
+      {!!loading && (
         <div className="loading_skeleton" id="result">
           <div className="animated fadeIn">
             <div className="resultborder">

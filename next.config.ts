@@ -5,21 +5,21 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  reactStrictMode: true,
   productionBrowserSourceMaps: true,
+  reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        destination: "/privacy-policy",
+        source: "/datenschutz",
+      },
+    ];
+  },
   sassOptions: {
     silenceDeprecations: ["legacy-js-api"],
   },
   turbopack: {
     root: import.meta.dirname,
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/datenschutz",
-        destination: "/privacy-policy",
-      },
-    ];
   },
 };
 

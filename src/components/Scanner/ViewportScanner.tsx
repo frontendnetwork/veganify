@@ -1,7 +1,13 @@
 "use client";
 
 import Quagga from "@ericblade/quagga2";
-import { type CSSProperties, useEffect, useState } from "react";
+import {
+  type CSSProperties,
+  type KeyboardEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 
 import type { ScannerProps } from "./models/scanner";
 
@@ -16,19 +22,6 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
 
     Quagga.init(
       {
-        inputStream: {
-          type: "LiveStream",
-          constraints: {
-            aspectRatio: { ideal: height / width },
-            facingMode: newFacingMode,
-            height: { min: 480, ideal: height, max: 1080 },
-          },
-        },
-        locator: {
-          patchSize: "medium",
-          halfSample: true,
-        },
-        numOfWorkers: 2,
         decoder: {
           readers: [
             "ean_reader",
@@ -37,7 +30,20 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
             "i2of5_reader",
           ],
         },
+        inputStream: {
+          constraints: {
+            aspectRatio: { ideal: height / width },
+            facingMode: newFacingMode,
+            height: { ideal: height, max: 1080, min: 480 },
+          },
+          type: "LiveStream",
+        },
         locate: true,
+        locator: {
+          halfSample: true,
+          patchSize: "medium",
+        },
+        numOfWorkers: 2,
       },
       (err: Error | null) => {
         if (err) {
@@ -49,7 +55,7 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
     );
   };
 
-  const handleCameraSwitch = () => {
+  const handleCameraSwitch = useCallback(() => {
     const newFacingMode = facingMode === "environment" ? "user" : "environment";
     const newIsMirrored = newFacingMode === "user";
 
@@ -58,13 +64,31 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
 
     Quagga.stop();
     initializeScanner(newFacingMode);
-  };
+  }, [facingMode]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsHidden(true);
     setScanning(false);
     Quagga.stop();
-  };
+  }, [setScanning]);
+
+  const handleCloseKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLSpanElement>) => {
+      if (event.key === "Enter" || event.key === " ") {
+        handleClose();
+      }
+    },
+    [handleClose]
+  );
+
+  const handleCameraSwitchKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLSpanElement>) => {
+      if (event.key === "Enter" || event.key === " ") {
+        handleCameraSwitch();
+      }
+    },
+    [handleCameraSwitch]
+  );
 
   useEffect(() => {
     initializeScanner(facingMode);
@@ -81,23 +105,23 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
   }
 
   const viewportStyle: CSSProperties = {
-    position: "fixed",
-    zIndex: 999,
     left: "50%",
+    position: "fixed",
     top: 0,
     transform: isMirrored ? "translateX(-50%) scaleX(-1)" : "translateX(-50%)",
+    zIndex: 999,
   };
 
   const backdropStyle: CSSProperties = {
-    position: "fixed",
-    zIndex: 998,
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    background: "rgba(0, 0, 0, 0.2)",
     backdropFilter: "blur(0.5rem)",
+    background: "rgba(0, 0, 0, 0.2)",
+    height: "100%",
+    left: 0,
+    position: "fixed",
+    top: 0,
     WebkitBackdropFilter: "blur(0.5rem)",
+    width: "100%",
+    zIndex: 998,
   };
 
   return (
@@ -112,11 +136,7 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
                 className="icon-left-open"
                 id="closebtn"
                 onClick={handleClose}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleClose();
-                  }
-                }}
+                onKeyDown={handleCloseKeyDown}
                 role="button"
                 tabIndex={0}
               />
@@ -127,11 +147,7 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
                 className="icon-flipcamera"
                 id="switch-camera"
                 onClick={handleCameraSwitch}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleCameraSwitch();
-                  }
-                }}
+                onKeyDown={handleCameraSwitchKeyDown}
                 role="button"
                 tabIndex={0}
               />

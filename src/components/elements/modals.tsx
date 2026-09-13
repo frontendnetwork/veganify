@@ -1,4 +1,4 @@
-import { type ElementType, type ReactNode, useState } from "react";
+import { type ElementType, type ReactNode, useCallback, useState } from "react";
 
 interface Props {
   buttonClass: string;
@@ -17,9 +17,14 @@ const Modal = ({
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleModal = (state: boolean) => {
-    setIsOpen(state);
-  };
+  const openModal = useCallback(() => setIsOpen(true), []);
+  const closeModal = useCallback(() => {
+    const modalView = document.querySelector(".modal_view");
+    if (modalView) {
+      modalView.classList.add("fadeOutDown");
+      setTimeout(() => setIsOpen(false), 500);
+    }
+  }, []);
 
   const ButtonComponent: ElementType = buttonType;
 
@@ -29,23 +34,17 @@ const Modal = ({
         className={buttonClass}
         data-target={id}
         data-toggle="modal"
-        onClick={() => toggleModal(true)}
+        onClick={openModal}
       >
         {buttonText}
       </ButtonComponent>
-      {isOpen && (
+      {!!isOpen && (
         <div className="modal_view animated fadeInUp open">
           <div className="modal_close">
             <button
               className="btn-dark"
               data-dismiss="modal"
-              onClick={() => {
-                const modalView = document.querySelector(".modal_view");
-                if (modalView) {
-                  modalView.classList.add("fadeOutDown");
-                  setTimeout(() => toggleModal(false), 500);
-                }
-              }}
+              onClick={closeModal}
             >
               ×
             </button>

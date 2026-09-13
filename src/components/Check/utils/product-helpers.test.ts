@@ -64,11 +64,11 @@ describe("getProductState", () => {
   describe("getNutriscoreClass", () => {
     test("handles valid nutriscore grades", () => {
       const testCases: [string, { score: string; className: string }][] = [
-        ["A", { score: "nutri_a icon-a", className: "nutri_a" }],
-        ["B", { score: "nutri_b icon-b", className: "nutri_b" }],
-        ["C", { score: "nutri_c icon-c", className: "nutri_c" }],
-        ["D", { score: "nutri_d icon-d", className: "nutri_d" }],
-        ["E", { score: "nutri_e icon-e", className: "nutri_e" }],
+        ["A", { className: "nutri_a", score: "nutri_a icon-a" }],
+        ["B", { className: "nutri_b", score: "nutri_b icon-b" }],
+        ["C", { className: "nutri_c", score: "nutri_c icon-c" }],
+        ["D", { className: "nutri_d", score: "nutri_d icon-d" }],
+        ["E", { className: "nutri_e", score: "nutri_e icon-e" }],
       ];
 
       testCases.forEach(([grade, expected]) => {
@@ -81,8 +81,8 @@ describe("getProductState", () => {
       const input = { nutriscore: "a" } as ProductResult;
       const result = getProductState(input);
       expect(result.nutriscore).toEqual({
-        score: "nutri_a icon-a",
         className: "nutri_a",
+        score: "nutri_a icon-a",
       });
     });
 
@@ -98,17 +98,17 @@ describe("getProductState", () => {
       testCases.forEach((grade) => {
         const result = getProductState({ nutriscore: grade } as ProductResult);
         expect(result.nutriscore).toEqual({
-          score: "unknown icon-help",
           className: "",
+          score: "unknown icon-help",
         });
       });
     });
 
     test("handles general grade scores similarly to nutriscore", () => {
       const testCases: [string, { score: string; className: string }][] = [
-        ["A", { score: "nutri_a icon-a", className: "nutri_a" }],
-        ["B", { score: "nutri_b icon-b", className: "nutri_b" }],
-        ["C", { score: "nutri_c icon-c", className: "nutri_c" }],
+        ["A", { className: "nutri_a", score: "nutri_a icon-a" }],
+        ["B", { className: "nutri_b", score: "nutri_b icon-b" }],
+        ["C", { className: "nutri_c", score: "nutri_c icon-c" }],
       ];
 
       testCases.forEach(([grade, expected]) => {
@@ -120,24 +120,24 @@ describe("getProductState", () => {
 
   test("handles complete product data", () => {
     const input: ProductResult = {
+      animaltestfree: "n/a",
+      grade: "B",
+      nutriscore: "A",
+      palmoil: undefined,
       productname: "Foo Chocolate Bar",
       vegan: true,
       vegetarian: false,
-      animaltestfree: "n/a",
-      palmoil: undefined,
-      nutriscore: "A",
-      grade: "B",
     };
 
     const result = getProductState(input);
 
     expect(result).toEqual({
+      animaltestfree: "unknown icon-help",
+      grade: { className: "nutri_b", score: "nutri_b icon-b" },
+      nutriscore: { className: "nutri_a", score: "nutri_a icon-a" },
+      palmoil: "unknown icon-help",
       vegan: "vegan icon-ok",
       vegetarian: "non-vegan icon-cancel",
-      animaltestfree: "unknown icon-help",
-      palmoil: "unknown icon-help",
-      nutriscore: { score: "nutri_a icon-a", className: "nutri_a" },
-      grade: { score: "nutri_b icon-b", className: "nutri_b" },
     });
   });
 
@@ -146,12 +146,12 @@ describe("getProductState", () => {
     const result = getProductState(input);
 
     expect(result).toEqual({
+      animaltestfree: "unknown icon-help",
+      grade: { className: "", score: "unknown icon-help" },
+      nutriscore: { className: "", score: "unknown icon-help" },
+      palmoil: "unknown icon-help",
       vegan: "unknown icon-help",
       vegetarian: "unknown icon-help",
-      animaltestfree: "unknown icon-help",
-      palmoil: "unknown icon-help",
-      nutriscore: { score: "unknown icon-help", className: "" },
-      grade: { score: "unknown icon-help", className: "" },
     });
   });
 });

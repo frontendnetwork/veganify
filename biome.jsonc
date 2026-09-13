@@ -6,7 +6,12 @@
   ],
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": ["!service-worker.js"]
+    "includes": [
+      "!service-worker.js",
+      // Icon/font assets: not source code, and noSvgWithoutTitle fires on every
+      // decorative asset SVG
+      "!**/*.svg"
+    ]
   },
   "assist": {
     "actions": {
@@ -65,6 +70,18 @@
     }
   },
   "overrides": [
+    {
+      // Locale files use logical key grouping for translators; useSortedKeys
+      // would force alphabetical order across all seven languages
+      "includes": ["src/locales/**"],
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      }
+    },
     {
       "includes": [
         "**/*.test.ts",

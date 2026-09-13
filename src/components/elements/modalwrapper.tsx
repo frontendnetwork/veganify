@@ -58,8 +58,8 @@ const ModalWrapper = ({
     const handleTouchStart = (event: TouchEvent) => {
       const touchStartY = event.touches[0].clientY;
 
-      const handleTouchEnd = (event: TouchEvent) => {
-        const touchEndY = event.changedTouches[0].clientY;
+      const handleTouchEnd = (touchEndEvent: TouchEvent) => {
+        const touchEndY = touchEndEvent.changedTouches[0].clientY;
         if (touchEndY - touchStartY > 10) {
           closeModal();
         }
@@ -78,6 +78,8 @@ const ModalWrapper = ({
     };
   }, [isOpen, closeModal]);
 
+  const openModal = useCallback(() => setIsOpen(true), []);
+
   const ButtonComponent = buttonType;
 
   if (!mounted) {
@@ -90,11 +92,11 @@ const ModalWrapper = ({
         className={buttonClass}
         data-target={id}
         data-toggle="modal"
-        onClick={() => setIsOpen(true)}
+        onClick={openModal}
       >
         {buttonText}
       </ButtonComponent>
-      {isOpen &&
+      {!!isOpen &&
         modalRootRef.current &&
         createPortal(
           <div className="modal_view animated fadeInUp open">

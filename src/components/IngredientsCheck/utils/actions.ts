@@ -27,11 +27,11 @@ export async function checkIngredients(
 
     return {
       result: {
-        vegan: data.data.vegan,
-        surelyVegan: data.data.surely_vegan,
-        notVegan: data.data.not_vegan,
         maybeNotVegan: data.data.maybe_not_vegan,
+        notVegan: data.data.not_vegan,
+        surelyVegan: data.data.surely_vegan,
         unknown: data.data.unknown,
+        vegan: data.data.vegan,
       },
       status: FetchStatus.OK,
     };

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import ModalWrapper from "@/components/elements/modalwrapper";
 
@@ -44,68 +44,66 @@ const ShareButton = ({
   const shareOptions = useMemo<ShareOption[]>(
     () => [
       {
-        id: "copy",
-        text: t("copy"),
-        icon: "icon-docs",
-        url: `${text}: ${url}`,
         handler: async () => {
           await navigator.clipboard.writeText(`${text}: ${url}`);
         },
+        icon: "icon-docs",
+        id: "copy",
+        text: t("copy"),
+        url: `${text}: ${url}`,
       },
       {
+        icon: "icon-mastodon",
         id: "mastodon",
         text: `${t("share")} ${t("on")} Mastodon`,
-        icon: "icon-mastodon",
         url: `https://s2f.kytta.dev/?text=${encodeURI(text)} https%3A%2F%2Fveganify.app%2F%3Fean%3D${barcode}`,
       },
       {
+        icon: "icon-twitter",
         id: "twitter",
         text: `${t("share")} ${t("on")} Twitter`,
-        icon: "icon-twitter",
         url: `https://twitter.com/intent/tweet?url=${url}&text=${encodeURI(text)}`,
       },
       {
+        icon: "icon-whatsapp",
         id: "whatsapp",
         text: `${t("share")} ${t("on")} WhatsApp`,
-        icon: "icon-whatsapp",
         url: `whatsapp://send?text=${encodeURI(text)} ${url}`,
       },
       {
+        icon: "icon-telegram",
         id: "telegram",
         text: `${t("share")} ${t("on")} Telegram`,
-        icon: "icon-telegram",
         url: `https://telegram.me/share/url?url=${url}&text=${encodeURI(text)}`,
       },
       {
+        icon: "icon-facebook",
         id: "facebook",
         text: `${t("share")} ${t("on")} Facebook`,
-        icon: "icon-facebook",
         url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       },
       {
+        icon: "icon-chat",
         id: "message",
         text: `${t("share")} via message`,
-        icon: "icon-chat",
         url: `sms:&body=${url} ${text}`,
       },
       {
+        icon: "icon-mail",
         id: "email",
         text: `${t("share")} via e-mail`,
-        icon: "icon-mail",
         url: `mailto:?body="${url}"&subject=${text}`,
       },
     ],
     [t, text, url, barcode]
   );
 
+  const handleNativeShare = useCallback(() => {
+    navigator.share({ text, url }).catch(console.error);
+  }, [text, url]);
+
   return showButton ? (
-    <span
-      className="button"
-      id="share"
-      onClick={() => {
-        navigator.share({ text, url }).catch(console.error);
-      }}
-    >
+    <span className="button" id="share" onClick={handleNativeShare}>
       {t("share")}
     </span>
   ) : (
@@ -125,23 +123,30 @@ const ShareButton = ({
         />
         <h1>{t("share")}</h1>
       </span>
-      {shareOptions.map(({ id, text, icon, url, handler }) => (
-        <div
-          className="share-btn"
-          id={id}
-          key={id}
-          onClick={() =>
-            handler
-              ? handler()
-                  .then(() => handleShareClick(url))
-                  .catch(console.error)
-              : handleShareClick(url)
+      {shareOptions.map((option) => {
+        const { id, icon, text: optionText, url: optionUrl, handler } = option;
+        const handleOptionClick = () => {
+          if (!handler) {
+            handleShareClick(optionUrl);
+            return;
           }
-        >
-          <span className="share-text">{text}</span>
-          <span className={`share-icon ${icon}`} />
-        </div>
-      ))}
+          handler()
+            .then(() => handleShareClick(optionUrl))
+            .catch(console.error);
+        };
+
+        return (
+          <div
+            className="share-btn"
+            id={id}
+            key={id}
+            onClick={handleOptionClick}
+          >
+            <span className="share-text">{optionText}</span>
+            <span className={`share-icon ${icon}`} />
+          </div>
+        );
+      })}
     </ModalWrapper>
   );
 };

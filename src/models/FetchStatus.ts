@@ -4,11 +4,11 @@
  * as a generic timeout.
  */
 export const FetchStatus = {
-  OK: 200,
   INVALID: 400,
   NOT_FOUND: 404,
-  TIMEOUT: 408,
+  OK: 200,
   SERVER_ERROR: 502,
+  TIMEOUT: 408,
 } as const;
 
 export type FetchStatus = (typeof FetchStatus)[keyof typeof FetchStatus];
