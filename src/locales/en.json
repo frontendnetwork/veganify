@@ -10,21 +10,25 @@
     "description": "Are you unsure whether a product is vegan or not? With Veganify you can scan the bar code of an item while shopping and check whether it is vegan or not and that without a lot of other unnecessary information! Try it out now!",
     "home": "Home",
     "ingredientcheck": "Ingredient Check",
-    "more": "More"
+    "more": "More",
+    "navigation": "Main navigation"
   },
   "Footer": {
-    "credit": "Made with {heart} by {philipLink} & {jokeLink}"
+    "credit": "Made with <heart>♥</heart> by <philipLink>Philip Brembeck</philipLink> & <jokeLink>FrontEndNet.work</jokeLink>",
+    "sponsor": "Sponsored by UptimeRobot",
+    "opensource": "Open Source",
+    "carbonneutral": "Carbon neutral"
   },
   "Check": {
     "enterbarcode": "Enter barcode",
     "submit": "Submit",
     "vegan": "Vegan",
     "vegetarian": "Vegetarian",
-    "palmoil": "Palmoil",
+    "palmoil": "Palm oil",
     "palmoil_desc": "Palm-oil has an extremly harmful impact on the planet. It is the major driver of deforestation of some of the most biodiverse forests, destroying the natural habitats of already endangered animals. Because of this, we'd recommend to not buy any products that contain palm-oil. Sadly, there are still many products out there which include palm oil.",
     "crueltyfree": "Cruelty-Free",
-    "nutriscore_desc": "The Nutriscore indicates the nutritional profile of a product in traffic light form. However, the Nutriscore is not considered accurate and should not be used as a reference. You can find more information on the Nutriscore on {Algorithmwatch} (English).",
-    "grades_desc": "Are you confused by all the vegan/eco-friendly/organic labels?<br />You will be no more with the easy to understand Veganify Grades! Veganify Grades is a rating system for vegan products, that assigns one of six grades (A+ - Not eligible) to a product.<br />If you are interested in learning more about Veganify Grades or if you want to request a rating for a product, you can do so on {Grades}!",
+    "nutriscore_desc": "The NutriScore indicates the nutritional profile of a product in traffic light form. However, the NutriScore is not considered accurate and should not be used as a reference. You can find more information on the NutriScore on <algorithmwatch>Algorithmwatch</algorithmwatch> (English).",
+    "grades_desc": "Are you confused by all the vegan/eco-friendly/organic labels? You will be no more with the easy to understand Veganify Grades! Veganify Grades is a rating system for vegan products, that assigns one of six grades (A+ – Not eligible) to a product. If you are interested in learning more about Veganify Grades or if you want to request a rating for a product, you can do so on <grades>Veganify Grades</grades>!",
     "source": "Data source",
     "licenses": "Licenses",
     "licenses_desc": "Veganify uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
@@ -39,7 +43,33 @@
     "unknown_error": "An unexpected error occurred. Please try again.",
     "share": "Share",
     "copy": "Copy",
-    "on": "on"
+    "on": "on",
+    "notvegan": "Not vegan",
+    "yes": "Yes",
+    "no": "No",
+    "unknown": "Unknown",
+    "grades": "Veganify Grade",
+    "searching": "Searching…",
+    "barcodeexample": "e.g. 4000417025005",
+    "barcodehint": "Type the barcode or scan it with your camera.",
+    "wrongbarcode_desc": "Barcodes are 8–13 digits. Check the number under the barcode and try again.",
+    "checkconnection": "Check your connection and try again.",
+    "copied": "Copied!",
+    "viamessage": "via message",
+    "viaemail": "via e-mail",
+    "whatis": "What is {title}?",
+    "isitvegan": "Is it vegan?",
+    "tryexample": "Try an example scan",
+    "recent": "Recently checked",
+    "clearrecent": "Clear",
+    "tagline": "Scan any product. Know if it's vegan.",
+    "howitworks": "How it works",
+    "step1t": "Scan or type",
+    "step1d": "Point your camera at the barcode, or type the digits.",
+    "step2t": "See the verdict",
+    "step2d": "Vegan, vegetarian and palm oil — answered at a glance.",
+    "step3t": "Check the details",
+    "step3d": "NutriScore, cruelty-free status and the Veganify grade included."
   },
   "More": {
     "buyusacoffee": "Buy us a coffee",
@@ -64,7 +94,8 @@
     "cursed": "Cursed",
     "memeculture": "Celebrating meme-culture",
     "czech": "Czech",
-    "portuguese-br": "Brazlian Portuguese"
+    "portuguese-br": "Brazilian Portuguese",
+    "currentlanguage": "(current)"
   },
   "TOS": {
     "englishgermanonly": "This page is only available in English and German.",
@@ -83,7 +114,8 @@
     "subheading": "Is it Vegan? - Veganify",
     "install": "Install Veganify",
     "get": "Get",
-    "howtoinstall": "Tap on {share} then \"Add to Home Screen\"."
+    "howtoinstall": "Tap on <share>Share</share> then \"Add to Home Screen\".",
+    "dismiss": "Dismiss"
   },
   "ShortcutPrompt": {
     "Shortcuts": "Shortcuts",
@@ -92,17 +124,35 @@
   },
   "Ingredients": {
     "ingredientcheck": "Vegan Ingredient Checker",
-    "ingredientcheck_desc": "Check if the Ingredients of a product are vegan! – Enter ingredients comma seperated",
-    "entercommaseperated": "Enter ingredients comma seperated",
+    "ingredientcheck_desc": "Check if the ingredients of a product are vegan! – Enter ingredients separated by commas",
+    "entercommaseperated": "Enter ingredients separated by commas",
     "submit": "Submit",
     "vegan": "Vegan",
     "source": "Data source",
-    "cannotbeempty": "Ingredients-list cannot be empty or include special characters and has to be comma seperated!",
+    "cannotbeempty": "The ingredients list cannot be empty, must not contain special characters, and must be comma-separated!",
     "unknown_error": "An unexpected error occurred. Please try again.",
     "licenses": "Licenses",
     "licenses_desc": "Veganify uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
-    "languagewarning": "These results may be incorrect due to translation errors or missing information. The results are translated with {deepl}.",
+    "languagewarning": "These results may be incorrect due to translation errors or missing information. The results are translated with <deepl>DeepL</deepl>.",
     "maybe_vegan": "This ingredient could contain animal products.",
-    "unknown_vegan": "We don't have information about this ingredient."
+    "unknown_vegan": "We don't have information about this ingredient.",
+    "searching": "Checking…",
+    "ingredientsexample": "Sugar, cocoa butter, soy lecithin…",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "Layout": {
+    "skiptomain": "Skip to main content",
+    "back": "Go back"
+  },
+  "Dialog": {
+    "close": "Close"
+  },
+  "Scanner": {
+    "open": "Scan barcode with camera",
+    "close": "Close scanner",
+    "switchcamera": "Switch camera",
+    "hint": "Align the barcode within the frame",
+    "cameraerror": "Camera unavailable. Check your browser permissions, or type the barcode instead."
   }
 }

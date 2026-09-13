@@ -19,9 +19,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  sassOptions: {
-    silenceDeprecations: ["legacy-js-api"],
-  },
   turbopack: {
     root: import.meta.dirname,
   },

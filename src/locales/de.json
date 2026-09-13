@@ -11,10 +11,14 @@
     "description": "Du bist dir unsicher, ob ein Produkt vegan ist oder nicht? Mit Veganify kannst du direkt beim Einkaufen den Barcode von einem Artikel scannen und überprüfen, ob es vegan ist oder nicht und das ohne viele andere unnötige Informationen! Probiere es jetzt aus!",
     "home": "Home",
     "ingredientcheck": "Zutatencheck",
-    "more": "Mehr"
+    "more": "Mehr",
+    "navigation": "Hauptnavigation"
   },
   "Footer": {
-    "credit": "Mit {heart} gemacht von {philipLink} & {jokeLink}"
+    "credit": "Gemacht mit <heart>♥</heart> von <philipLink>Philip Brembeck</philipLink> & <jokeLink>FrontEndNet.work</jokeLink>",
+    "sponsor": "Gesponsert von UptimeRobot",
+    "opensource": "Open Source",
+    "carbonneutral": "Klimaneutral"
   },
   "Check": {
     "enterbarcode": "Barcode eingeben",
@@ -24,8 +28,8 @@
     "palmoil": "Palmöl",
     "palmoil_desc": "Palmöl hat extrem schädliche Auswirkungen auf den Planeten. Es ist die Hauptursache für die Abholzung einiger der artenreichsten Wälder und zerstört die natürlichen Lebensräume von bereits gefährdeten Tieren. Aus diesem Grund empfehlen wir, keine Produkte zu kaufen, die Palmöl enthalten. Leider gibt es immer noch viele Produkte, die Palmöl enthalten.",
     "crueltyfree": "Tierversuchsfrei",
-    "nutriscore_desc": "Der Nutriscore zeigt das Nährwertprofil eines Produktes in Ampelform an. Der Nutriscore gilt jedoch nicht als genau und sollte nicht als Referenz verwendet werden, weil er immer auf der Basis von 100g/100ml des Produktes berechnet wird. Weitere Informationen sind bei {Algorithmwatch} (Englisch) zu finden.",
-    "grades_desc": "Bist du verwirtt von all den Vegan/Bio/Umweltfreundlich Zertifikaten und Labels?<br />Das gehört der Vergangenheit an, mit den einfach zu verstehenden Veganify Grades! Veganify Grades ist ein Bewertungssystem für vegane Produkte, das eine von sechs Noten an ein Produkt vergibt (von A+ - nicht geeignet).<br />Wenn du mehr über Veganify Grades erfahren möchtest oder eine Bewertung für ein Produkt anfragen möchtest, kannst du das auf {Grades} tun!",
+    "nutriscore_desc": "Der NutriScore gibt das Nährwertprofil eines Produkts in Ampelform an. Der NutriScore gilt jedoch als nicht akkurat und sollte nicht als Referenz verwendet werden. Weitere Informationen zum NutriScore findest du auf <algorithmwatch>Algorithmwatch</algorithmwatch> (Englisch).",
+    "grades_desc": "Bist du verwirrt von all den Vegan-/Öko-/Bio-Siegeln? Mit den leicht verständlichen Veganify-Noten bist du es nicht mehr! Veganify-Noten ist ein Bewertungssystem für vegane Produkte, das einem Produkt eine von sechs Noten (A+ – Nicht qualifiziert) zuweist. Wenn du mehr über Veganify-Noten erfahren oder eine Bewertung anfordern möchtest, kannst du das auf <grades>Veganify-Noten</grades> tun!",
     "source": "Datenquelle",
     "licenses": "Lizenzen",
     "licenses_desc": "Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
@@ -40,7 +44,33 @@
     "unknown_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
     "share": "Teilen",
     "copy": "Kopieren",
-    "on": "auf"
+    "on": "auf",
+    "notvegan": "Nicht vegan",
+    "yes": "Ja",
+    "no": "Nein",
+    "unknown": "Unbekannt",
+    "grades": "Veganify-Note",
+    "searching": "Suche läuft…",
+    "barcodeexample": "z. B. 4000417025005",
+    "barcodehint": "Gib den Barcode ein oder scanne ihn mit der Kamera.",
+    "wrongbarcode_desc": "Barcodes bestehen aus 8–13 Ziffern. Prüfe die Ziffern unter dem Strichcode und versuche es erneut.",
+    "checkconnection": "Prüfe deine Verbindung und versuche es erneut.",
+    "copied": "Kopiert!",
+    "viamessage": "per Nachricht",
+    "viaemail": "per E-Mail",
+    "whatis": "Was ist {title}?",
+    "isitvegan": "Ist es vegan?",
+    "tryexample": "Beispiel-Scan ausprobieren",
+    "recent": "Zuletzt geprüft",
+    "clearrecent": "Leeren",
+    "tagline": "Scanne ein Produkt. Wissen, ob es vegan ist.",
+    "howitworks": "So funktioniert's",
+    "step1t": "Scannen oder eingeben",
+    "step1d": "Richte die Kamera auf den Barcode oder gib die Ziffern ein.",
+    "step2t": "Das Urteil sehen",
+    "step2d": "Vegan, vegetarisch und Palmöl — auf einen Blick.",
+    "step3t": "Details prüfen",
+    "step3d": "Mit NutriScore, Tierversuchs-Status und Veganify-Note."
   },
   "More": {
     "buyusacoffee": "Kauf uns einen Kaffee",
@@ -65,7 +95,8 @@
     "cursed": "Überraschung",
     "memeculture": "Hoch lebe die Meme-Kultur!",
     "czech": "Tschechisch",
-    "portuguese-br": "Brasilianisches Portugiesisch"
+    "portuguese-br": "Brasilianisches Portugiesisch",
+    "currentlanguage": "(aktuell)"
   },
   "TOS": {
     "englishgermanonly": "Die Nutzungsbedingungen sind nur in Englisch und Deutsch verfügbar.",
@@ -84,7 +115,8 @@
     "subheading": "Ist es Vegan? - Veganify",
     "install": "Veganify installieren",
     "get": "Laden",
-    "howtoinstall": "Tippe auf {share} und dann auf \"Zum Home-Bildschirm\"."
+    "howtoinstall": "Tippe auf <share>Teilen</share> und dann „Zum Home-Bildschirm hinzufügen\".",
+    "dismiss": "Schließen"
   },
   "ShortcutPrompt": {
     "Shortcuts": "Kurzbefehle",
@@ -102,8 +134,26 @@
     "unknown_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
     "licenses": "Lizenzen",
     "licenses_desc": "Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
-    "languagewarning": "Diese Ergebnisse können aufgrund von Übersetzungsfehlern oder fehlenden Informationen inkorrekt sein. Die Ergebnisse werden mit {deepl} übersetzt.",
+    "languagewarning": "Diese Ergebnisse können aufgrund von Übersetzungsfehlern oder fehlenden Informationen falsch sein. Die Ergebnisse wurden mit <deepl>DeepL</deepl> übersetzt.",
     "maybe_vegan": "Diese Zutat könnte tierische Produkte enthalten.",
-    "unknown_vegan": "Wir haben keine Informationen über diese Zutat."
+    "unknown_vegan": "Wir haben keine Informationen über diese Zutat.",
+    "searching": "Prüfe…",
+    "ingredientsexample": "Zucker, Kakaobutter, Sojalecithin…",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "Layout": {
+    "skiptomain": "Zum Hauptinhalt springen",
+    "back": "Zurück"
+  },
+  "Dialog": {
+    "close": "Schließen"
+  },
+  "Scanner": {
+    "open": "Barcode mit Kamera scannen",
+    "close": "Scanner schließen",
+    "switchcamera": "Kamera wechseln",
+    "hint": "Richte den Barcode am Rahmen aus",
+    "cameraerror": "Kamera nicht verfügbar. Prüfe die Browser-Berechtigungen oder gib den Barcode stattdessen ein."
   }
 }

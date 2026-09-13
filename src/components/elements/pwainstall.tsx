@@ -1,14 +1,17 @@
 "use client";
 
-import Image from "next/image";
+import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-import ModalWrapper from "@/components/elements/modalwrapper";
+import { Button } from "@/components/ui/button";
+import { Dialog } from "@/components/ui/dialog";
 
 const InstallPrompt = () => {
   const t = useTranslations("InstallPrompt");
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
+  const [instructionsOpen, setInstructionsOpen] = useState(false);
+  const openInstructions = useCallback(() => setInstructionsOpen(true), []);
 
   useEffect(() => {
     const pwainstall = getCookie("pwainstall");
@@ -35,48 +38,53 @@ const InstallPrompt = () => {
   }
 
   return (
-    <div id="pwainstall" style={{ display: "block" }}>
-      <div className="flex-container">
-        <div className="flex-item" id="pwaclose" onClick={closeInstallPrompt}>
-          ×
+    <div className="fixed inset-x-0 top-0 z-30 flex justify-center px-4 pt-4">
+      <div className="flex w-full max-w-md items-center gap-3 rounded-xl border border-line bg-surface p-3 shadow-elev-3">
+        <img
+          alt=""
+          className="size-10 rounded-lg"
+          decoding="async"
+          height={40}
+          src="/img/maskable_icon.png"
+          width={40}
+        />
+        <div className="min-w-0 flex-1">
+          <p className="font-semibold text-ink text-sm">Veganify</p>
+          <p className="truncate text-muted text-xs">{t("subheading")}</p>
         </div>
-        <div className="flex-item">
-          <img alt="Veganify Icon" src="/img/maskable_icon.png" />
-        </div>
-        <div className="flex-item">
-          <span className="heading">Veganify</span>
-          <span className="subheading">{t("subheading")}</span>
-        </div>
-        <div className="flex-item">
-          <ModalWrapper
-            buttonClass="button"
-            buttonText={t("get")}
-            buttonType="span"
-            id="modal2"
-          >
-            <span className="center">
-              <Image
-                alt="PWAInstall"
-                className="heading_img"
-                height={48}
-                src="../img/pwainstall_img.svg"
-                width={48}
-              />
-              <h1>{t("install")}</h1>
-            </span>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: t("howtoinstall", {
-                  share:
-                    '<img src="../img/pwa_share.svg" width="16" height="16" alt="Share" />',
-                }),
-              }}
-            />
-          </ModalWrapper>
-        </div>
+        <Button onClick={openInstructions} size="sm">
+          {t("get")}
+        </Button>
+        <button
+          aria-label={t("dismiss")}
+          className="fluid-hover -m-1 flex size-9 items-center justify-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+          onClick={closeInstallPrompt}
+          type="button"
+        >
+          <X aria-hidden="true" className="size-4" />
+        </button>
       </div>
+      {renderInstructions()}
     </div>
   );
+
+  function renderInstructions() {
+    return (
+      <Dialog
+        onOpenChange={setInstructionsOpen}
+        open={instructionsOpen}
+        title={t("install")}
+      >
+        <p>
+          {t.rich("howtoinstall", {
+            share: () => (
+              <strong className="font-semibold text-ink">Share</strong>
+            ),
+          })}
+        </p>
+      </Dialog>
+    );
+  }
 };
 
 function getCookie(name: string): string | undefined {

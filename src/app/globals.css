@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+ * Theme switching
+ * Default: light. `prefers-color-scheme: dark` swaps to dark tokens.
+ * `html[data-theme="oled"]` forces the OLED (true black) dark variant and
+ * wins over both by specificity. Semantic tokens only — components never
+ * branch on theme utilities, the values switch underneath them.
+ * ------------------------------------------------------------------------- */
+
+@custom-variant oled (&:where([data-theme="oled"], [data-theme="oled"] *));
+
+:root {
+  /* Surfaces */
+  --bg: oklch(0.977 0.006 250);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.955 0.008 250);
+
+  /* Text */
+  --ink: oklch(0.3 0.025 260);
+  --muted: oklch(0.46 0.025 260);
+
+  /* Lines */
+  --line: oklch(0.895 0.01 250);
+  --line-strong: oklch(0.6 0.03 258);
+
+  /* Accent (interactive) */
+  --accent: oklch(0.441 0.177 259.8);
+  --accent-hover: oklch(0.386 0.153 259.4);
+  --accent-foreground: oklch(1 0 0);
+  --link: oklch(0.441 0.177 259.8);
+  --ring: oklch(0.441 0.177 259.8);
+
+  /* Status — reserved semantics: green = vegan, red = not vegan, amber = caution */
+  --success: oklch(0.5 0.12 155);
+  --success-surface: oklch(0.95 0.04 155);
+  --danger: oklch(0.55 0.2 27);
+  --danger-surface: oklch(0.95 0.04 27);
+  --caution: oklch(0.55 0.13 80);
+  --caution-surface: oklch(0.95 0.05 90);
+  --neutral: oklch(0.46 0.025 260);
+  --neutral-surface: oklch(0.955 0.008 250);
+
+  /* Elevation — layered shadows in light… */
+  --elev-1: 0 1px 2px oklch(0.3 0.05 260 / 0.06);
+  --elev-2:
+    0 1px 3px oklch(0.3 0.05 260 / 0.08),
+    0 1px 2px -1px oklch(0.3 0.05 260 / 0.06);
+  --elev-3:
+    0 4px 10px -2px oklch(0.3 0.05 260 / 0.1),
+    0 2px 4px -2px oklch(0.3 0.05 260 / 0.05);
+  --elev-4:
+    0 16px 32px -8px oklch(0.3 0.05 260 / 0.16),
+    0 4px 8px -4px oklch(0.3 0.05 260 / 0.06);
+
+  --nav-bg: oklch(0.977 0.006 250 / 0.85);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: oklch(0.205 0.015 260);
+    --surface: oklch(0.245 0.016 260);
+    --surface-2: oklch(0.295 0.018 260);
+
+    --ink: oklch(0.955 0.006 250);
+    --muted: oklch(0.72 0.015 255);
+
+    --line: oklch(0.34 0.018 260);
+    --line-strong: oklch(0.55 0.025 258);
+
+    --accent: oklch(0.5 0.18 258);
+    --accent-hover: oklch(0.44 0.18 258);
+    --accent-foreground: oklch(1 0 0);
+    --link: oklch(0.7 0.14 250);
+    --ring: oklch(0.7 0.14 250);
+
+    --success: oklch(0.72 0.15 155);
+    --success-surface: oklch(0.3 0.05 155);
+    --danger: oklch(0.68 0.19 25);
+    --danger-surface: oklch(0.32 0.08 25);
+    --caution: oklch(0.76 0.14 85);
+    --caution-surface: oklch(0.34 0.06 85);
+    --neutral: oklch(0.72 0.015 255);
+    --neutral-surface: oklch(0.295 0.018 260);
+
+    /* …surface darkening stands in for shadows in dark */
+    --elev-1: 0 0 0 0 transparent;
+    --elev-2: 0 0 0 0 transparent;
+    --elev-3: 0 0 0 1px oklch(1 0 0 / 0.04);
+    --elev-4:
+      0 0 0 1px oklch(1 0 0 / 0.06), 0 24px 48px -12px oklch(0 0 0 / 0.6);
+
+    --nav-bg: oklch(0.205 0.015 260 / 0.85);
+  }
+}
+
+html[data-theme="oled"] {
+  --bg: oklch(0 0 0);
+  --surface: oklch(0.115 0 0);
+  --surface-2: oklch(0.175 0.008 260);
+
+  --line: oklch(0.26 0 0);
+  --line-strong: oklch(0.55 0.025 258);
+
+  --link: oklch(0.7 0.14 250);
+  --ring: oklch(0.7 0.14 250);
+
+  --success-surface: oklch(0.24 0.05 155);
+  --danger-surface: oklch(0.26 0.07 25);
+  --caution-surface: oklch(0.26 0.05 85);
+  --neutral-surface: oklch(0.175 0.008 260);
+
+  --elev-3: 0 0 0 1px oklch(1 0 0 / 0.05);
+  --elev-4: 0 0 0 1px oklch(1 0 0 / 0.08), 0 24px 48px -12px oklch(0 0 0 / 0.8);
+
+  --nav-bg: oklch(0 0 0 / 0.85);
+}
+
+/* ---------------------------------------------------------------------------
+ * Token → utility mapping. Every value is contrast-verified:
+ * ink/surface ≥ 12:1, muted/surface ≥ 6:1, link & ring ≥ 6:1 on both
+ * surfaces, accent-foreground on accent ≥ 5:1, NutriScore pairs ≥ 5.5:1.
+ * ------------------------------------------------------------------------- */
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-link: var(--link);
+  --color-ring: var(--ring);
+
+  --color-success: var(--success);
+  --color-success-surface: var(--success-surface);
+  --color-danger: var(--danger);
+  --color-danger-surface: var(--danger-surface);
+  --color-caution: var(--caution);
+  --color-caution-surface: var(--caution-surface);
+  --color-neutral: var(--neutral);
+  --color-neutral-surface: var(--neutral-surface);
+
+  /* NutriScore grade badges — fixed pairs, identical in every theme */
+  --color-nutri-a: oklch(0.46 0.11 155);
+  --color-nutri-a-fg: oklch(1 0 0);
+  --color-nutri-b: oklch(0.74 0.15 125);
+  --color-nutri-b-fg: oklch(0.26 0.05 155);
+  --color-nutri-c: oklch(0.83 0.15 92);
+  --color-nutri-c-fg: oklch(0.3 0.06 92);
+  --color-nutri-d: oklch(0.71 0.16 55);
+  --color-nutri-d-fg: oklch(0.28 0.09 55);
+  --color-nutri-e: oklch(0.52 0.19 30);
+  --color-nutri-e-fg: oklch(1 0 0);
+
+  --font-sans:
+    var(--font-mona-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  --shadow-elev-1: var(--elev-1);
+  --shadow-elev-2: var(--elev-2);
+  --shadow-elev-3: var(--elev-3);
+  --shadow-elev-4: var(--elev-4);
+
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    color: var(--accent-foreground);
+    background-color: var(--accent);
+  }
+
+  /* One focus treatment everywhere: the browser draws it on :focus-visible,
+     tokens guarantee ≥ 3:1 on every surface. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Fluid hover transitions are color-only (no transforms), so they are
+     safe under reduced motion. Spring motion lives in `motion` with
+     reducedMotion="user". */
+  @media (prefers-reduced-motion: no-preference) {
+    .fluid-hover {
+      transition:
+        background-color 150ms ease-out,
+        border-color 150ms ease-out,
+        color 150ms ease-out,
+        box-shadow 150ms ease-out,
+        opacity 150ms ease-out;
+    }
+  }
+}
+
+@utility sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-width: 0;
+  clip-path: inset(50%);
+}
+
+/* Injected legal documents (impressum, privacy policy, TOS) arrive as
+   arbitrary HTML from remote sources; give them a readable default. */
+@layer components {
+  .prose-legal {
+    max-width: none;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .prose-legal h1,
+  .prose-legal h2,
+  .prose-legal h3 {
+    margin: 1.5em 0 0.5em;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .prose-legal h1 {
+    font-size: 1.25rem;
+  }
+  .prose-legal h2 {
+    font-size: 1.125rem;
+  }
+  .prose-legal h3 {
+    font-size: 1rem;
+  }
+
+  .prose-legal p,
+  .prose-legal ul,
+  .prose-legal ol {
+    margin: 0.75em 0;
+  }
+
+  .prose-legal a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose-legal ul,
+  .prose-legal ol {
+    padding-inline-start: 1.5em;
+    list-style: revert;
+  }
+}

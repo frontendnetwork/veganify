@@ -1,87 +1,107 @@
-import Image from "next/image";
+"use client";
+
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { type ChangeEvent, useCallback, useState } from "react";
+
+import { GitHubIcon, KoFiIcon, PayPalIcon } from "@/components/ui/brand-icons";
+import { cn } from "@/lib/utils";
 
 const SUPPORT_OPTIONS = {
   GITHUB: {
-    icon: "icon-github-circled",
+    icon: GitHubIcon,
     link: "https://github.com/sponsors/philipbrembeck",
-    price: "1-100$",
+    price: "1–100$",
     text: "Sponsor on GitHub",
     translationKey: "monthlyviagithub",
     vendor: "GitHub",
   },
   KOFI: {
-    icon: "icon-kofi",
+    icon: KoFiIcon,
     link: "https://ko-fi.com/veganify",
-    price: "1-50€",
+    price: "1–50€",
     text: "Sponsor on Ko-Fi",
     translationKey: "onceviakofi",
     vendor: "Ko-Fi.com",
   },
   PAYPAL: {
-    icon: "icon-paypal",
+    icon: PayPalIcon,
     link: "https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536",
-    price: "1-15€",
+    price: "1–15€",
     text: "Donate with PayPal",
     translationKey: "onceviapaypal",
     vendor: "PayPal",
   },
-};
+} as const;
 
 const SupportOption = () => {
   const t = useTranslations("More");
-  const [selectedOption, setSelectedOption] = useState(SUPPORT_OPTIONS.PAYPAL);
+  const [selected, setSelectedOption] = useState<
+    (typeof SUPPORT_OPTIONS)[keyof typeof SUPPORT_OPTIONS]
+  >(SUPPORT_OPTIONS.PAYPAL);
+  const SelectedIcon = selected.icon;
 
-  const handleOptionClick = (
-    option: (typeof SUPPORT_OPTIONS)[keyof typeof SUPPORT_OPTIONS]
-  ) => {
-    setSelectedOption(option);
-  };
+  const handleOptionChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const option = Object.values(SUPPORT_OPTIONS).find(
+        (o) => o.vendor === event.currentTarget.value
+      );
+      if (option) {
+        setSelectedOption(option);
+      }
+    },
+    []
+  );
 
   return (
-    <>
-      <span className="center">
-        <Image
-          alt="Donate"
-          className="heading_img"
-          height={48}
-          src="/img/donate_img.svg"
-          width={48}
-        />
-        <h1>{t("buyusacoffee")}</h1>
-      </span>
-      {Object.entries(SUPPORT_OPTIONS).map(([key, option]) => {
-        const handleOptionSelect = () => handleOptionClick(option);
-
+    <div role="radiogroup" aria-label={t("buyusacoffee")}>
+      {Object.values(SUPPORT_OPTIONS).map((option) => {
+        const Icon = option.icon;
+        const isSelected = selected === option;
         return (
-          <div
-            className={`option ${selectedOption === option ? "active" : ""}`}
-            id={`option_${key.toLowerCase()}`}
-            key={key}
-            onClick={handleOptionSelect}
+          <label
+            className={cn(
+              "fluid-hover mb-2 flex cursor-pointer items-center gap-3 rounded-xl border p-4",
+              isSelected
+                ? "border-accent bg-surface-2"
+                : "border-line bg-surface hover:bg-surface-2"
+            )}
+            key={option.vendor}
           >
             <input
-              checked={selectedOption === option}
-              className="form-check-input"
-              id={key.toLowerCase()}
-              name="flexRadioDefault"
+              checked={isSelected}
+              className="size-4 accent-[var(--accent)]"
+              name="support-option"
+              onChange={handleOptionChange}
               type="radio"
+              value={option.vendor}
             />
-            <span className="muted">{t(option.translationKey)}</span>
-            <span className="price">{option.price}</span>
-          </div>
+            <Icon aria-hidden="true" className="size-5 text-muted" />
+            <span className="flex-1">
+              <span className="block font-medium text-ink text-sm">
+                {t(option.translationKey)}
+              </span>
+              <span className="block text-muted text-xs">
+                {option.vendor} · {option.price}
+              </span>
+            </span>
+          </label>
         );
       })}
-      <div className="center donate">
-        <a className="button" href={selectedOption.link} id="supportbtn">
-          <span className={selectedOption.icon} /> {selectedOption.text}
+      <div className="mt-4">
+        <a
+          className="fluid-hover flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent font-medium text-accent-foreground text-sm shadow-elev-1 hover:bg-accent-hover motion-safe:transition-transform motion-safe:active:scale-[0.96]"
+          href={selected.link}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <SelectedIcon aria-hidden="true" className="size-4" />
+          {selected.text}
         </a>
-        <span className="info">
-          {t("redirect")} <span id="vendor">{selectedOption.vendor}</span>.
-        </span>
+        <p className="mt-2 text-center text-muted text-xs">
+          {t("redirect")} {selected.vendor}.
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 

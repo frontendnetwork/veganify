@@ -1,37 +1,46 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { type FormEvent, useCallback, useEffect, useState } from "react";
-
+import { spring } from "@/lib/springs";
 import { FetchStatus } from "@/models/FetchStatus";
 import type { ProductResult } from "@/models/ProductResults";
 import type { Sources } from "@/models/Sources";
-
+import { EmptyState } from "./EmptyState";
 import { LoadingSkeleton } from "./LoadingSkeleton";
 import { ProductResultView } from "./ProductResult";
+import { RecentSearches, rememberCheck } from "./RecentSearches";
 import { SearchForm } from "./SearchForm";
 import { StatusMessages } from "./StatusMessages";
 import { fetchProduct } from "./utils/product-actions";
 import { getProductState } from "./utils/product-helpers";
 
+type Status =
+  | "idle"
+  | "loading"
+  | "found"
+  | "notfound"
+  | "invalid"
+  | "timeout"
+  | "error";
+
+const INITIAL_RESULT: ProductResult = {
+  animaltestfree: "n/a",
+  grade: "",
+  nutriscore: "",
+  palmoil: "n/a",
+  productname: "",
+  vegan: "n/a",
+  vegetarian: "n/a",
+};
+
 export default function ProductSearch() {
-  const [result, setResult] = useState<ProductResult>({
-    animaltestfree: "n/a",
-    grade: "",
-    nutriscore: "",
-    palmoil: "n/a",
-    productname: "",
-    vegan: "n/a",
-    vegetarian: "n/a",
-  });
+  const [result, setResult] = useState<ProductResult>(INITIAL_RESULT);
   const [sources, setSources] = useState<Sources>({});
   const [barcode, setBarcode] = useState<string>("");
-  const [showFound, setShowFound] = useState<boolean>(false);
-  const [showNotFound, setShowNotFound] = useState<boolean>(false);
-  const [showInvalid, setShowInvalid] = useState<boolean>(false);
-  const [showTimeout, setShowTimeout] = useState<boolean>(false);
-  const [showTimeoutFinal, setShowTimeoutFinal] = useState<boolean>(false);
-  const [showError, setShowError] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const t = useTranslations("Check");
+  const [status, setStatus] = useState<Status>("idle");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -40,19 +49,13 @@ export default function ProductSearch() {
       setBarcode(eanFromURL);
       handleSubmit(eanFromURL);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = useCallback(
     async (barcodeValue: string, event?: FormEvent) => {
       event?.preventDefault();
-
-      setShowTimeoutFinal(false);
-      setShowError(false);
-      setShowTimeout(false);
-      setShowFound(false);
-      setShowNotFound(false);
-      setShowInvalid(false);
-      setLoading(true);
+      setStatus("loading");
 
       try {
         const data = await fetchProduct(barcodeValue);
@@ -67,52 +70,102 @@ export default function ProductSearch() {
             vegetarian: data.product.vegetarian ?? "n/a",
           });
           setSources(data.sources);
-          setShowFound(true);
-        } else if (data.status === FetchStatus.NOT_FOUND) {
-          setShowNotFound(true);
+          rememberCheck({
+            ean: barcodeValue,
+            name:
+              typeof data.product.productname === "string"
+                ? data.product.productname
+                : "n/a",
+          });
+          setStatus("found");
+          return;
+        }
+        if (data.status === FetchStatus.NOT_FOUND) {
+          setStatus("notfound");
         } else if (data.status === FetchStatus.INVALID) {
-          setShowInvalid(true);
+          setStatus("invalid");
         } else if (data.status === FetchStatus.TIMEOUT) {
-          setShowTimeoutFinal(true);
+          setStatus("timeout");
         } else {
-          setShowError(true);
+          setStatus("error");
         }
       } catch {
-        setShowError(true);
-      } finally {
-        setLoading(false);
+        setStatus("error");
       }
     },
     []
+  );
+
+  const handleRecentSelect = useCallback(
+    (ean: string) => {
+      setBarcode(ean);
+      handleSubmit(ean);
+    },
+    [handleSubmit]
   );
 
   return (
     <>
       <SearchForm
         barcode={barcode}
-        loading={loading}
+        loading={status === "loading"}
         onBarcodeChange={setBarcode}
         onSubmit={handleSubmit}
       />
-
-      {!!showFound && (
-        <ProductResultView
-          barcode={barcode}
-          productState={getProductState(result)}
-          result={result}
-          sources={sources}
-        />
-      )}
-
-      <StatusMessages
-        showInvalid={showInvalid}
-        showNotFound={showNotFound}
-        showError={showError}
-        showTimeout={showTimeout}
-        showTimeoutFinal={showTimeoutFinal}
-      />
-
-      {!!loading && <LoadingSkeleton />}
+      {status === "idle" ? (
+        <>
+          <EmptyState onSelectExample={handleRecentSelect} />
+          <RecentSearches onSelect={handleRecentSelect} />
+        </>
+      ) : null}
+      <div aria-live="polite" role="status">
+        {status === "loading" ? (
+          <p className="sr-only-focusable">{t("searching")}</p>
+        ) : null}
+        <AnimatePresence initial={false} mode="wait">
+          {status === "loading" && (
+            <motion.div
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: spring.fast.exit }}
+              initial={{ opacity: 0 }}
+              key="loading"
+              transition={spring.moderate}
+            >
+              <LoadingSkeleton />
+            </motion.div>
+          )}
+          {status === "found" && (
+            <motion.div
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, transition: spring.fast.exit }}
+              initial={{ opacity: 0, y: 16 }}
+              key="found"
+              transition={spring.moderate}
+            >
+              <ProductResultView
+                barcode={barcode}
+                productState={getProductState(result)}
+                result={result}
+                sources={sources}
+              />
+            </motion.div>
+          )}
+          {(status === "notfound" ||
+            status === "invalid" ||
+            status === "timeout" ||
+            status === "error") && (
+            <motion.div
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, transition: spring.fast.exit }}
+              initial={{ opacity: 0, y: 16 }}
+              key={status}
+              transition={spring.moderate}
+            >
+              <StatusMessages status={status} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }

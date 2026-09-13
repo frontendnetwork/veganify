@@ -10,10 +10,14 @@
     "description": "Nejste si jistí, zda je výrobek veganský, nebo ne? S Veganify můžete při nákupu naskenovat čárový kód zboží a zkontrolovat zda je veganské, nebo ne a to bez spousty dalších zbytečných informací! Vyzkoušejte to hned teď!",
     "home": "Domů",
     "ingredientcheck": "Kontrola ingrediencí",
-    "more": "Více"
+    "more": "Více",
+    "navigation": "Hlavní navigace"
   },
   "Footer": {
-    "credit": "Vyrobil s {heart} {philipLink} & {jokeLink}"
+    "credit": "Vytvořeno s <heart>♥</heart> od <philipLink>Philipa Brembecka</philipLink> a <jokeLink>FrontEndNet.work</jokeLink>",
+    "sponsor": "Sponzorováno UptimeRobot",
+    "opensource": "Open Source",
+    "carbonneutral": "Uhlikově neutrální"
   },
   "Check": {
     "enterbarcode": "Vložte čárový kód",
@@ -23,8 +27,8 @@
     "palmoil": "Palmový olej",
     "palmoil_desc": "Palmový olej má mimořádně škodlivý dopad na planetu. Je hlavní příčinou odlesňování některých biologicky nejrozmanitějších lesů a ničí přirozené prostředí již ohrožených živočichů. Z tohoto důvodu bychom doporučovali nekupovat žádné výrobky, které obsahují palmový olej. Bohužel je na trhu stále mnoho výrobků, které palmový olej obsahují.",
     "crueltyfree": "Cruelty-Free",
-    "nutriscore_desc": "Nutriscore označuje nutriční profil výrobku ve formě semaforu. Nutriscore však není považováno za přesné a nemělo by se používat jako referenční hodnota. Více informací o Nutriscore najdete na stránkách {Algorithmwatch} (v angličtině).",
-    "grades_desc": "Jste zmateni všemi těmi veganskými/eco-friendly/organickými štítky?<br />Se snadno srozumitelnými Veganify Známkami už nebudete! Veganify Známky je systém hodnocení pro veganské produkty, který produktu přiděluje jeden ze šesti stupňů (A+ – Nezpůsobilé).<br />Pokud se chcete dozvědět více o Veganify Známkách nebo chcete-li požádat o hodnocení produktu, můžete tak učinit na {Grades}!",
+    "nutriscore_desc": "NutriScore ukazuje nutriční profil produktu formou semaforu. NutriScore se však nepovažuje za přesný a neměl by být používán jako reference. Více informací o NutriScore najdeš na <algorithmwatch>Algorithmwatch</algorithmwatch> (anglicky).",
+    "grades_desc": "Matou tě všechny veganské/eko/bio značky? Se snadno srozumitelnými známkami Veganify už ne! Veganify Grades je hodnotící systém pro veganské produkty, který přiděluje produktu jednu ze šesti známek (A+ – Nezpůsobilé). Pokud se o známkách Veganify chceš dozvědět více nebo si přát ohodnocení produktu, můžeš tak učinit na <grades>Veganify Grades</grades>.",
     "source": "Zdroj dat",
     "licenses": "Licence",
     "licenses_desc": "Veganify používá ke shromažďování informací o výrobku různé databáze a rozhraní API. Informace jsou licencovány pod následujícími licencemi:",
@@ -39,7 +43,33 @@
     "unknown_error": "Došlo k neočekávané chybě. Zkuste to prosím znovu.",
     "share": "Sdílet",
     "copy": "Kopírovat",
-    "on": "na"
+    "on": "na",
+    "notvegan": "Není veganské",
+    "yes": "Ano",
+    "no": "Ne",
+    "unknown": "Neznámé",
+    "grades": "Známka Veganify",
+    "searching": "Vyhledávání…",
+    "barcodeexample": "např. 4000417025005",
+    "barcodehint": "Zadej čárový kód nebo jej naskenuj kamerou.",
+    "wrongbarcode_desc": "Čárové kódy mají 8–13 číslic. Zkontroluj čísla pod čárovým kódem a zkus to znovu.",
+    "checkconnection": "Zkontroluj připojení a zkus to znovu.",
+    "copied": "Zkopírováno!",
+    "viamessage": "zprávou",
+    "viaemail": "e-mailem",
+    "whatis": "Co je {title}?",
+    "isitvegan": "Je to veganské?",
+    "tryexample": "Vyzkoušet ukázkové skenování",
+    "recent": "Nedávno kontrolované",
+    "clearrecent": "Vymazat",
+    "tagline": "Naskenujte produkt. Zjistěte, jestli je veganské.",
+    "howitworks": "Jak to funguje",
+    "step1t": "Skenujte nebo zadejte",
+    "step1d": "Namiřte kamerou na čárový kód nebo zadejte číslice.",
+    "step2t": "Zobrazit verdikt",
+    "step2d": "Veganské, vegetariánské a palmový olej — jedním pohledem.",
+    "step3t": "Zkontrolovat detaily",
+    "step3d": "Včetně NutriScore, stavu bez testů na zvířatech a známky Veganify."
   },
   "More": {
     "buyusacoffee": "Kupte nám kafe",
@@ -64,7 +94,8 @@
     "cursed": "Prokletý",
     "memeculture": "Oslava meme-kultury",
     "czech": "Česky",
-    "portuguese-br": "Brazílie Portugalština"
+    "portuguese-br": "Brazílie Portugalština",
+    "currentlanguage": "(aktuální)"
   },
   "TOS": {
     "englishgermanonly": "Tato stránka je k dispozici pouze v angličtině a němčině.",
@@ -83,7 +114,8 @@
     "subheading": "Je to veganské? - Veganify",
     "install": "Nainstalovat Veganify",
     "get": "Získat",
-    "howtoinstall": "Klepněte na {share} a potom na \"Přidat na domovskou obrazovku\".."
+    "howtoinstall": "Klepni na <share>Sdílet</share> a pak na „Přidat na domovskou obrazovku\".",
+    "dismiss": "Zavřít"
   },
   "ShortcutPrompt": {
     "Shortcuts": "Zástupci",
@@ -101,8 +133,26 @@
     "unknown_error": "Došlo k neočekávané chybě. Zkuste to prosím znovu.",
     "licenses": "Licence",
     "licenses_desc": "Veganify používá ke shromažďování informací o výrobku různé databáze a rozhraní API. Informace jsou licencovány pod následujícími licencemi:",
-    "languagewarning": "Tyto výsledky mohou být nesprávné z důvodu chyb v překladu nebo chybějících informací. Výsledky jsou přeloženy pomocí {deepl}.",
+    "languagewarning": "Tyto výsledky mohou být nesprávné kvůli chybám překladu nebo chybějícím informacím. Výsledky byly přeloženy pomocí <deepl>DeepL</deepl>.",
     "maybe_vegan": "Tato složka může obsahovat živočišné produkty.",
-    "unknown_vegan": "O této složce nemáme žádné informace."
+    "unknown_vegan": "O této složce nemáme žádné informace.",
+    "searching": "Kontroluji…",
+    "ingredientsexample": "Cukr, kakaové máslo, sójový lecitin…",
+    "yes": "Ano",
+    "no": "Ne"
+  },
+  "Layout": {
+    "skiptomain": "Přeskočit na hlavní obsah",
+    "back": "Zpět"
+  },
+  "Dialog": {
+    "close": "Zavřít"
+  },
+  "Scanner": {
+    "open": "Naskenovat čárový kód kamerou",
+    "close": "Zavřít skener",
+    "switchcamera": "Přepnout kameru",
+    "hint": "Zaměř čárový kód do rámečku",
+    "cameraerror": "Kamera není k dispozici. Zkontroluj oprávnění prohlížeče nebo zadej čárový kód ručně."
   }
 }

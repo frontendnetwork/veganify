@@ -10,10 +10,14 @@
     "description": "Tu n'es pas sûr qu'un produit soit végane ou non ? Avec Veganify, tu peux scanner le code-barres d'un article directement lors de tes achats et vérifier s'il est végétalien ou non, et ce sans avoir à fournir beaucoup d'autres informations inutiles ! Essaye-le maintenant!",
     "home": "Home",
     "ingredientcheck": "Vérification des ingrédients",
-    "more": "Plus de"
+    "more": "Plus de",
+    "navigation": "Navigation principale"
   },
   "Footer": {
-    "credit": "Réalisé avec {heart} par {philipLink} & {jokeLink}"
+    "credit": "Fait avec <heart>♥</heart> par <philipLink>Philip Brembeck</philipLink> et <jokeLink>FrontEndNet.work</jokeLink>",
+    "sponsor": "Sponsorisé par UptimeRobot",
+    "opensource": "Open Source",
+    "carbonneutral": "Neutre en carbone"
   },
   "Check": {
     "enterbarcode": "Saisir le code-barres",
@@ -23,8 +27,8 @@
     "palmoil": "Huile de palme",
     "palmoil_desc": "L'huile de palme a un impact extrêmement néfaste sur la planète. Elle est le principal moteur de la déforestation de certaines des forêts les plus riches en biodiversité, détruisant les habitats naturels d'animaux déjà menacés. C'est pourquoi nous vous recommandons de ne pas acheter de produits contenant de l'huile de palme. Malheureusement, il existe encore de nombreux produits qui contiennent de l'huile de palme.",
     "crueltyfree": "Sans cruauté",
-    "nutriscore_desc": "Le Nutriscore indique le profil nutritionnel d'un produit sous forme de feux tricolores. Cependant, le Nutriscore n'est pas considéré comme précis et ne doit pas être utilisé comme une référence. Vous pouvez trouver plus d'informations sur le Nutriscore sur {Algorithmwatch} (anglais).",
-    "grades_desc": "Êtes-vous confus par tous les labels végétaliens/écologiques/organiques ? <br />Vous ne le serez plus avec le système Veganify Grades, facile à comprendre ! Veganify Grades est un système d'évaluation des produits végétaliens, qui attribue l'une des six notes (A+ - Non admissible) à un produit.<br />Si vous souhaitez en savoir plus sur Veganify Grades ou si vous voulez demander une évaluation pour un produit, vous pouvez le faire sur {Grades} !",
+    "nutriscore_desc": "Le NutriScore indique le profil nutritionnel d'un produit sous forme de feu tricolore. Cependant, le NutriScore n'est pas considéré comme précis et ne devrait pas être utilisé comme référence. Tu trouveras plus d'informations sur le NutriScore sur <algorithmwatch>Algorithmwatch</algorithmwatch> (anglais).",
+    "grades_desc": "Tu es confus face à tous les labels végans/éco/bio ? Tu ne le seras plus avec les notes Veganify faciles à comprendre ! Veganify Grades est un système de notation des produits végans qui attribue l'une des six notes (A+ – Non éligible) à un produit. Pour en savoir plus sur les notes Veganify ou demander une évaluation, rendez-vous sur <grades>Veganify Grades</grades>.",
     "source": "Source des données",
     "licenses": "Licenses",
     "licenses_desc": "Veganify utilise différentes sources de données pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
@@ -39,7 +43,33 @@
     "unknown_error": "Une erreur inattendue s'est produite. Veuillez réessayer.",
     "share": "Partager",
     "copy": "Copier",
-    "on": "sur"
+    "on": "sur",
+    "notvegan": "Non végétalien",
+    "yes": "Oui",
+    "no": "Non",
+    "unknown": "Inconnu",
+    "grades": "Note Veganify",
+    "searching": "Recherche…",
+    "barcodeexample": "ex. 4000417025005",
+    "barcodehint": "Saisis le code-barres ou scanne-le avec la caméra.",
+    "wrongbarcode_desc": "Les codes-barres comptent de 8 à 13 chiffres. Vérifie le nombre sous le code-barres et réessaie.",
+    "checkconnection": "Vérifie ta connexion et réessaie.",
+    "copied": "Copié !",
+    "viamessage": "par message",
+    "viaemail": "par e-mail",
+    "whatis": "Qu'est-ce que {title} ?",
+    "isitvegan": "Est-ce végétalien ?",
+    "tryexample": "Essayer un exemple de scan",
+    "recent": "Vérifiés récemment",
+    "clearrecent": "Effacer",
+    "tagline": "Scannez un produit. Vous saurez s'il est végétalien.",
+    "howitworks": "Comment ça marche",
+    "step1t": "Scannez ou saisissez",
+    "step1d": "Visez le code-barres avec la caméra ou saisissez les chiffres.",
+    "step2t": "Voir le verdict",
+    "step2d": "Végétalien, végétarien et huile de palme — en un coup d'œil.",
+    "step3t": "Vérifier les détails",
+    "step3d": "Avec NutriScore, statut sans cruauté animale et note Veganify."
   },
   "More": {
     "buyusacoffee": "Achetez-nous un café",
@@ -64,7 +94,8 @@
     "cursed": "Surprise",
     "memeculture": "Vive la culture des memes !",
     "czech": "Tchèque",
-    "portuguese-br": "Portugais brésilien"
+    "portuguese-br": "Portugais brésilien",
+    "currentlanguage": "(actuel)"
   },
   "TOS": {
     "englishgermanonly": "Cette page est uniquement disponible en anglais et en allemand.",
@@ -83,7 +114,8 @@
     "subheading": "Est-ce que c'est végétal ?",
     "install": "Installer Veganify",
     "get": "obtenir",
-    "howtoinstall": "Tapez sur {share} puis sur \"Ajouter à l'écran d'accueil\"."
+    "howtoinstall": "Touche <share>Partager</share> puis « Sur l'écran d'accueil ».",
+    "dismiss": "Fermer"
   },
   "ShortcutPrompt": {
     "Shortcuts": "Raccourcis",
@@ -101,8 +133,26 @@
     "unknown_error": "Une erreur inattendue s'est produite. Veuillez réessayer.",
     "licenses": "Licenses",
     "licenses_desc": "Veganify utilise différentes sources de données pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
-    "languagewarning": "Ces résultats peuvent être incorrects en raison d'erreurs de traduction ou d'informations manquantes. Les résultats sont traduits avec {deepl}.",
+    "languagewarning": "Ces résultats peuvent être incorrects en raison d'erreurs de traduction ou d'informations manquantes. Les résultats ont été traduits avec <deepl>DeepL</deepl>.",
     "maybe_vegan": "Cet ingrédient pourrait contenir des produits d'origine animale.",
-    "unknown_vegan": "Nous ne disposons pas d'informations sur cet ingrédient."
+    "unknown_vegan": "Nous ne disposons pas d'informations sur cet ingrédient.",
+    "searching": "Vérification…",
+    "ingredientsexample": "Sucre, beurre de cacao, lécithine de soja…",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "Layout": {
+    "skiptomain": "Aller au contenu principal",
+    "back": "Retour"
+  },
+  "Dialog": {
+    "close": "Fermer"
+  },
+  "Scanner": {
+    "open": "Scanner le code-barres avec la caméra",
+    "close": "Fermer le scanner",
+    "switchcamera": "Changer de caméra",
+    "hint": "Aligne le code-barres dans le cadre",
+    "cameraerror": "Caméra indisponible. Vérifie les autorisations du navigateur ou saisis le code-barres."
   }
 }
