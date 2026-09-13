@@ -16,6 +16,14 @@ module.exports = {
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/exec",
+      {
+        publishCmd:
+          // biome-ignore lint/suspicious/noTemplateCurlyInString: semantic-release variable substitution, not a JS template literal
+          "echo new_release_published=true >> $GITHUB_OUTPUT && echo new_release_version=${nextRelease.version} >> $GITHUB_OUTPUT && echo new_release_git_tag=${nextRelease.gitTag} >> $GITHUB_OUTPUT",
+      },
+    ],
     "@semantic-release/github",
   ],
 };
