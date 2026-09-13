@@ -93,7 +93,7 @@ jobs:
 
   deploy-prod:
     name: Roll out to production
-    needs: docker
+    needs: [semrel, docker]
     if: needs.semrel.outputs.released == 'true' && github.ref_name == 'main'
     runs-on: ubuntu-latest
     environment:
