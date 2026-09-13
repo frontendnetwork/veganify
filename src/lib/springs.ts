@@ -1,15 +1,3 @@
-// Motion tokens, taken verbatim from the Fluid Functionalism springs
-// registry. Each tier's value is the ENTER transition — a critically
-// damped spring, except the largest tier which keeps a little bounce. Its
-// `.exit` is the matching EXIT transition — a plain tween, no bounce, one
-// tier quicker — so a dismissal reads as crisp and final.
-//
-//   transition={spring.fast}                              // enter
-//   exit={{ opacity: 0, transition: spring.fast.exit }}   // leave
-//
-// The bigger the thing that moves, the slower the spring. Never hand-write
-// a duration — always reach for a tier. All springs respect the OS reduced
-// motion setting via <MotionConfig reducedMotion="user"> in the layout.
 export const spring = {
   fast: {
     bounce: 0,
@@ -17,6 +5,9 @@ export const spring = {
     exit: { duration: 0.06 },
     type: "spring" as const,
   },
+  // Critically damped: same perceived speed as a bouncier tier, but lands
+  // exactly with no overshoot — for short travel and panels/sheets that must
+  // settle precisely (dropdowns, tabs, drawers, merged selection backgrounds).
   moderate: {
     bounce: 0,
     duration: 0.16,
@@ -31,6 +22,10 @@ export const spring = {
   },
 } as const;
 
-// Fallback delay (ms) for deferred-unmount timers that guard an exit tween.
+// Fallback delay (ms) for deferred-unmount timers that guard an exit tween:
+// popups keep their portal mounted until onAnimationComplete fires, but a
+// throttled/background tab can stall the animation, so a timer force-unmounts
+// after the tier's exit duration plus a safety buffer. Deriving it here keeps
+// the timers in step with the tokens above.
 export const exitFallbackMs = (tier: { exit: { duration: number } }) =>
   Math.round(tier.exit.duration * 1000) + 100;

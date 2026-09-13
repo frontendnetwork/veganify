@@ -22,7 +22,7 @@ import {
 
 import Container from "@/components/elements/container";
 import SupportOption from "@/components/elements/contents/donate";
-import { Dialog } from "@/components/ui/dialog";
+import { AppDialog as Dialog } from "@/components/ui/app-dialog";
 import { Switch } from "@/components/ui/switch";
 import { Link } from "@/i18n/navigation";
 import { setLocaleCookie } from "@/lib/locale-cookie";
@@ -249,8 +249,9 @@ function OLEDRow(): ReactNode {
         ) : null}
       </div>
       <Switch
-        aria-label="OLED-Mode"
         checked={isChecked}
+        className="[&>span]:sr-only"
+        label="OLED-Mode"
         onToggle={handleClick}
       />
     </div>

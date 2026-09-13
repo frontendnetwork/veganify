@@ -1,125 +1,318 @@
 "use client";
 
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { motion } from "motion/react";
 import {
-  Close as DialogClose,
-  Content as DialogContent,
-  Description as DialogDescription,
-  Overlay as DialogOverlay,
-  Portal as DialogPortal,
-  Root as DialogRoot,
-  Title as DialogTitle,
-} from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useTranslations } from "next-intl";
-import { type ReactNode, useCallback, useEffect, useRef } from "react";
-
-import { spring } from "@/lib/springs";
+  type ComponentPropsWithoutRef,
+  createContext,
+  forwardRef,
+  type HTMLAttributes,
+  type ReactElement,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { Button } from "@/components/ui/button";
+import { useIcon } from "@/lib/icon-context";
+import { useShape } from "@/lib/shape-context";
+import { useSize, useSizeVariant } from "@/lib/size-context";
+import { exitFallbackMs, spring } from "@/lib/springs";
+import { surfaceClasses } from "@/lib/surface-classes";
+import { SurfaceProvider, useSurface } from "@/lib/surface-context";
 import { cn } from "@/lib/utils";
 
-/**
- * Dialog on Radix primitives (focus trap, aria-modal, Escape, focus return),
- * animated on the Fluid Functionalism spring tiers: `slow` to enter, one
- * tier faster to exit. Bottom sheet on small screens, centered above that.
- */
-export function Dialog({
-  open,
-  onOpenChange,
-  title,
-  description,
+const DIALOG_OFFSET = 4;
+
+const DialogOpenContext = createContext(false);
+
+function Dialog({
   children,
-  contentClassName,
-}: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  title: ReactNode;
-  description?: ReactNode;
-  children: ReactNode;
-  contentClassName?: string;
-}) {
-  const t = useTranslations("Dialog");
-  const returnFocusRef = useRef<HTMLElement | null>(null);
-
-  // Track the last focused element while closed, so closing returns focus to
-  // the trigger even though these dialogs are controlled without
-  // <DialogTrigger>.
-  useEffect(() => {
-    if (open) {
-      return;
-    }
-    const handleFocusIn = () => {
-      returnFocusRef.current = document.activeElement as HTMLElement | null;
-    };
-    document.addEventListener("focusin", handleFocusIn);
-    return () => document.removeEventListener("focusin", handleFocusIn);
-  }, [open]);
-
-  const handleCloseAutoFocus = useCallback((event: Event) => {
-    event.preventDefault();
-    returnFocusRef.current?.focus();
-  }, []);
+  open: controlledOpen,
+  defaultOpen,
+  onOpenChange,
+  ...props
+}: DialogPrimitive.DialogProps) {
+  // Internal state always tracks changes, and the consumer's onOpenChange is
+  // notified alongside it — a listener must not replace state handling, or an
+  // uncontrolled dialog with an onOpenChange prop could never open. The Root
+  // below is always controlled by `open`, so defaultOpen seeds our state
+  // instead of being forwarded.
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(
+    defaultOpen ?? false
+  );
+  const open = controlledOpen ?? uncontrolledOpen;
+  const handleOpenChange = (next: boolean) => {
+    setUncontrolledOpen(next);
+    onOpenChange?.(next);
+  };
 
   return (
-    <DialogRoot onOpenChange={onOpenChange} open={open}>
-      <AnimatePresence>
-        {!!open && (
-          <DialogPortal forceMount>
-            <DialogOverlay asChild forceMount>
-              <motion.div
-                animate={{ opacity: 1 }}
-                className="fixed inset-0 z-40 bg-black/50 motion-reduce:backdrop-blur-0"
-                exit={{ opacity: 0, transition: spring.fast.exit }}
-                initial={{ opacity: 0 }}
-                transition={spring.fast}
-              />
-            </DialogOverlay>
-            <DialogContent
-              aria-modal="true"
-              asChild
-              forceMount
-              onCloseAutoFocus={handleCloseAutoFocus}
-            >
-              <motion.div
-                animate={{ opacity: 1, y: 0 }}
-                className={cn(
-                  "fixed z-50 flex max-h-[85dvh] w-full flex-col",
-                  "inset-x-0 bottom-0 rounded-t-2xl",
-                  "sm:inset-x-auto sm:top-1/2 sm:bottom-auto sm:left-1/2 sm:max-w-lg sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl",
-                  "bg-surface text-ink shadow-elev-4",
-                  contentClassName
-                )}
-                exit={{
-                  opacity: 0,
-                  transition: spring.moderate.exit,
-                  y: 24,
-                }}
-                initial={{ opacity: 0, y: 64 }}
-                transition={spring.slow}
-              >
-                <div className="flex items-start justify-between gap-4 px-6 pt-6">
-                  <DialogTitle className="text-balance font-semibold text-lg">
-                    {title}
-                  </DialogTitle>
-                  <DialogClose
-                    aria-label={t("close")}
-                    className="fluid-hover -m-2 flex size-9 shrink-0 items-center justify-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
-                  >
-                    <X aria-hidden="true" className="size-5" />
-                  </DialogClose>
-                </div>
-                {!!description && (
-                  <DialogDescription className="px-6 pt-1 text-muted text-sm">
-                    {description}
-                  </DialogDescription>
-                )}
-                <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 pt-4 pb-6">
-                  {children}
-                </div>
-              </motion.div>
-            </DialogContent>
-          </DialogPortal>
-        )}
-      </AnimatePresence>
-    </DialogRoot>
+    <DialogOpenContext.Provider value={open}>
+      <DialogPrimitive.Root
+        open={open}
+        onOpenChange={handleOpenChange}
+        {...props}
+      >
+        {children}
+      </DialogPrimitive.Root>
+    </DialogOpenContext.Provider>
   );
 }
+
+// Trigger and Close compose either way — `render={<Button/>}` (the
+// library's composition API, shared with DropdownTrigger) or Radix-style
+// `asChild` with a single child element — so one snippet works everywhere.
+interface DialogSlotProps
+  extends Omit<
+    ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger>,
+    "asChild"
+  > {
+  /** Compose onto the single child element instead. */
+  asChild?: boolean;
+  /** Element to render as the control, e.g. a Button. */
+  render?: ReactElement;
+}
+
+const DialogTrigger = forwardRef<HTMLButtonElement, DialogSlotProps>(
+  ({ render, asChild, children, ...props }, ref) =>
+    render ? (
+      <DialogPrimitive.Trigger ref={ref} asChild {...props}>
+        {render}
+      </DialogPrimitive.Trigger>
+    ) : (
+      <DialogPrimitive.Trigger ref={ref} asChild={asChild} {...props}>
+        {children}
+      </DialogPrimitive.Trigger>
+    )
+);
+DialogTrigger.displayName = "DialogTrigger";
+
+const DialogClose = forwardRef<HTMLButtonElement, DialogSlotProps>(
+  ({ render, asChild, children, ...props }, ref) =>
+    render ? (
+      <DialogPrimitive.Close ref={ref} asChild {...props}>
+        {render}
+      </DialogPrimitive.Close>
+    ) : (
+      <DialogPrimitive.Close ref={ref} asChild={asChild} {...props}>
+        {children}
+      </DialogPrimitive.Close>
+    )
+);
+DialogClose.displayName = "DialogClose";
+
+interface DialogContentProps
+  extends ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+  /** Portal target. When set, the overlay and panel render inside this element
+   *  (positioned `absolute`) instead of covering the viewport (`fixed`). Pair
+   *  with a `position: relative; overflow: hidden` container — and usually
+   *  `<Dialog modal={false}>` — to scope a dialog to a bounded region, e.g. a
+   *  docs preview. Defaults to the document body / full-viewport behaviour. */
+  container?: HTMLElement | null;
+  /** Where the panel sits: centered, or anchored 12dvh from the top so a
+   *  panel whose height follows its content (a command menu) keeps its top
+   *  edge still. @default "center" */
+  position?: "center" | "top";
+  /** The ✕ in the top-right corner. Drop it when the content has its own
+   *  way out, e.g. a command menu that closes on Escape and on a pick.
+   *  @default true */
+  showCloseButton?: boolean;
+  /** Width: sm 400, lg 540, xl 880 (each one notch narrower in compact
+   *  regions). `xl` is the canvas for composed layouts — a sidebar beside
+   *  a panel — which usually pair it with `className="p-0"` and a fixed
+   *  height. */
+  size?: "sm" | "lg" | "xl";
+}
+
+const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
+  (
+    {
+      className,
+      children,
+      size = "sm",
+      container,
+      showCloseButton = true,
+      position = "center",
+      ...props
+    },
+    ref
+  ) => {
+    const XIcon = useIcon("x");
+    const open = useContext(DialogOpenContext);
+    const shape = useShape();
+    const substrate = useSurface();
+    const dialogLevel = Math.min(substrate + DIALOG_OFFSET, 8);
+    // The size ladder narrows the dialog one notch in compact regions —
+    // width only, the padding stays put (see /docs/sizes).
+    const compact = useSize().variant === "compact";
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+      if (open) {
+        setMounted(true);
+      }
+    }, [open]);
+
+    // Fallback release for the deferred unmount: onAnimationComplete on the
+    // panel is the primary signal, but rAF-driven animation callbacks can
+    // stall in throttled/background tabs — leaving an invisible full-screen
+    // overlay (and Radix's scroll lock) in place. Both exit tweens run at
+    // spring.slow.exit, so the fallback tracks that tier.
+    useEffect(() => {
+      if (open) {
+        return;
+      }
+      const id = setTimeout(
+        () => setMounted(false),
+        exitFallbackMs(spring.slow)
+      );
+      return () => clearTimeout(id);
+    }, [open]);
+
+    const handleExitComplete = () => {
+      if (!open) {
+        setMounted(false);
+      }
+    };
+
+    if (!mounted) {
+      return null;
+    }
+
+    return (
+      <DialogPrimitive.Portal forceMount container={container ?? undefined}>
+        <DialogPrimitive.Overlay asChild forceMount>
+          <motion.div
+            className={cn(
+              container ? "absolute" : "fixed",
+              "inset-0 z-50 bg-black/40 dark:bg-black/80"
+            )}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: open ? 1 : 0 }}
+            transition={open ? spring.slow : spring.slow.exit}
+          />
+        </DialogPrimitive.Overlay>
+        <DialogPrimitive.Content
+          ref={ref}
+          aria-modal="true"
+          asChild
+          forceMount
+          {...props}
+        >
+          <motion.div
+            className={cn(
+              container ? "absolute" : "fixed",
+              "left-1/2 z-50 w-[calc(100%-2rem)]",
+              position === "top" ? "top-[12dvh]" : "top-1/2",
+              surfaceClasses(dialogLevel),
+              "p-6 focus:outline-none",
+              size === "sm" && (compact ? "max-w-[360px]" : "max-w-[400px]"),
+              size === "lg" && (compact ? "max-w-[480px]" : "max-w-[540px]"),
+              size === "xl" && (compact ? "max-w-[800px]" : "max-w-[880px]"),
+              shape.container,
+              className
+            )}
+            initial={{
+              opacity: 0,
+              scale: 0.97,
+              x: "-50%",
+              y: position === "top" ? 0 : "-50%",
+            }}
+            animate={{
+              opacity: open ? 1 : 0,
+              scale: open ? 1 : 0.97,
+              x: "-50%",
+              y: position === "top" ? 0 : "-50%",
+            }}
+            transition={open ? spring.slow : spring.slow.exit}
+            onAnimationComplete={handleExitComplete}
+          >
+            <SurfaceProvider value={dialogLevel}>
+              {children}
+              {showCloseButton && (
+                <DialogPrimitive.Close asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon-sm"
+                    className="absolute top-3 right-3"
+                  >
+                    <XIcon />
+                    <span className="sr-only">Close</span>
+                  </Button>
+                </DialogPrimitive.Close>
+              )}
+            </SurfaceProvider>
+          </motion.div>
+        </DialogPrimitive.Content>
+      </DialogPrimitive.Portal>
+    );
+  }
+);
+DialogContent.displayName = "DialogContent";
+
+function DialogHeader({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn("mb-4 flex flex-col gap-1.5", className)} {...props} />
+  );
+}
+
+function DialogFooter({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn("mt-6 flex justify-end gap-2", className)} {...props} />
+  );
+}
+
+const DialogTitle = forwardRef<
+  HTMLHeadingElement,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(({ className, ...props }, ref) => {
+  // The title role of the type scale — see /docs/sizes.
+  const compact = useSizeVariant() === "compact";
+  return (
+    <DialogPrimitive.Title
+      ref={ref}
+      className={cn(
+        compact ? "text-[15px]" : "text-[16px]",
+        "text-foreground leading-tight",
+        className
+      )}
+      style={{ fontVariationSettings: "'wght' 700" }}
+      {...props}
+    />
+  );
+});
+DialogTitle.displayName = "DialogTitle";
+
+const DialogDescription = forwardRef<
+  HTMLParagraphElement,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => {
+  const compact = useSizeVariant() === "compact";
+  return (
+    <DialogPrimitive.Description
+      ref={ref}
+      className={cn(
+        compact ? "text-[12px]" : "text-[13px]",
+        "text-muted-foreground",
+        className
+      )}
+      {...props}
+    />
+  );
+});
+DialogDescription.displayName = "DialogDescription";
+
+export type {
+  DialogSlotProps as DialogTriggerProps,
+  DialogSlotProps as DialogCloseProps,
+};
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+};

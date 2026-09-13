@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-import { loadRecentChecks } from "./RecentSearches";
+import { loadRecentChecks } from "./recentChecks";
 
 /** Verified to return a full vegan result from the live API. */
 const EXAMPLE_EAN = "7394376616037";

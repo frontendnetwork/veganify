@@ -49,14 +49,17 @@
     "tinyglobby>picomatch": "^4.0.4"
   },
   "dependencies": {
+    "@base-ui/react": "^1.8.0",
     "@ericblade/quagga2": "^1.12.1",
     "@frontendnetwork/veganify": "2.1.13",
     "@radix-ui/react-dialog": "^1.1.23",
+    "@radix-ui/react-slot": "^1.3.3",
     "@radix-ui/react-switch": "^1.3.7",
     "@radix-ui/react-tooltip": "^1.2.16",
     "@tailwindcss/postcss": "^4",
     "@types/node": "26.5.1",
     "@types/react-dom": "19.2.3",
+    "class-variance-authority": "^0.7.1",
     "cn": "^0.2.6",
     "lucide-react": "^1.41.0",
     "motion": "^13.2.0",
@@ -85,6 +88,9 @@
   "packageManager": "bun@1.3.13",
   "volta": {
     "node": "20.0.0"
+  },
+  "registries": {
+    "@fluid": "https://www.fluidfunctionalism.com/r/{name}.json"
   },
   "trustedDependencies": [
     "@parcel/watcher",

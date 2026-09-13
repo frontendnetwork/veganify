@@ -10,7 +10,7 @@ import {
   useMemo,
   useState,
 } from "react";
-
+import { AppDialog as Dialog } from "@/components/ui/app-dialog";
 import {
   FacebookIcon,
   MastodonIcon,
@@ -19,7 +19,6 @@ import {
   XIcon,
 } from "@/components/ui/brand-icons";
 import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
 
 interface ShareButtonProps {
   barcode: string;

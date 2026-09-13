@@ -3,9 +3,8 @@
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
-
+import { AppDialog as Dialog } from "@/components/ui/app-dialog";
 import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
 
 const InstallPrompt = () => {
   const t = useTranslations("InstallPrompt");

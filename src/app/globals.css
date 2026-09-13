@@ -25,9 +25,9 @@
   --line-strong: oklch(0.6 0.03 258);
 
   /* Accent (interactive) */
-  --accent: oklch(0.441 0.177 259.8);
-  --accent-hover: oklch(0.386 0.153 259.4);
-  --accent-foreground: oklch(1 0 0);
+  --brand: oklch(0.441 0.177 259.8);
+  --brand-hover: oklch(0.386 0.153 259.4);
+  --brand-foreground: oklch(1 0 0);
   --link: oklch(0.441 0.177 259.8);
   --ring: oklch(0.441 0.177 259.8);
 
@@ -54,6 +54,76 @@
     0 4px 8px -4px oklch(0.3 0.05 260 / 0.06);
 
   --nav-bg: oklch(0.977 0.006 250 / 0.85);
+
+  --hover: rgb(0 0 0 / 0.04);
+
+  --active: rgb(0 0 0 / 0.07);
+
+  --selected: #d4d4d4;
+
+  --destructive-light: #fef2f2;
+
+  --overlay: 0 0 0;
+
+  --focus-ring: var(--ring);
+
+  --surface-1: #fafafa;
+
+  --surface-3: #ffffff;
+
+  --surface-4: #ffffff;
+
+  --surface-5: #ffffff;
+
+  --surface-6: #ffffff;
+
+  --surface-7: #ffffff;
+
+  --surface-8: #ffffff;
+
+  --shadow-color: rgb(0 0 0 / 0.06);
+
+  --shadow-1: 0 0 0 1px var(--shadow-color);
+
+  --shadow-2:
+    0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color);
+
+  --shadow-3:
+    0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color),
+    0 3px 3px -1.5px var(--shadow-color);
+
+  --shadow-4:
+    0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(
+      --shadow-color
+    ), 0 6px 6px -3px var(--shadow-color);
+
+  --shadow-5:
+    0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(
+      --shadow-color
+    ), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color);
+
+  --shadow-6:
+    0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(
+      --shadow-color
+    ), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color), 0 24px 24px -12px var(
+      --shadow-color
+    );
+
+  --shadow-7:
+    0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(
+      --shadow-color
+    ), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color), 0 24px 24px -12px var(
+      --shadow-color
+    ), 0 48px 48px -24px var(--shadow-color);
+
+  --shadow-8:
+    0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(
+      --shadow-color
+    ), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color), 0 24px 24px -12px var(
+      --shadow-color
+    ), 0 48px 48px -24px var(--shadow-color), 0 96px 96px -48px var(
+      --shadow-color
+    );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -68,9 +138,9 @@
     --line: oklch(0.34 0.018 260);
     --line-strong: oklch(0.55 0.025 258);
 
-    --accent: oklch(0.5 0.18 258);
-    --accent-hover: oklch(0.44 0.18 258);
-    --accent-foreground: oklch(1 0 0);
+    --brand: oklch(0.5 0.18 258);
+    --brand-hover: oklch(0.44 0.18 258);
+    --brand-foreground: oklch(1 0 0);
     --link: oklch(0.7 0.14 250);
     --ring: oklch(0.7 0.14 250);
 
@@ -91,6 +161,20 @@
       0 0 0 1px oklch(1 0 0 / 0.06), 0 24px 48px -12px oklch(0 0 0 / 0.6);
 
     --nav-bg: oklch(0.205 0.015 260 / 0.85);
+
+    /* Fluid Functionalism interactive tokens, dark values */
+    --hover: rgb(255 255 255 / 0.08);
+    --active: rgb(255 255 255 / 0.13);
+    --selected: #3f3f46;
+    --destructive-light: oklch(0.32 0.08 25);
+    --surface-1: var(--bg);
+    --surface-3: var(--surface);
+    --surface-4: var(--surface);
+    --surface-5: var(--surface-2);
+    --surface-6: var(--surface-2);
+    --surface-7: var(--surface-2);
+    --surface-8: var(--surface-2);
+    --shadow-color: rgb(0 0 0 / 0.4);
   }
 }
 
@@ -114,6 +198,20 @@ html[data-theme="oled"] {
   --elev-4: 0 0 0 1px oklch(1 0 0 / 0.08), 0 24px 48px -12px oklch(0 0 0 / 0.8);
 
   --nav-bg: oklch(0 0 0 / 0.85);
+
+  /* Fluid Functionalism interactive tokens, dark values */
+  --hover: rgb(255 255 255 / 0.08);
+  --active: rgb(255 255 255 / 0.13);
+  --selected: #3f3f46;
+  --destructive-light: oklch(0.32 0.08 25);
+  --surface-1: var(--bg);
+  --surface-3: var(--surface);
+  --surface-4: var(--surface);
+  --surface-5: var(--surface-2);
+  --surface-6: var(--surface-2);
+  --surface-7: var(--surface-2);
+  --surface-8: var(--surface-2);
+  --shadow-color: rgb(0 0 0 / 0.4);
 }
 
 /* ---------------------------------------------------------------------------
@@ -133,9 +231,26 @@ html[data-theme="oled"] {
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
 
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--brand);
+  --color-accent-hover: var(--brand-hover);
+  --color-accent-foreground: var(--brand-foreground);
+
+  /* shadcn-standard names bridged onto the Veganify palette, for Fluid
+     Functionalism registry components. --accent here follows shadcn
+     semantics (subtle interactive fill), NOT the brand blue (--brand). */
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-border: var(--line);
+  --color-input: var(--line-strong);
+  --color-muted: var(--surface-2);
+  --color-muted-foreground: var(--muted);
+  --color-card: var(--surface);
+  --color-popover: var(--surface);
+
+  /* Raw vars for FF components that read shadcn names directly. */
+  --accent: var(--surface-2);
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
   --color-link: var(--link);
   --color-ring: var(--ring);
 
@@ -171,12 +286,102 @@ html[data-theme="oled"] {
 
   --animate-shimmer: shimmer 1.6s linear infinite;
 
+  --color-hover: var(--hover);
+
+  --color-active: var(--active);
+
+  --color-selected: var(--selected);
+
+  --color-destructive-light: var(--destructive-light);
+
+  --color-surface-1: var(--surface-1);
+
+  --color-surface-3: var(--surface-3);
+
+  --color-surface-4: var(--surface-4);
+
+  --color-surface-5: var(--surface-5);
+
+  --color-surface-6: var(--surface-6);
+
+  --color-surface-7: var(--surface-7);
+
+  --color-surface-8: var(--surface-8);
+
+  --shadow-surface-1: var(--shadow-1);
+
+  --shadow-surface-2: var(--shadow-2);
+
+  --shadow-surface-3: var(--shadow-3);
+
+  --shadow-surface-4: var(--shadow-4);
+
+  --shadow-surface-5: var(--shadow-5);
+
+  --shadow-surface-6: var(--shadow-6);
+
+  --shadow-surface-7: var(--shadow-7);
+
+  --shadow-surface-8: var(--shadow-8);
+
+  --color-dm-drop: var(--dm-drop);
+
+  --color-dm-ring-high: var(--dm-ring-high);
+
+  --color-dm-ring-mid: var(--dm-ring-mid);
+
+  --color-dm-ring-base: var(--dm-ring-base);
+
+  --color-dm-hi-peak: var(--dm-hi-peak);
+
+  --color-dm-hi-high: var(--dm-hi-high);
+
+  --color-dm-hi-mid: var(--dm-hi-mid);
+
+  --color-dm-hi-base: var(--dm-hi-base);
+
+  --shadow-8: var(--shadow-8);
+
+  --shadow-7: var(--shadow-7);
+
+  --shadow-6: var(--shadow-6);
+
+  --shadow-5: var(--shadow-5);
+
+  --shadow-4: var(--shadow-4);
+
+  --shadow-3: var(--shadow-3);
+
+  --shadow-2: var(--shadow-2);
+
+  --shadow-1: var(--shadow-1);
+
+  --color-shadow-color: var(--shadow-color);
+
+  --color-focus-ring: var(--focus-ring);
+
+  --overlay: var(--overlay);
+
   @keyframes shimmer {
     from {
       background-position: 200% 0;
     }
     to {
       background-position: -200% 0;
+    }
+  }
+  @keyframes spinner-move {
+    to {
+      stroke-dashoffset: -100;
+    }
+  }
+  @keyframes spinner-dash {
+    0%,
+    100% {
+      stroke-dasharray: 15 85;
+    }
+    50% {
+      stroke-dasharray: 40 60;
     }
   }
 }
@@ -202,15 +407,16 @@ html[data-theme="oled"] {
   }
 
   ::selection {
-    color: var(--accent-foreground);
-    background-color: var(--accent);
+    color: var(--brand-foreground);
+    background-color: var(--brand);
   }
 
   /* One focus treatment everywhere: the browser draws it on :focus-visible,
      tokens guarantee ≥ 3:1 on every surface. */
   :focus-visible {
-    outline: 2px solid var(--ring);
+    outline: 1px solid var(--focus-ring, #6b97ff);
     outline-offset: 2px;
+    border-radius: var(--shape-input-radius, 8px);
   }
 
   /* Fluid hover transitions are color-only (no transforms), so they are
@@ -225,6 +431,9 @@ html[data-theme="oled"] {
         box-shadow 150ms ease-out,
         opacity 150ms ease-out;
     }
+  }
+  a:focus-visible {
+    border-radius: 2px;
   }
 }
 
@@ -285,4 +494,99 @@ html[data-theme="oled"] {
     padding-inline-start: 1.5em;
     list-style: revert;
   }
+}
+
+.dark {
+  --hover: rgb(255 255 255 / 0.06);
+  --active: rgb(255 255 255 / 0.1);
+  --selected: #525252;
+  --destructive-light: #450a0a;
+  --overlay: 255 255 255;
+  --surface-1: #171717;
+  --surface-2: #1e1e1e;
+  --surface-3: #252525;
+  --surface-4: #2c2c2c;
+  --surface-5: #333333;
+  --surface-6: #3a3a3a;
+  --surface-7: #414141;
+  --surface-8: #484848;
+  --dm-hi-base: rgba(255, 255, 255, 0.01);
+  --dm-hi-mid: rgba(255, 255, 255, 0.02);
+  --dm-hi-high: rgba(255, 255, 255, 0.04);
+  --dm-hi-peak: rgba(255, 255, 255, 0.06);
+  --dm-ring-base: rgba(255, 255, 255, 0.02);
+  --dm-ring-mid: rgba(255, 255, 255, 0.04);
+  --dm-ring-high: rgba(255, 255, 255, 0.06);
+  --dm-drop: rgba(0, 0, 0, 0.18);
+  --shadow-1: inset 0 0 0 1px var(--dm-ring-base);
+  --shadow-2:
+    inset 0 1px 0 0 var(--dm-hi-base), inset 0 0 0 1px var(--dm-ring-base),
+    0 1px 1px -0.5px var(--dm-drop);
+  --shadow-3:
+    inset 0 1px 0 0 var(--dm-hi-mid), inset 0 0 0 1px var(--dm-ring-base), 0 0 0 1px rgba(
+      0,
+      0,
+      0,
+      0.12
+    ), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop);
+  --shadow-4:
+    inset 0 1px 0 0 var(--dm-hi-mid), inset 0 0 0 1px var(--dm-ring-mid), 0 0 0 1px rgba(
+      0,
+      0,
+      0,
+      0.14
+    ), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(
+      --dm-drop
+    );
+  --shadow-5:
+    inset 0 1px 0 0 var(--dm-hi-high), inset 0 0 0 1px var(--dm-ring-mid), 0 0 0 1px rgba(
+      0,
+      0,
+      0,
+      0.16
+    ), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(
+      --dm-drop
+    ), 0 12px 12px -6px var(--dm-drop);
+  --shadow-6:
+    inset 0 1px 0 0 var(--dm-hi-high), inset 0 0 0 1px var(--dm-ring-high), 0 0 0 1px rgba(
+      0,
+      0,
+      0,
+      0.18
+    ), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(
+      --dm-drop
+    ), 0 12px 12px -6px var(--dm-drop), 0 24px 24px -12px var(--dm-drop);
+  --shadow-7:
+    inset 0 1px 0 0 var(--dm-hi-peak), inset 0 0 0 1px var(--dm-ring-high), 0 0 0 1px rgba(
+      0,
+      0,
+      0,
+      0.2
+    ), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(
+      --dm-drop
+    ), 0 12px 12px -6px var(--dm-drop), 0 24px 24px -12px var(--dm-drop), 0 48px 48px -24px var(
+      --dm-drop
+    );
+  --shadow-8:
+    inset 0 1px 0 0 var(--dm-hi-peak), inset 0 0 0 1px var(--dm-ring-high), 0 0 0 1px rgba(
+      0,
+      0,
+      0,
+      0.22
+    ), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(
+      --dm-drop
+    ), 0 12px 12px -6px var(--dm-drop), 0 24px 24px -12px var(--dm-drop), 0 48px 48px -24px var(
+      --dm-drop
+    ), 0 96px 96px -48px var(--dm-drop);
+}
+html.transitioning *,
+html.transitioning *::before,
+html.transitioning *::after {
+  transition:
+    border-radius 180ms ease-in-out,
+    background-color 180ms ease-in-out,
+    color 180ms ease-in-out,
+    border-color 180ms ease-in-out,
+    fill 180ms ease-in-out,
+    stroke 180ms ease-in-out !important;
 }

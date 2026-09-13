@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-import { Dialog } from "@/components/ui/dialog";
+import { AppDialog as Dialog } from "@/components/ui/app-dialog";
 import { cn } from "@/lib/utils";
 import type { ProductResult } from "@/models/ProductResults";
 import type { Sources } from "@/models/Sources";

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 
 import LicenseModalContent from "@/components/shared/LicenseModalContent";
-import { Dialog } from "@/components/ui/dialog";
+import { AppDialog as Dialog } from "@/components/ui/app-dialog";
 
 export function SourceInfo() {
   const t = useTranslations("Ingredients");

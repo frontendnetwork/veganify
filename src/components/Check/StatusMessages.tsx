@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, CircleAlert, CircleHelp, Clock, X } from "lucide-react";
+import { CircleAlert, CircleHelp, Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { ComponentType, SVGProps } from "react";
 
@@ -90,10 +90,3 @@ export function StatusMessages({ status }: StatusMessagesProps) {
     </StatusCard>
   );
 }
-
-/** Shared glyph configuration for tri-state values. */
-export const triStateVisual = {
-  no: { icon: X },
-  unknown: { icon: CircleHelp },
-  yes: { icon: Check },
-} as const;

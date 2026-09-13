@@ -25,9 +25,10 @@ bun run test:e2e     # Run Playwright end-to-end tests
 
 - **Framework**: Next.js 16 with App Router pattern
 - **Language**: TypeScript (mandatory, `any` type not acceptable)
-- **Styling**: SCSS with modular structure
+- **Styling**: Tailwind CSS v4 with oklch design tokens
+- **Design system**: Fluid Functionalism (see Design System Conventions)
 - **Internationalization**: next-intl for multi-language support
-- **Performance**: Million.js compiler optimization
+- **Motion**: motion (framer) with Fluid Functionalism spring tiers
 - **Testing**: Bun test runner for unit tests, Playwright for E2E
 - **Package Manager**: bun
 
@@ -46,7 +47,8 @@ src/
 ├── models/               # Global type definitions
 ├── i18n/                # next-intl routing configuration
 ├── locales/             # Translation files (cz, de, en, es, fr, pl, pt-br)
-├── styles/              # SCSS styles organized by purpose
+├── app/globals.css      # Tailwind v4 theme tokens (light/dark/OLED)
+├── components/ui/       # Design system primitives (button, dialog, switch…)
 └── tests/               # Test setup and E2E tests
 ```
 
@@ -88,10 +90,18 @@ src/
 
 ### Styling Conventions
 
-- Use SCSS exclusively, organized in styles/ directory
-- Modular approach with separate files for components, globals, and pages
-- CSS variables for theming and repeated values
-- Component-scoped styles when possible
+- Use Tailwind CSS v4 utilities exclusively; no SCSS, no component-level CSS files
+- Theme via the semantic oklch tokens in `src/app/globals.css` (light / dark / OLED) — never hard-code colors; new color pairs must be contrast-verified against the surfaces they render on
+- Component-scoped Tailwind classes; shared patterns live in `src/components/ui/`
+
+### Design System Conventions (Fluid Functionalism)
+
+- **Fluid Functionalism** is the base layer for all UI work — before building any component or interaction, check `src/components/ui/` and the Fluid Functionalism registry (https://www.fluidfunctionalism.com) for an existing pattern
+- All motion uses the three spring tiers in `src/lib/springs.ts` (`fast` 0.08s hover/focus, `moderate` 0.16s panels, `slow` 0.24s dialogs); never hand-write durations — and exits use the tier's `.exit`, one tier faster
+- `MotionConfig reducedMotion="user"` wraps the app in the root layout; CSS animations must be guarded with `motion-safe:` or a `prefers-reduced-motion` media query
+- Hover feedback is fluid and color-only (`.fluid-hover`); scale-on-press is `0.96`
+- Overlays and custom controls are built on Radix primitives with dialog semantics, focus traps and focus return
+- Elevation: layered shadows in light mode, surface darkening in dark mode (`shadow-elev-*` tokens)
 
 ### Internationalization
 

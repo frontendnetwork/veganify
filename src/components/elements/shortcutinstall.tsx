@@ -45,11 +45,7 @@ const Shortcut = () => {
   }
 
   return (
-    <div
-      aria-label={t("Shortcuts")}
-      className="fixed inset-x-0 bottom-20 z-20 flex justify-center px-4 md:bottom-6"
-      role="dialog"
-    >
+    <div className="fixed inset-x-0 bottom-20 z-20 flex justify-center px-4 md:bottom-6">
       <div className="flex w-full max-w-md items-center gap-3 rounded-xl border border-line bg-surface p-3 shadow-elev-3">
         <Image
           alt=""
