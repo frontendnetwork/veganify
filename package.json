@@ -75,6 +75,10 @@
     "minimatch>brace-expansion": "^2.0.3",
     "tinyglobby>picomatch": "^4.0.4"
   },
+  "resolutions": {
+    "indent-string": "npm:@socketregistry/indent-string@^1",
+    "shell-quote": "npm:shell-quote@^1"
+  },
   "trustedDependencies": [
     "@parcel/watcher",
     "@swc/core",
