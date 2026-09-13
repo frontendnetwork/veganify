@@ -12,7 +12,7 @@
  * the first computed release is a major bump over v3.5.0.
  */
 module.exports = {
-  branches: ["main", { channel: "rc", name: "staging", prerelease: true }],
+  branches: ["main", { channel: "rc", name: "staging", prerelease: "rc" }],
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
