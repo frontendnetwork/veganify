@@ -1,6 +1,9 @@
 "use server";
 
-import Veganify, { ValidationError } from "@frontendnetwork/veganify";
+import Veganify, {
+  ValidationError,
+  VeganifyError,
+} from "@frontendnetwork/veganify";
 
 import { FetchStatus } from "@/models/FetchStatus";
 
@@ -40,6 +43,9 @@ export async function checkIngredients(
     // typed statuses let the client render the actual failure cause.
     if (error instanceof ValidationError) {
       return { status: FetchStatus.INVALID };
+    }
+    if (error instanceof VeganifyError && error.statusCode === 408) {
+      return { status: FetchStatus.TIMEOUT };
     }
     console.error("Ingredients check failed:", error);
     return { status: FetchStatus.SERVER_ERROR };

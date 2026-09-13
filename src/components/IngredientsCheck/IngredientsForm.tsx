@@ -48,6 +48,8 @@ export function IngredientsForm() {
         const data = await checkIngredients(ingredientsString);
         if (data.status === FetchStatus.OK && data.result) {
           setResult(data.result);
+        } else if (data.status === FetchStatus.INVALID) {
+          setError(t("cannotbeempty"));
         } else {
           setError(t("unknown_error"));
         }

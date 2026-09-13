@@ -16,7 +16,7 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
   const [isHidden, setIsHidden] = useState(false);
   const [isMirrored, setIsMirrored] = useState(true);
 
-  const initializeScanner = (newFacingMode: string) => {
+  const initializeScanner = useCallback((newFacingMode: string) => {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -53,7 +53,7 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
         Quagga.start();
       }
     );
-  };
+  }, []);
 
   const handleCameraSwitch = useCallback(() => {
     const newFacingMode = facingMode === "environment" ? "user" : "environment";
@@ -64,7 +64,7 @@ export function ViewportScanner({ onDetected, setScanning }: ScannerProps) {
 
     Quagga.stop();
     initializeScanner(newFacingMode);
-  }, [facingMode]);
+  }, [facingMode, initializeScanner]);
 
   const handleClose = useCallback(() => {
     setIsHidden(true);

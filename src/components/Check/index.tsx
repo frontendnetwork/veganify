@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useCallback, useEffect, useState } from "react";
 
 import { FetchStatus } from "@/models/FetchStatus";
 import type { ProductResult } from "@/models/ProductResults";
@@ -42,46 +42,49 @@ export default function ProductSearch() {
     }
   }, []);
 
-  const handleSubmit = async (barcodeValue: string, event?: FormEvent) => {
-    event?.preventDefault();
+  const handleSubmit = useCallback(
+    async (barcodeValue: string, event?: FormEvent) => {
+      event?.preventDefault();
 
-    setShowTimeoutFinal(false);
-    setShowError(false);
-    setShowTimeout(false);
-    setShowFound(false);
-    setShowNotFound(false);
-    setShowInvalid(false);
-    setLoading(true);
+      setShowTimeoutFinal(false);
+      setShowError(false);
+      setShowTimeout(false);
+      setShowFound(false);
+      setShowNotFound(false);
+      setShowInvalid(false);
+      setLoading(true);
 
-    try {
-      const data = await fetchProduct(barcodeValue);
-      if (data.status === FetchStatus.OK && data.product && data.sources) {
-        setResult({
-          animaltestfree: data.product.animaltestfree ?? "n/a",
-          grade: data.product.grade ?? "",
-          nutriscore: data.product.nutriscore ?? "",
-          palmoil: data.product.palmoil ?? "n/a",
-          productname: data.product.productname,
-          vegan: data.product.vegan ?? "n/a",
-          vegetarian: data.product.vegetarian ?? "n/a",
-        });
-        setSources(data.sources);
-        setShowFound(true);
-      } else if (data.status === FetchStatus.NOT_FOUND) {
-        setShowNotFound(true);
-      } else if (data.status === FetchStatus.INVALID) {
-        setShowInvalid(true);
-      } else if (data.status === FetchStatus.TIMEOUT) {
-        setShowTimeoutFinal(true);
-      } else {
+      try {
+        const data = await fetchProduct(barcodeValue);
+        if (data.status === FetchStatus.OK && data.product && data.sources) {
+          setResult({
+            animaltestfree: data.product.animaltestfree ?? "n/a",
+            grade: data.product.grade ?? "",
+            nutriscore: data.product.nutriscore ?? "",
+            palmoil: data.product.palmoil ?? "n/a",
+            productname: data.product.productname,
+            vegan: data.product.vegan ?? "n/a",
+            vegetarian: data.product.vegetarian ?? "n/a",
+          });
+          setSources(data.sources);
+          setShowFound(true);
+        } else if (data.status === FetchStatus.NOT_FOUND) {
+          setShowNotFound(true);
+        } else if (data.status === FetchStatus.INVALID) {
+          setShowInvalid(true);
+        } else if (data.status === FetchStatus.TIMEOUT) {
+          setShowTimeoutFinal(true);
+        } else {
+          setShowError(true);
+        }
+      } catch {
         setShowError(true);
+      } finally {
+        setLoading(false);
       }
-    } catch {
-      setShowError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+    []
+  );
 
   return (
     <>

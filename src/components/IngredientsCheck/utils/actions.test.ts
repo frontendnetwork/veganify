@@ -1,6 +1,9 @@
 import { beforeEach, describe, expect, it, type Mock, mock } from "bun:test";
 
-import Veganify, { ValidationError } from "@frontendnetwork/veganify";
+import Veganify, {
+  ValidationError,
+  VeganifyError,
+} from "@frontendnetwork/veganify";
 
 import { FetchStatus } from "@/models/FetchStatus";
 
@@ -107,6 +110,16 @@ describe("checkIngredients", () => {
     expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
       "invalid!ingredients"
     );
+  });
+
+  it("should map request timeouts to TIMEOUT status", async () => {
+    mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
+      new VeganifyError("Request timed out", 408)
+    );
+
+    const result = await checkIngredients("apple");
+
+    expect(result).toEqual({ status: FetchStatus.TIMEOUT });
   });
 
   it("should return INVALID status when ingredients string is empty", async () => {
