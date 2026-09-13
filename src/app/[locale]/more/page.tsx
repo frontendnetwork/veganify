@@ -23,6 +23,7 @@ import {
 import Container from "@/components/elements/container";
 import SupportOption from "@/components/elements/contents/donate";
 import { AppDialog as Dialog } from "@/components/ui/app-dialog";
+import { InstagramIcon, MastodonIcon } from "@/components/ui/brand-icons";
 import { Switch } from "@/components/ui/switch";
 import { Link } from "@/i18n/navigation";
 import { setLocaleCookie } from "@/lib/locale-cookie";
@@ -162,20 +163,35 @@ export default function More() {
       >
         <ul className="flex flex-col gap-1">
           {[
-            { href: "https://veganism.social/@vegancheck", label: "Mastodon" },
-            { href: "https://instagram.com/veganify.app", label: "Instagram" },
-          ].map((item) => (
-            <li key={item.label}>
-              <a
-                className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-2.5 font-medium text-ink text-sm hover:bg-surface-2"
-                href={item.href}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+            {
+              href: "https://veganism.social/@vegancheck",
+              icon: MastodonIcon,
+              label: "Mastodon",
+            },
+            {
+              href: "https://instagram.com/veganify.app",
+              icon: InstagramIcon,
+              label: "Instagram",
+            },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <li key={item.label}>
+                <a
+                  className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-2.5 font-medium text-ink text-sm hover:bg-surface-2"
+                  href={item.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon
+                    aria-hidden="true"
+                    className="size-5 shrink-0 text-muted"
+                  />
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </Dialog>
 

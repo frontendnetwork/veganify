@@ -2,7 +2,7 @@
   "Nav": {
     "title": "É vegano? – Veganify",
     "description": "Você não tem certeza se um produto é vegano ou não? Com o Veganify, você pode escanear o código de barras de um item enquanto faz compras e verificar se ele é vegano ou não, excluindo informações desnecessárias! Experimente agora!",
-    "home": "Home",
+    "home": "Início",
     "ingredientcheck": "Verificar Ingredientes",
     "more": "Mais",
     "navigation": "Navegação principal"
@@ -36,6 +36,7 @@
     "timeout2": "A solicitação demorou muito. Por favor, tente novamente.",
     "unknown_error": "Ocorreu um erro inesperado. Por favor, tente novamente.",
     "share": "Compartilhar",
+    "sharemessage": "{name}, verificado com o Veganify",
     "copy": "Copiar",
     "on": "em",
     "notvegan": "Não vegano",
@@ -46,6 +47,7 @@
     "searching": "Pesquisando…",
     "barcodeexample": "ex.: 4000417025005",
     "barcodehint": "Digite o código de barras ou escaneie com a câmera.",
+    "clearbarcode": "Limpar código de barras",
     "wrongbarcode_desc": "Os códigos de barras têm de 8 a 13 dígitos. Confira o número abaixo do código de barras e tente novamente.",
     "checkconnection": "Verifique sua conexão e tente novamente.",
     "copied": "Copiado!",
@@ -61,7 +63,7 @@
     "step1t": "Escaneie ou digite",
     "step1d": "Aponte a câmera para o código de barras ou digite os números.",
     "step2t": "Veja o veredicto",
-    "step2d": "Vegano, vegetariano e óleo de palma — num relance.",
+    "step2d": "Vegano, vegetariano e óleo de palma num relance.",
     "step3t": "Confira os detalhes",
     "step3d": "Inclui NutriScore, status livre de crueldade e nota Veganify."
   },
@@ -71,7 +73,7 @@
     "tos": "Termos de serviço",
     "privacypolicy": "Política de Privacidade",
     "apidocumentation": "Documentação da API",
-    "imprint": "Impressão",
+    "imprint": "Aviso legal",
     "onceviapaypal": "Uma vez via PayPal",
     "onceviakofi": "Uma vez via Ko-Fi",
     "monthlyviagithub": "Mensalmente via GitHub",
@@ -93,7 +95,7 @@
   },
   "TOS": {
     "englishgermanonly": "Esta página está disponível apenas em Inglês e Alemão.",
-    "tos": "Terms of service",
+    "tos": "Termos de serviço",
     "tos_content": "<p><b>Use of \"Veganify\"</b></p><p>The use of the site \"Veganify.app\" is free of charge. The distribution of the contents or our services against payment is strictly prohibited. Automated queries are also prohibited and may only be performed using the <a href=\"https://frontendnet.work/veganify-api\">API</a>.<br> We reserve the right to change, reduce, expand or disable our services at any time.</p><p><b>Processing of entered texts and numbers</b></p><p>On our website, barcodes or ingredients of a product can be entered in text fields. This is necessary to provide our service in its entirety. The data entry is completely voluntary.<br>Only barcodes or ingredients may be entered in the named text fields; the entry or transmission of personal data of any kind is strictly prohibited.</p><p>Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en\">?</a></sup></p><p><b>Disclaimer</b></p><p>We assume no liability for the accuracy of the product information and ingredient lists offered and for the availability of our service.</p>"
   },
   "Privacy": {
@@ -102,7 +104,7 @@
   "404": {
     "error404": "Erro 404.",
     "pagedoesnotexist": "Essa página não existe.",
-    "message": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues.",
+    "message": "Consulte nossa {statuspage} ou nosso perfil no {mastodon} para saber se há problemas em andamento.",
     "statuspage": "página de status"
   },
   "Fallback": {
@@ -111,7 +113,7 @@
     "tryagain": "Tente novamente"
   },
   "InstallPrompt": {
-    "subheading": "É vegano? – Veganify",
+    "subheading": "É vegano? - Veganify",
     "install": "Instalar Veganify",
     "get": "Obter",
     "howtoinstall": "Toque em <share>Compartilhar</share> e depois em \"Adicionar à Tela de Início\".",
@@ -122,14 +124,17 @@
     "openinapp": "Abrir no app de atalhos",
     "open": "Abrir"
   },
+  "PromptStack": {
+    "show": "Mostrar"
+  },
   "Ingredients": {
     "ingredientcheck": "Verificador de Ingredientes Veganos",
-    "ingredientcheck_desc": "Verifique se os ingredientes de um produto são veganos! – Insira os ingredientes separados por vírgula",
+    "ingredientcheck_desc": "Verifique se os ingredientes de um produto são veganos! Insira os ingredientes separados por vírgula.",
     "entercommaseperated": "Insira os ingredientes separados por vírgula",
     "submit": "Enviar",
     "vegan": "Vegano",
     "source": "Origem dos dados",
-    "cannotbeempty": "A lista de ingredientes não pode estar vazia ou incluir caracteres especiais, e os ingredientes deve ser separada por vírgulas!",
+    "cannotbeempty": "Digite pelo menos um ingrediente. Separe vários ingredientes com vírgulas.",
     "unknown_error": "Ocorreu um erro inesperado. Por favor, tente novamente.",
     "licenses": "Licenças",
     "licenses_desc": "Veganify utiliza diferentes bancos de dados e APIs para coletar informações sobre um produto. As informações estão licenciadas sob as seguintes licenças:",
@@ -138,6 +143,9 @@
     "unknown_vegan": "Nao temos informações sobre este ingrediente.",
     "searching": "Verificando…",
     "ingredientsexample": "Açúcar, manteiga de cacau, lecitina de soja…",
+    "scanlabel": "Escanear ou enviar a lista de ingredientes",
+    "scanning": "Reconhecendo texto…",
+    "ocrerror": "Não foi possível ler a imagem. Digite os ingredientes.",
     "yes": "Sim",
     "no": "Não"
   },

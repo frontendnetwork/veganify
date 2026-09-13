@@ -8,9 +8,9 @@
   "Nav": {
     "title": "Est-ce que c'est végétalien ? - Veganify",
     "description": "Tu n'es pas sûr qu'un produit soit végane ou non ? Avec Veganify, tu peux scanner le code-barres d'un article directement lors de tes achats et vérifier s'il est végétalien ou non, et ce sans avoir à fournir beaucoup d'autres informations inutiles ! Essaye-le maintenant!",
-    "home": "Home",
-    "ingredientcheck": "Vérification des ingrédients",
-    "more": "Plus de",
+    "home": "Accueil",
+    "ingredientcheck": "Ingrédients",
+    "more": "Plus",
     "navigation": "Navigation principale"
   },
   "Footer": {
@@ -30,7 +30,7 @@
     "nutriscore_desc": "Le NutriScore indique le profil nutritionnel d'un produit sous forme de feu tricolore. Cependant, le NutriScore n'est pas considéré comme précis et ne devrait pas être utilisé comme référence. Tu trouveras plus d'informations sur le NutriScore sur <algorithmwatch>Algorithmwatch</algorithmwatch> (anglais).",
     "grades_desc": "Tu es confus face à tous les labels végans/éco/bio ? Tu ne le seras plus avec les notes Veganify faciles à comprendre ! Veganify Grades est un système de notation des produits végans qui attribue l'une des six notes (A+ – Non éligible) à un produit. Pour en savoir plus sur les notes Veganify ou demander une évaluation, rendez-vous sur <grades>Veganify Grades</grades>.",
     "source": "Source des données",
-    "licenses": "Licenses",
+    "licenses": "Licences",
     "licenses_desc": "Veganify utilise différentes sources de données pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
     "notindb": "Ce produit n'est pas encore dans notre base de données.",
     "notindb_add": "Voulez-vous l'ajouter ?",
@@ -42,6 +42,7 @@
     "timeout2": "La requête a duré trop longtemps. Veuillez réessayer.",
     "unknown_error": "Une erreur inattendue s'est produite. Veuillez réessayer.",
     "share": "Partager",
+    "sharemessage": "{name}, vérifié avec Veganify",
     "copy": "Copier",
     "on": "sur",
     "notvegan": "Non végétalien",
@@ -52,6 +53,7 @@
     "searching": "Recherche…",
     "barcodeexample": "ex. 4000417025005",
     "barcodehint": "Saisis le code-barres ou scanne-le avec la caméra.",
+    "clearbarcode": "Effacer le code-barres",
     "wrongbarcode_desc": "Les codes-barres comptent de 8 à 13 chiffres. Vérifie le nombre sous le code-barres et réessaie.",
     "checkconnection": "Vérifie ta connexion et réessaie.",
     "copied": "Copié !",
@@ -67,7 +69,7 @@
     "step1t": "Scannez ou saisissez",
     "step1d": "Visez le code-barres avec la caméra ou saisissez les chiffres.",
     "step2t": "Voir le verdict",
-    "step2d": "Végétalien, végétarien et huile de palme — en un coup d'œil.",
+    "step2d": "Végétalien, végétarien et huile de palme en un coup d'œil.",
     "step3t": "Vérifier les détails",
     "step3d": "Avec NutriScore, statut sans cruauté animale et note Veganify."
   },
@@ -111,7 +113,7 @@
     "tryagain": "Réessayez"
   },
   "InstallPrompt": {
-    "subheading": "Est-ce que c'est végétal ?",
+    "subheading": "Est-ce végétalien ?",
     "install": "Installer Veganify",
     "get": "obtenir",
     "howtoinstall": "Touche <share>Partager</share> puis « Sur l'écran d'accueil ».",
@@ -119,25 +121,31 @@
   },
   "ShortcutPrompt": {
     "Shortcuts": "Raccourcis",
-    "openinapp": "Ouvrir dans l'app des ...",
+    "openinapp": "Ouvrir dans l'application Raccourcis",
     "open": "Ouvrir"
+  },
+  "PromptStack": {
+    "show": "Afficher"
   },
   "Ingredients": {
     "ingredientcheck": "Vérificateur d'ingrédients végétaliens",
-    "ingredientcheck_desc": "Vérifiez si les ingrédients d'un produit sont végétaliens ! – Entrez les ingrédients séparés par des virgules",
+    "ingredientcheck_desc": "Vérifie si les ingrédients d'un produit sont végétaliens ! Entre les ingrédients séparés par des virgules.",
     "entercommaseperated": "Entrez les ingrédients séparés par des virgules",
     "submit": "Envoyer",
     "vegan": "Végétalien",
     "source": "Source des données",
-    "cannotbeempty": "La liste des ingrédients ne peut être vide ou inclure des caractères spéciaux et doit être séparée par des virgules !",
+    "cannotbeempty": "Saisis au moins un ingrédient. Sépare plusieurs ingrédients par des virgules.",
     "unknown_error": "Une erreur inattendue s'est produite. Veuillez réessayer.",
-    "licenses": "Licenses",
+    "licenses": "Licences",
     "licenses_desc": "Veganify utilise différentes sources de données pour collecter des informations sur un produit. Ces informations sont soumises aux licences suivantes :",
     "languagewarning": "Ces résultats peuvent être incorrects en raison d'erreurs de traduction ou d'informations manquantes. Les résultats ont été traduits avec <deepl>DeepL</deepl>.",
     "maybe_vegan": "Cet ingrédient pourrait contenir des produits d'origine animale.",
     "unknown_vegan": "Nous ne disposons pas d'informations sur cet ingrédient.",
     "searching": "Vérification…",
     "ingredientsexample": "Sucre, beurre de cacao, lécithine de soja…",
+    "scanlabel": "Scanner ou importer la liste des ingrédients",
+    "scanning": "Reconnaissance du texte…",
+    "ocrerror": "Impossible de lire l'image. Saisis les ingrédients à la place.",
     "yes": "Oui",
     "no": "Non"
   },

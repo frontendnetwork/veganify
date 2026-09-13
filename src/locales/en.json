@@ -42,6 +42,7 @@
     "timeout2": "The request took too long. Please try again.",
     "unknown_error": "An unexpected error occurred. Please try again.",
     "share": "Share",
+    "sharemessage": "{name}, checked with Veganify",
     "copy": "Copy",
     "on": "on",
     "notvegan": "Not vegan",
@@ -52,6 +53,7 @@
     "searching": "Searching…",
     "barcodeexample": "e.g. 4000417025005",
     "barcodehint": "Type the barcode or scan it with your camera.",
+    "clearbarcode": "Clear barcode",
     "wrongbarcode_desc": "Barcodes are 8–13 digits. Check the number under the barcode and try again.",
     "checkconnection": "Check your connection and try again.",
     "copied": "Copied!",
@@ -122,14 +124,17 @@
     "openinapp": "Open in the shortcuts app",
     "open": "Open"
   },
+  "PromptStack": {
+    "show": "Show"
+  },
   "Ingredients": {
     "ingredientcheck": "Vegan Ingredient Checker",
-    "ingredientcheck_desc": "Check if the ingredients of a product are vegan! – Enter ingredients separated by commas",
+    "ingredientcheck_desc": "Check if the ingredients of a product are vegan. Enter ingredients separated by commas.",
     "entercommaseperated": "Enter ingredients separated by commas",
     "submit": "Submit",
     "vegan": "Vegan",
     "source": "Data source",
-    "cannotbeempty": "The ingredients list cannot be empty, must not contain special characters, and must be comma-separated!",
+    "cannotbeempty": "Enter at least one ingredient. Separate multiple ingredients with commas.",
     "unknown_error": "An unexpected error occurred. Please try again.",
     "licenses": "Licenses",
     "licenses_desc": "Veganify uses different databases and APIs to gather information about a product. The information is licensed under the following licenses:",
@@ -138,6 +143,9 @@
     "unknown_vegan": "We don't have information about this ingredient.",
     "searching": "Checking…",
     "ingredientsexample": "Sugar, cocoa butter, soy lecithin…",
+    "scanlabel": "Scan or upload ingredients list",
+    "scanning": "Recognizing text…",
+    "ocrerror": "Could not read the image. Type the ingredients instead.",
     "yes": "Yes",
     "no": "No"
   },

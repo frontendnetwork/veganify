@@ -13,6 +13,7 @@ import {
   useState,
 } from "react";
 import { Button } from "@/components/ui/button";
+import { useInertBackground } from "@/hooks/use-inert-background";
 import { useIcon } from "@/lib/icon-context";
 import { useShape } from "@/lib/shape-context";
 import { useSize, useSizeVariant } from "@/lib/size-context";
@@ -139,6 +140,9 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
   ) => {
     const XIcon = useIcon("x");
     const open = useContext(DialogOpenContext);
+    // Real `inert` on background content while open; Radix only aria-hides
+    // it, which leaves it focusable.
+    useInertBackground(open);
     const shape = useShape();
     const substrate = useSurface();
     const dialogLevel = Math.min(substrate + DIALOG_OFFSET, 8);

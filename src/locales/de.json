@@ -3,8 +3,7 @@
     "error404": "Fehler 404.",
     "pagedoesnotexist": "Diese Seite existiert nicht.",
     "message": "Gehe zu unserer {statuspage} oder folge uns auf {mastodon} um zu sehen, ob es gerade ein Problem gibt.",
-    "statuspage": "Statusseite",
-    "message_en": "You can visit our {statuspage} or check in on us on {mastodon} to see if there are any current issues."
+    "statuspage": "Statusseite"
   },
   "Nav": {
     "title": "Ist es Vegan? – Veganify",
@@ -43,6 +42,7 @@
     "timeout2": "Die Abfrage hat zu lange gedauert. Bitte versuche es erneut.",
     "unknown_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
     "share": "Teilen",
+    "sharemessage": "{name}, mit Veganify geprüft",
     "copy": "Kopieren",
     "on": "auf",
     "notvegan": "Nicht vegan",
@@ -53,6 +53,7 @@
     "searching": "Suche läuft…",
     "barcodeexample": "z. B. 4000417025005",
     "barcodehint": "Gib den Barcode ein oder scanne ihn mit der Kamera.",
+    "clearbarcode": "Barcode löschen",
     "wrongbarcode_desc": "Barcodes bestehen aus 8–13 Ziffern. Prüfe die Ziffern unter dem Strichcode und versuche es erneut.",
     "checkconnection": "Prüfe deine Verbindung und versuche es erneut.",
     "copied": "Kopiert!",
@@ -63,7 +64,7 @@
     "tryexample": "Beispiel-Scan ausprobieren",
     "recent": "Zuletzt geprüft",
     "clearrecent": "Leeren",
-    "tagline": "Scanne ein Produkt. Wissen, ob es vegan ist.",
+    "tagline": "Scanne ein Produkt und prüfe, ob es vegan ist.",
     "howitworks": "So funktioniert's",
     "step1t": "Scannen oder eingeben",
     "step1d": "Richte die Kamera auf den Barcode oder gib die Ziffern ein.",
@@ -101,7 +102,7 @@
   "TOS": {
     "englishgermanonly": "Die Nutzungsbedingungen sind nur in Englisch und Deutsch verfügbar.",
     "tos": "Nutzungsbedingungen",
-    "tos_content": "<p><b>Nutzung der Seite \"Veganify.app\"</b></p><p>Die Nutzung der Seite \"Veganify.app\" erfolgt kostenlos. Die entgeltliche Weitergabe der Inhalte oder unserer Services ist untersagt. Automatisierte Abfragen sind ebenfalls untersagt und dürfen nur mittels der <a href=\"https://frontendnet.work/veganify-api\">API</a> erfolgen.<br> Wir behalten uns vor, unsere Services jederzeit zu ändern, zu reduzieren, zu erweitern oder zu deaktivieren.</p><p><b>Verarbeitung eingegebener Texte und Nummern</b></p><p>Auf unserer Website können in Textfeldern Barcodes oder Zutaten eines Produktes eingegeben werden. Dies ist notwendig, um unseren Dienst im vollem Umfang zur Verfügung zu stellen. Die Eingabe erfolgt freiwillig.<br>In die benannten Textfelder dürfen nur Barcodes oder Zutaten eingegeben werden, die Eingabe oder Übermittlung von personenbezogenen Daten jeglicher Art ist untersagt.</p><p>Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_de\">?</a></sup></p><p><b>Haftungsausschluss</b></p><p>Wir übernehmen keine Haftung für die Richtigkeit der angebotenen Produktinformationen und Zutatenlisten und für die Verfügbarkeit unseres Dienstes.</p>"
+    "tos_content": "<p><b>Nutzung der Seite \"Veganify.app\"</b></p><p>Die Nutzung der Seite \"Veganify.app\" erfolgt kostenlos. Die entgeltliche Weitergabe der Inhalte oder unserer Services ist untersagt. Automatisierte Abfragen sind ebenfalls untersagt und dürfen nur mittels der <a href=\"https://frontendnet.work/veganify-api\">API</a> erfolgen.<br> Wir behalten uns vor, unsere Services jederzeit zu ändern, zu reduzieren, zu erweitern oder zu deaktivieren.</p><p><b>Verarbeitung eingegebener Texte und Nummern</b></p><p>Auf unserer Website können in Textfeldern Barcodes oder Zutaten eines Produktes eingegeben werden. Dies ist notwendig, um unseren Dienst im vollen Umfang zur Verfügung zu stellen. Die Eingabe erfolgt freiwillig.<br>In die benannten Textfelder dürfen nur Barcodes oder Zutaten eingegeben werden, die Eingabe oder Übermittlung von personenbezogenen Daten jeglicher Art ist untersagt.</p><p>Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen. Verschiedene Teilinformationen, die gemeinsam zur Identifizierung einer bestimmten Person führen können, stellen ebenfalls personenbezogene Daten dar.<sup><a href=\"https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_de\">?</a></sup></p><p><b>Haftungsausschluss</b></p><p>Wir übernehmen keine Haftung für die Richtigkeit der angebotenen Produktinformationen und Zutatenlisten und für die Verfügbarkeit unseres Dienstes.</p>"
   },
   "Privacy": {
     "germanonly": "Diese Seite ist nur auf Deutsch verfügbar."
@@ -123,6 +124,9 @@
     "openinapp": "In der Kurzbefehle App öffnen",
     "open": "Öffnen"
   },
+  "PromptStack": {
+    "show": "Anzeigen"
+  },
   "Ingredients": {
     "ingredientcheck": "Zutatencheck",
     "ingredientcheck_desc": "Prüfe, ob die Inhaltsstoffe eines Produkts vegan sind! - Zutaten kommagetrennt eingeben!",
@@ -130,7 +134,7 @@
     "submit": "Absenden",
     "vegan": "Vegan",
     "source": "Datenquelle",
-    "cannotbeempty": "Die Zutatenliste darf nicht leer sein oder Sonderzeichen enthalten und muss durch Kommata getrennt sein!",
+    "cannotbeempty": "Gib mindestens eine Zutat ein. Trenne mehrere Zutaten mit Kommas.",
     "unknown_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
     "licenses": "Lizenzen",
     "licenses_desc": "Veganify benutzt verschiedene Datenquellen, um Informationen über ein Produkt zu sammeln. Diese Informationen stehen unter den nachfolgenden Lizenzen:",
@@ -139,6 +143,9 @@
     "unknown_vegan": "Wir haben keine Informationen über diese Zutat.",
     "searching": "Prüfe…",
     "ingredientsexample": "Zucker, Kakaobutter, Sojalecithin…",
+    "scanlabel": "Zutatenliste scannen oder hochladen",
+    "scanning": "Text wird erkannt…",
+    "ocrerror": "Das Bild konnte nicht gelesen werden. Gib die Zutaten stattdessen ein.",
     "yes": "Ja",
     "no": "Nein"
   },

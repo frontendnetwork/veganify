@@ -60,7 +60,7 @@ export default function Nav() {
                   className="size-5 max-md:size-[1.35rem]"
                   strokeWidth={isActive ? 2.4 : 2}
                 />
-                <span className="font-medium text-[0.8125rem]">
+                <span className="font-medium text-[0.8125rem] leading-tight">
                   {item.label}
                 </span>
               </Link>

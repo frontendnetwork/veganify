@@ -8,33 +8,40 @@ import type { ReactNode } from "react";
 import { monaSans } from "@/app/fonts";
 import Nav from "@/components/nav";
 
-export const metadata: Metadata = {
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Veganify",
-  },
-  applicationName: "Veganify",
-  description:
-    "Are you unsure whether a product is vegan or not? With Veganify you can scan the bar code of an item while shopping and check whether it is vegan or not and that without a lot of other unnecessary information! Try it out now!",
-  icons: {
-    apple: "../img/icon.png",
-    icon: "../favicon.ico",
-  },
-  manifest: "/manifest.json",
-  openGraph: {
-    images: [{ url: "https://veganify.app/img/og_image.png" }],
-    siteName: "Veganify",
-    title: "Veganify",
-    type: "website",
-    url: "https://veganify.app",
-  },
-  title: "Is it vegan? – Veganify",
-  twitter: {
-    card: "summary_large_image",
-    images: [{ alt: "Veganify", url: "https://veganify.app/img/og_image.png" }],
-  },
-};
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale, namespace: "Nav" });
+  return {
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "default",
+      title: "Veganify",
+    },
+    applicationName: "Veganify",
+    description: t("description"),
+    icons: {
+      apple: "../img/icon.png",
+      icon: "../favicon.ico",
+    },
+    manifest: "/manifest.json",
+    openGraph: {
+      images: [{ url: "https://veganify.app/img/og_image.png" }],
+      siteName: "Veganify",
+      title: "Veganify",
+      type: "website",
+      url: "https://veganify.app",
+    },
+    title: t("title"),
+    twitter: {
+      card: "summary_large_image",
+      images: [
+        { alt: "Veganify", url: "https://veganify.app/img/og_image.png" },
+      ],
+    },
+  };
+}
 
 export const viewport: Viewport = {
   initialScale: 1,
@@ -62,8 +69,11 @@ export default async function LocaleLayout(props: {
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "Layout" });
 
+  // "cz" is the URL segment; the BCP 47 language code for Czech is "cs".
+  const htmlLang = locale === "cz" ? "cs" : locale;
+
   return (
-    <html className={monaSans.variable} lang={locale}>
+    <html className={monaSans.variable} lang={htmlLang}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: oledPrepaintScript }} />
       </head>

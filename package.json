@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "check": "concurrently -c \"#FF8700,#5DE4C7,#A8E6CF,#ADD7FF\" -n lint,types,unit \"bun run lint\" \"bun run type-check\" \"bun test src/components --concurrent --timeout=10000 --reporter=dots --bail\"",
+    "check": "concurrently -c \"#FF8700,#5DE4C7,#A8E6CF,#ADD7FF\" -n lint,types,unit \"bun run lint\" \"bun run type-check\" \"bun test src/components src/hooks --concurrent --timeout=10000 --reporter=dots --bail\"",
     "check:code": "ultracite check",
     "dev": "next dev --turbopack",
     "lint": "biome check .",
@@ -13,7 +13,7 @@
     "prepare": "husky",
     "stage": "next start -p 1031",
     "start": "next start -p 1030",
-    "test": "bun test src/components",
+    "test": "bun test src/components src/hooks",
     "test:coverage": "bun test --coverage src/components",
     "test:e2e": "bunx playwright test",
     "test:watch": "bun test --watch src/components",
@@ -69,6 +69,7 @@
     "react-dom": "19.2.7",
     "sharp": "0.35.4",
     "tailwindcss": "^4",
+    "tesseract.js": "^7.0.0",
     "typescript": "7.0.2"
   },
   "devDependencies": {

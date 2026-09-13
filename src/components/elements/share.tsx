@@ -50,7 +50,7 @@ const ShareButton = ({
     }
   }, []);
 
-  const text = `${productName} - Checked using Veganify`;
+  const text = t("sharemessage", { name: productName });
   const url = `https://veganify.app/?ean=${barcode}`;
 
   const shareOptions = useMemo<ShareOption[]>(
@@ -139,8 +139,7 @@ const ShareButton = ({
   );
 
   const trigger = (onClick: () => void) => (
-    <Button className="w-full" onClick={onClick}>
-      <Share2 aria-hidden="true" className="size-4" />
+    <Button className="w-full" leadingIcon={Share2} onClick={onClick}>
       {t("share")}
     </Button>
   );

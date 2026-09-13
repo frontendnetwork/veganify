@@ -178,20 +178,34 @@
   }
 }
 
+/* Self-contained: defines every text/accent/status token so the theme is
+   correct even when the OS is in light mode while the stored OLED
+   preference is active (light-mode values would otherwise render dark
+   text on true black). */
 html[data-theme="oled"] {
   --bg: oklch(0 0 0);
   --surface: oklch(0.115 0 0);
   --surface-2: oklch(0.175 0.008 260);
 
+  --ink: oklch(0.955 0.006 250);
+  --muted: oklch(0.72 0.015 255);
+
   --line: oklch(0.26 0 0);
   --line-strong: oklch(0.55 0.025 258);
 
+  --brand: oklch(0.5 0.18 258);
+  --brand-hover: oklch(0.44 0.18 258);
+  --brand-foreground: oklch(1 0 0);
   --link: oklch(0.7 0.14 250);
   --ring: oklch(0.7 0.14 250);
 
+  --success: oklch(0.72 0.15 155);
   --success-surface: oklch(0.24 0.05 155);
+  --danger: oklch(0.68 0.19 25);
   --danger-surface: oklch(0.26 0.07 25);
+  --caution: oklch(0.76 0.14 85);
   --caution-surface: oklch(0.26 0.05 85);
+  --neutral: oklch(0.72 0.015 255);
   --neutral-surface: oklch(0.175 0.008 260);
 
   --elev-3: 0 0 0 1px oklch(1 0 0 / 0.05);
@@ -447,6 +461,16 @@ html[data-theme="oled"] {
   white-space: nowrap;
   border-width: 0;
   clip-path: inset(50%);
+
+  /* A focusable element using this pattern (the skip link) must become
+     visible when it receives focus. Non-focusable uses never match. */
+  &:focus {
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+  }
 }
 
 /* Injected legal documents (impressum, privacy policy, TOS) arrive as

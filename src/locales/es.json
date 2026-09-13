@@ -8,8 +8,8 @@
   "Nav": {
     "title": "¿Es vegano? - Veganify",
     "description": "¿No estás seguro de si un producto es vegano o no? Con Veganify puedes escanear el código de barras de un artículo mientras compras y comprobar si es vegano o no, ¡y eso sin mucha otra información innecesaria! Pruébalo ahora!",
-    "home": "Home",
-    "ingredientcheck": "Ingredientes Comprobar",
+    "home": "Inicio",
+    "ingredientcheck": "Comprobar ingredientes",
     "more": "Más",
     "navigation": "Navegación principal"
   },
@@ -36,12 +36,13 @@
     "notindb_add": "¿Quiere añadirlo?",
     "add_food": "Añadir comida",
     "or": "o",
-    "add_cosmetic": "añadir cosemtics",
+    "add_cosmetic": "añadir cosméticos",
     "wrongbarcode": "Este código de barras no es válido.",
     "timeout1": "Esto tarda más de lo normal",
     "timeout2": "La consulta ha tardado demasiado. Por favor, inténtalo de nuevo.",
     "unknown_error": "Ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.",
     "share": "Compartir",
+    "sharemessage": "{name}, comprobado con Veganify",
     "copy": "Copiar",
     "on": "en",
     "notvegan": "No vegano",
@@ -52,6 +53,7 @@
     "searching": "Buscando…",
     "barcodeexample": "p. ej. 4000417025005",
     "barcodehint": "Escribe el código de barras o escanéalo con la cámara.",
+    "clearbarcode": "Borrar código de barras",
     "wrongbarcode_desc": "Los códigos de barras tienen entre 8 y 13 dígitos. Comprueba el número que aparece bajo el código de barras e inténtalo de nuevo.",
     "checkconnection": "Comprueba tu conexión e inténtalo de nuevo.",
     "copied": "¡Copiado!",
@@ -73,7 +75,7 @@
   },
   "More": {
     "buyusacoffee": "Invítenos a un café",
-    "followus": "Siga con nosotros",
+    "followus": "Síguenos",
     "tos": "Condiciones de servicio",
     "privacypolicy": "Política de privacidad",
     "apidocumentation": "Documentación de la API",
@@ -119,17 +121,20 @@
   },
   "ShortcutPrompt": {
     "Shortcuts": "Atajos",
-    "openinapp": "Open in the shortcuts app",
-    "open": "Open"
+    "openinapp": "Abrir en la app Atajos",
+    "open": "Abrir"
+  },
+  "PromptStack": {
+    "show": "Mostrar"
   },
   "Ingredients": {
     "ingredientcheck": "Verificador de ingredientes veganos",
-    "ingredientcheck_desc": "¡Compruebe si los ingredientes de un producto son veganos! – Introduzca los ingredientes separados por comas.",
+    "ingredientcheck_desc": "¡Comprueba si los ingredientes de un producto son veganos! Introduce los ingredientes separados por comas.",
     "entercommaseperated": "Introduzca los ingredientes separados por comas",
     "submit": "Enviar",
     "vegan": "Vegano",
     "source": "Origen de los datos",
-    "cannotbeempty": "La lista de ingredientes no puede estar vacía ni incluir caracteres especiales y tiene que estar separada por comas.",
+    "cannotbeempty": "Escribe al menos un ingrediente. Separa varios ingredientes con comas.",
     "unknown_error": "Ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.",
     "licenses": "Licencias",
     "licenses_desc": "Veganify utiliza varias fuentes de datos para recoger información sobre un producto. Esta información está bajo las siguientes licencias:",
@@ -138,6 +143,9 @@
     "unknown_vegan": "No tenemos información sobre este ingrediente.",
     "searching": "Comprobando…",
     "ingredientsexample": "Azúcar, manteca de cacao, lecitina de soja…",
+    "scanlabel": "Escanear o subir la lista de ingredientes",
+    "scanning": "Reconociendo texto…",
+    "ocrerror": "No se pudo leer la imagen. Escribe los ingredientes.",
     "yes": "Sí",
     "no": "No"
   },

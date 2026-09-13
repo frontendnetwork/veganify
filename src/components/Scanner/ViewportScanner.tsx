@@ -15,7 +15,7 @@ import {
   useRef,
   useState,
 } from "react";
-
+import { useInertBackground } from "@/hooks/use-inert-background";
 import type { ScannerProps } from "./models/scanner";
 
 export function ViewportScanner({
@@ -24,6 +24,8 @@ export function ViewportScanner({
   triggerRef,
 }: ScannerProps) {
   const t = useTranslations("Scanner");
+  // The scanner is a full-screen modal for its whole mounted lifetime.
+  useInertBackground(true);
   const [facingMode, setFacingMode] = useState("environment");
   const [isHidden, setIsHidden] = useState(false);
   const [cameraError, setCameraError] = useState(false);
@@ -38,6 +40,13 @@ export function ViewportScanner({
     setCameraError(false);
     const width = window.innerWidth;
     const height = window.innerHeight;
+    // Request the stream in the screen's own aspect ratio (portrait screens
+    // swap width/height, since constraints describe the sensor frame). A
+    // stream that already matches the screen means the full-bleed
+    // object-fit: cover crop is only a few pixels instead of two thirds.
+    const isPortrait = height >= width;
+    const idealWidth = Math.min(isPortrait ? height : width, 1920);
+    const idealHeight = Math.min(isPortrait ? width : height, 1920);
 
     // Preflight: obtain permission and a camera before Quagga touches
     // anything. A getUserMedia rejection that reaches Quagga's
@@ -72,9 +81,9 @@ export function ViewportScanner({
         },
         inputStream: {
           constraints: {
-            aspectRatio: { ideal: height / width },
             facingMode: { ideal: newFacingMode },
-            height: { ideal: height, max: 1080, min: 480 },
+            height: { ideal: idealHeight },
+            width: { ideal: idealWidth },
           },
           type: "LiveStream",
         },
@@ -155,10 +164,8 @@ export function ViewportScanner({
   }
 
   const viewportStyle: CSSProperties = {
-    left: "50%",
+    height: "100%",
     position: "fixed",
-    top: 0,
-    transform: "translateX(-50%)",
     width: "100%",
   };
 
@@ -174,8 +181,15 @@ export function ViewportScanner({
           onInteractOutside={preventClose}
           onCloseAutoFocus={returnFocusToTrigger}
         >
-          <div className="fixed inset-0 z-50 bg-black">
-            <div className="viewport" id="interactive" style={viewportStyle} />
+          <div className="fixed inset-0 z-50 overflow-hidden bg-black">
+            {/* Quagga sizes its <video> inline to the stream resolution;
+                force a full-bleed cover fit instead: fill the screen, crop
+                the overflow, never stretch. */}
+            <div
+              className="viewport size-full [&_video]:absolute [&_video]:inset-0 [&_video]:size-full! [&_video]:object-cover"
+              id="interactive"
+              style={viewportStyle}
+            />
 
             <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4">
               <button

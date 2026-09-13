@@ -48,7 +48,7 @@ export function ScanButton({
     <>
       <button
         aria-label={t("open")}
-        className="fluid-hover flex w-14 shrink-0 items-center justify-center text-muted hover:bg-surface-2 hover:text-ink data-[fluid-hover-active]:bg-surface-2 data-[fluid-hover-active]:text-ink"
+        className="fluid-hover flex w-14 shrink-0 items-center justify-center text-muted hover:bg-surface-2 hover:text-ink"
         onClick={startScanning}
         ref={attachTrigger}
         type="button"
