@@ -473,6 +473,24 @@ html[data-theme="oled"] {
   }
 }
 
+/* Loading-skeleton surface: base surface color plus a slow diagonal shimmer
+   sweep. Animation is wrapped in `prefers-reduced-motion: no-preference` so
+   static skeletons remain static for reduced-motion users. */
+@utility skeleton-shimmer {
+  background-color: var(--surface-2);
+  background-image: linear-gradient(
+    110deg,
+    var(--surface-2) 30%,
+    var(--line) 50%,
+    var(--surface-2) 70%
+  );
+  background-size: 200% 100%;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: var(--animate-shimmer);
+  }
+}
+
 /* Injected legal documents (impressum, privacy policy, TOS) arrive as
    arbitrary HTML from remote sources; give them a readable default. */
 @layer components {

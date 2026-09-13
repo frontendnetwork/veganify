@@ -3,7 +3,7 @@ import type { ComponentType, SVGProps } from "react";
 import { Tooltip } from "@/components/ui/tooltip";
 import type { TranslationFunction } from "./models/TranslateFunction";
 
-export type IconTone = "success" | "danger" | "caution" | "unknown";
+type IconTone = "success" | "danger" | "caution" | "unknown";
 
 const toneConfig: Record<
   IconTone,

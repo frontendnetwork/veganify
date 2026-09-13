@@ -216,10 +216,7 @@ export function IngredientsForm() {
         {!!loading && (
           <div aria-hidden="true" className="mt-5 space-y-2">
             {[0, 1, 2, 3].map((row) => (
-              <div
-                className="h-6 rounded bg-[length:200%_100%] bg-[linear-gradient(110deg,var(--surface-2)_30%,var(--line)_50%,var(--surface-2)_70%)] bg-surface-2 motion-safe:animate-shimmer"
-                key={row}
-              />
+              <div className="skeleton-shimmer h-6 rounded" key={row} />
             ))}
           </div>
         )}

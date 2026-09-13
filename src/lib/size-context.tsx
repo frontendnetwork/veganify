@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  type ReactNode,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
+import { createContext, useContext } from "react";
 
 type SizeVariant = "default" | "compact";
 
@@ -76,53 +69,6 @@ const sizeMap: Record<SizeVariant, SizeClasses> = {
   },
 };
 
-/** One role of the type scale: px per ladder step. */
-interface TypeScaleStep {
-  compact: number;
-  default: number;
-}
-
-/**
- * Role-based type scale, per ladder step (px values).
- *
- * The default column is the system as shipped; the compact column steps each
- * role down one notch so dense regions read as a smaller sibling of the same
- * hierarchy, not a squeezed copy. `body`, `caption`, and `subtitle` are what
- * the sized components already render through `SizeClasses.text` and their
- * compact conditionals; `display` and `title` are the page-level roles
- * for consumers composing their own screens.
- */
-const typeScale = {
-  /** Control labels and body copy — `SizeClasses.text`. */
-  body: { compact: 12, default: 13 },
-  /** Secondary text: descriptions, meta rows, errors, eyebrows and group
-   *  labels (the former overline role — an uppercase or muted caption). */
-  caption: { compact: 11, default: 12 },
-  /** Page titles. */
-  display: { compact: 24, default: 28 },
-  /** Card titles, chat bubbles, emphasized rows. */
-  subtitle: { compact: 13, default: 14 },
-  /** Section headings, dialog titles. */
-  title: { compact: 15, default: 16 },
-} as const satisfies Record<string, TypeScaleStep>;
-
-type TypeScaleRole = keyof typeof typeScale;
-
-/** The type scale resolved for the active ladder step (px per role):
- *  explicit override > surrounding SizeProvider > "default". */
-function useTypeScale(
-  override?: SizeVariant | null
-): Record<TypeScaleRole, number> {
-  const variant = useSizeVariant(override);
-  return {
-    body: typeScale.body[variant],
-    caption: typeScale.caption[variant],
-    display: typeScale.display[variant],
-    subtitle: typeScale.subtitle[variant],
-    title: typeScale.title[variant],
-  };
-}
-
 interface SizeContextValue {
   classes: SizeClasses;
   setSize: (size: SizeVariant) => void;
@@ -142,57 +88,5 @@ function useSize(override?: SizeVariant | null): SizeClasses {
   return sizeMap[useSizeVariant(override)];
 }
 
-function useSizeContext() {
-  const ctx = useContext(SizeContext);
-  if (!ctx) {
-    throw new Error("useSizeContext must be used within a SizeProvider");
-  }
-  return ctx;
-}
-
-function SizeProvider({
-  children,
-  size,
-  defaultSize = "default",
-}: {
-  children: ReactNode;
-  /** Controlled variant — pin a whole region to one size (e.g. a compact
-   *  filter bar). Overrides internal state. */
-  size?: SizeVariant;
-  defaultSize?: SizeVariant;
-}) {
-  const [internalSize, setInternalSize] = useState<SizeVariant>(defaultSize);
-  const isControlled = size !== undefined;
-  const resolved = size ?? internalSize;
-
-  // Controlled providers ignore setSize entirely — a background write to the
-  // shadowed internal state would pop back out if the size prop were later
-  // removed.
-  const setSize = useCallback(
-    (next: SizeVariant) => {
-      if (isControlled) {
-        return;
-      }
-      setInternalSize(next);
-    },
-    [isControlled]
-  );
-
-  const value = useMemo(
-    () => ({ classes: sizeMap[resolved], setSize, size: resolved }),
-    [resolved, setSize]
-  );
-
-  return <SizeContext.Provider value={value}>{children}</SizeContext.Provider>;
-}
-
-export type { SizeClasses, SizeVariant, TypeScaleRole, TypeScaleStep };
-export {
-  SizeProvider,
-  sizeMap,
-  typeScale,
-  useSize,
-  useSizeContext,
-  useSizeVariant,
-  useTypeScale,
-};
+export type { SizeVariant };
+export { useSize, useSizeVariant };

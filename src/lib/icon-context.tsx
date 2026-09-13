@@ -60,15 +60,9 @@ import {
   Users,
   X,
 } from "lucide-react";
-import {
-  type ComponentType,
-  createContext,
-  type ReactNode,
-  useContext,
-  useMemo,
-} from "react";
+import { type ComponentType, createContext, useContext } from "react";
 
-export interface IconComponentProps {
+interface IconComponentProps {
   className?: string;
   size?: number;
   strokeWidth?: number;
@@ -76,7 +70,7 @@ export interface IconComponentProps {
 
 export type IconComponent = ComponentType<IconComponentProps>;
 
-export type IconName =
+type IconName =
   | "chevron-right"
   | "chevron-down"
   | "x"
@@ -136,7 +130,7 @@ export type IconName =
   | "folder"
   | "sliders-horizontal";
 
-export const defaultIcons: Record<IconName, IconComponent> = {
+const defaultIcons: Record<IconName, IconComponent> = {
   "arrow-down": ArrowDown,
   "arrow-left": ArrowLeft,
   "arrow-right": ArrowRight,
@@ -208,28 +202,4 @@ function useIcon(name: IconName): IconComponent {
   return (icons ?? defaultIcons)[name];
 }
 
-/**
- * Returns the full icon map.
- * Falls back to the default (Lucide) set if no provider is present.
- */
-function useIcons(): Record<IconName, IconComponent> {
-  const icons = useContext(IconContext);
-  return icons ?? defaultIcons;
-}
-
-/**
- * Swap some or all icons for components from another library.
- * Names left out of `icons` keep their default (Lucide) component.
- */
-function IconProvider({
-  children,
-  icons,
-}: {
-  children: ReactNode;
-  icons?: Partial<Record<IconName, IconComponent>>;
-}) {
-  const value = useMemo(() => ({ ...defaultIcons, ...icons }), [icons]);
-  return <IconContext.Provider value={value}>{children}</IconContext.Provider>;
-}
-
-export { IconProvider, useIcon, useIcons };
+export { useIcon };
