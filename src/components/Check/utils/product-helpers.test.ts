@@ -1,11 +1,11 @@
 import type { ProductResult } from "@/models/ProductResults";
-
+import type { GradeState, TriState } from "../models/product";
 import { getProductState } from "./product-helpers";
 
 describe("getProductState", () => {
   describe("getTriState", () => {
     test("maps booleans and missing values to yes/no/unknown", () => {
-      const testCases: [ProductResult, string][] = [
+      const testCases: [ProductResult, TriState][] = [
         [{ vegan: true } as ProductResult, "yes"],
         [{ vegan: false } as ProductResult, "no"],
         [{ vegan: "n/a" } as ProductResult, "unknown"],
@@ -19,7 +19,7 @@ describe("getProductState", () => {
     });
 
     test("handles vegetarian states", () => {
-      const testCases: [ProductResult, string][] = [
+      const testCases: [ProductResult, TriState][] = [
         [{ vegetarian: true } as ProductResult, "yes"],
         [{ vegetarian: false } as ProductResult, "no"],
         [{ vegetarian: "n/a" } as ProductResult, "unknown"],
@@ -33,7 +33,7 @@ describe("getProductState", () => {
     });
 
     test("handles animal test free states", () => {
-      const testCases: [ProductResult, string][] = [
+      const testCases: [ProductResult, TriState][] = [
         [{ animaltestfree: true } as ProductResult, "yes"],
         [{ animaltestfree: false } as ProductResult, "no"],
         [{ animaltestfree: "n/a" } as ProductResult, "unknown"],
@@ -47,7 +47,7 @@ describe("getProductState", () => {
     });
 
     test("handles palm oil states", () => {
-      const testCases: [ProductResult, string][] = [
+      const testCases: [ProductResult, TriState][] = [
         [{ palmoil: true } as ProductResult, "yes"],
         [{ palmoil: false } as ProductResult, "no"],
         [{ palmoil: "n/a" } as ProductResult, "unknown"],
@@ -63,7 +63,7 @@ describe("getProductState", () => {
 
   describe("getGrade", () => {
     test("handles valid nutriscore grades", () => {
-      const testCases: [string, { grade: string }][] = [
+      const testCases: [string, GradeState][] = [
         ["A", { grade: "a" }],
         ["B", { grade: "b" }],
         ["C", { grade: "c" }],
@@ -99,7 +99,7 @@ describe("getProductState", () => {
     });
 
     test("handles general grade scores similarly to nutriscore", () => {
-      const testCases: [string, { grade: string }][] = [
+      const testCases: [string, GradeState][] = [
         ["A", { grade: "a" }],
         ["B", { grade: "b" }],
         ["C", { grade: "c" }],
