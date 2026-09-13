@@ -36,15 +36,7 @@ The [Veganify Ingredients API](https://github.com/frontendnetwork/Veganify-API) 
 
 ### Prerequisites
 
-- Node.js 20 or later
-- pnpm (enabled via corepack)
-
-To enable pnpm using corepack:
-
-```bash
-corepack enable
-corepack prepare pnpm@latest --activate
-```
+- [Bun](https://bun.sh) 1.4 or later (package manager, test runner and runtime)
 
 ### Getting Started
 
@@ -56,50 +48,60 @@ corepack prepare pnpm@latest --activate
 2. Install dependencies & start dev server:
 
    ```bash
-   pnpm install
-   pnpm dev
+   bun install
+   bun run dev
    ```
 
 ### Project Structure
 
 ```
 src/
-├── @components/
-│   ├── shared/
-│   ├── ComponentName/
-│   │   ├── hooks/      			# Component-specific hooks
-│   │   ├── utils/      			# Component-specific utilities
-│   │   │	├── util.ts
-│   │   │	└──	util.test.ts		# Utility specify tests
-│   │   ├── models/     			# Component-specific types/interfaces
-│   │   ├── componentPart.tsx		# Component files
-│   │   └── index.tsx				# Component files
-├── @models/        # Global type definitions
-├── styles/         # CSS styles
-├── tests/          # Only test setup files & Playwright tests
-└── locales/        # next-intl translation files
+├── app/[locale]/     # App Router pages (i18n-routed)
+├── app/globals.css   # Tailwind v4 theme tokens (light / dark / OLED)
+├── components/       # React components
+│   ├── ui/           # Design system primitives (button, dialog, switch…)
+│   ├── shared/       # Shared components across app
+│   └── ComponentName/  # Feature components
+│       ├── hooks/    # Component-specific hooks
+│       ├── utils/    # Component-specific utilities (+ tests)
+│       ├── models/   # Component-specific types/interfaces
+│       └── index.tsx # Main component file
+├── lib/              # Shared libs (contexts, springs, utilities)
+├── models/           # Global type definitions
+├── i18n/             # next-intl routing configuration
+├── locales/          # Translation files
+└── tests/            # Test setup & Playwright E2E tests
 ```
 
 ### Development Commands
 
 ```bash
-# Start development server
-pnpm dev
+# Start development server (Turbopack)
+bun run dev
 
-# Run linting
-pnpm lint
+# Lint + type-check + unit tests in parallel
+bun run check
+
+# Run linting (Biome)
+bun run lint
 
 # Run type checking
-pnpm check-types
+bun run type-check
 
 # Run unit tests
-pnpm test
+bun run test
 
 # Run end-to-end tests
-pnpm test:e2e
+bun run test:e2e
 
 # Build for production
-pnpm build
+bun run build
+
+# Start production server (port 1030)
+bun run start
+
+# Start staging server (port 1031)
+bun run stage
 ```
 
 ### Development Guidelines
@@ -119,9 +121,9 @@ pnpm build
 #### Testing
 
 - All utility functions must have 100% test coverage
-- Tests are written using Jest for unit testing
+- Unit tests are written using the Bun test runner
 - Components currently don't require test coverage
-- Playwright is used for end-to-end testing but currently only coversa few basics use cases. More tests are needed.
+- Playwright is used for end-to-end testing but currently only covers a few basic use cases. More tests are needed.
 
 #### TypeScript
 
@@ -149,10 +151,9 @@ pnpm build
 
 #### Styling
 
-- Place all styles in the `styles` folder
-- Keep styles modular and scoped to components when possible
-- Be sure to use SCSS for styling
-- Use CSS variables for theming and repeated values
+- Use Tailwind CSS v4 utilities exclusively; no SCSS, no component-level CSS files
+- Theme via the semantic oklch tokens in `src/app/globals.css` (light / dark / OLED)
+- Shared patterns and design-system primitives live in `src/components/ui/`
 
 When making a contribution, please follow these guidelines to ensure consistency and maintainability.
 
@@ -171,9 +172,7 @@ or if you find something else you could improve, just open a new issue for it!
 
 ### Support us
 
-<a href="https://github.com/sponsors/philipbrembeck"><img src="https://img.shields.io/badge/Sponsor%20on%20GitHub-white.svg?logo=githubsponsors" alt="Consider Sponsoring"></a>
 <a href="https://ko-fi.com/vegancheck"><img src="https://img.shields.io/badge/Buy%20us%20a%20coffee-white.svg?logo=kofi" alt="Buy us a coffee"></a>
-<a href="https://www.paypal.com/donate/?hosted_button_id=J7TEA8GBPN536"><img src="https://shields.io/badge/Donate%20with%20PayPal-blue?style=flat&logo=Paypal" alt="Donate"></a>
 
 ### Premium Supporters
 

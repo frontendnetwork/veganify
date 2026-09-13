@@ -74,6 +74,12 @@ src/
 
 ## Development Guidelines
 
+### Library Code Is Untouchable
+
+- `src/components/ui/` is the design-system library — never modify, refactor, or "clean up" its files in audits, cleanups, or complexity work; treat them as vendor code
+- Complexity and length findings in `src/components/ui/` are accepted by design; exclude that folder from refactoring tasks and reports
+- Exception: deleting a `ui/` file that is confirmed dead (zero references, e.g. via knip) is allowed
+
 ### Code Quality Requirements
 
 - All utility functions must have 100% test coverage using Bun test runner
