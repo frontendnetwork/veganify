@@ -114,6 +114,10 @@ jobs:
         env:
           VERSION: ${{ needs.semrel.outputs.version }}
         run: |
+          if [ -z "$VERSION" ]; then
+            echo "ERROR: release version is empty — refusing to touch the deployment" >&2
+            exit 1
+          fi
           IMAGE="${REGISTRY}/${IMAGE_NAME}:v${VERSION}"
           CONTAINER=$(kubectl get deployment "$PROD_DEPLOYMENT" -n "$PROD_NAMESPACE" \
             -o jsonpath='{.spec.template.spec.containers[0].name}')
