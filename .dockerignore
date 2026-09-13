@@ -1,3 +1,14 @@
 # Env files must never leak into image builds (Bun auto-loads them and
 # .env.development previously overrode the production staging flag).
 .env*
+
+# Local artifacts: the image installs its own node_modules in the deps
+# stage; copying the host's over it breaks bun's symlink layout.
+node_modules
+.next
+.git
+*.tsbuildinfo
+.DS_Store
+README.md
+docs
+agents
