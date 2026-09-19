@@ -1,6 +1,45 @@
 import type { ProductResult } from "@/models/ProductResults";
 import type { GradeState, TriState } from "../models/product";
-import { getProductState } from "./product-helpers";
+import {
+  getProductState,
+  normalizeProduct,
+  normalizeSources,
+} from "./product-helpers";
+
+describe("normalizeProduct", () => {
+  test("maps raw product values to the client result model", () => {
+    expect(
+      normalizeProduct({
+        animaltestfree: undefined,
+        grade: undefined,
+        nutriscore: undefined,
+        palmoil: false,
+        productname: "Test product",
+        vegan: true,
+        vegetarian: "n/a",
+      })
+    ).toEqual({
+      animaltestfree: "n/a",
+      grade: "",
+      nutriscore: "",
+      palmoil: false,
+      productname: "Test product",
+      vegan: true,
+      vegetarian: "n/a",
+    });
+  });
+});
+
+describe("normalizeSources", () => {
+  test("keeps only the client-facing source fields", () => {
+    expect(
+      normalizeSources({ api: "open-food-facts", baseuri: "https://example" })
+    ).toEqual({
+      api: "open-food-facts",
+      baseuri: "https://example",
+    });
+  });
+});
 
 describe("getProductState", () => {
   describe("getTriState", () => {

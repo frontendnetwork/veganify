@@ -1,6 +1,7 @@
 "use client";
 
 import Quagga from "@ericblade/quagga2";
+import type { QuaggaJSResultObject } from "@ericblade/quagga2/type-definitions/quagga";
 import {
   Content as DialogContent,
   Portal as DialogPortal,
@@ -15,17 +16,20 @@ import {
   useRef,
   useState,
 } from "react";
+
 import { useInertBackground } from "@/hooks/use-inert-background";
-import type { ScannerProps } from "./models/scanner";
+import type { DetectionResult, ScannerProps } from "./models/scanner";
+
+type QuaggaDetectionResult = QuaggaJSResultObject;
 
 export function ViewportScanner({
   onDetected,
+  onCancelled,
+  onError,
   setScanning,
   triggerRef,
 }: ScannerProps) {
   const t = useTranslations("Scanner");
-  // The scanner is a full-screen modal for its whole mounted lifetime.
-  useInertBackground(true);
   const [facingMode, setFacingMode] = useState("environment");
   const [isHidden, setIsHidden] = useState(false);
   const [cameraError, setCameraError] = useState(false);
@@ -33,110 +37,227 @@ export function ViewportScanner({
   // rapid camera switches). Only the latest attempt may set state — a stale
   // attempt's late failure must not flag an error over a live camera.
   const attemptRef = useRef(0);
+  const activeRef = useRef<boolean>(false);
+  const closeHandledRef = useRef<boolean>(false);
+  const detectionHandledRef = useRef<boolean>(false);
+  const reportedErrorAttemptRef = useRef<number | null>(null);
+  const startedAttemptRef = useRef<number | null>(null);
 
-  const initializeScanner = useCallback(async (newFacingMode: string) => {
-    const attempt = attemptRef.current + 1;
-    attemptRef.current = attempt;
-    setCameraError(false);
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    // Request the stream in the screen's own aspect ratio (portrait screens
-    // swap width/height, since constraints describe the sensor frame). A
-    // stream that already matches the screen means the full-bleed
-    // object-fit: cover crop is only a few pixels instead of two thirds.
-    const isPortrait = height >= width;
-    const idealWidth = Math.min(isPortrait ? height : width, 1920);
-    const idealHeight = Math.min(isPortrait ? width : height, 1920);
-
-    // Preflight: obtain permission and a camera before Quagga touches
-    // anything. A getUserMedia rejection that reaches Quagga's
-    // InputStreamBrowser teardown crashes it ("null.removeEventListener"),
-    // so failures are handled here instead — and `facingMode` uses an
-    // `ideal` constraint so devices without the requested camera (e.g.
-    // desktop Safari, no rear camera) fall back instead of rejecting.
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: { ideal: newFacingMode } },
-      });
-      stream.getTracks().forEach((track) => {
-        track.stop();
-      });
-    } catch (err) {
-      console.error("Camera unavailable:", err);
-      if (attemptRef.current === attempt) {
-        setCameraError(true);
-      }
+  const focusTrigger = useCallback(() => {
+    const target = triggerRef.current;
+    if (!target?.isConnected) {
       return;
     }
+    try {
+      target.focus();
+    } catch {
+      // Focus can fail when an invocation began with a non-focusable node.
+    }
+  }, [triggerRef]);
 
-    Quagga.init(
-      {
-        decoder: {
-          readers: [
-            "ean_reader",
-            "code_39_reader",
-            "code_128_reader",
-            "i2of5_reader",
-          ],
-        },
-        inputStream: {
-          constraints: {
-            facingMode: { ideal: newFacingMode },
-            height: { ideal: idealHeight },
-            width: { ideal: idealWidth },
-          },
-          type: "LiveStream",
-        },
-        locate: true,
-        locator: {
-          halfSample: true,
-          patchSize: "medium",
-        },
-        numOfWorkers: 2,
-      },
-      (err: Error | null) => {
-        if (err) {
-          console.error("Error initializing Quagga:", err);
-          if (attemptRef.current === attempt) {
-            setCameraError(true);
-          }
+  // The scanner is a full-screen modal for its whole mounted lifetime.
+  useInertBackground(!isHidden);
+  useEffect(() => {
+    if (isHidden) {
+      focusTrigger();
+    }
+  }, [focusTrigger, isHidden]);
+
+  const handleQuaggaDetection = useCallback(
+    (result: QuaggaDetectionResult) => {
+      const barcode = result.codeResult.code;
+      if (
+        !activeRef.current ||
+        closeHandledRef.current ||
+        detectionHandledRef.current ||
+        typeof barcode !== "string" ||
+        !barcode
+      ) {
+        return;
+      }
+      detectionHandledRef.current = true;
+      const detection: DetectionResult = { codeResult: { code: barcode } };
+      onDetected(detection);
+    },
+    [onDetected]
+  );
+
+  const stopQuagga = useCallback(
+    (removeDetectionListener: boolean) => {
+      try {
+        Quagga.stop();
+      } catch {
+        // Quagga was never started (camera preflight failed) — nothing to stop.
+      }
+      if (removeDetectionListener) {
+        Quagga.offDetected(handleQuaggaDetection);
+      }
+    },
+    [handleQuaggaDetection]
+  );
+
+  const isCurrentAttempt = useCallback(
+    (attempt: number): boolean =>
+      activeRef.current &&
+      !closeHandledRef.current &&
+      attemptRef.current === attempt,
+    []
+  );
+
+  const reportAttemptError = useCallback(
+    (attempt: number, error: unknown) => {
+      if (
+        !isCurrentAttempt(attempt) ||
+        reportedErrorAttemptRef.current === attempt
+      ) {
+        return;
+      }
+      reportedErrorAttemptRef.current = attempt;
+      stopQuagga(false);
+      setCameraError(true);
+      onError?.(error);
+    },
+    [isCurrentAttempt, onError, stopQuagga]
+  );
+
+  const initializeScanner = useCallback(
+    async (newFacingMode: string) => {
+      const attempt = attemptRef.current + 1;
+      attemptRef.current = attempt;
+      reportedErrorAttemptRef.current = null;
+      startedAttemptRef.current = null;
+      setCameraError(false);
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      // Request the stream in the screen's own aspect ratio (portrait screens
+      // swap width/height, since constraints describe the sensor frame). A
+      // stream that already matches the screen means the full-bleed
+      // object-fit: cover crop is only a few pixels instead of two thirds.
+      const isPortrait = height >= width;
+      const idealWidth = Math.min(isPortrait ? height : width, 1920);
+      const idealHeight = Math.min(isPortrait ? width : height, 1920);
+
+      // Preflight: obtain permission and a camera before Quagga touches
+      // anything. A getUserMedia rejection that reaches Quagga's
+      // InputStreamBrowser teardown crashes it ("null.removeEventListener"),
+      // so failures are handled here instead — and `facingMode` uses an
+      // `ideal` constraint so devices without the requested camera (e.g.
+      // desktop Safari, no rear camera) fall back instead of rejecting.
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: newFacingMode } },
+        });
+        for (const track of stream.getTracks()) {
+          track.stop();
+        }
+        if (!isCurrentAttempt(attempt)) {
           return;
         }
-        Quagga.start();
+      } catch (error) {
+        console.error("Camera unavailable:", error);
+        reportAttemptError(attempt, error);
+        return;
       }
-    );
-  }, []);
 
-  const stop = useCallback(() => {
-    try {
-      Quagga.stop();
-    } catch {
-      // Quagga was never started (camera preflight failed) — nothing to stop.
-    }
-    Quagga.offDetected(onDetected);
-  }, [onDetected]);
+      if (!isCurrentAttempt(attempt)) {
+        return;
+      }
+
+      Promise.resolve(
+        Quagga.init(
+          {
+            decoder: {
+              readers: [
+                "ean_reader",
+                "code_39_reader",
+                "code_128_reader",
+                "i2of5_reader",
+              ],
+            },
+            inputStream: {
+              constraints: {
+                facingMode: { ideal: newFacingMode },
+                height: { ideal: idealHeight },
+                width: { ideal: idealWidth },
+              },
+              type: "LiveStream",
+            },
+            locate: true,
+            locator: {
+              halfSample: true,
+              patchSize: "medium",
+            },
+            numOfWorkers: 2,
+          },
+          (error: Error | null) => {
+            if (!isCurrentAttempt(attempt)) {
+              // A cancelled attempt may still invoke its callback. Do not start
+              // a stale camera, but release any resources Quagga allocated.
+              if (startedAttemptRef.current === null) {
+                stopQuagga(false);
+              }
+              return;
+            }
+            if (error) {
+              console.error("Error initializing Quagga:", error);
+              reportAttemptError(attempt, error);
+              return;
+            }
+            try {
+              startedAttemptRef.current = attempt;
+              Quagga.start();
+            } catch (startError) {
+              reportAttemptError(attempt, startError);
+            }
+          }
+        )
+      ).catch((error: unknown) => {
+        reportAttemptError(attempt, error);
+      });
+    },
+    [isCurrentAttempt, reportAttemptError, stopQuagga]
+  );
 
   const handleClose = useCallback(() => {
+    if (closeHandledRef.current) {
+      return;
+    }
+    closeHandledRef.current = true;
+    activeRef.current = false;
+    attemptRef.current += 1;
+    startedAttemptRef.current = null;
     setIsHidden(true);
     setScanning(false);
-    stop();
-  }, [setScanning, stop]);
+    stopQuagga(true);
+    focusTrigger();
+    onCancelled?.();
+  }, [focusTrigger, onCancelled, setScanning, stopQuagga]);
 
   const handleCameraSwitch = useCallback(() => {
+    if (closeHandledRef.current) {
+      return;
+    }
     const newFacingMode = facingMode === "environment" ? "user" : "environment";
 
+    attemptRef.current += 1;
+    startedAttemptRef.current = null;
+    stopQuagga(false);
     setFacingMode(newFacingMode);
-    Quagga.stop();
-    initializeScanner(newFacingMode);
-  }, [facingMode, initializeScanner]);
+    initializeScanner(newFacingMode).catch(() => undefined);
+  }, [facingMode, initializeScanner, stopQuagga]);
 
   useEffect(() => {
-    initializeScanner(facingMode);
-    Quagga.onDetected(onDetected);
+    activeRef.current = true;
+    Quagga.onDetected(handleQuaggaDetection);
+    initializeScanner(facingMode).catch(() => undefined);
 
     return () => {
-      stop();
+      activeRef.current = false;
+      attemptRef.current += 1;
+      startedAttemptRef.current = null;
+      stopQuagga(true);
     };
+    // This effect intentionally initializes one scanner session per mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -154,9 +275,9 @@ export function ViewportScanner({
   const returnFocusToTrigger = useCallback(
     (event: Event) => {
       event.preventDefault();
-      triggerRef.current?.focus();
+      focusTrigger();
     },
-    [triggerRef]
+    [focusTrigger]
   );
 
   if (isHidden) {

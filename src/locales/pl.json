@@ -162,5 +162,11 @@
     "switchcamera": "Przełącz aparat",
     "hint": "Wyrównaj kod kreskowy w ramce",
     "cameraerror": "Aparat niedostępny. Sprawdź uprawnienia przeglądarki lub wpisz kod kreskowy."
+  },
+  "WebMCP": {
+    "scanTitle": "Zeskanuj produkt",
+    "scanDescription": "Veganify potrzebuje Twojej zgody na otwarcie aparatu i odczytanie kodu kreskowego produktu. Aparat zostanie otwarty dopiero po wybraniu Otwórz aparat.",
+    "cancel": "Anuluj",
+    "openCamera": "Otwórz aparat"
   }
 }

@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 
 import { monaSans } from "@/app/fonts";
 import Nav from "@/components/nav";
+import { WebMCPProvider } from "@/components/WebMCP";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -80,14 +81,16 @@ export default async function LocaleLayout(props: {
       <body>
         <NextIntlClientProvider messages={messages}>
           <MotionConfig reducedMotion="user">
-            <a
-              className="sr-only-focusable bg-accent text-accent-foreground focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:font-medium focus:text-sm focus:shadow-elev-3 focus:transition-none"
-              href="#main"
-            >
-              {t("skiptomain")}
-            </a>
-            <Nav />
-            {children}
+            <WebMCPProvider>
+              <a
+                className="sr-only-focusable bg-accent text-accent-foreground focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:font-medium focus:text-sm focus:shadow-elev-3 focus:transition-none"
+                href="#main"
+              >
+                {t("skiptomain")}
+              </a>
+              <Nav />
+              {children}
+            </WebMCPProvider>
           </MotionConfig>
         </NextIntlClientProvider>
       </body>
