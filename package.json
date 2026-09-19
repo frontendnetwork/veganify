@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "check": "concurrently -c \"#FF8700,#5DE4C7,#A8E6CF,#ADD7FF\" -n lint,types,unit \"bun run lint\" \"bun run type-check\" \"bun test src/components src/hooks --concurrent --timeout=10000 --reporter=dots --bail\"",
+    "check": "concurrently -c \"#FF8700,#5DE4C7,#A8E6CF,#ADD7FF\" -n lint,types,unit \"bun run lint\" \"bun run type-check\" \"bun test src/components src/hooks --timeout=10000 --reporter=dots --bail\"",
     "check:code": "ultracite check",
     "dev": "next dev --turbopack",
     "lint": "biome check .",
@@ -72,9 +72,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.13",
+    "@mcp-b/webmcp-types": "5.1.0",
     "@playwright/test": "1.63.0",
     "@semantic-release/exec": "^7.1.0",
     "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
     "@types/bun": "1.4.2",
     "@types/react": "19.2.16",
     "concurrently": "10.0.5",

@@ -162,5 +162,11 @@
     "switchcamera": "Kamera wechseln",
     "hint": "Richte den Barcode am Rahmen aus",
     "cameraerror": "Kamera nicht verfügbar. Prüfe die Browser-Berechtigungen oder gib den Barcode stattdessen ein."
+  },
+  "WebMCP": {
+    "scanTitle": "Produkt scannen",
+    "scanDescription": "Veganify benötigt deine Erlaubnis, die Kamera zu öffnen und den Produkt-Barcode zu lesen. Die Kamera wird erst geöffnet, wenn du „Kamera öffnen“ auswählst.",
+    "cancel": "Abbrechen",
+    "openCamera": "Kamera öffnen"
   }
 }

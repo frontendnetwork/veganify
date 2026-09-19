@@ -162,5 +162,11 @@
     "switchcamera": "Switch camera",
     "hint": "Align the barcode within the frame",
     "cameraerror": "Camera unavailable. Check your browser permissions, or type the barcode instead."
+  },
+  "WebMCP": {
+    "scanTitle": "Scan a product",
+    "scanDescription": "Veganify needs your permission to open the camera and read a product barcode. The camera opens only after you choose Open camera.",
+    "cancel": "Cancel",
+    "openCamera": "Open camera"
   }
 }

@@ -15,7 +15,11 @@ import { rememberCheck } from "./recentChecks";
 import { SearchForm } from "./SearchForm";
 import { StatusMessages } from "./StatusMessages";
 import { fetchProduct } from "./utils/product-actions";
-import { getProductState } from "./utils/product-helpers";
+import {
+  getProductState,
+  normalizeProduct,
+  normalizeSources,
+} from "./utils/product-helpers";
 
 type Status =
   | "idle"
@@ -61,22 +65,12 @@ export default function ProductSearch() {
       try {
         const data = await fetchProduct(barcodeValue);
         if (data.status === FetchStatus.OK && data.product && data.sources) {
-          setResult({
-            animaltestfree: data.product.animaltestfree ?? "n/a",
-            grade: data.product.grade ?? "",
-            nutriscore: data.product.nutriscore ?? "",
-            palmoil: data.product.palmoil ?? "n/a",
-            productname: data.product.productname,
-            vegan: data.product.vegan ?? "n/a",
-            vegetarian: data.product.vegetarian ?? "n/a",
-          });
-          setSources(data.sources);
+          const product = normalizeProduct(data.product);
+          setResult(product);
+          setSources(normalizeSources(data.sources));
           rememberCheck({
             ean: barcodeValue,
-            name:
-              typeof data.product.productname === "string"
-                ? data.product.productname
-                : "n/a",
+            name: product.productname,
           });
           setStatus("found");
           return;

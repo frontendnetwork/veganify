@@ -162,5 +162,11 @@
     "switchcamera": "Changer de caméra",
     "hint": "Aligne le code-barres dans le cadre",
     "cameraerror": "Caméra indisponible. Vérifie les autorisations du navigateur ou saisis le code-barres."
+  },
+  "WebMCP": {
+    "scanTitle": "Scanner un produit",
+    "scanDescription": "Veganify a besoin de votre autorisation pour ouvrir la caméra et lire le code-barres d’un produit. La caméra s’ouvrira uniquement après avoir choisi Ouvrir la caméra.",
+    "cancel": "Annuler",
+    "openCamera": "Ouvrir la caméra"
   }
 }

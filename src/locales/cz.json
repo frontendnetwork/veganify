@@ -162,5 +162,11 @@
     "switchcamera": "Přepnout kameru",
     "hint": "Zaměř čárový kód do rámečku",
     "cameraerror": "Kamera není k dispozici. Zkontroluj oprávnění prohlížeče nebo zadej čárový kód ručně."
+  },
+  "WebMCP": {
+    "scanTitle": "Naskenovat produkt",
+    "scanDescription": "Veganify potřebuje vaše svolení k otevření kamery a načtení čárového kódu produktu. Kamera se otevře až po volbě „Otevřít kameru“.",
+    "cancel": "Zrušit",
+    "openCamera": "Otevřít kameru"
   }
 }
