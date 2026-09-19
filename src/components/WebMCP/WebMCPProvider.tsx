@@ -114,7 +114,7 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
   );
   const handleScannerCancelled = useCallback(() => session.cancel(), [session]);
   const handleScannerError = useCallback(
-    (_error: unknown) => session.reportCameraError(),
+    () => session.reportCameraError(),
     [session]
   );
   const setScannerScanning = useCallback(() => undefined, []);
