@@ -84,7 +84,7 @@
     "husky": "^9.1.7",
     "lint-staged": "17.5.1",
     "semantic-release": "^25.0.9",
-    "ultracite": "7.11.1"
+    "ultracite": "7.12.2"
   },
   "packageManager": "bun@1.4.1",
   "volta": {
