@@ -98,7 +98,7 @@ export function EmptyState({
         />
       </ol>
       <button
-        className="fluid-hover -mt-1 rounded-full border border-line-strong bg-surface px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2 motion-safe:transition-transform motion-safe:active:scale-[0.97]"
+        className="fluid-hover fluid-press -mt-1 rounded-full border border-line-strong bg-surface px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2 motion-safe:active:scale-[0.97]"
         onClick={selectExample}
         type="button"
       >
