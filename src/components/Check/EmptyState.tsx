@@ -39,9 +39,11 @@ function Step({
           />
         )}
       </div>
-      <div className="pt-1.5 pb-6">
+      <div className="pt-1.5 pb-6 max-md:pb-4">
         <p className="font-medium text-ink text-sm">{title}</p>
-        <p className="mt-0.5 text-muted text-sm leading-snug">{description}</p>
+        <p className="mt-0.5 text-muted text-sm leading-normal">
+          {description}
+        </p>
       </div>
     </li>
   );
@@ -75,8 +77,8 @@ export function EmptyState({
   }
 
   return (
-    <div className="mt-8 border-line border-t pt-6">
-      <p className="mb-4 font-medium text-muted text-sm">{t("howitworks")}</p>
+    <div className="mt-8 border-line border-t pt-6 max-md:mt-3 max-md:pt-2">
+      <h2 className="mb-4 font-medium text-muted text-sm">{t("howitworks")}</h2>
       <ol>
         <Step
           description={t("step1d")}
@@ -98,7 +100,7 @@ export function EmptyState({
         />
       </ol>
       <button
-        className="fluid-hover fluid-press -mt-1 rounded-full border border-line-strong bg-surface px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2 motion-safe:active:scale-[0.97]"
+        className="fluid-hover fluid-press -mt-1 rounded-full border border-line-strong bg-surface px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2 motion-safe:active:scale-[0.96]"
         onClick={selectExample}
         type="button"
       >

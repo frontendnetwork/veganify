@@ -139,7 +139,12 @@ const ShareButton = ({
   );
 
   const trigger = (onClick: () => void) => (
-    <Button className="w-full" leadingIcon={Share2} onClick={onClick}>
+    <Button
+      className="w-full focus-visible:ring-2"
+      leadingIcon={Share2}
+      onClick={onClick}
+      variant="secondary"
+    >
       {t("share")}
     </Button>
   );

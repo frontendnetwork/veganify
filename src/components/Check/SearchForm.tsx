@@ -2,12 +2,19 @@
 
 import { ArrowRight, Loader2, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { type ChangeEvent, type FormEvent, useCallback } from "react";
+import {
+  type ChangeEvent,
+  type FormEvent,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 
 import ScanButton from "@/components/Scanner";
 
 interface SearchFormProps {
   barcode: string;
+  invalid: boolean;
   loading: boolean;
   onBarcodeChange: (barcode: string) => void;
   onSubmit: (barcode: string, e?: FormEvent) => void;
@@ -15,11 +22,19 @@ interface SearchFormProps {
 
 export function SearchForm({
   barcode,
+  invalid,
   loading,
   onBarcodeChange,
   onSubmit,
 }: SearchFormProps) {
   const t = useTranslations("Check");
+  const barcodeInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (invalid) {
+      barcodeInputRef.current?.focus();
+    }
+  }, [invalid]);
 
   const handleFormSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => onSubmit(barcode, event),
@@ -51,11 +66,15 @@ export function SearchForm({
         <div className="fluid-hover relative flex rounded-xl border border-line-strong bg-surface shadow-elev-1 focus-within:border-accent focus-within:outline-none focus-within:ring-2 focus-within:ring-ring">
           <div className="relative min-w-0 flex-1">
             <input
-              aria-describedby="barcodeHint"
+              aria-describedby={
+                invalid ? "barcodeHint barcodeError" : "barcodeHint"
+              }
+              aria-invalid={invalid || undefined}
               autoComplete="off"
               className={`h-14 w-full rounded-l-xl bg-transparent px-4 text-ink text-lg tracking-wide placeholder:text-muted focus:outline-none ${barcode ? "pr-14" : ""}`}
               id="barcodeInput"
               inputMode="numeric"
+              ref={barcodeInputRef}
               name="barcode"
               onChange={handleBarcodeChange}
               pattern="[0-9]*"

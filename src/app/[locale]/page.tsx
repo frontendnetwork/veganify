@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <main
-        className="mx-auto w-full max-w-xl px-4 pt-20 pb-3 max-md:pt-5 md:pb-6"
+        className="mx-auto w-full max-w-xl px-4 pt-20 pb-3 max-md:pt-4 md:pb-6"
         id="main"
       >
         {/* Both install prompts as one stacked deck; the component renders

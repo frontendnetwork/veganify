@@ -2,7 +2,13 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { type FormEvent, useCallback, useEffect, useState } from "react";
+import {
+  type FormEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { spring } from "@/lib/springs";
 import { FetchStatus } from "@/models/FetchStatus";
 import type { ProductResult } from "@/models/ProductResults";
@@ -46,24 +52,33 @@ export default function ProductSearch() {
   const [barcode, setBarcode] = useState<string>("");
   const t = useTranslations("Check");
   const [status, setStatus] = useState<Status>("idle");
+  const [announceInvalid, setAnnounceInvalid] = useState(false);
+  const requestIdRef = useRef(0);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const eanFromURL = params.get("ean");
-    if (eanFromURL) {
-      setBarcode(eanFromURL);
-      handleSubmit(eanFromURL);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleBarcodeChange = useCallback((barcodeValue: string) => {
+    requestIdRef.current += 1;
+    setBarcode(barcodeValue);
+    setAnnounceInvalid(false);
+    setStatus((currentStatus) =>
+      currentStatus === "invalid" || currentStatus === "loading"
+        ? "idle"
+        : currentStatus
+    );
   }, []);
 
   const handleSubmit = useCallback(
     async (barcodeValue: string, event?: FormEvent) => {
       event?.preventDefault();
+      requestIdRef.current += 1;
+      const requestId = requestIdRef.current;
+      setAnnounceInvalid(false);
       setStatus("loading");
 
       try {
         const data = await fetchProduct(barcodeValue);
+        if (requestId !== requestIdRef.current) {
+          return;
+        }
         if (data.status === FetchStatus.OK && data.product && data.sources) {
           const product = normalizeProduct(data.product);
           setResult(product);
@@ -78,6 +93,7 @@ export default function ProductSearch() {
         if (data.status === FetchStatus.NOT_FOUND) {
           setStatus("notfound");
         } else if (data.status === FetchStatus.INVALID) {
+          setAnnounceInvalid(document.activeElement?.id === "barcodeInput");
           setStatus("invalid");
         } else if (data.status === FetchStatus.TIMEOUT) {
           setStatus("timeout");
@@ -85,26 +101,38 @@ export default function ProductSearch() {
           setStatus("error");
         }
       } catch {
-        setStatus("error");
+        if (requestId === requestIdRef.current) {
+          setStatus("error");
+        }
       }
     },
     []
   );
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const eanFromURL = params.get("ean");
+    if (eanFromURL) {
+      handleBarcodeChange(eanFromURL);
+      handleSubmit(eanFromURL);
+    }
+  }, [handleBarcodeChange, handleSubmit]);
+
   const handleRecentSelect = useCallback(
     (ean: string) => {
-      setBarcode(ean);
+      handleBarcodeChange(ean);
       handleSubmit(ean);
     },
-    [handleSubmit]
+    [handleBarcodeChange, handleSubmit]
   );
 
   return (
     <>
       <SearchForm
         barcode={barcode}
+        invalid={status === "invalid"}
         loading={status === "loading"}
-        onBarcodeChange={setBarcode}
+        onBarcodeChange={handleBarcodeChange}
         onSubmit={handleSubmit}
       />
       {status === "idle" ? (
@@ -113,7 +141,10 @@ export default function ProductSearch() {
           <RecentSearches onSelect={handleRecentSelect} />
         </>
       ) : null}
-      <div aria-live="polite" role="status">
+      <div aria-live="polite" className="sr-only" role="status">
+        {status === "invalid" && announceInvalid ? t("wrongbarcode") : null}
+      </div>
+      <div aria-live={status === "invalid" ? "off" : "polite"} role="status">
         {status === "loading" ? (
           <p className="sr-only-focusable">{t("searching")}</p>
         ) : null}
