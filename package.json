@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.13",
-    "@mcp-b/webmcp-types": "5.1.0",
+    "@mcp-b/webmcp-types": "6.0.0",
     "@playwright/test": "1.63.0",
     "@semantic-release/exec": "^7.1.0",
     "@testing-library/jest-dom": "7.0.1",
