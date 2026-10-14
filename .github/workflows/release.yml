@@ -101,7 +101,7 @@ jobs:
       url: https://veganify.app
     steps:
       - name: Set up Kubectl
-        uses: azure/setup-kubectl@v5.1.0
+        uses: azure/setup-kubectl@v5.2.0
         with:
           version: "latest"
 
