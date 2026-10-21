@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
-import type { ModelContext } from "@mcp-b/webmcp-types";
+import type { WebMCP } from "@mcp-b/webmcp-types";
 import { GlobalWindow } from "happy-dom";
 import { type ReactNode, StrictMode } from "react";
 import type { ScannerProps } from "@/components/Scanner/models/scanner";
@@ -79,7 +79,7 @@ const registerTool = mock(
 );
 const modelContext = {
   registerTool,
-} as unknown as ModelContext;
+} as unknown as WebMCP.ModelContext;
 
 const { WebMCPProvider } = await import("./WebMCPProvider");
 

@@ -1,6 +1,5 @@
 "use client";
 
-import type { JsonSchemaForInference } from "@mcp-b/webmcp-types";
 import type { RecentCheck } from "@/components/Check/models/recent-check";
 import {
   loadRecentChecks,
@@ -25,13 +24,20 @@ import type {
   CheckProductOutput,
   CheckProductToolInput,
   EmptyToolInput,
-  GetHistoryToolInput,
   HistoryOutput,
   ScanProductOutput,
-  ScanProductToolInput,
   ToolExecutionOptions,
   WebMcpToolDescriptor,
 } from "../models/webmcp";
+
+interface WebMcpInputSchema {
+  readonly additionalProperties: false;
+  readonly properties: Readonly<
+    Record<string, { readonly description: string; readonly type: "string" }>
+  >;
+  readonly required?: readonly string[];
+  readonly type: "object";
+}
 
 export const CHECK_INGREDIENTS_INPUT_SCHEMA = {
   additionalProperties: false,
@@ -43,7 +49,7 @@ export const CHECK_INGREDIENTS_INPUT_SCHEMA = {
   },
   required: ["ingredients"],
   type: "object",
-} as const satisfies JsonSchemaForInference;
+} as const satisfies WebMcpInputSchema;
 
 export const CHECK_PRODUCT_INPUT_SCHEMA = {
   additionalProperties: false,
@@ -55,13 +61,13 @@ export const CHECK_PRODUCT_INPUT_SCHEMA = {
   },
   required: ["barcode"],
   type: "object",
-} as const satisfies JsonSchemaForInference;
+} as const satisfies WebMcpInputSchema;
 
 export const EMPTY_INPUT_SCHEMA = {
   additionalProperties: false,
   properties: {},
   type: "object",
-} as const satisfies JsonSchemaForInference;
+} as const satisfies WebMcpInputSchema;
 
 export class WebMcpToolInputError extends TypeError {
   constructor(message: string) {
@@ -187,7 +193,7 @@ const defaultDependencies: WebMcpToolDependencies = {
 
 const createCheckIngredientsTool = (
   dependencies: WebMcpToolDependencies
-): WebMcpToolDescriptor<CheckIngredientsToolInput, CheckIngredientsOutput> => ({
+): WebMcpToolDescriptor<CheckIngredientsOutput> => ({
   annotations: { readOnlyHint: true, untrustedContentHint: true },
   description: "Check whether a product's ingredients are vegan.",
   execute: async (input) => {
@@ -201,7 +207,7 @@ const createCheckIngredientsTool = (
 
 const createCheckProductTool = (
   dependencies: WebMcpToolDependencies
-): WebMcpToolDescriptor<CheckProductToolInput, CheckProductOutput> => ({
+): WebMcpToolDescriptor<CheckProductOutput> => ({
   annotations: { readOnlyHint: false, untrustedContentHint: true },
   description: "Check whether a product is vegan using its barcode.",
   execute: async (input) => {
@@ -215,7 +221,7 @@ const createCheckProductTool = (
 
 const createScanProductTool = (
   dependencies: WebMcpToolDependencies
-): WebMcpToolDescriptor<ScanProductToolInput, ScanProductOutput> => ({
+): WebMcpToolDescriptor<ScanProductOutput> => ({
   annotations: { readOnlyHint: false, untrustedContentHint: true },
   description:
     "Scan a product barcode with the camera after human confirmation.",
@@ -236,7 +242,7 @@ const createScanProductTool = (
 
 const createHistoryTool = (
   dependencies: WebMcpToolDependencies
-): WebMcpToolDescriptor<GetHistoryToolInput, HistoryOutput> => ({
+): WebMcpToolDescriptor<HistoryOutput> => ({
   annotations: { readOnlyHint: true, untrustedContentHint: true },
   description: "Return the products most recently checked with Veganify.",
   execute: (input) => {
@@ -254,10 +260,10 @@ const createHistoryTool = (
 export function createWebMcpTools(
   dependencies: Partial<WebMcpToolDependencies> = {}
 ): [
-  WebMcpToolDescriptor<CheckIngredientsToolInput, CheckIngredientsOutput>,
-  WebMcpToolDescriptor<CheckProductToolInput, CheckProductOutput>,
-  WebMcpToolDescriptor<ScanProductToolInput, ScanProductOutput>,
-  WebMcpToolDescriptor<GetHistoryToolInput, HistoryOutput>,
+  WebMcpToolDescriptor<CheckIngredientsOutput>,
+  WebMcpToolDescriptor<CheckProductOutput>,
+  WebMcpToolDescriptor<ScanProductOutput>,
+  WebMcpToolDescriptor<HistoryOutput>,
 ] {
   const resolvedDependencies: WebMcpToolDependencies = {
     ...defaultDependencies,

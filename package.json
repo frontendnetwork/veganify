@@ -59,7 +59,7 @@
     "@types/node": "26.5.1",
     "@types/react-dom": "19.2.3",
     "class-variance-authority": "^0.7.1",
-    "cn": "^0.2.6",
+    "cnfast": "^0.2.0",
     "lucide-react": "^1.59.0",
     "motion": "^14.1.0",
     "next": "16.3.8",
@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.13",
-    "@mcp-b/webmcp-types": "5.1.0",
+    "@mcp-b/webmcp-types": "6.0.3",
     "@playwright/test": "1.63.0",
     "@semantic-release/exec": "^7.1.0",
     "@testing-library/jest-dom": "7.0.1",
