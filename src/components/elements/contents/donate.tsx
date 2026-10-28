@@ -89,7 +89,7 @@ const SupportOption = () => {
       })}
       <div className="mt-4">
         <a
-          className="fluid-hover flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent font-medium text-accent-foreground text-sm shadow-elev-1 hover:bg-accent-hover motion-safe:transition-transform motion-safe:active:scale-[0.96]"
+          className="fluid-hover fluid-press flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent font-medium text-accent-foreground text-sm shadow-elev-1 hover:bg-accent-hover motion-safe:active:scale-[0.96]"
           href={selected.link}
           rel="noopener noreferrer"
           target="_blank"

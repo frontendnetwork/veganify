@@ -27,7 +27,7 @@ export default function Footer() {
       >
         <Image
           alt="Veganify | Product Hunt"
-          className="h-[1.875rem] w-auto opacity-90 transition-opacity hover:opacity-100 motion-reduce:transition-none"
+          className="h-[1.875rem] w-auto opacity-90 hover:opacity-100 motion-safe:transition-opacity motion-safe:duration-80 motion-reduce:transition-none"
           height={54}
           src="../img/ph_neutral.svg"
           width={250}

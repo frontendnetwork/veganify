@@ -428,26 +428,44 @@ html[data-theme="oled"] {
   /* One focus treatment everywhere: the browser draws it on :focus-visible,
      tokens guarantee ≥ 3:1 on every surface. */
   :focus-visible {
-    outline: 1px solid var(--focus-ring, #6b97ff);
+    outline: 2px solid var(--focus-ring, #6b97ff);
     outline-offset: 2px;
     border-radius: var(--shape-input-radius, 8px);
   }
 
   /* Fluid hover transitions are color-only (no transforms), so they are
-     safe under reduced motion. Spring motion lives in `motion` with
-     reducedMotion="user". */
+     safe under reduced motion. The 80ms timing matches spring.fast's
+     magnitude; these CSS ease-out transitions are not springs. */
   @media (prefers-reduced-motion: no-preference) {
     .fluid-hover {
       transition:
-        background-color 150ms ease-out,
-        border-color 150ms ease-out,
-        color 150ms ease-out,
-        box-shadow 150ms ease-out,
-        opacity 150ms ease-out;
+        background-color 80ms ease-out,
+        border-color 80ms ease-out,
+        color 80ms ease-out,
+        box-shadow 80ms ease-out,
+        opacity 80ms ease-out;
     }
   }
   a:focus-visible {
     border-radius: 2px;
+  }
+}
+
+/* Custom scale-on-press controls mirror the Button cadence: 80ms press,
+   180ms release. Hover colors keep the shared 80ms timing. */
+@utility fluid-press {
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 80ms ease-out,
+      border-color 80ms ease-out,
+      color 80ms ease-out,
+      box-shadow 80ms ease-out,
+      opacity 80ms ease-out,
+      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+
+    &:active {
+      transition-duration: 80ms;
+    }
   }
 }
 

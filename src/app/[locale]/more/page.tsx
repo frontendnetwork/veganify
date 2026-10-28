@@ -22,6 +22,7 @@ import {
 
 import Container from "@/components/elements/container";
 import SupportOption from "@/components/elements/contents/donate";
+import { LanguagePicker } from "@/components/More/LanguagePicker";
 import { AppDialog as Dialog } from "@/components/ui/app-dialog";
 import { InstagramIcon, MastodonIcon } from "@/components/ui/brand-icons";
 import { Switch } from "@/components/ui/switch";
@@ -201,18 +202,16 @@ export default function More() {
         open={languageOpen}
         title={t("language")}
       >
-        <div className="flex flex-col gap-1">
-          {languages.map(({ code, name }) => (
-            <LanguageOption
-              code={code}
-              isCurrent={currentLocale === code}
-              key={code}
-              label={t(name)}
-              onLocaleChange={handleLanguageChange}
-              srCurrent={t("currentlanguage")}
-            />
-          ))}
-        </div>
+        <LanguagePicker
+          currentLabel={t("currentlanguage")}
+          isOpen={languageOpen}
+          onLocaleChange={handleLanguageChange}
+          options={languages.map(({ code, name }) => ({
+            code,
+            isCurrent: currentLocale === code,
+            label: t(name),
+          }))}
+        />
       </Dialog>
     </Container>
   );
@@ -271,42 +270,6 @@ function OLEDRow(): ReactNode {
         onToggle={handleClick}
       />
     </div>
-  );
-}
-
-function LanguageOption({
-  code,
-  isCurrent,
-  label,
-  onLocaleChange,
-  srCurrent,
-}: {
-  code: (typeof languages)[number]["code"];
-  isCurrent: boolean;
-  label: string;
-  onLocaleChange: (locale: string) => void;
-  srCurrent: string;
-}) {
-  const handleClick = useCallback(
-    () => onLocaleChange(code),
-    [code, onLocaleChange]
-  );
-
-  return (
-    <Link
-      className="fluid-hover flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 font-medium text-ink text-sm hover:bg-surface-2"
-      href="/more"
-      locale={code}
-      onClick={handleClick}
-    >
-      {label}
-      {isCurrent ? (
-        <>
-          <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
-          <span className="sr-only-focusable">{srCurrent}</span>
-        </>
-      ) : null}
-    </Link>
   );
 }
 

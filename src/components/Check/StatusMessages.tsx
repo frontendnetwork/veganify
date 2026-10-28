@@ -10,11 +10,13 @@ interface StatusMessagesProps {
 
 function StatusCard({
   icon: Icon,
+  id,
   title,
   tone,
   children,
 }: {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
+  id?: string;
   title: string;
   tone: "neutral" | "danger" | "caution";
   children?: React.ReactNode;
@@ -26,7 +28,10 @@ function StatusCard({
   } as const;
 
   return (
-    <div className="mt-6 rounded-xl border border-line bg-surface p-5 shadow-elev-1">
+    <div
+      className="mt-6 rounded-xl border border-line bg-surface p-5 shadow-elev-1"
+      id={id}
+    >
       <div className="flex items-start gap-3">
         <Icon
           aria-hidden="true"
@@ -74,7 +79,12 @@ export function StatusMessages({ status }: StatusMessagesProps) {
 
   if (status === "invalid") {
     return (
-      <StatusCard icon={CircleAlert} title={t("wrongbarcode")} tone="caution">
+      <StatusCard
+        icon={CircleAlert}
+        id="barcodeError"
+        title={t("wrongbarcode")}
+        tone="caution"
+      >
         <p>{t("wrongbarcode_desc")}</p>
       </StatusCard>
     );

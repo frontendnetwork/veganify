@@ -1,11 +1,16 @@
 "use client";
 
-import type { ModelContext } from "@mcp-b/webmcp-types";
+import type { WebMCP } from "@mcp-b/webmcp-types";
 
-export function getModelContext(): ModelContext | undefined {
+type NavigatorWithLegacyModelContext = Navigator & {
+  readonly modelContext?: WebMCP.ModelContext;
+};
+
+export function getModelContext(): WebMCP.ModelContext | undefined {
   if (typeof document !== "undefined") {
     try {
-      const documentContext = document.modelContext;
+      const documentContext: WebMCP.ModelContext | undefined =
+        document.modelContext;
       if (documentContext) {
         return documentContext;
       }
@@ -16,7 +21,7 @@ export function getModelContext(): ModelContext | undefined {
 
   if (typeof navigator !== "undefined") {
     try {
-      return navigator.modelContext;
+      return (navigator as NavigatorWithLegacyModelContext).modelContext;
     } catch {
       // A host getter may throw while a browser feature is unavailable.
     }

@@ -56,7 +56,7 @@ export function RecentSearches({
   return (
     <div className="mt-6 border-line border-t pt-4">
       <div className="mb-2 flex items-center justify-between">
-        <p className="font-medium text-muted text-sm">{t("recent")}</p>
+        <h2 className="font-medium text-muted text-sm">{t("recent")}</h2>
         <button
           className="fluid-hover text-muted text-xs underline-offset-2 hover:text-ink hover:underline"
           onClick={clearRecents}

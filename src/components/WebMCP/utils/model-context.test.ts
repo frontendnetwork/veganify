@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, test } from "bun:test";
 
-import type { ModelContext } from "@mcp-b/webmcp-types";
+import type { WebMCP } from "@mcp-b/webmcp-types";
 
 import { getModelContext } from "./model-context";
 
@@ -13,11 +13,19 @@ const originalNavigatorDescriptor = Object.getOwnPropertyDescriptor(
   "navigator"
 );
 
-const context = {} as ModelContext;
+const context: WebMCP.ModelContext = Object.assign(new EventTarget(), {
+  executeTool: async (): Promise<string> => "",
+  getTools: async (): Promise<WebMCP.RegisteredTool[]> => [],
+  ontoolchange: null,
+  registerTool: (
+    _tool: WebMCP.ModelContextTool,
+    _options?: WebMCP.ModelContextRegisterToolOptions
+  ): Promise<void> => Promise.resolve(),
+});
 
 const installBrowserGlobals = (
-  documentContext?: ModelContext,
-  navigatorContext?: ModelContext
+  documentContext?: WebMCP.ModelContext,
+  navigatorContext?: WebMCP.ModelContext
 ): void => {
   Object.defineProperty(globalThis, "document", {
     configurable: true,
@@ -44,7 +52,7 @@ afterEach(() => {
 
 describe("model context detection", () => {
   test("prefers the canonical document context", () => {
-    const navigatorContext = {} as ModelContext;
+    const navigatorContext = {} as WebMCP.ModelContext;
     installBrowserGlobals(context, navigatorContext);
 
     expect(getModelContext()).toBe(context);
@@ -54,6 +62,42 @@ describe("model context detection", () => {
     installBrowserGlobals(undefined, context);
 
     expect(getModelContext()).toBe(context);
+  });
+
+  test("falls back to navigator when the document getter throws", () => {
+    const throwingDocument = Object.defineProperty({}, "modelContext", {
+      get: () => {
+        throw new Error("document context is unavailable");
+      },
+    });
+    Object.defineProperty(globalThis, "document", {
+      configurable: true,
+      value: throwingDocument,
+    });
+    Object.defineProperty(globalThis, "navigator", {
+      configurable: true,
+      value: { modelContext: context },
+    });
+
+    expect(getModelContext()).toBe(context);
+  });
+
+  test("returns undefined when the navigator getter throws", () => {
+    const throwingNavigator = Object.defineProperty({}, "modelContext", {
+      get: () => {
+        throw new Error("navigator context is unavailable");
+      },
+    });
+    Object.defineProperty(globalThis, "document", {
+      configurable: true,
+      value: {},
+    });
+    Object.defineProperty(globalThis, "navigator", {
+      configurable: true,
+      value: throwingNavigator,
+    });
+
+    expect(getModelContext()).toBeUndefined();
   });
 
   test("returns undefined when neither native context exists", () => {

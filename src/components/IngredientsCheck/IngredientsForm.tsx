@@ -185,7 +185,7 @@ export function IngredientsForm() {
           type="file"
         />
         <button
-          className="fluid-hover mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-line-strong bg-surface font-medium text-ink text-sm hover:bg-surface-2 disabled:opacity-60 motion-safe:transition-transform motion-safe:active:scale-[0.98]"
+          className="fluid-hover fluid-press mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-line-strong bg-surface font-medium text-ink text-sm hover:bg-surface-2 disabled:opacity-60 motion-safe:active:scale-[0.98]"
           disabled={isScanning || loading}
           onClick={triggerFileSelect}
           type="button"
@@ -194,7 +194,7 @@ export function IngredientsForm() {
           {isScanning ? `${t("scanning")} ${ocrProgress}%` : t("scanlabel")}
         </button>
         <button
-          className="fluid-hover mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent font-medium text-accent-foreground text-sm hover:bg-accent-hover disabled:opacity-60 motion-safe:transition-transform motion-safe:active:scale-[0.98]"
+          className="fluid-hover fluid-press mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent font-medium text-accent-foreground text-sm hover:bg-accent-hover disabled:opacity-60 motion-safe:active:scale-[0.98]"
           disabled={loading}
           type="submit"
         >

@@ -1,11 +1,6 @@
 "use client";
 
-import type {
-  InputSchema,
-  ModelContext,
-  ModelContextTool,
-  WebMcpToolInput,
-} from "@mcp-b/webmcp-types";
+import type { WebMCP } from "@mcp-b/webmcp-types";
 import { useTranslations } from "next-intl";
 import {
   type ReactNode,
@@ -25,16 +20,11 @@ import { ViewportScanner } from "./WebMCPScanner";
 
 const IDLE_SNAPSHOT = { phase: "idle" } as const;
 
-type RegisterableTool = ModelContextTool<WebMcpToolInput, unknown> & {
-  inputSchema: InputSchema;
-};
-
 const registerWebMcpTool = (
-  modelContext: ModelContext,
+  modelContext: WebMCP.ModelContext,
   tool: ToolDescriptor,
   signal: AbortSignal
-): Promise<void> =>
-  modelContext.registerTool(tool as RegisterableTool, { signal });
+): Promise<void> => modelContext.registerTool(tool, { signal });
 
 export function WebMCPProvider({ children }: { children: ReactNode }) {
   const t = useTranslations("WebMCP");
