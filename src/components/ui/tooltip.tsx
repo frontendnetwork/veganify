@@ -30,7 +30,7 @@ export function Tooltip({
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipPortal>
           <TooltipContent
-            className="z-50 rounded-md bg-surface-2 px-2.5 py-1.5 text-ink text-sm shadow-elev-3"
+            className="bg-surface-2 text-ink shadow-elev-3 z-50 rounded-md px-2.5 py-1.5 text-sm"
             sideOffset={6}
           >
             {label}

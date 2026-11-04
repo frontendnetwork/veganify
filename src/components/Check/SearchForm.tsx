@@ -58,12 +58,12 @@ export function SearchForm({
     <form aria-label={t("enterbarcode")} onSubmit={handleFormSubmit}>
       <div className="flex flex-col gap-2">
         <label
-          className="font-medium text-muted text-sm"
+          className="text-muted text-sm font-medium"
           htmlFor="barcodeInput"
         >
           {t("enterbarcode")}
         </label>
-        <div className="fluid-hover relative flex rounded-xl border border-line-strong bg-surface shadow-elev-1 focus-within:border-accent focus-within:outline-none focus-within:ring-2 focus-within:ring-ring">
+        <div className="fluid-hover border-line-strong bg-surface shadow-elev-1 focus-within:border-accent focus-within:ring-ring relative flex rounded-xl border focus-within:ring-2 focus-within:outline-none">
           <div className="relative min-w-0 flex-1">
             <input
               aria-describedby={
@@ -71,7 +71,7 @@ export function SearchForm({
               }
               aria-invalid={invalid || undefined}
               autoComplete="off"
-              className={`h-14 w-full rounded-l-xl bg-transparent px-4 text-ink text-lg tracking-wide placeholder:text-muted focus:outline-none ${barcode ? "pr-14" : ""}`}
+              className={`text-ink placeholder:text-muted h-14 w-full rounded-l-xl bg-transparent px-4 text-lg tracking-wide focus:outline-none ${barcode ? "pr-14" : ""}`}
               id="barcodeInput"
               inputMode="numeric"
               ref={barcodeInputRef}
@@ -86,7 +86,7 @@ export function SearchForm({
             {barcode ? (
               <button
                 aria-label={t("clearbarcode")}
-                className="fluid-hover absolute inset-y-0 right-0 flex w-12 items-center justify-center text-muted hover:bg-surface-2 hover:text-ink"
+                className="fluid-hover text-muted hover:bg-surface-2 hover:text-ink absolute inset-y-0 right-0 flex w-12 items-center justify-center"
                 onClick={handleClearBarcode}
                 type="button"
               >
@@ -94,14 +94,14 @@ export function SearchForm({
               </button>
             ) : null}
           </div>
-          <div aria-hidden="true" className="my-3 w-px bg-line" />
+          <div aria-hidden="true" className="bg-line my-3 w-px" />
           <ScanButton
             handleSubmit={handleScanSubmit}
             onDetected={onBarcodeChange}
           />
           <button
             aria-label={t("submit")}
-            className="fluid-hover flex w-14 items-center justify-center rounded-r-xl bg-accent text-accent-foreground hover:bg-accent-hover disabled:opacity-60"
+            className="fluid-hover bg-accent text-accent-foreground hover:bg-accent-hover flex w-14 items-center justify-center rounded-r-xl disabled:opacity-60"
             disabled={loading}
             name="submit"
             type="submit"

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 function MutedLink({ href, label }: { href: string; label: string }) {
   return (
     <a
-      className="text-muted underline-offset-2 hover:text-ink hover:underline"
+      className="text-muted hover:text-ink underline-offset-2 hover:underline"
       href={href}
       rel="noopener noreferrer"
       target="_blank"
@@ -19,7 +19,7 @@ export default function Footer() {
   const isJanuary = new Date().getMonth() === 0;
 
   return (
-    <footer className="mx-auto flex w-full max-w-3xl flex-col items-center gap-3 px-4 pt-5 pb-28 text-muted text-xs md:pb-8">
+    <footer className="text-muted mx-auto flex w-full max-w-3xl flex-col items-center gap-3 px-4 pt-5 pb-28 text-xs md:pb-8">
       <a
         href="https://www.producthunt.com/products/vegancheck-me?utm_source=badge-featured&utm_medium=badge"
         rel="noopener noreferrer"
@@ -34,19 +34,19 @@ export default function Footer() {
         />
       </a>
 
-      <p className="text-balance text-center">
+      <p className="text-center text-balance">
         {t.rich("credit", {
           heart: () => (
             <span
               aria-hidden="true"
-              className="inline-block align-baseline text-danger"
+              className="text-danger inline-block align-baseline"
             >
               ♥
             </span>
           ),
           jokeLink: (chunks) => (
             <a
-              className="font-medium text-link underline-offset-2 hover:underline"
+              className="text-link font-medium underline-offset-2 hover:underline"
               href="https://frontendnet.work"
               rel="noopener noreferrer"
               target="_blank"
@@ -56,7 +56,7 @@ export default function Footer() {
           ),
           philipLink: (chunks) => (
             <a
-              className="font-medium text-link underline-offset-2 hover:underline"
+              className="text-link font-medium underline-offset-2 hover:underline"
               href="https://philipbrembeck.com"
               rel="noopener noreferrer"
               target="_blank"

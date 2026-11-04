@@ -126,14 +126,14 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
       >
         <div className="flex justify-end gap-2">
           <button
-            className="fluid-hover rounded-lg border border-line-strong px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2"
+            className="fluid-hover border-line-strong text-ink hover:bg-surface-2 rounded-lg border px-4 py-2 text-sm font-medium"
             onClick={handleCancel}
             type="button"
           >
             {t("cancel")}
           </button>
           <button
-            className="fluid-hover rounded-lg bg-accent px-4 py-2 font-medium text-accent-foreground text-sm hover:bg-accent-hover"
+            className="fluid-hover bg-accent text-accent-foreground hover:bg-accent-hover rounded-lg px-4 py-2 text-sm font-medium"
             onClick={handleConfirm}
             type="button"
           >

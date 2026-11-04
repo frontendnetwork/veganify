@@ -42,6 +42,12 @@
       "suspicious": {
         // Not in original ESLint config
         "noDocumentCookie": "off",
+        "useBaseline": {
+          "level": "error",
+          "options": {
+            "allowSelectors": ["selection"]
+          }
+        },
         // Allow any in .d.ts type shims (with biome-ignore on specific lines)
         "noExplicitAny": "warn",
         // Not in original ESLint config

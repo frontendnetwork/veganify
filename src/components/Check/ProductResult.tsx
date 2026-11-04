@@ -89,7 +89,7 @@ function GradeBadge({
   return (
     <span
       className={cn(
-        "inline-flex size-7 items-center justify-center rounded-md font-bold text-sm uppercase",
+        "inline-flex size-7 items-center justify-center rounded-md text-sm font-bold uppercase",
         gradeStyles[state.grade]
       )}
     >
@@ -113,7 +113,7 @@ function HelpDialog({
     <>
       <button
         aria-label={t("whatis", { title })}
-        className="fluid-hover -ml-1 inline-flex size-7 items-center justify-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+        className="fluid-hover text-muted hover:bg-surface-2 hover:text-ink -ml-1 inline-flex size-7 items-center justify-center rounded-md"
         onClick={handleOpen}
         type="button"
       >
@@ -136,8 +136,8 @@ function VerdictRow({
   children: ReactNode;
 }) {
   return (
-    <div className="flex items-center justify-between gap-3 border-line border-t py-3">
-      <dt className="flex items-center gap-0.5 font-medium text-ink">
+    <div className="border-line flex items-center justify-between gap-3 border-t py-3">
+      <dt className="text-ink flex items-center gap-0.5 font-medium">
         {label}
         {help}
       </dt>
@@ -166,14 +166,14 @@ export function ProductResultView({
 
   return (
     <section className="mt-6">
-      <div className="rounded-2xl border border-line bg-surface p-5 shadow-elev-2 sm:p-6">
-        <h2 className="mb-4 text-balance font-semibold text-ink text-xl">
+      <div className="border-line bg-surface shadow-elev-2 rounded-2xl border p-5 sm:p-6">
+        <h2 className="text-ink mb-4 text-xl font-semibold text-balance">
           {productname}
         </h2>
 
         <p
           className={cn(
-            "flex h-16 items-center justify-center gap-2.5 rounded-xl font-semibold text-lg",
+            "flex h-16 items-center justify-center gap-2.5 rounded-xl text-lg font-semibold",
             triStateBg[productState.vegan],
             triStateText[productState.vegan]
           )}
@@ -261,10 +261,10 @@ export function ProductResultView({
           </VerdictRow>
         </dl>
 
-        <p className="mt-4 text-muted text-sm">
+        <p className="text-muted mt-4 text-sm">
           {t("source")}:{" "}
           <a
-            className="font-medium text-link underline-offset-2 hover:underline"
+            className="text-link font-medium underline-offset-2 hover:underline"
             href={sources.baseuri}
             rel="noopener noreferrer"
             target="_blank"
@@ -273,7 +273,7 @@ export function ProductResultView({
           </a>{" "}
           <button
             aria-label={t("licenses")}
-            className="fluid-hover inline-flex size-7 items-center justify-center rounded-md align-middle text-muted hover:bg-surface-2 hover:text-ink"
+            className="fluid-hover text-muted hover:bg-surface-2 hover:text-ink inline-flex size-7 items-center justify-center rounded-md align-middle"
             onClick={handleLicenseOpen}
             type="button"
           >

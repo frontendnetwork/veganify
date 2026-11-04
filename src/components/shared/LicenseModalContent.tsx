@@ -4,7 +4,7 @@ const LicenseModalContent = () => {
   const t = useTranslations("Check");
 
   return (
-    <div className="space-y-3 text-muted text-sm">
+    <div className="text-muted space-y-3 text-sm">
       <p>{t("licenses_desc")}</p>
       <p className="space-y-2">
         <span className="block">

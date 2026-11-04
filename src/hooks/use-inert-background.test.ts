@@ -6,10 +6,9 @@ import { Window } from "happy-dom";
 const testWindow = new Window();
 globalThis.document = testWindow.document as unknown as Document;
 
-import {
-  acquireInertBackground,
-  releaseInertBackground,
-} from "./use-inert-background";
+const { acquireInertBackground, releaseInertBackground } = await import(
+  "./use-inert-background"
+);
 
 const nextMicrotask = async (): Promise<void> => {
   await Promise.resolve();

@@ -1,11 +1,11 @@
-export type { RecentCheck } from "./models/recent-check";
+import type { RecentCheck as RecentCheckModel } from "./models/recent-check";
 
-import type { RecentCheck } from "./models/recent-check";
+export type { RecentCheck } from "./models/recent-check";
 
 const STORAGE_KEY = "recentChecks";
 const MAX_ENTRIES = 5;
 
-export function loadRecentChecks(): RecentCheck[] {
+export function loadRecentChecks(): RecentCheckModel[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     const parsed: unknown = raw ? JSON.parse(raw) : [];
@@ -13,11 +13,11 @@ export function loadRecentChecks(): RecentCheck[] {
       return [];
     }
     return parsed.filter(
-      (entry): entry is RecentCheck =>
+      (entry): entry is RecentCheckModel =>
         typeof entry === "object" &&
         entry !== null &&
-        typeof (entry as RecentCheck).ean === "string" &&
-        typeof (entry as RecentCheck).name === "string"
+        typeof (entry as RecentCheckModel).ean === "string" &&
+        typeof (entry as RecentCheckModel).name === "string"
     );
   } catch {
     return [];
@@ -32,7 +32,7 @@ export function clearRecentChecks(): void {
   }
 }
 
-export function rememberCheck(entry: RecentCheck): void {
+export function rememberCheck(entry: RecentCheckModel): void {
   try {
     const next = [
       entry,

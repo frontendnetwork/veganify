@@ -70,7 +70,7 @@ const resolveFrontKey = ({
 
 function CardBody({ children }: { children: ReactNode }) {
   return (
-    <div className="flex w-full items-center gap-3 rounded-xl border border-line bg-surface p-3 shadow-elev-3">
+    <div className="border-line bg-surface shadow-elev-3 flex w-full items-center gap-3 rounded-xl border p-3">
       {children}
     </div>
   );
@@ -85,7 +85,7 @@ const DismissButton = ({
 }) => (
   <button
     aria-label={label}
-    className="fluid-hover -m-1 flex size-9 shrink-0 items-center justify-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+    className="fluid-hover text-muted hover:bg-surface-2 hover:text-ink -m-1 flex size-9 shrink-0 items-center justify-center rounded-md"
     onClick={onDismiss}
     type="button"
   >
@@ -107,7 +107,7 @@ export default function PromptStack() {
   useEffect(() => {
     const windowWithMSStream = window as ExtendedWindow;
     const isIOS =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+      /iPad|iPhone|iPod/u.test(navigator.userAgent) &&
       !windowWithMSStream.MSStream;
     const isNotStandalone = !window.matchMedia("(display-mode: standalone)")
       .matches;
@@ -182,7 +182,7 @@ export default function PromptStack() {
             width={40}
           />
           <div className="min-w-0 flex-1">
-            <p className="font-semibold text-ink text-sm">Veganify</p>
+            <p className="text-ink text-sm font-semibold">Veganify</p>
             <p className="text-muted text-xs">{tInstall("subheading")}</p>
           </div>
           <Button onClick={openInstructions} size="sm">
@@ -207,7 +207,7 @@ export default function PromptStack() {
             width={40}
           />
           <div className="min-w-0 flex-1">
-            <p className="font-semibold text-ink text-sm">
+            <p className="text-ink text-sm font-semibold">
               {tShortcut("Shortcuts")}
             </p>
             <p className="text-muted text-xs">{tShortcut("openinapp")}</p>
@@ -274,7 +274,7 @@ export default function PromptStack() {
         <p>
           {tInstall.rich("howtoinstall", {
             share: () => (
-              <strong className="font-semibold text-ink">Share</strong>
+              <strong className="text-ink font-semibold">Share</strong>
             ),
           })}
         </p>

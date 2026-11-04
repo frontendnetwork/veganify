@@ -29,19 +29,19 @@ function Step({
   return (
     <li className="grid grid-cols-[2.5rem_1fr] gap-x-3">
       <div className="relative flex justify-center">
-        <span className="z-10 flex size-10 items-center justify-center rounded-full bg-surface-2 text-muted">
+        <span className="bg-surface-2 text-muted z-10 flex size-10 items-center justify-center rounded-full">
           <Icon aria-hidden="true" className="size-5" />
         </span>
         {!isLast && (
           <span
             aria-hidden="true"
-            className="absolute top-10 bottom-0 w-px bg-line"
+            className="bg-line absolute top-10 bottom-0 w-px"
           />
         )}
       </div>
       <div className="pt-1.5 pb-6 max-md:pb-4">
-        <p className="font-medium text-ink text-sm">{title}</p>
-        <p className="mt-0.5 text-muted text-sm leading-normal">
+        <p className="text-ink text-sm font-medium">{title}</p>
+        <p className="text-muted mt-0.5 text-sm leading-normal">
           {description}
         </p>
       </div>
@@ -77,8 +77,8 @@ export function EmptyState({
   }
 
   return (
-    <div className="mt-8 border-line border-t pt-6 max-md:mt-3 max-md:pt-2">
-      <h2 className="mb-4 font-medium text-muted text-sm">{t("howitworks")}</h2>
+    <div className="border-line mt-8 border-t pt-6 max-md:mt-3 max-md:pt-2">
+      <h2 className="text-muted mb-4 text-sm font-medium">{t("howitworks")}</h2>
       <ol>
         <Step
           description={t("step1d")}
@@ -100,7 +100,7 @@ export function EmptyState({
         />
       </ol>
       <button
-        className="fluid-hover fluid-press -mt-1 rounded-full border border-line-strong bg-surface px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2 motion-safe:active:scale-[0.96]"
+        className="fluid-hover fluid-press border-line-strong bg-surface text-ink hover:bg-surface-2 -mt-1 rounded-full border px-4 py-2 text-sm font-medium motion-safe:active:scale-[0.96]"
         onClick={selectExample}
         type="button"
       >

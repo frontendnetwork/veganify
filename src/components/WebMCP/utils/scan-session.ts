@@ -192,7 +192,7 @@ export class ScanSession {
       return;
     }
     this.clearTimer(activeScan);
-    this.removeSignalListener(activeScan);
+    ScanSession.removeSignalListener(activeScan);
     this.activeScan = null;
     this.setPhase("idle");
     activeScan.resolve(barcode);
@@ -204,13 +204,13 @@ export class ScanSession {
       return;
     }
     this.clearTimer(activeScan);
-    this.removeSignalListener(activeScan);
+    ScanSession.removeSignalListener(activeScan);
     this.activeScan = null;
     this.setPhase("idle");
     activeScan.reject(error);
   }
 
-  private removeSignalListener(activeScan: ActiveScan): void {
+  private static removeSignalListener(activeScan: ActiveScan): void {
     if (!(activeScan.signal && activeScan.signalListener)) {
       return;
     }

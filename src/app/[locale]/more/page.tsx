@@ -53,13 +53,13 @@ function ListRow({
 }) {
   const inner = (
     <>
-      <Icon aria-hidden="true" className="size-5 shrink-0 text-muted" />
+      <Icon aria-hidden="true" className="text-muted size-5 shrink-0" />
       <span className="flex-1 text-left font-medium">{label}</span>
-      <ChevronRight aria-hidden="true" className="size-4 shrink-0 text-muted" />
+      <ChevronRight aria-hidden="true" className="text-muted size-4 shrink-0" />
     </>
   );
   const className = cn(
-    "fluid-hover flex w-full items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+    "fluid-hover text-ink hover:bg-surface-2 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm"
   );
 
   if (href) {
@@ -101,29 +101,29 @@ export default function More() {
       <div className="flex flex-col">
         <ListRow icon={Coffee} label={t("buyusacoffee")} onClick={openDonate} />
         <ListRow icon={Heart} label={t("followus")} onClick={openFollow} />
-        <div className="my-1 border-line border-t" />
+        <div className="border-line my-1 border-t" />
         <Link
-          className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+          className="fluid-hover text-ink hover:bg-surface-2 flex items-center gap-3 rounded-lg px-3 py-3 text-sm"
           href="/tos"
           prefetch={true}
         >
-          <FileText aria-hidden="true" className="size-5 shrink-0 text-muted" />
+          <FileText aria-hidden="true" className="text-muted size-5 shrink-0" />
           <span className="flex-1 font-medium">{t("tos")}</span>
           <ChevronRight
             aria-hidden="true"
-            className="size-4 shrink-0 text-muted"
+            className="text-muted size-4 shrink-0"
           />
         </Link>
         <Link
-          className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+          className="fluid-hover text-ink hover:bg-surface-2 flex items-center gap-3 rounded-lg px-3 py-3 text-sm"
           href="/privacy-policy"
           prefetch={true}
         >
-          <Shield aria-hidden="true" className="size-5 shrink-0 text-muted" />
+          <Shield aria-hidden="true" className="text-muted size-5 shrink-0" />
           <span className="flex-1 font-medium">{t("privacypolicy")}</span>
           <ChevronRight
             aria-hidden="true"
-            className="size-4 shrink-0 text-muted"
+            className="text-muted size-4 shrink-0"
           />
         </Link>
         <ListRow
@@ -132,19 +132,19 @@ export default function More() {
           label={t("apidocumentation")}
         />
         <Link
-          className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-3 text-ink text-sm hover:bg-surface-2"
+          className="fluid-hover text-ink hover:bg-surface-2 flex items-center gap-3 rounded-lg px-3 py-3 text-sm"
           href="/impressum"
           prefetch={true}
         >
-          <Info aria-hidden="true" className="size-5 shrink-0 text-muted" />
+          <Info aria-hidden="true" className="text-muted size-5 shrink-0" />
           <span className="flex-1 font-medium">{t("imprint")}</span>
           <ChevronRight
             aria-hidden="true"
-            className="size-4 shrink-0 text-muted"
+            className="text-muted size-4 shrink-0"
           />
         </Link>
         <ListRow icon={Globe} label={t("language")} onClick={openLanguage} />
-        <div className="mt-2 border-line border-t pt-4">
+        <div className="border-line mt-2 border-t pt-4">
           <OLEDRow />
         </div>
       </div>
@@ -179,14 +179,14 @@ export default function More() {
             return (
               <li key={item.label}>
                 <a
-                  className="fluid-hover flex items-center gap-3 rounded-lg px-3 py-2.5 font-medium text-ink text-sm hover:bg-surface-2"
+                  className="fluid-hover text-ink hover:bg-surface-2 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium"
                   href={item.href}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <Icon
                     aria-hidden="true"
-                    className="size-5 shrink-0 text-muted"
+                    className="text-muted size-5 shrink-0"
                   />
                   {item.label}
                 </a>
@@ -255,10 +255,10 @@ function OLEDRow(): ReactNode {
   return (
     <div className="flex items-center justify-between gap-3 px-3 py-3">
       <div>
-        <p className="font-medium text-ink text-sm">OLED-Mode</p>
+        <p className="text-ink text-sm font-medium">OLED-Mode</p>
         <p className="text-muted text-xs">{t("thissetsacookie")}</p>
         {error ? (
-          <p aria-live="polite" className="mt-1 text-caution text-xs">
+          <p aria-live="polite" className="text-caution mt-1 text-xs">
             {t("activatedarkmode")}
           </p>
         ) : null}

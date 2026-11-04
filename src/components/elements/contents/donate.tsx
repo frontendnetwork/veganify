@@ -75,12 +75,12 @@ const SupportOption = () => {
               type="radio"
               value={option.vendor}
             />
-            <Icon aria-hidden="true" className="size-5 text-muted" />
+            <Icon aria-hidden="true" className="text-muted size-5" />
             <span className="flex-1">
-              <span className="block font-medium text-ink text-sm">
+              <span className="text-ink block text-sm font-medium">
                 {t(option.translationKey)}
               </span>
-              <span className="block text-muted text-xs">
+              <span className="text-muted block text-xs">
                 {option.vendor} · {option.price}
               </span>
             </span>
@@ -89,7 +89,7 @@ const SupportOption = () => {
       })}
       <div className="mt-4">
         <a
-          className="fluid-hover fluid-press flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent font-medium text-accent-foreground text-sm shadow-elev-1 hover:bg-accent-hover motion-safe:active:scale-[0.96]"
+          className="fluid-hover fluid-press bg-accent text-accent-foreground shadow-elev-1 hover:bg-accent-hover flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-medium motion-safe:active:scale-[0.96]"
           href={selected.link}
           rel="noopener noreferrer"
           target="_blank"
@@ -97,7 +97,7 @@ const SupportOption = () => {
           <SelectedIcon aria-hidden="true" className="size-4" />
           {selected.text}
         </a>
-        <p className="mt-2 text-center text-muted text-xs">
+        <p className="text-muted mt-2 text-center text-xs">
           {t("redirect")} {selected.vendor}.
         </p>
       </div>

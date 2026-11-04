@@ -22,7 +22,7 @@ function RecentChip({
 
   return (
     <button
-      className="fluid-hover max-w-full truncate rounded-full border border-line bg-surface-2 px-3 py-1.5 text-ink text-sm hover:border-line-strong"
+      className="fluid-hover border-line bg-surface-2 text-ink hover:border-line-strong max-w-full truncate rounded-full border px-3 py-1.5 text-sm"
       onClick={handleClick}
       title={entry.ean}
       type="button"
@@ -54,11 +54,11 @@ export function RecentSearches({
   }
 
   return (
-    <div className="mt-6 border-line border-t pt-4">
+    <div className="border-line mt-6 border-t pt-4">
       <div className="mb-2 flex items-center justify-between">
-        <h2 className="font-medium text-muted text-sm">{t("recent")}</h2>
+        <h2 className="text-muted text-sm font-medium">{t("recent")}</h2>
         <button
-          className="fluid-hover text-muted text-xs underline-offset-2 hover:text-ink hover:underline"
+          className="fluid-hover text-muted hover:text-ink text-xs underline-offset-2 hover:underline"
           onClick={clearRecents}
           type="button"
         >
