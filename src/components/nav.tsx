@@ -34,12 +34,12 @@ export default function Nav() {
     <nav
       aria-label={t("navigation")}
       className={cn(
-        "fixed inset-x-0 z-30 border-line border-b bg-[var(--nav-bg)] backdrop-blur-md",
+        "border-line fixed inset-x-0 z-30 border-b bg-[var(--nav-bg)] backdrop-blur-md",
         "max-md:bottom-0 max-md:border-t max-md:border-b-0",
         "supports-[backdrop-filter]:bg-[var(--nav-bg)]"
       )}
     >
-      <ul className="mx-auto flex h-16 max-w-3xl items-stretch justify-around gap-1 px-1 max-md:h-[max(4rem,env(safe-area-inset-bottom)+4rem))] max-md:pb-[env(safe-area-inset-bottom)]">
+      <ul className="mx-auto flex h-16 max-w-3xl items-stretch justify-around gap-1 px-1 max-md:h-[max(4rem,env(safe-area-inset-bottom)+4rem)] max-md:pb-[env(safe-area-inset-bottom)]">
         {items.map((item) => {
           const isActive =
             item.href === "/more" ? isMoreActive : pathname === item.href;
@@ -49,7 +49,7 @@ export default function Nav() {
               <Link
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "fluid-hover mx-auto flex h-full min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-lg px-1 text-muted hover:text-ink",
+                  "fluid-hover text-muted hover:text-ink mx-auto flex h-full min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-lg px-1",
                   isActive && "text-link hover:text-link"
                 )}
                 href={item.href}
@@ -60,7 +60,7 @@ export default function Nav() {
                   className="size-5 max-md:size-[1.35rem]"
                   strokeWidth={isActive ? 2.4 : 2}
                 />
-                <span className="font-medium text-[0.8125rem] leading-tight">
+                <span className="text-[0.8125rem] leading-tight font-medium">
                   {item.label}
                 </span>
               </Link>

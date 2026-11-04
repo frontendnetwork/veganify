@@ -4,7 +4,7 @@ test("language change should work", async ({ page }) => {
   await page.goto("/de/more");
   await page.getByText("Sprache").click();
   await page.getByRole("link", { name: "Englisch" }).click();
-  await expect(page).toHaveURL(/\/en\/more$/);
+  await expect(page).toHaveURL(/\/en\/more$/u);
 });
 
 test("language hover fills gaps and routes a gap click to the nearest locale", async ({
@@ -57,10 +57,10 @@ test("language hover fills gaps and routes a gap click to the nearest locale", a
     },
     { x: pointerX, y: gapY }
   );
-  await expect(page).toHaveURL(/\/en\/more$/);
+  await expect(page).toHaveURL(/\/en\/more$/u);
 
   await page.mouse.click(pointerX, gapY);
-  await expect(page).toHaveURL(/\/de\/more$/);
+  await expect(page).toHaveURL(/\/de\/more$/u);
 });
 
 test("modified locale links preserve native new-tab behavior", async ({
@@ -75,8 +75,8 @@ test("modified locale links preserve native new-tab behavior", async ({
   await german.click({ modifiers: [modifier] });
   const popup = await popupPromise;
 
-  await expect(page).toHaveURL(/\/en\/more$/);
-  await expect(popup).toHaveURL(/\/de\/more$/);
+  await expect(page).toHaveURL(/\/en\/more$/u);
+  await expect(popup).toHaveURL(/\/de\/more$/u);
   await popup.close();
 });
 

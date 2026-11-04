@@ -340,7 +340,7 @@ export function ViewportScanner({
                   <CameraOff aria-hidden="true" className="size-6" />
                   <p className="text-sm">{t("cameraerror")}</p>
                   <button
-                    className="fluid-hover rounded-lg bg-white px-4 py-2 font-medium text-black text-sm hover:bg-white/90"
+                    className="fluid-hover rounded-lg bg-white px-4 py-2 text-sm font-medium text-black hover:bg-white/90"
                     onClick={handleClose}
                     type="button"
                   >

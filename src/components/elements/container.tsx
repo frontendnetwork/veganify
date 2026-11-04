@@ -31,7 +31,7 @@ export default function Container({
     >
       <div
         className={cn(
-          "rounded-2xl bg-surface p-5 shadow-elev-2 sm:p-8",
+          "bg-surface shadow-elev-2 rounded-2xl p-5 sm:p-8",
           "max-md:mb-2",
           className
         )}
@@ -40,7 +40,7 @@ export default function Container({
           {!!logo && (
             <Link
               aria-label="Veganify"
-              className="mb-4 block text-link"
+              className="text-link mb-4 block"
               href="/"
               prefetch={true}
             >
@@ -50,7 +50,7 @@ export default function Container({
           {!!backButton && <BackButton className="-mt-2 -mr-2" />}
         </div>
         {!!heading && (
-          <h1 className="mb-4 text-balance font-semibold text-xl">{heading}</h1>
+          <h1 className="mb-4 text-xl font-semibold text-balance">{heading}</h1>
         )}
         {children}
       </div>

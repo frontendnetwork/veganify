@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
+import type { DetectionResult } from "./models/scanner";
 
 const domWindow = new GlobalWindow();
 Object.assign(globalThis, {
@@ -35,8 +36,6 @@ const { cleanup, fireEvent, render, waitFor } = await import(
 mock.module("next-intl", () => ({
   useTranslations: () => (key: string) => key,
 }));
-
-import type { DetectionResult } from "./models/scanner";
 
 type InitCallback = (error: Error | null) => void;
 type DetectionCallback = (result: DetectionResult) => void;

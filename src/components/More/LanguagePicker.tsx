@@ -75,7 +75,7 @@ function LanguageOptionLink({
 
   return (
     <Link
-      className="relative z-10 flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 font-medium text-ink text-sm"
+      className="text-ink relative z-10 flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm font-medium"
       data-fluid-hover-active={active ? "" : undefined}
       data-language-option=""
       href="/more"
@@ -85,7 +85,7 @@ function LanguageOptionLink({
       {option.label}
       {option.isCurrent ? (
         <>
-          <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
+          <span aria-hidden="true" className="bg-accent size-2 rounded-full" />
           <span className="sr-only-focusable">{currentLabel}</span>
         </>
       ) : null}
@@ -118,7 +118,7 @@ function LanguageHoverHighlight({
             x: rect.left,
             y: rect.top,
           }}
-          className="pointer-events-none absolute top-0 left-0 z-0 rounded-lg bg-hover"
+          className="bg-hover pointer-events-none absolute top-0 left-0 z-0 rounded-lg"
           data-slot="fluid-hover-highlight"
           exit={{ opacity: 0, transition: spring.fast.exit }}
           initial={{

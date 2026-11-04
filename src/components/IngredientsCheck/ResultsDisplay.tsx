@@ -10,14 +10,14 @@ interface ResultDisplayProps {
 
 export function ResultDisplay({ result, t }: ResultDisplayProps) {
   return (
-    <div className="mt-6 rounded-2xl border border-line bg-surface p-5 shadow-elev-2 sm:p-6">
-      <div className="flex items-center justify-between border-line border-b pb-3">
-        <p className="font-semibold text-ink">{t("vegan")}</p>
+    <div className="border-line bg-surface shadow-elev-2 mt-6 rounded-2xl border p-5 sm:p-6">
+      <div className="border-line flex items-center justify-between border-b pb-3">
+        <p className="text-ink font-semibold">{t("vegan")}</p>
         <p
           className={
             result.vegan
-              ? "flex items-center gap-1.5 font-medium text-success"
-              : "flex items-center gap-1.5 font-medium text-danger"
+              ? "text-success flex items-center gap-1.5 font-medium"
+              : "text-danger flex items-center gap-1.5 font-medium"
           }
         >
           {result.vegan ? t("yes") : t("no")}

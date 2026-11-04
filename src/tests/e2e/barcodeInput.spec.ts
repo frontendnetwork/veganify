@@ -16,7 +16,7 @@ test("User should be able to input a barcode via the URL parameter `ean` ", asyn
 }) => {
   await page.route("**/v0/product/*", (route) => {
     expect(route.request().url()).toMatch(
-      /^https:\/\/(api|staging\.api)\.veganify\.app\/v0\/product\/4066600204404$/
+      /^https:\/\/(?:api|staging\.api)\.veganify\.app\/v0\/product\/4066600204404$/u
     );
     expect(route.request().method()).toBe("POST");
   });

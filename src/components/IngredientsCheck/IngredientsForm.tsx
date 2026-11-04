@@ -38,11 +38,11 @@ const OCR_LANGUAGES: Record<string, string> = {
 /** OCR output is one line per printed line; the checker wants commas. */
 const ocrTextToIngredients = (text: string): string =>
   text
-    .split(/\r?\n/)
+    .split(/\r?\n/u)
     .map((line) => line.trim())
     .filter(Boolean)
     .join(", ")
-    .replace(/;/g, ",");
+    .replace(/;/gu, ",");
 
 export function IngredientsForm() {
   const t = useTranslations("Ingredients");
@@ -151,16 +151,16 @@ export function IngredientsForm() {
 
   return (
     <>
-      <h1 className="mb-1 text-center font-semibold text-xl">
+      <h1 className="mb-1 text-center text-xl font-semibold">
         {t("ingredientcheck")}
       </h1>
-      <p className="mb-5 text-center text-muted text-sm">
+      <p className="text-muted mb-5 text-center text-sm">
         {t("ingredientcheck_desc")}
       </p>
 
       <form onSubmit={handleSubmit}>
         <label
-          className="mb-2 block font-medium text-muted text-sm"
+          className="text-muted mb-2 block text-sm font-medium"
           htmlFor="ingredients"
         >
           {t("entercommaseperated")}
@@ -168,7 +168,7 @@ export function IngredientsForm() {
         <textarea
           aria-describedby={error ? "ingredients-error" : undefined}
           aria-invalid={error ? true : undefined}
-          className="fluid-hover min-h-28 w-full resize-y rounded-xl border border-line-strong bg-surface px-4 py-3 text-ink shadow-elev-1 placeholder:text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-ring"
+          className="fluid-hover border-line-strong bg-surface text-ink shadow-elev-1 placeholder:text-muted focus:border-accent focus:ring-ring min-h-28 w-full resize-y rounded-xl border px-4 py-3 focus:ring-2 focus:outline-none"
           id="ingredients"
           name="ingredients"
           onChange={handleIngredientsChange}
@@ -185,7 +185,7 @@ export function IngredientsForm() {
           type="file"
         />
         <button
-          className="fluid-hover fluid-press mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-line-strong bg-surface font-medium text-ink text-sm hover:bg-surface-2 disabled:opacity-60 motion-safe:active:scale-[0.98]"
+          className="fluid-hover fluid-press border-line-strong bg-surface text-ink hover:bg-surface-2 mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border text-sm font-medium disabled:opacity-60 motion-safe:active:scale-[0.98]"
           disabled={isScanning || loading}
           onClick={triggerFileSelect}
           type="button"
@@ -194,7 +194,7 @@ export function IngredientsForm() {
           {isScanning ? `${t("scanning")} ${ocrProgress}%` : t("scanlabel")}
         </button>
         <button
-          className="fluid-hover fluid-press mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent font-medium text-accent-foreground text-sm hover:bg-accent-hover disabled:opacity-60 motion-safe:active:scale-[0.98]"
+          className="fluid-hover fluid-press bg-accent text-accent-foreground hover:bg-accent-hover mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-medium disabled:opacity-60 motion-safe:active:scale-[0.98]"
           disabled={loading}
           type="submit"
         >
@@ -207,7 +207,7 @@ export function IngredientsForm() {
         {result.vegan === null ? null : <ResultDisplay result={result} t={t} />}
         {error ? (
           <p
-            className="mt-5 rounded-xl border border-line bg-surface p-4 text-ink text-sm shadow-elev-1"
+            className="border-line bg-surface text-ink shadow-elev-1 mt-5 rounded-xl border p-4 text-sm"
             id="ingredients-error"
           >
             {error}

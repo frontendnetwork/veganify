@@ -193,13 +193,13 @@ const ShareOptionRow = ({
   return (
     <li>
       <button
-        className="fluid-hover flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left font-medium text-ink text-sm hover:bg-surface-2"
+        className="fluid-hover text-ink hover:bg-surface-2 flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium"
         onClick={handleClick}
         type="button"
       >
         <Icon
           aria-hidden="true"
-          className={copied ? "size-5 text-success" : "size-5 text-muted"}
+          className={copied ? "text-success size-5" : "text-muted size-5"}
         />
         {copied ? t("copied") : option.label}
       </button>

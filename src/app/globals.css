@@ -524,7 +524,9 @@ html[data-theme="oled"] {
   .prose-legal h3 {
     margin: 1.5em 0 0.5em;
     font-weight: 600;
-    text-wrap: balance;
+    @supports (text-wrap: balance) {
+      text-wrap: balance;
+    }
   }
 
   .prose-legal h1 {
