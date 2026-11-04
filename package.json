@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@ericblade/quagga2": "^1.13.0",
-    "@frontendnetwork/veganify": "2.1.13",
+    "@frontendnetwork/veganify": "2.1.36",
     "@radix-ui/react-dialog": "^1.1.23",
     "@radix-ui/react-slot": "^1.3.3",
     "@radix-ui/react-switch": "^1.3.7",
