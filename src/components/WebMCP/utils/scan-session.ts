@@ -1,5 +1,5 @@
-export const SCAN_CONSENT_TIMEOUT_MS = 60_000;
-export const SCAN_CAMERA_TIMEOUT_MS = 60_000;
+const SCAN_CONSENT_TIMEOUT_MS = 60_000;
+const SCAN_CAMERA_TIMEOUT_MS = 60_000;
 
 type ScanPhase = "idle" | "consent" | "scanning";
 

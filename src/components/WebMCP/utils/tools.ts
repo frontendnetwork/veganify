@@ -109,21 +109,19 @@ const requiredText = (input: Record<string, unknown>, key: string): string => {
   return value.trim();
 };
 
-export const parseCheckIngredientsInput = (
+const parseCheckIngredientsInput = (
   input: unknown,
 ): CheckIngredientsToolInput => {
   const object = assertObjectWithKeys(input, ["ingredients"]);
   return { ingredients: requiredText(object, "ingredients") };
 };
 
-export const parseCheckProductInput = (
-  input: unknown,
-): CheckProductToolInput => {
+const parseCheckProductInput = (input: unknown): CheckProductToolInput => {
   const object = assertObjectWithKeys(input, ["barcode"]);
   return { barcode: requiredText(object, "barcode") };
 };
 
-export const parseEmptyInput = (input: unknown): EmptyToolInput => {
+const parseEmptyInput = (input: unknown): EmptyToolInput => {
   assertObjectWithKeys(input, []);
   return {};
 };
