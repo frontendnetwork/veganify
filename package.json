@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "check": "concurrently -c \"#FF8700,#5DE4C7,#A8E6CF,#ADD7FF\" -n lint,types,unit \"bun run lint\" \"bun run type-check\" \"bun test src/components src/hooks --timeout=10000 --reporter=dots --bail\"",
+    "check": "concurrently -c \"#FF8700,#5DE4C7,#A8E6CF,#ADD7FF\" -n format,lint,types,unit \"bun run format:check\" \"bun run lint\" \"bun run type-check\" \"bun test src/components src/hooks --timeout=10000 --reporter=dots --bail\"",
     "check:code": "bun run lint",
     "dev": "next dev --turbopack",
     "format": "bun fmt",
