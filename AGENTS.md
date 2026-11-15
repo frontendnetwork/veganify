@@ -11,8 +11,11 @@ bun run start        # Start production server on port 1030
 bun run stage        # Start staging server on port 1031
 
 # Quality assurance
-bun run check        # Run Linter, Formatter, Unit Tests and Type Checker concurrently
-bun run lint:fix     # Auto-fix Biome issues
+bun run check        # Run Formatter, Linter, Unit Tests and Type Checker concurrently
+bun run format       # Format code with Bun's built-in formatter
+bun run format:check # Check formatting without writing
+bun run lint         # Lint with Oxlint (Ultracite presets)
+bun run lint:fix     # Auto-fix Oxlint issues
 bun run type-check   # Run TypeScript type checking
 
 # Testing
@@ -30,6 +33,8 @@ bun run test:e2e     # Run Playwright end-to-end tests
 - **Internationalization**: next-intl for multi-language support
 - **Motion**: motion (framer) with Fluid Functionalism spring tiers
 - **Testing**: Bun test runner for unit tests, Playwright for E2E
+- **Linting**: Oxlint with Ultracite presets (`oxlint.config.mts`)
+- **Formatting**: Bun's built-in formatter (`bun fmt`)
 - **Package Manager**: bun
 
 ### Key Directory Structure
@@ -85,7 +90,7 @@ src/
 - All utility functions must have 100% test coverage using Bun test runner
 - TypeScript is mandatory with proper type definitions in models/ folders
 - Follow conventional commits specification for commit messages
-- Use Biome for linting and formatting
+- Lint with Oxlint (Ultracite presets) and format with Bun's built-in formatter
 
 ### Testing Strategy
 
@@ -118,15 +123,16 @@ src/
 
 # Ultracite Code Standards
 
-This project uses **Ultracite**, a zero-config preset that enforces strict code quality standards through automated formatting and linting.
+This project uses **Ultracite's Oxlint presets** (`ultracite/oxlint/core`, `react`, and `next`) for linting, and **Bun's built-in formatter** for formatting. Project-specific rule decisions live in `oxlint.config.mts`.
 
 ## Quick Reference
 
-- **Format code**: `bun x ultracite fix`
-- **Check for issues**: `bun x ultracite check`
-- **Diagnose setup**: `bun x ultracite doctor`
+- **Format code**: `bun run format`
+- **Check formatting**: `bun run format:check`
+- **Check for issues**: `bun run lint`
+- **Auto-fix issues**: `bun run lint:fix`
 
-Biome (the underlying engine) provides robust linting and formatting. Most issues are automatically fixable.
+Oxlint (the underlying engine) provides fast linting. Most lint issues are automatically fixable; the formatter is separate and idempotent.
 
 ---
 
@@ -225,11 +231,11 @@ Write code that is **accessible, performant, type-safe, and maintainable**. Focu
 - Don't use `.only` or `.skip` in committed code
 - Keep test suites reasonably flat - avoid excessive `describe` nesting
 
-## When Biome Can't Help
+## When Oxlint Can't Help
 
-Biome's linter will catch most issues automatically. Focus your attention on:
+Oxlint's linter will catch most issues automatically. Focus your attention on:
 
-1. **Business logic correctness** - Biome can't validate your algorithms
+1. **Business logic correctness** - Oxlint can't validate your algorithms
 2. **Meaningful naming** - Use descriptive names for functions, variables, and types
 3. **Architecture decisions** - Component structure, data flow, and API design
 4. **Edge cases** - Handle boundary conditions and error states
@@ -238,7 +244,7 @@ Biome's linter will catch most issues automatically. Focus your attention on:
 
 ---
 
-Most formatting and common issues are automatically fixed by Biome. Run `bun x ultracite fix` before committing to ensure compliance.
+Most formatting and common issues are automatically fixed. Run `bun run format` and `bun run lint:fix` before committing to ensure compliance.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

@@ -66,7 +66,7 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
           }
           // Registration is intentionally sequential so a partial run can be
           // aborted before the next tool name is attempted.
-          // biome-ignore lint/performance/noAwaitInLoops: Registration order prevents duplicate partial runs.
+          // eslint-disable-next-line no-await-in-loop -- Registration order prevents duplicate partial runs.
           await registerWebMcpTool(
             modelContext,
             tool,

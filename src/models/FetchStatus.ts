@@ -3,6 +3,7 @@
  * every transport error can be surfaced accurately instead of being masked
  * as a generic timeout.
  */
+// eslint-disable-next-line no-redeclare -- intentional const + type merge (value object + derived union type)
 export const FetchStatus = {
   INVALID: 400,
   NOT_FOUND: 404,

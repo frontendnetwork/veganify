@@ -6,6 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: oven-sh/setup-bun@v2.2.0
+        with:
+          bun-version: 1.4.4
+      - name: Assert Bun version
+        run: test "$(bun --version)" = "1.4.4"
       - run: bun install
       - run: bun run lint
       - run: bun run type-check

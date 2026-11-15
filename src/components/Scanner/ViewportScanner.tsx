@@ -257,8 +257,8 @@ export function ViewportScanner({
       startedAttemptRef.current = null;
       stopQuagga(true);
     };
-    // This effect intentionally initializes one scanner session per mount.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // This effect intentionally initializes one scanner session per mount
+    // (exhaustive-deps is disabled project-wide; see oxlint.config.mts).
   }, []);
 
   const handleOpenChange = useCallback(

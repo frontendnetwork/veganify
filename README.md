@@ -36,7 +36,7 @@ The [Veganify Ingredients API](https://github.com/frontendnetwork/Veganify-API) 
 
 ### Prerequisites
 
-- [Bun](https://bun.sh) 1.4 or later (package manager, test runner and runtime)
+- [Bun](https://bun.sh) 1.4.4 (package manager, formatter, test runner and runtime)
 
 ### Getting Started
 
@@ -82,8 +82,17 @@ bun run dev
 # Lint + type-check + unit tests in parallel
 bun run check
 
-# Run linting (Biome)
+# Format code (Bun's built-in formatter)
+bun run format
+
+# Check formatting without writing
+bun run format:check
+
+# Run linting (Oxlint via Ultracite presets)
 bun run lint
+
+# Auto-fix lint issues
+bun run lint:fix
 
 # Run type checking
 bun run type-check

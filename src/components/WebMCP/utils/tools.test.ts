@@ -148,7 +148,7 @@ describe("WebMCP tool contracts", () => {
       [FetchStatus.SERVER_ERROR, "error"],
     ] as const) {
       state.setIngredientResponse({ status });
-      // biome-ignore lint/performance/noAwaitInLoops: These statuses are intentionally checked sequentially.
+      // eslint-disable-next-line no-await-in-loop -- These statuses are intentionally checked sequentially.
       await expect(tool.execute({ ingredients: "apple" })).resolves.toEqual({
         status: expected,
       });
@@ -173,7 +173,7 @@ describe("WebMCP tool contracts", () => {
       { extra: true, ingredients: "apple" },
     ];
     for (const input of malformedIngredients) {
-      // biome-ignore lint/performance/noAwaitInLoops: Each malformed boundary case is asserted independently.
+      // eslint-disable-next-line no-await-in-loop -- Each malformed boundary case is asserted independently.
       await expect(
         ingredients.execute(input as CheckIngredientsToolInput)
       ).rejects.toBeInstanceOf(WebMcpToolInputError);
@@ -187,7 +187,7 @@ describe("WebMCP tool contracts", () => {
       { barcode: "123", extra: false },
     ];
     for (const input of malformedProducts) {
-      // biome-ignore lint/performance/noAwaitInLoops: Each malformed boundary case is asserted independently.
+      // eslint-disable-next-line no-await-in-loop -- Each malformed boundary case is asserted independently.
       await expect(
         product.execute(input as CheckProductToolInput)
       ).rejects.toBeInstanceOf(WebMcpToolInputError);
@@ -226,7 +226,7 @@ describe("WebMCP tool contracts", () => {
       [FetchStatus.SERVER_ERROR, "error"],
     ] as const) {
       state.setProductResponse({ status });
-      // biome-ignore lint/performance/noAwaitInLoops: These statuses are intentionally checked sequentially.
+      // eslint-disable-next-line no-await-in-loop -- These statuses are intentionally checked sequentially.
       await expect(tool.execute({ barcode: "4000417025005" })).resolves.toEqual(
         {
           barcode: "4000417025005",

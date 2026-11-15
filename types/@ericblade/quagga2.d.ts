@@ -1,5 +1,5 @@
 declare module "@ericblade/quagga2" {
-  // biome-ignore lint/suspicious/noExplicitAny: third-party module shim requires any
+  // eslint-disable-next-line typescript/no-explicit-any -- third-party module shim requires any
   const Quagga: any;
   export default Quagga;
 }
