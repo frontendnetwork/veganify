@@ -1,9 +1,8 @@
 ---
 name: Feature request
 about: Request a new feature
-title: '[Feat]'
+title: "[Feat]"
 labels: needs priority, enhancement
-
 ---
 
 ## Proposed changes

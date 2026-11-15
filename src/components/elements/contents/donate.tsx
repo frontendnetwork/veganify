@@ -43,13 +43,13 @@ const SupportOption = () => {
   const handleOptionChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const option = Object.values(SUPPORT_OPTIONS).find(
-        (o) => o.vendor === event.currentTarget.value
+        (o) => o.vendor === event.currentTarget.value,
       );
       if (option) {
         setSelectedOption(option);
       }
     },
-    []
+    [],
   );
 
   return (
@@ -63,7 +63,7 @@ const SupportOption = () => {
               "fluid-hover mb-2 flex cursor-pointer items-center gap-3 rounded-xl border p-4",
               isSelected
                 ? "border-accent bg-surface-2"
-                : "border-line bg-surface hover:bg-surface-2"
+                : "border-line bg-surface hover:bg-surface-2",
             )}
             key={option.vendor}
           >

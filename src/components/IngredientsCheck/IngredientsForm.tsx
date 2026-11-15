@@ -59,7 +59,7 @@ export function IngredientsForm() {
     (event: ChangeEvent<HTMLTextAreaElement>) => {
       setIngredients(event.target.value);
     },
-    []
+    [],
   );
 
   const handleSubmit = useCallback(
@@ -94,7 +94,7 @@ export function IngredientsForm() {
         setLoading(false);
       }
     },
-    [ingredients, t]
+    [ingredients, t],
   );
 
   const handlePhotoSelect = useCallback(
@@ -124,7 +124,9 @@ export function IngredientsForm() {
           const recognized = ocrTextToIngredients(data.text ?? "");
           if (recognized) {
             setIngredients((previous) =>
-              previous.trim() ? `${previous.trim()}, ${recognized}` : recognized
+              previous.trim()
+                ? `${previous.trim()}, ${recognized}`
+                : recognized,
             );
             textareaRef.current?.focus();
           } else {
@@ -140,7 +142,7 @@ export function IngredientsForm() {
         setOcrProgress(null);
       }
     },
-    [locale, t]
+    [locale, t],
   );
 
   const triggerFileSelect = useCallback(() => {

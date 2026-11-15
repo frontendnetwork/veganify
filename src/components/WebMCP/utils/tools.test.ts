@@ -101,7 +101,7 @@ const createDependencies = () => {
 describe("WebMCP tool contracts", () => {
   test("exposes four named tools with strict schemas and annotations", () => {
     const [ingredients, product, scan, history] = createWebMcpTools(
-      createDependencies().dependencies
+      createDependencies().dependencies,
     );
 
     expect(ingredients.name).toBe("check_ingredients");
@@ -162,7 +162,7 @@ describe("WebMCP tool contracts", () => {
 
   test("rejects malformed ingredient and product input at the boundary", async () => {
     const [ingredients, product] = createWebMcpTools(
-      createDependencies().dependencies
+      createDependencies().dependencies,
     );
     const malformedIngredients: unknown[] = [
       null,
@@ -175,7 +175,7 @@ describe("WebMCP tool contracts", () => {
     for (const input of malformedIngredients) {
       // eslint-disable-next-line no-await-in-loop -- Each malformed boundary case is asserted independently.
       await expect(
-        ingredients.execute(input as CheckIngredientsToolInput)
+        ingredients.execute(input as CheckIngredientsToolInput),
       ).rejects.toBeInstanceOf(WebMcpToolInputError);
     }
 
@@ -189,7 +189,7 @@ describe("WebMCP tool contracts", () => {
     for (const input of malformedProducts) {
       // eslint-disable-next-line no-await-in-loop -- Each malformed boundary case is asserted independently.
       await expect(
-        product.execute(input as CheckProductToolInput)
+        product.execute(input as CheckProductToolInput),
       ).rejects.toBeInstanceOf(WebMcpToolInputError);
     }
   });
@@ -231,7 +231,7 @@ describe("WebMCP tool contracts", () => {
         {
           barcode: "4000417025005",
           status: expected,
-        }
+        },
       );
     }
 
@@ -250,7 +250,7 @@ describe("WebMCP tool contracts", () => {
     state.setProductResponse({ status: FetchStatus.NOT_FOUND });
 
     await expect(
-      scan.execute({}, { signal: controller.signal })
+      scan.execute({}, { signal: controller.signal }),
     ).resolves.toEqual({
       barcode: "4000417025005",
       status: "not_found",
@@ -268,7 +268,7 @@ describe("WebMCP tool contracts", () => {
     state.setHistoryUnavailable(true);
     expect(historyTool.execute({})).toEqual({ entries: [] });
     expect(() =>
-      historyTool.execute({ extra: true } as unknown as EmptyToolInput)
+      historyTool.execute({ extra: true } as unknown as EmptyToolInput),
     ).toThrow(WebMcpToolInputError);
   });
 });

@@ -36,10 +36,10 @@ test("language hover fills gaps and routes a gap click to the nearest locale", a
     await page.evaluate(
       ({ x, y }) =>
         Boolean(
-          document.elementFromPoint(x, y)?.closest("a[data-language-option]")
+          document.elementFromPoint(x, y)?.closest("a[data-language-option]"),
         ),
-      { x: pointerX, y: gapY }
-    )
+      { x: pointerX, y: gapY },
+    ),
   ).toBe(false);
   await page.evaluate(
     ({ x, y }) => {
@@ -52,10 +52,10 @@ test("language hover fills gaps and routes a gap click to the nearest locale", a
           clientY: y,
           ctrlKey: true,
           detail: 1,
-        })
+        }),
       );
     },
-    { x: pointerX, y: gapY }
+    { x: pointerX, y: gapY },
   );
   await expect(page).toHaveURL(/\/en\/more$/u);
 
@@ -102,7 +102,7 @@ test("clears pointer hover on close and keeps keyboard focus visible", async ({
   await page.keyboard.press("Tab");
   await expect(english).toBeFocused();
   expect(
-    await english.evaluate((node) => getComputedStyle(node).outlineStyle)
+    await english.evaluate((node) => getComputedStyle(node).outlineStyle),
   ).toBe("solid");
 });
 
@@ -124,16 +124,16 @@ test("re-measures language hover after responsive reflow with reduced motion", a
   await expect(list).toHaveAttribute("data-fluid-hover-active-index", "1");
   const snappedToGerman = await page.evaluate(async () => {
     await new Promise<void>((resolve) =>
-      requestAnimationFrame(() => resolve())
+      requestAnimationFrame(() => resolve()),
     );
     await new Promise<void>((resolve) =>
-      requestAnimationFrame(() => resolve())
+      requestAnimationFrame(() => resolve()),
     );
     const highlightElement = document.querySelector<HTMLElement>(
-      '[data-slot="fluid-hover-highlight"]'
+      '[data-slot="fluid-hover-highlight"]',
     );
     const [, germanOption] = document.querySelectorAll<HTMLElement>(
-      "a[data-language-option]"
+      "a[data-language-option]",
     );
     if (!(highlightElement && germanOption)) {
       return false;
@@ -154,7 +154,7 @@ test("re-measures language hover after responsive reflow with reduced motion", a
   }
   await page.mouse.move(
     germanBounds.x + germanBounds.width / 2,
-    germanBounds.y + germanBounds.height / 2
+    germanBounds.y + germanBounds.height / 2,
   );
   await expect(list).toHaveAttribute("data-fluid-hover-active-index", "1");
   await expect

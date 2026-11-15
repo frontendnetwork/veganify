@@ -22,7 +22,7 @@ const SURFACE_SHADOW: Record<number, string> = {
 
 export function surfaceClasses(
   bgLevel: number,
-  shadowLevel: number = bgLevel
+  shadowLevel: number = bgLevel,
 ): string {
   // Round after clamping so a fractional level can't index out of the lookup
   // tables (which would render "undefined undefined").

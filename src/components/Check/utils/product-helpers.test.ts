@@ -17,7 +17,7 @@ describe("normalizeProduct", () => {
         productname: "Test product",
         vegan: true,
         vegetarian: "n/a",
-      })
+      }),
     ).toEqual({
       animaltestfree: "n/a",
       grade: "",
@@ -33,7 +33,7 @@ describe("normalizeProduct", () => {
 describe("normalizeSources", () => {
   test("keeps only the client-facing source fields", () => {
     expect(
-      normalizeSources({ api: "open-food-facts", baseuri: "https://example" })
+      normalizeSources({ api: "open-food-facts", baseuri: "https://example" }),
     ).toEqual({
       api: "open-food-facts",
       baseuri: "https://example",

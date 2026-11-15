@@ -37,8 +37,8 @@ export function useLanguageFluidHover(isOpen: boolean) {
     return container
       ? Array.from(
           container.querySelectorAll<HTMLAnchorElement>(
-            LANGUAGE_OPTION_SELECTOR
-          )
+            LANGUAGE_OPTION_SELECTOR,
+          ),
         )
       : [];
   }, []);
@@ -101,7 +101,7 @@ export function useLanguageFluidHover(isOpen: boolean) {
 
   const setActive = useCallback((nextIndex: number | null) => {
     setActiveIndex((currentIndex) =>
-      currentIndex === nextIndex ? currentIndex : nextIndex
+      currentIndex === nextIndex ? currentIndex : nextIndex,
     );
   }, []);
 
@@ -161,7 +161,7 @@ export function useLanguageFluidHover(isOpen: boolean) {
         cancelAnimationFrame(measurementFrameRef.current);
       }
     },
-    []
+    [],
   );
 
   const handlePointerEnter = useCallback(
@@ -171,7 +171,7 @@ export function useLanguageFluidHover(isOpen: boolean) {
         setSession((currentSession) => currentSession + 1);
       }
     },
-    [isOpen]
+    [isOpen],
   );
 
   const handlePointerMove = useCallback(
@@ -201,7 +201,7 @@ export function useLanguageFluidHover(isOpen: boolean) {
         setActive(nearestLanguageIndex(rects, pointerYRef.current));
       });
     },
-    [getItems, isOpen, setActive]
+    [getItems, isOpen, setActive],
   );
 
   const handlePointerLeave = useCallback(
@@ -213,7 +213,7 @@ export function useLanguageFluidHover(isOpen: boolean) {
       }
       setActive(null);
     },
-    [setActive]
+    [setActive],
   );
 
   const handlePointerDown = useCallback(
@@ -223,7 +223,7 @@ export function useLanguageFluidHover(isOpen: boolean) {
         setActive(null);
       }
     },
-    [setActive]
+    [setActive],
   );
 
   const handleFocusCapture = useCallback(() => {
@@ -264,7 +264,7 @@ export function useLanguageFluidHover(isOpen: boolean) {
       setActive(nearestIndex);
       items[nearestIndex]?.click();
     },
-    [getItems, isOpen, setActive]
+    [getItems, isOpen, setActive],
   );
 
   return {

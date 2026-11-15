@@ -18,9 +18,7 @@ const LINT_EXTENSIONS = /\.[cm]?[jt]sx?$/u;
  * @returns {string} Repo-relative path with forward slashes.
  */
 const toRepoRelative = (file) => {
-  const rel = path.isAbsolute(file)
-    ? path.relative(process.cwd(), file)
-    : file;
+  const rel = path.isAbsolute(file) ? path.relative(process.cwd(), file) : file;
   return rel.split(path.sep).join("/");
 };
 
@@ -41,7 +39,7 @@ const quote = (file) => `"${file}"`;
  */
 const buildTasks = (allStagedFiles) => {
   const staged = allStagedFiles.filter(
-    (file) => !toRepoRelative(file).startsWith(VENDORED_PREFIX)
+    (file) => !toRepoRelative(file).startsWith(VENDORED_PREFIX),
   );
   const toFormat = staged.filter((file) => FORMAT_EXTENSIONS.test(file));
   const toLint = staged.filter((file) => LINT_EXTENSIONS.test(file));

@@ -17,7 +17,7 @@ function RecentChip({
 }) {
   const handleClick = useCallback(
     () => onSelect(entry.ean),
-    [onSelect, entry.ean]
+    [onSelect, entry.ean],
   );
 
   return (

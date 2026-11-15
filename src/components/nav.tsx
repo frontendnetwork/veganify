@@ -36,7 +36,7 @@ export default function Nav() {
       className={cn(
         "border-line fixed inset-x-0 z-30 border-b bg-[var(--nav-bg)] backdrop-blur-md",
         "max-md:bottom-0 max-md:border-t max-md:border-b-0",
-        "supports-[backdrop-filter]:bg-[var(--nav-bg)]"
+        "supports-[backdrop-filter]:bg-[var(--nav-bg)]",
       )}
     >
       <ul className="mx-auto flex h-16 max-w-3xl items-stretch justify-around gap-1 px-1 max-md:h-[max(4rem,env(safe-area-inset-bottom)+4rem)] max-md:pb-[env(safe-area-inset-bottom)]">
@@ -50,7 +50,7 @@ export default function Nav() {
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
                   "fluid-hover text-muted hover:text-ink mx-auto flex h-full min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-lg px-1",
-                  isActive && "text-link hover:text-link"
+                  isActive && "text-link hover:text-link",
                 )}
                 href={item.href}
                 prefetch={true}

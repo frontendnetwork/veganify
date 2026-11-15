@@ -69,7 +69,7 @@ export function EmptyState({
 
   const selectExample = useCallback(
     () => onSelectExample(EXAMPLE_EAN),
-    [onSelectExample]
+    [onSelectExample],
   );
 
   if (hasRecents) {

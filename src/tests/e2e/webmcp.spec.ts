@@ -34,7 +34,7 @@ test("registers native tools and requires consent before camera access", async (
           name: string;
           execute: (input: Record<string, never>) => Promise<unknown>;
         },
-        options?: { signal?: AbortSignal }
+        options?: { signal?: AbortSignal },
       ) => {
         registeredTools.set(tool.name, tool);
         state.tools = [...registeredTools.keys()];
@@ -80,7 +80,7 @@ test("registers native tools and requires consent before camera access", async (
               error: error instanceof Error ? error.name : "UnknownError",
               status: "rejected",
             };
-          }
+          },
         );
       },
     });

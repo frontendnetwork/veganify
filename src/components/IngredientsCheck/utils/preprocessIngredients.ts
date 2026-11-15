@@ -23,7 +23,7 @@ export function preprocessIngredients(input: string): string[] {
         self.indexOf(item) === index &&
         !self.some(
           (other, otherIndex) =>
-            otherIndex !== index && other.includes(item) && other !== item
-        )
+            otherIndex !== index && other.includes(item) && other !== item,
+        ),
     );
 }

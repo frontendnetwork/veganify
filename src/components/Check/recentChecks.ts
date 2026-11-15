@@ -17,7 +17,7 @@ export function loadRecentChecks(): RecentCheckModel[] {
         typeof entry === "object" &&
         entry !== null &&
         typeof (entry as RecentCheckModel).ean === "string" &&
-        typeof (entry as RecentCheckModel).name === "string"
+        typeof (entry as RecentCheckModel).name === "string",
     );
   } catch {
     return [];

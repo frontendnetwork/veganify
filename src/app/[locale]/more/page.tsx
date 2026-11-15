@@ -59,7 +59,7 @@ function ListRow({
     </>
   );
   const className = cn(
-    "fluid-hover text-ink hover:bg-surface-2 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm"
+    "fluid-hover text-ink hover:bg-surface-2 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm",
   );
 
   if (href) {
@@ -230,7 +230,7 @@ function OLEDRow(): ReactNode {
 
   const handleClick = useCallback(() => {
     const isDarkModePreferred = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
 
     if (!(isChecked || isDarkModePreferred)) {
@@ -276,7 +276,7 @@ function OLEDRow(): ReactNode {
 function updateThemeColor(color: string) {
   document
     .querySelector<HTMLMetaElement>(
-      'meta[name="theme-color"][media="(prefers-color-scheme: dark)"]'
+      'meta[name="theme-color"][media="(prefers-color-scheme: dark)"]',
     )
     ?.setAttribute("content", color);
 }

@@ -157,7 +157,7 @@ export default function PromptStack() {
         cardRefs.current[frontKey] = node;
       }
     },
-    [frontKey]
+    [frontKey],
   );
   const promoteBack = useCallback(() => {
     if (backKey) {

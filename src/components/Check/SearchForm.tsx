@@ -38,20 +38,20 @@ export function SearchForm({
 
   const handleFormSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => onSubmit(barcode, event),
-    [barcode, onSubmit]
+    [barcode, onSubmit],
   );
   const handleScanSubmit = useCallback(
     (scannedBarcode: string) => onSubmit(scannedBarcode),
-    [onSubmit]
+    [onSubmit],
   );
   const handleBarcodeChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) =>
       onBarcodeChange(event.target.value),
-    [onBarcodeChange]
+    [onBarcodeChange],
   );
   const handleClearBarcode = useCallback(
     () => onBarcodeChange(""),
-    [onBarcodeChange]
+    [onBarcodeChange],
   );
 
   return (

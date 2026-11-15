@@ -67,7 +67,7 @@ function TriStateGlyph({ state }: { state: TriState }) {
     <span
       className={cn(
         "inline-flex items-center gap-1.5 font-medium",
-        triStateText[state]
+        triStateText[state],
       )}
     >
       <Icon aria-hidden="true" className="size-4" strokeWidth={2.5} />
@@ -90,7 +90,7 @@ function GradeBadge({
     <span
       className={cn(
         "inline-flex size-7 items-center justify-center rounded-md text-sm font-bold uppercase",
-        gradeStyles[state.grade]
+        gradeStyles[state.grade],
       )}
     >
       <span className="sr-only-focusable">{`${srLabel} `}</span>
@@ -175,7 +175,7 @@ export function ProductResultView({
           className={cn(
             "flex h-16 items-center justify-center gap-2.5 rounded-xl text-lg font-semibold",
             triStateBg[productState.vegan],
-            triStateText[productState.vegan]
+            triStateText[productState.vegan],
           )}
         >
           {productState.vegan === "yes" && (

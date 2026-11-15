@@ -16,7 +16,7 @@ export interface ProductFetchResult {
 }
 
 export async function fetchProduct(
-  barcode: string
+  barcode: string,
 ): Promise<ProductFetchResult> {
   try {
     const veganify = Veganify.getInstance({

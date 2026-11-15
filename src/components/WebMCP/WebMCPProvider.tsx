@@ -23,7 +23,7 @@ const IDLE_SNAPSHOT = { phase: "idle" } as const;
 const registerWebMcpTool = (
   modelContext: WebMCP.ModelContext,
   tool: ToolDescriptor,
-  signal: AbortSignal
+  signal: AbortSignal,
 ): Promise<void> => modelContext.registerTool(tool, { signal });
 
 export function WebMCPProvider({ children }: { children: ReactNode }) {
@@ -35,7 +35,7 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
   const snapshot = useSyncExternalStore(
     session.subscribe,
     session.getSnapshot,
-    () => IDLE_SNAPSHOT
+    () => IDLE_SNAPSHOT,
   );
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
           await registerWebMcpTool(
             modelContext,
             tool,
-            registrationController.signal
+            registrationController.signal,
           );
         }
       } catch {
@@ -93,19 +93,19 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
         session.cancel();
       }
     },
-    [session]
+    [session],
   );
   const handleCancel = useCallback(() => session.cancel(), [session]);
   const handleConfirm = useCallback(() => session.confirmConsent(), [session]);
   const handleDetected = useCallback(
     (result: DetectionResult) =>
       session.reportDetection(result.codeResult.code),
-    [session]
+    [session],
   );
   const handleScannerCancelled = useCallback(() => session.cancel(), [session]);
   const handleScannerError = useCallback(
     () => session.reportCameraError(),
-    [session]
+    [session],
   );
   const setScannerScanning = useCallback(() => undefined, []);
 

@@ -70,7 +70,7 @@ function LanguageOptionLink({
 }) {
   const handleClick = useCallback(
     () => onLocaleChange(option.code),
-    [onLocaleChange, option.code]
+    [onLocaleChange, option.code],
   );
 
   return (

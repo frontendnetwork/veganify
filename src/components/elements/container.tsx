@@ -33,7 +33,7 @@ export default function Container({
         className={cn(
           "bg-surface shadow-elev-2 rounded-2xl p-5 sm:p-8",
           "max-md:mb-2",
-          className
+          className,
         )}
       >
         <div className="flex items-start justify-between">

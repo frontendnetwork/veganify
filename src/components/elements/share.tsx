@@ -101,7 +101,7 @@ const ShareButton = ({
         url: `mailto:?subject=${encodeURIComponent(text)}&body=${encodeURIComponent(url)}`,
       },
     ],
-    [t, text, url]
+    [t, text, url],
   );
 
   const handleNativeShare = useCallback(async () => {
@@ -135,7 +135,7 @@ const ShareButton = ({
       }
       window.open(option.url, "_blank", "noopener,noreferrer");
     },
-    [text, url]
+    [text, url],
   );
 
   const trigger = (onClick: () => void) => (

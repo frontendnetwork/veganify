@@ -11,7 +11,7 @@ export interface ToolExecutionOptions {
 
 export type WebMcpToolExecutor<TResult> = (
   input: unknown,
-  options?: ToolExecutionOptions
+  options?: ToolExecutionOptions,
 ) => WebMCP.MaybePromise<TResult>;
 
 export type WebMcpToolDescriptor<TResult> = Omit<
@@ -42,11 +42,7 @@ export type CheckProductInput = Record<string, unknown> & {
 };
 
 export type ProductToolStatus =
-  | "ok"
-  | "invalid"
-  | "not_found"
-  | "timeout"
-  | "error";
+  "ok" | "invalid" | "not_found" | "timeout" | "error";
 
 export interface CheckProductOutput {
   barcode: string;

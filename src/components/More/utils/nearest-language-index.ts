@@ -6,7 +6,7 @@ export interface VerticalItemRect {
 /** Picks a containing language row, or the row whose center is nearest. */
 export function nearestLanguageIndex(
   rects: readonly VerticalItemRect[],
-  pointerY: number
+  pointerY: number,
 ): number | null {
   let closestIndex: number | null = null;
   let closestDistance = Number.POSITIVE_INFINITY;

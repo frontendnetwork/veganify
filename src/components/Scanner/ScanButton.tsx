@@ -31,7 +31,7 @@ export function ScanButton({
         buttonRef.current = node;
       }
     },
-    [buttonRef]
+    [buttonRef],
   );
 
   const handleDetection = useCallback(
@@ -41,7 +41,7 @@ export function ScanButton({
       onDetected(barcode);
       handleSubmit(barcode);
     },
-    [handleSubmit, onDetected]
+    [handleSubmit, onDetected],
   );
 
   return (

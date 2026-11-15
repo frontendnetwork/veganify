@@ -28,13 +28,7 @@ import {
 } from "./utils/product-helpers";
 
 type Status =
-  | "idle"
-  | "loading"
-  | "found"
-  | "notfound"
-  | "invalid"
-  | "timeout"
-  | "error";
+  "idle" | "loading" | "found" | "notfound" | "invalid" | "timeout" | "error";
 
 const INITIAL_RESULT: ProductResult = {
   animaltestfree: "n/a",
@@ -62,7 +56,7 @@ export default function ProductSearch() {
     setStatus((currentStatus) =>
       currentStatus === "invalid" || currentStatus === "loading"
         ? "idle"
-        : currentStatus
+        : currentStatus,
     );
   }, []);
 
@@ -106,7 +100,7 @@ export default function ProductSearch() {
         }
       }
     },
-    []
+    [],
   );
 
   useEffect(() => {
@@ -123,7 +117,7 @@ export default function ProductSearch() {
       handleBarcodeChange(ean);
       handleSubmit(ean);
     },
-    [handleBarcodeChange, handleSubmit]
+    [handleBarcodeChange, handleSubmit],
   );
 
   return (

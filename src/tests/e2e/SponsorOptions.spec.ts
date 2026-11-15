@@ -8,15 +8,15 @@ test("should display sponsoring options", async ({ page }) => {
   await expect(page.getByText("Einmal via Ko-Fi")).toBeVisible();
   await page.getByText("-50€").click();
   await expect(
-    page.getByRole("link", { name: " Sponsor on Ko-Fi" })
+    page.getByRole("link", { name: " Sponsor on Ko-Fi" }),
   ).toBeVisible();
   await page.getByText("Monatlich via GitHub").click();
   await expect(
-    page.getByRole("link", { name: " Sponsor on GitHub" })
+    page.getByRole("link", { name: " Sponsor on GitHub" }),
   ).toBeVisible();
   await page.getByText("Einmalig via PayPal").click();
   await expect(
-    page.getByRole("link", { name: " Donate with PayPal" })
+    page.getByRole("link", { name: " Donate with PayPal" }),
   ).toBeVisible();
   await page.getByRole("button", { name: "×" }).click();
 });

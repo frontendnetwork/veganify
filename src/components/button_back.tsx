@@ -17,7 +17,7 @@ const BackButton = ({ className }: { className?: string }) => {
       aria-label={t("back")}
       className={cn(
         "fluid-hover text-muted hover:bg-surface-2 hover:text-ink flex size-11 items-center justify-center rounded-lg",
-        className
+        className,
       )}
       onClick={handleBack}
       type="button"
