@@ -9,7 +9,7 @@ export interface ToolExecutionOptions {
   signal?: AbortSignal;
 }
 
-type WebMcpToolExecutor<TResult> = (
+export type WebMcpToolExecutor<TResult> = (
   input: unknown,
   options?: ToolExecutionOptions,
 ) => WebMCP.MaybePromise<TResult>;
@@ -22,24 +22,27 @@ export type WebMcpToolDescriptor<TResult> = Omit<
   execute: WebMcpToolExecutor<TResult>;
 };
 
+export type WebMcpModelContext = Pick<WebMCP.ModelContext, "registerTool">;
+
 export type EmptyToolInput = Record<string, never>;
 
-type CheckIngredientsInput = Record<string, unknown> & {
+export type CheckIngredientsInput = Record<string, unknown> & {
   ingredients: string;
 };
 
-type IngredientToolStatus = "ok" | "invalid" | "timeout" | "error";
+export type IngredientToolStatus = "ok" | "invalid" | "timeout" | "error";
 
 export interface CheckIngredientsOutput {
   result?: IngredientResult;
   status: IngredientToolStatus;
 }
 
-type CheckProductInput = Record<string, unknown> & {
+export type CheckProductInput = Record<string, unknown> & {
   barcode: string;
 };
 
-type ProductToolStatus = "ok" | "invalid" | "not_found" | "timeout" | "error";
+export type ProductToolStatus =
+  "ok" | "invalid" | "not_found" | "timeout" | "error";
 
 export interface CheckProductOutput {
   barcode: string;
@@ -54,8 +57,10 @@ export interface HistoryOutput {
   entries: RecentCheck[];
 }
 
+export type ScanProductToolInput = EmptyToolInput;
 export type CheckIngredientsToolInput = CheckIngredientsInput;
 export type CheckProductToolInput = CheckProductInput;
+export type GetHistoryToolInput = EmptyToolInput;
 
 export type ToolDescriptor =
   | WebMcpToolDescriptor<CheckIngredientsOutput>
