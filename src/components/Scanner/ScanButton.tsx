@@ -31,7 +31,7 @@ export function ScanButton({
         buttonRef.current = node;
       }
     },
-    [buttonRef]
+    [buttonRef],
   );
 
   const handleDetection = useCallback(
@@ -41,14 +41,14 @@ export function ScanButton({
       onDetected(barcode);
       handleSubmit(barcode);
     },
-    [handleSubmit, onDetected]
+    [handleSubmit, onDetected],
   );
 
   return (
     <>
       <button
         aria-label={t("open")}
-        className="fluid-hover flex w-14 shrink-0 items-center justify-center text-muted hover:bg-surface-2 hover:text-ink"
+        className="fluid-hover text-muted hover:bg-surface-2 hover:text-ink flex w-14 shrink-0 items-center justify-center"
         onClick={startScanning}
         ref={attachTrigger}
         type="button"

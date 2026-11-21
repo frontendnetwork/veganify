@@ -58,7 +58,7 @@ describe("checkIngredients", () => {
       }),
     };
     (Veganify.getInstance as Mock<(...args: any[]) => any>).mockReturnValue(
-      mockVeganifyInstance
+      mockVeganifyInstance,
     );
   });
 
@@ -77,7 +77,7 @@ describe("checkIngredients", () => {
     };
 
     mockVeganifyInstance.checkIngredientsListV1.mockResolvedValue(
-      mockApiResponse
+      mockApiResponse,
     );
 
     const result = await checkIngredients("apple, banana, artificial-flavor");
@@ -95,26 +95,26 @@ describe("checkIngredients", () => {
 
     // Verify Veganify was called with correct parameters
     expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
-      "apple, banana, artificial-flavor"
+      "apple, banana, artificial-flavor",
     );
   });
 
   it("should map validation errors to INVALID status", async () => {
     mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
-      new ValidationError("Invalid ingredients format")
+      new ValidationError("Invalid ingredients format"),
     );
 
     const result = await checkIngredients("invalid!ingredients");
 
     expect(result).toEqual({ status: FetchStatus.INVALID });
     expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
-      "invalid!ingredients"
+      "invalid!ingredients",
     );
   });
 
   it("should map request timeouts to TIMEOUT status", async () => {
     mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
-      new VeganifyError("Request timed out", 408)
+      new VeganifyError("Request timed out", 408),
     );
 
     const result = await checkIngredients("apple");
@@ -136,14 +136,14 @@ describe("checkIngredients", () => {
 
   it("should map API failures to SERVER_ERROR status", async () => {
     mockVeganifyInstance.checkIngredientsListV1.mockRejectedValue(
-      new Error("API Error")
+      new Error("API Error"),
     );
 
     const result = await checkIngredients("apple");
 
     expect(result).toEqual({ status: FetchStatus.SERVER_ERROR });
     expect(mockVeganifyInstance.checkIngredientsListV1).toHaveBeenCalledWith(
-      "apple"
+      "apple",
     );
   });
 
@@ -162,7 +162,7 @@ describe("checkIngredients", () => {
     };
 
     mockVeganifyInstance.checkIngredientsListV1.mockResolvedValue(
-      mockApiResponse
+      mockApiResponse,
     );
 
     const result = await checkIngredients("apple, gelatin, sugar");

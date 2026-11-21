@@ -6,8 +6,13 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: oven-sh/setup-bun@v2.2.0
-      - run: bun install
+        with:
+          bun-version: 1.4.4
+      - name: Assert Bun version
+        run: test "$(bun --version)" = "1.4.4"
+      - run: bun install --frozen-lockfile
+      - run: bun run format:check
       - run: bun run lint
       - run: bun run type-check
-      - run: bun test src/components
+      - run: bun test src/components src/hooks
       - run: bun run build

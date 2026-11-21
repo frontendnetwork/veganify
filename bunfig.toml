@@ -7,3 +7,7 @@ preload = ["./src/tests/setup.ts"]
 environment = "happy-dom"
 include = ["**/*.test.ts", "**/*.test.tsx"]
 exclude = ["node_modules", ".next"]
+
+[fmt]
+# src/components/ui/ is vendored design-system code — never reformat it
+ignorePatterns = ["src/components/ui/**"]

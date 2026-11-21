@@ -83,7 +83,7 @@ export default async function LocaleLayout(props: {
           <MotionConfig reducedMotion="user">
             <WebMCPProvider>
               <a
-                className="sr-only-focusable bg-accent text-accent-foreground focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:font-medium focus:text-sm focus:shadow-elev-3 focus:transition-none"
+                className="sr-only-focusable bg-accent text-accent-foreground focus:shadow-elev-3 focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:transition-none"
                 href="#main"
               >
                 {t("skiptomain")}

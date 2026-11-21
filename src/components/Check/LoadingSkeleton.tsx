@@ -8,12 +8,12 @@
 export function LoadingSkeleton() {
   return (
     <div aria-hidden="true" className="mt-6">
-      <div className="rounded-2xl border border-line bg-surface p-5 shadow-elev-2 sm:p-6">
+      <div className="border-line bg-surface shadow-elev-2 rounded-2xl border p-5 sm:p-6">
         <div className="skeleton-shimmer mx-auto mb-5 h-7 w-3/5 rounded-md" />
         <div className="skeleton-shimmer mb-4 h-16 rounded-xl" />
         {["vegetarian", "palmoil", "nutriscore"].map((row) => (
           <div
-            className="flex items-center justify-between border-line border-t py-3"
+            className="border-line flex items-center justify-between border-t py-3"
             key={row}
           >
             <div className="skeleton-shimmer h-5 w-28 rounded" />

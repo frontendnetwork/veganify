@@ -101,7 +101,7 @@ const createDependencies = () => {
 describe("WebMCP tool contracts", () => {
   test("exposes four named tools with strict schemas and annotations", () => {
     const [ingredients, product, scan, history] = createWebMcpTools(
-      createDependencies().dependencies
+      createDependencies().dependencies,
     );
 
     expect(ingredients.name).toBe("check_ingredients");
@@ -148,7 +148,7 @@ describe("WebMCP tool contracts", () => {
       [FetchStatus.SERVER_ERROR, "error"],
     ] as const) {
       state.setIngredientResponse({ status });
-      // biome-ignore lint/performance/noAwaitInLoops: These statuses are intentionally checked sequentially.
+      // eslint-disable-next-line no-await-in-loop -- These statuses are intentionally checked sequentially.
       await expect(tool.execute({ ingredients: "apple" })).resolves.toEqual({
         status: expected,
       });
@@ -162,7 +162,7 @@ describe("WebMCP tool contracts", () => {
 
   test("rejects malformed ingredient and product input at the boundary", async () => {
     const [ingredients, product] = createWebMcpTools(
-      createDependencies().dependencies
+      createDependencies().dependencies,
     );
     const malformedIngredients: unknown[] = [
       null,
@@ -173,9 +173,9 @@ describe("WebMCP tool contracts", () => {
       { extra: true, ingredients: "apple" },
     ];
     for (const input of malformedIngredients) {
-      // biome-ignore lint/performance/noAwaitInLoops: Each malformed boundary case is asserted independently.
+      // eslint-disable-next-line no-await-in-loop -- Each malformed boundary case is asserted independently.
       await expect(
-        ingredients.execute(input as CheckIngredientsToolInput)
+        ingredients.execute(input as CheckIngredientsToolInput),
       ).rejects.toBeInstanceOf(WebMcpToolInputError);
     }
 
@@ -187,9 +187,9 @@ describe("WebMCP tool contracts", () => {
       { barcode: "123", extra: false },
     ];
     for (const input of malformedProducts) {
-      // biome-ignore lint/performance/noAwaitInLoops: Each malformed boundary case is asserted independently.
+      // eslint-disable-next-line no-await-in-loop -- Each malformed boundary case is asserted independently.
       await expect(
-        product.execute(input as CheckProductToolInput)
+        product.execute(input as CheckProductToolInput),
       ).rejects.toBeInstanceOf(WebMcpToolInputError);
     }
   });
@@ -226,12 +226,12 @@ describe("WebMCP tool contracts", () => {
       [FetchStatus.SERVER_ERROR, "error"],
     ] as const) {
       state.setProductResponse({ status });
-      // biome-ignore lint/performance/noAwaitInLoops: These statuses are intentionally checked sequentially.
+      // eslint-disable-next-line no-await-in-loop -- These statuses are intentionally checked sequentially.
       await expect(tool.execute({ barcode: "4000417025005" })).resolves.toEqual(
         {
           barcode: "4000417025005",
           status: expected,
-        }
+        },
       );
     }
 
@@ -250,7 +250,7 @@ describe("WebMCP tool contracts", () => {
     state.setProductResponse({ status: FetchStatus.NOT_FOUND });
 
     await expect(
-      scan.execute({}, { signal: controller.signal })
+      scan.execute({}, { signal: controller.signal }),
     ).resolves.toEqual({
       barcode: "4000417025005",
       status: "not_found",
@@ -268,7 +268,7 @@ describe("WebMCP tool contracts", () => {
     state.setHistoryUnavailable(true);
     expect(historyTool.execute({})).toEqual({ entries: [] });
     expect(() =>
-      historyTool.execute({ extra: true } as unknown as EmptyToolInput)
+      historyTool.execute({ extra: true } as unknown as EmptyToolInput),
     ).toThrow(WebMcpToolInputError);
   });
 });

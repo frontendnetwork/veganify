@@ -215,7 +215,7 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
       <div
         ref={ref}
         className={cn(
-          "relative z-10 flex cursor-pointer touch-none select-none items-center",
+          "relative z-10 flex cursor-pointer touch-none items-center select-none",
           sizeClasses.gap,
           sizeClasses.px,
           sizeClasses.variant === "compact" ? "py-1" : "py-2",
@@ -255,7 +255,7 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
           className={cn(
             "relative shrink-0 cursor-pointer rounded-full outline-none",
             "transition-colors duration-80",
-            "focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            "focus-visible:ring-offset-background focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)] focus-visible:ring-offset-2"
           )}
           style={{
             backgroundColor: checked

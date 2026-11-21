@@ -5,7 +5,7 @@ test("should relfect entered ingredients", async ({ page }) => {
   await page.getByRole("link", { name: "ຐ Zutatencheck" }).nth(1).click();
   await page.getByPlaceholder("Zutaten kommagetrennt eingeben").click();
   await expect(
-    page.getByPlaceholder("Zutaten kommagetrennt eingeben")
+    page.getByPlaceholder("Zutaten kommagetrennt eingeben"),
   ).toBeVisible();
   await page.getByPlaceholder("Zutaten kommagetrennt eingeben").click();
   await page
@@ -34,7 +34,7 @@ test("User should be able to input ingredients and get a result", async ({
 
   await page.route("**/v0/ingredients/*", (route) => {
     expect(route.request().url()).toBe(
-      "https://api.veganify.app/v1/ingredients/Duck"
+      "https://api.veganify.app/v1/ingredients/Duck",
     );
     expect(route.request().method()).toBe("GET");
   });

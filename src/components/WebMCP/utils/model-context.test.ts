@@ -6,11 +6,11 @@ import { getModelContext } from "./model-context";
 
 const originalDocumentDescriptor = Object.getOwnPropertyDescriptor(
   globalThis,
-  "document"
+  "document",
 );
 const originalNavigatorDescriptor = Object.getOwnPropertyDescriptor(
   globalThis,
-  "navigator"
+  "navigator",
 );
 
 const context: WebMCP.ModelContext = Object.assign(new EventTarget(), {
@@ -19,13 +19,13 @@ const context: WebMCP.ModelContext = Object.assign(new EventTarget(), {
   ontoolchange: null,
   registerTool: (
     _tool: WebMCP.ModelContextTool,
-    _options?: WebMCP.ModelContextRegisterToolOptions
+    _options?: WebMCP.ModelContextRegisterToolOptions,
   ): Promise<void> => Promise.resolve(),
 });
 
 const installBrowserGlobals = (
   documentContext?: WebMCP.ModelContext,
-  navigatorContext?: WebMCP.ModelContext
+  navigatorContext?: WebMCP.ModelContext,
 ): void => {
   Object.defineProperty(globalThis, "document", {
     configurable: true,

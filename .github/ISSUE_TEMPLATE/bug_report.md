@@ -3,16 +3,16 @@ name: Bug report
 about: Create a report for a bug in Veganify
 title: "[BUG]"
 labels: bug
-
 ---
 
 ## Bug description
 
 A clear and concise description of what the bug is.
 
-### Steps to reproduce 
+### Steps to reproduce
 
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. See error

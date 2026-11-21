@@ -81,18 +81,18 @@ const isObjectRecord = (value: unknown): value is Record<string, unknown> =>
 
 const assertObjectWithKeys = (
   input: unknown,
-  expectedKeys: readonly string[]
+  expectedKeys: readonly string[],
 ): Record<string, unknown> => {
   if (!isObjectRecord(input)) {
     throw new WebMcpToolInputError("Tool input must be a JSON object.");
   }
 
   const unexpectedKey = Object.keys(input).find(
-    (key) => !expectedKeys.includes(key)
+    (key) => !expectedKeys.includes(key),
   );
   if (unexpectedKey) {
     throw new WebMcpToolInputError(
-      `Unexpected tool input property: ${unexpectedKey}.`
+      `Unexpected tool input property: ${unexpectedKey}.`,
     );
   }
 
@@ -103,21 +103,21 @@ const requiredText = (input: Record<string, unknown>, key: string): string => {
   const value = input[key];
   if (typeof value !== "string" || !value.trim()) {
     throw new WebMcpToolInputError(
-      `Tool input property "${key}" must be a non-blank string.`
+      `Tool input property "${key}" must be a non-blank string.`,
     );
   }
   return value.trim();
 };
 
 export const parseCheckIngredientsInput = (
-  input: unknown
+  input: unknown,
 ): CheckIngredientsToolInput => {
   const object = assertObjectWithKeys(input, ["ingredients"]);
   return { ingredients: requiredText(object, "ingredients") };
 };
 
 export const parseCheckProductInput = (
-  input: unknown
+  input: unknown,
 ): CheckProductToolInput => {
   const object = assertObjectWithKeys(input, ["barcode"]);
   return { barcode: requiredText(object, "barcode") };
@@ -129,7 +129,7 @@ export const parseEmptyInput = (input: unknown): EmptyToolInput => {
 };
 
 const mapIngredientsResult = (
-  data: IngredientsCheckResult
+  data: IngredientsCheckResult,
 ): CheckIngredientsOutput => {
   if (data.status === FetchStatus.OK) {
     return data.result
@@ -148,7 +148,7 @@ const mapIngredientsResult = (
 const mapProductResult = (
   barcode: string,
   data: ProductFetchResult,
-  saveRecentCheck: (entry: RecentCheck) => void
+  saveRecentCheck: (entry: RecentCheck) => void,
 ): CheckProductOutput => {
   if (data.status === FetchStatus.INVALID) {
     return { barcode, status: "invalid" };
@@ -192,7 +192,7 @@ const defaultDependencies: WebMcpToolDependencies = {
 };
 
 const createCheckIngredientsTool = (
-  dependencies: WebMcpToolDependencies
+  dependencies: WebMcpToolDependencies,
 ): WebMcpToolDescriptor<CheckIngredientsOutput> => ({
   annotations: { readOnlyHint: true, untrustedContentHint: true },
   description: "Check whether a product's ingredients are vegan.",
@@ -206,7 +206,7 @@ const createCheckIngredientsTool = (
 });
 
 const createCheckProductTool = (
-  dependencies: WebMcpToolDependencies
+  dependencies: WebMcpToolDependencies,
 ): WebMcpToolDescriptor<CheckProductOutput> => ({
   annotations: { readOnlyHint: false, untrustedContentHint: true },
   description: "Check whether a product is vegan using its barcode.",
@@ -220,7 +220,7 @@ const createCheckProductTool = (
 });
 
 const createScanProductTool = (
-  dependencies: WebMcpToolDependencies
+  dependencies: WebMcpToolDependencies,
 ): WebMcpToolDescriptor<ScanProductOutput> => ({
   annotations: { readOnlyHint: false, untrustedContentHint: true },
   description:
@@ -233,7 +233,7 @@ const createScanProductTool = (
     return mapProductResult(
       normalizedBarcode,
       result,
-      dependencies.rememberCheck
+      dependencies.rememberCheck,
     );
   },
   inputSchema: EMPTY_INPUT_SCHEMA,
@@ -241,7 +241,7 @@ const createScanProductTool = (
 });
 
 const createHistoryTool = (
-  dependencies: WebMcpToolDependencies
+  dependencies: WebMcpToolDependencies,
 ): WebMcpToolDescriptor<HistoryOutput> => ({
   annotations: { readOnlyHint: true, untrustedContentHint: true },
   description: "Return the products most recently checked with Veganify.",
@@ -258,7 +258,7 @@ const createHistoryTool = (
 });
 
 export function createWebMcpTools(
-  dependencies: Partial<WebMcpToolDependencies> = {}
+  dependencies: Partial<WebMcpToolDependencies> = {},
 ): [
   WebMcpToolDescriptor<CheckIngredientsOutput>,
   WebMcpToolDescriptor<CheckProductOutput>,

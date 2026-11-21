@@ -4,7 +4,7 @@ import { loadRecentChecks, rememberCheck } from "./recentChecks";
 
 const originalStorageDescriptor = Object.getOwnPropertyDescriptor(
   globalThis,
-  "localStorage"
+  "localStorage",
 );
 
 interface TestStorage {
@@ -43,7 +43,7 @@ afterEach(() => {
     Object.defineProperty(
       globalThis,
       "localStorage",
-      originalStorageDescriptor
+      originalStorageDescriptor,
     );
   } else {
     Reflect.deleteProperty(globalThis, "localStorage");

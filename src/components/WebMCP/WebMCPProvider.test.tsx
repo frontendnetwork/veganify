@@ -32,12 +32,11 @@ Object.assign(globalThis, {
   window: domWindow,
 });
 
-const { cleanup, fireEvent, render, waitFor } = await import(
-  "@testing-library/react"
-);
+const { cleanup, fireEvent, render, waitFor } =
+  await import("@testing-library/react");
 
 const getUserMedia = mock(() =>
-  Promise.reject(new Error("camera must not be requested in this test"))
+  Promise.reject(new Error("camera must not be requested in this test")),
 );
 
 mock.module("next-intl", () => ({
@@ -75,7 +74,7 @@ const registerTool = mock(
   (tool: ToolDescriptor, options?: { signal?: AbortSignal }) => {
     registeredTools.push({ signal: options?.signal, tool });
     return Promise.resolve();
-  }
+  },
 );
 const modelContext = {
   registerTool,
@@ -132,13 +131,13 @@ describe("WebMCPProvider", () => {
     const view = render(<WebMCPProvider>content</WebMCPProvider>);
     await waitFor(() => expect(registerTool).toHaveBeenCalledTimes(4));
     const scanTool = registeredTools.find(
-      ({ tool }) => tool.name === "scan_product"
+      ({ tool }) => tool.name === "scan_product",
     )?.tool;
     if (!scanTool) {
       throw new Error("scan_product was not registered");
     }
     const executeScan = scanTool.execute as unknown as (
-      input: EmptyToolInput
+      input: EmptyToolInput,
     ) => Promise<unknown>;
 
     const scan = executeScan({});
@@ -167,7 +166,7 @@ describe("WebMCPProvider", () => {
       (tool: ToolDescriptor, options?: { signal?: AbortSignal }) => {
         registeredTools.push({ signal: options?.signal, tool });
         return Promise.reject(new Error("duplicate tool"));
-      }
+      },
     );
     render(<WebMCPProvider>content</WebMCPProvider>);
 
@@ -186,7 +185,7 @@ describe("WebMCPProvider", () => {
     const view = render(
       <StrictMode>
         <WebMCPProvider>content</WebMCPProvider>
-      </StrictMode>
+      </StrictMode>,
     );
     await waitFor(() => expect(registerTool).toHaveBeenCalledTimes(1));
     const firstSignal = registeredTools[0]?.signal;

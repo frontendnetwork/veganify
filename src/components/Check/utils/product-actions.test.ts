@@ -73,7 +73,7 @@ describe("fetchProduct", () => {
       }),
     };
     (Veganify.getInstance as Mock<(...args: any[]) => any>).mockReturnValue(
-      mockVeganify
+      mockVeganify,
     );
   });
 
@@ -133,7 +133,7 @@ describe("fetchProduct", () => {
   describe("error mapping", () => {
     test("maps invalid barcode format to INVALID status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
-        new ValidationError("Invalid barcode format")
+        new ValidationError("Invalid barcode format"),
       );
 
       const result = await fetchProduct("invalid");
@@ -142,7 +142,7 @@ describe("fetchProduct", () => {
 
     test("maps non-existent product to NOT_FOUND status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
-        new NotFoundError("Product not found")
+        new NotFoundError("Product not found"),
       );
 
       const result = await fetchProduct("4000417025005");
@@ -151,7 +151,7 @@ describe("fetchProduct", () => {
 
     test("maps request timeout to TIMEOUT status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
-        new VeganifyError("Request timed out", 408)
+        new VeganifyError("Request timed out", 408),
       );
 
       const result = await fetchProduct("4000417025005");
@@ -160,7 +160,7 @@ describe("fetchProduct", () => {
 
     test("maps API errors to SERVER_ERROR status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
-        new VeganifyError("HTTP error 500", 500)
+        new VeganifyError("HTTP error 500", 500),
       );
 
       const result = await fetchProduct("4000417025005");
@@ -169,7 +169,7 @@ describe("fetchProduct", () => {
 
     test("maps network errors to SERVER_ERROR status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
-        new Error("Network error")
+        new Error("Network error"),
       );
 
       const result = await fetchProduct("4000417025005");
@@ -178,7 +178,7 @@ describe("fetchProduct", () => {
 
     test("maps non-error rejections to SERVER_ERROR status", async () => {
       mockVeganify.getProductByBarcode.mockRejectedValueOnce(
-        "Unexpected error"
+        "Unexpected error",
       );
 
       const result = await fetchProduct("4000417025005");

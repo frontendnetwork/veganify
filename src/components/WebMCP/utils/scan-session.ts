@@ -1,5 +1,5 @@
-export const SCAN_CONSENT_TIMEOUT_MS = 60_000;
-export const SCAN_CAMERA_TIMEOUT_MS = 60_000;
+const SCAN_CONSENT_TIMEOUT_MS = 60_000;
+const SCAN_CAMERA_TIMEOUT_MS = 60_000;
 
 type ScanPhase = "idle" | "consent" | "scanning";
 
@@ -11,7 +11,7 @@ export interface ScanSessionTimer {
   clearTimeout: (id: ReturnType<typeof setTimeout>) => void;
   setTimeout: (
     callback: () => void,
-    delay: number
+    delay: number,
   ) => ReturnType<typeof setTimeout>;
 }
 
@@ -121,7 +121,7 @@ export class ScanSession {
           return;
         }
         this.settleReject(
-          new ScanTimeoutError("The camera consent prompt timed out.")
+          new ScanTimeoutError("The camera consent prompt timed out."),
         );
       }, SCAN_CONSENT_TIMEOUT_MS);
     });
@@ -142,8 +142,8 @@ export class ScanSession {
       }
       this.settleReject(
         new ScanTimeoutError(
-          "The camera scan timed out before a barcode was found."
-        )
+          "The camera scan timed out before a barcode was found.",
+        ),
       );
     }, SCAN_CAMERA_TIMEOUT_MS);
   }
@@ -192,7 +192,7 @@ export class ScanSession {
       return;
     }
     this.clearTimer(activeScan);
-    this.removeSignalListener(activeScan);
+    ScanSession.removeSignalListener(activeScan);
     this.activeScan = null;
     this.setPhase("idle");
     activeScan.resolve(barcode);
@@ -204,13 +204,13 @@ export class ScanSession {
       return;
     }
     this.clearTimer(activeScan);
-    this.removeSignalListener(activeScan);
+    ScanSession.removeSignalListener(activeScan);
     this.activeScan = null;
     this.setPhase("idle");
     activeScan.reject(error);
   }
 
-  private removeSignalListener(activeScan: ActiveScan): void {
+  private static removeSignalListener(activeScan: ActiveScan): void {
     if (!(activeScan.signal && activeScan.signalListener)) {
       return;
     }

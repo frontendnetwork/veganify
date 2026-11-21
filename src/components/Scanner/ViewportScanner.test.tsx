@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
+import type { DetectionResult } from "./models/scanner";
 
 const domWindow = new GlobalWindow();
 Object.assign(globalThis, {
@@ -28,15 +29,12 @@ Object.assign(globalThis, {
   window: domWindow,
 });
 
-const { cleanup, fireEvent, render, waitFor } = await import(
-  "@testing-library/react"
-);
+const { cleanup, fireEvent, render, waitFor } =
+  await import("@testing-library/react");
 
 mock.module("next-intl", () => ({
   useTranslations: () => (key: string) => key,
 }));
-
-import type { DetectionResult } from "./models/scanner";
 
 type InitCallback = (error: Error | null) => void;
 type DetectionCallback = (result: DetectionResult) => void;
@@ -70,11 +68,10 @@ mock.module("@ericblade/quagga2", () => ({
 
 const { ViewportScanner } = await import("./ViewportScanner");
 
-const getUserMedia = mock(
-  (): Promise<CameraStream> =>
-    Promise.resolve({
-      getTracks: () => [{ stop: mock(() => undefined) }],
-    })
+const getUserMedia = mock((): Promise<CameraStream> =>
+  Promise.resolve({
+    getTracks: () => [{ stop: mock(() => undefined) }],
+  }),
 );
 
 const setMediaDevices = (): void => {
@@ -105,7 +102,7 @@ const renderScanner = () => {
       onError={onError}
       setScanning={setScanning}
       triggerRef={{ current: trigger }}
-    />
+    />,
   );
 
   return {
@@ -128,11 +125,10 @@ beforeEach(() => {
   onDetected.mockClear();
   offDetected.mockClear();
   getUserMedia.mockClear();
-  getUserMedia.mockImplementation(
-    (): Promise<CameraStream> =>
-      Promise.resolve({
-        getTracks: () => [{ stop: mock(() => undefined) }],
-      })
+  getUserMedia.mockImplementation((): Promise<CameraStream> =>
+    Promise.resolve({
+      getTracks: () => [{ stop: mock(() => undefined) }],
+    }),
   );
   setMediaDevices();
 });
@@ -188,7 +184,7 @@ describe("ViewportScanner", () => {
       () =>
         new Promise((resolve) => {
           resolveStream = resolve;
-        })
+        }),
     );
     const { getByRole, onError } = renderScanner();
 
@@ -231,7 +227,7 @@ describe("ViewportScanner", () => {
     trigger.remove();
 
     expect(() =>
-      fireEvent.click(getByRole("button", { name: "close" }))
+      fireEvent.click(getByRole("button", { name: "close" })),
     ).not.toThrow();
   });
 

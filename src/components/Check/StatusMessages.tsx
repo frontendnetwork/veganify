@@ -29,7 +29,7 @@ function StatusCard({
 
   return (
     <div
-      className="mt-6 rounded-xl border border-line bg-surface p-5 shadow-elev-1"
+      className="border-line bg-surface shadow-elev-1 mt-6 rounded-xl border p-5"
       id={id}
     >
       <div className="flex items-start gap-3">
@@ -38,9 +38,9 @@ function StatusCard({
           className={`mt-0.5 size-5 shrink-0 ${tones[tone]}`}
         />
         <div className="min-w-0">
-          <p className="font-medium text-ink">{title}</p>
+          <p className="text-ink font-medium">{title}</p>
           {children ? (
-            <div className="mt-1 text-muted text-sm">{children}</div>
+            <div className="text-muted mt-1 text-sm">{children}</div>
           ) : null}
         </div>
       </div>
@@ -57,7 +57,7 @@ export function StatusMessages({ status }: StatusMessagesProps) {
         <p>{t("notindb_add")}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           <a
-            className="fluid-hover rounded-lg bg-accent px-4 py-2 font-medium text-accent-foreground text-sm hover:bg-accent-hover"
+            className="fluid-hover bg-accent text-accent-foreground hover:bg-accent-hover rounded-lg px-4 py-2 text-sm font-medium"
             href="https://world.openfoodfacts.org/cgi/product.pl"
             rel="noopener noreferrer"
             target="_blank"
@@ -65,7 +65,7 @@ export function StatusMessages({ status }: StatusMessagesProps) {
             {t("add_food")}
           </a>
           <a
-            className="fluid-hover rounded-lg border border-line-strong bg-surface px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2"
+            className="fluid-hover border-line-strong bg-surface text-ink hover:bg-surface-2 rounded-lg border px-4 py-2 text-sm font-medium"
             href="https://world.openbeautyfacts.org/cgi/product.pl"
             rel="noopener noreferrer"
             target="_blank"

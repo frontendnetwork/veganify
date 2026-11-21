@@ -80,7 +80,7 @@ describe("ScanSession", () => {
   test("aborts once and removes the native abort listener after settlement", async () => {
     const controller = new AbortController();
     const removeAbortListener = mock(
-      controller.signal.removeEventListener.bind(controller.signal)
+      controller.signal.removeEventListener.bind(controller.signal),
     );
     controller.signal.removeEventListener = removeAbortListener;
     const session = new ScanSession();

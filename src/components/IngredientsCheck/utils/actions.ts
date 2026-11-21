@@ -15,7 +15,7 @@ export interface IngredientsCheckResult {
 }
 
 export async function checkIngredients(
-  ingredients: string
+  ingredients: string,
 ): Promise<IngredientsCheckResult> {
   if (!ingredients.trim()) {
     return { status: FetchStatus.INVALID };

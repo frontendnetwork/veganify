@@ -35,8 +35,8 @@ export function IngredientList({ items, icon, t }: IngredientListProps) {
           key={item}
           label={shouldShowTooltip ? tooltipMessages[icon] : ""}
         >
-          <div className="flex items-center justify-between border-line border-b py-2.5 text-sm last:border-b-0">
-            <span className="min-w-0 break-words pr-3 text-ink">
+          <div className="border-line flex items-center justify-between border-b py-2.5 text-sm last:border-b-0">
+            <span className="text-ink min-w-0 pr-3 break-words">
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </span>
             <StatusGlyph tone={icon} />

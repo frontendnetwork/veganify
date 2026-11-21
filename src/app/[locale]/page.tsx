@@ -16,12 +16,12 @@ export default function Home() {
         {/* Both install prompts as one stacked deck; the component renders
             null when nothing is eligible or everything is dismissed. */}
         <PromptStack />
-        <div className="rounded-2xl bg-surface p-5 shadow-elev-2 sm:p-8">
-          <div className="mb-5 flex justify-center text-link">
+        <div className="bg-surface shadow-elev-2 rounded-2xl p-5 sm:p-8">
+          <div className="text-link mb-5 flex justify-center">
             <Logo className="size-12" />
           </div>
           <h1 className="sr-only-focusable">Veganify</h1>
-          <p className="mb-5 text-center text-muted text-sm">{t("tagline")}</p>
+          <p className="text-muted mb-5 text-center text-sm">{t("tagline")}</p>
           <ProductSearch />
         </div>
       </main>

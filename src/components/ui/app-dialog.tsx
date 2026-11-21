@@ -61,18 +61,18 @@ export function AppDialog({
         showCloseButton={false}
       >
         <div className="flex items-start justify-between gap-4 pr-8">
-          <DialogTitle className="text-balance font-semibold text-lg">
+          <DialogTitle className="text-lg font-semibold text-balance">
             {title}
           </DialogTitle>
           <DialogClose
             aria-label={t("close")}
-            className="fluid-hover absolute top-3 right-3 flex size-9 items-center justify-center rounded-md text-muted hover:bg-hover hover:text-ink"
+            className="fluid-hover text-muted hover:bg-hover hover:text-ink absolute top-3 right-3 flex size-9 items-center justify-center rounded-md"
           >
             <X aria-hidden="true" className="size-5" />
           </DialogClose>
         </div>
         {description ? (
-          <DialogDescription className="pt-1 text-muted text-sm">
+          <DialogDescription className="text-muted pt-1 text-sm">
             {description}
           </DialogDescription>
         ) : null}

@@ -12,11 +12,11 @@ export function SourceInfo() {
   const handleLicenseOpen = useCallback(() => setLicenseOpen(true), []);
 
   return (
-    <div className="pt-3 text-muted text-sm">
+    <div className="text-muted pt-3 text-sm">
       <p>
         {t("source")}:{" "}
         <a
-          className="font-medium text-link underline-offset-2 hover:underline"
+          className="text-link font-medium underline-offset-2 hover:underline"
           href="https://www.veganpeace.com/ingredients/ingredients.htm"
           rel="noopener noreferrer"
           target="_blank"
@@ -25,7 +25,7 @@ export function SourceInfo() {
         </a>
         ,{" "}
         <a
-          className="font-medium text-link underline-offset-2 hover:underline"
+          className="text-link font-medium underline-offset-2 hover:underline"
           href="https://www.peta.org/living/food/animal-ingredients-list/"
           rel="noopener noreferrer"
           target="_blank"
@@ -34,7 +34,7 @@ export function SourceInfo() {
         </a>{" "}
         &amp;{" "}
         <a
-          className="font-medium text-link underline-offset-2 hover:underline"
+          className="text-link font-medium underline-offset-2 hover:underline"
           href="https://www.veganwolf.com/animal_ingredients.htm"
           rel="noopener noreferrer"
           target="_blank"
@@ -43,7 +43,7 @@ export function SourceInfo() {
         </a>
       </p>
       <button
-        className="fluid-hover mt-1 text-link underline-offset-2 hover:underline"
+        className="fluid-hover text-link mt-1 underline-offset-2 hover:underline"
         onClick={handleLicenseOpen}
         type="button"
       >
@@ -60,7 +60,7 @@ export function SourceInfo() {
         {t.rich("languagewarning", {
           deepl: (chunks) => (
             <a
-              className="font-medium text-link underline-offset-2 hover:underline"
+              className="text-link font-medium underline-offset-2 hover:underline"
               href="https://deepl.com"
               rel="noopener noreferrer"
               target="_blank"

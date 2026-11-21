@@ -125,8 +125,8 @@ describe("preprocessIngredients", () => {
     test("handles ingredients with additives", () => {
       expect(
         preprocessIngredients(
-          "water, sugar (brown), salt (sea salt), vitamin b12"
-        )
+          "water, sugar (brown), salt (sea salt), vitamin b12",
+        ),
       ).toEqual(["water", "sugar brown", "salt sea salt", "vitamin b12"]);
     });
   });

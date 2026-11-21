@@ -23,7 +23,7 @@ const IDLE_SNAPSHOT = { phase: "idle" } as const;
 const registerWebMcpTool = (
   modelContext: WebMCP.ModelContext,
   tool: ToolDescriptor,
-  signal: AbortSignal
+  signal: AbortSignal,
 ): Promise<void> => modelContext.registerTool(tool, { signal });
 
 export function WebMCPProvider({ children }: { children: ReactNode }) {
@@ -35,7 +35,7 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
   const snapshot = useSyncExternalStore(
     session.subscribe,
     session.getSnapshot,
-    () => IDLE_SNAPSHOT
+    () => IDLE_SNAPSHOT,
   );
 
   useEffect(() => {
@@ -66,11 +66,11 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
           }
           // Registration is intentionally sequential so a partial run can be
           // aborted before the next tool name is attempted.
-          // biome-ignore lint/performance/noAwaitInLoops: Registration order prevents duplicate partial runs.
+          // eslint-disable-next-line no-await-in-loop -- Registration order prevents duplicate partial runs.
           await registerWebMcpTool(
             modelContext,
             tool,
-            registrationController.signal
+            registrationController.signal,
           );
         }
       } catch {
@@ -93,19 +93,19 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
         session.cancel();
       }
     },
-    [session]
+    [session],
   );
   const handleCancel = useCallback(() => session.cancel(), [session]);
   const handleConfirm = useCallback(() => session.confirmConsent(), [session]);
   const handleDetected = useCallback(
     (result: DetectionResult) =>
       session.reportDetection(result.codeResult.code),
-    [session]
+    [session],
   );
   const handleScannerCancelled = useCallback(() => session.cancel(), [session]);
   const handleScannerError = useCallback(
     () => session.reportCameraError(),
-    [session]
+    [session],
   );
   const setScannerScanning = useCallback(() => undefined, []);
 
@@ -126,14 +126,14 @@ export function WebMCPProvider({ children }: { children: ReactNode }) {
       >
         <div className="flex justify-end gap-2">
           <button
-            className="fluid-hover rounded-lg border border-line-strong px-4 py-2 font-medium text-ink text-sm hover:bg-surface-2"
+            className="fluid-hover border-line-strong text-ink hover:bg-surface-2 rounded-lg border px-4 py-2 text-sm font-medium"
             onClick={handleCancel}
             type="button"
           >
             {t("cancel")}
           </button>
           <button
-            className="fluid-hover rounded-lg bg-accent px-4 py-2 font-medium text-accent-foreground text-sm hover:bg-accent-hover"
+            className="fluid-hover bg-accent text-accent-foreground hover:bg-accent-hover rounded-lg px-4 py-2 text-sm font-medium"
             onClick={handleConfirm}
             type="button"
           >

@@ -20,7 +20,7 @@ module.exports = {
       "@semantic-release/exec",
       {
         publishCmd:
-          // biome-ignore lint/suspicious/noTemplateCurlyInString: semantic-release variable substitution, not a JS template literal
+          // eslint-disable-next-line no-template-curly-in-string -- semantic-release variable substitution, not a JS template literal
           "echo new_release_published=true >> $GITHUB_OUTPUT && echo new_release_version=${nextRelease.version} >> $GITHUB_OUTPUT && echo new_release_git_tag=${nextRelease.gitTag} >> $GITHUB_OUTPUT",
       },
     ],

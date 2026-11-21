@@ -79,7 +79,7 @@ export function ViewportScanner({
       const detection: DetectionResult = { codeResult: { code: barcode } };
       onDetected(detection);
     },
-    [onDetected]
+    [onDetected],
   );
 
   const stopQuagga = useCallback(
@@ -93,7 +93,7 @@ export function ViewportScanner({
         Quagga.offDetected(handleQuaggaDetection);
       }
     },
-    [handleQuaggaDetection]
+    [handleQuaggaDetection],
   );
 
   const isCurrentAttempt = useCallback(
@@ -101,7 +101,7 @@ export function ViewportScanner({
       activeRef.current &&
       !closeHandledRef.current &&
       attemptRef.current === attempt,
-    []
+    [],
   );
 
   const reportAttemptError = useCallback(
@@ -117,7 +117,7 @@ export function ViewportScanner({
       setCameraError(true);
       onError?.(error);
     },
-    [isCurrentAttempt, onError, stopQuagga]
+    [isCurrentAttempt, onError, stopQuagga],
   );
 
   const initializeScanner = useCallback(
@@ -209,13 +209,13 @@ export function ViewportScanner({
             } catch (startError) {
               reportAttemptError(attempt, startError);
             }
-          }
-        )
+          },
+        ),
       ).catch((error: unknown) => {
         reportAttemptError(attempt, error);
       });
     },
-    [isCurrentAttempt, reportAttemptError, stopQuagga]
+    [isCurrentAttempt, reportAttemptError, stopQuagga],
   );
 
   const handleClose = useCallback(() => {
@@ -257,8 +257,8 @@ export function ViewportScanner({
       startedAttemptRef.current = null;
       stopQuagga(true);
     };
-    // This effect intentionally initializes one scanner session per mount.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // This effect intentionally initializes one scanner session per mount
+    // (exhaustive-deps is disabled project-wide; see oxlint.config.mts).
   }, []);
 
   const handleOpenChange = useCallback(
@@ -267,7 +267,7 @@ export function ViewportScanner({
         handleClose();
       }
     },
-    [handleClose]
+    [handleClose],
   );
   const preventClose = useCallback((event: Event) => {
     event.preventDefault();
@@ -277,7 +277,7 @@ export function ViewportScanner({
       event.preventDefault();
       focusTrigger();
     },
-    [focusTrigger]
+    [focusTrigger],
   );
 
   if (isHidden) {
@@ -340,7 +340,7 @@ export function ViewportScanner({
                   <CameraOff aria-hidden="true" className="size-6" />
                   <p className="text-sm">{t("cameraerror")}</p>
                   <button
-                    className="fluid-hover rounded-lg bg-white px-4 py-2 font-medium text-black text-sm hover:bg-white/90"
+                    className="fluid-hover rounded-lg bg-white px-4 py-2 text-sm font-medium text-black hover:bg-white/90"
                     onClick={handleClose}
                     type="button"
                   >
