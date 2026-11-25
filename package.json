@@ -67,7 +67,7 @@
   },
   "devDependencies": {
     "@mcp-b/webmcp-types": "6.0.3",
-    "@playwright/test": "1.65.0",
+    "@playwright/test": "1.65.1",
     "@semantic-release/exec": "^7.1.0",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
