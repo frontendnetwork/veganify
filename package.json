@@ -81,7 +81,7 @@
     "husky": "^9.1.7",
     "lint-staged": "17.6.0",
     "oxlint": "^1.93.0",
-    "semantic-release": "^25.0.9",
+    "semantic-release": "^26.0.1",
     "ultracite": "8.3.1"
   },
   "packageManager": "bun@1.4.4",
